@@ -24,4 +24,5 @@ Many.  Including at least:
  - No support for Runes, Masteries, Levels or Items.
  - No support for buffs.
  - No support for healing.
+
 The only thing the simulation can do so far is auto-attack until death.
