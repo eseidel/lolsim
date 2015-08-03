@@ -15,6 +15,7 @@ Need a copy of `champion.json` and `item.json` from [Riot's static data](https:/
 
 ## Usage
 `pub run lolsim:duel Renekton Yasuo`
+
 `pub run lolsim:duel Annie "Xin Zhao"`
 
 ## Limitations
