@@ -1,0 +1,7 @@
+name: lolsim
+dependencies:
+  path: any
+  logging: any
+  args: any
+executables:
+  duel:
