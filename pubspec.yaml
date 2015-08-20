@@ -3,5 +3,6 @@ dependencies:
   path: any
   logging: any
   args: any
+  yaml: any
 executables:
   duel:

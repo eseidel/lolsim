@@ -1,14 +1,16 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
+import 'dart:async';
 import 'package:logging/logging.dart';
+import 'package:yaml/yaml.dart';
 
 final Logger log = new Logger('LOL');
 
 // No clue how often LOL ticks.
 const int TICKS_PER_SECOND = 30;
 
-// Create MOB objects for each champion
+// Create Mob objects for each champion
 // Have a loop where 2 mobs can fight.
 // Permute over all mobs.
 // cooldowns are modeled using effects?
@@ -55,7 +57,7 @@ abstract class Buff {
   // Fixed at time of creation in LOL. CDR does not affect in-progress cooldowns:
   // http://leagueoflegends.wikia.com/wiki/Cooldown_reduction
   double remaining;
-  MOB target;
+  Mob target;
   bool get expired => remaining <= 0.0;
 
   void tick(double timeDelta) {
@@ -67,7 +69,7 @@ abstract class Buff {
 }
 
 class AutoAttackCooldown extends Buff {
-  AutoAttackCooldown(MOB target, double duration) : super(target, duration) {
+  AutoAttackCooldown(Mob target, double duration) : super(target, duration) {
     log.fine("${target.name} aa cooldown for ${duration.toStringAsFixed(3)}s");
     target.canAttack = false;
   }
@@ -79,14 +81,14 @@ class AutoAttackCooldown extends Buff {
 
 abstract class Action {
   Action(this.target);
-  MOB target;
+  Mob target;
   void apply(World world);
 }
 
 class AutoAttack extends Action {
-  MOB source;
+  Mob source;
 
-  AutoAttack(this.source, MOB target) : super(target);
+  AutoAttack(this.source, Mob target) : super(target);
 
   void apply(World world) {
     world.buffs.add(new AutoAttackCooldown(source, source.stats.attackDuration));
@@ -103,9 +105,15 @@ class Hit {
   double trueDamage = 0.0;
 }
 
-abstract class MOB {
+enum Team {
+  red,
+  blue,
+}
+
+abstract class Mob {
+  Team team;
   String name;
-  MOB lastTarget;
+  Mob lastTarget;
   List<Item> items;
   Stats stats;
   double hpLost = 0.0;
@@ -114,7 +122,7 @@ abstract class MOB {
 
   double get currentHp => max(0.0, stats.hp - hpLost);
 
-  // Not clear if buffs should be held on the MOB or not.
+  // Not clear if buffs should be held on the Mob or not.
   List<Action> tick(double timeDelta);
 
   double resistanceMultiplier(double resistance) {
@@ -143,7 +151,7 @@ abstract class MOB {
   }
 }
 
-class Champion extends MOB {
+class Champion extends Mob {
   var _json;
 
   Champion.fromJSON(var json) {
@@ -159,6 +167,48 @@ class Champion extends MOB {
       actions.add(new AutoAttack(this, lastTarget));
     }
     return actions;
+  }
+}
+
+class Duel {
+  List<Mob> reds;
+  List<Mob> blues;
+
+  List<Mob> get allMobs => []..addAll(reds)..addAll(blues);
+}
+
+class DuelLoader {
+  DuelLoader(this.champFactory, this.itemFactory);
+
+  ChampionFactory champFactory;
+  ItemFactory itemFactory;
+
+  List<Mob> loadTeam(Team color, YamlMap yamlTeam) {
+    return yamlTeam['mobs'].map((YamlMap yamlMob) {
+      assert(yamlMob['type'] == 'champion');
+      return champFactory.championByName(yamlMob['name'])..team = color;
+    }).toList();
+  }
+
+  Duel duelFromYaml(YamlMap yamlDuel) {
+    Duel duel = new Duel();
+    yamlDuel.forEach((String key, YamlMap team) {
+      switch(key) {
+        case 'red':
+          duel.reds = loadTeam(Team.red, team);
+          break;
+        case 'blue':
+          duel.blues = loadTeam(Team.blue, team);
+          break;
+        default:
+          assert(false);
+      }
+    });
+    return duel;
+  }
+
+  Future<Duel> duelFromYamlPath(String path) async {
+    return duelFromYaml(loadYaml(await new File(path).readAsString()));
   }
 }
 
@@ -196,12 +246,46 @@ class ItemFactory {
 class World {
   double time = 0.0;
   List<Buff> buffs = [];
-  List<MOB> mobs = [];
+  List<Mob> reds = [];
+  List<Mob> blues = [];
+
+  List<Mob> get allMobs => []..addAll(reds)..addAll(blues);
+
+  void addMobs(Iterable<Mob> mobs) {
+    mobs.forEach((Mob mob) {
+      assert(mob.team != null);
+      if (mob.team == Team.red) reds.add(mob);
+      else blues.add(mob);
+    });
+  }
+
+  static void clearDeadTargets(Iterable<Mob> mobs) {
+    mobs.forEach((Mob mob) {
+      if (mob.lastTarget == null) return;
+      if (mob.lastTarget.alive) return;
+      mob.lastTarget = null;
+    });
+  }
+
+  Mob closestTarget(Mob mob) {
+    if (mob.team == Team.red) return blues.first;
+    return reds.first;
+  }
+
+  void updateTargets() {
+    // Unclear if clear should happen as a part of death or not?
+    clearDeadTargets(allMobs);
+    allMobs.forEach((mob) {
+      if (mob.lastTarget != null) return;
+      mob.lastTarget = closestTarget(mob);
+    });
+  }
 
   void tick() {
     const double timeDelta = 1 / TICKS_PER_SECOND;
     time += timeDelta;
-    List<Action> actions = mobs
+    updateTargets();
+    List<Action> actions = allMobs
       .map((mob) => mob.tick(timeDelta))
       .reduce((all, actions) {
         all.addAll(actions);
@@ -219,7 +303,7 @@ class World {
     } while(!condition(this));
   }
 
-  List<MOB> get living {
-    return mobs.where((MOB mob) => mob.alive).toList();
+  List<Mob> get living {
+    return allMobs.where((Mob mob) => mob.alive).toList();
   }
 }
