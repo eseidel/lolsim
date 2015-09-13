@@ -1,10 +1,10 @@
 red:
-  mobs:
-    - type: champion
-      name: Renekton
+  minions:
+    melee: 1
+  champions:
+    - name: Renekton
       level: 1
 blue:
-  mobs:
-    - type: champion
-      name: Yasuo
-      level: 2
+  champions:
+    - name: Yasuo
+      level: 1

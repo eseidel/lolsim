@@ -10,20 +10,44 @@ class Duel {
   List<Mob> get allMobs => []..addAll(reds)..addAll(blues);
 }
 
+enum MinionType {
+  melee,
+  caster,
+  siege,
+  superMinion
+}
+
+class MinionFactory {
+
+}
+
 class DuelLoader {
   DuelLoader(this.champFactory, this.itemFactory);
 
   ChampionFactory champFactory;
+  MinionFactory minionFactory;
   ItemFactory itemFactory;
 
+  void addMinions(List<Mob> mobs, int count, MinionType type) {
+    // FIXME: Implement
+  }
+
   List<Mob> loadTeam(Team color, YamlMap yamlTeam) {
-    return yamlTeam['mobs'].map((YamlMap yamlMob) {
-      assert(yamlMob['type'] == 'champion');
-      Mob champ = champFactory.championByName(yamlMob['name']);
-      champ.team = color;
-      champ.level = yamlMob.containsKey('level') ? yamlMob['level'] : 1;
-      return champ;
+    List<Mob> mobs = yamlTeam['champions'].map((YamlMap yamlMob) {
+      Mob mob = champFactory.championByName(yamlMob['name']);
+      mob.level = yamlMob['level'] ?? 1;
+      return mob;
     }).toList();
+    YamlMap yamlMinions = yamlTeam['minions'];
+    if (yamlMinions != null) {
+      addMinions(mobs, yamlMinions['siege'], MinionType.siege);
+      addMinions(mobs, yamlMinions['caster'], MinionType.caster);
+      addMinions(mobs, yamlMinions['melee'], MinionType.melee);
+    }
+    mobs.forEach((mob) {
+      mob.team = color;
+    });
+    return mobs;
   }
 
   Duel duelFromYaml(YamlMap yamlDuel) {
