@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
 import 'dart:math';
 import 'package:logging/logging.dart';
 
@@ -80,9 +78,7 @@ class BaseStats extends Stats {
 }
 
 class Item {
-  Item.fromJSON(var json) {
-
-  }
+  Item.fromJSON(var json) {}
 }
 
 abstract class PeriodicGlobalEffect {
@@ -131,14 +127,16 @@ class AutoAttack extends Action {
   AutoAttack(this.source, Mob target) : super(target);
 
   void apply(World world) {
-    world.buffs.add(new AutoAttackCooldown(source, source.stats.attackDuration));
-    log.fine("${world.time.toStringAsFixed(2)}s: ${source.name} attacks for ${source.stats.attackDamage} damage");
+    world.buffs
+        .add(new AutoAttackCooldown(source, source.stats.attackDuration));
+    log.fine(
+        "${world.time.toStringAsFixed(2)}s: ${source.name} attacks for ${source.stats.attackDamage} damage");
     target.applyHit(new Hit(attackDamage: source.stats.attackDamage));
   }
 }
 
 class Hit {
-  Hit({this.attackDamage : 0.0, this.magicDamage : 0.0, this.trueDamage : 0.0});
+  Hit({this.attackDamage: 0.0, this.magicDamage: 0.0, this.trueDamage: 0.0});
 
   double attackDamage = 0.0;
   double magicDamage = 0.0;
@@ -164,9 +162,7 @@ class Mob {
 
   double get currentHp => max(0.0, stats.hp - hpLost);
 
-  Mob.fromJSON(var json)
-    : baseStats = new BaseStats.fromJSON(json['stats'])
-  {
+  Mob.fromJSON(var json) : baseStats = new BaseStats.fromJSON(json['stats']) {
     stats = computeStats();
     name = json['name'];
     revive();
@@ -201,8 +197,8 @@ class Mob {
     trueDamage += hit.attackDamage * resistanceMultiplier(stats.armor);
     trueDamage += hit.magicDamage * resistanceMultiplier(stats.spellBlock);
     hpLost += trueDamage;
-    log.fine("$name takes ${trueDamage.toStringAsFixed(3)} true damage, "
-      + "${currentHp.toStringAsFixed(3)} of ${stats.hp.toStringAsFixed(3)} remains");
+    log.fine("$name takes ${trueDamage.toStringAsFixed(3)} true damage, " +
+        "${currentHp.toStringAsFixed(3)} of ${stats.hp.toStringAsFixed(3)} remains");
     if (stats.hp <= hpLost) die();
   }
 
@@ -217,37 +213,6 @@ class Mob {
   }
 }
 
-class ChampionFactory {
-  var _json;
-
-  ChampionFactory.fromChampionJson(String path) {
-    String string = new File(path).readAsStringSync();
-    _json = JSON.decode(string);
-  }
-
-  Mob championByName(String name) {
-    var json = _json['data'][name];
-    if (json == null) {
-      log.severe("No champion matching $name.");
-      return null;
-    }
-    return new Mob.fromJSON(json);
-  }
-}
-
-class ItemFactory {
-  var _json;
-
-  ItemFactory.fromItemJson(String path) {
-    String string = new File(path).readAsStringSync();
-    _json = JSON.decode(string);
-  }
-
-  Item itemByName(String name) {
-    return new Item.fromJSON(_json['data'][name]);
-  }
-}
-
 class World {
   double time = 0.0;
   List<Buff> buffs = [];
@@ -259,8 +224,10 @@ class World {
   void addMobs(Iterable<Mob> mobs) {
     mobs.forEach((Mob mob) {
       assert(mob.team != null);
-      if (mob.team == Team.red) reds.add(mob);
-      else blues.add(mob);
+      if (mob.team == Team.red)
+        reds.add(mob);
+      else
+        blues.add(mob);
     });
   }
 
@@ -290,12 +257,11 @@ class World {
     const double timeDelta = 1 / TICKS_PER_SECOND;
     time += timeDelta;
     updateTargets();
-    List<Action> actions = allMobs
-      .map((mob) => mob.tick(timeDelta))
-      .reduce((all, actions) {
-        all.addAll(actions);
-        return all;
-      });
+    List<Action> actions =
+        allMobs.map((mob) => mob.tick(timeDelta)).reduce((all, actions) {
+      all.addAll(actions);
+      return all;
+    });
     // Might need to sort actions?
     buffs.forEach((buff) => buff.tick(timeDelta));
     buffs = buffs.where((buff) => !buff.expired).toList();
@@ -305,7 +271,7 @@ class World {
   void tickUntil(bool condition(World)) {
     do {
       tick();
-    } while(!condition(this));
+    } while (!condition(this));
   }
 
   List<Mob> get living {

@@ -1,9 +1,9 @@
-import 'package:lolsim/lolsim.dart';
+#!/usr/local/bin/dart
+import 'package:lolsim/dragon.dart';
 import 'package:lolsim/duel.dart';
 import 'package:logging/logging.dart';
 import 'package:args/args.dart';
 import 'dart:io';
-
 
 main(List<String> args) async {
   Logger.root.level = Level.INFO;
@@ -12,8 +12,7 @@ main(List<String> args) async {
     print('${rec.level.name.toLowerCase()}: ${rec.message}');
   });
 
-  ArgParser parser = new ArgParser()
-    ..addFlag('verbose', abbr: 'v');
+  ArgParser parser = new ArgParser()..addFlag('verbose', abbr: 'v');
 
   ArgResults results = parser.parse(args);
   if (results['verbose']) Logger.root.level = Level.ALL;
@@ -22,9 +21,8 @@ main(List<String> args) async {
     exit(1);
   }
 
-  ChampionFactory champFactory = new ChampionFactory.fromChampionJson('data/champion.json');
-  ItemFactory itemFactory = new ItemFactory.fromItemJson('data/item.json');
-  DuelLoader duelLoader = new DuelLoader(champFactory, itemFactory);
+  DragonData data = new DragonData.latest();
+  DuelLoader duelLoader = new DuelLoader(data);
   World world = new World();
 
   Duel duel = await duelLoader.duelFromYamlPath(results.rest.first);
@@ -34,9 +32,11 @@ main(List<String> args) async {
     return world.living.length < 2;
   });
   if (world.living.length == 0) {
-    log.info("${world.allMobs[0].name} and ${world.allMobs[1].name} died at the same time!");
+    log.info(
+        "${world.allMobs[0].name} and ${world.allMobs[1].name} died at the same time!");
   } else {
     Mob survivor = world.living[0];
-    log.info("At ${world.time.toStringAsFixed(2)}s ${survivor} lived with ${survivor.currentHp.toStringAsFixed(3)} hp");
+    log.info(
+        "At ${world.time.toStringAsFixed(2)}s ${survivor} lived with ${survivor.currentHp.toStringAsFixed(3)} hp");
   }
 }

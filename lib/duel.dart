@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'dart:async';
-import 'package:lolsim/lolsim.dart';
+import 'package:lolsim/dragon.dart';
 import 'package:yaml/yaml.dart';
 
 class Duel {
@@ -10,23 +10,15 @@ class Duel {
   List<Mob> get allMobs => []..addAll(reds)..addAll(blues);
 }
 
-enum MinionType {
-  melee,
-  caster,
-  siege,
-  superMinion
-}
-
-class MinionFactory {
-
-}
+enum MinionType { melee, caster, siege, superMinion }
 
 class DuelLoader {
-  DuelLoader(this.champFactory, this.itemFactory);
+  DuelLoader(DragonData data)
+      : champFactory = data.champs,
+        itemFactory = data.items;
 
-  ChampionFactory champFactory;
-  MinionFactory minionFactory;
-  ItemFactory itemFactory;
+  final ChampionFactory champFactory;
+  final ItemFactory itemFactory;
 
   void addMinions(List<Mob> mobs, int count, MinionType type) {
     // FIXME: Implement
@@ -53,7 +45,7 @@ class DuelLoader {
   Duel duelFromYaml(YamlMap yamlDuel) {
     Duel duel = new Duel();
     yamlDuel.forEach((String key, YamlMap team) {
-      switch(key) {
+      switch (key) {
         case 'red':
           duel.reds = loadTeam(Team.red, team);
           break;
