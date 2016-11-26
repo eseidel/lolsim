@@ -39,6 +39,9 @@ class Stats {
   // http://leagueoflegends.wikia.com/wiki/Attack_speed
   double get attackSpeed => baseAttackSpeed * (1.0 + bonusAttackSpeed);
   double get attackDuration => 1.0 / attackSpeed;
+
+  double get magicalEffectiveHealth => hp * (1 + 0.01 * spellBlock);
+  double get physicalEffectiveHealth => hp * (1 + 0.01 * armor);
 }
 
 class BaseStats extends Stats {
@@ -162,7 +165,8 @@ class Mob {
 
   double get currentHp => max(0.0, stats.hp - hpLost);
 
-  Mob.fromJSON(var json) : baseStats = new BaseStats.fromJSON(json['stats']) {
+  Mob.fromJSON(Map<String, dynamic> json)
+      : baseStats = new BaseStats.fromJSON(json['stats']) {
     stats = computeStats();
     name = json['name'];
     revive();

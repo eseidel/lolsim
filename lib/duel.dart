@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'dart:async';
-import 'package:lolsim/dragon.dart';
+import 'dragon.dart';
 import 'package:yaml/yaml.dart';
 
 class Duel {
@@ -25,7 +25,8 @@ class DuelLoader {
   }
 
   List<Mob> loadTeam(Team color, YamlMap yamlTeam) {
-    List<Mob> mobs = yamlTeam['champions'].map((YamlMap yamlMob) {
+    YamlList champions = yamlTeam['champions'];
+    List<Mob> mobs = champions.map((YamlMap yamlMob) {
       Mob mob = champFactory.championByName(yamlMob['name']);
       mob.level = yamlMob['level'] ?? 1;
       return mob;

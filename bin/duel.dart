@@ -1,6 +1,6 @@
 #!/usr/local/bin/dart
-import 'package:lolsim/dragon.dart';
-import 'package:lolsim/duel.dart';
+import 'package:lol_duel/dragon.dart';
+import 'package:lol_duel/duel.dart';
 import 'package:logging/logging.dart';
 import 'package:args/args.dart';
 import 'dart:io';

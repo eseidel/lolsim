@@ -21,7 +21,7 @@ main(List<String> args) async {
   ArgResults results = parser.parse(args);
   if (results['verbose']) Logger.root.level = Level.ALL;
 
-  String path = 'dragon/5.14.1/data/en_US/championFull.json';
+  String path = 'packages/dragon_data/5.14.1/data/en_US/championFull.json';
   String string = new File(path).readAsStringSync();
   var json = JSON.decode(string);
   List<Spell> damageSpells = [];

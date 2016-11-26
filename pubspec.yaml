@@ -1,8 +1,10 @@
-name: lolsim
+name: lol_duel
 dependencies:
   path: any
   logging: any
   args: any
   yaml: any
+  dragon_data:
+    path: ../dragon_data
 executables:
   duel:

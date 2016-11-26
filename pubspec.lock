@@ -19,6 +19,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.9.1"
+  dragon_data:
+    description:
+      path: "../dragon_data"
+      relative: true
+    source: path
+    version: "0.0.0"
   logging:
     description:
       name: logging
