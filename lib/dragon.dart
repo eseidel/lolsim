@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:async';
 import 'package:lol_duel/lolsim.dart';
 // This dependency is inverted.
 export 'package:lol_duel/lolsim.dart';
@@ -9,10 +10,7 @@ const String DATA_DIR = 'packages/dragon_data/6.22.1/data/en_US';
 class ChampionFactory {
   Map<String, Map<String, dynamic>> _json;
 
-  ChampionFactory.fromChampionJson(String path) {
-    String string = new File(path).readAsStringSync();
-    _json = JSON.decode(string) as Map<String, Map<String, dynamic>>;
-  }
+  ChampionFactory(Map<String, Map<String, dynamic>> json) : _json = json;
 
   List<String> loadChampNames() {
     return _json['data']
@@ -36,25 +34,24 @@ class ChampionFactory {
   }
 }
 
-class ItemFactory {
-  var _json;
+typedef Future<String> StringReader(String path);
 
-  ItemFactory.fromItemJson(String path) {
-    String string = new File(path).readAsStringSync();
-    _json = JSON.decode(string);
-  }
+Future<String> _ioReader(String path) {
+  return new File(path).readAsString();
+}
 
-  Item itemByName(String name) {
-    return new Item.fromJSON(_json['data'][name]);
-  }
+Future<DragonData> loadDragonData(String dataDir, StringReader reader) async {
+  String jsonString = await reader(dataDir + '/champion.json');
+  Map<String, Map<String, dynamic>> json = JSON.decode(jsonString);
+  return new DragonData(new ChampionFactory(json));
 }
 
 class DragonData {
   final ChampionFactory champs;
-  final ItemFactory items;
 
-  DragonData.latest()
-      : champs =
-            new ChampionFactory.fromChampionJson(DATA_DIR + '/champion.json'),
-        items = new ItemFactory.fromItemJson(DATA_DIR + '/item.json');
+  DragonData(this.champs);
+
+  static Future<DragonData> loadLatest({StringReader reader = _ioReader}) {
+    return loadDragonData(DATA_DIR, reader);
+  }
 }

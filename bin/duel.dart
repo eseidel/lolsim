@@ -21,7 +21,7 @@ main(List<String> args) async {
     exit(1);
   }
 
-  DragonData data = new DragonData.latest();
+  DragonData data = await DragonData.loadLatest();
   DuelLoader duelLoader = new DuelLoader(data);
   World world = new World();
 

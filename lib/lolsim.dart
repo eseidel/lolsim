@@ -81,7 +81,7 @@ class BaseStats extends Stats {
 }
 
 class Item {
-  Item.fromJSON(var json) {}
+  Item.fromJSON(Map<String, dynamic> json) {}
 }
 
 abstract class PeriodicGlobalEffect {
@@ -154,6 +154,8 @@ enum Team {
 class Mob {
   Team team;
   String name;
+  String title;
+  String id;
   Mob lastTarget;
   List<Item> items;
   final BaseStats baseStats;
@@ -168,7 +170,9 @@ class Mob {
   Mob.fromJSON(Map<String, dynamic> json)
       : baseStats = new BaseStats.fromJSON(json['stats']) {
     stats = computeStats();
+    id = json['id'];
     name = json['name'];
+    title = json['title'];
     revive();
   }
 

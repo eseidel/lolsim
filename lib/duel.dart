@@ -14,11 +14,9 @@ enum MinionType { melee, caster, siege, superMinion }
 
 class DuelLoader {
   DuelLoader(DragonData data)
-      : champFactory = data.champs,
-        itemFactory = data.items;
+      : champFactory = data.champs;
 
   final ChampionFactory champFactory;
-  final ItemFactory itemFactory;
 
   void addMinions(List<Mob> mobs, int count, MinionType type) {
     // FIXME: Implement
