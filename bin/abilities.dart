@@ -1,6 +1,7 @@
 #!/usr/local/bin/dart
 import 'package:logging/logging.dart';
 import 'package:args/args.dart';
+import 'package:lol_duel/common_args.dart';
 import 'dart:io';
 import 'dart:convert';
 
@@ -10,16 +11,7 @@ class Spell {
 }
 
 main(List<String> args) async {
-  Logger.root.level = Level.INFO;
-  Logger.root.onRecord.listen((LogRecord rec) {
-    // ${rec.time}:
-    print('${rec.level.name.toLowerCase()}: ${rec.message}');
-  });
-
-  ArgParser parser = new ArgParser()..addFlag('verbose', abbr: 'v');
-
-  ArgResults results = parser.parse(args);
-  if (results['verbose']) Logger.root.level = Level.ALL;
+  handleCommonArgs(args);
 
   String path = 'packages/dragon_data/5.14.1/data/en_US/championFull.json';
   String string = new File(path).readAsStringSync();
