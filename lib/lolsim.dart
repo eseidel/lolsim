@@ -25,12 +25,12 @@ class Stats {
 
   String debugString() {
     return """
-    hp: $hp
-    ad: $attackDamage
-    ap: $abilityPower
-    ar: $armor
-    mr: $spellBlock
-    as: $attackSpeed
+    hp: ${hp.toStringAsFixed(1)}
+    ad: ${attackDamage.toStringAsFixed(1)}
+    ap: ${abilityPower.toStringAsFixed(1)}
+    ar: ${armor.toStringAsFixed(1)}
+    mr: ${spellBlock.toStringAsFixed(1)}
+    as: ${attackSpeed.toStringAsFixed(3)}
     """;
   }
 
@@ -45,27 +45,26 @@ class Stats {
 }
 
 class BaseStats extends Stats {
-  BaseStats.fromJSON(json) {
+  BaseStats.fromJSON(json)
+      : spellBlockPerLevel = json['spellblockperlevel'].toDouble(),
+        armorPerLevel = json['armorperlevel'].toDouble(),
+        hpPerLevel = json['hpperlevel'].toDouble(),
+        mpPerLevel = json['mpperlevel'].toDouble(),
+        attackSpeedPerLevel = json['attackspeedperlevel'].toDouble() / 100.0,
+        attackDamagePerLevel = json['attackdamageperlevel'].toDouble() {
     attackDelay = json['attackspeedoffset'].toDouble();
     attackDamage = json['attackdamage'].toDouble();
     hp = json['hp'].toDouble();
     armor = json['armor'].toDouble();
     spellBlock = json['spellblock'].toDouble();
-
-    spellBlockPerLevel = json['spellblockperlevel'].toDouble();
-    armorPerLevel = json['armorperlevel'].toDouble();
-    hpPerLevel = json['hpperlevel'].toDouble();
-    mpPerLevel = json['mpperlevel'].toDouble();
-    attackSpeedPerLevel = json['attackspeedperlevel'].toDouble() / 100.0;
-    attackDamagePerLevel = json['attackdamageperlevel'].toDouble();
   }
 
-  double hpPerLevel;
-  double mpPerLevel;
-  double armorPerLevel;
-  double spellBlockPerLevel;
-  double attackSpeedPerLevel;
-  double attackDamagePerLevel;
+  final double hpPerLevel;
+  final double mpPerLevel;
+  final double armorPerLevel;
+  final double spellBlockPerLevel;
+  final double attackSpeedPerLevel;
+  final double attackDamagePerLevel;
 
   Stats statsForLevel(int level) {
     Stats stats = new Stats();
@@ -80,8 +79,50 @@ class BaseStats extends Stats {
   }
 }
 
+class Maps {
+  static String CURRENT_TWISTED_TREELINE = "10";
+  static String CURRENT_SUMMONERS_RIFT = "11";
+  static String CURRENT_HOWLING_ABYSS = "12";
+}
+
 class Item {
-  Item.fromJSON(Map<String, dynamic> json) {}
+  final String name;
+  final String id;
+  final Map<String, bool> maps;
+  final Map<String, num> stats;
+  final Map<String, dynamic> gold;
+  final List<String> tags;
+  final String requiredChampion;
+  final bool inStore;
+  final bool hideFromAll; // true for jungle enchants?
+
+  bool isAvailableOn(String mapId) {
+    return maps[mapId] == true;
+  }
+
+  bool get purchasable {
+    return gold['purchasable'] == true;
+  }
+
+  bool get generallyAvailable {
+    return gold['base'] > 0 && inStore != false && requiredChampion == null;
+  }
+
+  String debugString() {
+    return "${name} (#${id} ${gold['total']}g)";
+  }
+
+  // FIXME: Should use items['basic'] for defaults.
+  Item.fromJSON({Map<String, dynamic> json, String id})
+      : id = id,
+        name = json['name'],
+        maps = json['maps'],
+        tags = json['tags'],
+        gold = json['gold'],
+        requiredChampion = json['requiredChampion'],
+        inStore = json['in'],
+        hideFromAll = json['hideFromAll'],
+        stats = json['stats'] {}
 }
 
 abstract class PeriodicGlobalEffect {
@@ -169,19 +210,49 @@ class Mob {
 
   Mob.fromJSON(Map<String, dynamic> json)
       : baseStats = new BaseStats.fromJSON(json['stats']) {
-    stats = computeStats();
     id = json['id'];
     name = json['name'];
     title = json['title'];
+    items = [];
+    stats = computeStats();
     revive();
   }
 
+  static Set _warnedStats = new Set();
+  void warnUnhandledStat(String statName) {
+    if (!_warnedStats.contains(statName)) {
+      print("Unhandled: $statName");
+    }
+    _warnedStats.add(statName);
+  }
+
   Stats computeStats() {
-    return baseStats.statsForLevel(level);
+    Stats computed = baseStats.statsForLevel(level);
+    for (Item item in items) {
+      // I'm sure this is no where near correct.
+      for (String statName in item.stats.keys) {
+        switch (statName) {
+          case 'FlatArmorMod':
+            computed.armor += item.stats['FlatArmorMod'];
+            break;
+          case 'FlatHPPoolMod':
+            computed.hp += item.stats['FlatHPPoolMod'];
+            break;
+          default:
+            warnUnhandledStat(statName);
+        }
+      }
+    }
+    return computed;
   }
 
   String toString() {
     return "$name (lvl ${level})";
+  }
+
+  void addItem(Item item) {
+    items.add(item);
+    // Invalidate?
   }
 
   // Not clear if buffs should be held on the Mob or not.
