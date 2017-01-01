@@ -19,6 +19,8 @@ class Stats {
   double armor;
   double spellBlock; // aka magic resist.
 
+  double lifesteal = 0.0;
+
   // Used to compute attack speed:
   double attackDelay;
   double bonusAttackSpeed = 0.0;
@@ -192,6 +194,8 @@ enum Team {
   blue,
 }
 
+typedef void StatApplier(Stats stats, Item item, String name);
+
 class Mob {
   Team team;
   String name;
@@ -226,21 +230,39 @@ class Mob {
     _warnedStats.add(statName);
   }
 
+  // FIXME: There is probably a better way to do this where we combine all the
+  // stat modifications together in json form and then collapse them all at the end instead.
+  // FIXME: These are neither complete, nor necessarily correct.
+  final Map<String, StatApplier> appliers = {
+    'FlatArmorMod': (computed, item, statName) =>
+        computed.armor += item.stats[statName],
+    'FlatHPPoolMod': (computed, item, statName) =>
+        computed.hp += item.stats[statName],
+    // 'FlatCritChanceMod': (computed, item, statName) => computed.crit += item.stats[statName],
+    // 'FlatHPRegenMod': (computed, item, statName) => computed.hpRegen += item.stats[statName],
+    'FlatMagicDamageMod': (computed, item, statName) =>
+        computed.abilityPower += item.stats[statName],
+    // 'FlatMovementSpeedMod': (computed, item, statName) => computed.movespeed += item.stats[statName],
+    // 'FlatMPPoolMod': (computed, item, statName) => computed.mpRegen += item.stats[statName],
+    'FlatSpellBlockMod': (computed, item, statName) =>
+        computed.spellBlock += item.stats[statName],
+    'FlatPhysicalDamageMod': (computed, item, statName) =>
+        computed.attackDamage += item.stats[statName],
+    // 'PercentAttackSpeedMod': (computed, item, statName) => computed.bonusAttackSpeed *= item.stats[statName],
+    'PercentLifeStealMod': (computed, item, statName) =>
+        computed.lifesteal += item.stats[statName],
+    // 'PercentMovementSpeedMod': (computed, item, statName) => computed.movespeed *= item.stats[statName],
+  };
+
   Stats computeStats() {
     Stats computed = baseStats.statsForLevel(level);
     for (Item item in items) {
-      // I'm sure this is no where near correct.
       for (String statName in item.stats.keys) {
-        switch (statName) {
-          case 'FlatArmorMod':
-            computed.armor += item.stats['FlatArmorMod'];
-            break;
-          case 'FlatHPPoolMod':
-            computed.hp += item.stats['FlatHPPoolMod'];
-            break;
-          default:
-            warnUnhandledStat(statName);
-        }
+        StatApplier statApplier = appliers[statName];
+        if (statApplier == null)
+          warnUnhandledStat(statName);
+        else
+          statApplier(computed, item, statName);
       }
     }
     return computed;
