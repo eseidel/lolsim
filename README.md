@@ -1,5 +1,5 @@
 # lolsim
-Implementation of League of Legends' rules engine.
+Toy implementation of League of Legends' combat engine.
 
 My goal here is to familiarize myself with the finer details of LOL's rules as
 well as have a chance to play around with Dart.
@@ -14,15 +14,17 @@ have been many attempts).
 Need a copy of `champion.json` and `item.json` from [Riot's static data](https://developer.riotgames.com/docs/static-data).
 
 ## Usage
-`pub run lolsim:duel Renekton Yasuo`
+`dart bin/duel.dart -v examples/duel.yaml`
 
-`pub run lolsim:duel Annie "Xin Zhao"`
+There are several other dart files in bin/, most of them are for testing.
 
 ## Limitations
 Many.  Including at least:
  - Champion lookup is case sensitive and expects names in Title Case.
- - No support for Runes, Masteries, Levels or Items.
+ - No support for Runes or Masteries.
+ - Very limited item support.
+ - No supporf for abilities.
  - No support for buffs.
  - No support for healing.
 
-The only thing the simulation can do so far is auto-attack until death.
+Mostly what the simulation supports is having groups auto-attack until death.
