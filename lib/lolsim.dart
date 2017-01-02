@@ -95,7 +95,7 @@ class Maps {
 typedef DamageRecievedModifier(Hit, DamageRecievedDelta);
 
 abstract class ItemEffects {
-  damageRecievedModifier(Hit hit, DamageRecievedDelta delta);
+  damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {}
 }
 
 class Item {
@@ -187,7 +187,7 @@ abstract class Action {
   // flat damage reduction
   // damage prevention (immunity)
   // on-hit effects
-  //  lifesteal
+  // lifesteal
 }
 
 class AutoAttack extends Action {
@@ -200,7 +200,9 @@ class AutoAttack extends Action {
         .add(new AutoAttackCooldown(source, source.stats.attackDuration));
     log.fine(
         "${world.time.toStringAsFixed(2)}s: ${source.name} attacks for ${source.stats.attackDamage} damage");
-    target.applyHit(new Hit(attackDamage: source.stats.attackDamage));
+    double damage =
+        target.applyHit(new Hit(attackDamage: source.stats.attackDamage));
+    source.lifestealFrom(damage);
   }
 }
 
@@ -453,12 +455,22 @@ class Mob {
     return damage.trueDamage + max(0, combinedDamage);
   }
 
-  void applyHit(Hit hit) {
+  double applyHit(Hit hit) {
     double damage = computeDamageRecieved(hit);
     hpLost += damage;
     log.fine("$name took ${damage.toStringAsFixed(3)} damage, " +
         "${currentHp.toStringAsFixed(3)} of ${stats.hp.toStringAsFixed(3)} remains");
     if (stats.hp <= hpLost) die();
+    return damage; // This could be beyond-fatal damage.
+  }
+
+  void lifestealFrom(double damage) {
+    healFor(damage * stats.lifesteal);
+  }
+
+  void healFor(double healing) {
+    // FIXME: Missing healing modifiers.
+    hpLost -= min(hpLost, healing);
   }
 
   void revive() {

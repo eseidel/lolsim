@@ -4,8 +4,11 @@
 
 import 'package:lol_duel/lolsim.dart';
 
+// FIXME: This is a unique effect.
 class DoransShield extends ItemEffects {
+  @override
   damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {
+    // FIXME: This needs to check that the dmg source is single target.
     delta.flatCombined = -8.0;
   }
 }
