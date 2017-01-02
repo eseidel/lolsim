@@ -9,7 +9,9 @@ class DoransShield extends ItemEffects {
   @override
   damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {
     // FIXME: This needs to check that the dmg source is single target.
-    delta.flatCombined = -8.0;
+    if (hit.source == null)
+      log.warning("Source missing from hit against Doran's shield");
+    if (hit.source?.isChampion == true) delta.flatCombined = -8.0;
   }
 }
 

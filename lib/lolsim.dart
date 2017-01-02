@@ -168,7 +168,7 @@ abstract class Buff {
 // Probably buffs should just be re-applied every tick?
 class AutoAttackCooldown extends Buff {
   AutoAttackCooldown(Mob target, double duration) : super(target, duration) {
-    log.fine("${target} aa cooldown for ${duration.toStringAsFixed(1)}s");
+    // log.fine("${target} aa cooldown for ${duration.toStringAsFixed(1)}s");
     target.canAttack = false;
   }
   void didExpire() {
@@ -200,18 +200,26 @@ class AutoAttack extends Action {
         .add(new AutoAttackCooldown(source, source.stats.attackDuration));
     log.fine(
         "${world.logTime}: ${source} attacks ${target} for ${source.stats.attackDamage.toStringAsFixed(1)} damage");
-    double damage =
-        target.applyHit(new Hit(attackDamage: source.stats.attackDamage));
+    double damage = target.applyHit(new Hit(
+      attackDamage: source.stats.attackDamage,
+      source: source,
+    ));
     source.lifestealFrom(damage);
   }
 }
 
 class Hit {
-  Hit({this.attackDamage: 0.0, this.magicDamage: 0.0, this.trueDamage: 0.0});
+  Hit({
+    this.attackDamage: 0.0,
+    this.magicDamage: 0.0,
+    this.trueDamage: 0.0,
+    this.source: null,
+  });
 
   double attackDamage = 0.0;
   double magicDamage = 0.0;
   double trueDamage = 0.0;
+  Mob source = null;
 }
 
 enum Team {
@@ -316,6 +324,7 @@ class Mob {
   double hpLost = 0.0;
   bool canAttack = true;
   bool alive = true;
+  bool isChampion = false;
 
   double get currentHp => max(0.0, stats.hp - hpLost);
 
@@ -345,7 +354,7 @@ class Mob {
     return null;
   }
 
-  Mob.fromJSON(Map<String, dynamic> json)
+  Mob.fromJSON(Map<String, dynamic> json, {this.isChampion: false})
       : baseStats = new BaseStats.fromJSON(json['stats']) {
     id = json['id'];
     name = json['name'];
@@ -476,8 +485,9 @@ class Mob {
   double applyHit(Hit hit) {
     double damage = computeDamageRecieved(hit);
     hpLost += damage;
-    log.fine("$name took ${damage.toStringAsFixed(1)} damage, " +
-        "${currentHp.toStringAsFixed(1)} of ${stats.hp.toStringAsFixed(1)} remains");
+    int percent = (currentHp / stats.hp * 100).round();
+    log.fine("$name took ${damage.toStringAsFixed(1)} damage, "
+        "$percent% (${currentHp.round()} / ${stats.hp.round()}) remains");
     if (stats.hp <= hpLost) die();
     return damage; // This could be beyond-fatal damage.
   }

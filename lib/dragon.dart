@@ -49,9 +49,12 @@ class ChampionFactory {
   }
 
   Iterable<Mob> allChamps() {
-    return _json['data']
-        .values
-        .map((champ) => new Mob.fromJSON(champ as Map<String, dynamic>));
+    return _json['data'].values.map(
+          (champ) => new Mob.fromJSON(
+                champ as Map<String, dynamic>,
+                isChampion: true,
+              ),
+        );
   }
 
   Mob championByName(String name) {
@@ -60,7 +63,7 @@ class ChampionFactory {
       log.severe("No champion matching $name.");
       return null;
     }
-    return new Mob.fromJSON(json);
+    return new Mob.fromJSON(json, isChampion: true);
   }
 }
 

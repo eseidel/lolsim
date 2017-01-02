@@ -19,11 +19,18 @@ main() async {
     }
   }
 
-  Mob createTestMob({double hp: 100.0, double ad: 10.0, double armor: 0.0}) {
+  Mob createTestMob({
+    double hp: 100.0,
+    double ad: 10.0,
+    double armor: 0.0,
+    isChampion: false,
+  }) {
     Mob mob = Mob.createMinion(MinionType.melee);
+    mob.name = 'Test Mob';
     mob.baseStats.hp = hp;
     mob.baseStats.attackDamage = ad;
     mob.baseStats.armor = armor;
+    mob.isChampion = isChampion;
     mob.tick(0.0); // Something like this is needed to update stats.
     return mob;
   }
@@ -42,6 +49,7 @@ main() async {
   group("Doran's Shield", () {
     test("flat damage reduction", () {
       Mob mob = createTestMob(hp: 100.0);
+      Mob champ = createTestMob(hp: 100.0, isChampion: true);
       mob.applyHit(new Hit(attackDamage: 20.0));
       expect(mob.currentHp, 80.0);
       mob.revive();
@@ -51,14 +59,24 @@ main() async {
       mob.addItem(doransShield);
       mob.tick(0.0);
       expect(mob.currentHp, 180.0);
-      mob.applyHit(new Hit(attackDamage: 20.0));
+      mob.applyHit(new Hit(attackDamage: 20.0, source: champ));
       expect(mob.currentHp, 168.0);
-      mob.applyHit(new Hit(magicDamage: 20.0));
+      mob.applyHit(new Hit(magicDamage: 20.0, source: champ));
       expect(mob.currentHp, 156.0);
-      mob.applyHit(new Hit(attackDamage: 10.0, magicDamage: 10.0));
+      mob.applyHit(
+          new Hit(attackDamage: 10.0, magicDamage: 10.0, source: champ));
       expect(mob.currentHp, 144.0);
-      mob.applyHit(new Hit(trueDamage: 20.0));
+      mob.applyHit(new Hit(trueDamage: 20.0, source: champ));
       expect(mob.currentHp, 124.0);
+    });
+    test("passive only applies to champion sources", () {
+      Item doransShield = itemNamed("Doran's Shield");
+      Mob champ = createTestMob(hp: 100.0, isChampion: true);
+      champ.addItem(doransShield);
+      Mob minion = createTestMob(hp: 100.0);
+      minion.addItem(doransShield);
+      expect(10.0, champ.applyHit(new Hit(attackDamage: 10.0, source: minion)));
+      expect(2.0, minion.applyHit(new Hit(attackDamage: 10.0, source: champ)));
     });
   });
 
