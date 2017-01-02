@@ -1,7 +1,7 @@
 #!/usr/local/bin/dart
 import 'package:lol_duel/common_args.dart';
-import 'dart:io';
 import 'dart:convert';
+import 'package:resource/resource.dart';
 
 class Spell {
   String champ;
@@ -11,8 +11,8 @@ class Spell {
 main(List<String> args) async {
   handleCommonArgs(args);
 
-  String path = 'packages/dragon_data/5.14.1/data/en_US/championFull.json';
-  String string = new File(path).readAsStringSync();
+  String path = 'package:dragon_data/6.24.1/data/en_US/championFull.json';
+  String string = await new Resource(path).readAsString();
   var json = JSON.decode(string);
   List<Spell> damageSpells = [];
 

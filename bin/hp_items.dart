@@ -25,27 +25,11 @@ main(List<String> args) async {
   print("Php: ${stats.physicalEffectiveHealth.round()}");
   print("Mhp: ${stats.magicalEffectiveHealth.round()}");
 
-  List<Item> items = data.items
-      .allItems()
-      .where((item) =>
-          item.isAvailableOn(Maps.CURRENT_SUMMONERS_RIFT) &&
-          item.generallyAvailable)
-      .toList();
-
-  Item itemNamed(String name) {
-    try {
-      return items.firstWhere((item) => item.name == name);
-    } catch (e) {
-      print("Failed to find $name");
-      return null;
-    }
-  }
-
-  champ.addItem(itemNamed('Sunfire Cape'));
-  champ.addItem(itemNamed('Thornmail'));
-  champ.addItem(itemNamed('Knight\'s Vow'));
-  champ.addItem(itemNamed('Randuin\'s Omen'));
-  champ.addItem(itemNamed('Dead Man\'s Plate'));
+  champ.addItem(data.items.itemByName('Sunfire Cape'));
+  champ.addItem(data.items.itemByName('Thornmail'));
+  champ.addItem(data.items.itemByName('Knight\'s Vow'));
+  champ.addItem(data.items.itemByName('Randuin\'s Omen'));
+  champ.addItem(data.items.itemByName('Dead Man\'s Plate'));
 
   Stats withItems = champ.computeStats();
   withItems.armor += 40; // HACK: For Knight's vow.
@@ -53,6 +37,12 @@ main(List<String> args) async {
   print("Php: ${withItems.physicalEffectiveHealth.round()}");
   print("Mhp: ${withItems.magicalEffectiveHealth.round()}");
 
+  List<Item> items = data.items
+      .allItems()
+      .where((item) =>
+          item.isAvailableOn(Maps.CURRENT_SUMMONERS_RIFT) &&
+          item.generallyAvailable)
+      .toList();
   List<_Computed> hpResults = items
       .where((item) {
         num hpMod = item.stats['FlatHPPoolMod'];

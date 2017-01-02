@@ -138,6 +138,8 @@ class Item {
         hideFromAll = json['hideFromAll'],
         stats = json['stats'] {
     effects = itemEffects[name];
+    if (effects == null && json['effect'] != null)
+      log.warning('$name json references effects, but no effects class found.');
   }
 }
 
