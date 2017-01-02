@@ -1,5 +1,6 @@
 import "package:test/test.dart";
 import "package:lol_duel/dragon.dart";
+import 'test_mob.dart';
 
 main() async {
   DragonData data = await DragonData.loadLatest();
@@ -17,22 +18,6 @@ main() async {
       print("Failed to find $name");
       return null;
     }
-  }
-
-  Mob createTestMob({
-    double hp: 100.0,
-    double ad: 10.0,
-    double armor: 0.0,
-    isChampion: false,
-  }) {
-    Mob mob = Mob.createMinion(MinionType.melee);
-    mob.name = 'Test Mob';
-    mob.baseStats.hp = hp;
-    mob.baseStats.attackDamage = ad;
-    mob.baseStats.armor = armor;
-    mob.isChampion = isChampion;
-    mob.tick(0.0); // Something like this is needed to update stats.
-    return mob;
   }
 
   group("Helper methods", () {

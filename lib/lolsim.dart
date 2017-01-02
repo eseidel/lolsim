@@ -482,12 +482,17 @@ class Mob {
     return damage.trueDamage + max(0, combinedDamage);
   }
 
+  String get hpStatusString {
+    int percent = (currentHp / stats.hp * 100).round();
+    return "$percent% (${currentHp.toStringAsFixed(1)} / ${stats.hp.round()})";
+  }
+
   double applyHit(Hit hit) {
     double damage = computeDamageRecieved(hit);
     hpLost += damage;
-    int percent = (currentHp / stats.hp * 100).round();
-    log.fine("$name took ${damage.toStringAsFixed(1)} damage, "
-        "$percent% (${currentHp.round()} / ${stats.hp.round()}) remains");
+    log.fine(
+        "$this took ${damage.toStringAsFixed(1)} damage from ${hit.source}, "
+        "$hpStatusString remains");
     if (stats.hp <= hpLost) die();
     return damage; // This could be beyond-fatal damage.
   }
@@ -508,6 +513,7 @@ class Mob {
   }
 
   void die() {
+    log.info("DEATH: $this");
     // FIXME: Death could be a buff if there are rez timers.
     alive = false;
   }
@@ -542,8 +548,8 @@ class World {
   }
 
   Mob closestTarget(Mob mob) {
-    if (mob.team == Team.red) return blues.first;
-    return reds.first;
+    if (mob.team == Team.red) return livingBlues.first;
+    return livingReds.first;
   }
 
   void updateTargets() {
@@ -576,7 +582,15 @@ class World {
     } while (!condition(this));
   }
 
-  List<Mob> get living {
-    return allMobs.where((Mob mob) => mob.alive).toList();
+  Iterable<Mob> get livingBlues {
+    return blues.where((Mob mob) => mob.alive);
+  }
+
+  Iterable<Mob> get livingReds {
+    return reds.where((Mob mob) => mob.alive);
+  }
+
+  Iterable<Mob> get living {
+    return allMobs.where((Mob mob) => mob.alive);
   }
 }

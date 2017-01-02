@@ -29,11 +29,13 @@ main(List<String> args) async {
     bool survivingReds = world.reds.any((Mob mob) => mob.alive);
     return !survivingBlues || !survivingReds;
   });
-  if (world.living.length == 0) {
+  if (world.living.isEmpty) {
     log.info("${world.blues} and ${world.reds} died at the same time!");
+  } else if (world.livingReds.isNotEmpty) {
+    log.info("Red team survived:");
+    world.livingReds.forEach((mob) => log.info("$mob ${mob.hpStatusString}"));
   } else {
-    Mob survivor = world.living[0];
-    log.info(
-        "At ${world.time.toStringAsFixed(2)}s ${survivor} lived with ${survivor.currentHp.toStringAsFixed(3)} hp");
+    log.info("Blue team survived:");
+    world.livingBlues.forEach((mob) => log.info("$mob ${mob.hpStatusString}"));
   }
 }

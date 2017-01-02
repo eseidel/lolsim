@@ -1,5 +1,6 @@
 import "package:test/test.dart";
 import "package:lol_duel/dragon.dart";
+import 'test_mob.dart';
 
 main() async {
   group("Minions", () {
@@ -21,6 +22,16 @@ main() async {
       expect(mob.currentHp, 1500.0);
       mob.applyHit(new Hit(magicDamage: 100.0));
       expect(mob.currentHp, 1376.923076923077);
+    });
+  });
+  group("Mob", () {
+    test("death", () {
+      // This is very confusing behavior, but at least we're testing it.
+      Mob mob = createTestMob(hp: 100.0);
+      mob.applyHit(new Hit(trueDamage: 99.9));
+      expect(mob.alive, true);
+      mob.applyHit(new Hit(trueDamage: 0.1));
+      expect(mob.alive, false);
     });
   });
 }
