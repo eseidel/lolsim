@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 import 'dart:async';
 import 'package:lol_duel/lolsim.dart';
 // This dependency is inverted.

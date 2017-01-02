@@ -319,6 +319,15 @@ class Mob {
 
   double get currentHp => max(0.0, stats.hp - hpLost);
 
+  String statsSummary() {
+    return """$name
+    LVL: ${level} HP : ${currentHp} / ${stats.hp}
+    AD : ${stats.attackDamage.round()} AP : ${stats.abilityPower.round()}
+    AR : ${stats.armor.round()} MR : ${stats.spellBlock.round()}
+    AS : ${stats.attackSpeed.toStringAsFixed(3)}
+    """;
+  }
+
   static Mob createMinion(MinionType type) {
     switch (type) {
       case MinionType.melee:
@@ -392,7 +401,7 @@ class Mob {
 
   String toString() {
     String teamString = (team != null) ? "${teamToString(team)} " : "";
-    return "$teamString$name (lvl ${level})";
+    return "$teamString$name";
   }
 
   void addItem(Item item) {

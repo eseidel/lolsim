@@ -18,6 +18,11 @@ main(List<String> args) async {
 
   Duel duel = await duelLoader.duelFromYamlPath(results.rest.first);
   print("${duel.blues} vs. ${duel.reds}");
+  print("Blue Team");
+  duel.blues.forEach((mob) => print(mob.statsSummary()));
+  print("Red Team");
+  duel.reds.forEach((mob) => print(mob.statsSummary()));
+
   world.addMobs(duel.allMobs);
   world.tickUntil((world) {
     bool survivingBlues = world.blues.any((Mob mob) => mob.alive);
