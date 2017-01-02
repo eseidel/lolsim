@@ -292,6 +292,8 @@ final Map<String, dynamic> _superMinionJson = {
       'attackdamage': 190.0,
       'attackdamageperlevel': 10.0,
       'attackrange': 170.0,
+      'armor': 30.0,
+      'spellblock': -30.0,
     }),
 };
 
