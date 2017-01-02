@@ -10,11 +10,8 @@ class Duel {
   List<Mob> get allMobs => []..addAll(reds)..addAll(blues);
 }
 
-enum MinionType { melee, caster, siege, superMinion }
-
 class DuelLoader {
-  DuelLoader(DragonData data)
-      : champFactory = data.champs;
+  DuelLoader(DragonData data) : champFactory = data.champs;
 
   final ChampionFactory champFactory;
 

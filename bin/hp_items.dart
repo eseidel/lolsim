@@ -25,9 +25,12 @@ main(List<String> args) async {
   print("Php: ${stats.physicalEffectiveHealth.round()}");
   print("Mhp: ${stats.magicalEffectiveHealth.round()}");
 
-  List<Item> items = data.items.allItems().where((item) =>
-      item.isAvailableOn(Maps.CURRENT_SUMMONERS_RIFT) &&
-      item.generallyAvailable);
+  List<Item> items = data.items
+      .allItems()
+      .where((item) =>
+          item.isAvailableOn(Maps.CURRENT_SUMMONERS_RIFT) &&
+          item.generallyAvailable)
+      .toList();
 
   Item itemNamed(String name) {
     try {

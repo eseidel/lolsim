@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:logging/logging.dart';
+import 'package:lol_duel/items.dart';
 
 final Logger log = new Logger('LOL');
 
@@ -11,6 +12,10 @@ const int TICKS_PER_SECOND = 30;
 // Permute over all mobs.
 // cooldowns are modeled using effects?
 // all actions apply at the end of a frame?
+
+double attackDelayFromBaseAttackSpeed(double baseAttackSpeed) {
+  return (0.625 / baseAttackSpeed) - 1.0;
+}
 
 class Stats {
   double hp;
@@ -87,6 +92,12 @@ class Maps {
   static String CURRENT_HOWLING_ABYSS = "12";
 }
 
+typedef DamageRecievedModifier(Hit, DamageRecievedDelta);
+
+abstract class ItemEffects {
+  damageRecievedModifier(Hit hit, DamageRecievedDelta delta);
+}
+
 class Item {
   final String name;
   final String id;
@@ -97,6 +108,7 @@ class Item {
   final String requiredChampion;
   final bool inStore;
   final bool hideFromAll; // true for jungle enchants?
+  ItemEffects effects;
 
   bool isAvailableOn(String mapId) {
     return maps[mapId] == true;
@@ -110,7 +122,7 @@ class Item {
     return gold['base'] > 0 && inStore != false && requiredChampion == null;
   }
 
-  String debugString() {
+  String toString() {
     return "${name} (#${id} ${gold['total']}g)";
   }
 
@@ -124,7 +136,9 @@ class Item {
         requiredChampion = json['requiredChampion'],
         inStore = json['in'],
         hideFromAll = json['hideFromAll'],
-        stats = json['stats'] {}
+        stats = json['stats'] {
+    effects = itemEffects[name];
+  }
 }
 
 abstract class PeriodicGlobalEffect {
@@ -150,6 +164,8 @@ abstract class Buff {
   void didExpire() {}
 }
 
+// FIXME: How would AA-resets work with this?  Find the buff and clear it?
+// Probably buffs should just be re-applied every tick?
 class AutoAttackCooldown extends Buff {
   AutoAttackCooldown(Mob target, double duration) : super(target, duration) {
     log.fine("${target.name} aa cooldown for ${duration.toStringAsFixed(3)}s");
@@ -165,6 +181,13 @@ abstract class Action {
   Action(this.target);
   Mob target;
   void apply(World world);
+  // on attack effects
+  // damage dealt modifier (including crit)
+  // percent damage recieved modifier (including ar/mr)
+  // flat damage reduction
+  // damage prevention (immunity)
+  // on-hit effects
+  //  lifesteal
 }
 
 class AutoAttack extends Action {
@@ -196,6 +219,84 @@ enum Team {
 
 typedef void StatApplier(Stats stats, Item item, String name);
 
+class DamageRecieved {
+  double physicalDamage = 0.0;
+  double magicDamage = 0.0;
+  double trueDamage = 0.0;
+}
+
+class DamageRecievedDelta {
+  double percentPhysical = 0.0;
+  double percentMagical = 0.0;
+  double flatPhysical = 0.0;
+  double flatMagical = 0.0;
+  double flatCombined = 0.0;
+}
+
+final Map<String, double> _sharedMinionStats = {
+  'spellblockperlevel': 0.0,
+  'armorperlevel': 0.0,
+  'mpperlevel': 0.0,
+  'movespeed': 325.0,
+  'attackspeedperlevel': 0.0,
+  'armor': 0.0,
+  'spellblock': 0.0,
+};
+
+final Map<String, dynamic> _meleeMinionJson = {
+  'name': 'Melee Minion',
+  'stats': new Map.from(_sharedMinionStats)
+    ..addAll(<String, double>{
+      'hp': 455.0,
+      'hpperlevel': 18.0,
+      'attackspeedoffset': attackDelayFromBaseAttackSpeed(1.25),
+      'attackdamage': 12.0,
+      'attackdamageperlevel': 0.0,
+      'attackrange': 110.0,
+    }),
+};
+
+final Map<String, dynamic> _rangedMinionJson = {
+  'name': 'Ranged Minion',
+  'stats': new Map.from(_sharedMinionStats)
+    ..addAll(<String, double>{
+      'hp': 290.0,
+      'hpperlevel': 6.0,
+      'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.667),
+      'attackdamage': 22.5,
+      'attackdamageperlevel': 1.5,
+      'attackrange': 550.0,
+    }),
+};
+
+final Map<String, dynamic> _siegeMinionJson = {
+  'name': 'Siege Minion',
+  'stats': new Map.from(_sharedMinionStats)
+    ..addAll(<String, double>{
+      'hp': 805.0,
+      'hpperlevel': 0.0, // FIXME: This is likely wrong, missing from wiki.
+      'attackspeedoffset': attackDelayFromBaseAttackSpeed(1.0),
+      'attackdamage': 39.5,
+      'attackdamageperlevel': 1.5,
+      'attackrange': 300.0,
+    }),
+};
+
+final Map<String, dynamic> _superMinionJson = {
+  'name': 'Siege Minion',
+  'stats': new Map.from(_sharedMinionStats)
+    ..addAll(<String, double>{
+      'hp': 1500.0,
+      'hpperlevel': 200.0,
+      'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.694),
+      'attackdamage': 190.0,
+      'attackdamageperlevel': 10.0,
+      'attackrange': 170.0,
+    }),
+};
+
+enum MinionType { melee, caster, siege, superMinion }
+
 class Mob {
   Team team;
   String name;
@@ -211,6 +312,21 @@ class Mob {
   bool alive = true;
 
   double get currentHp => max(0.0, stats.hp - hpLost);
+
+  static Mob createMinion(MinionType type) {
+    switch (type) {
+      case MinionType.melee:
+        return new Mob.fromJSON(_meleeMinionJson);
+      case MinionType.caster:
+        return new Mob.fromJSON(_rangedMinionJson);
+      case MinionType.siege:
+        return new Mob.fromJSON(_siegeMinionJson);
+      case MinionType.superMinion:
+        return new Mob.fromJSON(_superMinionJson);
+    }
+    assert(false);
+    return null;
+  }
 
   Mob.fromJSON(Map<String, dynamic> json)
       : baseStats = new BaseStats.fromJSON(json['stats']) {
@@ -293,12 +409,52 @@ class Mob {
     return 2 - (100 / (100 - resistance));
   }
 
+  List<DamageRecievedModifier> collectDamageModifiers() {
+    List<DamageRecievedModifier> modifiers = [
+      (hit, delta) {
+        delta.percentPhysical = resistanceMultiplier(stats.armor);
+        delta.percentMagical = resistanceMultiplier(stats.spellBlock);
+      }
+    ];
+    // Do I need to cache these?
+    for (Item item in items) {
+      if (item.effects != null)
+        modifiers.add(item.effects.damageRecievedModifier);
+    }
+    return modifiers;
+  }
+
+  DamageRecievedDelta computeDamageRecievedDelta(Hit hit) {
+    List<DamageRecievedModifier> modifiers = collectDamageModifiers();
+    DamageRecievedDelta delta = new DamageRecievedDelta();
+    modifiers.forEach((modifier) => modifier(hit, delta));
+    return delta;
+  }
+
+  // PHASE: Damage Recieved
+  double computeDamageRecieved(Hit hit) {
+    DamageRecievedDelta delta = computeDamageRecievedDelta(hit);
+
+    // Apply them all, first percentage, then flat.
+    DamageRecieved damage = new DamageRecieved();
+    damage.trueDamage = hit.trueDamage;
+    // Damage Reduction -- Percentage
+    damage.physicalDamage = hit.attackDamage * delta.percentPhysical;
+    damage.magicDamage = hit.magicDamage * delta.percentMagical;
+    // Damage Reduction -- Flat
+    damage.physicalDamage += delta.flatPhysical;
+    damage.magicDamage += delta.flatMagical;
+    // Unclear if this is the right place to handle combined adjustments
+    // or if the individual items should self-adjust.
+    double combinedDamage = damage.physicalDamage + damage.magicDamage;
+    combinedDamage += delta.flatCombined;
+    return damage.trueDamage + max(0, combinedDamage);
+  }
+
   void applyHit(Hit hit) {
-    double trueDamage = hit.trueDamage;
-    trueDamage += hit.attackDamage * resistanceMultiplier(stats.armor);
-    trueDamage += hit.magicDamage * resistanceMultiplier(stats.spellBlock);
-    hpLost += trueDamage;
-    log.fine("$name takes ${trueDamage.toStringAsFixed(3)} true damage, " +
+    double damage = computeDamageRecieved(hit);
+    hpLost += damage;
+    log.fine("$name took ${damage.toStringAsFixed(3)} damage, " +
         "${currentHp.toStringAsFixed(3)} of ${stats.hp.toStringAsFixed(3)} remains");
     if (stats.hp <= hpLost) die();
   }
@@ -310,6 +466,7 @@ class Mob {
   }
 
   void die() {
+    // FIXME: Death could be a buff if there are rez timers.
     alive = false;
   }
 }
