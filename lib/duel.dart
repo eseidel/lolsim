@@ -11,22 +11,33 @@ class Duel {
 }
 
 class DuelLoader {
-  DuelLoader(DragonData data) : champFactory = data.champs;
+  DuelLoader(DragonData data)
+      : champs = data.champs,
+        items = data.items;
 
-  final ChampionFactory champFactory;
+  final ChampionFactory champs;
+  final ItemFactory items;
 
   void addMinions(List<Mob> mobs, int count, MinionType type) {
     if (count != null)
       mobs.addAll(new List.generate(count, (int) => Mob.createMinion(type)));
   }
 
+  Mob loadChampion(YamlMap yamlMob) {
+    Mob mob = champs.championByName(yamlMob['name']);
+    mob.level = yamlMob['level'] ?? 1;
+    YamlList yamlItems = yamlMob['items'];
+    if (yamlItems != null) {
+      yamlItems.forEach(
+          (String itemName) => mob.addItem(items.itemByName(itemName)));
+    }
+    return mob;
+  }
+
   List<Mob> loadTeam(Team color, YamlMap yamlTeam) {
-    YamlList champions = yamlTeam['champions'];
-    List<Mob> mobs = champions.map((YamlMap yamlMob) {
-      Mob mob = champFactory.championByName(yamlMob['name']);
-      mob.level = yamlMob['level'] ?? 1;
-      return mob;
-    }).toList();
+    List<Mob> mobs = [];
+    YamlList yamlChampions = yamlTeam['champions'];
+    if (yamlChampions != null) mobs.addAll(yamlChampions.map(loadChampion));
     YamlMap yamlMinions = yamlTeam['minions'];
     if (yamlMinions != null) {
       addMinions(mobs, yamlMinions['siege'], MinionType.siege);

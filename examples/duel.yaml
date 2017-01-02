@@ -1,0 +1,15 @@
+# Run this with `dart bin/duel.dart -v examples/duel.yaml`
+red:
+  minions:
+    melee: 1
+  champions:
+    - name: Renekton
+      level: 1
+      items:
+       - Doran's Shield
+blue:
+  champions:
+    - name: Yasuo
+      level: 1
+      items:
+        - Cloth Armor

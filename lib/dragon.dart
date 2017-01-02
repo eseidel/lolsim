@@ -12,11 +12,28 @@ class ItemFactory {
 
   ItemFactory(Map<String, Map<String, dynamic>> json) : _json = json;
 
-  Iterable<Item> allItems() {
-    return _json['data'].keys.map((String itemId) => new Item.fromJSON(
-          id: itemId,
-          json: _json['data'][itemId] as Map<String, dynamic>,
-        ));
+  static List<Item> _allItemsCache = null;
+
+  List<Item> allItems() {
+    if (_allItemsCache == null) {
+      _allItemsCache = _json['data']
+          .keys
+          .map((String itemId) => new Item.fromJSON(
+                id: itemId,
+                json: _json['data'][itemId] as Map<String, dynamic>,
+              ))
+          .toList();
+    }
+    return _allItemsCache;
+  }
+
+  Item itemByName(String name) {
+    try {
+      return allItems().firstWhere((item) => item.name == name);
+    } catch (e) {
+      log.severe("No item maching $name");
+      return null;
+    }
   }
 }
 

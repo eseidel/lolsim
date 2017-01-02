@@ -123,7 +123,7 @@ class Item {
   }
 
   String toString() {
-    return "${name} (#${id} ${gold['total']}g)";
+    return "${name} (${gold['total']}g)";
   }
 
   // FIXME: Should use items['basic'] for defaults.
@@ -320,12 +320,14 @@ class Mob {
   double get currentHp => max(0.0, stats.hp - hpLost);
 
   String statsSummary() {
-    return """$name
-    LVL: ${level} HP : ${currentHp} / ${stats.hp}
-    AD : ${stats.attackDamage.round()} AP : ${stats.abilityPower.round()}
-    AR : ${stats.armor.round()} MR : ${stats.spellBlock.round()}
+    String summary = """  $name (lvl ${level})
+    HP : ${currentHp} / ${stats.hp}
+    AD : ${stats.attackDamage.round()}  AP : ${stats.abilityPower.round()}
+    AR : ${stats.armor.round()}  MR : ${stats.spellBlock.round()}
     AS : ${stats.attackSpeed.toStringAsFixed(3)}
     """;
+    if (items.isNotEmpty) summary += 'Items: ${items}\n';
+    return summary;
   }
 
   static Mob createMinion(MinionType type) {
@@ -349,7 +351,7 @@ class Mob {
     name = json['name'];
     title = json['title'];
     items = [];
-    stats = computeStats();
+    updateStats();
     revive();
   }
 
@@ -385,6 +387,10 @@ class Mob {
     // 'PercentMovementSpeedMod': (computed, item, statName) => computed.movespeed *= item.stats[statName],
   };
 
+  void updateStats() {
+    stats = computeStats();
+  }
+
   Stats computeStats() {
     Stats computed = baseStats.statsForLevel(level);
     for (Item item in items) {
@@ -406,12 +412,12 @@ class Mob {
 
   void addItem(Item item) {
     items.add(item);
-    // Invalidate?
+    updateStats();
   }
 
   // Not clear if buffs should be held on the Mob or not.
   List<Action> tick(double timeDelta) {
-    stats = computeStats();
+    updateStats();
     List<Action> actions = [];
     if (!alive) return actions;
     if (canAttack && lastTarget != null) {
