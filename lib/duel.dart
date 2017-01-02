@@ -16,7 +16,8 @@ class DuelLoader {
   final ChampionFactory champFactory;
 
   void addMinions(List<Mob> mobs, int count, MinionType type) {
-    // FIXME: Implement
+    if (count != null)
+      mobs.addAll(new List.generate(count, (int) => Mob.createMinion(type)));
   }
 
   List<Mob> loadTeam(Team color, YamlMap yamlTeam) {
@@ -31,6 +32,7 @@ class DuelLoader {
       addMinions(mobs, yamlMinions['siege'], MinionType.siege);
       addMinions(mobs, yamlMinions['caster'], MinionType.caster);
       addMinions(mobs, yamlMinions['melee'], MinionType.melee);
+      addMinions(mobs, yamlMinions['super'], MinionType.superMinion);
     }
     mobs.forEach((mob) {
       mob.team = color;

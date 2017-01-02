@@ -20,11 +20,12 @@ main(List<String> args) async {
   print("${duel.blues} vs. ${duel.reds}");
   world.addMobs(duel.allMobs);
   world.tickUntil((world) {
-    return world.living.length < 2;
+    bool survivingBlues = world.blues.any((Mob mob) => mob.alive);
+    bool survivingReds = world.reds.any((Mob mob) => mob.alive);
+    return !survivingBlues || !survivingReds;
   });
   if (world.living.length == 0) {
-    log.info(
-        "${world.allMobs[0].name} and ${world.allMobs[1].name} died at the same time!");
+    log.info("${world.blues} and ${world.reds} died at the same time!");
   } else {
     Mob survivor = world.living[0];
     log.info(

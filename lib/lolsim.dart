@@ -168,7 +168,7 @@ abstract class Buff {
 // Probably buffs should just be re-applied every tick?
 class AutoAttackCooldown extends Buff {
   AutoAttackCooldown(Mob target, double duration) : super(target, duration) {
-    log.fine("${target.name} aa cooldown for ${duration.toStringAsFixed(3)}s");
+    log.fine("${target} aa cooldown for ${duration.toStringAsFixed(1)}s");
     target.canAttack = false;
   }
   void didExpire() {
@@ -199,7 +199,7 @@ class AutoAttack extends Action {
     world.buffs
         .add(new AutoAttackCooldown(source, source.stats.attackDuration));
     log.fine(
-        "${world.time.toStringAsFixed(2)}s: ${source.name} attacks for ${source.stats.attackDamage} damage");
+        "${world.logTime}: ${source} attacks ${target} for ${source.stats.attackDamage.toStringAsFixed(1)} damage");
     double damage =
         target.applyHit(new Hit(attackDamage: source.stats.attackDamage));
     source.lifestealFrom(damage);
@@ -218,6 +218,8 @@ enum Team {
   red,
   blue,
 }
+
+String teamToString(Team team) => (team == Team.red) ? 'Red' : 'Blue';
 
 typedef void StatApplier(Stats stats, Item item, String name);
 
@@ -389,7 +391,8 @@ class Mob {
   }
 
   String toString() {
-    return "$name (lvl ${level})";
+    String teamString = (team != null) ? "${teamToString(team)} " : "";
+    return "$teamString$name (lvl ${level})";
   }
 
   void addItem(Item item) {
@@ -458,8 +461,8 @@ class Mob {
   double applyHit(Hit hit) {
     double damage = computeDamageRecieved(hit);
     hpLost += damage;
-    log.fine("$name took ${damage.toStringAsFixed(3)} damage, " +
-        "${currentHp.toStringAsFixed(3)} of ${stats.hp.toStringAsFixed(3)} remains");
+    log.fine("$name took ${damage.toStringAsFixed(1)} damage, " +
+        "${currentHp.toStringAsFixed(1)} of ${stats.hp.toStringAsFixed(1)} remains");
     if (stats.hp <= hpLost) die();
     return damage; // This could be beyond-fatal damage.
   }
@@ -492,6 +495,8 @@ class World {
   List<Mob> blues = [];
 
   List<Mob> get allMobs => []..addAll(reds)..addAll(blues);
+
+  String get logTime => "${time.toStringAsFixed(2)}s";
 
   void addMobs(Iterable<Mob> mobs) {
     mobs.forEach((Mob mob) {

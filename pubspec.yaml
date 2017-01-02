@@ -6,6 +6,7 @@ dependencies:
   yaml: any
   dragon_data:
     path: ../dragon_data
+  resource: any
 dev_dependencies:
   test: any
 executables:

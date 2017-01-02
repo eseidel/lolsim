@@ -4,8 +4,9 @@ import 'dart:async';
 import 'package:lol_duel/lolsim.dart';
 // This dependency is inverted.
 export 'package:lol_duel/lolsim.dart';
+import 'package:resource/resource.dart';
 
-const String DATA_DIR = 'packages/dragon_data/6.24.1/data/en_US';
+const String DATA_DIR = 'package:dragon_data/6.24.1/data/en_US';
 
 class ItemFactory {
   Map<String, Map<String, dynamic>> _json;
@@ -50,7 +51,7 @@ class ChampionFactory {
 typedef Future<String> StringReader(String path);
 
 Future<String> _ioReader(String path) {
-  return new File(path).readAsString();
+  return new Resource(path).readAsString();
 }
 
 Future<DragonData> loadDragonData(String dataDir, StringReader reader) async {
