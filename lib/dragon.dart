@@ -37,6 +37,23 @@ class ItemFactory {
   }
 }
 
+class MasteryLibrary {
+  Map<String, Map<String, dynamic>> _json;
+
+  MasteryLibrary(Map<String, Map<String, dynamic>> json) : _json = json;
+
+  Iterable<MasteryDescription> allMasteries() {
+    return _json['data'].values.map(
+          (mastery) =>
+              new MasteryDescription.fromJSON(mastery as Map<String, dynamic>),
+        );
+  }
+
+  MasteryDescription masteryById(int id) {
+    return new MasteryDescription.fromJSON(_json['data'][id.toString()]);
+  }
+}
+
 class ChampionFactory {
   Map<String, Map<String, dynamic>> _json;
 
@@ -76,17 +93,20 @@ Future<String> _ioReader(String path) {
 Future<DragonData> loadDragonData(String dataDir, StringReader reader) async {
   String championString = await reader(dataDir + '/champion.json');
   String itemString = await reader(dataDir + '/item.json');
+  String masteryString = await reader(dataDir + '/mastery.json');
   return new DragonData(
     new ChampionFactory(JSON.decode(championString)),
     new ItemFactory(JSON.decode(itemString)),
+    new MasteryLibrary(JSON.decode(masteryString)),
   );
 }
 
 class DragonData {
   final ChampionFactory champs;
   final ItemFactory items;
+  final MasteryLibrary masteries;
 
-  DragonData(this.champs, this.items);
+  DragonData(this.champs, this.items, this.masteries);
 
   static Future<DragonData> loadLatest({StringReader reader = _ioReader}) {
     return loadDragonData(DATA_DIR, reader);

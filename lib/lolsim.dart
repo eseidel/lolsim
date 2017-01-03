@@ -143,6 +143,37 @@ class Item {
   }
 }
 
+enum MasteryTree {
+  ferocity,
+  cunning,
+  resolve,
+}
+
+class MasteryDescription {
+  final int id;
+  final String name;
+  final int ranks;
+
+  MasteryTree get tree {
+    // HACK: But seems to work and is quick.
+    // Could also load the tree definitions from mastery.json.
+    assert(id <= 6400);
+    if (id >= 6300) return MasteryTree.cunning;
+    if (id >= 6200) return MasteryTree.resolve;
+    assert(id >= 6100);
+    return MasteryTree.ferocity;
+  }
+
+  MasteryDescription.fromJSON(Map<String, dynamic> json)
+      : id = json['id'],
+        name = json['name'],
+        ranks = json['ranks'] {
+    // effects = masteryEffects[name];
+    // if (effects == null)
+    //   log.warning('$name json references effects, but no effects class found.');
+  }
+}
+
 abstract class PeriodicGlobalEffect {
   double period;
 
