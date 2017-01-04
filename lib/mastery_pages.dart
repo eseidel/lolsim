@@ -1,16 +1,6 @@
 import 'lolsim.dart';
 import 'dragon.dart';
 
-class Mastery {
-  MasteryDescription description;
-  int rank;
-
-  Mastery(this.description, this.rank) {
-    assert(rank >= 1);
-    assert(rank <= description.ranks);
-  }
-}
-
 class MasteryPage {
   String name;
   List<Mastery> masteries;

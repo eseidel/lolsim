@@ -1,6 +1,8 @@
 import 'dart:math';
 import 'package:logging/logging.dart';
-import 'package:lol_duel/items.dart';
+import 'items.dart';
+import 'mastery_pages.dart';
+import 'masteries.dart';
 
 final Logger log = new Logger('LOL');
 
@@ -152,6 +154,7 @@ enum MasteryTree {
 class MasteryDescription {
   final int id;
   final String name;
+  final List<String> descriptions;
   final int ranks;
 
   MasteryTree get tree {
@@ -167,10 +170,25 @@ class MasteryDescription {
   MasteryDescription.fromJSON(Map<String, dynamic> json)
       : id = json['id'],
         name = json['name'],
-        ranks = json['ranks'] {
-    // effects = masteryEffects[name];
-    // if (effects == null)
-    //   log.warning('$name json references effects, but no effects class found.');
+        descriptions = json['description'],
+        ranks = json['ranks'] {}
+}
+
+class Mastery {
+  MasteryDescription description;
+  int rank;
+  MasteryEffects effects;
+
+  Mastery(this.description, this.rank) {
+    assert(rank >= 1);
+    assert(rank <= description.ranks);
+    MasteryEffectsConstructor effectsConstructor =
+        masteryEffectsConstructors[description.name];
+    if (effectsConstructor == null)
+      log.warning(
+          'Mastery ${description.name} referenced, but no effects found.');
+    else
+      effects = effectsConstructor(rank);
   }
 }
 
@@ -262,7 +280,7 @@ enum Team {
 
 String teamToString(Team team) => (team == Team.red) ? 'Red' : 'Blue';
 
-typedef void StatApplier(Stats stats, Item item, String name);
+typedef void StatApplier(Stats stats, num statValue);
 
 class DamageRecieved {
   double physicalDamage = 0.0;
@@ -351,6 +369,7 @@ class Mob {
   String id;
   Mob lastTarget;
   List<Item> items;
+  MasteryPage masteryPage;
   final BaseStats baseStats;
   Stats stats; // updated per-tick.
   int level = 1;
@@ -368,6 +387,7 @@ class Mob {
     AR : ${stats.armor.round()}  MR : ${stats.spellBlock.round()}
     AS : ${stats.attackSpeed.toStringAsFixed(3)}
     """;
+    if (masteryPage != null) summary += 'Masteries: ${masteryPage}\n';
     if (items.isNotEmpty) summary += 'Items: ${items}\n';
     return summary;
   }
@@ -409,41 +429,49 @@ class Mob {
   // stat modifications together in json form and then collapse them all at the end instead.
   // FIXME: These are neither complete, nor necessarily correct.
   final Map<String, StatApplier> appliers = {
-    'FlatArmorMod': (computed, item, statName) =>
-        computed.armor += item.stats[statName],
-    'FlatHPPoolMod': (computed, item, statName) =>
-        computed.hp += item.stats[statName],
-    // 'FlatCritChanceMod': (computed, item, statName) => computed.crit += item.stats[statName],
-    // 'FlatHPRegenMod': (computed, item, statName) => computed.hpRegen += item.stats[statName],
-    'FlatMagicDamageMod': (computed, item, statName) =>
-        computed.abilityPower += item.stats[statName],
-    // 'FlatMovementSpeedMod': (computed, item, statName) => computed.movespeed += item.stats[statName],
-    // 'FlatMPPoolMod': (computed, item, statName) => computed.mpRegen += item.stats[statName],
-    'FlatSpellBlockMod': (computed, item, statName) =>
-        computed.spellBlock += item.stats[statName],
-    'FlatPhysicalDamageMod': (computed, item, statName) =>
-        computed.attackDamage += item.stats[statName],
-    // 'PercentAttackSpeedMod': (computed, item, statName) => computed.bonusAttackSpeed *= item.stats[statName],
-    'PercentLifeStealMod': (computed, item, statName) =>
-        computed.lifesteal += item.stats[statName],
-    // 'PercentMovementSpeedMod': (computed, item, statName) => computed.movespeed *= item.stats[statName],
+    'FlatArmorMod': (computed, statValue) => computed.armor += statValue,
+    'FlatHPPoolMod': (computed, statValue) => computed.hp += statValue,
+    // 'FlatCritChanceMod': (computed, statValue) => computed.crit += statValue,
+    // 'FlatHPRegenMod': (computed, statValue) => computed.hpRegen += statValue,
+    'FlatMagicDamageMod': (computed, statValue) =>
+        computed.abilityPower += statValue,
+    // 'FlatMovementSpeedMod': (computed, statValue) => computed.movespeed += statValue,
+    // 'FlatMPPoolMod': (computed, statValue) => computed.mpRegen += statValue,
+    'FlatSpellBlockMod': (computed, statValue) =>
+        computed.spellBlock += statValue,
+    'FlatPhysicalDamageMod': (computed, statValue) =>
+        computed.attackDamage += statValue,
+    'PercentAttackSpeedMod': (computed, statValue) =>
+        computed.bonusAttackSpeed += statValue,
+    'PercentLifeStealMod': (computed, statValue) =>
+        computed.lifesteal += statValue,
+    // 'PercentMovementSpeedMod': (computed, statValue) => computed.movespeed *= statValue,
   };
 
   void updateStats() {
     stats = computeStats();
   }
 
+  void applyStats(Stats computed, Map<String, num> stats) {
+    for (String statName in stats.keys) {
+      StatApplier statApplier = appliers[statName];
+      if (statApplier == null)
+        warnUnhandledStat(statName);
+      else
+        statApplier(computed, stats[statName]);
+    }
+  }
+
   Stats computeStats() {
     Stats computed = baseStats.statsForLevel(level);
-    for (Item item in items) {
-      for (String statName in item.stats.keys) {
-        StatApplier statApplier = appliers[statName];
-        if (statApplier == null)
-          warnUnhandledStat(statName);
-        else
-          statApplier(computed, item, statName);
+    if (masteryPage != null) {
+      for (Mastery mastery in masteryPage.masteries) {
+        if (mastery?.effects?.stats != null) {
+          applyStats(computed, mastery.effects.stats);
+        }
       }
     }
+    for (Item item in items) applyStats(computed, item.stats);
     return computed;
   }
 

@@ -1,7 +1,10 @@
 import 'dart:io';
-import 'dart:async';
-import 'dragon.dart';
+import 'dart:convert';
+
 import 'package:yaml/yaml.dart';
+
+import 'dragon.dart';
+import 'mastery_pages.dart';
 
 class Duel {
   List<Mob> reds;
@@ -11,26 +14,37 @@ class Duel {
 }
 
 class DuelLoader {
-  DuelLoader(DragonData data)
-      : champs = data.champs,
-        items = data.items;
+  final DragonData dragonData;
 
-  final ChampionFactory champs;
-  final ItemFactory items;
+  DuelLoader(this.dragonData);
 
   void addMinions(List<Mob> mobs, int count, MinionType type) {
     if (count != null)
       mobs.addAll(new List.generate(count, (int) => Mob.createMinion(type)));
   }
 
+  MasteryPage loadMasteryPage(YamlMap yamlMasteries) {
+    String masteriesJson = new File(yamlMasteries['path']).readAsStringSync();
+    MasteryPageList pageList = new MasteryPageList.fromJson(
+      JSON.decode(masteriesJson),
+      dragonData.masteries,
+    );
+    return pageList.pages[yamlMasteries['page_index']];
+  }
+
   Mob loadChampion(YamlMap yamlMob) {
-    Mob mob = champs.championByName(yamlMob['name']);
+    Mob mob = dragonData.champs.championByName(yamlMob['name']);
     mob.level = yamlMob['level'] ?? 1;
     YamlList yamlItems = yamlMob['items'];
     if (yamlItems != null) {
-      yamlItems.forEach(
-          (String itemName) => mob.addItem(items.itemByName(itemName)));
+      yamlItems.forEach((String itemName) =>
+          mob.addItem(dragonData.items.itemByName(itemName)));
     }
+    YamlMap yamlMasteries = yamlMob['masteries'];
+    if (yamlMasteries != null) {
+      mob.masteryPage = loadMasteryPage(yamlMasteries);
+    }
+    mob.updateStats(); // force stats update.
     return mob;
   }
 
@@ -68,7 +82,7 @@ class DuelLoader {
     return duel;
   }
 
-  Future<Duel> duelFromYamlPath(String path) async {
-    return duelFromYaml(loadYaml(await new File(path).readAsString()));
+  Duel duelFromYamlPath(String path) {
+    return duelFromYaml(loadYaml(new File(path).readAsStringSync()));
   }
 }
