@@ -140,8 +140,14 @@ class Item {
         hideFromAll = json['hideFromAll'],
         stats = json['stats'] {
     effects = itemEffects[name];
-    if (effects == null && json['effect'] != null)
-      log.warning('$name json references effects, but no effects class found.');
+    if (effects == null && json['effect'] != null) logMissingEffects();
+  }
+
+  static Set _loggedEffects = new Set();
+  void logMissingEffects() {
+    if (_loggedEffects.contains(name)) return;
+    _loggedEffects.add(name);
+    log.warning('Item ${name} references effects but no effects class found.');
   }
 }
 
@@ -184,11 +190,16 @@ class Mastery {
     assert(rank <= description.ranks);
     MasteryEffectsConstructor effectsConstructor =
         masteryEffectsConstructors[description.name];
-    if (effectsConstructor == null)
-      log.warning(
-          'Mastery ${description.name} referenced, but no effects found.');
-    else
-      effects = effectsConstructor(rank);
+    if (effectsConstructor != null) effects = effectsConstructor(rank);
+    logMissingEffects();
+  }
+
+  static Set _loggedEffects = new Set();
+  void logMissingEffects() {
+    if (effects != null) return;
+    if (_loggedEffects.contains(description.name)) return;
+    _loggedEffects.add(description.name);
+    log.warning('Mastery ${description.name} has no defined effects.');
   }
 }
 

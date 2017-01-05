@@ -1,15 +1,20 @@
-const String FlatMovementSpeedMod = 'FlatMovementSpeedMod';
-const String FlatHPPoolMod = 'FlatHPPoolMod';
-const String FlatCritChanceMod = 'FlatCritChanceMod';
-const String FlatMagicDamageMod = 'FlatMagicDamageMod';
-const String FlatMPPoolMod = 'FlatMPPoolMod';
 const String FlatArmorMod = 'FlatArmorMod';
-const String FlatSpellBlockMod = 'FlatSpellBlockMod';
+const String FlatCritChanceMod = 'FlatCritChanceMod';
+const String FlatHPPoolMod = 'FlatHPPoolMod';
+const String FlatHPRegenMod = 'FlatHPRegenMod';
+const String FlatMagicDamageMod = 'FlatMagicDamageMod';
+const String FlatMagicDamageModPerLevel = 'rFlatMagicDamageModPerLevel';
+const String FlatMovementSpeedMod = 'FlatMovementSpeedMod';
+const String FlatMPPoolMod = 'FlatMPPoolMod';
 const String FlatPhysicalDamageMod = 'FlatPhysicalDamageMod';
+const String FlatPhysicalDamageModPerLevel = 'rFlatPhysicalDamageModPerLevel';
+const String FlatSpellBlockMod = 'FlatSpellBlockMod';
+const String PercentArmorPenetrationMod = 'rPercentArmorPenetrationMod';
 const String PercentAttackSpeedMod = 'PercentAttackSpeedMod';
 const String PercentLifeStealMod = 'PercentLifeStealMod';
-const String FlatHPRegenMod = 'FlatHPRegenMod';
+const String PercentMagicPenetrationMod = 'rPercentMagicPenetrationMod';
 const String PercentMovementSpeedMod = 'PercentMovementSpeedMod';
+const String PercentSpellVampMod = 'PercentSpellVampMod';
 
 class MasteryEffects {
   int rank;
@@ -22,6 +27,12 @@ typedef MasteryEffects MasteryEffectsConstructor(int rank);
 
 final Map<String, MasteryEffectsConstructor> masteryEffectsConstructors = {
   'Fury': (int rank) => new Fury(rank),
+  'Vampirism': (int rank) => new Vampirism(rank),
+  'Natural Talent': (int rank) => new NaturalTalent(rank),
+  'Battering Blows': (int rank) => new BatteringBlows(rank),
+  'Piercing Thoughts': (int rank) => new PiercingThoughts(rank),
+  'Recovery': (int rank) => new Recovery(rank),
+  'Veterans Scars': (int rank) => new VeteransScars(rank),
 };
 
 class Fury extends MasteryEffects {
@@ -51,13 +62,27 @@ class ExposeWeakness {
 // buff
 }
 
-class Vampirism {
-  // .4 * R lifesteal and spell vamp.
+class Vampirism extends MasteryEffects {
+  Vampirism(int rank) : super(rank);
+
+  // .4% * R lifesteal and spell vamp.
+  Map<String, num> get stats => {
+        PercentLifeStealMod: .004 * rank,
+        PercentSpellVampMod: .004 * rank,
+      };
 }
 
-class NaturalTalent {
-// Gain 0.4 * R + 0.09 * R per level Attack Damage, and 0.6 * R + 0.13 * R per level Ability Power (+2 Attack Damage and 3 Ability Power at level 18)
-// Easy item.
+class NaturalTalent extends MasteryEffects {
+  NaturalTalent(int rank) : super(rank);
+
+// Gain 0.4 * R + 0.09 * R per level Attack Damage, and
+// 0.6 * R + 0.13 * R per level Ability Power (+2 Attack Damage and 3 Ability Power at level 18)
+  Map<String, num> get stats => {
+        FlatPhysicalDamageMod: .004 * rank,
+        FlatPhysicalDamageModPerLevel: .0009 * rank,
+        FlatMagicDamageMod: .006 * rank,
+        FlatMagicDamageModPerLevel: .0013 * rank,
+      };
 }
 
 class BountyHunter {
@@ -74,22 +99,33 @@ class BattleTrance {
 // Gain up to 5% increased damage over 5 seconds when in combat with enemy Champions
 }
 
-class BatteringBlows {
+class BatteringBlows extends MasteryEffects {
+  BatteringBlows(int rank) : super(rank);
+
   // 1.4 * R percent Armor Penetration
+  Map<String, num> get stats => {
+        PercentArmorPenetrationMod: .014 * rank,
+      };
 }
 
-class PiercingThoughts {
-// +1.4 * R percent Magic Penetration
+class PiercingThoughts extends MasteryEffects {
+  PiercingThoughts(int rank) : super(rank);
+
+  // +1.4 * R percent Magic Penetration
+  Map<String, num> get stats => {
+        PercentMagicPenetrationMod: .014 * rank,
+      };
 }
 
 class WarlordsBloodlust {
-// Gain increasingly more Life Steal based on your missing health against champions (up to 20%). Against minions gain 50% benefit (25% for ranged champions).
+// Gain increasingly more Life Steal based on your missing health
+// against champions (up to 20%). Against minions gain 50% benefit (25% for ranged champions).
 }
 
 class FervorofBattle {
 // Hitting champions with basic attacks generates a Fervor stack (2 for melee attacks).
 // Stacks of Fervor last 6 seconds (max 8 stacks)and increase your AD by 1-8 for each stack.
-// onhit triggered buff
+// on-champion-hit triggered buff
 }
 
 class DeathfireTouch {
@@ -102,34 +138,36 @@ class DeathfireTouch {
 
 class Wanderer {
 // +0.6% * R percent Movement Speed out of combat
-// out of combat triggered buff?
+// on-out-of-combat triggered buff?
 }
 
 class Savagery {
-// Single target attacks and spells deal 1 * R bonus damage to minions and monsters
+  // Single target attacks and spells deal 1 * R bonus damage to minions and monsters
+  // Target-sensitive flat damage modifier.
 }
 
 class RunicAffinity {
-// Buffs from neutral monsters last 15% longer
+  // Buffs from neutral monsters last 15% longer
+  // Source-sensitive buff duration modifer.
 }
 
 class SecretStash {
-// Your Potions and Elixirs last 10% longer.
-// Your Health Potions are replaced with Biscuits that restore 15 Health and Mana instantly on use
+  // Your Potions and Elixirs last 10% longer.
+  // Your Health Potions are replaced with Biscuits that restore 15 Health and Mana instantly on use.
 }
 
 class Assassin {
-// Deal 2% increased damage to champions when no allied champions are nearby
+  // Deal 2% increased damage to champions when no allied champions are nearby
 }
 
 class Merciless {
-// Deal 1% * R percent increased damage to champions below 40% Health
-// Damage modifier
+  // Deal 1% * R percent increased damage to champions below 40% Health
+  // Damage modifier
 }
 
 class Meditation {
-// Regenerate 0.3% * R of your missing Mana every 5 seconds
-// mp5 modifer?
+  // Regenerate 0.3% * R of your missing Mana every 5 seconds
+  // percent missing mp5
 }
 
 class GreenfathersGift {
@@ -149,6 +187,7 @@ class DangerousGame {
 
 class Precision {
 // Gain 1.7 * R Lethality and 0.6 * R + 0.06 * R per level Magic Penetration
+// Easy item once I understand leathlity.
 }
 
 class Intelligence {
@@ -161,34 +200,38 @@ class StormraidersSurge {
 }
 
 class ThunderlordsDecree {
-// Your 3rd attack or damaging spell against the same enemy champion calls
-// down a lightning strike, dealing magic damage in the area.
-// Damage: 10 per level, plus 30% of your Bonus Attack Damage,
-// and 10% of your Ability Power (25-15 second cooldown, based on level).
+  // Your 3rd attack or damaging spell against the same enemy champion calls
+  // down a lightning strike, dealing magic damage in the area.
+  // Damage: 10 per level, plus 30% of your Bonus Attack Damage,
+  // and 10% of your Ability Power (25-15 second cooldown, based on level).
 }
 
 class WindspeakersBlessing {
-// Your heals and shields are 10% stronger. Additionally, your shields
-// and heals on other allies increase their armor by 5-22 (based on level)
-// and their magic resistance by half that amount for 3 seconds.
+  // Your heals and shields are 10% stronger. Additionally, your shields
+  // and heals on other allies increase their armor by 5-22 (based on level)
+  // and their magic resistance by half that amount for 3 seconds.
 }
 
-class Recovery {
-// +0.4 * R Health per 5 seconds
-// easy item.
+class Recovery extends MasteryEffects {
+  Recovery(int rank) : super(rank);
+  // +0.4 * R Health per 5 seconds
+  Map<String, num> get stats => {
+        FlatHPRegenMod: .4 * rank,
+      };
 }
 
 class Unyielding {
-// +1% Bonus Armor and Magic Resist
-// Resistances modifier?
+  // +1% Bonus Armor and Magic Resist
+  // Percent resistances modifier.
 }
 
 class Explorer {
-// +15 Movement Speed in Brush and River
+  // +15 Movement Speed in Brush and River
 }
 
 class ToughSkin {
-// You take 2 less damage from champion and neutral monster basic attacks
+  // You take 2 less damage from champion and neutral monster basic attacks
+  // Flat damage modifier.
 }
 
 class Siegemaster {
@@ -199,9 +242,12 @@ class RunicArmor {
 // Shields, healing, regeneration, and lifesteal on you are R * 1.6% stronger
 }
 
-class VeteransScars {
-// +10 * R Health
-// easy item.
+class VeteransScars extends MasteryEffects {
+  VeteransScars(int rank) : super(rank);
+  // +10 * R Health
+  Map<String, num> get stats => {
+        FlatHPPoolMod: 10 * rank,
+      };
 }
 
 class Insight {
