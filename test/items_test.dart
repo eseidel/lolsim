@@ -35,7 +35,7 @@ main() async {
     test("flat damage reduction", () {
       Mob mob = createTestMob(hp: 100.0);
       Mob champ = createTestMob(hp: 100.0, isChampion: true);
-      mob.applyHit(new Hit(attackDamage: 20.0));
+      mob.applyHit(new Hit(physicalDamage: 20.0));
       expect(mob.currentHp, 80.0);
       mob.revive();
 
@@ -44,12 +44,12 @@ main() async {
       mob.addItem(doransShield);
       mob.tick(0.0);
       expect(mob.currentHp, 180.0);
-      mob.applyHit(new Hit(attackDamage: 20.0, source: champ));
+      mob.applyHit(new Hit(physicalDamage: 20.0, source: champ));
       expect(mob.currentHp, 168.0);
-      mob.applyHit(new Hit(magicDamage: 20.0, source: champ));
+      mob.applyHit(new Hit(physicalDamage: 20.0, source: champ));
       expect(mob.currentHp, 156.0);
       mob.applyHit(
-          new Hit(attackDamage: 10.0, magicDamage: 10.0, source: champ));
+          new Hit(physicalDamage: 10.0, magicDamage: 10.0, source: champ));
       expect(mob.currentHp, 144.0);
       mob.applyHit(new Hit(trueDamage: 20.0, source: champ));
       expect(mob.currentHp, 124.0);
@@ -60,8 +60,10 @@ main() async {
       champ.addItem(doransShield);
       Mob minion = createTestMob(hp: 100.0);
       minion.addItem(doransShield);
-      expect(10.0, champ.applyHit(new Hit(attackDamage: 10.0, source: minion)));
-      expect(2.0, minion.applyHit(new Hit(attackDamage: 10.0, source: champ)));
+      expect(
+          10.0, champ.applyHit(new Hit(physicalDamage: 10.0, source: minion)));
+      expect(
+          2.0, minion.applyHit(new Hit(physicalDamage: 10.0, source: champ)));
     });
   });
 

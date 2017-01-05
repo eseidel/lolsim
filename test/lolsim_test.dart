@@ -15,7 +15,7 @@ main() async {
       expect(mob.stats.spellBlock, -30.0);
 
       expect(mob.currentHp, 1500.0);
-      mob.applyHit(new Hit(attackDamage: 100.0));
+      mob.applyHit(new Hit(physicalDamage: 100.0));
       expect(mob.currentHp, 1423.076923076923);
 
       mob.revive();

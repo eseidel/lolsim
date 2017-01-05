@@ -1,3 +1,5 @@
+import 'lolsim.dart';
+
 const String FlatArmorMod = 'FlatArmorMod';
 const String FlatCritChanceMod = 'FlatCritChanceMod';
 const String FlatHPPoolMod = 'FlatHPPoolMod';
@@ -19,6 +21,9 @@ const String PercentSpellVampMod = 'PercentSpellVampMod';
 class MasteryEffects {
   int rank;
   MasteryEffects(this.rank);
+
+  void damageDealtModifier(Hit hit, DamageRecievedDelta delta) {}
+  void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {}
 
   Map<String, num> get stats => null;
 }

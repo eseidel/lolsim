@@ -262,7 +262,7 @@ class AutoAttack extends Action {
     log.fine(
         "${world.logTime}: ${source} attacks ${target} for ${source.stats.attackDamage.toStringAsFixed(1)} damage");
     double damage = target.applyHit(new Hit(
-      attackDamage: source.stats.attackDamage,
+      physicalDamage: source.stats.attackDamage,
       source: source,
     ));
     source.lifestealFrom(damage);
@@ -271,13 +271,13 @@ class AutoAttack extends Action {
 
 class Hit {
   Hit({
-    this.attackDamage: 0.0,
+    this.physicalDamage: 0.0,
     this.magicDamage: 0.0,
     this.trueDamage: 0.0,
     this.source: null,
   });
 
-  double attackDamage = 0.0;
+  double physicalDamage = 0.0;
   double magicDamage = 0.0;
   double trueDamage = 0.0;
   Mob source = null;
@@ -580,7 +580,7 @@ class Mob {
     DamageRecieved damage = new DamageRecieved();
     damage.trueDamage = hit.trueDamage;
     // Damage Reduction -- Percentage
-    damage.physicalDamage = hit.attackDamage * delta.percentPhysical;
+    damage.physicalDamage = hit.physicalDamage * delta.percentPhysical;
     damage.magicDamage = hit.magicDamage * delta.percentMagical;
     // Damage Reduction -- Flat
     damage.physicalDamage += delta.flatPhysical;
