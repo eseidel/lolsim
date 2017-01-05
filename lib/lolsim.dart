@@ -191,7 +191,6 @@ class Mastery {
     MasteryEffectsConstructor effectsConstructor =
         masteryEffectsConstructors[description.name];
     if (effectsConstructor != null) effects = effectsConstructor(rank);
-    logMissingEffects();
   }
 
   static Set _loggedEffects = new Set();
@@ -373,6 +372,28 @@ final Map<String, dynamic> _superMinionJson = {
 
 enum MinionType { melee, caster, siege, superMinion }
 
+class DamageEntry {
+  double totalDamage = 0.0;
+  int count = 0;
+}
+
+class DamageLog {
+  Map<String, DamageEntry> entries = {};
+  void recordDamage(String source, double damage) {
+    DamageEntry entry = entries[source] ?? new DamageEntry();
+    entry.totalDamage += damage;
+    entry.count += 1;
+    entries[source] = entry;
+  }
+
+  String get summaryString {
+    String summary = "";
+    entries.forEach((name, entry) => summary +=
+        "${entry.totalDamage.toStringAsFixed(1)} damage from $name (${entry.count} instances)\n");
+    return summary;
+  }
+}
+
 class Mob {
   Team team;
   String name;
@@ -380,7 +401,7 @@ class Mob {
   String id;
   Mob lastTarget;
   List<Item> items;
-  MasteryPage masteryPage;
+  MasteryPage _masteryPage;
   final BaseStats baseStats;
   Stats stats; // updated per-tick.
   int level = 1;
@@ -388,8 +409,25 @@ class Mob {
   bool canAttack = true;
   bool alive = true;
   bool isChampion = false;
+  DamageLog damageLog = null;
 
   double get currentHp => max(0.0, stats.hp - hpLost);
+
+  bool get shouldRecordDamage => damageLog != null;
+  void set shouldRecordDamage(bool flag) {
+    if (flag == shouldRecordDamage) return;
+    if (flag)
+      damageLog = new DamageLog();
+    else
+      damageLog = null;
+  }
+
+  MasteryPage get masteryPage => _masteryPage;
+  void set masteryPage(MasteryPage newPage) {
+    _masteryPage = newPage;
+    _masteryPage.logMissingEffects();
+    updateStats();
+  }
 
   String statsSummary() {
     String summary = """  $name (lvl ${level})
@@ -565,6 +603,7 @@ class Mob {
     log.fine(
         "$this took ${damage.toStringAsFixed(1)} damage from ${hit.source}, "
         "$hpStatusString remains");
+    damageLog?.recordDamage(hit.source.toString(), damage);
     if (stats.hp <= hpLost) die();
     return damage; // This could be beyond-fatal damage.
   }
@@ -586,6 +625,7 @@ class Mob {
 
   void die() {
     log.info("DEATH: $this");
+    if (damageLog != null) log.info(damageLog.summaryString);
     // FIXME: Death could be a buff if there are rez timers.
     alive = false;
   }

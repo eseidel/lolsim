@@ -23,6 +23,7 @@ main(List<String> args) async {
   print("Red Team");
   duel.reds.forEach((mob) => print(mob.statsSummary()));
 
+  duel.allMobs.forEach((mob) => mob.shouldRecordDamage = true);
   world.addMobs(duel.allMobs);
   world.tickUntil((world) {
     bool survivingBlues = world.blues.any((Mob mob) => mob.alive);

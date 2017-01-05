@@ -44,7 +44,6 @@ class DuelLoader {
     if (yamlMasteries != null) {
       mob.masteryPage = loadMasteryPage(yamlMasteries);
     }
-    mob.updateStats(); // force stats update.
     return mob;
   }
 

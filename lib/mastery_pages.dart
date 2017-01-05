@@ -13,6 +13,10 @@ class MasteryPage {
     }).toList();
   }
 
+  void logMissingEffects() {
+    masteries.forEach((mastery) => mastery.logMissingEffects());
+  }
+
   int countForTree(MasteryTree tree) {
     return masteries.fold(
         0, (c, m) => (m.description.tree == tree) ? c + m.rank : c);
