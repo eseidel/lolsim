@@ -19,10 +19,10 @@ const String PercentMovementSpeedMod = 'PercentMovementSpeedMod';
 const String PercentSpellVampMod = 'PercentSpellVampMod';
 
 class MasteryEffects {
-  int rank;
+  final int rank;
   MasteryEffects(this.rank);
 
-  void damageDealtModifier(Hit hit, DamageRecievedDelta delta) {}
+  void damageDealtModifier(Hit hit, DamageDealtDelta delta) {}
   void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {}
 
   Map<String, num> get stats => null;
@@ -31,12 +31,16 @@ class MasteryEffects {
 typedef MasteryEffects MasteryEffectsConstructor(int rank);
 
 final Map<String, MasteryEffectsConstructor> masteryEffectsConstructors = {
-  'Fury': (int rank) => new Fury(rank),
-  'Vampirism': (int rank) => new Vampirism(rank),
-  'Natural Talent': (int rank) => new NaturalTalent(rank),
   'Battering Blows': (int rank) => new BatteringBlows(rank),
+  'Double Edged Sword': (int rank) => new DoubleEdgedSword(rank),
+  'Fury': (int rank) => new Fury(rank),
+  'Merciless': (int rank) => new Merciless(rank),
+  'Natural Talent': (int rank) => new NaturalTalent(rank),
   'Piercing Thoughts': (int rank) => new PiercingThoughts(rank),
   'Recovery': (int rank) => new Recovery(rank),
+  'Savagery': (int rank) => new Savagery(rank),
+  'Tough Skin': (int rank) => new ToughSkin(rank),
+  'Vampirism': (int rank) => new Vampirism(rank),
   'Veterans Scars': (int rank) => new VeteransScars(rank),
 };
 
@@ -54,7 +58,7 @@ class Sorcery {
 
 class FreshBlood {
 // Your first basic attack against a champion deals an additional 10 +1 per level damage (6 second cooldown)
-// damage modifer?
+// damage modifer + cooldown buff.
 }
 
 class Feast {
@@ -64,7 +68,7 @@ class Feast {
 
 class ExposeWeakness {
 // Damaging enemy champions causes them to take 3% more damage from your allies
-// buff
+// buff which applies a dmg amp.
 }
 
 class Vampirism extends MasteryEffects {
@@ -92,16 +96,28 @@ class NaturalTalent extends MasteryEffects {
 
 class BountyHunter {
 // Deal 1.5% increased damage for each unique enemy champion you have killed
-// buff
+// buff which applies a damage amp.
 }
 
-class DoubleEdgedSword {
-// Deal 5% additional damage, take 2.5% additional damage.
-// damage modifiers
+class DoubleEdgedSword extends MasteryEffects {
+  DoubleEdgedSword(int rank) : super(rank);
+  // Deal 5% additional damage, take 2.5% additional damage.
+  @override
+  void damageDealtModifier(Hit hit, DamageDealtDelta delta) {
+    delta.percentPhysical *= 1.05;
+    delta.percentMagical *= 1.05;
+  }
+
+  @override
+  void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {
+    delta.percentPhysical *= 1.025;
+    delta.percentMagical *= 1.025;
+  }
 }
 
 class BattleTrance {
-// Gain up to 5% increased damage over 5 seconds when in combat with enemy Champions
+  // Gain up to 5% increased damage over 5 seconds when in combat with enemy Champions
+  // Buff which provides damage amp, applied on combat ticks.
 }
 
 class BatteringBlows extends MasteryEffects {
@@ -123,32 +139,47 @@ class PiercingThoughts extends MasteryEffects {
 }
 
 class WarlordsBloodlust {
-// Gain increasingly more Life Steal based on your missing health
-// against champions (up to 20%). Against minions gain 50% benefit (25% for ranged champions).
+  // Gain increasingly more Life Steal based on your missing health
+  // against champions (up to 20%). Against minions gain 50% benefit (25% for ranged champions).
+  // Non-linear curve (need to work it out).
+  // hp-sensitive stat boost.
 }
 
 class FervorofBattle {
-// Hitting champions with basic attacks generates a Fervor stack (2 for melee attacks).
-// Stacks of Fervor last 6 seconds (max 8 stacks)and increase your AD by 1-8 for each stack.
-// on-champion-hit triggered buff
+  // Hitting champions with basic attacks generates a Fervor stack (2 for melee attacks).
+  // Stacks of Fervor last 6 seconds (max 8 stacks) and increase your AD by 1-8 for each stack.
+  // on-champion-hit triggered buff
 }
 
 class DeathfireTouch {
-// Your damaging abilities cause enemy champions to take magic damage over 4 seconds.
-// Damage: 8 + 60% Bonus Attack Damage and 25% Ability Power
-// Deathfire Touch's duration is reduced for:
-// - Area of Effect: 2 second duration.
-// - Damage over Time: 1 second duration.
+  // Your damaging abilities cause enemy champions to take magic damage over 4 seconds.
+  // Damage: 8 + 60% Bonus Attack Damage and 25% Ability Power
+  // Deathfire Touch's duration is reduced for:
+  // - Area of Effect: 2 second duration.
+  // - Damage over Time: 1 second duration.
+  // On-ability-Hit buff.
 }
 
 class Wanderer {
-// +0.6% * R percent Movement Speed out of combat
-// on-out-of-combat triggered buff?
+  // +0.6% * R percent Movement Speed out of combat
+  // on-out-of-combat triggered buff?
 }
 
-class Savagery {
+class Savagery extends MasteryEffects {
+  Savagery(int rank) : super(rank);
+
   // Single target attacks and spells deal 1 * R bonus damage to minions and monsters
-  // Target-sensitive flat damage modifier.
+  @override
+  void damageDealtModifier(Hit hit, DamageDealtDelta delta) {
+    MobType targetType = hit.target.type;
+    if (targetType != MobType.minion && targetType != MobType.monster) return;
+    // FIXME: Need to check for single-target-ness.
+    // Unclear if this preference to magic dmg is correct, lolwiki has no guidance.
+    if (hit.magicDamage > 0)
+      delta.flatMagical += rank;
+    else
+      delta.flatPhysical += rank;
+  }
 }
 
 class RunicAffinity {
@@ -162,12 +193,21 @@ class SecretStash {
 }
 
 class Assassin {
-  // Deal 2% increased damage to champions when no allied champions are nearby
+  // Deal 2% increased damage to champions when no allied champions (800u) are nearby
+  // Need a way to detect nearby, then simple dmg amp.
 }
 
-class Merciless {
+class Merciless extends MasteryEffects {
+  Merciless(int rank) : super(rank);
+
   // Deal 1% * R percent increased damage to champions below 40% Health
-  // Damage modifier
+  @override
+  void damageDealtModifier(Hit hit, DamageDealtDelta delta) {
+    if (hit.target.healthPercent >= 0.4) return;
+    double damageAmp = 1.0 + (0.01 * rank);
+    delta.percentPhysical *= damageAmp;
+    delta.percentMagical *= damageAmp;
+  }
 }
 
 class Meditation {
@@ -182,26 +222,28 @@ class GreenfathersGift {
 }
 
 class Bandit {
-// Gain 1 gold for each nearby minion killed by an ally.
-// Gain 3 gold (10 if melee) when hitting an enemy champion with a basic attack (5 second cooldown)
+  // Gain 1 gold for each nearby minion killed by an ally.
+  // Gain 3 gold (10 if melee) when hitting an enemy champion with a basic attack (5 second cooldown)
+  // On nearby-death, and on-hit action.
 }
 
 class DangerousGame {
-// Champion kills and assists restore 5% of your missing Health and Mana
+  // Champion kills and assists restore 5% of your missing Health and Mana
+  // on-kill or on-assist trigger.
 }
 
 class Precision {
-// Gain 1.7 * R Lethality and 0.6 * R + 0.06 * R per level Magic Penetration
-// Easy item once I understand leathlity.
+  // Gain 1.7 * R Lethality and 0.6 * R + 0.06 * R per level Magic Penetration
+  // Easy item once I understand leathlity.
 }
 
 class Intelligence {
-// Your Cooldown Reduction cap is increased by 1% * R and you gain 1% * R Cooldown Reduction
+  // Your Cooldown Reduction cap is increased by 1% * R and you gain 1% * R Cooldown Reduction
 }
 
 class StormraidersSurge {
-// Dealing 30% of a champion's max Health within 2.5 seconds grants you
-// 40% Movement Speed and 75% Slow Resistance for 3 seconds (10 second cooldown).
+  // Dealing 30% of a champion's max Health within 2.5 seconds grants you
+  // 40% Movement Speed and 75% Slow Resistance for 3 seconds (10 second cooldown).
 }
 
 class ThunderlordsDecree {
@@ -227,24 +269,33 @@ class Recovery extends MasteryEffects {
 
 class Unyielding {
   // +1% Bonus Armor and Magic Resist
-  // Percent resistances modifier.
+  // Stat modifier (percent resistances).
 }
 
 class Explorer {
   // +15 Movement Speed in Brush and River
+  // Location sensitive stat modifier.
 }
 
-class ToughSkin {
+class ToughSkin extends MasteryEffects {
+  ToughSkin(int rank) : super(rank);
   // You take 2 less damage from champion and neutral monster basic attacks
-  // Flat damage modifier.
+  @override
+  void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {
+    // FIXME: This should only apply to basic attacks.
+    MobType sourceType = hit.source.type;
+    if (sourceType == MobType.champion || sourceType == MobType.monster)
+      delta.flatPhysical -= 2;
+  }
 }
 
 class Siegemaster {
-// Gain 8 Armor and Magic Resistance when near an allied tower
+  // Gain 8 Armor and Magic Resistance when near an allied tower
+  // Location sensitive stat modifier.
 }
 
 class RunicArmor {
-// Shields, healing, regeneration, and lifesteal on you are R * 1.6% stronger
+  // Shields, healing, regeneration, and lifesteal on you are R * 1.6% stronger
 }
 
 class VeteransScars extends MasteryEffects {
@@ -256,44 +307,46 @@ class VeteransScars extends MasteryEffects {
 }
 
 class Insight {
-// Reduces the cooldown of Summoner Spells by 15%
+  // Reduces the cooldown of Summoner Spells by 15%
+  // Source-specific CDR modifier.
 }
 
 class Perseverance {
-// +50% Base Health Regen, increased to +200% when below 25% Health
-// health-triggered buff, hp5 modifier?
+  // +50% Base Health Regen, increased to +200% when below 25% Health
+  // health-triggered buff, hp5 modifier?
 }
 
 class Fearless {
-// Gain 10% +2 per level bonus Armor and Magic Resist when damaged
-// by an enemy champion for 2 seconds (9s Cooldown)
-// onhit tirggered buff?
+  // Gain 10% +2 per level bonus Armor and Magic Resist when damaged
+  // by an enemy champion for 2 seconds (9s Cooldown)
+  // onhit tirggered buff?
 }
 
 class Swiftness {
-// +R * 3% Tenacity and Slow Resist
+  // +R * 3% Tenacity and Slow Resist
 }
 
 class LegendaryGuardian {
-// +R * 0.6 Armor and Magic Resist for each nearby enemy champion
-// Context-sensitve resistances modifer.
+  // +R * 0.6 Armor and Magic Resist for each nearby enemy champion
+  // Context-sensitve resistances modifer.
 }
 
 class GraspoftheUndying {
-// Every 4 seconds in combat, your next attack against an enemy
-// champion deals damage equal to 3% of your max Health and heals
-// you for 1.5% of your max Health (halved for ranged champions, deals magic damage)
+  // Every 4 seconds in combat, your next attack against an enemy
+  // champion deals damage equal to 3% of your max Health and heals
+  // you for 1.5% of your max Health (halved for ranged champions, deals magic damage)
+  // on-combat-tick buff which applies on-attack effect?
 }
 
 class CourageoftheColossus {
-// Gain a shield for 10 +10 per level + 5%  of your maximum health for
-// each nearby enemy champion for 4 seconds after hitting an enemy champion
-// with a stun, taunt, snare, or knock up(45 - 30 second cooldown based on level).
+  // Gain a shield for 10 +10 per level + 5%  of your maximum health for
+  // each nearby enemy champion for 4 seconds after hitting an enemy champion
+  // with a stun, taunt, snare, or knock up(45 - 30 second cooldown based on level).
 }
 
 class BondofStone {
-// +4% Damage Reduction. 6% of the damage from enemy champions taken by the
-// nearest allied champion is dealt to you instead. Damage is not redirected
-// if you are below 5% of your maximum health.
-// Damage modifier, as well as buff to nearby champ?
+  // +4% Damage Reduction. 6% of the damage from enemy champions taken by the
+  // nearest allied champion is dealt to you instead. Damage is not redirected
+  // if you are below 5% of your maximum health.
+  // Damage modifier, as well as buff to nearby champ?
 }

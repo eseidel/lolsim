@@ -34,7 +34,7 @@ main() async {
   group("Doran's Shield", () {
     test("flat damage reduction", () {
       Mob mob = createTestMob(hp: 100.0);
-      Mob champ = createTestMob(hp: 100.0, isChampion: true);
+      Mob champ = createTestMob(hp: 100.0, type: MobType.champion);
       mob.applyHit(new Hit(physicalDamage: 20.0));
       expect(mob.currentHp, 80.0);
       mob.revive();
@@ -42,7 +42,6 @@ main() async {
       Item doransShield = itemNamed("Doran's Shield");
       expect(doransShield.effects, isNotNull);
       mob.addItem(doransShield);
-      mob.tick(0.0);
       expect(mob.currentHp, 180.0);
       mob.applyHit(new Hit(physicalDamage: 20.0, source: champ));
       expect(mob.currentHp, 168.0);
@@ -56,7 +55,7 @@ main() async {
     });
     test("passive only applies to champion sources", () {
       Item doransShield = itemNamed("Doran's Shield");
-      Mob champ = createTestMob(hp: 100.0, isChampion: true);
+      Mob champ = createTestMob(hp: 100.0, type: MobType.champion);
       champ.addItem(doransShield);
       Mob minion = createTestMob(hp: 100.0);
       minion.addItem(doransShield);
@@ -64,6 +63,19 @@ main() async {
           10.0, champ.applyHit(new Hit(physicalDamage: 10.0, source: minion)));
       expect(
           2.0, minion.applyHit(new Hit(physicalDamage: 10.0, source: champ)));
+    });
+    test("reduction cannot go negative", () {
+      Item doransShield = itemNamed("Doran's Shield");
+      Mob attacker = createTestMob(hp: 100.0, type: MobType.champion);
+      Mob defender = createTestMob(hp: 100.0);
+      defender.addItem(doransShield);
+      expect(180.0, defender.currentHp);
+      expect(12.0,
+          defender.applyHit(new Hit(physicalDamage: 20.0, source: attacker)));
+      expect(168.0, defender.currentHp);
+      expect(0.0,
+          defender.applyHit(new Hit(physicalDamage: 1.0, source: attacker)));
+      expect(168.0, defender.currentHp);
     });
   });
 
@@ -74,7 +86,6 @@ main() async {
       Mob withArmor = createTestMob(hp: 1000.0, armor: 100.0);
 
       attacker.addItem(itemNamed("Doran's Blade"));
-      attacker.tick(0.0);
 
       // Get attacker below full health so it can heal:
       expect(attacker.currentHp, 180.0);

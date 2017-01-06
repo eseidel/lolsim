@@ -16,13 +16,14 @@ class ItemFactory {
 
   List<Item> allItems() {
     if (_allItemsCache == null) {
-      _allItemsCache = _json['data']
-          .keys
-          .map((String itemId) => new Item.fromJSON(
-                id: itemId,
-                json: _json['data'][itemId] as Map<String, dynamic>,
-              ))
-          .toList();
+      _allItemsCache = new List.unmodifiable(
+        _json['data'].keys.map(
+              (String itemId) => new Item.fromJSON(
+                    id: itemId,
+                    json: _json['data'][itemId] as Map<String, dynamic>,
+                  ),
+            ),
+      );
     }
     return _allItemsCache;
   }
@@ -42,11 +43,27 @@ class MasteryLibrary {
 
   MasteryLibrary(Map<String, Map<String, dynamic>> json) : _json = json;
 
-  Iterable<MasteryDescription> allMasteries() {
-    return _json['data'].values.map(
-          (mastery) =>
-              new MasteryDescription.fromJSON(mastery as Map<String, dynamic>),
-        );
+  static List<MasteryDescription> _allMasteriesCache = null;
+
+  List<MasteryDescription> allMasteries() {
+    if (_allMasteriesCache == null) {
+      _allMasteriesCache = new List.unmodifiable(
+        _json['data'].values.map(
+              (mastery) => new MasteryDescription.fromJSON(
+                  mastery as Map<String, dynamic>),
+            ),
+      );
+    }
+    return _allMasteriesCache;
+  }
+
+  MasteryDescription masteryByName(String name) {
+    try {
+      return allMasteries().firstWhere((mastery) => mastery.name == name);
+    } catch (e) {
+      log.severe("No mastery maching $name");
+      return null;
+    }
   }
 
   MasteryDescription masteryById(int id) {
@@ -69,7 +86,7 @@ class ChampionFactory {
     return _json['data'].values.map(
           (champ) => new Mob.fromJSON(
                 champ as Map<String, dynamic>,
-                isChampion: true,
+                MobType.champion,
               ),
         );
   }
@@ -80,7 +97,7 @@ class ChampionFactory {
       log.severe("No champion matching $name.");
       return null;
     }
-    return new Mob.fromJSON(json, isChampion: true);
+    return new Mob.fromJSON(json, MobType.champion);
   }
 }
 

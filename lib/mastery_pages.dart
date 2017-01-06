@@ -5,6 +5,8 @@ class MasteryPage {
   String name;
   List<Mastery> masteries;
 
+  MasteryPage({this.name, this.masteries});
+
   MasteryPage.fromJson(Map<String, dynamic> json, MasteryLibrary library)
       : name = json['name'] {
     masteries = json['masteries'].map((mastery) {

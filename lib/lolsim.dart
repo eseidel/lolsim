@@ -3,6 +3,7 @@ import 'package:logging/logging.dart';
 import 'items.dart';
 import 'mastery_pages.dart';
 import 'masteries.dart';
+import 'package:meta/meta.dart';
 
 final Logger log = new Logger('LOL');
 
@@ -94,7 +95,8 @@ class Maps {
   static String CURRENT_HOWLING_ABYSS = "12";
 }
 
-typedef DamageRecievedModifier(Hit, DamageRecievedDelta);
+typedef DamageDealtModifier(Hit hit, DamageDealtModifier);
+typedef DamageRecievedModifier(Hit hit, DamageRecievedDelta);
 
 abstract class ItemEffects {
   damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {}
@@ -261,9 +263,9 @@ class AutoAttack extends Action {
         .add(new AutoAttackCooldown(source, source.stats.attackDuration));
     log.fine(
         "${world.logTime}: ${source} attacks ${target} for ${source.stats.attackDamage.toStringAsFixed(1)} damage");
-    double damage = target.applyHit(new Hit(
+    double damage = target.applyHit(source.createHitForTarget(
+      target: target,
       physicalDamage: source.stats.attackDamage,
-      source: source,
     ));
     source.lifestealFrom(damage);
   }
@@ -275,12 +277,14 @@ class Hit {
     this.magicDamage: 0.0,
     this.trueDamage: 0.0,
     this.source: null,
+    this.target: null,
   });
 
   double physicalDamage = 0.0;
   double magicDamage = 0.0;
   double trueDamage = 0.0;
   Mob source = null;
+  Mob target = null;
 }
 
 enum Team {
@@ -298,9 +302,17 @@ class DamageRecieved {
   double trueDamage = 0.0;
 }
 
+// Possibly could share class with DamageRecievedDelta.
+class DamageDealtDelta {
+  double percentPhysical = 1.0;
+  double percentMagical = 1.0;
+  double flatPhysical = 0.0;
+  double flatMagical = 0.0;
+}
+
 class DamageRecievedDelta {
-  double percentPhysical = 0.0;
-  double percentMagical = 0.0;
+  double percentPhysical = 1.0;
+  double percentMagical = 1.0;
   double flatPhysical = 0.0;
   double flatMagical = 0.0;
   double flatCombined = 0.0;
@@ -394,6 +406,12 @@ class DamageLog {
   }
 }
 
+enum MobType {
+  champion,
+  minion,
+  monster,
+}
+
 class Mob {
   Team team;
   String name;
@@ -408,10 +426,11 @@ class Mob {
   double hpLost = 0.0;
   bool canAttack = true;
   bool alive = true;
-  bool isChampion = false;
+  MobType type;
   DamageLog damageLog = null;
 
   double get currentHp => max(0.0, stats.hp - hpLost);
+  double get healthPercent => currentHp / stats.hp;
 
   bool get shouldRecordDamage => damageLog != null;
   void set shouldRecordDamage(bool flag) {
@@ -444,23 +463,24 @@ class Mob {
   static Mob createMinion(MinionType type) {
     switch (type) {
       case MinionType.melee:
-        return new Mob.fromJSON(_meleeMinionJson);
+        return new Mob.fromJSON(_meleeMinionJson, MobType.minion);
       case MinionType.caster:
-        return new Mob.fromJSON(_rangedMinionJson);
+        return new Mob.fromJSON(_rangedMinionJson, MobType.minion);
       case MinionType.siege:
-        return new Mob.fromJSON(_siegeMinionJson);
+        return new Mob.fromJSON(_siegeMinionJson, MobType.minion);
       case MinionType.superMinion:
-        return new Mob.fromJSON(_superMinionJson);
+        return new Mob.fromJSON(_superMinionJson, MobType.minion);
     }
     assert(false);
     return null;
   }
 
-  Mob.fromJSON(Map<String, dynamic> json, {this.isChampion: false})
+  Mob.fromJSON(Map<String, dynamic> json, MobType type)
       : baseStats = new BaseStats.fromJSON(json['stats']) {
     id = json['id'];
     name = json['name'];
     title = json['title'];
+    type = type;
     items = [];
     updateStats();
     revive();
@@ -545,16 +565,61 @@ class Mob {
     return actions;
   }
 
-  double resistanceMultiplier(double resistance) {
+  List<DamageDealtModifier> collectDamageDealtModifiers() {
+    List<DamageDealtModifier> modifiers = [];
+    if (masteryPage != null) {
+      for (Mastery mastery in masteryPage.masteries) {
+        if (mastery.effects != null)
+          modifiers.add(mastery.effects.damageDealtModifier);
+      }
+    }
+    return modifiers;
+  }
+
+  DamageDealtDelta computeDamageDealtDelta(Hit hit) {
+    List<DamageDealtModifier> modifiers = collectDamageDealtModifiers();
+    DamageDealtDelta delta = new DamageDealtDelta();
+    modifiers.forEach((modifier) => modifier(hit, delta));
+    return delta;
+  }
+
+  Hit createHitForTarget(
+      {@required Mob target,
+      double physicalDamage: 0.0,
+      double magicDamage: 0.0,
+      double trueDamage: 0.0}) {
+    Hit hit = new Hit(
+      source: this,
+      target: target,
+      physicalDamage: physicalDamage,
+      magicDamage: magicDamage,
+      trueDamage: trueDamage,
+    );
+
+    DamageDealtDelta delta = computeDamageDealtDelta(hit);
+    // Damage Amplification -- Percentage
+    hit.physicalDamage *= delta.percentPhysical;
+    hit.magicDamage *= delta.percentMagical;
+    // Damage Amplification -- Flat
+    // It is not clear if flat amp is before or after precentage, however
+    // The few cases I've seen (savagery and gp barrels) appear to be after.
+    hit.physicalDamage += delta.flatPhysical;
+    hit.magicDamage += delta.flatMagical;
+    // Most damage amps appear to explicitly exclude true dmg, including
+    // double edged sword, assasin, etc.
+    return hit;
+  }
+
+  double _resistanceMultiplier(double resistance) {
     if (resistance > 0) return 100 / (100 + resistance);
     return 2 - (100 / (100 - resistance));
   }
 
-  List<DamageRecievedModifier> collectDamageModifiers() {
+  List<DamageRecievedModifier> collectDamageRecievedModifiers() {
     List<DamageRecievedModifier> modifiers = [
       (hit, delta) {
-        delta.percentPhysical = resistanceMultiplier(stats.armor);
-        delta.percentMagical = resistanceMultiplier(stats.spellBlock);
+        delta.percentPhysical *= _resistanceMultiplier(stats.armor);
+        delta.percentMagical *= _resistanceMultiplier(stats.spellBlock);
       }
     ];
     // Do I need to cache these?
@@ -562,11 +627,17 @@ class Mob {
       if (item.effects != null)
         modifiers.add(item.effects.damageRecievedModifier);
     }
+    if (masteryPage != null) {
+      for (Mastery mastery in masteryPage.masteries) {
+        if (mastery.effects != null)
+          modifiers.add(mastery.effects.damageRecievedModifier);
+      }
+    }
     return modifiers;
   }
 
   DamageRecievedDelta computeDamageRecievedDelta(Hit hit) {
-    List<DamageRecievedModifier> modifiers = collectDamageModifiers();
+    List<DamageRecievedModifier> modifiers = collectDamageRecievedModifiers();
     DamageRecievedDelta delta = new DamageRecievedDelta();
     modifiers.forEach((modifier) => modifier(hit, delta));
     return delta;
@@ -593,7 +664,7 @@ class Mob {
   }
 
   String get hpStatusString {
-    int percent = (currentHp / stats.hp * 100).round();
+    int percent = (healthPercent * 100).round();
     return "$percent% (${currentHp.toStringAsFixed(1)} / ${stats.hp.round()})";
   }
 
