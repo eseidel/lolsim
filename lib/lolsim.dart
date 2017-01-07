@@ -113,7 +113,8 @@ class Rune {
   }
 
   static Set _loggedRuneNames = new Set();
-  void logMissingStats() {
+  void logIfMissingStats() {
+    if (stats.isNotEmpty) return;
     if (_loggedRuneNames.contains(name)) return;
     _loggedRuneNames.add(name);
     log.warning('Rune ${name} has no stats!');
@@ -125,7 +126,7 @@ class Rune {
         name = json['name'],
         stats = json['stats'] {
     assert(json['rune']['isrune'] == true);
-    if (stats.isEmpty) logMissingStats();
+    logIfMissingStats();
   }
 }
 
@@ -174,6 +175,7 @@ class Item {
 
   static Set _loggedEffects = new Set();
   void logMissingEffects() {
+    // Note this one does not check if missing, unlike Rune or Mastery's version.
     if (_loggedEffects.contains(name)) return;
     _loggedEffects.add(name);
     log.warning('Item ${name} references effects but no effects class found.');
@@ -223,7 +225,7 @@ class Mastery {
   }
 
   static Set _loggedEffects = new Set();
-  void logMissingEffects() {
+  void logIfMissingEffects() {
     if (effects != null) return;
     if (_loggedEffects.contains(description.name)) return;
     _loggedEffects.add(description.name);
@@ -472,14 +474,14 @@ class Mob {
   MasteryPage get masteryPage => _masteryPage;
   void set masteryPage(MasteryPage newPage) {
     _masteryPage = newPage;
-    _masteryPage.logMissingEffects();
+    _masteryPage.logAnyMissingEffects();
     updateStats();
   }
 
   RunePage get runePage => _runePage;
   void set runePage(RunePage newPage) {
     _runePage = newPage;
-    _runePage.logMissingStats();
+    _runePage.logAnyMissingStats();
     updateStats();
   }
 
@@ -489,7 +491,7 @@ class Mob {
     AD : ${stats.attackDamage.round()}  AP : ${stats.abilityPower.round()}
     AR : ${stats.armor.round()}  MR : ${stats.spellBlock.round()}
     AS : ${stats.attackSpeed.toStringAsFixed(3)}\n""";
-    if (runePage != null) summary += '    Runes: ${runePage}\n';
+    if (runePage != null) summary += '    Runes: ${runePage.summaryString}\n';
     if (masteryPage != null) summary += '    Masteries: ${masteryPage}\n';
     if (items.isNotEmpty) summary += '    Items: ${items}\n';
     return summary;

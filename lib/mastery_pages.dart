@@ -15,8 +15,8 @@ class MasteryPage {
     }).toList();
   }
 
-  void logMissingEffects() {
-    masteries.forEach((mastery) => mastery.logMissingEffects());
+  void logAnyMissingEffects() {
+    masteries.forEach((mastery) => mastery.logIfMissingEffects());
   }
 
   int countForTree(MasteryTree tree) {

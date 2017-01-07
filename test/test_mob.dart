@@ -15,11 +15,11 @@ Mob createTestMob({
   mob.baseStats.armor = armor;
   mob.type = type;
   if (masteries.isNotEmpty) {
-    masteries.forEach((mastery) => mastery.logMissingEffects());
     mob.masteryPage = new MasteryPage(
       name: 'Test Page',
       masteries: masteries,
     );
+    mob.masteryPage.logAnyMissingEffects();
   }
   mob.updateStats();
   return mob;
