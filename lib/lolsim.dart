@@ -106,7 +106,8 @@ abstract class ItemEffects {
 class Rune {
   final String name;
   final int id;
-  final Map<String, num> stats;
+  String statName;
+  double statValue;
 
   String toString() {
     return "${name}";
@@ -114,7 +115,7 @@ class Rune {
 
   static Set _loggedRuneNames = new Set();
   void logIfMissingStats() {
-    if (stats.isNotEmpty) return;
+    if (statName != null) return;
     if (_loggedRuneNames.contains(name)) return;
     _loggedRuneNames.add(name);
     log.warning('Rune ${name} has no stats!');
@@ -123,9 +124,13 @@ class Rune {
   // FIXME: Should use items['basic'] for defaults.
   Rune.fromJSON({Map<String, dynamic> json, int id})
       : id = id,
-        name = json['name'],
-        stats = json['stats'] {
+        name = json['name'] {
     assert(json['rune']['isrune'] == true);
+    Map<String, num> stats = json['stats'];
+    if (stats.length == 1) {
+      statName = stats.keys.first;
+      statValue = stats.values.first;
+    }
     logIfMissingStats();
   }
 }
@@ -570,8 +575,7 @@ class Mob {
 
   Stats computeStats() {
     Stats computed = baseStats.statsForLevel(level);
-    if (runePage != null)
-      for (Rune rune in runePage.runes) applyStats(computed, rune.stats);
+    if (runePage != null) applyStats(computed, runePage.collectStats());
     if (masteryPage != null) {
       for (Mastery mastery in masteryPage.masteries) {
         if (mastery?.effects?.stats != null) {

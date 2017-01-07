@@ -1,37 +1,18 @@
 import 'lolsim.dart';
 import 'dragon.dart';
-import 'stat_constants.dart';
 
-typedef double _Combiner(double a, double b);
-double _Add(double a, double b) => a + b;
-double _Multiply(double a, double b) => a * b;
+// typedef double _Combiner(double a, double b);
+// double _Add(double a, double b) => a + b;
+// double _Multiply(double a, double b) => a * b;
 
-class StatCollector {
-  Map<String, double> combined = {};
-
-  final Map<String, _Combiner> _combiners = {
-    FlatArmorMod: _Add,
-    PercentSpellVampMod: _Multiply,
-    FlatPhysicalDamageMod: _Add,
-    FlatArmorModPerLevel: _Add,
-    FlatSpellBlockModPerLevel: _Add,
-  };
-
-  void add(Map<String, num> stats) {
-    stats.forEach((key, value) {
-      double current = combined[key];
-      if (current == null) {
-        combined[key] = value;
-        return;
-      }
-      _Combiner combiner = _combiners[key];
-      if (combiner == null)
-        print("missing $key");
-      else
-        combined[key] = combiner(current, value);
-    });
-  }
-}
+// final Map<String, _Combiner> _combiners = {
+//   FlatArmorMod: _Add,
+//   PercentSpellVampMod: _Multiply,
+//   FlatPhysicalDamageMod: _Add,
+//   FlatArmorModPerLevel: _Add,
+//   FlatSpellBlockModPerLevel: _Add,
+//   PercentCooldownMod: _Add,
+// };
 
 class RunePage {
   String name;
@@ -49,11 +30,22 @@ class RunePage {
     runes.forEach((rune) => rune.logIfMissingStats());
   }
 
+  Map<String, double> collectStats() {
+    Map<String, double> stats = {};
+    runes.forEach((rune) {
+      if (rune.statName == null) return;
+      double current = stats[rune.statName];
+      if (current == null)
+        stats[rune.statName] = rune.statValue;
+      else
+        stats[rune.statName] = current + rune.statValue;
+    });
+    return stats;
+  }
+
   String get summaryString {
     String summary = "$name\n";
-    StatCollector collector = new StatCollector();
-    runes.forEach((rune) => collector.add(rune.stats));
-    collector.combined.forEach(
+    collectStats().forEach(
         (key, value) => summary += '$key : ${value.toStringAsFixed(3)}\n');
     return summary;
   }

@@ -17,3 +17,4 @@ const String PercentMovementSpeedMod = 'PercentMovementSpeedMod';
 const String PercentSpellVampMod = 'PercentSpellVampMod';
 const String FlatArmorModPerLevel = 'rFlatArmorModPerLevel';
 const String FlatSpellBlockModPerLevel = 'rFlatSpellBlockModPerLevel';
+const String PercentCooldownMod = 'rPercentCooldownMod';
