@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:logging/logging.dart';
 import 'items.dart';
 import 'mastery_pages.dart';
+import 'rune_pages.dart';
 import 'masteries.dart';
 import 'package:meta/meta.dart';
 
@@ -446,6 +447,7 @@ class Mob {
   Mob lastTarget;
   List<Item> items;
   MasteryPage _masteryPage;
+  RunePage _runePage;
   final BaseStats baseStats;
   Stats stats; // updated per-tick.
   int level = 1;
@@ -474,15 +476,22 @@ class Mob {
     updateStats();
   }
 
+  RunePage get runePage => _runePage;
+  void set runePage(RunePage newPage) {
+    _runePage = newPage;
+    _runePage.logMissingStats();
+    updateStats();
+  }
+
   String statsSummary() {
     String summary = """  $name (lvl ${level})
     HP : ${currentHp} / ${stats.hp}
     AD : ${stats.attackDamage.round()}  AP : ${stats.abilityPower.round()}
     AR : ${stats.armor.round()}  MR : ${stats.spellBlock.round()}
-    AS : ${stats.attackSpeed.toStringAsFixed(3)}
-    """;
-    if (masteryPage != null) summary += 'Masteries: ${masteryPage}\n';
-    if (items.isNotEmpty) summary += 'Items: ${items}\n';
+    AS : ${stats.attackSpeed.toStringAsFixed(3)}\n""";
+    if (runePage != null) summary += '    Runes: ${runePage}\n';
+    if (masteryPage != null) summary += '    Masteries: ${masteryPage}\n';
+    if (items.isNotEmpty) summary += '    Items: ${items}\n';
     return summary;
   }
 
@@ -559,6 +568,8 @@ class Mob {
 
   Stats computeStats() {
     Stats computed = baseStats.statsForLevel(level);
+    if (runePage != null)
+      for (Rune rune in runePage.runes) applyStats(computed, rune.stats);
     if (masteryPage != null) {
       for (Mastery mastery in masteryPage.masteries) {
         if (mastery?.effects?.stats != null) {

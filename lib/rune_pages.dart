@@ -13,6 +13,10 @@ class RunePage {
         json['slots'].map((rune) => library.runeById(rune['runeId'])).toList();
   }
 
+  void logMissingStats() {
+    runes.forEach((rune) => rune.logMissingStats());
+  }
+
   String toString() {
     return "$name";
   }

@@ -5,6 +5,7 @@ import 'package:yaml/yaml.dart';
 
 import 'dragon.dart';
 import 'mastery_pages.dart';
+import 'rune_pages.dart';
 
 class Duel {
   List<Mob> reds;
@@ -32,6 +33,15 @@ class DuelLoader {
     return pageList.pages[yamlMasteries['page_index']];
   }
 
+  RunePage loadRunePage(YamlMap yamlRunes) {
+    String runesJson = new File(yamlRunes['path']).readAsStringSync();
+    RunePageList pageList = new RunePageList.fromJson(
+      JSON.decode(runesJson),
+      dragonData.runes,
+    );
+    return pageList.pages[yamlRunes['page_index']];
+  }
+
   Mob loadChampion(YamlMap yamlMob) {
     Mob mob = dragonData.champs.championByName(yamlMob['name']);
     mob.level = yamlMob['level'] ?? 1;
@@ -43,6 +53,10 @@ class DuelLoader {
     YamlMap yamlMasteries = yamlMob['masteries'];
     if (yamlMasteries != null) {
       mob.masteryPage = loadMasteryPage(yamlMasteries);
+    }
+    YamlMap yamlRunes = yamlMob['runes'];
+    if (yamlRunes != null) {
+      mob.runePage = loadRunePage(yamlRunes);
     }
     return mob;
   }
