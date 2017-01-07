@@ -102,6 +102,24 @@ abstract class ItemEffects {
   damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {}
 }
 
+class Rune {
+  final String name;
+  final int id;
+  final Map<String, num> stats;
+
+  String toString() {
+    return "${name}";
+  }
+
+  // FIXME: Should use items['basic'] for defaults.
+  Rune.fromJSON({Map<String, dynamic> json, int id})
+      : id = id,
+        name = json['name'],
+        stats = json['stats'] {
+    assert(json['rune']['isrune'] == true);
+  }
+}
+
 class Item {
   final String name;
   final String id;

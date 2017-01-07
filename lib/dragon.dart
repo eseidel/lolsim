@@ -38,6 +38,32 @@ class ItemFactory {
   }
 }
 
+// This could share code with ItemFactory?
+class RuneFactory {
+  Map<String, Map<String, dynamic>> _json;
+
+  RuneFactory(Map<String, Map<String, dynamic>> json) : _json = json;
+
+  List<Item> allRunes() {
+    return _json['data']
+        .keys
+        .map(
+          (String runeId) => new Item.fromJSON(
+                id: runeId,
+                json: _json['data'][runeId] as Map<String, dynamic>,
+              ),
+        )
+        .toList();
+  }
+
+  Rune runeById(int id) {
+    return new Rune.fromJSON(
+      id: id,
+      json: _json['data'][id.toString()],
+    );
+  }
+}
+
 class MasteryLibrary {
   Map<String, Map<String, dynamic>> _json;
 
@@ -111,10 +137,13 @@ Future<DragonData> loadDragonData(String dataDir, StringReader reader) async {
   String championString = await reader(dataDir + '/champion.json');
   String itemString = await reader(dataDir + '/item.json');
   String masteryString = await reader(dataDir + '/mastery.json');
+  String runeString = await reader(dataDir + '/rune.json');
+
   return new DragonData(
     new ChampionFactory(JSON.decode(championString)),
     new ItemFactory(JSON.decode(itemString)),
     new MasteryLibrary(JSON.decode(masteryString)),
+    new RuneFactory(JSON.decode(runeString)),
   );
 }
 
@@ -122,8 +151,9 @@ class DragonData {
   final ChampionFactory champs;
   final ItemFactory items;
   final MasteryLibrary masteries;
+  final RuneFactory runes;
 
-  DragonData(this.champs, this.items, this.masteries);
+  DragonData(this.champs, this.items, this.masteries, this.runes);
 
   static Future<DragonData> loadLatest({StringReader reader = _ioReader}) {
     return loadDragonData(DATA_DIR, reader);

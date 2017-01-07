@@ -57,18 +57,18 @@ class Sorcery {
 }
 
 class FreshBlood {
-// Your first basic attack against a champion deals an additional 10 +1 per level damage (6 second cooldown)
-// damage modifer + cooldown buff.
+  // Your first basic attack against a champion deals an additional 10 +1 per level damage (6 second cooldown)
+  // damage modifer + cooldown buff.
 }
 
 class Feast {
-// Killing a unit restores 20 Health (30 second cooldown)
-// onKill hook.
+  // Killing a unit restores 20 Health (30 second cooldown)
+  // onKill hook.
 }
 
 class ExposeWeakness {
-// Damaging enemy champions causes them to take 3% more damage from your allies
-// buff which applies a dmg amp.
+  // Damaging enemy champions causes them to take 3% more damage from your allies
+  // buff which applies a dmg amp.
 }
 
 class Vampirism extends MasteryEffects {
@@ -95,8 +95,8 @@ class NaturalTalent extends MasteryEffects {
 }
 
 class BountyHunter {
-// Deal 1.5% increased damage for each unique enemy champion you have killed
-// buff which applies a damage amp.
+  // Deal 1.5% increased damage for each unique enemy champion you have killed
+  // buff which applies a damage amp.
 }
 
 class DoubleEdgedSword extends MasteryEffects {
