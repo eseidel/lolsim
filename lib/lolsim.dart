@@ -111,12 +111,20 @@ class Rune {
     return "${name}";
   }
 
+  static Set _loggedRuneNames = new Set();
+  void logMissingStats() {
+    if (_loggedRuneNames.contains(name)) return;
+    _loggedRuneNames.add(name);
+    log.warning('Rune ${name} has no stats!');
+  }
+
   // FIXME: Should use items['basic'] for defaults.
   Rune.fromJSON({Map<String, dynamic> json, int id})
       : id = id,
         name = json['name'],
         stats = json['stats'] {
     assert(json['rune']['isrune'] == true);
+    if (stats.isEmpty) logMissingStats();
   }
 }
 
