@@ -7,6 +7,7 @@ dependencies:
   dragon_data:
     path: ../dragon_data
   resource: any
+  trotter: any
 dev_dependencies:
   test: any
 executables:

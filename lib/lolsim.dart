@@ -531,7 +531,7 @@ class Mob {
   static Set _warnedStats = new Set();
   void warnUnhandledStat(String statName) {
     if (!_warnedStats.contains(statName)) {
-      print("Unhandled: $statName");
+      log.warning("Stat: $statName missing apply rule.");
     }
     _warnedStats.add(statName);
   }

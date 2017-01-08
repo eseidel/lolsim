@@ -102,10 +102,15 @@ class ChampionFactory {
 
   ChampionFactory(Map<String, Map<String, dynamic>> json) : _json = json;
 
+  List<String> loadChampIds() {
+    return _json['data'].keys.toList();
+  }
+
   List<String> loadChampNames() {
     return _json['data']
         .values
-        .map((Map<String, dynamic> champ) => champ['name']) as List<String>;
+        .map((Map<String, dynamic> champ) => champ['name'] as String)
+        .toList();
   }
 
   Iterable<Mob> allChamps() {
@@ -117,13 +122,22 @@ class ChampionFactory {
         );
   }
 
-  Mob championByName(String name) {
-    Map<String, dynamic> json = _json['data'][name] as Map<String, dynamic>;
+  Mob championById(String id) {
+    Map<String, dynamic> json = _json['data'][id] as Map<String, dynamic>;
     if (json == null) {
-      log.severe("No champion matching $name.");
+      log.severe("No champion matching id $id.");
       return null;
     }
     return new Mob.fromJSON(json, MobType.champion);
+  }
+
+  Mob championByName(String name) {
+    for (Map<String, dynamic> champJson in _json['data'].values) {
+      if (champJson['name'] == name)
+        return new Mob.fromJSON(champJson, MobType.champion);
+    }
+    log.severe("No champion matching name $name.");
+    return null;
   }
 }
 
