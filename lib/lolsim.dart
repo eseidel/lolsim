@@ -1,14 +1,18 @@
 import 'dart:math';
+
 import 'package:logging/logging.dart';
+import 'package:meta/meta.dart';
+
+import 'buffs.dart';
 import 'items.dart';
+import 'masteries.dart';
 import 'mastery_pages.dart';
 import 'rune_pages.dart';
-import 'masteries.dart';
-import 'package:meta/meta.dart';
 
 final Logger log = new Logger('LOL');
 
-// No clue how often LOL ticks.
+// Supposedly the internal server tick rate is 30fps:
+// https://www.reddit.com/r/leagueoflegends/comments/2mmlkr/0001_second_kill_on_talon_even_faster_kill_out/cm5tizu/
 const int TICKS_PER_SECOND = 30;
 
 // Create Mob objects for each champion
@@ -245,32 +249,10 @@ abstract class PeriodicGlobalEffect {
   void apply();
 }
 
-abstract class Buff {
-  Buff(this.target, this.remaining);
-  // Fixed at time of creation in LOL. CDR does not affect in-progress cooldowns:
-  // http://leagueoflegends.wikia.com/wiki/Cooldown_reduction
-  double remaining;
-  Mob target;
-  bool get expired => remaining <= 0.0;
-
-  void tick(double timeDelta) {
-    remaining -= timeDelta;
-    if (expired) didExpire();
-  }
-
-  void didExpire() {}
-}
-
-// FIXME: How would AA-resets work with this?  Find the buff and clear it?
-// Probably buffs should just be re-applied every tick?
-class AutoAttackCooldown extends Buff {
+// FIXME: Support AA Resets.
+class AutoAttackCooldown extends Cooldown {
   AutoAttackCooldown(Mob target, double duration) : super(target, duration) {
     // log.fine("${target} aa cooldown for ${duration.toStringAsFixed(1)}s");
-    target.canAttack = false;
-  }
-  void didExpire() {
-    // This is error-prone.
-    target.canAttack = true;
   }
 }
 
@@ -293,7 +275,7 @@ class AutoAttack extends Action {
   AutoAttack(this.source, Mob target) : super(target);
 
   void apply(World world) {
-    world.buffs
+    target.buffs
         .add(new AutoAttackCooldown(source, source.stats.attackDuration));
     log.fine(
         "${world.logTime}: ${source} attacks ${target} for ${source.stats.attackDamage.toStringAsFixed(1)} damage");
@@ -446,6 +428,11 @@ enum MobType {
   monster,
 }
 
+enum MobState {
+  ready,
+  stopped,
+}
+
 class Mob {
   Team team;
   String name;
@@ -457,10 +444,11 @@ class Mob {
   RunePage _runePage;
   final BaseStats baseStats;
   Stats stats; // updated per-tick.
+  List<Buff> buffs = null; // updated per-tick.
   int level = 1;
   double hpLost = 0.0;
-  bool canAttack = true;
   bool alive = true;
+  MobState state;
   MobType type;
   DamageLog damageLog = null;
 
@@ -597,14 +585,27 @@ class Mob {
     updateStats();
   }
 
+  void addBuff(Buff buff) {
+    buffs.add(buff);
+    updateStats(); // needed?
+  }
+
+  Mob computeAttackTarget() {
+    if (lastTarget == null) return null;
+    if (state != MobState.ready) return null;
+    if (buffs.any((buff) => buff is AutoAttackCooldown)) return null;
+    return lastTarget;
+  }
+
   // Not clear if buffs should be held on the Mob or not.
   List<Action> tick(double timeDelta) {
     updateStats();
     List<Action> actions = [];
     if (!alive) return actions;
-    if (canAttack && lastTarget != null) {
-      actions.add(new AutoAttack(this, lastTarget));
-    }
+    buffs.forEach((buff) => buff.tick(timeDelta));
+    buffs = buffs.where((buff) => !buff.expired).toList();
+    Mob target = computeAttackTarget();
+    if (target != null) actions.add(new AutoAttack(this, target));
     return actions;
   }
 
@@ -732,9 +733,10 @@ class Mob {
   }
 
   void revive() {
+    // FIXME: Clear buffs?
     alive = true;
+    state = MobState.ready;
     hpLost = 0.0;
-    canAttack = true;
   }
 
   void die() {
@@ -747,7 +749,6 @@ class Mob {
 
 class World {
   double time = 0.0;
-  List<Buff> buffs = [];
   List<Mob> reds = [];
   List<Mob> blues = [];
 
@@ -797,8 +798,6 @@ class World {
       return all;
     });
     // Might need to sort actions?
-    buffs.forEach((buff) => buff.tick(timeDelta));
-    buffs = buffs.where((buff) => !buff.expired).toList();
     actions.forEach((action) => action.apply(this));
   }
 
