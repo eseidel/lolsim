@@ -524,6 +524,7 @@ class Mob {
         championEffectsConstructors[id];
     if (effectsConstructor != null) effects = effectsConstructor(this);
     updateStats();
+    if (effects != null) effects.onChampionCreate();
     revive();
   }
 
@@ -649,6 +650,7 @@ class Mob {
     Hit hit = new Hit(
       source: this,
       target: target,
+      label: label,
       physicalDamage: physicalDamage,
       magicDamage: magicDamage,
       trueDamage: trueDamage,
@@ -751,7 +753,7 @@ class Mob {
   }
 
   void revive() {
-    // FIXME: Clear buffs?
+    buffs = buffs.where((buff) => buff.retainedAfterDeath).toList();
     alive = true;
     state = MobState.ready;
     hpLost = 0.0;

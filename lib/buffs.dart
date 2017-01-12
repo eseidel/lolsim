@@ -28,6 +28,7 @@ abstract class Buff {
   Mob target;
 
   bool expired = false;
+  bool get retainedAfterDeath => false;
 
   Buff({this.name, @required this.target});
 
@@ -43,6 +44,13 @@ abstract class Buff {
   void expire() {
     expired = true;
   }
+}
+
+class PermenantBuff extends Buff {
+  PermenantBuff({String name, Mob target}) : super(name: name, target: target);
+  bool get retainedAfterDeath => true;
+
+  void tick(double timeDelta) {}
 }
 
 class TimedBuff extends Buff {

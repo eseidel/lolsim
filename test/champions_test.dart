@@ -1,4 +1,4 @@
-import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/champions/darius.dart';
 import "package:lol_duel/dragon.dart";
 import "package:test/test.dart";
 
@@ -41,6 +41,18 @@ main() async {
       // Bleeds update on leveling?
       // Darius's AA's apply 5 stacks to new targets.
       // Stacks fall off one at a time.
+    });
+  });
+
+  group("Olaf", () {
+    test("Berserker Rage", () {
+      // Uses integer health values.
+      // Should test that it ignores shields (once those exist).
+      Mob olaf = data.champs.championById('Olaf');
+      double initialAttackSpeed = olaf.stats.attackSpeed;
+      olaf.hpLost += olaf.currentHp / 2;
+      olaf.updateStats();
+      expect(initialAttackSpeed, lessThan(olaf.stats.attackSpeed));
     });
   });
 }

@@ -37,10 +37,14 @@ main(List<String> args) async {
   if (world.living.isEmpty) {
     _log.info("${world.blues} and ${world.reds} died at the same time!");
   } else if (world.livingReds.isNotEmpty) {
-    _log.info("Red team survived:");
-    world.livingReds.forEach((mob) => _log.info("$mob ${mob.hpStatusString}"));
+    _log.info("RED WINS");
   } else {
-    _log.info("Blue team survived:");
-    world.livingBlues.forEach((mob) => _log.info("$mob ${mob.hpStatusString}"));
+    _log.info("BLUE WINS");
   }
+  print("Blue Team");
+  world.blues.forEach((mob) =>
+      _log.info("$mob ${mob.hpStatusString}\n${mob.damageLog.summaryString}"));
+  print("Red Team");
+  world.reds.forEach((mob) =>
+      _log.info("$mob ${mob.hpStatusString}\n${mob.damageLog.summaryString}"));
 }
