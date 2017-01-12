@@ -49,6 +49,7 @@ main() async {
       Mob healthyMob = createTestMob(hp: 1000.0);
       Hit physicalHit = mercilessMob.createHitForTarget(
         target: healthyMob,
+        label: 'test',
         physicalDamage: 10.0,
       );
       expect(10.0, healthyMob.applyHit(physicalHit));
@@ -58,16 +59,19 @@ main() async {
       expect(hurtMob.healthPercent, lessThan(0.4));
       Hit healthyHit = mercilessMob.createHitForTarget(
         target: hurtMob,
+        label: 'test',
         physicalDamage: 10.0,
       );
       expect(10.5, hurtMob.applyHit(healthyHit));
       Hit magicalHit = mercilessMob.createHitForTarget(
         target: hurtMob,
+        label: 'test',
         physicalDamage: 10.0,
       );
       expect(10.5, hurtMob.applyHit(magicalHit));
       Hit mixedHit = mercilessMob.createHitForTarget(
         target: hurtMob,
+        label: 'test',
         physicalDamage: 10.0,
         magicDamage: 10.0,
       );
@@ -81,16 +85,19 @@ main() async {
       Mob normalMob = createTestMob(hp: 100.0);
       Hit physicalHit = savageryMob.createHitForTarget(
         target: normalMob,
+        label: 'test',
         physicalDamage: 10.0,
       );
       expect(15.0, normalMob.applyHit(physicalHit));
       Hit magicalHit = savageryMob.createHitForTarget(
         target: normalMob,
+        label: 'test',
         physicalDamage: 10.0,
       );
       expect(15.0, normalMob.applyHit(magicalHit));
       Hit mixedHit = savageryMob.createHitForTarget(
         target: normalMob,
+        label: 'test',
         physicalDamage: 10.0,
         magicDamage: 10.0,
       );

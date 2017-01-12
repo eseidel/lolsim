@@ -1,11 +1,13 @@
 import 'dart:convert';
 import 'dart:async';
 import 'package:lol_duel/lolsim.dart';
+import 'package:logging/logging.dart';
 // This dependency is inverted.
 export 'package:lol_duel/lolsim.dart';
 import 'package:resource/resource.dart';
 
 const String DATA_DIR = 'package:dragon_data/6.24.1/data/en_US';
+final Logger _log = new Logger('dragon');
 
 class ItemFactory {
   Map<String, Map<String, dynamic>> _json;
@@ -32,7 +34,7 @@ class ItemFactory {
     try {
       return allItems().firstWhere((item) => item.name == name);
     } catch (e) {
-      log.severe("No item maching $name");
+      _log.severe("No item maching $name");
       return null;
     }
   }
@@ -87,7 +89,7 @@ class MasteryLibrary {
     try {
       return allMasteries().firstWhere((mastery) => mastery.name == name);
     } catch (e) {
-      log.severe("No mastery maching $name");
+      _log.severe("No mastery maching $name");
       return null;
     }
   }
@@ -125,7 +127,7 @@ class ChampionFactory {
   Mob championById(String id) {
     Map<String, dynamic> json = _json['data'][id] as Map<String, dynamic>;
     if (json == null) {
-      log.severe("No champion matching id $id.");
+      _log.severe("No champion matching id $id.");
       return null;
     }
     return new Mob.fromJSON(json, MobType.champion);
@@ -136,7 +138,7 @@ class ChampionFactory {
       if (champJson['name'] == name)
         return new Mob.fromJSON(champJson, MobType.champion);
     }
-    log.severe("No champion matching name $name.");
+    _log.severe("No champion matching name $name.");
     return null;
   }
 }

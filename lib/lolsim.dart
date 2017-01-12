@@ -1,14 +1,19 @@
 import 'dart:math';
+
 import 'package:logging/logging.dart';
-import 'items.dart';
-import 'mastery_pages.dart';
-import 'rune_pages.dart';
-import 'masteries.dart';
 import 'package:meta/meta.dart';
 
-final Logger log = new Logger('LOL');
+import 'buffs.dart';
+import 'items.dart';
+import 'masteries.dart';
+import 'mastery_pages.dart';
+import 'rune_pages.dart';
+import 'champions.dart';
 
-// No clue how often LOL ticks.
+final Logger _log = new Logger('LOL');
+
+// Supposedly the internal server tick rate is 30fps:
+// https://www.reddit.com/r/leagueoflegends/comments/2mmlkr/0001_second_kill_on_talon_even_faster_kill_out/cm5tizu/
 const int TICKS_PER_SECOND = 30;
 
 // Create Mob objects for each champion
@@ -118,7 +123,7 @@ class Rune {
     if (statName != null) return;
     if (_loggedRuneNames.contains(name)) return;
     _loggedRuneNames.add(name);
-    log.warning('Rune ${name} has no stats!');
+    _log.warning('Rune ${name} has no stats!');
   }
 
   // FIXME: Should use items['basic'] for defaults.
@@ -183,7 +188,7 @@ class Item {
     // Note this one does not check if missing, unlike Rune or Mastery's version.
     if (_loggedEffects.contains(name)) return;
     _loggedEffects.add(name);
-    log.warning('Item ${name} references effects but no effects class found.');
+    _log.warning('Item ${name} references effects but no effects class found.');
   }
 }
 
@@ -234,7 +239,7 @@ class Mastery {
     if (effects != null) return;
     if (_loggedEffects.contains(description.name)) return;
     _loggedEffects.add(description.name);
-    log.warning('Mastery ${description.name} has no defined effects.');
+    _log.warning('Mastery ${description.name} has no defined effects.');
   }
 }
 
@@ -245,32 +250,11 @@ abstract class PeriodicGlobalEffect {
   void apply();
 }
 
-abstract class Buff {
-  Buff(this.target, this.remaining);
-  // Fixed at time of creation in LOL. CDR does not affect in-progress cooldowns:
-  // http://leagueoflegends.wikia.com/wiki/Cooldown_reduction
-  double remaining;
-  Mob target;
-  bool get expired => remaining <= 0.0;
-
-  void tick(double timeDelta) {
-    remaining -= timeDelta;
-    if (expired) didExpire();
-  }
-
-  void didExpire() {}
-}
-
-// FIXME: How would AA-resets work with this?  Find the buff and clear it?
-// Probably buffs should just be re-applied every tick?
-class AutoAttackCooldown extends Buff {
-  AutoAttackCooldown(Mob target, double duration) : super(target, duration) {
-    // log.fine("${target} aa cooldown for ${duration.toStringAsFixed(1)}s");
-    target.canAttack = false;
-  }
-  void didExpire() {
-    // This is error-prone.
-    target.canAttack = true;
+// FIXME: Support AA Resets.
+class AutoAttackCooldown extends Cooldown {
+  AutoAttackCooldown(Mob target, double duration)
+      : super(name: 'AutoAttackCooldown', target: target, duration: duration) {
+    // _log.fine("${target} aa cooldown for ${duration.toStringAsFixed(1)}s");
   }
 }
 
@@ -293,20 +277,23 @@ class AutoAttack extends Action {
   AutoAttack(this.source, Mob target) : super(target);
 
   void apply(World world) {
-    world.buffs
+    source.buffs
         .add(new AutoAttackCooldown(source, source.stats.attackDuration));
-    log.fine(
+    _log.fine(
         "${world.logTime}: ${source} attacks ${target} for ${source.stats.attackDamage.toStringAsFixed(1)} damage");
     double damage = target.applyHit(source.createHitForTarget(
+      label: 'AutoAttack',
       target: target,
       physicalDamage: source.stats.attackDamage,
     ));
+    source.applyOnHitEffects(target);
     source.lifestealFrom(damage);
   }
 }
 
 class Hit {
   Hit({
+    this.label: null,
     this.physicalDamage: 0.0,
     this.magicDamage: 0.0,
     this.trueDamage: 0.0,
@@ -314,6 +301,7 @@ class Hit {
     this.target: null,
   });
 
+  String label = null;
   double physicalDamage = 0.0;
   double magicDamage = 0.0;
   double trueDamage = 0.0;
@@ -425,7 +413,9 @@ class DamageEntry {
 
 class DamageLog {
   Map<String, DamageEntry> entries = {};
-  void recordDamage(String source, double damage) {
+  void recordDamage(Hit hit, double damage) {
+    String source = hit.source.toString();
+    if (hit.label != null) source += ' (${hit.label})';
     DamageEntry entry = entries[source] ?? new DamageEntry();
     entry.totalDamage += damage;
     entry.count += 1;
@@ -446,23 +436,30 @@ enum MobType {
   monster,
 }
 
+enum MobState {
+  ready,
+  stopped,
+}
+
 class Mob {
   Team team;
   String name;
   String title;
   String id;
   Mob lastTarget;
-  List<Item> items;
+  List<Item> items = [];
+  List<Buff> buffs = [];
   MasteryPage _masteryPage;
   RunePage _runePage;
   final BaseStats baseStats;
   Stats stats; // updated per-tick.
   int level = 1;
   double hpLost = 0.0;
-  bool canAttack = true;
   bool alive = true;
+  MobState state;
   MobType type;
   DamageLog damageLog = null;
+  ChampionEffects effects = null;
 
   double get currentHp => max(0.0, stats.hp - hpLost);
   double get healthPercent => currentHp / stats.hp;
@@ -523,7 +520,9 @@ class Mob {
     name = json['name'];
     title = json['title'];
     type = type;
-    items = [];
+    ChampionEffectsConstructor effectsConstructor =
+        championEffectsConstructors[id];
+    if (effectsConstructor != null) effects = effectsConstructor(this);
     updateStats();
     revive();
   }
@@ -531,7 +530,7 @@ class Mob {
   static Set _warnedStats = new Set();
   void warnUnhandledStat(String statName) {
     if (!_warnedStats.contains(statName)) {
-      log.warning("Stat: $statName missing apply rule.");
+      _log.warning("Stat: $statName missing apply rule.");
     }
     _warnedStats.add(statName);
   }
@@ -583,6 +582,8 @@ class Mob {
         }
       }
     }
+    for (Buff buff in buffs)
+      if (buff.stats != null) applyStats(computed, buff.stats);
     for (Item item in items) applyStats(computed, item.stats);
     return computed;
   }
@@ -597,14 +598,27 @@ class Mob {
     updateStats();
   }
 
+  void addBuff(Buff buff) {
+    buffs.add(buff);
+    updateStats(); // needed?
+  }
+
+  Mob computeAttackTarget() {
+    if (lastTarget == null) return null;
+    if (state != MobState.ready) return null;
+    if (buffs.any((buff) => buff is AutoAttackCooldown)) return null;
+    return lastTarget;
+  }
+
   // Not clear if buffs should be held on the Mob or not.
   List<Action> tick(double timeDelta) {
     updateStats();
     List<Action> actions = [];
     if (!alive) return actions;
-    if (canAttack && lastTarget != null) {
-      actions.add(new AutoAttack(this, lastTarget));
-    }
+    buffs.forEach((buff) => buff.tick(timeDelta));
+    buffs = buffs.where((buff) => !buff.expired).toList();
+    Mob target = computeAttackTarget();
+    if (target != null) actions.add(new AutoAttack(this, target));
     return actions;
   }
 
@@ -628,6 +642,7 @@ class Mob {
 
   Hit createHitForTarget(
       {@required Mob target,
+      @required String label,
       double physicalDamage: 0.0,
       double magicDamage: 0.0,
       double trueDamage: 0.0}) {
@@ -714,12 +729,16 @@ class Mob {
   double applyHit(Hit hit) {
     double damage = computeDamageRecieved(hit);
     hpLost += damage;
-    log.fine(
+    _log.fine(
         "$this took ${damage.toStringAsFixed(1)} damage from ${hit.source}, "
         "$hpStatusString remains");
-    damageLog?.recordDamage(hit.source.toString(), damage);
+    damageLog?.recordDamage(hit, damage);
     if (stats.hp <= hpLost) die();
     return damage; // This could be beyond-fatal damage.
+  }
+
+  void applyOnHitEffects(Mob target) {
+    if (effects != null) effects.onActionHit(target);
   }
 
   void lifestealFrom(double damage) {
@@ -732,14 +751,15 @@ class Mob {
   }
 
   void revive() {
+    // FIXME: Clear buffs?
     alive = true;
+    state = MobState.ready;
     hpLost = 0.0;
-    canAttack = true;
   }
 
   void die() {
-    log.info("DEATH: $this");
-    if (damageLog != null) log.info(damageLog.summaryString);
+    _log.info("DEATH: $this");
+    if (damageLog != null) _log.info(damageLog.summaryString);
     // FIXME: Death could be a buff if there are rez timers.
     alive = false;
   }
@@ -747,7 +767,6 @@ class Mob {
 
 class World {
   double time = 0.0;
-  List<Buff> buffs = [];
   List<Mob> reds = [];
   List<Mob> blues = [];
 
@@ -797,8 +816,6 @@ class World {
       return all;
     });
     // Might need to sort actions?
-    buffs.forEach((buff) => buff.tick(timeDelta));
-    buffs = buffs.where((buff) => !buff.expired).toList();
     actions.forEach((action) => action.apply(this));
   }
 

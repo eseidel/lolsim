@@ -1,14 +1,18 @@
 #!/usr/local/bin/dart
+import 'dart:io';
+
+import 'package:args/args.dart';
+import 'package:logging/logging.dart';
+import 'package:lol_duel/common_args.dart';
 import 'package:lol_duel/dragon.dart';
 import 'package:lol_duel/duel.dart';
-import 'package:args/args.dart';
-import 'package:lol_duel/common_args.dart';
-import 'dart:io';
 
 main(List<String> args) async {
   ArgResults results = handleCommonArgs(args);
+  final Logger _log = new Logger('duel');
+
   if (results.rest.length != 1) {
-    log.severe("duel.dart takes a single path argument.");
+    _log.severe("duel.dart takes a single path argument.");
     exit(1);
   }
 
@@ -31,12 +35,12 @@ main(List<String> args) async {
     return !survivingBlues || !survivingReds;
   });
   if (world.living.isEmpty) {
-    log.info("${world.blues} and ${world.reds} died at the same time!");
+    _log.info("${world.blues} and ${world.reds} died at the same time!");
   } else if (world.livingReds.isNotEmpty) {
-    log.info("Red team survived:");
-    world.livingReds.forEach((mob) => log.info("$mob ${mob.hpStatusString}"));
+    _log.info("Red team survived:");
+    world.livingReds.forEach((mob) => _log.info("$mob ${mob.hpStatusString}"));
   } else {
-    log.info("Blue team survived:");
-    world.livingBlues.forEach((mob) => log.info("$mob ${mob.hpStatusString}"));
+    _log.info("Blue team survived:");
+    world.livingBlues.forEach((mob) => _log.info("$mob ${mob.hpStatusString}"));
   }
 }
