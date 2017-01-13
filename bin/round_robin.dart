@@ -3,6 +3,7 @@ import 'package:lol_duel/common_args.dart';
 import 'package:lol_duel/dragon.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:trotter/trotter.dart';
+import 'package:lol_duel/champions.dart';
 
 int champCompare(Mob red, Mob blue) {
   new World(reds: [red], blues: [blue]).tickUntil(World.oneSideDies);
@@ -10,15 +11,35 @@ int champCompare(Mob red, Mob blue) {
 }
 
 class ChampResults implements Comparable<ChampResults> {
+  final String champId;
   int victories = 0;
-  bool hasEffects = false;
+  ChampResults(this.champId);
+
+  bool get hasEffects => championEffectsConstructors[champId] != null;
 
   void recordVictory() {
     victories += 1;
   }
 
-  int compareTo(ChampResults b) {
-    return victories.compareTo(b.victories);
+  int compareTo(ChampResults b) => victories.compareTo(b.victories);
+}
+
+class TableLayout {
+  List<int> columnWidths;
+  TableLayout(this.columnWidths);
+
+  void printRow(List<String> cells) {
+    assert(cells.length == columnWidths.length);
+    List<String> paddedCells = [];
+    for (int i = 0; i < cells.length; i += 1) {
+      paddedCells.add(cells[i].padRight(columnWidths[i]));
+    }
+    print(paddedCells.join(' '));
+  }
+
+  void printDivider() {
+    int width = columnWidths.reduce((a, b) => a + b) + columnWidths.length - 1;
+    print('=' * width);
   }
 }
 
@@ -28,7 +49,7 @@ main(List<String> args) async {
   DragonData data = await DragonData.loadLatest();
   List<String> champIds = data.champs.loadChampIds();
   Map<String, ChampResults> resultsById = {};
-  champIds.forEach((id) => resultsById[id] = new ChampResults());
+  champIds.forEach((id) => resultsById[id] = new ChampResults(id));
   Combinations combos = new Combinations(2, champIds);
   // Combinations doesn't implement iterable, so I can't use it in strong mode. :(
   for (int i = 0; i < combos.length; i += 1) {
@@ -41,11 +62,14 @@ main(List<String> args) async {
       resultsById[blue.id].recordVictory();
     else if (result < 0) resultsById[red.id].recordVictory();
   }
-  champIds.sort((a, b) => resultsById[a].compareTo(resultsById[b]));
-  champIds.forEach((id) {
-    ChampResults results = resultsById[id];
-    String line = "$id ${results.victories}";
-    if (results.hasEffects) line += " (has passive)";
-    print(line);
+  List<ChampResults> results = resultsById.values.toList();
+  results.sort();
+  TableLayout layout = new TableLayout([13, 10, 10]);
+  layout.printRow(['Name', 'Victories', 'Status']);
+  layout.printDivider();
+  results.forEach((result) {
+    String statusString = result.hasEffects ? '(has passive)' : '';
+    layout
+        .printRow([result.champId, result.victories.toString(), statusString]);
   });
 }
