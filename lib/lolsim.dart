@@ -744,10 +744,17 @@ class Mob {
   }
 }
 
+typedef bool TickCondition(World world);
+
 class World {
   double time = 0.0;
   List<Mob> reds = [];
   List<Mob> blues = [];
+
+  World({this.reds: const [], this.blues: const []}) {
+    reds.forEach((mob) => mob.team = Team.red);
+    blues.forEach((mob) => mob.team = Team.blue);
+  }
 
   List<Mob> get allMobs => []..addAll(reds)..addAll(blues);
 
@@ -798,7 +805,14 @@ class World {
     actions.forEach((action) => action.apply(this));
   }
 
-  void tickUntil(bool condition(World)) {
+  // Very common usage, hence defined here.
+  static TickCondition oneSideDies = (World world) {
+    bool survivingBlues = world.blues.any((Mob mob) => mob.alive);
+    bool survivingReds = world.reds.any((Mob mob) => mob.alive);
+    return !survivingBlues || !survivingReds;
+  };
+
+  void tickUntil(TickCondition condition) {
     do {
       tick();
     } while (!condition(this));

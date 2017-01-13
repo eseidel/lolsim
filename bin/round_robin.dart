@@ -5,18 +5,21 @@ import 'package:lol_duel/lolsim.dart';
 import 'package:trotter/trotter.dart';
 
 int champCompare(Mob red, Mob blue) {
-  red.team = Team.red;
-  blue.team = Team.blue;
+  new World(reds: [red], blues: [blue]).tickUntil(World.oneSideDies);
+  return blue.currentHp.floor() - red.currentHp.floor();
+}
 
-  World world = new World();
-  world.addMobs([red, blue]);
-  world.tickUntil((world) {
-    bool survivingBlues = world.blues.any((Mob mob) => mob.alive);
-    bool survivingReds = world.reds.any((Mob mob) => mob.alive);
-    return !survivingBlues || !survivingReds;
-  });
-  int result = blue.currentHp.floor() - red.currentHp.floor();
-  return result;
+class ChampResults implements Comparable<ChampResults> {
+  int victories = 0;
+  bool hasEffects = false;
+
+  void recordVictory() {
+    victories += 1;
+  }
+
+  int compareTo(ChampResults b) {
+    return victories.compareTo(b.victories);
+  }
 }
 
 main(List<String> args) async {
@@ -24,8 +27,8 @@ main(List<String> args) async {
   Logger.root.level = Level.WARNING;
   DragonData data = await DragonData.loadLatest();
   List<String> champIds = data.champs.loadChampIds();
-  Map<String, int> victoryCounts = {};
-  champIds.forEach((id) => victoryCounts[id] = 0);
+  Map<String, ChampResults> resultsById = {};
+  champIds.forEach((id) => resultsById[id] = new ChampResults());
   Combinations combos = new Combinations(2, champIds);
   // Combinations doesn't implement iterable, so I can't use it in strong mode. :(
   for (int i = 0; i < combos.length; i += 1) {
@@ -35,9 +38,14 @@ main(List<String> args) async {
     Mob blue = data.champs.championById(names[1]);
     int result = champCompare(red, blue);
     if (result > 0)
-      victoryCounts[blue.id] += 1;
-    else if (result < 0) victoryCounts[red.id] += 1;
+      resultsById[blue.id].recordVictory();
+    else if (result < 0) resultsById[red.id].recordVictory();
   }
-  champIds.sort((a, b) => victoryCounts[a].compareTo(victoryCounts[b]));
-  champIds.forEach((id) => print("$id ${victoryCounts[id]}"));
+  champIds.sort((a, b) => resultsById[a].compareTo(resultsById[b]));
+  champIds.forEach((id) {
+    ChampResults results = resultsById[id];
+    String line = "$id ${results.victories}";
+    if (results.hasEffects) line += " (has passive)";
+    print(line);
+  });
 }
