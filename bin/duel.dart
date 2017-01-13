@@ -6,6 +6,7 @@ import 'package:logging/logging.dart';
 import 'package:lol_duel/common_args.dart';
 import 'package:lol_duel/dragon.dart';
 import 'package:lol_duel/duel.dart';
+import 'package:lol_duel/lolsim.dart';
 
 main(List<String> args) async {
   ArgResults results = handleCommonArgs(args);

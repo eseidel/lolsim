@@ -301,6 +301,12 @@ class Hit {
     this.target: null,
   });
 
+  String get sourceString {
+    String result = source.toString();
+    if (label != null) result += ' ($label)';
+    return result;
+  }
+
   String label = null;
   double physicalDamage = 0.0;
   double magicDamage = 0.0;
@@ -414,8 +420,7 @@ class DamageEntry {
 class DamageLog {
   Map<String, DamageEntry> entries = {};
   void recordDamage(Hit hit, double damage) {
-    String source = hit.source.toString();
-    if (hit.label != null) source += ' (${hit.label})';
+    String source = hit.sourceString;
     DamageEntry entry = entries[source] ?? new DamageEntry();
     entry.totalDamage += damage;
     entry.count += 1;
@@ -732,7 +737,7 @@ class Mob {
     double damage = computeDamageRecieved(hit);
     hpLost += damage;
     _log.fine(
-        "$this took ${damage.toStringAsFixed(1)} damage from ${hit.source}, "
+        "$this took ${damage.toStringAsFixed(1)} damage from ${hit.sourceString}, "
         "$hpStatusString remains");
     damageLog?.recordDamage(hit, damage);
     if (stats.hp <= hpLost) die();

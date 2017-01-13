@@ -6,6 +6,7 @@ import 'package:yaml/yaml.dart';
 import 'dragon.dart';
 import 'mastery_pages.dart';
 import 'rune_pages.dart';
+import 'lolsim.dart';
 
 class Duel {
   List<Mob> reds;

@@ -1,7 +1,8 @@
-import 'package:lol_duel/dragon.dart';
-import 'package:lol_duel/common_args.dart';
-import 'package:trotter/trotter.dart';
 import 'package:logging/logging.dart';
+import 'package:lol_duel/common_args.dart';
+import 'package:lol_duel/dragon.dart';
+import 'package:lol_duel/lolsim.dart';
+import 'package:trotter/trotter.dart';
 
 int champCompare(Mob red, Mob blue) {
   red.team = Team.red;

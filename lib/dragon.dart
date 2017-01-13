@@ -2,8 +2,6 @@ import 'dart:convert';
 import 'dart:async';
 import 'package:lol_duel/lolsim.dart';
 import 'package:logging/logging.dart';
-// This dependency is inverted.
-export 'package:lol_duel/lolsim.dart';
 import 'package:resource/resource.dart';
 
 const String DATA_DIR = 'package:dragon_data/6.24.1/data/en_US';
