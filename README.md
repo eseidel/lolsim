@@ -37,3 +37,41 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Split lolsim.dart into smaller files.
 - Add more passives, abilities, masteries, runes, etc.
 - Add hp regeneration.
+- Confirm that Jax passive is working (didn't move him in rankings).
+
+## Abilities missing affecting the lvl 1 round_robin sort.
+- Aatrox passive and bloodthirst
+- Akali passive
+- Alistar Trample
+- Amumu Tantrum
+- Braum passive
+- Diana passive
+- Ekko passive
+- Fizz passive
+- Graves AA modifier and passive.
+- Ivern brushmaker(w) passive
+- Jarvan passive (small effect)
+- Jinx Q passive
+- Kayle passive
+- Kled passive
+- Malphite passive (small effect)
+- Master Yi Double Strike passive.
+- Nasus passive (easy, small effect)
+- Nautalis passive
+- Nocturn Passive
+- Oriana Clockwork Winding
+- Pantheon passive
+- Rammus passive and ball curl
+- Singed (small effect)
+- Tahm Kench passive
+- Taric passive + ability
+- Teemo E passive
+- Urgot passive
+- Vayne W passive
+- Volibear passive and frenzy
+- Wukong passive (small effect)
+- Xin Zhao passive (small effect)
+- Zed passive
+
+## Questions to answer:
+- Amumu Dispair or Tantrum first?
