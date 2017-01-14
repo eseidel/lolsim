@@ -12,7 +12,7 @@ class Olaf extends ChampionEffects {
   }
 }
 
-class BerserkerRage extends PermenantBuff {
+class BerserkerRage extends PermanentBuff {
   BerserkerRage(Mob target) : super(name: "Berserker Rage", target: target);
 
   Map<String, num> get stats => {

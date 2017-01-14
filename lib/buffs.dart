@@ -46,8 +46,8 @@ abstract class Buff {
   }
 }
 
-class PermenantBuff extends Buff {
-  PermenantBuff({String name, Mob target}) : super(name: name, target: target);
+class PermanentBuff extends Buff {
+  PermanentBuff({String name, Mob target}) : super(name: name, target: target);
   bool get retainedAfterDeath => true;
 
   void tick(double timeDelta) {}
