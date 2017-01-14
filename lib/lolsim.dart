@@ -774,7 +774,21 @@ typedef bool CritProvider(Mob attacker);
 class RandomCrits {
   Random random = new Random();
   bool call(Mob attacker) {
+    if (attacker.stats.critChance == 0.0) return false;
     return random.nextDouble() < attacker.stats.critChance;
+  }
+}
+
+class PredictableCrits {
+  Map<String, Random> randomForChamp = {};
+
+  PredictableCrits(List<String> champIds) {
+    champIds.forEach((id) => randomForChamp[id] = new Random(0));
+  }
+
+  bool call(Mob attacker) {
+    if (attacker.stats.critChance == 0.0) return false;
+    return randomForChamp[attacker.id].nextDouble() < attacker.stats.critChance;
   }
 }
 
@@ -782,12 +796,11 @@ class World {
   double time = 0.0;
   List<Mob> reds = [];
   List<Mob> blues = [];
-  CritProvider critProvider;
+  CritProvider critProvider = new RandomCrits();
 
-  World({this.reds: const [], this.blues: const []}) {
+  World({this.reds, this.blues, this.critProvider}) {
     reds.forEach((mob) => mob.team = Team.red);
     blues.forEach((mob) => mob.team = Team.blue);
-    critProvider = new RandomCrits();
   }
 
   List<Mob> get allMobs => []..addAll(reds)..addAll(blues);

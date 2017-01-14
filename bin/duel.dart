@@ -27,8 +27,16 @@ main(List<String> args) async {
   print("Red Team");
   duel.reds.forEach((mob) => print(mob.statsSummary()));
 
-  duel.allMobs.forEach((mob) => mob.shouldRecordDamage = true);
-  World world = new World(blues: duel.blues, reds: duel.reds);
+  List<String> champIds = [];
+  duel.allMobs.forEach((mob) {
+    mob.shouldRecordDamage = true;
+    if (mob.type == MobType.champion) champIds.add(mob.id);
+  });
+  World world = new World(
+    blues: duel.blues,
+    reds: duel.reds,
+    critProvider: new PredictableCrits(champIds),
+  );
   world.tickUntil(World.oneSideDies);
   if (world.living.isEmpty) {
     _log.info("${world.blues} and ${world.reds} died at the same time!");

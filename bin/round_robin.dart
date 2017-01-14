@@ -4,11 +4,13 @@ import 'package:lol_duel/dragon.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:trotter/trotter.dart';
 import 'package:lol_duel/champions.dart';
-import 'dart:math';
 
 int champCompare(Mob red, Mob blue) {
-  World world = new World(reds: [red], blues: [blue]);
-  world.critProvider = new ReliableRandom([blue.id, red.id]);
+  World world = new World(
+    reds: [red],
+    blues: [blue],
+    critProvider: new PredictableCrits([blue.id, red.id]),
+  );
   world.tickUntil(World.oneSideDies);
   return blue.currentHp.floor() - red.currentHp.floor();
 }
@@ -43,19 +45,6 @@ class TableLayout {
   void printDivider() {
     int width = columnWidths.reduce((a, b) => a + b) + columnWidths.length - 1;
     print('=' * width);
-  }
-}
-
-class ReliableRandom {
-  Map<String, Random> randomForChamp = {};
-
-  ReliableRandom(List<String> champIds) {
-    champIds.forEach((id) => randomForChamp[id] = new Random(0));
-  }
-
-  bool call(Mob attacker) {
-    if (attacker.stats.critChance == 0.0) return false;
-    return randomForChamp[attacker.id].nextDouble() < attacker.stats.critChance;
   }
 }
 
