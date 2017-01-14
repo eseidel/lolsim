@@ -26,7 +26,11 @@ class ChampResults implements Comparable<ChampResults> {
     victories += 1;
   }
 
-  int compareTo(ChampResults b) => victories.compareTo(b.victories);
+  int compareTo(ChampResults b) {
+    int result = victories.compareTo(b.victories);
+    if (result != 0) return result;
+    return champId.compareTo(b.champId);
+  }
 }
 
 class TableLayout {
