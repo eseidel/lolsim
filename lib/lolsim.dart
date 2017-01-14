@@ -35,6 +35,8 @@ class Stats {
   double spellBlock; // aka magic resist.
 
   double lifesteal = 0.0;
+  double critChance = 0.0;
+  double critDamageMultiplier = 2.0;
 
   // Used to compute attack speed:
   double attackDelay;
@@ -251,11 +253,15 @@ class AutoAttack extends Action {
   void apply(World world) {
     source.buffs
         .add(new AutoAttackCooldown(source, source.stats.attackDuration));
+    bool isCrit = world.critProvider(source);
+    String attackString = isCrit ? 'CRITS' : 'attacks';
+    String damageString = source.stats.attackDamage.toStringAsFixed(1);
     _log.fine(
-        "${world.logTime}: ${source} attacks ${target} for ${source.stats.attackDamage.toStringAsFixed(1)} damage");
+        "${world.logTime}: $source $attackString $target for $damageString damage");
     Hit hit = source.createHitForTarget(
-      label: 'AutoAttack',
+      label: isCrit ? 'AA Crit' : 'AA',
       target: target,
+      isCrit: isCrit,
       physicalDamage: source.stats.attackDamage,
     );
     double damage = target.applyHit(hit);
@@ -267,6 +273,7 @@ class AutoAttack extends Action {
 class Hit {
   Hit({
     this.label: null,
+    this.isCrit: false,
     this.physicalDamage: 0.0,
     this.magicDamage: 0.0,
     this.trueDamage: 0.0,
@@ -284,6 +291,7 @@ class Hit {
   double physicalDamage = 0.0;
   double magicDamage = 0.0;
   double trueDamage = 0.0;
+  bool isCrit = false;
   Mob source = null;
   Mob target = null;
 }
@@ -521,7 +529,8 @@ class Mob {
   final Map<String, StatApplier> appliers = {
     'FlatArmorMod': (computed, statValue) => computed.armor += statValue,
     'FlatHPPoolMod': (computed, statValue) => computed.hp += statValue,
-    // 'FlatCritChanceMod': (computed, statValue) => computed.crit += statValue,
+    'FlatCritChanceMod': (computed, statValue) =>
+        computed.critChance += statValue,
     // 'FlatHPRegenMod': (computed, statValue) => computed.hpRegen += statValue,
     'FlatMagicDamageMod': (computed, statValue) =>
         computed.abilityPower += statValue,
@@ -603,7 +612,15 @@ class Mob {
   }
 
   List<DamageDealtModifier> collectDamageDealtModifiers() {
-    List<DamageDealtModifier> modifiers = [];
+    List<DamageDealtModifier> modifiers = [
+      // I'm not sure this is right, there may be a difference between
+      // total critical dmg vs. base critical dmg.
+      (hit, delta) {
+        if (!hit.isCrit) return;
+        delta.percentPhysical *= stats.critDamageMultiplier;
+        delta.percentMagical *= stats.critDamageMultiplier;
+      }
+    ];
     if (masteryPage != null) {
       for (Mastery mastery in masteryPage.masteries) {
         if (mastery.effects != null)
@@ -623,6 +640,7 @@ class Mob {
   Hit createHitForTarget(
       {@required Mob target,
       @required String label,
+      bool isCrit: false,
       double physicalDamage: 0.0,
       double magicDamage: 0.0,
       double trueDamage: 0.0}) {
@@ -630,6 +648,7 @@ class Mob {
       source: this,
       target: target,
       label: label,
+      isCrit: isCrit,
       physicalDamage: physicalDamage,
       magicDamage: magicDamage,
       trueDamage: trueDamage,
@@ -750,15 +769,25 @@ class Mob {
 }
 
 typedef bool TickCondition(World world);
+typedef bool CritProvider(Mob attacker);
+
+class RandomCrits {
+  Random random = new Random();
+  bool call(Mob attacker) {
+    return random.nextDouble() < attacker.stats.critChance;
+  }
+}
 
 class World {
   double time = 0.0;
   List<Mob> reds = [];
   List<Mob> blues = [];
+  CritProvider critProvider;
 
   World({this.reds: const [], this.blues: const []}) {
     reds.forEach((mob) => mob.team = Team.red);
     blues.forEach((mob) => mob.team = Team.blue);
+    critProvider = new RandomCrits();
   }
 
   List<Mob> get allMobs => []..addAll(reds)..addAll(blues);

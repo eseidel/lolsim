@@ -1,6 +1,8 @@
 import "package:lol_duel/lolsim.dart";
 import 'package:lol_duel/mastery_pages.dart';
 
+CritProvider alwaysCrit = (Mob) => true;
+
 Mob createTestMob({
   double hp: 100.0,
   double ad: 10.0,

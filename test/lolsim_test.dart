@@ -35,4 +35,19 @@ main() async {
       expect(mob.alive, false);
     });
   });
+  group('AutoAttacks', () {
+    test('crit', () {
+      World world = new World();
+      Mob mob1 = createTestMob(ad: 10.0);
+      Mob mob2 = createTestMob(hp: 100.0);
+      new AutoAttack(mob1, mob2).apply(world);
+      expect(mob2.currentHp, 90);
+      world.critProvider = alwaysCrit;
+      new AutoAttack(mob1, mob2).apply(world);
+      expect(mob2.currentHp, 70);
+      mob1.stats.critDamageMultiplier = 3.0;
+      new AutoAttack(mob1, mob2).apply(world);
+      expect(mob2.currentHp, 40);
+    });
+  });
 }
