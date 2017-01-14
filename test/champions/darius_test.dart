@@ -3,13 +3,13 @@ import "package:lol_duel/dragon.dart";
 import 'package:lol_duel/lolsim.dart';
 import "package:test/test.dart";
 
-import 'test_mob.dart';
+import '../test_mob.dart';
 
 main() async {
   DragonData data = await DragonData.loadLatest();
 
-  group("Darius", () {
-    test("Hemorrhage", () {
+  group("Hemorrhage", () {
+    test("basic", () {
       Mob darius = data.champs.championById('Darius');
       double dariusAd = darius.stats.attackDamage;
       Mob mob = createTestMob(hp: 1000.0);
@@ -43,7 +43,7 @@ main() async {
       // Darius's AA's apply 5 stacks to new targets.
       // Stacks fall off one at a time.
     });
-    test("Hemorrhage structures", () {
+    test("structures", () {
       // The wiki doesn't say, but I don't believe he applies to structures?
       Mob darius = data.champs.championById('Darius');
       Mob structure = createTestMob(hp: 1000.0, type: MobType.structure);
@@ -52,18 +52,6 @@ main() async {
       new AutoAttack(darius, structure).apply(world);
       bool hasBleed = structure.buffs.any((buff) => buff is Hemorrhage);
       expect(hasBleed, false);
-    });
-  });
-
-  group("Olaf", () {
-    test("Berserker Rage", () {
-      // Uses integer health values.
-      // Should test that it ignores shields (once those exist).
-      Mob olaf = data.champs.championById('Olaf');
-      double initialAttackSpeed = olaf.stats.attackSpeed;
-      olaf.hpLost += olaf.currentHp / 2;
-      olaf.updateStats();
-      expect(initialAttackSpeed, lessThan(olaf.stats.attackSpeed));
     });
   });
 }
