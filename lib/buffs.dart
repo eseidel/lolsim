@@ -32,6 +32,7 @@ abstract class Buff {
 
   Buff({this.name, @required this.target});
 
+  @override
   String toString() {
     if (name != null) return name;
     return "Buff";
@@ -50,6 +51,7 @@ class PermanentBuff extends Buff {
   PermanentBuff({String name, Mob target}) : super(name: name, target: target);
   bool get retainedAfterDeath => true;
 
+  @override
   void tick(double timeDelta) {}
 }
 
@@ -65,6 +67,7 @@ class TimedBuff extends Buff {
     remaining = duration;
   }
 
+  @override
   void tick(double timeDelta) {
     remaining -= timeDelta;
     if (remaining <= 0.0) expire();
@@ -110,6 +113,7 @@ abstract class DOT extends Buff {
     return count > 1 ? word + 's' : word;
   }
 
+  @override
   String toString() {
     String stacksString = "$stacks " + _plural('stack', stacks);
     return "$name ($stacksString)";
@@ -128,6 +132,7 @@ abstract class DOT extends Buff {
     perStackTicksRemaining = takeLast(perStackTicksRemaining, maxStacks);
   }
 
+  @override
   void tick(double timeDelta) {
     assert(!expired);
     untilNextTick -= timeDelta;

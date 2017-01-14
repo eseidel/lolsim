@@ -43,6 +43,16 @@ main() async {
       // Darius's AA's apply 5 stacks to new targets.
       // Stacks fall off one at a time.
     });
+    test("Hemorrhage structures", () {
+      // The wiki doesn't say, but I don't believe he applies to structures?
+      Mob darius = data.champs.championById('Darius');
+      Mob structure = createTestMob(hp: 1000.0, type: MobType.structure);
+      World world = new World();
+      // AA does not apply bleed to structures?
+      new AutoAttack(darius, structure).apply(world);
+      bool hasBleed = structure.buffs.any((buff) => buff is Hemorrhage);
+      expect(hasBleed, false);
+    });
   });
 
   group("Olaf", () {

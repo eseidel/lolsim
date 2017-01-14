@@ -4,8 +4,8 @@ import 'champions/all.dart';
 
 class ChampionEffects {
   void onChampionCreate() {}
-  void onActionHit(Mob target) {}
-  void onHit(Mob target) {}
+  void onActionHit(Hit hit) {}
+  void onHit(Hit target) {}
 }
 
 typedef ChampionEffects ChampionEffectsConstructor(Mob champion);

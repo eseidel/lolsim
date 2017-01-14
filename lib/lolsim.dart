@@ -253,12 +253,13 @@ class AutoAttack extends Action {
         .add(new AutoAttackCooldown(source, source.stats.attackDuration));
     _log.fine(
         "${world.logTime}: ${source} attacks ${target} for ${source.stats.attackDamage.toStringAsFixed(1)} damage");
-    double damage = target.applyHit(source.createHitForTarget(
+    Hit hit = source.createHitForTarget(
       label: 'AutoAttack',
       target: target,
       physicalDamage: source.stats.attackDamage,
-    ));
-    source.applyOnHitEffects(target);
+    );
+    double damage = target.applyHit(hit);
+    source.applyOnHitEffects(hit);
     source.lifestealFrom(damage);
   }
 }
@@ -411,6 +412,7 @@ enum MobType {
   champion,
   minion,
   monster,
+  structure,
 }
 
 enum MobState {
@@ -716,10 +718,10 @@ class Mob {
     return damage; // This could be beyond-fatal damage.
   }
 
-  void applyOnHitEffects(Mob target) {
+  void applyOnHitEffects(Hit hit) {
     if (effects != null) {
-      effects.onHit(target);
-      effects.onActionHit(target);
+      effects.onHit(hit);
+      effects.onActionHit(hit);
     }
   }
 
