@@ -12,6 +12,7 @@ class NoxianMight extends TimedBuff {
 
   NoxianMight(Mob target)
       : super(name: constName, target: target, duration: 5.0);
+
   int bonusAdForLevel(int level) {
     // http://leagueoflegends.wikia.com/wiki/Darius
     if (level < 3) return 40;

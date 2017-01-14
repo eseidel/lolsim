@@ -717,7 +717,10 @@ class Mob {
   }
 
   void applyOnHitEffects(Mob target) {
-    if (effects != null) effects.onActionHit(target);
+    if (effects != null) {
+      effects.onHit(target);
+      effects.onActionHit(target);
+    }
   }
 
   void lifestealFrom(double damage) {

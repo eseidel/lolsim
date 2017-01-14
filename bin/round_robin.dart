@@ -51,6 +51,11 @@ main(List<String> args) async {
   Map<String, ChampResults> resultsById = {};
   champIds.forEach((id) => resultsById[id] = new ChampResults(id));
   Combinations combos = new Combinations(2, champIds);
+  print(
+      "Standing still and AAing-to-death all ${combos.length} pairs of ${champIds.length} champions");
+  print("using no items, runes or masteries or abilities.");
+  print("Note: A few have passives implemented, as indicated.\n");
+
   // Combinations doesn't implement iterable, so I can't use it in strong mode. :(
   for (int i = 0; i < combos.length; i += 1) {
     List<String> names = combos[i] as List<String>;

@@ -1,15 +1,16 @@
 import 'lolsim.dart';
 
-import 'champions/darius.dart';
-import 'champions/olaf.dart';
+import 'champions/all.dart';
 
 class ChampionEffects {
   void onChampionCreate() {}
   void onActionHit(Mob target) {}
+  void onHit(Mob target) {}
 }
 
 typedef ChampionEffects ChampionEffectsConstructor(Mob champion);
 Map<String, ChampionEffectsConstructor> championEffectsConstructors = {
   'Darius': (Mob champ) => new Darius(champ),
   'Olaf': (Mob champ) => new Olaf(champ),
+  'Jax': (Mob champ) => new Jax(champ),
 };
