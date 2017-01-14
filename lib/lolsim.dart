@@ -796,11 +796,12 @@ class World {
   double time = 0.0;
   List<Mob> reds = [];
   List<Mob> blues = [];
-  CritProvider critProvider = new RandomCrits();
+  CritProvider critProvider;
 
-  World({this.reds, this.blues, this.critProvider}) {
+  World({this.reds: const [], this.blues: const [], this.critProvider}) {
     reds.forEach((mob) => mob.team = Team.red);
     blues.forEach((mob) => mob.team = Team.blue);
+    if (critProvider == null) critProvider = new RandomCrits();
   }
 
   List<Mob> get allMobs => []..addAll(reds)..addAll(blues);

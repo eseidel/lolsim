@@ -56,7 +56,6 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Kled passive
 - Malphite passive (small effect)
 - Master Yi Double Strike passive.
-- Nasus passive (easy, small effect)
 - Nautalis passive
 - Nocturn Passive
 - Oriana Clockwork Winding
