@@ -28,11 +28,10 @@ class NoxianMight extends TimedBuff {
 }
 
 class Hemorrhage extends DOT {
-  static String constName = 'Hemorrhage';
   Mob source;
   Hemorrhage({@required this.source, @required Mob target, int initialStacks})
       : super(
-          name: constName,
+          name: 'Hemorrhage',
           target: target,
           duration: 5.0,
           secondsBetweenTicks: 1.25,
@@ -48,7 +47,7 @@ class Hemorrhage extends DOT {
     return new Hit(
       source: source,
       target: target,
-      label: constName,
+      label: name,
       physicalDamage: dmgPerStackPerTick * stackCount,
     );
   }

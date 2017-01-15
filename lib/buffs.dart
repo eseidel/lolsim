@@ -164,3 +164,47 @@ abstract class DOT extends TickingBuff {
     target.applyHit(hit);
   }
 }
+
+// FIXME: This could share code with DOT.
+class StackedBuff extends Buff {
+  final int maxStacks;
+  final double duration;
+  final double timeBetweenFalloffs;
+
+  int stacks = 0;
+  double untilFirstFalloff;
+  double untilNextFalloff;
+
+  StackedBuff({
+    @required this.maxStacks,
+    @required this.duration,
+    @required this.timeBetweenFalloffs,
+    Mob target,
+    String name,
+  })
+      : super(name: name, target: target) {}
+
+  void tick(double totalTimeDelta) {
+    // FIXME: Handling totalTimeDelta > timeBetweenFalloffs is only for unittests
+    // instead this 'catch-up' logic should move to a higher level.
+    while (totalTimeDelta > 0 && !expired) {
+      totalTimeDelta -= timeBetweenFalloffs;
+      if (untilFirstFalloff > 0) {
+        untilFirstFalloff -= timeBetweenFalloffs;
+      } else {
+        untilNextFalloff -= timeBetweenFalloffs;
+      }
+      if (untilFirstFalloff <= 0) {
+        stacks -= 1;
+        untilNextFalloff = timeBetweenFalloffs;
+      }
+      if (stacks <= 0) expire();
+    }
+  }
+
+  void refreshAndAddStack() {
+    untilFirstFalloff = duration;
+    untilNextFalloff = 0.0;
+    if (stacks < maxStacks) stacks += 1;
+  }
+}
