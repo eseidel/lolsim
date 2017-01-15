@@ -23,13 +23,16 @@ There are several other dart files in bin/, most of them are for testing.
 
 ## Limitations
 Many.  Including at least:
- - Champion lookup is case sensitive and expects names in Title Case.
+ - Chamion/Item/Mastery/Rune lookups are case sensitive and expect names in Title Case.
  - Incomplete support for Runes and Masteries.
  - Very limited item support.
  - No support for abilities.
- - Limited suppot for Buffs.
- - No support for healing.
+ - Limited support for Buffs.
  - Buffs (like spiked shell) use base stats instead of total.
+ - No support for on-hit effects.
+ - No CC.
+ - No AOE or support for location or proximity.
+ - No monsters.
 
 Mostly what the simulation supports is having groups of champs/mobs auto-attack until death.
 
@@ -73,4 +76,5 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Zed passive
 
 ## Questions to answer:
+- Jungle clear-time approximations.
 - Amumu Dispair or Tantrum first?
