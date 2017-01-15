@@ -85,56 +85,56 @@ Aatrox        77
 Nautilus      77                   
 Braum         78                   
 Fizz          78                   
-Kassadin      80                   
+Kassadin      79                   
 Khazix        80                   
 Pantheon      81                   
 Vi            81                   
 Draven        83                   
 JarvanIV      85                   
 Sion          86                   
-Renekton      88                   
-TahmKench     88                   
+Renekton      87                   
 Yorick        88                   
 XinZhao       89                   
 Twitch        90         (has passive)
 Rengar        91                   
 Leona         92                   
-Nunu          93                   
-Udyr          93                   
+Nunu          92                   
+Udyr          92                   
+Hecarim       94                   
 Talon         94                   
 Blitzcrank    95                   
-Hecarim       95                   
 Skarner       95                   
 Camille       96                   
-Illaoi        97                   
+Illaoi        96                   
+Garen         97                   
 Malphite      97                   
 Galio         98                   
-Garen         98                   
-Katarina      100                  
-LeeSin        100                  
-Zac           100                  
-MonkeyKing    101                  
-Chogath       103                  
-DrMundo       104        (has passive)
-Nasus         104        (has passive)
-Alistar       110                  
-Nocturne      111                  
-Rammus        111        (has passive)
-Gragas        112                  
-Shaco         112                  
-Rumble        114                  
-Akali         116                  
-Urgot         116        (has passive)
-MasterYi      119                  
-Sejuani       121                  
-Singed        121        (has passive)
-Shyvana       122                  
-Irelia        123                  
-Warwick       125                  
-Trundle       126                  
-Maokai        128                  
+Katarina      99                   
+LeeSin        99                   
+Zac           99                   
+MonkeyKing    100                  
+Chogath       102                  
+DrMundo       103        (has passive)
+Nasus         103        (has passive)
+Alistar       109                  
+Nocturne      110                  
+Rammus        110        (has passive)
+Gragas        111                  
+Shaco         111                  
+Rumble        113                  
+Akali         115                  
+Urgot         115        (has passive)
+MasterYi      118                  
+Sejuani       120                  
+Singed        120        (has passive)
+Shyvana       121                  
+Irelia        122                  
+Warwick       124                  
+Trundle       125                  
+Maokai        127                  
 Jax           129        (has passive)
-Tryndamere    130        (has passive)
+TahmKench     129        (has passive)
+Tryndamere    129        (has passive)
 Volibear      131        (has passive)
 Darius        132        (has passive)
 Olaf          133        (has passive)
@@ -255,7 +255,7 @@ Ahri 38
   Vladimir
   Zilean
   Zyra
-Akali 116
+Akali 115
   Aatrox
   Ahri
   Alistar
@@ -346,7 +346,6 @@ Akali 116
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Talon
   Taric
@@ -372,7 +371,7 @@ Akali 116
   Ziggs
   Zilean
   Zyra
-Alistar 110
+Alistar 109
   Aatrox
   Ahri
   Amumu
@@ -458,7 +457,6 @@ Alistar 110
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Talon
   Taric
@@ -1088,7 +1086,7 @@ Cassiopeia 43
   Xerath
   Zilean
   Zyra
-Chogath 103
+Chogath 102
   Aatrox
   Ahri
   Amumu
@@ -1167,7 +1165,6 @@ Chogath 103
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Talon
   Taric
@@ -1424,7 +1421,7 @@ Diana 63
   Ziggs
   Zilean
   Zyra
-DrMundo 104 (has passive)
+DrMundo 103 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -1504,7 +1501,6 @@ DrMundo 104 (has passive)
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Talon
   Taric
@@ -2091,7 +2087,7 @@ Gangplank 56
   Ziggs
   Zilean
   Zyra
-Garen 98
+Garen 97
   Aatrox
   Ahri
   Amumu
@@ -2166,7 +2162,6 @@ Garen 98
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Taric
   Teemo
@@ -2210,7 +2205,7 @@ Gnar 19
   TwistedFate
   Veigar
   Zilean
-Gragas 112
+Gragas 111
   Aatrox
   Ahri
   Akali
@@ -2297,7 +2292,6 @@ Gragas 112
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Talon
   Taric
@@ -2340,7 +2334,7 @@ Graves 16
   Thresh
   TwistedFate
   Veigar
-Hecarim 95
+Hecarim 94
   Aatrox
   Ahri
   Amumu
@@ -2413,7 +2407,6 @@ Hecarim 95
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Taric
   Teemo
@@ -2455,7 +2448,7 @@ Heimerdinger 18
   Soraka
   TwistedFate
   Veigar
-Illaoi 97
+Illaoi 96
   Aatrox
   Ahri
   Amumu
@@ -2531,7 +2524,6 @@ Illaoi 97
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Taric
   Teemo
@@ -2553,7 +2545,7 @@ Illaoi 97
   Ziggs
   Zilean
   Zyra
-Irelia 123
+Irelia 122
   Aatrox
   Ahri
   Akali
@@ -2650,7 +2642,6 @@ Irelia 123
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Talon
   Taric
@@ -3173,7 +3164,7 @@ Karma 21
 Karthus 2
   Kled
   Orianna
-Kassadin 80
+Kassadin 79
   Aatrox
   Ahri
   Amumu
@@ -3236,7 +3227,6 @@ Kassadin 80
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Taric
   Teemo
@@ -3254,7 +3244,7 @@ Kassadin 80
   Ziggs
   Zilean
   Zyra
-Katarina 100
+Katarina 99
   Aatrox
   Ahri
   Amumu
@@ -3330,7 +3320,6 @@ Katarina 100
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Talon
   Taric
@@ -3654,7 +3643,7 @@ Leblanc 27
   Xerath
   Zilean
   Zyra
-LeeSin 100
+LeeSin 99
   Aatrox
   Ahri
   Amumu
@@ -3731,7 +3720,6 @@ LeeSin 100
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Talon
   Taric
@@ -4055,7 +4043,7 @@ Malzahar 25
   Veigar
   Zilean
   Zyra
-Maokai 128
+Maokai 127
   Aatrox
   Ahri
   Akali
@@ -4155,7 +4143,6 @@ Maokai 128
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Talon
   Taric
@@ -4184,7 +4171,7 @@ Maokai 128
   Ziggs
   Zilean
   Zyra
-MasterYi 119
+MasterYi 118
   Aatrox
   Ahri
   Akali
@@ -4277,7 +4264,6 @@ MasterYi 119
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Talon
   Taric
@@ -4321,7 +4307,7 @@ MissFortune 16
   Thresh
   Veigar
   Zilean
-MonkeyKing 101
+MonkeyKing 100
   Aatrox
   Ahri
   Amumu
@@ -4401,7 +4387,6 @@ MonkeyKing 101
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Taric
   Teemo
@@ -4549,7 +4534,7 @@ Nami 13
   Sona
   Soraka
   Veigar
-Nasus 104 (has passive)
+Nasus 103 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -4631,7 +4616,6 @@ Nasus 104 (has passive)
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Taric
   Teemo
@@ -4753,7 +4737,7 @@ Nidalee 20
   Veigar
   Zilean
   Zyra
-Nocturne 111
+Nocturne 110
   Aatrox
   Ahri
   Amumu
@@ -4839,7 +4823,6 @@ Nocturne 111
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Taric
   Teemo
@@ -4865,7 +4848,7 @@ Nocturne 111
   Ziggs
   Zilean
   Zyra
-Nunu 93
+Nunu 92
   Aatrox
   Ahri
   Amumu
@@ -4937,7 +4920,6 @@ Nunu 93
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Taric
   Teemo
@@ -5299,7 +5281,7 @@ Quinn 56
   Ziggs
   Zilean
   Zyra
-Rammus 111 (has passive)
+Rammus 110 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -5385,7 +5367,6 @@ Rammus 111 (has passive)
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Taric
   Teemo
@@ -5476,7 +5457,7 @@ RekSai 64
   Ziggs
   Zilean
   Zyra
-Renekton 88
+Renekton 87
   Aatrox
   Ahri
   Amumu
@@ -5543,7 +5524,6 @@ Renekton 88
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Taric
   Teemo
@@ -5718,7 +5698,7 @@ Riven 60
   Ziggs
   Zilean
   Zyra
-Rumble 114
+Rumble 113
   Aatrox
   Ahri
   Akali
@@ -5808,7 +5788,6 @@ Rumble 114
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Talon
   Taric
@@ -5888,7 +5867,7 @@ Ryze 54
   Ziggs
   Zilean
   Zyra
-Sejuani 121
+Sejuani 120
   Aatrox
   Ahri
   Akali
@@ -5983,7 +5962,6 @@ Sejuani 121
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Talon
   Taric
@@ -6010,7 +5988,7 @@ Sejuani 121
   Ziggs
   Zilean
   Zyra
-Shaco 112
+Shaco 111
   Aatrox
   Ahri
   Alistar
@@ -6097,7 +6075,6 @@ Shaco 112
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Talon
   Taric
@@ -6196,7 +6173,7 @@ Shen 72
   Ziggs
   Zilean
   Zyra
-Shyvana 122
+Shyvana 121
   Aatrox
   Ahri
   Akali
@@ -6292,7 +6269,6 @@ Shyvana 122
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Talon
   Taric
@@ -6319,7 +6295,7 @@ Shyvana 122
   Ziggs
   Zilean
   Zyra
-Singed 121 (has passive)
+Singed 120 (has passive)
   Aatrox
   Ahri
   Akali
@@ -6414,7 +6390,6 @@ Singed 121 (has passive)
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Talon
   Taric
@@ -6735,9 +6710,11 @@ Syndra 24
   Velkoz
   Zilean
   Zyra
-TahmKench 88
+TahmKench 129 (has passive)
   Aatrox
   Ahri
+  Akali
+  Alistar
   Amumu
   Anivia
   Annie
@@ -6745,12 +6722,16 @@ TahmKench 88
   AurelionSol
   Azir
   Bard
+  Blitzcrank
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
+  Chogath
   Corki
   Diana
+  DrMundo
   Draven
   Ekko
   Elise
@@ -6759,10 +6740,16 @@ TahmKench 88
   FiddleSticks
   Fiora
   Fizz
+  Galio
   Gangplank
+  Garen
   Gnar
+  Gragas
   Graves
+  Hecarim
   Heimerdinger
+  Illaoi
+  Irelia
   Ivern
   Janna
   JarvanIV
@@ -6772,6 +6759,8 @@ TahmKench 88
   Kalista
   Karma
   Karthus
+  Kassadin
+  Katarina
   Kayle
   Kennen
   Khazix
@@ -6779,38 +6768,61 @@ TahmKench 88
   Kled
   KogMaw
   Leblanc
+  LeeSin
+  Leona
   Lissandra
   Lucian
   Lulu
   Lux
+  Malphite
   Malzahar
+  Maokai
+  MasterYi
   MissFortune
+  MonkeyKing
   Mordekaiser
   Morgana
   Nami
+  Nasus
   Nautilus
   Nidalee
+  Nocturne
+  Nunu
   Orianna
   Pantheon
   Poppy
   Quinn
+  Rammus
   RekSai
+  Renekton
+  Rengar
   Riven
+  Rumble
   Ryze
+  Sejuani
+  Shaco
   Shen
+  Shyvana
+  Singed
   Sion
   Sivir
+  Skarner
   Sona
   Soraka
   Swain
   Syndra
   Taliyah
+  Talon
   Taric
   Teemo
   Thresh
   Tristana
+  Trundle
+  Tryndamere
   TwistedFate
   Twitch
+  Udyr
+  Urgot
   Varus
   Vayne
   Veigar
@@ -6818,8 +6830,12 @@ TahmKench 88
   Vi
   Viktor
   Vladimir
+  Warwick
   Xerath
+  XinZhao
   Yasuo
+  Yorick
+  Zac
   Zed
   Ziggs
   Zilean
@@ -7131,7 +7147,7 @@ Tristana 66
   Ziggs
   Zilean
   Zyra
-Trundle 126
+Trundle 125
   Aatrox
   Ahri
   Akali
@@ -7231,7 +7247,6 @@ Trundle 126
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Talon
   Taric
@@ -7258,7 +7273,7 @@ Trundle 126
   Ziggs
   Zilean
   Zyra
-Tryndamere 130 (has passive)
+Tryndamere 129 (has passive)
   Aatrox
   Ahri
   Akali
@@ -7360,7 +7375,6 @@ Tryndamere 130 (has passive)
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Talon
   Taric
@@ -7499,7 +7513,7 @@ Twitch 90 (has passive)
   Ziggs
   Zilean
   Zyra
-Udyr 93
+Udyr 92
   Aatrox
   Ahri
   Amumu
@@ -7570,7 +7584,6 @@ Udyr 93
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Taric
   Teemo
@@ -7593,7 +7606,7 @@ Udyr 93
   Ziggs
   Zilean
   Zyra
-Urgot 116 (has passive)
+Urgot 115 (has passive)
   Aatrox
   Ahri
   Akali
@@ -7684,7 +7697,6 @@ Urgot 116 (has passive)
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Talon
   Taric
@@ -8113,7 +8125,7 @@ Volibear 131 (has passive)
   Ziggs
   Zilean
   Zyra
-Warwick 125
+Warwick 124
   Aatrox
   Ahri
   Akali
@@ -8212,7 +8224,6 @@ Warwick 125
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Talon
   Taric
@@ -8507,7 +8518,7 @@ Yorick 88
   Ziggs
   Zilean
   Zyra
-Zac 100
+Zac 99
   Aatrox
   Ahri
   Amumu
@@ -8585,7 +8596,6 @@ Zac 100
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Taric
   Teemo

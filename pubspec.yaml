@@ -8,6 +8,7 @@ dependencies:
     path: ../dragon_data
   resource: any
   trotter: any
+  matcher: any
 dev_dependencies:
   test: any
 executables:

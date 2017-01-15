@@ -187,22 +187,96 @@ class AutoAttack extends Action {
       isCrit: isCrit,
       physicalDamage: source.stats.attackDamage,
     );
-    double damage = target.applyHit(hit);
     source.applyOnHitEffects(hit);
+    double damage = target.applyHit(hit);
     source.lifestealFrom(damage);
   }
 }
 
-class Hit {
-  Hit({
+class Damage {
+  String label;
+  double physicalDamage;
+  double magicDamage;
+  double trueDamage;
+
+  Damage({
     this.label: null,
-    this.isCrit: false,
     this.physicalDamage: 0.0,
     this.magicDamage: 0.0,
     this.trueDamage: 0.0,
+  });
+
+  double get totalDamage => physicalDamage + magicDamage + trueDamage;
+
+  String toString() {
+    return label != null ? '$totalDamage ($label)' : '$totalDamage';
+  }
+}
+
+enum Targeting {
+  singleTarget,
+  aoe,
+}
+
+class Hit {
+  String label;
+  bool isCrit;
+  Mob source;
+  Mob target;
+  Targeting targeting;
+  Damage baseDamage;
+  List<Damage> onHits = [];
+
+  Hit({
+    this.label: null,
+    this.isCrit: false,
+    double physicalDamage: 0.0,
+    double magicDamage: 0.0,
+    double trueDamage: 0.0,
     this.source: null,
     this.target: null,
-  });
+    this.targeting: Targeting.singleTarget,
+  })
+      : baseDamage = new Damage(
+          label: label,
+          physicalDamage: physicalDamage,
+          magicDamage: magicDamage,
+          trueDamage: trueDamage,
+        );
+
+  double get physicalDamage {
+    double totalPhysical = baseDamage.physicalDamage;
+    onHits.forEach((onHit) => totalPhysical += onHit.physicalDamage);
+    return totalPhysical;
+  }
+
+  double get magicDamage {
+    double totalMagic = baseDamage.magicDamage;
+    onHits.forEach((onHit) => totalMagic += onHit.magicDamage);
+    return totalMagic;
+  }
+
+  double get trueDamage {
+    double totalTrue = baseDamage.trueDamage;
+    onHits.forEach((onHit) => totalTrue += onHit.trueDamage);
+    return totalTrue;
+  }
+
+  // This only applies to baseDamage for now?  Unclear if
+  // onHits can have damage-dealt-side amplification?
+  // Maybe from Exhaust?
+  void applyDamageDealtModifier(DamageDealtDelta delta) {
+    // Damage Amplification -- Percentage
+    baseDamage.physicalDamage *= delta.percentPhysical;
+    baseDamage.magicDamage *= delta.percentMagical;
+    // Damage Amplification -- Flat
+    // It is not clear if flat amp is before or after precentage, however
+    // The few cases I've seen (savagery and gp barrels) appear to be after.
+    baseDamage.physicalDamage += delta.flatPhysical;
+    baseDamage.magicDamage += delta.flatMagical;
+    // Most damage amps appear to explicitly exclude true dmg, including
+    // double edged sword, assasin, etc.
+  }
 
   String get sourceString {
     String result = source.toString();
@@ -210,13 +284,18 @@ class Hit {
     return result;
   }
 
-  String label = null;
-  double physicalDamage = 0.0;
-  double magicDamage = 0.0;
-  double trueDamage = 0.0;
-  bool isCrit = false;
-  Mob source = null;
-  Mob target = null;
+  String get summaryString {
+    String summary = '';
+    if (onHits.isNotEmpty)
+      summary += ([baseDamage]..addAll(onHits)).toString();
+    else
+      summary += baseDamage.toString();
+    return summary + ' from $source';
+  }
+
+  void addOnHitDamage(Damage damage) {
+    onHits.add(damage);
+  }
 }
 
 enum Team {
@@ -536,13 +615,14 @@ class Mob {
     return delta;
   }
 
-  Hit createHitForTarget(
-      {@required Mob target,
-      @required String label,
-      bool isCrit: false,
-      double physicalDamage: 0.0,
-      double magicDamage: 0.0,
-      double trueDamage: 0.0}) {
+  Hit createHitForTarget({
+    @required Mob target,
+    @required String label,
+    bool isCrit: false,
+    double physicalDamage: 0.0,
+    double magicDamage: 0.0,
+    double trueDamage: 0.0,
+  }) {
     Hit hit = new Hit(
       source: this,
       target: target,
@@ -554,16 +634,7 @@ class Mob {
     );
 
     DamageDealtDelta delta = computeDamageDealtDelta(hit);
-    // Damage Amplification -- Percentage
-    hit.physicalDamage *= delta.percentPhysical;
-    hit.magicDamage *= delta.percentMagical;
-    // Damage Amplification -- Flat
-    // It is not clear if flat amp is before or after precentage, however
-    // The few cases I've seen (savagery and gp barrels) appear to be after.
-    hit.physicalDamage += delta.flatPhysical;
-    hit.magicDamage += delta.flatMagical;
-    // Most damage amps appear to explicitly exclude true dmg, including
-    // double edged sword, assasin, etc.
+    hit.applyDamageDealtModifier(delta);
     return hit;
   }
 
@@ -643,6 +714,7 @@ class Mob {
   }
 
   double applyHit(Hit hit) {
+    _log.fine("$this hit by ${hit.summaryString}");
     double damage = computeDamageRecieved(hit);
     hpLost += damage;
     _log.fine(

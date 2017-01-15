@@ -17,6 +17,7 @@ Map<String, ChampionEffectsConstructor> championEffectsConstructors = {
   'Nasus': (Mob champ) => new Nasus(champ),
   'Olaf': (Mob champ) => new Olaf(champ),
   'Rammus': (Mob champ) => new Rammus(champ),
+  'TahmKench': (Mob champ) => new TahmKench(champ),
   'Tryndamere': (Mob champ) => new Tryndamere(champ),
   'Twitch': (Mob champ) => new Twitch(champ),
   'Urgot': (Mob champ) => new Urgot(champ),
