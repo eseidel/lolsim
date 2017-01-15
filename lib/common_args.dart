@@ -1,8 +1,9 @@
 import 'package:logging/logging.dart';
 import 'package:args/args.dart';
 
-ArgResults handleCommonArgs(List<String> args) {
-  Logger.root.level = Level.INFO;
+ArgResults handleCommonArgs(List<String> args,
+    {Level defaultLogLevel = Level.INFO}) {
+  Logger.root.level = defaultLogLevel;
   Logger.root.onRecord.listen((LogRecord rec) {
     // ${rec.time}:
     print('${rec.level.name.toLowerCase()}: ${rec.message}');

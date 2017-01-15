@@ -930,6 +930,7 @@ class World {
       return all;
     });
     // Might need to sort actions?
+    // FIXME: Targets can become invalid when applying actions!
     actions.forEach((action) => action.apply(this));
   }
 
