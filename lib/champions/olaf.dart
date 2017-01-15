@@ -18,6 +18,7 @@ class BerserkerRage extends PermanentBuff {
 
   @override
   Map<String, num> get stats => {
+        // FIXME: healthPercent could vary based on other stats.
         PercentAttackSpeedMod: 1.0 - target.healthPercent.floor(),
       };
 }

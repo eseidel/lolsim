@@ -25,5 +25,18 @@ main() async {
       volibear.tick(6.0);
       expect(volibear.stats.hpRegen, initialHp5);
     });
+    test('items', () {
+      Mob volibear = data.champs.championById('Volibear');
+      Mob mob = createTestMob();
+      World world = new World();
+      volibear.hpLost = volibear.stats.hp * .71;
+      // Dmg below 30% triggers the buff.
+      new AutoAttack(mob, volibear).apply(world);
+      double buffedHp5 = volibear.stats.hpRegen;
+      // hp5 buff should be relative to total health, including items:
+      volibear.addItem(data.items.itemByName('Ruby Crystal'));
+      volibear.tick(1.0);
+      expect(volibear.stats.hpRegen, greaterThan(buffedHp5));
+    }, skip: 'Buffs can only read base stats, so this fails.');
   });
 }

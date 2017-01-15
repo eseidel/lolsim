@@ -34,6 +34,7 @@ class ChosenOfTheStorm extends TimedBuff {
     return (5.0 / healingDuration) * totalHeal;
   }
 
+  // FIXME: This only reads from base hp and does not include other items!
   @override
   Map<String, num> get stats => {
         FlatHPRegenMod: hpPerFive(),

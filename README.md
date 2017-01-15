@@ -29,6 +29,7 @@ Many.  Including at least:
  - No support for abilities.
  - Limited suppot for Buffs.
  - No support for healing.
+ - Buffs (like spiked shell) use base stats instead of total.
 
 Mostly what the simulation supports is having groups of champs/mobs auto-attack until death.
 
@@ -36,7 +37,6 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Split out dragon.dart into package:data_dragon instead of lol_duel.
 - Split lolsim.dart into smaller files.
 - Add more passives, abilities, masteries, runes, etc.
-- Add hp regeneration.
 - Confirm that Jax passive is working (didn't move him in rankings).
 
 ## Abilities missing affecting the lvl 1 round_robin sort.
@@ -60,7 +60,7 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Nocturn Passive
 - Oriana Clockwork Winding
 - Pantheon passive
-- Rammus passive and ball curl
+- Rammus ball curl
 - Singed (small effect)
 - Tahm Kench passive
 - Taric passive + ability

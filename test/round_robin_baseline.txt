@@ -83,52 +83,52 @@ Shen          74
 Urgot         74                   
 Fiora         76                   
 Zed           76                   
-Aatrox        79                   
+Aatrox        78                   
 Nautilus      79                   
 Braum         80                   
 Fizz          80                   
-Rammus        82                   
-Kassadin      83                   
+Kassadin      82                   
 Khazix        83                   
 Pantheon      83                   
 Vi            83                   
-Draven        86                   
+Draven        85                   
 JarvanIV      87                   
 Sion          88                   
+Singed        89                   
 TahmKench     89                   
-Singed        90                   
-Yorick        91                   
-Renekton      92                   
-XinZhao       92                   
+Yorick        90                   
+Renekton      91                   
+XinZhao       91                   
 Rengar        94                   
 Leona         95                   
-Nunu          96                   
-Udyr          96                   
-Talon         97                   
-Blitzcrank    98                   
-Skarner       98                   
-Camille       99                   
-Hecarim       99                   
-DrMundo       100                  
-Illaoi        100                  
-Malphite      100                  
-Galio         101                  
-Garen         101                  
-Katarina      103                  
-LeeSin        103                  
-Zac           103                  
-Chogath       106                  
-MonkeyKing    106                  
-Nasus         107        (has passive)
-Jax           110        (has passive)
-Nocturne      112                  
-Alistar       113                  
-Gragas        116                  
-Shaco         116                  
+Nunu          95                   
+Udyr          95                   
+Talon         96                   
+Blitzcrank    97                   
+Skarner       97                   
+Camille       98                   
+Hecarim       98                   
+DrMundo       99                   
+Illaoi        99                   
+Malphite      99                   
+Galio         100                  
+Garen         100                  
+Katarina      102                  
+LeeSin        102                  
+Zac           102                  
+Chogath       105                  
+MonkeyKing    105                  
+Nasus         106        (has passive)
+Jax           109        (has passive)
+Nocturne      111                  
+Rammus        111        (has passive)
+Alistar       112                  
+Gragas        115                  
+Shaco         115                  
 Rumble        117                  
 Akali         119                  
 MasterYi      120                  
-Sejuani       123                  
+Sejuani       122                  
 Shyvana       123                  
 Irelia        125                  
 Warwick       126                  
@@ -138,7 +138,7 @@ Tryndamere    130        (has passive)
 Volibear      131        (has passive)
 Darius        132        (has passive)
 Olaf          133        (has passive)
-Aatrox 79
+Aatrox 78
   Ahri
   Amumu
   Anivia
@@ -190,7 +190,6 @@ Aatrox 79
   Orianna
   Poppy
   Quinn
-  Rammus
   RekSai
   Riven
   Ryze
@@ -377,7 +376,7 @@ Akali 119
   Ziggs
   Zilean
   Zyra
-Alistar 113
+Alistar 112
   Aatrox
   Ahri
   Amumu
@@ -449,7 +448,6 @@ Alistar 113
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Rengar
@@ -732,7 +730,7 @@ Bard 32
   Viktor
   Zilean
   Zyra
-Blitzcrank 98
+Blitzcrank 97
   Aatrox
   Ahri
   Amumu
@@ -794,7 +792,6 @@ Blitzcrank 98
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Riven
@@ -962,7 +959,7 @@ Caitlyn 14
   Sona
   Thresh
   Veigar
-Camille 99
+Camille 98
   Aatrox
   Ahri
   Amumu
@@ -1025,7 +1022,6 @@ Camille 99
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Riven
@@ -1106,7 +1102,7 @@ Cassiopeia 43
   Xerath
   Zilean
   Zyra
-Chogath 106
+Chogath 105
   Aatrox
   Ahri
   Amumu
@@ -1173,7 +1169,6 @@ Chogath 106
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Rengar
@@ -1446,7 +1441,7 @@ Diana 64
   Ziggs
   Zilean
   Zyra
-DrMundo 100
+DrMundo 99
   Aatrox
   Ahri
   Amumu
@@ -1510,7 +1505,6 @@ DrMundo 100
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Riven
@@ -1547,7 +1541,7 @@ DrMundo 100
   Ziggs
   Zilean
   Zyra
-Draven 86
+Draven 85
   Aatrox
   Ahri
   Anivia
@@ -1603,7 +1597,6 @@ Draven 86
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Riven
   Ryze
@@ -1962,7 +1955,7 @@ Fizz 80
   Ziggs
   Zilean
   Zyra
-Galio 101
+Galio 100
   Aatrox
   Ahri
   Amumu
@@ -2027,7 +2020,6 @@ Galio 101
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Riven
@@ -2122,7 +2114,7 @@ Gangplank 57
   Ziggs
   Zilean
   Zyra
-Garen 101
+Garen 100
   Aatrox
   Ahri
   Amumu
@@ -2186,7 +2178,6 @@ Garen 101
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Riven
@@ -2244,7 +2235,7 @@ Gnar 19
   TwistedFate
   Veigar
   Zilean
-Gragas 116
+Gragas 115
   Aatrox
   Ahri
   Akali
@@ -2318,7 +2309,6 @@ Gragas 116
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Rengar
@@ -2378,7 +2368,7 @@ Graves 16
   Thresh
   TwistedFate
   Veigar
-Hecarim 99
+Hecarim 98
   Aatrox
   Ahri
   Amumu
@@ -2441,7 +2431,6 @@ Hecarim 99
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Riven
@@ -2497,7 +2486,7 @@ Heimerdinger 18
   Soraka
   TwistedFate
   Veigar
-Illaoi 100
+Illaoi 99
   Aatrox
   Ahri
   Amumu
@@ -2561,7 +2550,6 @@ Illaoi 100
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Rengar
@@ -2865,7 +2853,7 @@ JarvanIV 87
   Ziggs
   Zilean
   Zyra
-Jax 110 (has passive)
+Jax 109 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -2934,7 +2922,6 @@ Jax 110 (has passive)
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Rengar
@@ -3204,7 +3191,7 @@ Karma 21
 Karthus 2
   Kled
   Orianna
-Kassadin 83
+Kassadin 82
   Aatrox
   Ahri
   Amumu
@@ -3258,7 +3245,6 @@ Kassadin 83
   Orianna
   Poppy
   Quinn
-  Rammus
   RekSai
   Riven
   Ryze
@@ -3288,7 +3274,7 @@ Kassadin 83
   Ziggs
   Zilean
   Zyra
-Katarina 103
+Katarina 102
   Aatrox
   Ahri
   Amumu
@@ -3353,7 +3339,6 @@ Katarina 103
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Rengar
   Riven
@@ -3694,7 +3679,7 @@ Leblanc 27
   Xerath
   Zilean
   Zyra
-LeeSin 103
+LeeSin 102
   Aatrox
   Ahri
   Amumu
@@ -3759,7 +3744,6 @@ LeeSin 103
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Rengar
   Riven
@@ -3978,7 +3962,7 @@ Lux 4
   Annie
   Kled
   Orianna
-Malphite 100
+Malphite 99
   Aatrox
   Ahri
   Amumu
@@ -4042,7 +4026,6 @@ Malphite 100
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Riven
@@ -4373,7 +4356,7 @@ MissFortune 16
   Thresh
   Veigar
   Zilean
-MonkeyKing 106
+MonkeyKing 105
   Aatrox
   Ahri
   Amumu
@@ -4441,7 +4424,6 @@ MonkeyKing 106
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Rengar
   Riven
@@ -4606,7 +4588,7 @@ Nami 13
   Sona
   Soraka
   Veigar
-Nasus 107 (has passive)
+Nasus 106 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -4674,7 +4656,6 @@ Nasus 107 (has passive)
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Riven
@@ -4815,7 +4796,7 @@ Nidalee 20
   Veigar
   Zilean
   Zyra
-Nocturne 112
+Nocturne 111
   Aatrox
   Ahri
   Amumu
@@ -4886,7 +4867,6 @@ Nocturne 112
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Rengar
@@ -4928,7 +4908,7 @@ Nocturne 112
   Ziggs
   Zilean
   Zyra
-Nunu 96
+Nunu 95
   Aatrox
   Ahri
   Amumu
@@ -4989,7 +4969,6 @@ Nunu 96
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Riven
@@ -5368,28 +5347,38 @@ Quinn 56
   Ziggs
   Zilean
   Zyra
-Rammus 82
+Rammus 111 (has passive)
+  Aatrox
   Ahri
+  Amumu
   Anivia
   Annie
   Ashe
   AurelionSol
   Azir
   Bard
+  Blitzcrank
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
   Corki
   Diana
+  Draven
+  Ekko
   Elise
   Evelynn
   Ezreal
   FiddleSticks
+  Fiora
   Fizz
   Gangplank
+  Garen
   Gnar
+  Gragas
   Graves
+  Hecarim
   Heimerdinger
   Ivern
   Janna
@@ -5400,6 +5389,8 @@ Rammus 82
   Kalista
   Karma
   Karthus
+  Kassadin
+  Katarina
   Kayle
   Kennen
   Khazix
@@ -5407,29 +5398,42 @@ Rammus 82
   Kled
   KogMaw
   Leblanc
+  LeeSin
   Lissandra
   Lucian
   Lulu
   Lux
   Malzahar
   MissFortune
+  MonkeyKing
   Mordekaiser
   Morgana
   Nami
+  Nasus
   Nautilus
   Nidalee
+  Nocturne
+  Nunu
   Orianna
   Pantheon
+  Poppy
   Quinn
   RekSai
+  Renekton
   Riven
   Ryze
+  Sejuani
+  Shaco
+  Shen
+  Singed
   Sion
   Sivir
+  Skarner
   Sona
   Soraka
   Swain
   Syndra
+  TahmKench
   Taliyah
   Taric
   Teemo
@@ -5437,6 +5441,7 @@ Rammus 82
   Tristana
   TwistedFate
   Twitch
+  Udyr
   Urgot
   Varus
   Vayne
@@ -5446,7 +5451,10 @@ Rammus 82
   Viktor
   Vladimir
   Xerath
+  XinZhao
   Yasuo
+  Yorick
+  Zac
   Zed
   Ziggs
   Zilean
@@ -5517,7 +5525,7 @@ RekSai 65
   Ziggs
   Zilean
   Zyra
-Renekton 92
+Renekton 91
   Aatrox
   Ahri
   Amumu
@@ -5575,7 +5583,6 @@ Renekton 92
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Riven
   Ryze
@@ -5940,7 +5947,7 @@ Ryze 54
   Ziggs
   Zilean
   Zyra
-Sejuani 123
+Sejuani 122
   Aatrox
   Ahri
   Akali
@@ -6019,7 +6026,6 @@ Sejuani 123
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Rengar
@@ -6064,7 +6070,7 @@ Sejuani 123
   Ziggs
   Zilean
   Zyra
-Shaco 116
+Shaco 115
   Aatrox
   Ahri
   Alistar
@@ -6139,7 +6145,6 @@ Shaco 116
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Rengar
@@ -6380,7 +6385,7 @@ Shyvana 123
   Ziggs
   Zilean
   Zyra
-Singed 90
+Singed 89
   Aatrox
   Ahri
   Amumu
@@ -6438,7 +6443,6 @@ Singed 90
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Riven
   Ryze
@@ -6601,7 +6605,7 @@ Sivir 40
   Ziggs
   Zilean
   Zyra
-Skarner 98
+Skarner 97
   Aatrox
   Ahri
   Amumu
@@ -6663,7 +6667,6 @@ Skarner 98
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Riven
@@ -6895,7 +6898,7 @@ Taliyah 34
   Ziggs
   Zilean
   Zyra
-Talon 97
+Talon 96
   Aatrox
   Ahri
   Amumu
@@ -6958,7 +6961,6 @@ Talon 97
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Riven
@@ -7511,7 +7513,7 @@ Twitch 60
   Ziggs
   Zilean
   Zyra
-Udyr 96
+Udyr 95
   Aatrox
   Ahri
   Amumu
@@ -7572,7 +7574,6 @@ Udyr 96
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Riven
@@ -8241,7 +8242,7 @@ Xerath 25
   Veigar
   Zilean
   Zyra
-XinZhao 92
+XinZhao 91
   Aatrox
   Ahri
   Amumu
@@ -8301,7 +8302,6 @@ XinZhao 92
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Riven
   Ryze
@@ -8397,7 +8397,7 @@ Yasuo 62
   Ziggs
   Zilean
   Zyra
-Yorick 91
+Yorick 90
   Aatrox
   Ahri
   Anivia
@@ -8456,7 +8456,6 @@ Yorick 91
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Riven
   Ryze
@@ -8489,7 +8488,7 @@ Yorick 91
   Ziggs
   Zilean
   Zyra
-Zac 103
+Zac 102
   Aatrox
   Ahri
   Amumu
@@ -8553,7 +8552,6 @@ Zac 103
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Rengar
