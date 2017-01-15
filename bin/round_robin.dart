@@ -55,10 +55,10 @@ class TableLayout {
 }
 
 void printForHumans(List<ChampResults> results) {
-  results.sort();
   TableLayout layout = new TableLayout([13, 10, 10]);
   layout.printRow(['Name', 'Victories', 'Status']);
   layout.printDivider();
+  results.sort();
   results.forEach((result) {
     String statusString = result.hasEffects ? '(has passive)' : '';
     layout
@@ -112,8 +112,6 @@ main(List<String> args) async {
     else if (result < 0) resultsById[red.id].recordVictory(blue.id);
   }
   List<ChampResults> results = resultsById.values.toList();
-  if (argResults['test'])
-    printForTests(results);
-  else
-    printForHumans(results);
+  printForHumans(results);
+  if (argResults['test']) printForTests(results);
 }
