@@ -33,6 +33,7 @@ class Stats {
   double abilityPower = 0.0;
   double armor;
   double spellBlock; // aka magic resist.
+  double hpRegen;
 
   double lifesteal = 0.0;
   double critChance = 0.0;
@@ -70,12 +71,14 @@ class BaseStats extends Stats {
         hpPerLevel = json['hpperlevel'].toDouble(),
         mpPerLevel = json['mpperlevel'].toDouble(),
         attackSpeedPerLevel = json['attackspeedperlevel'].toDouble() / 100.0,
-        attackDamagePerLevel = json['attackdamageperlevel'].toDouble() {
+        attackDamagePerLevel = json['attackdamageperlevel'].toDouble(),
+        hpRegenPerLevel = json['hpregenperlevel'].toDouble() {
     attackDelay = json['attackspeedoffset'].toDouble();
     attackDamage = json['attackdamage'].toDouble();
     hp = json['hp'].toDouble();
     armor = json['armor'].toDouble();
     spellBlock = json['spellblock'].toDouble();
+    hpRegen = json['hpregen'].toDouble();
   }
 
   final double hpPerLevel;
@@ -84,11 +87,13 @@ class BaseStats extends Stats {
   final double spellBlockPerLevel;
   final double attackSpeedPerLevel;
   final double attackDamagePerLevel;
+  final double hpRegenPerLevel;
 
   Stats statsForLevel(int level) {
     Stats stats = new Stats();
     int multiplier = level - 1; // level is 1-based.
     stats.hp = hp + hpPerLevel * multiplier;
+    stats.hpRegen = hpRegen + hpRegenPerLevel * multiplier;
     stats.attackDamage = attackDamage + attackDamagePerLevel * multiplier;
     stats.armor = armor + armorPerLevel * multiplier;
     stats.spellBlock = spellBlock + spellBlockPerLevel * multiplier;
@@ -335,6 +340,8 @@ final Map<String, double> _sharedMinionStats = {
   'attackspeedperlevel': 0.0,
   'armor': 0.0,
   'spellblock': 0.0,
+  'hpregen': 0.0,
+  'hpregenperlevel': 0.0,
 };
 
 final Map<String, dynamic> _meleeMinionJson = {
@@ -393,25 +400,48 @@ final Map<String, dynamic> _superMinionJson = {
 
 enum MinionType { melee, caster, siege, superMinion }
 
-class DamageEntry {
-  double totalDamage = 0.0;
+enum LogType {
+  healing,
+  damage,
+}
+
+class LogEntry {
+  LogType type;
+  double total = 0.0;
   int count = 0;
+
+  LogEntry(this.type);
+
+  String get typeString {
+    return (type == LogType.healing) ? 'healing' : 'damage';
+  }
 }
 
 class DamageLog {
-  Map<String, DamageEntry> entries = {};
+  Map<String, LogEntry> entries = {};
   void recordDamage(Hit hit, double damage) {
     String source = hit.sourceString;
-    DamageEntry entry = entries[source] ?? new DamageEntry();
-    entry.totalDamage += damage;
+    LogEntry entry = entries[source] ?? new LogEntry(LogType.damage);
+    assert(entry.type == damage);
+    entry.total += damage;
+    entry.count += 1;
+    entries[source] = entry;
+  }
+
+  void recordHealing(String source, double healing) {
+    LogEntry entry = entries[source] ?? new LogEntry(LogType.healing);
+    assert(entry.type == healing);
+    entry.total += healing;
     entry.count += 1;
     entries[source] = entry;
   }
 
   String get summaryString {
     String summary = "";
-    entries.forEach((name, entry) => summary +=
-        "${entry.totalDamage.toStringAsFixed(1)} damage from $name (${entry.count} instances)\n");
+    entries.forEach((name, entry) {
+      summary +=
+          "${entry.total.toStringAsFixed(1)} ${entry.typeString} from $name (${entry.count} instances)\n";
+    });
     return summary;
   }
 }
@@ -428,6 +458,15 @@ enum MobState {
   stopped,
 }
 
+class Healing extends TickingBuff {
+  Healing(Mob target) : super(name: 'Healing', target: target) {}
+  void onTick() {
+    double hpPerSecond = target.stats.hpRegen / 5.0;
+    target.healFor(hpPerSecond * secondsBetweenTicks, 'hp5');
+    if (target.healthPercent >= 1.0) expire();
+  }
+}
+
 class Mob {
   Team team;
   String name;
@@ -436,6 +475,8 @@ class Mob {
   Mob lastTarget;
   List<Item> items = [];
   List<Buff> buffs = [];
+  bool _updatingBuffs = false;
+  List<Buff> _buffsAddedWhileUpdating = [];
   MasteryPage _masteryPage;
   RunePage _runePage;
   final BaseStats baseStats;
@@ -476,7 +517,7 @@ class Mob {
 
   String statsSummary() {
     String summary = """  $name (lvl ${level})
-    HP : ${currentHp} / ${stats.hp}
+    HP : ${currentHp} / ${stats.hp} + ${stats.hpRegen.toStringAsFixed(1)}/5
     AD : ${stats.attackDamage.round()}  AP : ${stats.abilityPower.round()}
     AR : ${stats.armor.round()}  MR : ${stats.spellBlock.round()}
     AS : ${stats.attackSpeed.toStringAsFixed(3)}\n""";
@@ -530,7 +571,7 @@ class Mob {
     'FlatHPPoolMod': (computed, statValue) => computed.hp += statValue,
     'FlatCritChanceMod': (computed, statValue) =>
         computed.critChance += statValue,
-    // 'FlatHPRegenMod': (computed, statValue) => computed.hpRegen += statValue,
+    'FlatHPRegenMod': (computed, statValue) => computed.hpRegen += statValue,
     'FlatMagicDamageMod': (computed, statValue) =>
         computed.abilityPower += statValue,
     // 'FlatMovementSpeedMod': (computed, statValue) => computed.movespeed += statValue,
@@ -587,7 +628,10 @@ class Mob {
   }
 
   void addBuff(Buff buff) {
-    buffs.add(buff);
+    if (_updatingBuffs)
+      _buffsAddedWhileUpdating.add(buff);
+    else
+      buffs.add(buff);
     updateStats(); // needed?
   }
 
@@ -598,13 +642,24 @@ class Mob {
     return lastTarget;
   }
 
+  void _tickBuffs(double timeDelta) {
+    // Buffs can cause dmg which can add other buffs so we
+    // guard traversal.
+    _updatingBuffs = true;
+    buffs.forEach((buff) => buff.tick(timeDelta));
+    buffs.addAll(_buffsAddedWhileUpdating);
+    _buffsAddedWhileUpdating = [];
+    buffs = buffs.where((buff) => !buff.expired).toList();
+    _updatingBuffs = false;
+  }
+
   // Not clear if buffs should be held on the Mob or not.
   List<Action> tick(double timeDelta) {
     updateStats();
     List<Action> actions = [];
     if (!alive) return actions;
-    buffs.forEach((buff) => buff.tick(timeDelta));
-    buffs = buffs.where((buff) => !buff.expired).toList();
+    _tickBuffs(timeDelta);
+    updateStats(); // Buffs can affect stats.
     Mob target = computeAttackTarget();
     if (target != null) actions.add(new AutoAttack(this, target));
     return actions;
@@ -725,6 +780,11 @@ class Mob {
     return "$percent% (${currentHp.toStringAsFixed(1)} / ${stats.hp.round()})";
   }
 
+  void startHealingIfNecessary() {
+    if (buffs.any((buff) => buff is Healing)) return;
+    addBuff(new Healing(this));
+  }
+
   double applyHit(Hit hit) {
     double damage = computeDamageRecieved(hit);
     hpLost += damage;
@@ -732,7 +792,9 @@ class Mob {
         "$this took ${damage.toStringAsFixed(1)} damage from ${hit.sourceString}, "
         "$hpStatusString remains");
     damageLog?.recordDamage(hit, damage);
-    if (stats.hp <= hpLost) die();
+    if (effects != null) effects.onDamageRecieved();
+    startHealingIfNecessary();
+    if (currentHp <= 0.0) die();
     return damage; // This could be beyond-fatal damage.
   }
 
@@ -752,6 +814,7 @@ class Mob {
     assert(healing > 0.0);
     _log.fine(
         "$this healed ${healing.toStringAsFixed(1)} from $source $hpStatusString remains");
+    damageLog?.recordHealing(source, healing);
     // FIXME: Missing healing modifiers.
     hpLost -= min(hpLost, healing);
   }

@@ -5,6 +5,8 @@ class ChampionEffects {
   void onChampionCreate() {}
   void onActionHit(Hit hit) {}
   void onHit(Hit target) {}
+  // Unclear the right name, should be called after dmg applied:
+  void onDamageRecieved() {}
 }
 
 typedef ChampionEffects ChampionEffectsConstructor(Mob champion);

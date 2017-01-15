@@ -59,7 +59,7 @@ class TimedBuff extends Buff {
   final double duration;
   double remaining;
 
-  TimedBuff({String name, Mob target, this.duration})
+  TimedBuff({String name, @required Mob target, @required this.duration})
       : remaining = duration,
         super(name: name, target: target);
 
@@ -81,26 +81,49 @@ class Cooldown extends TimedBuff {
       : super(name: name, target: target, duration: duration);
 }
 
-abstract class DOT extends Buff {
+abstract class TickingBuff extends Buff {
   final double secondsBetweenTicks;
+  double untilNextTick;
+
+  TickingBuff(
+      {String name, Mob target, this.secondsBetweenTicks: 0.5, double duration})
+      : untilNextTick = secondsBetweenTicks,
+        super(name: name, target: target) {}
+
+  @override
+  void tick(double timeDelta) {
+    assert(!expired);
+    untilNextTick -= timeDelta;
+    // This implementation supports catch-up damage.
+    while (!expired && untilNextTick <= 0) {
+      onTick();
+      untilNextTick += secondsBetweenTicks;
+    }
+  }
+
+  void onTick();
+}
+
+abstract class DOT extends TickingBuff {
   List<int> perStackTicksRemaining;
   // Currently dmg is fixed at time of creation or last application.
   Hit dmgPerTick;
-  double untilNextTick;
-  final int initialTicks;
   final int maxStacks;
+  final int initialTicks;
 
   DOT({
     String name,
     @required Mob target,
-    this.secondsBetweenTicks: 0.5,
+    double secondsBetweenTicks: 0.5,
     @required double duration,
     int initialStacks: 1,
     this.maxStacks: 1,
   })
       : initialTicks = (duration / secondsBetweenTicks).floor(),
-        untilNextTick = secondsBetweenTicks,
-        super(name: name, target: target) {
+        super(
+            name: name,
+            target: target,
+            secondsBetweenTicks: secondsBetweenTicks) {
     // FIXME: This should use integer number of ticks.
     assert(duration % secondsBetweenTicks == 0);
     perStackTicksRemaining = [];
@@ -132,19 +155,9 @@ abstract class DOT extends Buff {
     perStackTicksRemaining = takeLast(perStackTicksRemaining, maxStacks);
   }
 
-  @override
-  void tick(double timeDelta) {
-    assert(!expired);
-    untilNextTick -= timeDelta;
-    // This implementation supports catch-up damage.
-    while (!expired && untilNextTick <= 0) {
-      onTick();
-      untilNextTick += secondsBetweenTicks;
-    }
-  }
-
   Hit createHitForStacks(int stackCount);
 
+  @override
   void onTick() {
     // Currently combining stacks into one damage event.
     Hit hit = createHitForStacks(stacks);

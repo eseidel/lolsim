@@ -45,6 +45,7 @@ class DuelLoader {
 
   Mob loadChampion(YamlMap yamlMob) {
     Mob mob = dragonData.champs.championByName(yamlMob['name']);
+    print('${mob.name} ${mob.type}');
     mob.level = yamlMob['level'] ?? 1;
     YamlList yamlItems = yamlMob['items'];
     if (yamlItems != null) {

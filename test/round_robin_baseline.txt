@@ -6,139 +6,139 @@ Name          Victories  Status
 ===================================
 Kled          0                    
 Orianna       1                    
+Anivia        2                    
 Karthus       2                    
-Anivia        3                    
 Annie         3                    
-Janna         4                    
-FiddleSticks  5                    
-Lissandra     6                    
-Lulu          6                    
-Veigar        6                    
-Lux           7                    
-Zilean        7                    
-Sona          8                    
-Thresh        8                    
-Caitlyn       10                   
-Heimerdinger  12                   
-Nami          12                   
-Zyra          12                   
-MissFortune   13                   
-Azir          17                   
-Elise         17                   
-Ezreal        18                   
-Soraka        18                   
-Graves        19                   
-Swain         20                   
-Vladimir      21                   
-Gnar          22                   
-Karma         23                   
-Nidalee       23                   
-TwistedFate   24                   
-Velkoz        25                   
-Bard          26                   
-Syndra        26                   
-Taliyah       26                   
-Jhin          27                   
-Leblanc       29                   
-Malzahar      29                   
-Xerath        29                   
-Brand         31                   
-Corki         31                   
-Viktor        32                   
-Teemo         33                   
-Vayne         33                   
-Kindred       34                   
+Lux           4                    
+Janna         5                    
+Lulu          5                    
+FiddleSticks  6                    
+Lissandra     7                    
+Sona          7                    
+Veigar        7                    
+Zilean        8                    
+Thresh        10                   
+Soraka        12                   
+Nami          13                   
+Caitlyn       14                   
+Graves        16                   
+MissFortune   16                   
+Zyra          16                   
+Azir          18                   
+Elise         18                   
+Heimerdinger  18                   
+TwistedFate   18                   
+Ezreal        19                   
+Gnar          19                   
+Nidalee       20                   
+Karma         21                   
+Swain         23                   
+Velkoz        23                   
+Syndra        24                   
+Malzahar      25                   
+Xerath        25                   
+Jhin          26                   
+Leblanc       27                   
+Vladimir      29                   
+Bard          32                   
+Kindred       33                   
+Brand         34                   
+Corki         34                   
+Taliyah       34                   
+Teemo         35                   
+Vayne         35                   
+Viktor        36                   
 Ahri          38                   
-Sivir         41                   
-Evelynn       43                   
-Cassiopeia    46                   
-Ziggs         46                   
-AurelionSol   47                   
-Jayce         48                   
-Jinx          49                   
-Kayle         49                   
-Ivern         50                   
-Kennen        50                   
-Ryze          52                   
-Ashe          54                   
-KogMaw        54                   
-Mordekaiser   54                   
-Varus         55                   
-Gangplank     56                   
+Sivir         40                   
+Cassiopeia    43                   
+Ziggs         44                   
+Ivern         46                   
+Kennen        47                   
+Jayce         49                   
+KogMaw        50                   
+Evelynn       51                   
+Jinx          51                   
+Mordekaiser   51                   
+AurelionSol   53                   
+Varus         53                   
+Ryze          54                   
+Ashe          55                   
+Kayle         55                   
 Quinn         56                   
-Morgana       57                   
-Twitch        57                   
-Yasuo         57                   
-Poppy         61                   
-RekSai        62                   
-Riven         62                   
+Gangplank     57                   
+Morgana       59                   
+Twitch        60                   
+Riven         61                   
+Yasuo         62                   
 Taric         63                   
-Lucian        65                   
-Diana         66                   
+Diana         64                   
+Lucian        64                   
+Poppy         65                   
+RekSai        65                   
 Tristana      67                   
-Ekko          69                   
-Fiora         70                   
-Shen          70                   
 Amumu         71                   
-Kalista       72                   
-Rammus        73                   
-Aatrox        76                   
-Urgot         76                   
-Draven        77                   
-Zed           77                   
-Braum         79                   
-Pantheon      79                   
-Vi            81                   
-Fizz          83                   
+Ekko          71                   
+Kalista       73                   
+Shen          74                   
+Urgot         74                   
+Fiora         76                   
+Zed           76                   
+Aatrox        79                   
+Nautilus      79                   
+Braum         80                   
+Fizz          80                   
+Rammus        82                   
 Kassadin      83                   
-Sion          83                   
-Nautilus      84                   
-TahmKench     86                   
-Khazix        87                   
-JarvanIV      89                   
-Singed        89                   
-Yorick        90                   
+Khazix        83                   
+Pantheon      83                   
+Vi            83                   
+Draven        86                   
+JarvanIV      87                   
+Sion          88                   
+TahmKench     89                   
+Singed        90                   
+Yorick        91                   
 Renekton      92                   
 XinZhao       92                   
-Leona         94                   
-Illaoi        95                   
-Rengar        95                   
-Talon         95                   
+Rengar        94                   
+Leona         95                   
 Nunu          96                   
-Skarner       96                   
-Blitzcrank    97                   
-Chogath       98                   
-DrMundo       98                   
-LeeSin        100                  
-Nasus         100        (has passive)
-Zac           100                  
-Camille       102                  
-MonkeyKing    102                  
-Galio         103                  
-Hecarim       103                  
-Garen         104                  
-Malphite      107                  
-Udyr          107                  
-Volibear      108                  
-Alistar       109                  
-Shaco         111                  
-Katarina      112                  
-Rumble        112                  
-Nocturne      114                  
-Gragas        115                  
-Jax           117        (has passive)
-MasterYi      117                  
-Akali         119                  
-Sejuani       122                  
-Shyvana       122                  
-Irelia        123                  
+Udyr          96                   
+Blitzcrank    98                   
+Skarner       98                   
+Talon         98                   
+Camille       99                   
+Hecarim       99                   
+Malphite      100                  
+DrMundo       101                  
+Galio         101                  
+Garen         101                  
+Illaoi        101                  
+Katarina      103                  
+LeeSin        103                  
+Zac           103                  
+MonkeyKing    106                  
+Chogath       107                  
+Nasus         107        (has passive)
+Jax           111        (has passive)
+Volibear      112                  
+Nocturne      113                  
+Alistar       114                  
+Gragas        116                  
+Shaco         116                  
+Rumble        117                  
+Akali         120                  
+MasterYi      121                  
+Sejuani       124                  
+Shyvana       124                  
+Irelia        126                  
 Warwick       127                  
 Trundle       128                  
 Maokai        130                  
 Tryndamere    131        (has passive)
 Darius        132        (has passive)
 Olaf          133        (has passive)
-Aatrox 76
+Aatrox 79
   Ahri
   Amumu
   Anivia
@@ -167,6 +167,7 @@ Aatrox 76
   Jayce
   Jhin
   Jinx
+  Kalista
   Karma
   Karthus
   Kayle
@@ -184,10 +185,12 @@ Aatrox 76
   Mordekaiser
   Morgana
   Nami
+  Nautilus
   Nidalee
   Orianna
   Poppy
   Quinn
+  Rammus
   RekSai
   Riven
   Ryze
@@ -220,44 +223,164 @@ Ahri 38
   Annie
   Azir
   Caitlyn
-  Corki
+  Cassiopeia
   Elise
   Ezreal
   FiddleSticks
   Gnar
   Graves
   Heimerdinger
+  Ivern
   Janna
+  Jhin
   Karma
   Karthus
+  Kindred
   Kled
-  Leblanc
   Lissandra
   Lulu
   Lux
-  Malzahar
   MissFortune
-  Mordekaiser
   Nami
   Nidalee
   Orianna
   Sona
   Soraka
   Swain
-  Taliyah
+  Syndra
+  Teemo
   Thresh
   TwistedFate
   Vayne
   Veigar
-  Velkoz
   Viktor
-  Xerath
+  Vladimir
   Zilean
   Zyra
-Akali 119
+Akali 120
   Aatrox
   Ahri
   Alistar
+  Amumu
+  Anivia
+  Annie
+  Ashe
+  AurelionSol
+  Azir
+  Bard
+  Blitzcrank
+  Brand
+  Braum
+  Caitlyn
+  Camille
+  Cassiopeia
+  Chogath
+  Corki
+  Diana
+  DrMundo
+  Draven
+  Ekko
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Fiora
+  Fizz
+  Galio
+  Gangplank
+  Garen
+  Gnar
+  Graves
+  Hecarim
+  Heimerdinger
+  Illaoi
+  Ivern
+  Janna
+  JarvanIV
+  Jax
+  Jayce
+  Jhin
+  Jinx
+  Kalista
+  Karma
+  Karthus
+  Kassadin
+  Katarina
+  Kayle
+  Kennen
+  Khazix
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  LeeSin
+  Leona
+  Lissandra
+  Lucian
+  Lulu
+  Lux
+  Malphite
+  Malzahar
+  MissFortune
+  MonkeyKing
+  Mordekaiser
+  Morgana
+  Nami
+  Nasus
+  Nautilus
+  Nidalee
+  Nocturne
+  Nunu
+  Orianna
+  Pantheon
+  Poppy
+  Quinn
+  Rammus
+  RekSai
+  Renekton
+  Rengar
+  Riven
+  Ryze
+  Shen
+  Singed
+  Sion
+  Sivir
+  Skarner
+  Sona
+  Soraka
+  Swain
+  Syndra
+  TahmKench
+  Taliyah
+  Talon
+  Taric
+  Teemo
+  Thresh
+  Tristana
+  TwistedFate
+  Twitch
+  Udyr
+  Urgot
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Vi
+  Viktor
+  Vladimir
+  Volibear
+  Xerath
+  XinZhao
+  Yasuo
+  Yorick
+  Zac
+  Zed
+  Ziggs
+  Zilean
+  Zyra
+Alistar 114
+  Aatrox
+  Ahri
   Amumu
   Anivia
   Annie
@@ -283,7 +406,6 @@ Akali 119
   Fiora
   Fizz
   Gangplank
-  Garen
   Gnar
   Gragas
   Graves
@@ -321,11 +443,9 @@ Akali 119
   Mordekaiser
   Morgana
   Nami
-  Nasus
   Nautilus
   Nidalee
   Nocturne
-  Nunu
   Orianna
   Pantheon
   Poppy
@@ -369,12 +489,252 @@ Akali 119
   XinZhao
   Yasuo
   Yorick
-  Zac
   Zed
   Ziggs
   Zilean
   Zyra
-Alistar 109
+Amumu 71
+  Ahri
+  Anivia
+  Annie
+  Ashe
+  AurelionSol
+  Azir
+  Bard
+  Brand
+  Caitlyn
+  Cassiopeia
+  Corki
+  Diana
+  Draven
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Gangplank
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  Jayce
+  Jhin
+  Jinx
+  Karma
+  Karthus
+  Kayle
+  Kennen
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  Lissandra
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Morgana
+  Nami
+  Nidalee
+  Orianna
+  Poppy
+  Quinn
+  RekSai
+  Riven
+  Ryze
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Teemo
+  Thresh
+  Tristana
+  TwistedFate
+  Twitch
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Viktor
+  Vladimir
+  Xerath
+  Yasuo
+  Ziggs
+  Zilean
+  Zyra
+Anivia 2
+  Kled
+  Orianna
+Annie 3
+  Anivia
+  Kled
+  Orianna
+Ashe 55
+  Ahri
+  Anivia
+  Annie
+  Azir
+  Bard
+  Brand
+  Caitlyn
+  Cassiopeia
+  Corki
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  Jayce
+  Jhin
+  Jinx
+  Karma
+  Karthus
+  Kayle
+  Kennen
+  Kindred
+  Kled
+  Leblanc
+  Lissandra
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Nami
+  Nidalee
+  Orianna
+  Ryze
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Teemo
+  Thresh
+  TwistedFate
+  Vayne
+  Veigar
+  Velkoz
+  Viktor
+  Vladimir
+  Xerath
+  Ziggs
+  Zilean
+  Zyra
+AurelionSol 53
+  Ahri
+  Anivia
+  Annie
+  Ashe
+  Azir
+  Bard
+  Caitlyn
+  Cassiopeia
+  Corki
+  Elise
+  Ezreal
+  FiddleSticks
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  Jayce
+  Jhin
+  Karma
+  Karthus
+  Kindred
+  Kled
+  Leblanc
+  Lissandra
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Nami
+  Nidalee
+  Orianna
+  Quinn
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Teemo
+  Thresh
+  TwistedFate
+  Twitch
+  Vayne
+  Veigar
+  Velkoz
+  Viktor
+  Vladimir
+  Xerath
+  Yasuo
+  Ziggs
+  Zilean
+  Zyra
+Azir 18
+  Anivia
+  Annie
+  Caitlyn
+  FiddleSticks
+  Graves
+  Janna
+  Karthus
+  Kled
+  Lulu
+  Lux
+  MissFortune
+  Nami
+  Orianna
+  Sona
+  Soraka
+  TwistedFate
+  Zilean
+  Zyra
+Bard 32
+  Ahri
+  Anivia
+  Annie
+  Azir
+  Caitlyn
+  Elise
+  Ezreal
+  FiddleSticks
+  Gnar
+  Graves
+  Heimerdinger
+  Janna
+  Jhin
+  Karthus
+  Kled
+  Lissandra
+  Lulu
+  Lux
+  MissFortune
+  Nami
+  Nidalee
+  Orianna
+  Sona
+  Soraka
+  Swain
+  Thresh
+  TwistedFate
+  Vayne
+  Veigar
+  Viktor
+  Zilean
+  Zyra
+Blitzcrank 98
   Aatrox
   Ahri
   Amumu
@@ -384,11 +744,9 @@ Alistar 109
   AurelionSol
   Azir
   Bard
-  Blitzcrank
   Brand
   Braum
   Caitlyn
-  Camille
   Cassiopeia
   Corki
   Diana
@@ -400,9 +758,7 @@ Alistar 109
   FiddleSticks
   Fiora
   Fizz
-  Galio
   Gangplank
-  Garen
   Gnar
   Graves
   Hecarim
@@ -425,15 +781,12 @@ Alistar 109
   Kled
   KogMaw
   Leblanc
-  LeeSin
-  Leona
   Lissandra
   Lucian
   Lulu
   Lux
   Malzahar
   MissFortune
-  MonkeyKing
   Mordekaiser
   Morgana
   Nami
@@ -448,18 +801,14 @@ Alistar 109
   Renekton
   Riven
   Ryze
-  Sejuani
-  Shaco
   Shen
   Singed
   Sion
   Sivir
-  Skarner
   Sona
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Taric
   Teemo
@@ -484,165 +833,23 @@ Alistar 109
   Ziggs
   Zilean
   Zyra
-Amumu 71
+Brand 34
   Ahri
   Anivia
   Annie
-  Ashe
-  AurelionSol
   Azir
-  Bard
-  Brand
   Caitlyn
   Cassiopeia
-  Corki
-  Diana
   Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Fizz
-  Gangplank
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  Jayce
-  Jhin
-  Jinx
-  Kalista
-  Karma
-  Karthus
-  Kayle
-  Kennen
-  Kindred
-  Kled
-  KogMaw
-  Leblanc
-  Lissandra
-  Lucian
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Mordekaiser
-  Morgana
-  Nami
-  Nautilus
-  Nidalee
-  Orianna
-  Quinn
-  Ryze
-  Sivir
-  Sona
-  Soraka
-  Swain
-  Syndra
-  Taliyah
-  Teemo
-  Thresh
-  Tristana
-  TwistedFate
-  Twitch
-  Varus
-  Vayne
-  Veigar
-  Velkoz
-  Viktor
-  Vladimir
-  Xerath
-  Yasuo
-  Ziggs
-  Zilean
-  Zyra
-Anivia 3
-  Annie
-  Kled
-  Orianna
-Annie 3
-  Kled
-  Orianna
-  Veigar
-Ashe 54
-  Ahri
-  Anivia
-  Annie
-  AurelionSol
-  Azir
-  Bard
-  Brand
-  Caitlyn
-  Cassiopeia
-  Corki
-  Elise
-  Evelynn
   Ezreal
   FiddleSticks
   Gnar
   Graves
   Heimerdinger
-  Ivern
   Janna
   Jhin
-  Kalista
-  Karma
   Karthus
-  Kayle
-  Kennen
-  Kindred
   Kled
-  KogMaw
-  Leblanc
-  Lissandra
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Nami
-  Nidalee
-  Orianna
-  Sivir
-  Sona
-  Soraka
-  Swain
-  Syndra
-  Taliyah
-  Teemo
-  Thresh
-  TwistedFate
-  Vayne
-  Veigar
-  Velkoz
-  Viktor
-  Vladimir
-  Xerath
-  Zilean
-  Zyra
-AurelionSol 47
-  Ahri
-  Anivia
-  Annie
-  Azir
-  Bard
-  Brand
-  Caitlyn
-  Cassiopeia
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  Jhin
-  Karma
-  Karthus
-  Kindred
-  Kled
-  KogMaw
   Lissandra
   Lulu
   Lux
@@ -653,67 +860,15 @@ AurelionSol 47
   Sona
   Soraka
   Swain
-  Syndra
-  Taliyah
-  Teemo
   Thresh
   TwistedFate
   Vayne
   Veigar
-  Velkoz
   Viktor
   Vladimir
-  Xerath
-  Ziggs
   Zilean
   Zyra
-Azir 17
-  Anivia
-  Annie
-  Caitlyn
-  Graves
-  Heimerdinger
-  Karthus
-  Kled
-  Lissandra
-  Lulu
-  Lux
-  MissFortune
-  Nami
-  Orianna
-  Sona
-  Thresh
-  Veigar
-  Zilean
-Bard 26
-  Ahri
-  Anivia
-  Annie
-  Caitlyn
-  Elise
-  FiddleSticks
-  Gnar
-  Graves
-  Heimerdinger
-  Janna
-  Karthus
-  Kled
-  Lissandra
-  Lulu
-  Lux
-  MissFortune
-  Nami
-  Orianna
-  Sona
-  Soraka
-  Thresh
-  TwistedFate
-  Veigar
-  Velkoz
-  Zilean
-  Zyra
-Blitzcrank 97
-  Aatrox
+Braum 80
   Ahri
   Amumu
   Anivia
@@ -723,67 +878,52 @@ Blitzcrank 97
   Azir
   Bard
   Brand
-  Braum
   Caitlyn
   Cassiopeia
   Corki
   Diana
-  Draven
   Ekko
   Elise
   Evelynn
   Ezreal
   FiddleSticks
   Fiora
-  Fizz
   Gangplank
   Gnar
   Graves
-  Hecarim
   Heimerdinger
-  Illaoi
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
   Kalista
   Karma
   Karthus
-  Kassadin
   Kayle
   Kennen
-  Khazix
   Kindred
   Kled
   KogMaw
   Leblanc
-  Leona
   Lissandra
   Lucian
   Lulu
   Lux
   Malzahar
   MissFortune
-  MonkeyKing
   Mordekaiser
   Morgana
   Nami
   Nautilus
   Nidalee
   Orianna
-  Pantheon
   Poppy
   Quinn
   RekSai
-  Renekton
-  Rengar
   Riven
   Ryze
   Shen
-  Singed
-  Sion
   Sivir
   Sona
   Soraka
@@ -801,7 +941,6 @@ Blitzcrank 97
   Vayne
   Veigar
   Velkoz
-  Vi
   Viktor
   Vladimir
   Xerath
@@ -810,19 +949,10 @@ Blitzcrank 97
   Ziggs
   Zilean
   Zyra
-Brand 31
-  Ahri
+Caitlyn 14
   Anivia
   Annie
-  Azir
-  Caitlyn
-  Elise
-  Ezreal
-  FiddleSticks
-  Gnar
   Graves
-  Heimerdinger
-  Janna
   Karthus
   Kled
   Lissandra
@@ -832,17 +962,10 @@ Brand 31
   Nami
   Orianna
   Sona
-  Soraka
-  Taliyah
   Thresh
-  TwistedFate
-  Vayne
   Veigar
-  Velkoz
-  Xerath
-  Zilean
-  Zyra
-Braum 79
+Camille 99
+  Aatrox
   Ahri
   Amumu
   Anivia
@@ -852,6 +975,7 @@ Braum 79
   Azir
   Bard
   Brand
+  Braum
   Caitlyn
   Cassiopeia
   Corki
@@ -863,23 +987,31 @@ Braum 79
   Ezreal
   FiddleSticks
   Fiora
+  Fizz
   Gangplank
   Gnar
   Graves
+  Hecarim
   Heimerdinger
   Ivern
   Janna
+  JarvanIV
   Jayce
   Jhin
   Jinx
+  Kalista
   Karma
   Karthus
+  Kassadin
+  Katarina
   Kayle
   Kennen
+  Khazix
   Kindred
   Kled
   KogMaw
   Leblanc
+  LeeSin
   Lissandra
   Lucian
   Lulu
@@ -889,21 +1021,25 @@ Braum 79
   Mordekaiser
   Morgana
   Nami
+  Nautilus
   Nidalee
   Orianna
+  Pantheon
   Poppy
   Quinn
   Rammus
   RekSai
+  Renekton
   Riven
   Ryze
   Shen
+  Singed
+  Sion
   Sivir
   Sona
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Taric
   Teemo
@@ -911,29 +1047,68 @@ Braum 79
   Tristana
   TwistedFate
   Twitch
+  Udyr
+  Urgot
   Varus
+  Vayne
+  Veigar
+  Velkoz
+  Vi
+  Viktor
+  Vladimir
+  Xerath
+  XinZhao
+  Yasuo
+  Yorick
+  Zed
+  Ziggs
+  Zilean
+  Zyra
+Cassiopeia 43
+  Anivia
+  Annie
+  Azir
+  Bard
+  Caitlyn
+  Corki
+  Elise
+  Ezreal
+  FiddleSticks
+  Gnar
+  Graves
+  Heimerdinger
+  Janna
+  Jhin
+  Karma
+  Karthus
+  Kindred
+  Kled
+  Leblanc
+  Lissandra
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Nami
+  Nidalee
+  Orianna
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Teemo
+  Thresh
+  TwistedFate
   Vayne
   Veigar
   Velkoz
   Viktor
   Vladimir
   Xerath
-  Yasuo
-  Ziggs
   Zilean
   Zyra
-Caitlyn 10
-  Anivia
-  Annie
-  FiddleSticks
-  Janna
-  Karthus
-  Kled
-  Lux
-  Nami
-  Orianna
-  Sona
-Camille 102
+Chogath 107
   Aatrox
   Ahri
   Amumu
@@ -973,6 +1148,7 @@ Camille 102
   Karma
   Karthus
   Kassadin
+  Katarina
   Kayle
   Kennen
   Khazix
@@ -1013,6 +1189,7 @@ Camille 102
   Soraka
   Swain
   Syndra
+  TahmKench
   Taliyah
   Talon
   Taric
@@ -1021,6 +1198,7 @@ Camille 102
   Tristana
   TwistedFate
   Twitch
+  Udyr
   Urgot
   Varus
   Vayne
@@ -1031,187 +1209,46 @@ Camille 102
   Vladimir
   Volibear
   Xerath
+  XinZhao
   Yasuo
+  Yorick
   Zed
   Ziggs
   Zilean
   Zyra
-Cassiopeia 46
+Corki 34
   Ahri
   Anivia
   Annie
   Azir
-  Bard
-  Brand
   Caitlyn
-  Corki
   Elise
-  Evelynn
   Ezreal
   FiddleSticks
-  Gnar
   Graves
   Heimerdinger
   Janna
-  Jhin
   Karma
   Karthus
-  Kindred
   Kled
-  Leblanc
   Lissandra
   Lulu
   Lux
-  Malzahar
   MissFortune
   Nami
   Nidalee
   Orianna
-  Sivir
   Sona
   Soraka
   Swain
   Syndra
-  Taliyah
   Teemo
-  Thresh
-  TwistedFate
-  Veigar
-  Velkoz
-  Viktor
-  Vladimir
-  Xerath
-  Zilean
-  Zyra
-Chogath 98
-  Aatrox
-  Ahri
-  Amumu
-  Anivia
-  Annie
-  Ashe
-  AurelionSol
-  Azir
-  Bard
-  Blitzcrank
-  Brand
-  Braum
-  Caitlyn
-  Cassiopeia
-  Corki
-  Diana
-  Draven
-  Ekko
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Fiora
-  Fizz
-  Gangplank
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  JarvanIV
-  Jayce
-  Jhin
-  Jinx
-  Kalista
-  Karma
-  Karthus
-  Kassadin
-  Kayle
-  Kennen
-  Khazix
-  Kindred
-  Kled
-  KogMaw
-  Leblanc
-  LeeSin
-  Leona
-  Lissandra
-  Lucian
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  MonkeyKing
-  Mordekaiser
-  Morgana
-  Nami
-  Nautilus
-  Nidalee
-  Orianna
-  Pantheon
-  Poppy
-  Quinn
-  Rammus
-  RekSai
-  Renekton
-  Riven
-  Ryze
-  Shen
-  Singed
-  Sion
-  Sivir
-  Sona
-  Soraka
-  Swain
-  Syndra
-  TahmKench
-  Taliyah
-  Taric
-  Teemo
-  Thresh
-  Tristana
-  TwistedFate
-  Twitch
-  Urgot
-  Varus
-  Vayne
-  Veigar
-  Velkoz
-  Vi
-  Viktor
-  Vladimir
-  Xerath
-  Yasuo
-  Zed
-  Ziggs
-  Zilean
-  Zyra
-Corki 31
-  Anivia
-  Annie
-  Azir
-  Bard
-  Caitlyn
-  Elise
-  Ezreal
-  FiddleSticks
-  Gnar
-  Graves
-  Heimerdinger
-  Janna
-  Karthus
-  Kled
-  Lissandra
-  Lulu
-  Lux
-  MissFortune
-  Nami
-  Orianna
-  Sona
-  Soraka
-  Swain
   Thresh
   TwistedFate
   Vayne
   Veigar
   Viktor
-  Vladimir
+  Ziggs
   Zilean
   Zyra
 Darius 132 (has passive)
@@ -1347,7 +1384,7 @@ Darius 132 (has passive)
   Ziggs
   Zilean
   Zyra
-Diana 66
+Diana 64
   Ahri
   Anivia
   Annie
@@ -1363,7 +1400,6 @@ Diana 66
   Evelynn
   Ezreal
   FiddleSticks
-  Gangplank
   Gnar
   Graves
   Heimerdinger
@@ -1400,7 +1436,6 @@ Diana 66
   Taliyah
   Teemo
   Thresh
-  Tristana
   TwistedFate
   Twitch
   Varus
@@ -1414,7 +1449,7 @@ Diana 66
   Ziggs
   Zilean
   Zyra
-DrMundo 98
+DrMundo 101
   Aatrox
   Ahri
   Amumu
@@ -1453,6 +1488,7 @@ DrMundo 98
   Karma
   Karthus
   Kassadin
+  Katarina
   Kayle
   Kennen
   Khazix
@@ -1460,511 +1496,19 @@ DrMundo 98
   Kled
   KogMaw
   Leblanc
-  LeeSin
-  Leona
   Lissandra
   Lucian
   Lulu
   Lux
   Malzahar
   MissFortune
-  MonkeyKing
-  Mordekaiser
-  Morgana
-  Nami
-  Nautilus
-  Nidalee
-  Orianna
-  Pantheon
-  Poppy
-  Quinn
-  Rammus
-  RekSai
-  Renekton
-  Riven
-  Ryze
-  Shen
-  Singed
-  Sion
-  Sivir
-  Sona
-  Soraka
-  Swain
-  Syndra
-  TahmKench
-  Taliyah
-  Taric
-  Teemo
-  Thresh
-  Tristana
-  TwistedFate
-  Twitch
-  Urgot
-  Varus
-  Vayne
-  Veigar
-  Velkoz
-  Vi
-  Viktor
-  Vladimir
-  Xerath
-  Yasuo
-  Zed
-  Ziggs
-  Zilean
-  Zyra
-Draven 77
-  Aatrox
-  Ahri
-  Amumu
-  Anivia
-  Annie
-  Ashe
-  AurelionSol
-  Azir
-  Bard
-  Brand
-  Caitlyn
-  Cassiopeia
-  Corki
-  Diana
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Fizz
-  Gangplank
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  Jayce
-  Jhin
-  Jinx
-  Kalista
-  Karma
-  Karthus
-  Kayle
-  Kennen
-  Kindred
-  Kled
-  KogMaw
-  Leblanc
-  Lissandra
-  Lucian
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Mordekaiser
-  Morgana
-  Nami
-  Nautilus
-  Nidalee
-  Orianna
-  Poppy
-  Quinn
-  RekSai
-  Riven
-  Ryze
-  Sivir
-  Sona
-  Soraka
-  Swain
-  Syndra
-  Taliyah
-  Taric
-  Teemo
-  Thresh
-  Tristana
-  TwistedFate
-  Twitch
-  Varus
-  Vayne
-  Veigar
-  Velkoz
-  Viktor
-  Vladimir
-  Xerath
-  Yasuo
-  Ziggs
-  Zilean
-  Zyra
-Ekko 69
-  Ahri
-  Anivia
-  Annie
-  Ashe
-  AurelionSol
-  Azir
-  Bard
-  Brand
-  Caitlyn
-  Cassiopeia
-  Corki
-  Draven
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Gangplank
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  Jayce
-  Jhin
-  Jinx
-  Karma
-  Karthus
-  Kayle
-  Kennen
-  Kindred
-  Kled
-  KogMaw
-  Leblanc
-  Lissandra
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Mordekaiser
-  Morgana
-  Nami
-  Nidalee
-  Orianna
-  Poppy
-  Quinn
-  RekSai
-  Riven
-  Ryze
-  Sivir
-  Sona
-  Soraka
-  Swain
-  Syndra
-  Taliyah
-  Teemo
-  Thresh
-  TwistedFate
-  Twitch
-  Varus
-  Vayne
-  Veigar
-  Velkoz
-  Viktor
-  Vladimir
-  Xerath
-  Yasuo
-  Ziggs
-  Zilean
-  Zyra
-Elise 17
-  Anivia
-  Annie
-  Caitlyn
-  FiddleSticks
-  Graves
-  Janna
-  Karthus
-  Kled
-  Lux
-  MissFortune
-  Nami
-  Orianna
-  Sona
-  Thresh
-  Veigar
-  Zilean
-  Zyra
-Evelynn 43
-  Ahri
-  Anivia
-  Annie
-  Azir
-  Caitlyn
-  Elise
-  Ezreal
-  FiddleSticks
-  Gnar
-  Graves
-  Heimerdinger
-  Janna
-  Jayce
-  Karma
-  Karthus
-  Kled
-  Leblanc
-  Lissandra
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Nami
-  Nidalee
-  Orianna
-  Sona
-  Soraka
-  Swain
-  Syndra
-  Teemo
-  Thresh
-  TwistedFate
-  Twitch
-  Vayne
-  Veigar
-  Velkoz
-  Viktor
-  Vladimir
-  Xerath
-  Yasuo
-  Ziggs
-  Zilean
-  Zyra
-Ezreal 18
-  Anivia
-  Annie
-  Caitlyn
-  FiddleSticks
-  Janna
-  Karthus
-  Kled
-  Lissandra
-  Lulu
-  Lux
-  MissFortune
-  Nami
-  Orianna
-  Sona
-  Thresh
-  Veigar
-  Zilean
-  Zyra
-FiddleSticks 5
-  Anivia
-  Annie
-  Karthus
-  Kled
-  Orianna
-Fiora 70
-  Ahri
-  Anivia
-  Annie
-  Ashe
-  AurelionSol
-  Azir
-  Bard
-  Brand
-  Caitlyn
-  Cassiopeia
-  Corki
-  Draven
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Gangplank
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  Jayce
-  Jhin
-  Jinx
-  Karma
-  Karthus
-  Kayle
-  Kennen
-  Kindred
-  Kled
-  KogMaw
-  Leblanc
-  Lissandra
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Mordekaiser
-  Morgana
-  Nami
-  Nidalee
-  Orianna
-  Poppy
-  Quinn
-  RekSai
-  Riven
-  Ryze
-  Sivir
-  Sona
-  Soraka
-  Swain
-  Syndra
-  Taliyah
-  Taric
-  Teemo
-  Thresh
-  TwistedFate
-  Twitch
-  Varus
-  Vayne
-  Veigar
-  Velkoz
-  Viktor
-  Vladimir
-  Xerath
-  Yasuo
-  Ziggs
-  Zilean
-  Zyra
-Fizz 83
-  Aatrox
-  Ahri
-  Anivia
-  Annie
-  Ashe
-  AurelionSol
-  Azir
-  Bard
-  Brand
-  Braum
-  Caitlyn
-  Cassiopeia
-  Corki
-  Diana
-  Ekko
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Fiora
-  Gangplank
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  Jayce
-  Jhin
-  Jinx
-  Kalista
-  Karma
-  Karthus
-  Kassadin
-  Kayle
-  Kennen
-  Kindred
-  Kled
-  KogMaw
-  Leblanc
-  Lissandra
-  Lucian
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Mordekaiser
-  Morgana
-  Nami
-  Nidalee
-  Orianna
-  Pantheon
-  Poppy
-  Quinn
-  Rammus
-  RekSai
-  Riven
-  Ryze
-  Shen
-  Sivir
-  Sona
-  Soraka
-  Swain
-  Syndra
-  Taliyah
-  Taric
-  Teemo
-  Thresh
-  TwistedFate
-  Twitch
-  Urgot
-  Varus
-  Vayne
-  Veigar
-  Velkoz
-  Vi
-  Viktor
-  Vladimir
-  Xerath
-  Yasuo
-  Zed
-  Ziggs
-  Zilean
-  Zyra
-Galio 103
-  Aatrox
-  Ahri
-  Amumu
-  Anivia
-  Annie
-  Ashe
-  AurelionSol
-  Azir
-  Bard
-  Brand
-  Braum
-  Caitlyn
-  Cassiopeia
-  Corki
-  Diana
-  Draven
-  Ekko
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Fiora
-  Fizz
-  Gangplank
-  Gnar
-  Graves
-  Hecarim
-  Heimerdinger
-  Illaoi
-  Ivern
-  Janna
-  JarvanIV
-  Jayce
-  Jhin
-  Jinx
-  Kalista
-  Karma
-  Karthus
-  Kassadin
-  Kayle
-  Kennen
-  Khazix
-  Kindred
-  Kled
-  KogMaw
-  Leblanc
-  Leona
-  Lissandra
-  Lucian
-  Lulu
-  Lux
-  Malzahar
-  MasterYi
-  MissFortune
-  MonkeyKing
   Mordekaiser
   Morgana
   Nami
   Nautilus
   Nidalee
   Nocturne
+  Nunu
   Orianna
   Pantheon
   Poppy
@@ -1972,7 +1516,6 @@ Galio 103
   Rammus
   RekSai
   Renekton
-  Rengar
   Riven
   Ryze
   Shen
@@ -1983,170 +1526,7 @@ Galio 103
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
-  Talon
-  Taric
-  Teemo
-  Thresh
-  Tristana
-  TwistedFate
-  Twitch
-  Urgot
-  Varus
-  Vayne
-  Veigar
-  Velkoz
-  Vi
-  Viktor
-  Vladimir
-  Volibear
-  Xerath
-  Yasuo
-  Zed
-  Ziggs
-  Zilean
-  Zyra
-Gangplank 56
-  Ahri
-  Anivia
-  Annie
-  Ashe
-  Azir
-  Bard
-  Caitlyn
-  Cassiopeia
-  Corki
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  Jayce
-  Jhin
-  Karma
-  Karthus
-  Kennen
-  Kindred
-  Kled
-  Leblanc
-  Lissandra
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Mordekaiser
-  Nami
-  Nidalee
-  Orianna
-  Quinn
-  Sona
-  Soraka
-  Swain
-  Syndra
-  Taliyah
-  Teemo
-  Thresh
-  TwistedFate
-  Twitch
-  Varus
-  Vayne
-  Veigar
-  Velkoz
-  Viktor
-  Vladimir
-  Xerath
-  Yasuo
-  Ziggs
-  Zilean
-  Zyra
-Garen 104
-  Aatrox
-  Ahri
-  Amumu
-  Anivia
-  Annie
-  Ashe
-  AurelionSol
-  Azir
-  Bard
-  Brand
-  Braum
-  Caitlyn
-  Cassiopeia
-  Corki
-  Diana
-  Draven
-  Ekko
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Fiora
-  Fizz
-  Gangplank
-  Gnar
-  Graves
-  Hecarim
-  Heimerdinger
-  Illaoi
-  Ivern
-  Janna
-  JarvanIV
-  Jayce
-  Jhin
-  Jinx
-  Kalista
-  Karma
-  Karthus
-  Kassadin
-  Kayle
-  Kennen
-  Khazix
-  Kindred
-  Kled
-  KogMaw
-  Leblanc
-  Leona
-  Lissandra
-  Lucian
-  Lulu
-  Lux
-  Malzahar
-  MasterYi
-  MissFortune
-  MonkeyKing
-  Mordekaiser
-  Morgana
-  Nami
-  Nautilus
-  Nidalee
-  Nocturne
-  Orianna
-  Pantheon
-  Poppy
-  Quinn
-  Rammus
-  RekSai
-  Renekton
-  Rengar
-  Riven
-  Ryze
-  Shen
-  Singed
-  Sion
-  Sivir
-  Sona
-  Soraka
-  Swain
-  Syndra
-  TahmKench
-  Taliyah
-  Talon
   Taric
   Teemo
   Thresh
@@ -2164,16 +1544,694 @@ Garen 104
   Vladimir
   Volibear
   Xerath
+  XinZhao
+  Yasuo
+  Yorick
+  Zed
+  Ziggs
+  Zilean
+  Zyra
+Draven 86
+  Aatrox
+  Ahri
+  Anivia
+  Annie
+  Ashe
+  AurelionSol
+  Azir
+  Bard
+  Brand
+  Braum
+  Caitlyn
+  Cassiopeia
+  Corki
+  Diana
+  Ekko
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Fiora
+  Fizz
+  Gangplank
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  JarvanIV
+  Jayce
+  Jhin
+  Jinx
+  Kalista
+  Karma
+  Karthus
+  Kayle
+  Kennen
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  Lissandra
+  Lucian
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Morgana
+  Nami
+  Nautilus
+  Nidalee
+  Orianna
+  Pantheon
+  Poppy
+  Quinn
+  Rammus
+  RekSai
+  Riven
+  Ryze
+  Shen
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Taric
+  Teemo
+  Thresh
+  Tristana
+  TwistedFate
+  Twitch
+  Urgot
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Vi
+  Viktor
+  Vladimir
+  Xerath
   Yasuo
   Zed
   Ziggs
   Zilean
   Zyra
-Gnar 22
+Ekko 71
+  Ahri
+  Anivia
+  Annie
+  Ashe
+  AurelionSol
+  Azir
+  Bard
+  Brand
+  Caitlyn
+  Cassiopeia
+  Corki
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Gangplank
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  Jayce
+  Jhin
+  Jinx
+  Kalista
+  Karma
+  Karthus
+  Kayle
+  Kennen
+  Khazix
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  Lissandra
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Morgana
+  Nami
+  Nidalee
+  Orianna
+  Quinn
+  RekSai
+  Ryze
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Taric
+  Teemo
+  Thresh
+  Tristana
+  TwistedFate
+  Twitch
+  Urgot
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Viktor
+  Vladimir
+  Xerath
+  Yasuo
+  Ziggs
+  Zilean
+  Zyra
+Elise 18
   Anivia
   Annie
   Caitlyn
+  Graves
+  Janna
+  Karthus
+  Kled
+  Lissandra
+  Lulu
+  Lux
+  MissFortune
+  Nami
+  Orianna
+  Sona
+  Thresh
+  TwistedFate
+  Veigar
+  Zilean
+Evelynn 51
+  Ahri
+  Anivia
+  Annie
+  Azir
+  Bard
+  Brand
+  Caitlyn
+  Cassiopeia
   Elise
+  Ezreal
+  FiddleSticks
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  Jayce
+  Jhin
+  Karma
+  Karthus
+  Kennen
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  Lissandra
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Nami
+  Nidalee
+  Orianna
+  Quinn
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Teemo
+  Thresh
+  TwistedFate
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Viktor
+  Vladimir
+  Xerath
+  Ziggs
+  Zilean
+  Zyra
+Ezreal 19
+  Anivia
+  Annie
+  Caitlyn
+  FiddleSticks
+  Graves
+  Heimerdinger
+  Janna
+  Karthus
+  Kled
+  Lissandra
+  Lulu
+  Lux
+  MissFortune
+  Nami
+  Orianna
+  Sona
+  Soraka
+  TwistedFate
+  Veigar
+FiddleSticks 6
+  Annie
+  Caitlyn
+  Karthus
+  Kled
+  Orianna
+  Sona
+Fiora 76
+  Ahri
+  Anivia
+  Annie
+  Ashe
+  AurelionSol
+  Azir
+  Bard
+  Brand
+  Caitlyn
+  Cassiopeia
+  Corki
+  Diana
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Fizz
+  Gangplank
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  Jayce
+  Jhin
+  Jinx
+  Kalista
+  Karma
+  Karthus
+  Kayle
+  Kennen
+  Khazix
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  Lissandra
+  Lucian
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Morgana
+  Nami
+  Nautilus
+  Nidalee
+  Orianna
+  Quinn
+  Riven
+  Ryze
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Taric
+  Teemo
+  Thresh
+  Tristana
+  TwistedFate
+  Twitch
+  Urgot
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Viktor
+  Vladimir
+  Xerath
+  Yasuo
+  Zed
+  Ziggs
+  Zilean
+  Zyra
+Fizz 80
+  Aatrox
+  Ahri
+  Amumu
+  Anivia
+  Annie
+  Ashe
+  AurelionSol
+  Azir
+  Bard
+  Brand
+  Braum
+  Caitlyn
+  Cassiopeia
+  Corki
+  Diana
+  Ekko
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Gangplank
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  Jayce
+  Jhin
+  Jinx
+  Kalista
+  Karma
+  Karthus
+  Kassadin
+  Kayle
+  Kennen
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  Lissandra
+  Lucian
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Morgana
+  Nami
+  Nidalee
+  Orianna
+  Poppy
+  Quinn
+  RekSai
+  Riven
+  Ryze
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Taric
+  Teemo
+  Thresh
+  Tristana
+  TwistedFate
+  Twitch
+  Urgot
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Viktor
+  Vladimir
+  Xerath
+  Yasuo
+  Zed
+  Ziggs
+  Zilean
+  Zyra
+Galio 101
+  Aatrox
+  Ahri
+  Amumu
+  Anivia
+  Annie
+  Ashe
+  AurelionSol
+  Azir
+  Bard
+  Brand
+  Braum
+  Caitlyn
+  Cassiopeia
+  Corki
+  Diana
+  Draven
+  Ekko
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Fiora
+  Fizz
+  Gangplank
+  Gnar
+  Graves
+  Hecarim
+  Heimerdinger
+  Ivern
+  Janna
+  JarvanIV
+  Jayce
+  Jhin
+  Jinx
+  Kalista
+  Karma
+  Karthus
+  Kassadin
+  Katarina
+  Kayle
+  Kennen
+  Khazix
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  LeeSin
+  Lissandra
+  Lucian
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Morgana
+  Nami
+  Nautilus
+  Nidalee
+  Nocturne
+  Nunu
+  Orianna
+  Pantheon
+  Poppy
+  Quinn
+  Rammus
+  RekSai
+  Renekton
+  Riven
+  Ryze
+  Shen
+  Singed
+  Sion
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Taric
+  Teemo
+  Thresh
+  Tristana
+  TwistedFate
+  Twitch
+  Udyr
+  Urgot
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Vi
+  Viktor
+  Vladimir
+  Xerath
+  XinZhao
+  Yasuo
+  Yorick
+  Zed
+  Ziggs
+  Zilean
+  Zyra
+Gangplank 57
+  Ahri
+  Anivia
+  Annie
+  Ashe
+  Azir
+  Bard
+  Brand
+  Caitlyn
+  Cassiopeia
+  Corki
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  Jayce
+  Jhin
+  Jinx
+  Karma
+  Karthus
+  Kennen
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  Lissandra
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Nami
+  Nidalee
+  Orianna
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Teemo
+  Thresh
+  TwistedFate
+  Twitch
+  Vayne
+  Veigar
+  Velkoz
+  Viktor
+  Vladimir
+  Xerath
+  Ziggs
+  Zilean
+  Zyra
+Garen 101
+  Aatrox
+  Ahri
+  Amumu
+  Anivia
+  Annie
+  Ashe
+  AurelionSol
+  Azir
+  Bard
+  Brand
+  Braum
+  Caitlyn
+  Cassiopeia
+  Corki
+  Diana
+  Draven
+  Ekko
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Fiora
+  Fizz
+  Gangplank
+  Gnar
+  Graves
+  Hecarim
+  Heimerdinger
+  Ivern
+  Janna
+  JarvanIV
+  Jayce
+  Jhin
+  Jinx
+  Kalista
+  Karma
+  Karthus
+  Kassadin
+  Katarina
+  Kayle
+  Kennen
+  Khazix
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  LeeSin
+  Lissandra
+  Lucian
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  MonkeyKing
+  Mordekaiser
+  Morgana
+  Nami
+  Nautilus
+  Nidalee
+  Orianna
+  Pantheon
+  Poppy
+  Quinn
+  Rammus
+  RekSai
+  Renekton
+  Riven
+  Ryze
+  Shen
+  Singed
+  Sion
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  TahmKench
+  Taliyah
+  Taric
+  Teemo
+  Thresh
+  Tristana
+  TwistedFate
+  Twitch
+  Udyr
+  Urgot
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Vi
+  Viktor
+  Vladimir
+  Xerath
+  XinZhao
+  Yasuo
+  Yorick
+  Zed
+  Ziggs
+  Zilean
+  Zyra
+Gnar 19
+  Anivia
+  Annie
+  Caitlyn
   FiddleSticks
   Graves
   Janna
@@ -2186,16 +2244,14 @@ Gnar 22
   Nami
   Orianna
   Sona
-  Soraka
   Thresh
   TwistedFate
   Veigar
   Zilean
-  Zyra
-Gragas 115
+Gragas 116
   Aatrox
   Ahri
-  Alistar
+  Akali
   Amumu
   Anivia
   Annie
@@ -2212,6 +2268,7 @@ Gragas 115
   Chogath
   Corki
   Diana
+  DrMundo
   Draven
   Ekko
   Elise
@@ -2231,6 +2288,7 @@ Gragas 115
   Ivern
   Janna
   JarvanIV
+  Jax
   Jayce
   Jhin
   Jinx
@@ -2238,6 +2296,7 @@ Gragas 115
   Karma
   Karthus
   Kassadin
+  Katarina
   Kayle
   Kennen
   Khazix
@@ -2245,19 +2304,17 @@ Gragas 115
   Kled
   KogMaw
   Leblanc
-  LeeSin
   Leona
   Lissandra
   Lucian
   Lulu
   Lux
+  Malphite
   Malzahar
   MissFortune
-  MonkeyKing
   Mordekaiser
   Morgana
   Nami
-  Nasus
   Nautilus
   Nidalee
   Nunu
@@ -2270,7 +2327,6 @@ Gragas 115
   Renekton
   Rengar
   Riven
-  Rumble
   Ryze
   Shaco
   Shen
@@ -2291,6 +2347,7 @@ Gragas 115
   Tristana
   TwistedFate
   Twitch
+  Udyr
   Urgot
   Varus
   Vayne
@@ -2308,27 +2365,24 @@ Gragas 115
   Ziggs
   Zilean
   Zyra
-Graves 19
+Graves 16
   Anivia
   Annie
-  Caitlyn
-  Ezreal
   FiddleSticks
-  Heimerdinger
   Janna
   Karthus
   Kled
+  Lissandra
   Lulu
   Lux
-  MissFortune
   Nami
   Orianna
   Sona
+  Soraka
   Thresh
+  TwistedFate
   Veigar
-  Zilean
-  Zyra
-Hecarim 103
+Hecarim 99
   Aatrox
   Ahri
   Amumu
@@ -2356,7 +2410,126 @@ Hecarim 103
   Gnar
   Graves
   Heimerdinger
-  Illaoi
+  Ivern
+  Janna
+  JarvanIV
+  Jayce
+  Jhin
+  Jinx
+  Kalista
+  Karma
+  Karthus
+  Kassadin
+  Katarina
+  Kayle
+  Kennen
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  LeeSin
+  Lissandra
+  Lucian
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  MonkeyKing
+  Mordekaiser
+  Morgana
+  Nami
+  Nautilus
+  Nidalee
+  Nunu
+  Orianna
+  Pantheon
+  Poppy
+  Quinn
+  Rammus
+  RekSai
+  Renekton
+  Riven
+  Ryze
+  Shen
+  Singed
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  TahmKench
+  Taliyah
+  Taric
+  Teemo
+  Thresh
+  Tristana
+  TwistedFate
+  Twitch
+  Udyr
+  Urgot
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Vi
+  Viktor
+  Vladimir
+  Xerath
+  XinZhao
+  Yasuo
+  Yorick
+  Zed
+  Ziggs
+  Zilean
+  Zyra
+Heimerdinger 18
+  Anivia
+  Annie
+  Caitlyn
+  FiddleSticks
+  Graves
+  Janna
+  Karthus
+  Kled
+  Lissandra
+  Lulu
+  Lux
+  MissFortune
+  Nami
+  Orianna
+  Sona
+  Soraka
+  TwistedFate
+  Veigar
+Illaoi 101
+  Aatrox
+  Ahri
+  Amumu
+  Anivia
+  Annie
+  Ashe
+  AurelionSol
+  Azir
+  Bard
+  Brand
+  Braum
+  Caitlyn
+  Cassiopeia
+  Corki
+  Diana
+  Draven
+  Ekko
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Fiora
+  Fizz
+  Gangplank
+  Gnar
+  Graves
+  Hecarim
+  Heimerdinger
   Ivern
   Janna
   JarvanIV
@@ -2387,6 +2560,7 @@ Hecarim 103
   Nami
   Nautilus
   Nidalee
+  Nocturne
   Orianna
   Pantheon
   Poppy
@@ -2396,7 +2570,6 @@ Hecarim 103
   Renekton
   Rengar
   Riven
-  Rumble
   Ryze
   Shen
   Singed
@@ -2408,7 +2581,6 @@ Hecarim 103
   Syndra
   TahmKench
   Taliyah
-  Talon
   Taric
   Teemo
   Thresh
@@ -2427,121 +2599,11 @@ Hecarim 103
   Volibear
   Xerath
   Yasuo
-  Yorick
   Zed
   Ziggs
   Zilean
   Zyra
-Heimerdinger 12
-  Anivia
-  Annie
-  Caitlyn
-  Karthus
-  Kled
-  Lissandra
-  Lulu
-  MissFortune
-  Nami
-  Orianna
-  Sona
-  Veigar
-Illaoi 95
-  Aatrox
-  Ahri
-  Amumu
-  Anivia
-  Annie
-  Ashe
-  AurelionSol
-  Azir
-  Bard
-  Brand
-  Braum
-  Caitlyn
-  Cassiopeia
-  Corki
-  Diana
-  Draven
-  Ekko
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Fiora
-  Fizz
-  Gangplank
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  JarvanIV
-  Jayce
-  Jhin
-  Jinx
-  Kalista
-  Karma
-  Karthus
-  Kassadin
-  Kayle
-  Kennen
-  Khazix
-  Kindred
-  Kled
-  KogMaw
-  Leblanc
-  LeeSin
-  Lissandra
-  Lucian
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Mordekaiser
-  Morgana
-  Nami
-  Nautilus
-  Nidalee
-  Orianna
-  Pantheon
-  Poppy
-  Quinn
-  Rammus
-  RekSai
-  Renekton
-  Riven
-  Ryze
-  Shen
-  Singed
-  Sion
-  Sivir
-  Sona
-  Soraka
-  Swain
-  Syndra
-  TahmKench
-  Taliyah
-  Taric
-  Teemo
-  Thresh
-  Tristana
-  TwistedFate
-  Twitch
-  Urgot
-  Varus
-  Vayne
-  Veigar
-  Velkoz
-  Vi
-  Viktor
-  Vladimir
-  Xerath
-  Yasuo
-  Zed
-  Ziggs
-  Zilean
-  Zyra
-Irelia 123
+Irelia 126
   Aatrox
   Ahri
   Akali
@@ -2607,6 +2669,7 @@ Irelia 123
   Lux
   Malphite
   Malzahar
+  MasterYi
   MissFortune
   MonkeyKing
   Mordekaiser
@@ -2615,6 +2678,7 @@ Irelia 123
   Nasus
   Nautilus
   Nidalee
+  Nocturne
   Nunu
   Orianna
   Pantheon
@@ -2627,9 +2691,9 @@ Irelia 123
   Riven
   Rumble
   Ryze
-  Sejuani
   Shaco
   Shen
+  Shyvana
   Singed
   Sion
   Sivir
@@ -2656,6 +2720,7 @@ Irelia 123
   Vi
   Viktor
   Vladimir
+  Volibear
   Xerath
   XinZhao
   Yasuo
@@ -2665,8 +2730,7 @@ Irelia 123
   Ziggs
   Zilean
   Zyra
-Ivern 50
-  Ahri
+Ivern 46
   Anivia
   Annie
   Azir
@@ -2675,18 +2739,16 @@ Ivern 50
   Caitlyn
   Corki
   Elise
-  Evelynn
   Ezreal
   FiddleSticks
   Gnar
   Graves
   Heimerdinger
   Janna
-  Jayce
   Jhin
-  Jinx
   Karma
   Karthus
+  Kennen
   Kindred
   Kled
   Leblanc
@@ -2695,10 +2757,10 @@ Ivern 50
   Lux
   Malzahar
   MissFortune
+  Mordekaiser
   Nami
   Nidalee
   Orianna
-  Sivir
   Sona
   Soraka
   Swain
@@ -2713,15 +2775,15 @@ Ivern 50
   Viktor
   Vladimir
   Xerath
-  Ziggs
   Zilean
   Zyra
-Janna 4
-  Anivia
-  Annie
+Janna 5
+  Caitlyn
+  Karthus
   Kled
   Orianna
-JarvanIV 89
+  Sona
+JarvanIV 87
   Aatrox
   Ahri
   Amumu
@@ -2737,13 +2799,13 @@ JarvanIV 89
   Cassiopeia
   Corki
   Diana
-  Draven
   Ekko
   Elise
   Evelynn
   Ezreal
   FiddleSticks
   Fiora
+  Fizz
   Gangplank
   Gnar
   Graves
@@ -2759,11 +2821,11 @@ JarvanIV 89
   Kassadin
   Kayle
   Kennen
+  Khazix
   Kindred
   Kled
   KogMaw
   Leblanc
-  LeeSin
   Lissandra
   Lucian
   Lulu
@@ -2773,23 +2835,21 @@ JarvanIV 89
   Mordekaiser
   Morgana
   Nami
+  Nautilus
   Nidalee
   Orianna
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Riven
   Ryze
   Shen
-  Sion
   Sivir
   Sona
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Taric
   Teemo
@@ -2811,7 +2871,7 @@ JarvanIV 89
   Ziggs
   Zilean
   Zyra
-Jax 117 (has passive)
+Jax 111 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -2821,16 +2881,12 @@ Jax 117 (has passive)
   AurelionSol
   Azir
   Bard
-  Blitzcrank
   Brand
   Braum
   Caitlyn
-  Camille
   Cassiopeia
-  Chogath
   Corki
   Diana
-  DrMundo
   Draven
   Ekko
   Elise
@@ -2839,10 +2895,8 @@ Jax 117 (has passive)
   FiddleSticks
   Fiora
   Fizz
-  Galio
   Gangplank
   Gnar
-  Gragas
   Graves
   Hecarim
   Heimerdinger
@@ -2857,6 +2911,7 @@ Jax 117 (has passive)
   Karma
   Karthus
   Kassadin
+  Katarina
   Kayle
   Kennen
   Khazix
@@ -2870,7 +2925,6 @@ Jax 117 (has passive)
   Lucian
   Lulu
   Lux
-  Malphite
   Malzahar
   MasterYi
   MissFortune
@@ -2881,6 +2935,7 @@ Jax 117 (has passive)
   Nautilus
   Nidalee
   Nocturne
+  Nunu
   Orianna
   Pantheon
   Poppy
@@ -2890,15 +2945,12 @@ Jax 117 (has passive)
   Renekton
   Rengar
   Riven
-  Rumble
   Ryze
-  Sejuani
-  Shaco
   Shen
+  Shyvana
   Singed
   Sion
   Sivir
-  Skarner
   Sona
   Soraka
   Swain
@@ -2912,6 +2964,7 @@ Jax 117 (has passive)
   Tristana
   TwistedFate
   Twitch
+  Udyr
   Urgot
   Varus
   Vayne
@@ -2925,15 +2978,15 @@ Jax 117 (has passive)
   XinZhao
   Yasuo
   Yorick
+  Zac
   Zed
   Ziggs
   Zilean
   Zyra
-Jayce 48
+Jayce 49
   Ahri
   Anivia
   Annie
-  AurelionSol
   Azir
   Bard
   Brand
@@ -2946,10 +2999,12 @@ Jayce 48
   Gnar
   Graves
   Heimerdinger
+  Ivern
   Janna
   Jhin
   Karma
   Karthus
+  Kennen
   Kindred
   Kled
   Leblanc
@@ -2978,44 +3033,10 @@ Jayce 48
   Xerath
   Zilean
   Zyra
-Jhin 27
-  Ahri
+Jhin 26
   Anivia
   Annie
-  Azir
   Caitlyn
-  FiddleSticks
-  Graves
-  Heimerdinger
-  Janna
-  Karma
-  Karthus
-  Kled
-  Lissandra
-  Lulu
-  Lux
-  MissFortune
-  Nami
-  Nidalee
-  Orianna
-  Sona
-  Swain
-  Thresh
-  TwistedFate
-  Veigar
-  Viktor
-  Zilean
-  Zyra
-Jinx 49
-  Ahri
-  Anivia
-  Annie
-  Ashe
-  Azir
-  Bard
-  Brand
-  Caitlyn
-  Corki
   Elise
   Ezreal
   FiddleSticks
@@ -3023,9 +3044,45 @@ Jinx 49
   Graves
   Heimerdinger
   Janna
+  Karthus
+  Kled
+  Lissandra
+  Lulu
+  Lux
+  MissFortune
+  Nami
+  Orianna
+  Sona
+  Soraka
+  Thresh
+  TwistedFate
+  Vayne
+  Veigar
+  Zilean
+  Zyra
+Jinx 51
+  Ahri
+  Anivia
+  Annie
+  Azir
+  Bard
+  Brand
+  Caitlyn
+  Cassiopeia
+  Elise
+  Ezreal
+  FiddleSticks
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
   Jayce
+  Jhin
   Karma
   Karthus
+  Kennen
+  Kindred
   Kled
   KogMaw
   Leblanc
@@ -3034,19 +3091,18 @@ Jinx 49
   Lux
   Malzahar
   MissFortune
-  Mordekaiser
   Nami
   Nidalee
   Orianna
-  Sivir
+  Quinn
   Sona
   Soraka
   Swain
   Syndra
-  Taliyah
   Teemo
   Thresh
   TwistedFate
+  Varus
   Vayne
   Veigar
   Velkoz
@@ -3056,10 +3112,12 @@ Jinx 49
   Ziggs
   Zilean
   Zyra
-Kalista 72
+Kalista 73
   Ahri
+  Amumu
   Anivia
   Annie
+  Ashe
   AurelionSol
   Azir
   Bard
@@ -3068,12 +3126,10 @@ Kalista 72
   Cassiopeia
   Corki
   Diana
-  Ekko
   Elise
   Evelynn
   Ezreal
   FiddleSticks
-  Fiora
   Gangplank
   Gnar
   Graves
@@ -3102,11 +3158,11 @@ Kalista 72
   Nami
   Nidalee
   Orianna
+  Poppy
   Quinn
-  Rammus
   RekSai
+  Riven
   Ryze
-  Shen
   Sivir
   Sona
   Soraka
@@ -3116,6 +3172,7 @@ Kalista 72
   Taric
   Teemo
   Thresh
+  Tristana
   TwistedFate
   Twitch
   Varus
@@ -3129,14 +3186,12 @@ Kalista 72
   Ziggs
   Zilean
   Zyra
-Karma 23
+Karma 21
   Anivia
   Annie
-  Azir
   Caitlyn
   FiddleSticks
   Graves
-  Heimerdinger
   Janna
   Karthus
   Kled
@@ -3147,16 +3202,17 @@ Karma 23
   Nami
   Orianna
   Sona
-  Swain
+  Soraka
   Thresh
   TwistedFate
   Veigar
-  Viktor
   Zilean
+  Zyra
 Karthus 2
   Kled
   Orianna
 Kassadin 83
+  Aatrox
   Ahri
   Amumu
   Anivia
@@ -3191,6 +3247,7 @@ Kassadin 83
   Karthus
   Kayle
   Kennen
+  Khazix
   Kindred
   Kled
   KogMaw
@@ -3204,7 +3261,6 @@ Kassadin 83
   Mordekaiser
   Morgana
   Nami
-  Nautilus
   Nidalee
   Orianna
   Poppy
@@ -3214,12 +3270,12 @@ Kassadin 83
   Riven
   Ryze
   Shen
-  Singed
   Sivir
   Sona
   Soraka
   Swain
   Syndra
+  TahmKench
   Taliyah
   Taric
   Teemo
@@ -3227,6 +3283,7 @@ Kassadin 83
   Tristana
   TwistedFate
   Twitch
+  Urgot
   Varus
   Vayne
   Veigar
@@ -3234,13 +3291,11 @@ Kassadin 83
   Viktor
   Vladimir
   Xerath
-  XinZhao
   Yasuo
-  Yorick
   Ziggs
   Zilean
   Zyra
-Katarina 112
+Katarina 103
   Aatrox
   Ahri
   Amumu
@@ -3250,16 +3305,12 @@ Katarina 112
   AurelionSol
   Azir
   Bard
-  Blitzcrank
   Brand
   Braum
   Caitlyn
-  Camille
   Cassiopeia
-  Chogath
   Corki
   Diana
-  DrMundo
   Draven
   Ekko
   Elise
@@ -3268,18 +3319,14 @@ Katarina 112
   FiddleSticks
   Fiora
   Fizz
-  Galio
   Gangplank
-  Garen
   Gnar
-  Gragas
   Graves
   Heimerdinger
   Illaoi
   Ivern
   Janna
   JarvanIV
-  Jax
   Jayce
   Jhin
   Jinx
@@ -3300,14 +3347,15 @@ Katarina 112
   Lucian
   Lulu
   Lux
-  Malphite
   Malzahar
   MissFortune
+  MonkeyKing
   Mordekaiser
   Morgana
   Nami
   Nautilus
   Nidalee
+  Nunu
   Orianna
   Pantheon
   Poppy
@@ -3316,14 +3364,11 @@ Katarina 112
   RekSai
   Rengar
   Riven
-  Rumble
   Ryze
-  Shaco
   Shen
   Singed
   Sion
   Sivir
-  Skarner
   Sona
   Soraka
   Swain
@@ -3349,17 +3394,21 @@ Katarina 112
   XinZhao
   Yasuo
   Yorick
+  Zac
   Zed
   Ziggs
   Zilean
   Zyra
-Kayle 49
+Kayle 55
   Ahri
   Anivia
   Annie
   Azir
+  Bard
+  Brand
   Caitlyn
   Cassiopeia
+  Corki
   Elise
   Ezreal
   FiddleSticks
@@ -3372,26 +3421,30 @@ Kayle 49
   Jhin
   Karma
   Karthus
+  Kennen
   Kindred
   Kled
+  KogMaw
   Leblanc
   Lissandra
   Lulu
   Lux
   Malzahar
   MissFortune
+  Mordekaiser
   Nami
   Nidalee
   Orianna
   Quinn
+  Sivir
   Sona
   Soraka
   Swain
   Syndra
+  Taliyah
   Teemo
   Thresh
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -3399,32 +3452,30 @@ Kayle 49
   Viktor
   Vladimir
   Xerath
-  Yasuo
   Ziggs
   Zilean
   Zyra
-Kennen 50
+Kennen 47
   Ahri
   Anivia
   Annie
+  AurelionSol
   Azir
   Bard
+  Brand
   Caitlyn
   Cassiopeia
+  Corki
   Elise
-  Evelynn
   Ezreal
   FiddleSticks
   Gnar
   Graves
   Heimerdinger
-  Ivern
   Janna
-  Jayce
   Jhin
   Karma
   Karthus
-  Kayle
   Kindred
   Kled
   Leblanc
@@ -3433,15 +3484,15 @@ Kennen 50
   Lux
   Malzahar
   MissFortune
+  Mordekaiser
   Nami
   Nidalee
   Orianna
-  Ryze
   Sona
   Soraka
   Swain
   Syndra
-  Teemo
+  Taliyah
   Thresh
   TwistedFate
   Vayne
@@ -3450,11 +3501,9 @@ Kennen 50
   Viktor
   Vladimir
   Xerath
-  Yasuo
-  Ziggs
   Zilean
   Zyra
-Khazix 87
+Khazix 83
   Aatrox
   Ahri
   Amumu
@@ -3470,13 +3519,10 @@ Khazix 87
   Cassiopeia
   Corki
   Diana
-  Draven
-  Ekko
   Elise
   Evelynn
   Ezreal
   FiddleSticks
-  Fiora
   Fizz
   Gangplank
   Gnar
@@ -3484,14 +3530,12 @@ Khazix 87
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
   Kalista
   Karma
   Karthus
-  Kassadin
   Kayle
   Kennen
   Kindred
@@ -3510,13 +3554,14 @@ Khazix 87
   Nautilus
   Nidalee
   Orianna
-  Pantheon
   Poppy
   Quinn
   RekSai
+  Renekton
   Riven
   Ryze
   Shen
+  Singed
   Sivir
   Sona
   Soraka
@@ -3542,46 +3587,46 @@ Khazix 87
   Ziggs
   Zilean
   Zyra
-Kindred 34
-  Ahri
+Kindred 33
   Anivia
   Annie
   Azir
+  Bard
   Caitlyn
   Elise
   Ezreal
   FiddleSticks
+  Gnar
   Graves
   Heimerdinger
   Janna
-  Jhin
-  Karma
   Karthus
   Kled
   Lissandra
   Lulu
   Lux
   MissFortune
+  Mordekaiser
   Nami
-  Nidalee
   Orianna
   Sona
+  Soraka
   Swain
-  Syndra
-  Teemo
   Thresh
   TwistedFate
   Vayne
   Veigar
+  Velkoz
   Viktor
   Vladimir
   Zilean
   Zyra
 Kled 0
-KogMaw 54
+KogMaw 50
   Ahri
   Anivia
   Annie
+  AurelionSol
   Azir
   Bard
   Brand
@@ -3589,10 +3634,8 @@ KogMaw 54
   Cassiopeia
   Corki
   Elise
-  Evelynn
   Ezreal
   FiddleSticks
-  Gangplank
   Gnar
   Graves
   Heimerdinger
@@ -3601,7 +3644,6 @@ KogMaw 54
   Jhin
   Karma
   Karthus
-  Kayle
   Kennen
   Kindred
   Kled
@@ -3611,12 +3653,9 @@ KogMaw 54
   Lux
   Malzahar
   MissFortune
-  Mordekaiser
-  Morgana
   Nami
   Nidalee
   Orianna
-  Ryze
   Sivir
   Sona
   Soraka
@@ -3629,21 +3668,22 @@ KogMaw 54
   Vayne
   Veigar
   Velkoz
+  Viktor
   Vladimir
   Xerath
   Zilean
   Zyra
-Leblanc 29
+Leblanc 27
+  Ahri
   Anivia
   Annie
   Azir
   Caitlyn
   Elise
-  Ezreal
   FiddleSticks
   Graves
-  Heimerdinger
   Janna
+  Karma
   Karthus
   Kled
   Lissandra
@@ -3651,19 +3691,17 @@ Leblanc 29
   Lux
   MissFortune
   Nami
+  Nidalee
   Orianna
   Sona
   Soraka
-  Swain
   Thresh
   TwistedFate
-  Vayne
   Veigar
-  Viktor
-  Vladimir
+  Xerath
   Zilean
   Zyra
-LeeSin 100
+LeeSin 103
   Aatrox
   Ahri
   Amumu
@@ -3674,289 +3712,6 @@ LeeSin 100
   Azir
   Bard
   Blitzcrank
-  Brand
-  Braum
-  Caitlyn
-  Camille
-  Cassiopeia
-  Corki
-  Diana
-  Draven
-  Ekko
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Fiora
-  Fizz
-  Galio
-  Gangplank
-  Garen
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  Jayce
-  Jhin
-  Jinx
-  Kalista
-  Karma
-  Karthus
-  Kassadin
-  Kayle
-  Kennen
-  Khazix
-  Kindred
-  Kled
-  KogMaw
-  Leblanc
-  Leona
-  Lissandra
-  Lucian
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Mordekaiser
-  Morgana
-  Nami
-  Nautilus
-  Nidalee
-  Orianna
-  Poppy
-  Quinn
-  Rammus
-  RekSai
-  Renekton
-  Riven
-  Ryze
-  Shaco
-  Shen
-  Singed
-  Sion
-  Sivir
-  Skarner
-  Sona
-  Soraka
-  Swain
-  Syndra
-  TahmKench
-  Taliyah
-  Taric
-  Teemo
-  Thresh
-  Tristana
-  TwistedFate
-  Twitch
-  Urgot
-  Varus
-  Vayne
-  Veigar
-  Velkoz
-  Vi
-  Viktor
-  Vladimir
-  Xerath
-  XinZhao
-  Yasuo
-  Yorick
-  Ziggs
-  Zilean
-  Zyra
-Leona 94
-  Aatrox
-  Ahri
-  Amumu
-  Anivia
-  Annie
-  Ashe
-  AurelionSol
-  Azir
-  Bard
-  Brand
-  Braum
-  Caitlyn
-  Cassiopeia
-  Corki
-  Diana
-  Draven
-  Ekko
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Fiora
-  Fizz
-  Gangplank
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  JarvanIV
-  Jayce
-  Jhin
-  Jinx
-  Kalista
-  Karma
-  Karthus
-  Kassadin
-  Kayle
-  Kennen
-  Khazix
-  Kindred
-  Kled
-  KogMaw
-  Leblanc
-  Lissandra
-  Lucian
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Mordekaiser
-  Morgana
-  Nami
-  Nautilus
-  Nidalee
-  Orianna
-  Pantheon
-  Poppy
-  Quinn
-  Rammus
-  RekSai
-  Renekton
-  Riven
-  Ryze
-  Shen
-  Singed
-  Sion
-  Sivir
-  Sona
-  Soraka
-  Swain
-  Syndra
-  TahmKench
-  Taliyah
-  Taric
-  Teemo
-  Thresh
-  Tristana
-  TwistedFate
-  Twitch
-  Urgot
-  Varus
-  Vayne
-  Veigar
-  Velkoz
-  Vi
-  Viktor
-  Vladimir
-  Xerath
-  Yasuo
-  Zed
-  Ziggs
-  Zilean
-  Zyra
-Lissandra 6
-  Annie
-  Caitlyn
-  Karthus
-  Kled
-  Orianna
-  Sona
-Lucian 65
-  Ahri
-  Anivia
-  Annie
-  Ashe
-  AurelionSol
-  Azir
-  Bard
-  Brand
-  Caitlyn
-  Cassiopeia
-  Corki
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Gangplank
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  Jayce
-  Jhin
-  Karma
-  Karthus
-  Kayle
-  Kennen
-  Kindred
-  Kled
-  KogMaw
-  Leblanc
-  Lissandra
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Mordekaiser
-  Morgana
-  Nami
-  Nidalee
-  Orianna
-  Quinn
-  Ryze
-  Sivir
-  Sona
-  Soraka
-  Swain
-  Syndra
-  Taliyah
-  Teemo
-  Thresh
-  Tristana
-  TwistedFate
-  Twitch
-  Varus
-  Vayne
-  Veigar
-  Velkoz
-  Viktor
-  Vladimir
-  Xerath
-  Yasuo
-  Ziggs
-  Zilean
-  Zyra
-Lulu 6
-  Annie
-  Caitlyn
-  Karthus
-  Kled
-  Orianna
-  Sona
-Lux 7
-  Anivia
-  Annie
-  Karthus
-  Kled
-  Nami
-  Orianna
-  Sona
-Malphite 107
-  Aatrox
-  Ahri
-  Amumu
-  Anivia
-  Annie
-  Ashe
-  AurelionSol
-  Azir
-  Bard
   Brand
   Braum
   Caitlyn
@@ -3976,7 +3731,6 @@ Malphite 107
   Gangplank
   Gnar
   Graves
-  Hecarim
   Heimerdinger
   Illaoi
   Ivern
@@ -3996,37 +3750,32 @@ Malphite 107
   Kled
   KogMaw
   Leblanc
-  LeeSin
   Leona
   Lissandra
   Lucian
   Lulu
   Lux
   Malzahar
-  MasterYi
   MissFortune
-  MonkeyKing
   Mordekaiser
   Morgana
   Nami
   Nautilus
   Nidalee
-  Nocturne
   Orianna
   Pantheon
   Poppy
   Quinn
   Rammus
   RekSai
-  Renekton
   Rengar
   Riven
-  Rumble
   Ryze
   Shen
   Singed
   Sion
   Sivir
+  Skarner
   Sona
   Soraka
   Swain
@@ -4048,24 +3797,305 @@ Malphite 107
   Vi
   Viktor
   Vladimir
-  Volibear
+  Xerath
+  XinZhao
+  Yasuo
+  Yorick
+  Zed
+  Ziggs
+  Zilean
+  Zyra
+Leona 95
+  Aatrox
+  Ahri
+  Amumu
+  Anivia
+  Annie
+  Ashe
+  AurelionSol
+  Azir
+  Bard
+  Brand
+  Braum
+  Caitlyn
+  Cassiopeia
+  Corki
+  Diana
+  Draven
+  Ekko
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Fiora
+  Fizz
+  Gangplank
+  Gnar
+  Graves
+  Hecarim
+  Heimerdinger
+  Ivern
+  Janna
+  JarvanIV
+  Jayce
+  Jhin
+  Jinx
+  Kalista
+  Karma
+  Karthus
+  Kassadin
+  Kayle
+  Kennen
+  Khazix
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  Lissandra
+  Lucian
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Morgana
+  Nami
+  Nautilus
+  Nidalee
+  Nocturne
+  Orianna
+  Pantheon
+  Poppy
+  Quinn
+  RekSai
+  Renekton
+  Riven
+  Ryze
+  Shen
+  Singed
+  Sion
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Taric
+  Teemo
+  Thresh
+  Tristana
+  TwistedFate
+  Twitch
+  Udyr
+  Urgot
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Vi
+  Viktor
+  Vladimir
   Xerath
   Yasuo
   Zed
   Ziggs
   Zilean
   Zyra
-Malzahar 29
+Lissandra 7
+  Anivia
+  Annie
+  Janna
+  Karthus
+  Kled
+  Orianna
+  Sona
+Lucian 64
+  Ahri
+  Anivia
+  Annie
+  Ashe
+  AurelionSol
+  Azir
+  Bard
+  Brand
+  Caitlyn
+  Cassiopeia
+  Corki
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  Jayce
+  Jhin
+  Jinx
+  Karma
+  Karthus
+  Kayle
+  Kennen
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  Lissandra
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Nami
+  Nidalee
+  Orianna
+  Quinn
+  Ryze
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Teemo
+  Thresh
+  Tristana
+  TwistedFate
+  Twitch
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Viktor
+  Vladimir
+  Xerath
+  Yasuo
+  Ziggs
+  Zilean
+  Zyra
+Lulu 5
+  Anivia
+  Annie
+  Karthus
+  Kled
+  Orianna
+Lux 4
+  Anivia
+  Annie
+  Kled
+  Orianna
+Malphite 100
+  Aatrox
+  Ahri
+  Amumu
+  Anivia
+  Annie
+  Ashe
+  AurelionSol
+  Azir
+  Bard
+  Brand
+  Braum
+  Caitlyn
+  Cassiopeia
+  Corki
+  Diana
+  Draven
+  Ekko
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Fiora
+  Fizz
+  Gangplank
+  Gnar
+  Graves
+  Hecarim
+  Heimerdinger
+  Ivern
+  Janna
+  JarvanIV
+  Jayce
+  Jhin
+  Jinx
+  Kalista
+  Karma
+  Karthus
+  Kassadin
+  Katarina
+  Kayle
+  Kennen
+  Khazix
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  LeeSin
+  Lissandra
+  Lucian
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Morgana
+  Nami
+  Nautilus
+  Nidalee
+  Nunu
+  Orianna
+  Pantheon
+  Poppy
+  Quinn
+  Rammus
+  RekSai
+  Renekton
+  Riven
+  Ryze
+  Shen
+  Singed
+  Sion
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Taric
+  Teemo
+  Thresh
+  Tristana
+  TwistedFate
+  Twitch
+  Udyr
+  Urgot
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Vi
+  Viktor
+  Vladimir
+  Xerath
+  XinZhao
+  Yasuo
+  Yorick
+  Zed
+  Ziggs
+  Zilean
+  Zyra
+Malzahar 25
+  Ahri
   Anivia
   Annie
   Azir
   Caitlyn
-  Elise
-  Ezreal
   FiddleSticks
   Graves
-  Heimerdinger
   Janna
+  Karma
   Karthus
   Kled
   Lissandra
@@ -4073,16 +4103,13 @@ Malzahar 29
   Lux
   MissFortune
   Nami
+  Nidalee
   Orianna
   Sona
   Soraka
-  Swain
   Thresh
   TwistedFate
-  Vayne
   Veigar
-  Viktor
-  Vladimir
   Zilean
   Zyra
 Maokai 130
@@ -4216,10 +4243,10 @@ Maokai 130
   Ziggs
   Zilean
   Zyra
-MasterYi 117
+MasterYi 121
   Aatrox
   Ahri
-  Alistar
+  Akali
   Amumu
   Anivia
   Annie
@@ -4231,8 +4258,8 @@ MasterYi 117
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
-  Chogath
   Corki
   Diana
   DrMundo
@@ -4244,13 +4271,15 @@ MasterYi 117
   FiddleSticks
   Fiora
   Fizz
+  Galio
   Gangplank
+  Garen
   Gnar
   Gragas
   Graves
+  Hecarim
   Heimerdinger
   Illaoi
-  Irelia
   Ivern
   Janna
   JarvanIV
@@ -4275,6 +4304,7 @@ MasterYi 117
   Lucian
   Lulu
   Lux
+  Malphite
   Malzahar
   MissFortune
   MonkeyKing
@@ -4284,6 +4314,7 @@ MasterYi 117
   Nasus
   Nautilus
   Nidalee
+  Nocturne
   Nunu
   Orianna
   Pantheon
@@ -4296,8 +4327,8 @@ MasterYi 117
   Riven
   Rumble
   Ryze
+  Shaco
   Shen
-  Shyvana
   Singed
   Sion
   Sivir
@@ -4334,21 +4365,24 @@ MasterYi 117
   Ziggs
   Zilean
   Zyra
-MissFortune 13
+MissFortune 16
   Anivia
   Annie
   FiddleSticks
+  Graves
   Janna
   Karthus
   Kled
+  Lissandra
   Lulu
   Lux
   Nami
   Orianna
   Sona
-  TwistedFate
+  Thresh
+  Veigar
   Zilean
-MonkeyKing 102
+MonkeyKing 106
   Aatrox
   Ahri
   Amumu
@@ -4358,12 +4392,15 @@ MonkeyKing 102
   AurelionSol
   Azir
   Bard
+  Blitzcrank
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
   Corki
   Diana
+  DrMundo
   Draven
   Ekko
   Elise
@@ -4372,13 +4409,15 @@ MonkeyKing 102
   FiddleSticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
+  Gragas
   Graves
   Heimerdinger
-  Illaoi
   Ivern
   Janna
+  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -4394,19 +4433,19 @@ MonkeyKing 102
   KogMaw
   Leblanc
   LeeSin
+  Leona
   Lissandra
   Lucian
   Lulu
   Lux
+  Malphite
   Malzahar
   MissFortune
   Mordekaiser
   Morgana
   Nami
-  Nasus
   Nautilus
   Nidalee
-  Nunu
   Orianna
   Pantheon
   Poppy
@@ -4415,6 +4454,7 @@ MonkeyKing 102
   RekSai
   Rengar
   Riven
+  Rumble
   Ryze
   Shen
   Singed
@@ -4427,7 +4467,6 @@ MonkeyKing 102
   Syndra
   TahmKench
   Taliyah
-  Talon
   Taric
   Teemo
   Thresh
@@ -4446,16 +4485,15 @@ MonkeyKing 102
   XinZhao
   Yasuo
   Yorick
-  Zac
   Zed
   Ziggs
   Zilean
   Zyra
-Mordekaiser 54
+Mordekaiser 51
+  Ahri
   Anivia
   Annie
   Ashe
-  AurelionSol
   Azir
   Bard
   Brand
@@ -4468,16 +4506,14 @@ Mordekaiser 54
   Gnar
   Graves
   Heimerdinger
-  Ivern
   Janna
   Jayce
   Jhin
+  Jinx
   Karma
   Karthus
-  Kayle
-  Kennen
-  Kindred
   Kled
+  KogMaw
   Leblanc
   Lissandra
   Lulu
@@ -4487,6 +4523,7 @@ Mordekaiser 54
   Nami
   Nidalee
   Orianna
+  Sivir
   Sona
   Soraka
   Swain
@@ -4494,9 +4531,7 @@ Mordekaiser 54
   Taliyah
   Teemo
   Thresh
-  Tristana
   TwistedFate
-  Varus
   Vayne
   Veigar
   Velkoz
@@ -4506,12 +4541,11 @@ Mordekaiser 54
   Ziggs
   Zilean
   Zyra
-Morgana 57
+Morgana 59
   Ahri
   Anivia
   Annie
   Ashe
-  AurelionSol
   Azir
   Bard
   Brand
@@ -4519,6 +4553,7 @@ Morgana 57
   Cassiopeia
   Corki
   Elise
+  Evelynn
   Ezreal
   FiddleSticks
   Gnar
@@ -4528,10 +4563,14 @@ Morgana 57
   Janna
   Jayce
   Jhin
+  Jinx
   Karma
   Karthus
+  Kayle
+  Kennen
   Kindred
   Kled
+  KogMaw
   Leblanc
   Lissandra
   Lulu
@@ -4543,6 +4582,7 @@ Morgana 57
   Nidalee
   Orianna
   Quinn
+  Sivir
   Sona
   Soraka
   Swain
@@ -4550,9 +4590,7 @@ Morgana 57
   Taliyah
   Teemo
   Thresh
-  Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -4560,11 +4598,10 @@ Morgana 57
   Viktor
   Vladimir
   Xerath
-  Yasuo
   Ziggs
   Zilean
   Zyra
-Nami 12
+Nami 13
   Anivia
   Annie
   FiddleSticks
@@ -4573,11 +4610,12 @@ Nami 12
   Kled
   Lissandra
   Lulu
+  Lux
   Orianna
-  Thresh
+  Sona
+  Soraka
   Veigar
-  Zilean
-Nasus 100 (has passive)
+Nasus 107 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -4587,9 +4625,11 @@ Nasus 100 (has passive)
   AurelionSol
   Azir
   Bard
+  Blitzcrank
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
   Corki
   Diana
@@ -4602,7 +4642,9 @@ Nasus 100 (has passive)
   Fiora
   Fizz
   Gangplank
+  Garen
   Gnar
+  Gragas
   Graves
   Hecarim
   Heimerdinger
@@ -4631,12 +4673,12 @@ Nasus 100 (has passive)
   Lux
   Malzahar
   MissFortune
+  MonkeyKing
   Mordekaiser
   Morgana
   Nami
   Nautilus
   Nidalee
-  Nunu
   Orianna
   Pantheon
   Poppy
@@ -4646,14 +4688,18 @@ Nasus 100 (has passive)
   Renekton
   Riven
   Ryze
+  Sejuani
+  Shaco
   Shen
   Singed
   Sion
   Sivir
+  Skarner
   Sona
   Soraka
   Swain
   Syndra
+  TahmKench
   Taliyah
   Taric
   Teemo
@@ -4661,7 +4707,6 @@ Nasus 100 (has passive)
   Tristana
   TwistedFate
   Twitch
-  Udyr
   Urgot
   Varus
   Vayne
@@ -4678,9 +4723,9 @@ Nasus 100 (has passive)
   Ziggs
   Zilean
   Zyra
-Nautilus 84
-  Aatrox
+Nautilus 79
   Ahri
+  Amumu
   Anivia
   Annie
   Ashe
@@ -4688,7 +4733,6 @@ Nautilus 84
   Azir
   Bard
   Brand
-  Braum
   Caitlyn
   Cassiopeia
   Corki
@@ -4698,7 +4742,6 @@ Nautilus 84
   Evelynn
   Ezreal
   FiddleSticks
-  Fiora
   Fizz
   Gangplank
   Gnar
@@ -4706,13 +4749,13 @@ Nautilus 84
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
   Kalista
   Karma
   Karthus
+  Kassadin
   Kayle
   Kennen
   Kindred
@@ -4730,13 +4773,11 @@ Nautilus 84
   Nami
   Nidalee
   Orianna
-  Pantheon
+  Poppy
   Quinn
-  Rammus
   RekSai
+  Riven
   Ryze
-  Shen
-  Sion
   Sivir
   Sona
   Soraka
@@ -4754,7 +4795,6 @@ Nautilus 84
   Vayne
   Veigar
   Velkoz
-  Vi
   Viktor
   Vladimir
   Xerath
@@ -4763,34 +4803,30 @@ Nautilus 84
   Ziggs
   Zilean
   Zyra
-Nidalee 23
+Nidalee 20
   Anivia
   Annie
-  Azir
   Caitlyn
   FiddleSticks
   Graves
-  Heimerdinger
   Janna
   Karthus
   Kled
-  Lissandra
   Lulu
   Lux
   MissFortune
   Nami
   Orianna
   Sona
-  Swain
+  Soraka
   Thresh
   TwistedFate
   Veigar
-  Viktor
   Zilean
-Nocturne 114
+  Zyra
+Nocturne 113
   Aatrox
   Ahri
-  Alistar
   Amumu
   Anivia
   Annie
@@ -4798,14 +4834,14 @@ Nocturne 114
   AurelionSol
   Azir
   Bard
+  Blitzcrank
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
-  Chogath
   Corki
   Diana
-  DrMundo
   Draven
   Ekko
   Elise
@@ -4815,11 +4851,12 @@ Nocturne 114
   Fiora
   Fizz
   Gangplank
+  Garen
   Gnar
   Gragas
   Graves
+  Hecarim
   Heimerdinger
-  Illaoi
   Ivern
   Janna
   JarvanIV
@@ -4839,11 +4876,11 @@ Nocturne 114
   KogMaw
   Leblanc
   LeeSin
-  Leona
   Lissandra
   Lucian
   Lulu
   Lux
+  Malphite
   Malzahar
   MissFortune
   MonkeyKing
@@ -4863,20 +4900,19 @@ Nocturne 114
   Renekton
   Rengar
   Riven
-  Rumble
   Ryze
+  Shaco
   Shen
-  Shyvana
   Singed
   Sion
   Sivir
+  Skarner
   Sona
   Soraka
   Swain
   Syndra
   TahmKench
   Taliyah
-  Talon
   Taric
   Teemo
   Thresh
@@ -4929,7 +4965,6 @@ Nunu 96
   Gangplank
   Gnar
   Graves
-  Hecarim
   Heimerdinger
   Ivern
   Janna
@@ -4941,7 +4976,6 @@ Nunu 96
   Karma
   Karthus
   Kassadin
-  Katarina
   Kayle
   Kennen
   Khazix
@@ -4955,6 +4989,7 @@ Nunu 96
   Lux
   Malzahar
   MissFortune
+  MonkeyKing
   Mordekaiser
   Morgana
   Nami
@@ -4966,6 +5001,7 @@ Nunu 96
   Quinn
   Rammus
   RekSai
+  Renekton
   Riven
   Ryze
   Shen
@@ -4976,6 +5012,7 @@ Nunu 96
   Soraka
   Swain
   Syndra
+  TahmKench
   Taliyah
   Taric
   Teemo
@@ -4992,7 +5029,6 @@ Nunu 96
   Viktor
   Vladimir
   Xerath
-  XinZhao
   Yasuo
   Yorick
   Zed
@@ -5135,7 +5171,7 @@ Olaf 133 (has passive)
   Zyra
 Orianna 1
   Kled
-Pantheon 79
+Pantheon 83
   Ahri
   Amumu
   Anivia
@@ -5145,17 +5181,95 @@ Pantheon 79
   Azir
   Bard
   Brand
+  Braum
   Caitlyn
   Cassiopeia
   Corki
   Diana
-  Draven
   Ekko
   Elise
   Evelynn
   Ezreal
   FiddleSticks
   Fiora
+  Fizz
+  Gangplank
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  Jayce
+  Jhin
+  Jinx
+  Kalista
+  Karma
+  Karthus
+  Kayle
+  Kennen
+  Khazix
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  Lissandra
+  Lucian
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Morgana
+  Nami
+  Nautilus
+  Nidalee
+  Orianna
+  Poppy
+  Quinn
+  RekSai
+  Riven
+  Ryze
+  Shen
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Taric
+  Teemo
+  Thresh
+  Tristana
+  TwistedFate
+  Twitch
+  Urgot
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Viktor
+  Vladimir
+  Xerath
+  Yasuo
+  Zed
+  Ziggs
+  Zilean
+  Zyra
+Poppy 65
+  Ahri
+  Anivia
+  Annie
+  Ashe
+  Azir
+  Bard
+  Brand
+  Caitlyn
+  Cassiopeia
+  Corki
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
   Gangplank
   Gnar
   Graves
@@ -5174,7 +5288,6 @@ Pantheon 79
   KogMaw
   Leblanc
   Lissandra
-  Lucian
   Lulu
   Lux
   Malzahar
@@ -5184,77 +5297,9 @@ Pantheon 79
   Nami
   Nidalee
   Orianna
-  Poppy
   Quinn
-  Rammus
-  RekSai
   Riven
   Ryze
-  Shen
-  Sivir
-  Sona
-  Soraka
-  Swain
-  Syndra
-  TahmKench
-  Taliyah
-  Taric
-  Teemo
-  Thresh
-  Tristana
-  TwistedFate
-  Twitch
-  Varus
-  Vayne
-  Veigar
-  Velkoz
-  Viktor
-  Vladimir
-  Xerath
-  Yasuo
-  Ziggs
-  Zilean
-  Zyra
-Poppy 61
-  Ahri
-  Anivia
-  Annie
-  Ashe
-  AurelionSol
-  Azir
-  Bard
-  Brand
-  Caitlyn
-  Cassiopeia
-  Corki
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  Jayce
-  Jhin
-  Karma
-  Karthus
-  Kennen
-  Kindred
-  Kled
-  KogMaw
-  Leblanc
-  Lissandra
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Mordekaiser
-  Nami
-  Nidalee
-  Orianna
-  Quinn
   Sivir
   Sona
   Soraka
@@ -5263,7 +5308,6 @@ Poppy 61
   Taliyah
   Teemo
   Thresh
-  Tristana
   TwistedFate
   Twitch
   Varus
@@ -5289,9 +5333,9 @@ Quinn 56
   Cassiopeia
   Corki
   Elise
-  Evelynn
   Ezreal
   FiddleSticks
+  Gangplank
   Gnar
   Graves
   Heimerdinger
@@ -5299,9 +5343,9 @@ Quinn 56
   Janna
   Jayce
   Jhin
-  Jinx
   Karma
   Karthus
+  Kennen
   Kindred
   Kled
   KogMaw
@@ -5334,8 +5378,7 @@ Quinn 56
   Ziggs
   Zilean
   Zyra
-Rammus 73
-  Aatrox
+Rammus 82
   Ahri
   Anivia
   Annie
@@ -5344,10 +5387,91 @@ Rammus 73
   Azir
   Bard
   Brand
+  Braum
   Caitlyn
   Cassiopeia
   Corki
-  Draven
+  Diana
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Fizz
+  Gangplank
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  JarvanIV
+  Jayce
+  Jhin
+  Jinx
+  Kalista
+  Karma
+  Karthus
+  Kayle
+  Kennen
+  Khazix
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  Lissandra
+  Lucian
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Morgana
+  Nami
+  Nautilus
+  Nidalee
+  Orianna
+  Pantheon
+  Quinn
+  RekSai
+  Riven
+  Ryze
+  Sion
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Taric
+  Teemo
+  Thresh
+  Tristana
+  TwistedFate
+  Twitch
+  Urgot
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Vi
+  Viktor
+  Vladimir
+  Xerath
+  Yasuo
+  Zed
+  Ziggs
+  Zilean
+  Zyra
+RekSai 65
+  Ahri
+  Anivia
+  Annie
+  Ashe
+  Azir
+  Bard
+  Brand
+  Caitlyn
+  Cassiopeia
+  Corki
   Elise
   Evelynn
   Ezreal
@@ -5379,76 +5503,9 @@ Rammus 73
   Nami
   Nidalee
   Orianna
-  Poppy
   Quinn
-  RekSai
   Riven
   Ryze
-  Sion
-  Sivir
-  Sona
-  Soraka
-  Swain
-  Syndra
-  Taliyah
-  Taric
-  Teemo
-  Thresh
-  Tristana
-  TwistedFate
-  Twitch
-  Varus
-  Vayne
-  Veigar
-  Velkoz
-  Viktor
-  Vladimir
-  Xerath
-  Yasuo
-  Ziggs
-  Zilean
-  Zyra
-RekSai 62
-  Ahri
-  Anivia
-  Annie
-  Ashe
-  AurelionSol
-  Azir
-  Bard
-  Brand
-  Caitlyn
-  Cassiopeia
-  Corki
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  Jayce
-  Jhin
-  Jinx
-  Karma
-  Karthus
-  Kennen
-  Kindred
-  Kled
-  KogMaw
-  Leblanc
-  Lissandra
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Mordekaiser
-  Nami
-  Nidalee
-  Orianna
-  Quinn
   Sivir
   Sona
   Soraka
@@ -5457,7 +5514,6 @@ RekSai 62
   Taliyah
   Teemo
   Thresh
-  Tristana
   TwistedFate
   Twitch
   Varus
@@ -5487,13 +5543,13 @@ Renekton 92
   Cassiopeia
   Corki
   Diana
+  Draven
   Ekko
   Elise
   Evelynn
   Ezreal
   FiddleSticks
   Fiora
-  Fizz
   Gangplank
   Gnar
   Graves
@@ -5513,6 +5569,7 @@ Renekton 92
   Kled
   KogMaw
   Leblanc
+  LeeSin
   Lissandra
   Lucian
   Lulu
@@ -5524,7 +5581,6 @@ Renekton 92
   Nami
   Nautilus
   Nidalee
-  Nunu
   Orianna
   Pantheon
   Poppy
@@ -5535,12 +5591,12 @@ Renekton 92
   Ryze
   Shen
   Singed
-  Sion
   Sivir
   Sona
   Soraka
   Swain
   Syndra
+  TahmKench
   Taliyah
   Taric
   Teemo
@@ -5564,7 +5620,7 @@ Renekton 92
   Ziggs
   Zilean
   Zyra
-Rengar 95
+Rengar 94
   Aatrox
   Ahri
   Amumu
@@ -5591,6 +5647,7 @@ Rengar 95
   Gangplank
   Gnar
   Graves
+  Hecarim
   Heimerdinger
   Ivern
   Janna
@@ -5609,7 +5666,6 @@ Rengar 95
   Kled
   KogMaw
   Leblanc
-  LeeSin
   Lissandra
   Lucian
   Lulu
@@ -5625,7 +5681,6 @@ Rengar 95
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Renekton
   Riven
@@ -5638,7 +5693,6 @@ Rengar 95
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Taric
   Teemo
@@ -5646,6 +5700,7 @@ Rengar 95
   Tristana
   TwistedFate
   Twitch
+  Udyr
   Urgot
   Varus
   Vayne
@@ -5660,12 +5715,11 @@ Rengar 95
   Ziggs
   Zilean
   Zyra
-Riven 62
+Riven 61
   Ahri
   Anivia
   Annie
   Ashe
-  AurelionSol
   Azir
   Bard
   Brand
@@ -5681,215 +5735,49 @@ Riven 62
   Heimerdinger
   Ivern
   Janna
-  Jayce
-  Jhin
-  Kalista
-  Karma
-  Karthus
-  Kennen
-  Kindred
-  Kled
-  KogMaw
-  Leblanc
-  Lissandra
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Mordekaiser
-  Nami
-  Nidalee
-  Orianna
-  Quinn
-  Sivir
-  Sona
-  Soraka
-  Swain
-  Syndra
-  Taliyah
-  Teemo
-  Thresh
-  Tristana
-  TwistedFate
-  Twitch
-  Varus
-  Vayne
-  Veigar
-  Velkoz
-  Viktor
-  Vladimir
-  Xerath
-  Yasuo
-  Ziggs
-  Zilean
-  Zyra
-Rumble 112
-  Aatrox
-  Ahri
-  Alistar
-  Amumu
-  Anivia
-  Annie
-  Ashe
-  AurelionSol
-  Azir
-  Bard
-  Blitzcrank
-  Brand
-  Braum
-  Caitlyn
-  Camille
-  Cassiopeia
-  Chogath
-  Corki
-  Diana
-  Draven
-  Ekko
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Fiora
-  Fizz
-  Gangplank
-  Garen
-  Gnar
-  Graves
-  Heimerdinger
-  Illaoi
-  Ivern
-  Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
-  Kalista
   Karma
   Karthus
-  Kassadin
   Kayle
   Kennen
-  Khazix
   Kindred
   Kled
   KogMaw
   Leblanc
-  LeeSin
-  Leona
   Lissandra
-  Lucian
   Lulu
   Lux
   Malzahar
   MissFortune
-  MonkeyKing
   Mordekaiser
-  Morgana
   Nami
-  Nasus
-  Nautilus
   Nidalee
-  Nunu
   Orianna
-  Pantheon
-  Poppy
   Quinn
-  Rammus
-  RekSai
-  Renekton
-  Rengar
-  Riven
   Ryze
-  Shaco
-  Shen
-  Singed
-  Sion
   Sivir
-  Skarner
   Sona
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
-  Talon
-  Taric
   Teemo
   Thresh
-  Tristana
   TwistedFate
   Twitch
-  Urgot
   Varus
   Vayne
   Veigar
   Velkoz
-  Vi
   Viktor
   Vladimir
   Xerath
-  XinZhao
-  Yasuo
-  Yorick
-  Zac
-  Zed
   Ziggs
   Zilean
   Zyra
-Ryze 52
-  Ahri
-  Anivia
-  Annie
-  Azir
-  Bard
-  Caitlyn
-  Cassiopeia
-  Corki
-  Elise
-  Ezreal
-  FiddleSticks
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  Jayce
-  Jhin
-  Karma
-  Karthus
-  Kindred
-  Kled
-  Leblanc
-  Lissandra
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Mordekaiser
-  Nami
-  Nidalee
-  Orianna
-  Quinn
-  Sona
-  Soraka
-  Swain
-  Syndra
-  Taliyah
-  Teemo
-  Thresh
-  TwistedFate
-  Twitch
-  Vayne
-  Veigar
-  Velkoz
-  Viktor
-  Vladimir
-  Xerath
-  Yasuo
-  Ziggs
-  Zilean
-  Zyra
-Sejuani 122
+Rumble 117
   Aatrox
   Ahri
   Akali
@@ -5922,7 +5810,6 @@ Sejuani 122
   Gangplank
   Garen
   Gnar
-  Gragas
   Graves
   Hecarim
   Heimerdinger
@@ -5930,6 +5817,7 @@ Sejuani 122
   Ivern
   Janna
   JarvanIV
+  Jax
   Jayce
   Jhin
   Jinx
@@ -5945,7 +5833,6 @@ Sejuani 122
   Kled
   KogMaw
   Leblanc
-  LeeSin
   Leona
   Lissandra
   Lucian
@@ -5954,7 +5841,6 @@ Sejuani 122
   Malphite
   Malzahar
   MissFortune
-  MonkeyKing
   Mordekaiser
   Morgana
   Nami
@@ -5972,7 +5858,6 @@ Sejuani 122
   Renekton
   Rengar
   Riven
-  Rumble
   Ryze
   Shaco
   Shen
@@ -6002,6 +5887,184 @@ Sejuani 122
   Vi
   Viktor
   Vladimir
+  Xerath
+  XinZhao
+  Yasuo
+  Yorick
+  Zed
+  Ziggs
+  Zilean
+  Zyra
+Ryze 54
+  Ahri
+  Anivia
+  Annie
+  Azir
+  Bard
+  Brand
+  Caitlyn
+  Cassiopeia
+  Corki
+  Elise
+  Ezreal
+  FiddleSticks
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  Jayce
+  Jhin
+  Karma
+  Karthus
+  Kennen
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  Lissandra
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Nami
+  Nidalee
+  Orianna
+  Quinn
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Teemo
+  Thresh
+  TwistedFate
+  Vayne
+  Veigar
+  Velkoz
+  Viktor
+  Vladimir
+  Xerath
+  Ziggs
+  Zilean
+  Zyra
+Sejuani 124
+  Aatrox
+  Ahri
+  Akali
+  Alistar
+  Amumu
+  Anivia
+  Annie
+  Ashe
+  AurelionSol
+  Azir
+  Bard
+  Blitzcrank
+  Brand
+  Braum
+  Caitlyn
+  Camille
+  Cassiopeia
+  Chogath
+  Corki
+  Diana
+  DrMundo
+  Draven
+  Ekko
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Fiora
+  Fizz
+  Galio
+  Gangplank
+  Garen
+  Gnar
+  Gragas
+  Graves
+  Hecarim
+  Heimerdinger
+  Illaoi
+  Irelia
+  Ivern
+  Janna
+  JarvanIV
+  Jax
+  Jayce
+  Jhin
+  Jinx
+  Kalista
+  Karma
+  Karthus
+  Kassadin
+  Katarina
+  Kayle
+  Kennen
+  Khazix
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  LeeSin
+  Leona
+  Lissandra
+  Lucian
+  Lulu
+  Lux
+  Malphite
+  Malzahar
+  MissFortune
+  MonkeyKing
+  Mordekaiser
+  Morgana
+  Nami
+  Nautilus
+  Nidalee
+  Nunu
+  Orianna
+  Pantheon
+  Poppy
+  Quinn
+  Rammus
+  RekSai
+  Renekton
+  Rengar
+  Riven
+  Rumble
+  Ryze
+  Shaco
+  Shen
+  Shyvana
+  Singed
+  Sion
+  Sivir
+  Skarner
+  Sona
+  Soraka
+  Swain
+  Syndra
+  TahmKench
+  Taliyah
+  Talon
+  Taric
+  Teemo
+  Thresh
+  Tristana
+  TwistedFate
+  Twitch
+  Udyr
+  Urgot
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Vi
+  Viktor
+  Vladimir
   Volibear
   Xerath
   XinZhao
@@ -6012,9 +6075,10 @@ Sejuani 122
   Ziggs
   Zilean
   Zyra
-Shaco 111
+Shaco 116
   Aatrox
   Ahri
+  Alistar
   Amumu
   Anivia
   Annie
@@ -6022,12 +6086,16 @@ Shaco 111
   AurelionSol
   Azir
   Bard
+  Blitzcrank
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
+  Chogath
   Corki
   Diana
+  DrMundo
   Draven
   Ekko
   Elise
@@ -6036,6 +6104,7 @@ Shaco 111
   FiddleSticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Garen
   Gnar
@@ -6046,6 +6115,7 @@ Shaco 111
   Ivern
   Janna
   JarvanIV
+  Jax
   Jayce
   Jhin
   Jinx
@@ -6053,6 +6123,7 @@ Shaco 111
   Karma
   Karthus
   Kassadin
+  Katarina
   Kayle
   Kennen
   Khazix
@@ -6060,22 +6131,20 @@ Shaco 111
   Kled
   KogMaw
   Leblanc
+  LeeSin
   Leona
   Lissandra
   Lucian
   Lulu
   Lux
+  Malphite
   Malzahar
-  MasterYi
   MissFortune
-  MonkeyKing
   Mordekaiser
   Morgana
   Nami
-  Nasus
   Nautilus
   Nidalee
-  Nocturne
   Nunu
   Orianna
   Pantheon
@@ -6114,7 +6183,6 @@ Shaco 111
   Vi
   Viktor
   Vladimir
-  Volibear
   Xerath
   XinZhao
   Yasuo
@@ -6124,7 +6192,7 @@ Shaco 111
   Ziggs
   Zilean
   Zyra
-Shen 70
+Shen 74
   Ahri
   Anivia
   Annie
@@ -6136,11 +6204,12 @@ Shen 70
   Caitlyn
   Cassiopeia
   Corki
-  Draven
+  Diana
   Elise
   Evelynn
   Ezreal
   FiddleSticks
+  Fizz
   Gangplank
   Gnar
   Graves
@@ -6150,6 +6219,7 @@ Shen 70
   Jayce
   Jhin
   Jinx
+  Kalista
   Karma
   Karthus
   Kayle
@@ -6159,6 +6229,7 @@ Shen 70
   KogMaw
   Leblanc
   Lissandra
+  Lucian
   Lulu
   Lux
   Malzahar
@@ -6166,11 +6237,10 @@ Shen 70
   Mordekaiser
   Morgana
   Nami
+  Nautilus
   Nidalee
   Orianna
-  Poppy
   Quinn
-  RekSai
   Riven
   Ryze
   Sivir
@@ -6179,11 +6249,12 @@ Shen 70
   Swain
   Syndra
   Taliyah
-  Taric
   Teemo
   Thresh
+  Tristana
   TwistedFate
   Twitch
+  Urgot
   Varus
   Vayne
   Veigar
@@ -6192,12 +6263,14 @@ Shen 70
   Vladimir
   Xerath
   Yasuo
+  Zed
   Ziggs
   Zilean
   Zyra
-Shyvana 122
+Shyvana 124
   Aatrox
   Ahri
+  Akali
   Alistar
   Amumu
   Anivia
@@ -6236,7 +6309,6 @@ Shyvana 122
   Ivern
   Janna
   JarvanIV
-  Jax
   Jayce
   Jhin
   Jinx
@@ -6260,6 +6332,7 @@ Shyvana 122
   Lux
   Malphite
   Malzahar
+  MasterYi
   MissFortune
   MonkeyKing
   Mordekaiser
@@ -6268,6 +6341,7 @@ Shyvana 122
   Nasus
   Nautilus
   Nidalee
+  Nocturne
   Nunu
   Orianna
   Pantheon
@@ -6280,7 +6354,6 @@ Shyvana 122
   Riven
   Rumble
   Ryze
-  Sejuani
   Shaco
   Shen
   Singed
@@ -6309,6 +6382,7 @@ Shyvana 122
   Vi
   Viktor
   Vladimir
+  Volibear
   Xerath
   XinZhao
   Yasuo
@@ -6318,9 +6392,400 @@ Shyvana 122
   Ziggs
   Zilean
   Zyra
-Singed 89
+Singed 90
   Aatrox
   Ahri
+  Amumu
+  Anivia
+  Annie
+  Ashe
+  AurelionSol
+  Azir
+  Bard
+  Brand
+  Braum
+  Caitlyn
+  Cassiopeia
+  Corki
+  Diana
+  Draven
+  Ekko
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Fiora
+  Fizz
+  Gangplank
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  JarvanIV
+  Jayce
+  Jhin
+  Jinx
+  Kalista
+  Karma
+  Karthus
+  Kassadin
+  Kayle
+  Kennen
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  Lissandra
+  Lucian
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Morgana
+  Nami
+  Nidalee
+  Orianna
+  Pantheon
+  Poppy
+  Quinn
+  Rammus
+  RekSai
+  Riven
+  Ryze
+  Shen
+  Sion
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  TahmKench
+  Taliyah
+  Taric
+  Teemo
+  Thresh
+  Tristana
+  TwistedFate
+  Twitch
+  Urgot
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Vi
+  Viktor
+  Vladimir
+  Xerath
+  Yasuo
+  Zed
+  Ziggs
+  Zilean
+  Zyra
+Sion 88
+  Aatrox
+  Ahri
+  Amumu
+  Anivia
+  Annie
+  Ashe
+  AurelionSol
+  Azir
+  Bard
+  Brand
+  Braum
+  Caitlyn
+  Cassiopeia
+  Corki
+  Diana
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Fiora
+  Fizz
+  Gangplank
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  JarvanIV
+  Jayce
+  Jhin
+  Jinx
+  Kalista
+  Karma
+  Karthus
+  Kassadin
+  Kayle
+  Kennen
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  Lissandra
+  Lucian
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Morgana
+  Nami
+  Nautilus
+  Nidalee
+  Orianna
+  Pantheon
+  Poppy
+  Quinn
+  RekSai
+  Renekton
+  Riven
+  Ryze
+  Shen
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Taric
+  Teemo
+  Thresh
+  Tristana
+  TwistedFate
+  Twitch
+  Udyr
+  Urgot
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Vi
+  Viktor
+  Vladimir
+  Xerath
+  Yasuo
+  Zed
+  Ziggs
+  Zilean
+  Zyra
+Sivir 40
+  Ahri
+  Anivia
+  Annie
+  Azir
+  Caitlyn
+  Cassiopeia
+  Elise
+  Ezreal
+  FiddleSticks
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  Jhin
+  Karma
+  Karthus
+  Kindred
+  Kled
+  Lissandra
+  Lulu
+  Lux
+  MissFortune
+  Nami
+  Nidalee
+  Orianna
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Teemo
+  Thresh
+  TwistedFate
+  Vayne
+  Veigar
+  Viktor
+  Vladimir
+  Ziggs
+  Zilean
+  Zyra
+Skarner 98
+  Aatrox
+  Ahri
+  Amumu
+  Anivia
+  Annie
+  Ashe
+  AurelionSol
+  Azir
+  Bard
+  Brand
+  Braum
+  Caitlyn
+  Cassiopeia
+  Corki
+  Diana
+  Draven
+  Ekko
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Fiora
+  Fizz
+  Gangplank
+  Gnar
+  Graves
+  Hecarim
+  Heimerdinger
+  Ivern
+  Janna
+  JarvanIV
+  Jayce
+  Jhin
+  Jinx
+  Kalista
+  Karma
+  Karthus
+  Kassadin
+  Katarina
+  Kayle
+  Kennen
+  Khazix
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  Lissandra
+  Lucian
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Morgana
+  Nami
+  Nautilus
+  Nidalee
+  Orianna
+  Pantheon
+  Poppy
+  Quinn
+  Rammus
+  RekSai
+  Renekton
+  Riven
+  Ryze
+  Shen
+  Singed
+  Sion
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Taric
+  Teemo
+  Thresh
+  Tristana
+  TwistedFate
+  Twitch
+  Udyr
+  Urgot
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Vi
+  Viktor
+  Vladimir
+  Xerath
+  XinZhao
+  Yasuo
+  Yorick
+  Zed
+  Ziggs
+  Zilean
+  Zyra
+Sona 7
+  Anivia
+  Annie
+  Karthus
+  Kled
+  Lulu
+  Lux
+  Orianna
+Soraka 12
+  Anivia
+  Annie
+  Caitlyn
+  Karthus
+  Kled
+  Lissandra
+  Lulu
+  Lux
+  MissFortune
+  Orianna
+  Sona
+  Veigar
+Swain 23
+  Anivia
+  Annie
+  Caitlyn
+  Elise
+  FiddleSticks
+  Gnar
+  Graves
+  Janna
+  Karthus
+  Kled
+  Lissandra
+  Lulu
+  Lux
+  MissFortune
+  Nami
+  Orianna
+  Sona
+  Soraka
+  Thresh
+  TwistedFate
+  Veigar
+  Zilean
+  Zyra
+Syndra 24
+  Anivia
+  Annie
+  Caitlyn
+  Elise
+  FiddleSticks
+  Gnar
+  Graves
+  Janna
+  Karthus
+  Kled
+  Lissandra
+  Lulu
+  Lux
+  MissFortune
+  Nami
+  Orianna
+  Sona
+  Soraka
+  Thresh
+  TwistedFate
+  Veigar
+  Velkoz
+  Zilean
+  Zyra
+TahmKench 89
+  Aatrox
+  Ahri
+  Amumu
   Anivia
   Annie
   Ashe
@@ -6376,7 +6841,6 @@ Singed 89
   Pantheon
   Poppy
   Quinn
-  Rammus
   RekSai
   Riven
   Ryze
@@ -6408,133 +6872,42 @@ Singed 89
   Ziggs
   Zilean
   Zyra
-Sion 83
-  Aatrox
+Taliyah 34
   Ahri
-  Amumu
   Anivia
   Annie
-  Ashe
-  AurelionSol
   Azir
-  Bard
-  Brand
-  Braum
   Caitlyn
-  Cassiopeia
-  Corki
-  Diana
-  Ekko
   Elise
-  Evelynn
   Ezreal
   FiddleSticks
-  Fiora
-  Fizz
-  Gangplank
-  Gnar
   Graves
   Heimerdinger
-  Ivern
   Janna
-  Jayce
-  Jhin
-  Jinx
-  Kalista
   Karma
   Karthus
-  Kassadin
-  Kayle
-  Kennen
-  Kindred
   Kled
-  KogMaw
-  Leblanc
   Lissandra
-  Lucian
   Lulu
   Lux
-  Malzahar
   MissFortune
-  Mordekaiser
-  Morgana
   Nami
   Nidalee
   Orianna
-  Poppy
-  Quinn
-  RekSai
-  Riven
-  Ryze
-  Shen
-  Sivir
   Sona
   Soraka
   Swain
   Syndra
-  Taliyah
-  Taric
   Teemo
   Thresh
-  Tristana
   TwistedFate
-  Twitch
-  Urgot
-  Varus
   Vayne
   Veigar
-  Velkoz
   Viktor
-  Vladimir
-  Xerath
-  Yasuo
-  Zed
   Ziggs
   Zilean
   Zyra
-Sivir 41
-  Ahri
-  Anivia
-  Annie
-  Azir
-  Bard
-  Brand
-  Caitlyn
-  Elise
-  Ezreal
-  FiddleSticks
-  Gnar
-  Graves
-  Heimerdinger
-  Janna
-  Karma
-  Karthus
-  Kled
-  Leblanc
-  Lissandra
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Mordekaiser
-  Nami
-  Nidalee
-  Orianna
-  Sona
-  Soraka
-  Swain
-  Taliyah
-  Thresh
-  TwistedFate
-  Vayne
-  Veigar
-  Velkoz
-  Viktor
-  Vladimir
-  Xerath
-  Zilean
-  Zyra
-Skarner 96
+Talon 98
   Aatrox
   Ahri
   Amumu
@@ -6586,6 +6959,7 @@ Skarner 96
   Lux
   Malzahar
   MissFortune
+  MonkeyKing
   Mordekaiser
   Morgana
   Nami
@@ -6616,6 +6990,7 @@ Skarner 96
   Tristana
   TwistedFate
   Twitch
+  Udyr
   Urgot
   Varus
   Vayne
@@ -6625,292 +7000,6 @@ Skarner 96
   Viktor
   Vladimir
   Volibear
-  Xerath
-  Yasuo
-  Zed
-  Ziggs
-  Zilean
-  Zyra
-Sona 8
-  Anivia
-  Annie
-  Janna
-  Karthus
-  Kled
-  Orianna
-  Thresh
-  Zilean
-Soraka 18
-  Anivia
-  Annie
-  Caitlyn
-  FiddleSticks
-  Graves
-  Janna
-  Karthus
-  Kled
-  Lulu
-  Lux
-  MissFortune
-  Nami
-  Orianna
-  Sona
-  Thresh
-  TwistedFate
-  Zilean
-  Zyra
-Swain 20
-  Anivia
-  Annie
-  Azir
-  Caitlyn
-  FiddleSticks
-  Graves
-  Heimerdinger
-  Janna
-  Karthus
-  Kled
-  Lissandra
-  Lulu
-  Lux
-  MissFortune
-  Nami
-  Orianna
-  Sona
-  Thresh
-  Veigar
-  Zilean
-Syndra 26
-  Anivia
-  Annie
-  Azir
-  Caitlyn
-  Ezreal
-  FiddleSticks
-  Graves
-  Heimerdinger
-  Janna
-  Karthus
-  Kled
-  Lissandra
-  Lulu
-  Lux
-  MissFortune
-  Nami
-  Nidalee
-  Orianna
-  Sona
-  Swain
-  Thresh
-  TwistedFate
-  Veigar
-  Viktor
-  Vladimir
-  Zilean
-TahmKench 86
-  Aatrox
-  Ahri
-  Amumu
-  Anivia
-  Annie
-  Ashe
-  AurelionSol
-  Azir
-  Bard
-  Brand
-  Caitlyn
-  Cassiopeia
-  Corki
-  Diana
-  Draven
-  Ekko
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Fizz
-  Gangplank
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  Jayce
-  Jhin
-  Jinx
-  Kalista
-  Karma
-  Karthus
-  Kassadin
-  Kayle
-  Kennen
-  Khazix
-  Kindred
-  Kled
-  KogMaw
-  Leblanc
-  Lissandra
-  Lucian
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Mordekaiser
-  Morgana
-  Nami
-  Nautilus
-  Nidalee
-  Orianna
-  Poppy
-  Quinn
-  RekSai
-  Renekton
-  Riven
-  Ryze
-  Singed
-  Sion
-  Sivir
-  Sona
-  Soraka
-  Swain
-  Syndra
-  Taliyah
-  Taric
-  Teemo
-  Thresh
-  Tristana
-  TwistedFate
-  Twitch
-  Urgot
-  Varus
-  Vayne
-  Veigar
-  Velkoz
-  Viktor
-  Vladimir
-  Xerath
-  Yasuo
-  Zed
-  Ziggs
-  Zilean
-  Zyra
-Taliyah 26
-  Anivia
-  Annie
-  Caitlyn
-  Elise
-  Ezreal
-  FiddleSticks
-  Gnar
-  Graves
-  Heimerdinger
-  Janna
-  Karthus
-  Kled
-  Lissandra
-  Lulu
-  Lux
-  MissFortune
-  Nami
-  Orianna
-  Sona
-  Soraka
-  Thresh
-  TwistedFate
-  Vayne
-  Veigar
-  Zilean
-  Zyra
-Talon 95
-  Aatrox
-  Ahri
-  Amumu
-  Anivia
-  Annie
-  Ashe
-  AurelionSol
-  Azir
-  Bard
-  Brand
-  Braum
-  Caitlyn
-  Cassiopeia
-  Corki
-  Diana
-  Draven
-  Ekko
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Fiora
-  Fizz
-  Gangplank
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  JarvanIV
-  Jayce
-  Jhin
-  Jinx
-  Kalista
-  Karma
-  Karthus
-  Kassadin
-  Kayle
-  Kennen
-  Khazix
-  Kindred
-  Kled
-  KogMaw
-  Leblanc
-  LeeSin
-  Lissandra
-  Lucian
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Mordekaiser
-  Morgana
-  Nami
-  Nautilus
-  Nidalee
-  Orianna
-  Pantheon
-  Poppy
-  Quinn
-  Rammus
-  RekSai
-  Renekton
-  Riven
-  Ryze
-  Shen
-  Singed
-  Sion
-  Sivir
-  Sona
-  Soraka
-  Swain
-  Syndra
-  TahmKench
-  Taliyah
-  Taric
-  Teemo
-  Thresh
-  Tristana
-  TwistedFate
-  Twitch
-  Urgot
-  Varus
-  Vayne
-  Veigar
-  Velkoz
-  Vi
-  Viktor
-  Vladimir
   Xerath
   Yasuo
   Zed
@@ -6930,9 +7019,9 @@ Taric 63
   Cassiopeia
   Corki
   Elise
-  Evelynn
   Ezreal
   FiddleSticks
+  Gangplank
   Gnar
   Graves
   Heimerdinger
@@ -6940,10 +7029,8 @@ Taric 63
   Janna
   Jayce
   Jhin
-  Jinx
   Karma
   Karthus
-  Kayle
   Kennen
   Kindred
   Kled
@@ -6955,6 +7042,7 @@ Taric 63
   Malzahar
   MissFortune
   Mordekaiser
+  Morgana
   Nami
   Nidalee
   Orianna
@@ -6968,6 +7056,7 @@ Taric 63
   Taliyah
   Teemo
   Thresh
+  Tristana
   TwistedFate
   Twitch
   Varus
@@ -6981,83 +7070,21 @@ Taric 63
   Ziggs
   Zilean
   Zyra
-Teemo 33
-  Ahri
+Teemo 35
   Anivia
   Annie
   Azir
-  Bard
   Caitlyn
   Elise
-  Ezreal
   FiddleSticks
   Gnar
   Graves
-  Heimerdinger
   Janna
   Jhin
-  Karthus
-  Kled
-  Lissandra
-  Lulu
-  Lux
-  MissFortune
-  Nami
-  Nidalee
-  Orianna
-  Sona
-  Soraka
-  Swain
-  Thresh
-  TwistedFate
-  Vayne
-  Veigar
-  Viktor
-  Vladimir
-  Zilean
-Thresh 8
-  Anivia
-  Annie
-  Caitlyn
-  Karthus
-  Kled
-  Lux
-  MissFortune
-  Orianna
-Tristana 67
-  Ahri
-  Anivia
-  Annie
-  AurelionSol
-  Azir
-  Bard
-  Brand
-  Caitlyn
-  Cassiopeia
-  Corki
-  Ekko
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Fiora
-  Gangplank
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  Jayce
-  Jhin
-  Jinx
-  Kalista
   Karma
   Karthus
-  Kayle
-  Kennen
   Kindred
   Kled
-  KogMaw
   Leblanc
   Lissandra
   Lulu
@@ -7067,28 +7094,94 @@ Tristana 67
   Nami
   Nidalee
   Orianna
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Thresh
+  TwistedFate
+  Veigar
+  Velkoz
+  Vladimir
+  Xerath
+  Zilean
+  Zyra
+Thresh 10
+  Anivia
+  Annie
+  FiddleSticks
+  Janna
+  Karthus
+  Kled
+  Nami
+  Orianna
+  Sona
+  Zilean
+Tristana 67
+  Ahri
+  Anivia
+  Annie
+  Ashe
+  AurelionSol
+  Azir
+  Bard
+  Brand
+  Caitlyn
+  Cassiopeia
+  Corki
+  Diana
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Gangplank
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  Jayce
+  Jhin
+  Jinx
+  Karma
+  Karthus
+  Kayle
+  Kennen
+  Kindred
+  Kled
+  Leblanc
+  Lissandra
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Morgana
+  Nami
+  Nidalee
+  Orianna
+  Poppy
   Quinn
+  RekSai
+  Riven
   Ryze
-  Shen
   Sivir
   Sona
   Soraka
   Swain
   Syndra
   Taliyah
-  Taric
   Teemo
   Thresh
   TwistedFate
-  Urgot
-  Varus
+  Twitch
   Vayne
   Veigar
   Velkoz
   Viktor
   Vladimir
   Xerath
-  Zed
+  Yasuo
   Ziggs
   Zilean
   Zyra
@@ -7353,37 +7446,30 @@ Tryndamere 131 (has passive)
   Ziggs
   Zilean
   Zyra
-TwistedFate 24
+TwistedFate 18
   Anivia
   Annie
-  Azir
   Caitlyn
-  Elise
-  Ezreal
   FiddleSticks
-  Graves
-  Heimerdinger
   Janna
   Karthus
   Kled
   Lissandra
   Lulu
   Lux
-  Nami
+  MissFortune
   Orianna
   Sona
-  Swain
+  Soraka
   Thresh
   Veigar
-  Vladimir
   Zilean
   Zyra
-Twitch 57
+Twitch 60
   Ahri
   Anivia
   Annie
   Ashe
-  AurelionSol
   Azir
   Bard
   Brand
@@ -7391,6 +7477,7 @@ Twitch 57
   Cassiopeia
   Corki
   Elise
+  Evelynn
   Ezreal
   FiddleSticks
   Gnar
@@ -7403,6 +7490,8 @@ Twitch 57
   Jinx
   Karma
   Karthus
+  Kayle
+  Kennen
   Kindred
   Kled
   KogMaw
@@ -7413,9 +7502,11 @@ Twitch 57
   Malzahar
   MissFortune
   Mordekaiser
+  Morgana
   Nami
   Nidalee
   Orianna
+  Ryze
   Sivir
   Sona
   Soraka
@@ -7424,7 +7515,6 @@ Twitch 57
   Taliyah
   Teemo
   Thresh
-  Tristana
   TwistedFate
   Varus
   Vayne
@@ -7436,7 +7526,7 @@ Twitch 57
   Ziggs
   Zilean
   Zyra
-Udyr 107
+Udyr 96
   Aatrox
   Ahri
   Amumu
@@ -7446,15 +7536,12 @@ Udyr 107
   AurelionSol
   Azir
   Bard
-  Blitzcrank
   Brand
   Braum
   Caitlyn
   Cassiopeia
-  Chogath
   Corki
   Diana
-  DrMundo
   Draven
   Ekko
   Elise
@@ -7465,13 +7552,10 @@ Udyr 107
   Fizz
   Gangplank
   Gnar
-  Gragas
   Graves
   Heimerdinger
-  Illaoi
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -7481,13 +7565,11 @@ Udyr 107
   Kassadin
   Kayle
   Kennen
-  Khazix
   Kindred
   Kled
   KogMaw
   Leblanc
   LeeSin
-  Leona
   Lissandra
   Lucian
   Lulu
@@ -7497,6 +7579,7 @@ Udyr 107
   Mordekaiser
   Morgana
   Nami
+  Nasus
   Nautilus
   Nidalee
   Nunu
@@ -7506,22 +7589,18 @@ Udyr 107
   Quinn
   Rammus
   RekSai
-  Rengar
+  Renekton
   Riven
-  Rumble
   Ryze
   Shen
   Singed
-  Sion
   Sivir
-  Skarner
   Sona
   Soraka
   Swain
   Syndra
   TahmKench
   Taliyah
-  Talon
   Taric
   Teemo
   Thresh
@@ -7544,208 +7623,7 @@ Udyr 107
   Ziggs
   Zilean
   Zyra
-Urgot 76
-  Ahri
-  Anivia
-  Annie
-  Ashe
-  AurelionSol
-  Azir
-  Bard
-  Brand
-  Caitlyn
-  Cassiopeia
-  Corki
-  Diana
-  Draven
-  Ekko
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Fiora
-  Gangplank
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  Jayce
-  Jhin
-  Jinx
-  Karma
-  Karthus
-  Kayle
-  Kennen
-  Kindred
-  Kled
-  KogMaw
-  Leblanc
-  Lissandra
-  Lucian
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Mordekaiser
-  Morgana
-  Nami
-  Nidalee
-  Orianna
-  Poppy
-  Quinn
-  Rammus
-  RekSai
-  Riven
-  Ryze
-  Shen
-  Sivir
-  Sona
-  Soraka
-  Swain
-  Syndra
-  Taliyah
-  Taric
-  Teemo
-  Thresh
-  TwistedFate
-  Twitch
-  Varus
-  Vayne
-  Veigar
-  Velkoz
-  Viktor
-  Vladimir
-  Xerath
-  Yasuo
-  Ziggs
-  Zilean
-  Zyra
-Varus 55
-  Ahri
-  Anivia
-  Annie
-  AurelionSol
-  Azir
-  Bard
-  Brand
-  Caitlyn
-  Cassiopeia
-  Corki
-  Elise
-  Evelynn
-  Ezreal
-  FiddleSticks
-  Gnar
-  Graves
-  Heimerdinger
-  Ivern
-  Janna
-  Jayce
-  Jhin
-  Jinx
-  Karma
-  Karthus
-  Kennen
-  Kindred
-  Kled
-  Leblanc
-  Lissandra
-  Lulu
-  Lux
-  Malzahar
-  MissFortune
-  Nami
-  Nidalee
-  Orianna
-  Ryze
-  Sivir
-  Sona
-  Soraka
-  Swain
-  Syndra
-  Taliyah
-  Teemo
-  Thresh
-  TwistedFate
-  Vayne
-  Veigar
-  Velkoz
-  Viktor
-  Vladimir
-  Xerath
-  Ziggs
-  Zilean
-  Zyra
-Vayne 33
-  Anivia
-  Annie
-  Azir
-  Bard
-  Caitlyn
-  Cassiopeia
-  Elise
-  Ezreal
-  FiddleSticks
-  Gnar
-  Graves
-  Heimerdinger
-  Janna
-  Jhin
-  Karma
-  Karthus
-  Kled
-  Lissandra
-  Lulu
-  Lux
-  MissFortune
-  Nami
-  Nidalee
-  Orianna
-  Sona
-  Soraka
-  Swain
-  Thresh
-  TwistedFate
-  Veigar
-  Vladimir
-  Zilean
-  Zyra
-Veigar 6
-  Caitlyn
-  Karthus
-  Kled
-  MissFortune
-  Orianna
-  Sona
-Velkoz 25
-  Anivia
-  Annie
-  Caitlyn
-  Elise
-  Ezreal
-  FiddleSticks
-  Graves
-  Heimerdinger
-  Janna
-  Karthus
-  Kled
-  Lissandra
-  Lulu
-  Lux
-  MissFortune
-  Nami
-  Orianna
-  Sona
-  Soraka
-  Thresh
-  TwistedFate
-  Vayne
-  Veigar
-  Zilean
-  Zyra
-Vi 81
-  Aatrox
+Urgot 74
   Ahri
   Amumu
   Anivia
@@ -7759,13 +7637,10 @@ Vi 81
   Cassiopeia
   Corki
   Diana
-  Draven
-  Ekko
   Elise
   Evelynn
   Ezreal
   FiddleSticks
-  Fiora
   Gangplank
   Gnar
   Graves
@@ -7775,6 +7650,7 @@ Vi 81
   Jayce
   Jhin
   Jinx
+  Kalista
   Karma
   Karthus
   Kayle
@@ -7796,18 +7672,14 @@ Vi 81
   Orianna
   Poppy
   Quinn
-  Rammus
   RekSai
   Riven
   Ryze
-  Shen
-  Sion
   Sivir
   Sona
   Soraka
   Swain
   Syndra
-  TahmKench
   Taliyah
   Taric
   Teemo
@@ -7826,12 +7698,253 @@ Vi 81
   Ziggs
   Zilean
   Zyra
-Viktor 32
+Varus 53
+  Ahri
   Anivia
   Annie
+  AurelionSol
   Azir
   Bard
   Brand
+  Caitlyn
+  Cassiopeia
+  Corki
+  Elise
+  Ezreal
+  FiddleSticks
+  Gangplank
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  Jhin
+  Karma
+  Karthus
+  Kennen
+  Kindred
+  Kled
+  Leblanc
+  Lissandra
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Nami
+  Nidalee
+  Orianna
+  Ryze
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Teemo
+  Thresh
+  TwistedFate
+  Vayne
+  Veigar
+  Velkoz
+  Viktor
+  Vladimir
+  Xerath
+  Zilean
+  Zyra
+Vayne 35
+  Anivia
+  Annie
+  Azir
+  Caitlyn
+  Elise
+  Ezreal
+  FiddleSticks
+  Gnar
+  Graves
+  Heimerdinger
+  Janna
+  Karma
+  Karthus
+  Kled
+  Leblanc
+  Lissandra
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Nami
+  Nidalee
+  Orianna
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Teemo
+  Thresh
+  TwistedFate
+  Veigar
+  Velkoz
+  Xerath
+  Zilean
+  Zyra
+Veigar 7
+  Anivia
+  Annie
+  Janna
+  Karthus
+  Kled
+  Orianna
+  Sona
+Velkoz 23
+  Ahri
+  Anivia
+  Annie
+  Azir
+  Caitlyn
+  FiddleSticks
+  Graves
+  Janna
+  Karthus
+  Kled
+  Lissandra
+  Lulu
+  Lux
+  MissFortune
+  Nami
+  Nidalee
+  Orianna
+  Sona
+  Thresh
+  TwistedFate
+  Veigar
+  Zilean
+  Zyra
+Vi 83
+  Ahri
+  Amumu
+  Anivia
+  Annie
+  Ashe
+  AurelionSol
+  Azir
+  Bard
+  Brand
+  Braum
+  Caitlyn
+  Cassiopeia
+  Corki
+  Diana
+  Ekko
+  Elise
+  Evelynn
+  Ezreal
+  FiddleSticks
+  Fiora
+  Fizz
+  Gangplank
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  Jayce
+  Jhin
+  Jinx
+  Kalista
+  Karma
+  Karthus
+  Kayle
+  Kennen
+  Khazix
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  Lissandra
+  Lucian
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Morgana
+  Nami
+  Nautilus
+  Nidalee
+  Orianna
+  Poppy
+  Quinn
+  RekSai
+  Riven
+  Ryze
+  Shen
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Taric
+  Teemo
+  Thresh
+  Tristana
+  TwistedFate
+  Twitch
+  Urgot
+  Varus
+  Vayne
+  Veigar
+  Velkoz
+  Viktor
+  Vladimir
+  Xerath
+  Yasuo
+  Zed
+  Ziggs
+  Zilean
+  Zyra
+Viktor 36
+  Anivia
+  Annie
+  Azir
+  Caitlyn
+  Elise
+  Ezreal
+  FiddleSticks
+  Gnar
+  Graves
+  Heimerdinger
+  Janna
+  Jhin
+  Karma
+  Karthus
+  Kled
+  Leblanc
+  Lissandra
+  Lulu
+  Lux
+  Malzahar
+  MissFortune
+  Nami
+  Nidalee
+  Orianna
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Teemo
+  Thresh
+  TwistedFate
+  Veigar
+  Velkoz
+  Xerath
+  Zilean
+  Zyra
+Vladimir 29
+  Anivia
+  Annie
+  Azir
   Caitlyn
   Elise
   Ezreal
@@ -7851,40 +7964,16 @@ Viktor 32
   Sona
   Soraka
   Swain
-  Taliyah
   Thresh
   TwistedFate
+  Vayne
   Veigar
-  Velkoz
-  Vladimir
+  Viktor
   Zilean
   Zyra
-Vladimir 21
-  Ahri
-  Anivia
-  Annie
-  Caitlyn
-  FiddleSticks
-  Graves
-  Heimerdinger
-  Janna
-  Karthus
-  Kled
-  Lissandra
-  Lulu
-  Lux
-  MissFortune
-  Nami
-  Orianna
-  Sona
-  Thresh
-  Veigar
-  Zilean
-  Zyra
-Volibear 108
+Volibear 112
   Aatrox
   Ahri
-  Alistar
   Amumu
   Anivia
   Annie
@@ -7892,14 +7981,14 @@ Volibear 108
   AurelionSol
   Azir
   Bard
+  Blitzcrank
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
-  Chogath
   Corki
   Diana
-  DrMundo
   Draven
   Ekko
   Elise
@@ -7908,15 +7997,16 @@ Volibear 108
   FiddleSticks
   Fiora
   Fizz
+  Galio
   Gangplank
+  Garen
   Gnar
   Gragas
   Graves
+  Hecarim
   Heimerdinger
-  Illaoi
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -7937,6 +8027,7 @@ Volibear 108
   Lucian
   Lulu
   Lux
+  Malphite
   Malzahar
   MissFortune
   Mordekaiser
@@ -7952,27 +8043,30 @@ Volibear 108
   Quinn
   Rammus
   RekSai
+  Renekton
   Rengar
   Riven
   Rumble
   Ryze
+  Shaco
   Shen
   Singed
   Sion
   Sivir
+  Skarner
   Sona
   Soraka
   Swain
   Syndra
   TahmKench
   Taliyah
-  Talon
   Taric
   Teemo
   Thresh
   Tristana
   TwistedFate
   Twitch
+  Udyr
   Urgot
   Varus
   Vayne
@@ -8118,17 +8212,16 @@ Warwick 127
   Ziggs
   Zilean
   Zyra
-Xerath 29
+Xerath 25
+  Ahri
   Anivia
   Annie
   Azir
   Caitlyn
-  Elise
-  Ezreal
   FiddleSticks
   Graves
-  Heimerdinger
   Janna
+  Karma
   Karthus
   Kled
   Lissandra
@@ -8136,16 +8229,13 @@ Xerath 29
   Lux
   MissFortune
   Nami
+  Nidalee
   Orianna
   Sona
   Soraka
-  Swain
   Thresh
   TwistedFate
-  Vayne
   Veigar
-  Viktor
-  Vladimir
   Zilean
   Zyra
 XinZhao 92
@@ -8175,7 +8265,6 @@ XinZhao 92
   Gangplank
   Gnar
   Graves
-  Hecarim
   Heimerdinger
   Ivern
   Janna
@@ -8186,6 +8275,7 @@ XinZhao 92
   Kalista
   Karma
   Karthus
+  Kassadin
   Kayle
   Kennen
   Khazix
@@ -8241,12 +8331,11 @@ XinZhao 92
   Ziggs
   Zilean
   Zyra
-Yasuo 57
+Yasuo 62
   Ahri
   Anivia
   Annie
   Ashe
-  AurelionSol
   Azir
   Bard
   Brand
@@ -8254,8 +8343,10 @@ Yasuo 57
   Cassiopeia
   Corki
   Elise
+  Evelynn
   Ezreal
   FiddleSticks
+  Gangplank
   Gnar
   Graves
   Heimerdinger
@@ -8266,6 +8357,8 @@ Yasuo 57
   Jinx
   Karma
   Karthus
+  Kayle
+  Kennen
   Kindred
   Kled
   KogMaw
@@ -8276,9 +8369,12 @@ Yasuo 57
   Malzahar
   MissFortune
   Mordekaiser
+  Morgana
   Nami
   Nidalee
   Orianna
+  Riven
+  Ryze
   Sivir
   Sona
   Soraka
@@ -8287,7 +8383,6 @@ Yasuo 57
   Taliyah
   Teemo
   Thresh
-  Tristana
   TwistedFate
   Varus
   Vayne
@@ -8299,10 +8394,9 @@ Yasuo 57
   Ziggs
   Zilean
   Zyra
-Yorick 90
+Yorick 91
   Aatrox
   Ahri
-  Amumu
   Anivia
   Annie
   Ashe
@@ -8336,6 +8430,7 @@ Yorick 90
   Kalista
   Karma
   Karthus
+  Kassadin
   Kayle
   Kennen
   Khazix
@@ -8358,6 +8453,7 @@ Yorick 90
   Pantheon
   Poppy
   Quinn
+  Rammus
   RekSai
   Riven
   Ryze
@@ -8390,7 +8486,7 @@ Yorick 90
   Ziggs
   Zilean
   Zyra
-Zac 100
+Zac 103
   Aatrox
   Ahri
   Amumu
@@ -8429,7 +8525,6 @@ Zac 100
   Karma
   Karthus
   Kassadin
-  Katarina
   Kayle
   Kennen
   Khazix
@@ -8438,12 +8533,14 @@ Zac 100
   KogMaw
   Leblanc
   LeeSin
+  Leona
   Lissandra
   Lucian
   Lulu
   Lux
   Malzahar
   MissFortune
+  MonkeyKing
   Mordekaiser
   Morgana
   Nami
@@ -8456,12 +8553,15 @@ Zac 100
   Rammus
   RekSai
   Renekton
+  Rengar
   Riven
+  Rumble
   Ryze
   Shen
   Singed
   Sion
   Sivir
+  Skarner
   Sona
   Soraka
   Swain
@@ -8484,14 +8584,13 @@ Zac 100
   Viktor
   Vladimir
   Xerath
-  XinZhao
   Yasuo
   Yorick
   Zed
   Ziggs
   Zilean
   Zyra
-Zed 77
+Zed 76
   Ahri
   Amumu
   Anivia
@@ -8505,13 +8604,11 @@ Zed 77
   Cassiopeia
   Corki
   Diana
-  Draven
   Ekko
   Elise
   Evelynn
   Ezreal
   FiddleSticks
-  Fiora
   Gangplank
   Gnar
   Graves
@@ -8521,6 +8618,7 @@ Zed 77
   Jayce
   Jhin
   Jinx
+  Kalista
   Karma
   Karthus
   Kayle
@@ -8542,11 +8640,9 @@ Zed 77
   Orianna
   Poppy
   Quinn
-  Rammus
   RekSai
   Riven
   Ryze
-  Shen
   Sivir
   Sona
   Soraka
@@ -8556,8 +8652,10 @@ Zed 77
   Taric
   Teemo
   Thresh
+  Tristana
   TwistedFate
   Twitch
+  Urgot
   Varus
   Vayne
   Veigar
@@ -8569,7 +8667,8 @@ Zed 77
   Ziggs
   Zilean
   Zyra
-Ziggs 46
+Ziggs 44
+  Ahri
   Anivia
   Annie
   Azir
@@ -8577,17 +8676,18 @@ Ziggs 46
   Brand
   Caitlyn
   Cassiopeia
-  Corki
   Elise
   Ezreal
   FiddleSticks
   Gnar
   Graves
   Heimerdinger
+  Ivern
   Janna
   Jhin
   Karma
   Karthus
+  Kennen
   Kindred
   Kled
   Leblanc
@@ -8599,41 +8699,42 @@ Ziggs 46
   Nami
   Nidalee
   Orianna
-  Sivir
   Sona
   Soraka
   Swain
   Syndra
-  Taliyah
   Teemo
   Thresh
   TwistedFate
-  Vayne
   Veigar
   Velkoz
-  Viktor
   Vladimir
   Xerath
   Zilean
   Zyra
-Zilean 7
-  Anivia
+Zilean 8
   Annie
   Caitlyn
+  Graves
   Karthus
   Kled
-  Lux
+  Nami
   Orianna
-Zyra 12
+  Sona
+Zyra 16
   Anivia
   Annie
   Caitlyn
-  FiddleSticks
-  Janna
+  Graves
   Karthus
   Kled
+  Lissandra
+  Lulu
   Lux
   MissFortune
   Nami
   Orianna
   Sona
+  Thresh
+  Veigar
+  Zilean

@@ -34,6 +34,19 @@ main() async {
       mob.applyHit(new Hit(trueDamage: 0.1));
       expect(mob.alive, false);
     });
+    test('healing', () {
+      World world = new World();
+      Mob attacker = createTestMob(ad: 10.0);
+      Mob healer = createTestMob(hp: 100.0, hp5: 10.0);
+      new AutoAttack(attacker, healer).apply(world);
+      expect(healer.currentHp, 90);
+      expect(healer.buffs.any((buff) => buff is Healing), true);
+      healer.tick(1.0);
+      expect(healer.currentHp, 92);
+      healer.tick(4.0);
+      expect(healer.currentHp, 100);
+      expect(healer.buffs.any((buff) => buff is Healing), false);
+    });
   });
   group('AutoAttacks', () {
     test('crit', () {
