@@ -9,5 +9,5 @@ accept:
 	@mv $(test_dir)/round_robin_latest.txt $(test_dir)/round_robin_baseline.txt
 
 check:
-	@dart bin/round_robin.dart > $(test_dir)/round_robin_latest.txt && diff -U 7 $(test_dir)/round_robin_baseline.txt $(test_dir)/round_robin_latest.txt
+	@dart bin/round_robin.dart --test > $(test_dir)/round_robin_latest.txt && diff -U 7 $(test_dir)/round_robin_baseline.txt $(test_dir)/round_robin_latest.txt
 

@@ -1,5 +1,5 @@
 import 'package:logging/logging.dart';
-import 'package:lol_duel/common_args.dart';
+import 'package:args/args.dart';
 import 'package:lol_duel/dragon.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:trotter/trotter.dart';
@@ -17,13 +17,15 @@ int champCompare(Mob red, Mob blue) {
 
 class ChampResults implements Comparable<ChampResults> {
   final String champId;
-  int victories = 0;
+  List<String> defeatedChamps = [];
   ChampResults(this.champId);
 
   bool get hasEffects => championEffectsConstructors[champId] != null;
 
-  void recordVictory() {
-    victories += 1;
+  int get victories => defeatedChamps.length;
+
+  void recordVictory(String champId) {
+    defeatedChamps.add(champId);
   }
 
   int compareTo(ChampResults b) {
@@ -52,9 +54,42 @@ class TableLayout {
   }
 }
 
+void printForHumans(List<ChampResults> results) {
+  results.sort();
+  TableLayout layout = new TableLayout([13, 10, 10]);
+  layout.printRow(['Name', 'Victories', 'Status']);
+  layout.printDivider();
+  results.forEach((result) {
+    String statusString = result.hasEffects ? '(has passive)' : '';
+    layout
+        .printRow([result.champId, result.victories.toString(), statusString]);
+  });
+}
+
+void printForTests(List<ChampResults> results) {
+  results.sort((a, b) => a.champId.compareTo(b.champId));
+  results.forEach((result) {
+    String titleString = '${result.champId} ${result.victories}';
+    titleString += result.hasEffects ? ' (has passive)' : '';
+    print(titleString);
+    result.defeatedChamps.sort((a, b) => a.compareTo(b));
+    result.defeatedChamps.forEach((champId) => print('  $champId'));
+  });
+}
+
 main(List<String> args) async {
-  handleCommonArgs(args);
   Logger.root.level = Level.WARNING;
+  Logger.root.onRecord.listen((LogRecord rec) {
+    // ${rec.time}:
+    print('${rec.level.name.toLowerCase()}: ${rec.message}');
+  });
+
+  ArgParser parser = new ArgParser()
+    ..addFlag('verbose', abbr: 'v')
+    ..addFlag('test');
+  ArgResults argResults = parser.parse(args);
+  if (argResults['verbose']) Logger.root.level = Level.ALL;
+
   DragonData data = await DragonData.loadLatest();
   List<String> champIds = data.champs.loadChampIds();
   Map<String, ChampResults> resultsById = {};
@@ -65,7 +100,7 @@ main(List<String> args) async {
   print("using no items, runes or masteries or abilities.");
   print("Note: A few have passives implemented, as indicated.\n");
 
-  // Combinations doesn't implement iterable, so I can't use it in strong mode. :(
+  // Combinations doesn't implement Iterable, so I can't for-in with strong mode. :(
   for (int i = 0; i < combos.length; i += 1) {
     List<String> names = combos[i] as List<String>;
     // Loading champ new every time to avoid any buffs hanging over, etc.
@@ -73,17 +108,12 @@ main(List<String> args) async {
     Mob blue = data.champs.championById(names[1]);
     int result = champCompare(red, blue);
     if (result > 0)
-      resultsById[blue.id].recordVictory();
-    else if (result < 0) resultsById[red.id].recordVictory();
+      resultsById[blue.id].recordVictory(red.id);
+    else if (result < 0) resultsById[red.id].recordVictory(blue.id);
   }
   List<ChampResults> results = resultsById.values.toList();
-  results.sort();
-  TableLayout layout = new TableLayout([13, 10, 10]);
-  layout.printRow(['Name', 'Victories', 'Status']);
-  layout.printDivider();
-  results.forEach((result) {
-    String statusString = result.hasEffects ? '(has passive)' : '';
-    layout
-        .printRow([result.champId, result.victories.toString(), statusString]);
-  });
+  if (argResults['test'])
+    printForTests(results);
+  else
+    printForHumans(results);
 }
