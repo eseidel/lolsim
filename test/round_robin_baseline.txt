@@ -104,38 +104,38 @@ Rengar        94
 Leona         95                   
 Nunu          96                   
 Udyr          96                   
+Talon         97                   
 Blitzcrank    98                   
 Skarner       98                   
-Talon         98                   
 Camille       99                   
 Hecarim       99                   
+DrMundo       100                  
+Illaoi        100                  
 Malphite      100                  
-DrMundo       101                  
 Galio         101                  
 Garen         101                  
-Illaoi        101                  
 Katarina      103                  
 LeeSin        103                  
 Zac           103                  
+Chogath       106                  
 MonkeyKing    106                  
-Chogath       107                  
 Nasus         107        (has passive)
-Jax           111        (has passive)
-Volibear      112                  
-Nocturne      113                  
-Alistar       114                  
+Jax           110        (has passive)
+Nocturne      112                  
+Alistar       113                  
 Gragas        116                  
 Shaco         116                  
 Rumble        117                  
-Akali         120                  
-MasterYi      121                  
-Sejuani       124                  
-Shyvana       124                  
-Irelia        126                  
-Warwick       127                  
-Trundle       128                  
-Maokai        130                  
-Tryndamere    131        (has passive)
+Akali         119                  
+MasterYi      120                  
+Sejuani       123                  
+Shyvana       123                  
+Irelia        125                  
+Warwick       126                  
+Trundle       127                  
+Maokai        129                  
+Tryndamere    130        (has passive)
+Volibear      131        (has passive)
 Darius        132        (has passive)
 Olaf          133        (has passive)
 Aatrox 79
@@ -257,7 +257,7 @@ Ahri 38
   Vladimir
   Zilean
   Zyra
-Akali 120
+Akali 119
   Aatrox
   Ahri
   Alistar
@@ -368,7 +368,6 @@ Akali 120
   Vi
   Viktor
   Vladimir
-  Volibear
   Xerath
   XinZhao
   Yasuo
@@ -378,7 +377,7 @@ Akali 120
   Ziggs
   Zilean
   Zyra
-Alistar 114
+Alistar 113
   Aatrox
   Ahri
   Amumu
@@ -484,7 +483,6 @@ Alistar 114
   Vi
   Viktor
   Vladimir
-  Volibear
   Xerath
   XinZhao
   Yasuo
@@ -1108,7 +1106,7 @@ Cassiopeia 43
   Xerath
   Zilean
   Zyra
-Chogath 107
+Chogath 106
   Aatrox
   Ahri
   Amumu
@@ -1207,7 +1205,6 @@ Chogath 107
   Vi
   Viktor
   Vladimir
-  Volibear
   Xerath
   XinZhao
   Yasuo
@@ -1449,7 +1446,7 @@ Diana 64
   Ziggs
   Zilean
   Zyra
-DrMundo 101
+DrMundo 100
   Aatrox
   Ahri
   Amumu
@@ -1542,7 +1539,6 @@ DrMundo 101
   Vi
   Viktor
   Vladimir
-  Volibear
   Xerath
   XinZhao
   Yasuo
@@ -2501,7 +2497,7 @@ Heimerdinger 18
   Soraka
   TwistedFate
   Veigar
-Illaoi 101
+Illaoi 100
   Aatrox
   Ahri
   Amumu
@@ -2596,14 +2592,13 @@ Illaoi 101
   Vi
   Viktor
   Vladimir
-  Volibear
   Xerath
   Yasuo
   Zed
   Ziggs
   Zilean
   Zyra
-Irelia 126
+Irelia 125
   Aatrox
   Ahri
   Akali
@@ -2720,7 +2715,6 @@ Irelia 126
   Vi
   Viktor
   Vladimir
-  Volibear
   Xerath
   XinZhao
   Yasuo
@@ -2871,7 +2865,7 @@ JarvanIV 87
   Ziggs
   Zilean
   Zyra
-Jax 111 (has passive)
+Jax 110 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -2973,7 +2967,6 @@ Jax 111 (has passive)
   Vi
   Viktor
   Vladimir
-  Volibear
   Xerath
   XinZhao
   Yasuo
@@ -4112,7 +4105,7 @@ Malzahar 25
   Veigar
   Zilean
   Zyra
-Maokai 130
+Maokai 129
   Aatrox
   Ahri
   Akali
@@ -4232,7 +4225,6 @@ Maokai 130
   Vi
   Viktor
   Vladimir
-  Volibear
   Warwick
   Xerath
   XinZhao
@@ -4243,7 +4235,7 @@ Maokai 130
   Ziggs
   Zilean
   Zyra
-MasterYi 121
+MasterYi 120
   Aatrox
   Ahri
   Akali
@@ -4355,7 +4347,6 @@ MasterYi 121
   Vi
   Viktor
   Vladimir
-  Volibear
   Xerath
   XinZhao
   Yasuo
@@ -4824,7 +4815,7 @@ Nidalee 20
   Veigar
   Zilean
   Zyra
-Nocturne 113
+Nocturne 112
   Aatrox
   Ahri
   Amumu
@@ -4928,7 +4919,6 @@ Nocturne 113
   Vi
   Viktor
   Vladimir
-  Volibear
   Xerath
   XinZhao
   Yasuo
@@ -5950,7 +5940,7 @@ Ryze 54
   Ziggs
   Zilean
   Zyra
-Sejuani 124
+Sejuani 123
   Aatrox
   Ahri
   Akali
@@ -6065,7 +6055,6 @@ Sejuani 124
   Vi
   Viktor
   Vladimir
-  Volibear
   Xerath
   XinZhao
   Yasuo
@@ -6267,7 +6256,7 @@ Shen 74
   Ziggs
   Zilean
   Zyra
-Shyvana 124
+Shyvana 123
   Aatrox
   Ahri
   Akali
@@ -6382,7 +6371,6 @@ Shyvana 124
   Vi
   Viktor
   Vladimir
-  Volibear
   Xerath
   XinZhao
   Yasuo
@@ -6907,7 +6895,7 @@ Taliyah 34
   Ziggs
   Zilean
   Zyra
-Talon 98
+Talon 97
   Aatrox
   Ahri
   Amumu
@@ -6999,7 +6987,6 @@ Talon 98
   Vi
   Viktor
   Vladimir
-  Volibear
   Xerath
   Yasuo
   Zed
@@ -7185,7 +7172,7 @@ Tristana 67
   Ziggs
   Zilean
   Zyra
-Trundle 128
+Trundle 127
   Aatrox
   Ahri
   Akali
@@ -7304,7 +7291,6 @@ Trundle 128
   Vi
   Viktor
   Vladimir
-  Volibear
   Xerath
   XinZhao
   Yasuo
@@ -7314,7 +7300,7 @@ Trundle 128
   Ziggs
   Zilean
   Zyra
-Tryndamere 131 (has passive)
+Tryndamere 130 (has passive)
   Aatrox
   Ahri
   Akali
@@ -7435,7 +7421,6 @@ Tryndamere 131 (has passive)
   Vi
   Viktor
   Vladimir
-  Volibear
   Warwick
   Xerath
   XinZhao
@@ -7971,9 +7956,11 @@ Vladimir 29
   Viktor
   Zilean
   Zyra
-Volibear 112
+Volibear 131 (has passive)
   Aatrox
   Ahri
+  Akali
+  Alistar
   Amumu
   Anivia
   Annie
@@ -7987,8 +7974,10 @@ Volibear 112
   Caitlyn
   Camille
   Cassiopeia
+  Chogath
   Corki
   Diana
+  DrMundo
   Draven
   Ekko
   Elise
@@ -8005,8 +7994,12 @@ Volibear 112
   Graves
   Hecarim
   Heimerdinger
+  Illaoi
+  Irelia
   Ivern
   Janna
+  JarvanIV
+  Jax
   Jayce
   Jhin
   Jinx
@@ -8014,6 +8007,7 @@ Volibear 112
   Karma
   Karthus
   Kassadin
+  Katarina
   Kayle
   Kennen
   Khazix
@@ -8029,13 +8023,17 @@ Volibear 112
   Lux
   Malphite
   Malzahar
+  Maokai
+  MasterYi
   MissFortune
+  MonkeyKing
   Mordekaiser
   Morgana
   Nami
   Nasus
   Nautilus
   Nidalee
+  Nocturne
   Nunu
   Orianna
   Pantheon
@@ -8048,8 +8046,10 @@ Volibear 112
   Riven
   Rumble
   Ryze
+  Sejuani
   Shaco
   Shen
+  Shyvana
   Singed
   Sion
   Sivir
@@ -8060,10 +8060,13 @@ Volibear 112
   Syndra
   TahmKench
   Taliyah
+  Talon
   Taric
   Teemo
   Thresh
   Tristana
+  Trundle
+  Tryndamere
   TwistedFate
   Twitch
   Udyr
@@ -8075,6 +8078,7 @@ Volibear 112
   Vi
   Viktor
   Vladimir
+  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -8084,7 +8088,7 @@ Volibear 112
   Ziggs
   Zilean
   Zyra
-Warwick 127
+Warwick 126
   Aatrox
   Ahri
   Akali
@@ -8202,7 +8206,6 @@ Warwick 127
   Vi
   Viktor
   Vladimir
-  Volibear
   Xerath
   XinZhao
   Yasuo
