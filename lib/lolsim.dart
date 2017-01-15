@@ -501,12 +501,11 @@ class Mob {
     return null;
   }
 
-  Mob.fromJSON(Map<String, dynamic> json, MobType type)
+  Mob.fromJSON(Map<String, dynamic> json, this.type)
       : baseStats = new BaseStats.fromJSON(json['stats']) {
     id = json['id'];
     name = json['name'];
     title = json['title'];
-    type = type;
     ChampionEffectsConstructor effectsConstructor =
         championEffectsConstructors[id];
     if (effectsConstructor != null) effects = effectsConstructor(this);
@@ -745,10 +744,14 @@ class Mob {
   }
 
   void lifestealFrom(double damage) {
-    healFor(damage * stats.lifesteal);
+    healFor(damage * stats.lifesteal, 'lifesteal');
   }
 
-  void healFor(double healing) {
+  void healFor(double healing, String source) {
+    if (healing == 0.0) return;
+    assert(healing > 0.0);
+    _log.fine(
+        "$this healed ${healing.toStringAsFixed(1)} from $source $hpStatusString remains");
     // FIXME: Missing healing modifiers.
     hpLost -= min(hpLost, healing);
   }
@@ -788,7 +791,9 @@ class PredictableCrits {
 
   bool call(Mob attacker) {
     if (attacker.stats.critChance == 0.0) return false;
-    return randomForChamp[attacker.id].nextDouble() < attacker.stats.critChance;
+    Random random = randomForChamp[attacker.id];
+    if (random == null) _log.warning('${attacker.id} has no crit source.');
+    return random.nextDouble() < attacker.stats.critChance;
   }
 }
 
