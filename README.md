@@ -67,7 +67,7 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Teemo E passive
 - Urgot passive
 - Vayne W passive
-- Volibear passive and frenzy
+- Volibear Frenzy
 - Wukong passive (small effect)
 - Xin Zhao passive (small effect)
 - Zed passive

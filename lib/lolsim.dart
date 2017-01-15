@@ -730,6 +730,18 @@ class Mob {
   List<DamageRecievedModifier> collectDamageRecievedModifiers() {
     List<DamageRecievedModifier> modifiers = [
       (hit, delta) {
+        // This is clearly too simple.  Armor can be modified both by stats
+        // as well as by stats on the hit.source.
+        // These need to be kept separate until application time to allow
+        // for proper ordering:
+        // From stats:
+        // 1. Armor reduction, flat
+        // 2. Armor reduction, percentage
+        // Per hit:
+        // 3. Armor penetration, percentage
+        // 4. Armor penetration, flat
+        // Supposedly base and bonus armor are computed separately?
+        // http://leagueoflegends.wikia.com/wiki/Armor_penetration
         delta.percentPhysical *= _resistanceMultiplier(stats.armor);
         delta.percentMagical *= _resistanceMultiplier(stats.spellBlock);
       }
