@@ -108,7 +108,6 @@ Blitzcrank    97
 Skarner       97                   
 Camille       98                   
 Hecarim       98                   
-DrMundo       99                   
 Illaoi        99                   
 Malphite      99                   
 Galio         100                  
@@ -116,8 +115,9 @@ Garen         100
 Katarina      102                  
 LeeSin        102                  
 Zac           102                  
+MonkeyKing    104                  
 Chogath       105                  
-MonkeyKing    105                  
+DrMundo       106        (has passive)
 Nasus         106        (has passive)
 Nocturne      111                  
 Rammus        111        (has passive)
@@ -126,7 +126,7 @@ Gragas        114
 Shaco         114                  
 Rumble        116                  
 Akali         118                  
-MasterYi      120                  
+MasterYi      119                  
 Sejuani       121                  
 Shyvana       123                  
 Irelia        124                  
@@ -1440,7 +1440,7 @@ Diana 64
   Ziggs
   Zilean
   Zyra
-DrMundo 99
+DrMundo 106 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -1469,6 +1469,7 @@ DrMundo 99
   Graves
   Hecarim
   Heimerdinger
+  Illaoi
   Ivern
   Janna
   JarvanIV
@@ -1487,12 +1488,15 @@ DrMundo 99
   Kled
   KogMaw
   Leblanc
+  Leona
   Lissandra
   Lucian
   Lulu
   Lux
   Malzahar
+  MasterYi
   MissFortune
+  MonkeyKing
   Mordekaiser
   Morgana
   Nami
@@ -1506,6 +1510,7 @@ DrMundo 99
   Quinn
   RekSai
   Renekton
+  Rengar
   Riven
   Ryze
   Shen
@@ -1516,7 +1521,9 @@ DrMundo 99
   Soraka
   Swain
   Syndra
+  TahmKench
   Taliyah
+  Talon
   Taric
   Teemo
   Thresh
@@ -4234,7 +4241,7 @@ Maokai 128
   Ziggs
   Zilean
   Zyra
-MasterYi 120
+MasterYi 119
   Aatrox
   Ahri
   Akali
@@ -4253,7 +4260,6 @@ MasterYi 120
   Cassiopeia
   Corki
   Diana
-  DrMundo
   Draven
   Ekko
   Elise
@@ -4372,7 +4378,7 @@ MissFortune 16
   Thresh
   Veigar
   Zilean
-MonkeyKing 105
+MonkeyKing 104
   Aatrox
   Ahri
   Amumu
@@ -4390,7 +4396,6 @@ MonkeyKing 105
   Cassiopeia
   Corki
   Diana
-  DrMundo
   Draven
   Ekko
   Elise

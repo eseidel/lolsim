@@ -17,11 +17,6 @@ final Logger _log = new Logger('buffs');
 // Stacks all share the same stats, which can be updated when a stack is applied.
 // Ticks know how to catch-up from time?
 
-// Buff
-// StackableBuff
-// DOT
-// StackableDOT
-
 // FIXME: Not all buffs are finite and need ticks.
 abstract class Buff {
   String name;

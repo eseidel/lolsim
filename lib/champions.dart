@@ -12,6 +12,7 @@ class ChampionEffects {
 typedef ChampionEffects ChampionEffectsConstructor(Mob champion);
 Map<String, ChampionEffectsConstructor> championEffectsConstructors = {
   'Darius': (Mob champ) => new Darius(champ),
+  'DrMundo': (Mob champ) => new DrMundo(champ),
   'Jax': (Mob champ) => new Jax(champ),
   'Nasus': (Mob champ) => new Nasus(champ),
   'Olaf': (Mob champ) => new Olaf(champ),
