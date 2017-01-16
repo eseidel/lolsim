@@ -5,4 +5,5 @@ export 'nasus.dart';
 export 'olaf.dart';
 export 'rammus.dart';
 export 'tryndamere.dart';
+export 'urgot.dart';
 export 'volibear.dart';

@@ -37,34 +37,36 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 ## TODO
 - Fix stat-relative buffs to include all stats (not just base).
 - Implement correct handling of damage from on-hit effects.
+- Percent armor mods (for xin and kayle).
 - Split out dragon.dart into package:data_dragon instead of lol_duel.
 - Split lolsim.dart into smaller files.
 - Add more passives, abilities, masteries, runes, etc.
+- Convert to integer math (ticks, etc.) to avoid double precision errors.
 
 ## Abilities missing affecting the lvl 1 round_robin sort.
 - Aatrox passive and bloodthirst
-- Akali passive
+- Akali passive (CDR interaction? Second hit on a static 4s cooldown?)
 - Alistar Trample
 - Amumu Tantrum
-- Braum passive
-- Diana passive
-- Ekko passive
-- Fizz passive
-- Graves AA modifier and passive.
+- Braum passive (needs stuns)
+- Diana passive (how do stacks work? do they fall off?)
+- Ekko passive (when does the per-target cooldown start?)
+- Fizz passive (unclear how to implement this kind of dmg reduction)
+- Graves AA modifier and passive (sounds hard to implement)
 - Ivern brushmaker(w) passive
 - Jarvan passive (small effect)
 - Jinx Q passive
-- Kayle passive
-- Kled passive
+- Kayle passive (needs percent armor mod)
+- Kled passive (non-trivial to implement, needs non-targetable)
 - Malphite passive (small effect)
-- Master Yi Double Strike passive.
-- Nautalis passive
-- Nocturn Passive
-- Oriana Clockwork Winding
-- Pantheon passive
+- Master Yi Double Strike passive (non-trivial)
+- Nautalis passive (needs stun)
+- Nocturn Passive (aoe, unclear how best to do dmg-modified autos)
+- Oriana Clockwork Winding (needs on-hit dmg)
+- Pantheon passive (needs blocked)
 - Rammus ball curl
 - Singed (small effect)
-- Tahm Kench passive
+- Tahm Kench passive (needs on-hit dmg)
 - Taric passive + ability
 - Teemo E passive
 - Urgot passive

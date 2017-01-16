@@ -33,6 +33,7 @@ abstract class Buff {
     return "Buff";
   }
 
+  void damageDealtModifier(Hit hit, DamageDealtDelta delta) {}
   Map<String, num> get stats => null;
 
   void tick(double timeDelta);

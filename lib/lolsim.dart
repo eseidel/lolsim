@@ -16,6 +16,7 @@ final Logger _log = new Logger('LOL');
 // Supposedly the internal server tick rate is 30fps:
 // https://www.reddit.com/r/leagueoflegends/comments/2mmlkr/0001_second_kill_on_talon_even_faster_kill_out/cm5tizu/
 const int TICKS_PER_SECOND = 30;
+const double SECONDS_PER_TICK = 1 / TICKS_PER_SECOND;
 
 // Create Mob objects for each champion
 // Have a loop where 2 mobs can fight.
@@ -680,6 +681,9 @@ class Mob {
         if (mastery.effects != null)
           modifiers.add(mastery.effects.damageDealtModifier);
       }
+    }
+    for (Buff buff in buffs) {
+      modifiers.add(buff.damageDealtModifier);
     }
     return modifiers;
   }

@@ -5,13 +5,8 @@ import 'package:lol_duel/champions.dart';
 import 'package:meta/meta.dart';
 
 class NoxianMight extends TimedBuff {
-  // Alternatively runtimeType.toString()?
-  // In python I would just override a static to set this.
-  // Unclear what the right pattern is in Dart.
-  static String constName = 'NoxianMight';
-
   NoxianMight(Mob target)
-      : super(name: constName, target: target, duration: 5.0);
+      : super(name: "Noxian Might", target: target, duration: 5.0);
 
   int bonusAdForLevel(int level) {
     // http://leagueoflegends.wikia.com/wiki/Darius
