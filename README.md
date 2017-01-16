@@ -43,19 +43,15 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Add more passives, abilities, masteries, runes, etc.
 - Convert to integer math (ticks, etc.) to avoid double precision errors.
 
-## Abilities missing affecting the lvl 1 round_robin sort.
-- Aatrox passive and bloodthirst
+## Passives missing affecting the lvl 1 round_robin sort.
+- Aatrox passive (complicated, likely requires bloodthirst to be useful)
 - Akali passive (CDR interaction? Second hit on a static 4s cooldown?)
-- Alistar Trample
-- Amumu Tantrum
 - Braum passive (needs stuns)
 - Diana passive (how do stacks work? do they fall off?)
 - Ekko passive (when does the per-target cooldown start?)
 - Fizz passive (unclear how to implement this kind of dmg reduction)
 - Graves AA modifier and passive (sounds hard to implement)
-- Ivern brushmaker(w) passive
 - Jarvan passive (small effect)
-- Jinx Q passive
 - Kayle passive (needs percent armor mod)
 - Kled passive (non-trivial to implement, needs non-targetable)
 - Malphite passive (small effect)
@@ -64,17 +60,22 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Nocturn Passive (aoe, unclear how best to do dmg-modified autos)
 - Oriana Clockwork Winding (needs on-hit dmg)
 - Pantheon passive (needs blocked)
-- Rammus ball curl
-- Singed (small effect)
+- Singed (small effect, needs stat relative buffs)
 - Tahm Kench passive (needs on-hit dmg)
-- Taric passive + ability
-- Teemo E passive
-- Urgot passive
-- Vayne W passive
-- Volibear Frenzy
+- Taric passive (needs an ability to be useful)
 - Wukong passive (small effect)
 - Xin Zhao passive (small effect)
-- Zed passive
+- Zed passive (needs on-hit dmg)
+
+## Abilities affecting round_robin
+- Alistar Trample
+- Amumu Tantrum
+- Ivern W brushmaker passive
+- Jinx Q passive
+- Rammus ball curl
+- Teemo E passive
+- Vayne W passive
+- Volibear Frenzy
 
 ## Questions to answer:
 - Jungle clear-time approximations.

@@ -30,6 +30,7 @@ double attackDelayFromBaseAttackSpeed(double baseAttackSpeed) {
 
 class Stats {
   double hp;
+  double mp;
   double attackDamage;
   double abilityPower = 0.0;
   double armor;
@@ -77,6 +78,7 @@ class BaseStats extends Stats {
     attackDelay = json['attackspeedoffset'].toDouble();
     attackDamage = json['attackdamage'].toDouble();
     hp = json['hp'].toDouble();
+    mp = json['mp'].toDouble();
     armor = json['armor'].toDouble();
     spellBlock = json['spellblock'].toDouble();
     hpRegen = json['hpregen'].toDouble();
@@ -94,6 +96,7 @@ class BaseStats extends Stats {
     Stats stats = new Stats();
     int multiplier = level - 1; // level is 1-based.
     stats.hp = hp + hpPerLevel * multiplier;
+    stats.mp = mp + mpPerLevel * multiplier;
     stats.hpRegen = hpRegen + hpRegenPerLevel * multiplier;
     stats.attackDamage = attackDamage + attackDamagePerLevel * multiplier;
     stats.armor = armor + armorPerLevel * multiplier;
@@ -343,6 +346,7 @@ final Map<String, double> _sharedMinionStats = {
   'spellblock': 0.0,
   'hpregen': 0.0,
   'hpregenperlevel': 0.0,
+  'mp': 0.0,
 };
 
 final Map<String, dynamic> _meleeMinionJson = {
