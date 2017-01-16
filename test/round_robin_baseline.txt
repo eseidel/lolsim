@@ -119,21 +119,21 @@ Zac           102
 Chogath       105                  
 MonkeyKing    105                  
 Nasus         106        (has passive)
-Jax           109        (has passive)
 Nocturne      111                  
 Rammus        111        (has passive)
 Alistar       112                  
-Gragas        115                  
-Shaco         115                  
-Rumble        117                  
-Akali         119                  
+Gragas        114                  
+Shaco         114                  
+Rumble        116                  
+Akali         118                  
 MasterYi      120                  
-Sejuani       122                  
+Sejuani       121                  
 Shyvana       123                  
-Irelia        125                  
-Warwick       126                  
-Trundle       127                  
-Maokai        129                  
+Irelia        124                  
+Warwick       125                  
+Trundle       126                  
+Maokai        128                  
+Jax           129        (has passive)
 Tryndamere    130        (has passive)
 Volibear      131        (has passive)
 Darius        132        (has passive)
@@ -256,7 +256,7 @@ Ahri 38
   Vladimir
   Zilean
   Zyra
-Akali 119
+Akali 118
   Aatrox
   Ahri
   Alistar
@@ -296,7 +296,6 @@ Akali 119
   Ivern
   Janna
   JarvanIV
-  Jax
   Jayce
   Jhin
   Jinx
@@ -2235,7 +2234,7 @@ Gnar 19
   TwistedFate
   Veigar
   Zilean
-Gragas 115
+Gragas 114
   Aatrox
   Ahri
   Akali
@@ -2275,7 +2274,6 @@ Gragas 115
   Ivern
   Janna
   JarvanIV
-  Jax
   Jayce
   Jhin
   Jinx
@@ -2586,7 +2584,7 @@ Illaoi 99
   Ziggs
   Zilean
   Zyra
-Irelia 125
+Irelia 124
   Aatrox
   Ahri
   Akali
@@ -2628,7 +2626,6 @@ Irelia 125
   Ivern
   Janna
   JarvanIV
-  Jax
   Jayce
   Jhin
   Jinx
@@ -2853,9 +2850,11 @@ JarvanIV 87
   Ziggs
   Zilean
   Zyra
-Jax 109 (has passive)
+Jax 129 (has passive)
   Aatrox
   Ahri
+  Akali
+  Alistar
   Amumu
   Anivia
   Annie
@@ -2863,12 +2862,16 @@ Jax 109 (has passive)
   AurelionSol
   Azir
   Bard
+  Blitzcrank
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
+  Chogath
   Corki
   Diana
+  DrMundo
   Draven
   Ekko
   Elise
@@ -2877,12 +2880,16 @@ Jax 109 (has passive)
   FiddleSticks
   Fiora
   Fizz
+  Galio
   Gangplank
+  Garen
   Gnar
+  Gragas
   Graves
   Hecarim
   Heimerdinger
   Illaoi
+  Irelia
   Ivern
   Janna
   JarvanIV
@@ -2907,13 +2914,16 @@ Jax 109 (has passive)
   Lucian
   Lulu
   Lux
+  Malphite
   Malzahar
+  Maokai
   MasterYi
   MissFortune
   MonkeyKing
   Mordekaiser
   Morgana
   Nami
+  Nasus
   Nautilus
   Nidalee
   Nocturne
@@ -2922,16 +2932,21 @@ Jax 109 (has passive)
   Pantheon
   Poppy
   Quinn
+  Rammus
   RekSai
   Renekton
   Rengar
   Riven
+  Rumble
   Ryze
+  Sejuani
+  Shaco
   Shen
   Shyvana
   Singed
   Sion
   Sivir
+  Skarner
   Sona
   Soraka
   Swain
@@ -2943,6 +2958,7 @@ Jax 109 (has passive)
   Teemo
   Thresh
   Tristana
+  Trundle
   TwistedFate
   Twitch
   Udyr
@@ -2954,6 +2970,7 @@ Jax 109 (has passive)
   Vi
   Viktor
   Vladimir
+  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -4088,7 +4105,7 @@ Malzahar 25
   Veigar
   Zilean
   Zyra
-Maokai 129
+Maokai 128
   Aatrox
   Ahri
   Akali
@@ -4131,7 +4148,6 @@ Maokai 129
   Ivern
   Janna
   JarvanIV
-  Jax
   Jayce
   Jhin
   Jinx
@@ -5774,7 +5790,7 @@ Riven 61
   Ziggs
   Zilean
   Zyra
-Rumble 117
+Rumble 116
   Aatrox
   Ahri
   Akali
@@ -5814,7 +5830,6 @@ Rumble 117
   Ivern
   Janna
   JarvanIV
-  Jax
   Jayce
   Jhin
   Jinx
@@ -5947,7 +5962,7 @@ Ryze 54
   Ziggs
   Zilean
   Zyra
-Sejuani 122
+Sejuani 121
   Aatrox
   Ahri
   Akali
@@ -5990,7 +6005,6 @@ Sejuani 122
   Ivern
   Janna
   JarvanIV
-  Jax
   Jayce
   Jhin
   Jinx
@@ -6070,7 +6084,7 @@ Sejuani 122
   Ziggs
   Zilean
   Zyra
-Shaco 115
+Shaco 114
   Aatrox
   Ahri
   Alistar
@@ -6110,7 +6124,6 @@ Shaco 115
   Ivern
   Janna
   JarvanIV
-  Jax
   Jayce
   Jhin
   Jinx
@@ -7174,7 +7187,7 @@ Tristana 67
   Ziggs
   Zilean
   Zyra
-Trundle 127
+Trundle 126
   Aatrox
   Ahri
   Akali
@@ -7217,7 +7230,6 @@ Trundle 127
   Ivern
   Janna
   JarvanIV
-  Jax
   Jayce
   Jhin
   Jinx
@@ -8089,7 +8101,7 @@ Volibear 131 (has passive)
   Ziggs
   Zilean
   Zyra
-Warwick 126
+Warwick 125
   Aatrox
   Ahri
   Akali
@@ -8132,7 +8144,6 @@ Warwick 126
   Ivern
   Janna
   JarvanIV
-  Jax
   Jayce
   Jhin
   Jinx

@@ -182,17 +182,20 @@ class StackedBuff extends Buff {
     Mob target,
     String name,
   })
-      : super(name: name, target: target) {}
+      : super(name: name, target: target) {
+    refreshAndAddStack();
+  }
 
   void tick(double totalTimeDelta) {
     // FIXME: Handling totalTimeDelta > timeBetweenFalloffs is only for unittests
     // instead this 'catch-up' logic should move to a higher level.
     while (totalTimeDelta > 0 && !expired) {
-      totalTimeDelta -= timeBetweenFalloffs;
+      double timeDelta = min(totalTimeDelta, timeBetweenFalloffs);
+      totalTimeDelta -= timeDelta;
       if (untilFirstFalloff > 0) {
-        untilFirstFalloff -= timeBetweenFalloffs;
+        untilFirstFalloff -= timeDelta;
       } else {
-        untilNextFalloff -= timeBetweenFalloffs;
+        untilNextFalloff -= timeDelta;
       }
       if (untilFirstFalloff <= 0) {
         stacks -= 1;

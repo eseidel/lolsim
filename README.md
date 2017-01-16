@@ -28,8 +28,6 @@ Many.  Including at least:
  - Very limited item support.
  - No support for abilities.
  - Limited support for Buffs.
- - Buffs (like spiked shell) use base stats instead of total.
- - No support for on-hit effects.
  - No CC.
  - No AOE or support for location or proximity.
  - No monsters.
@@ -37,10 +35,11 @@ Many.  Including at least:
 Mostly what the simulation supports is having groups of champs/mobs auto-attack until death.
 
 ## TODO
+- Fix stat-relative buffs to include all stats (not just base).
+- Implement correct handling of damage from on-hit effects.
 - Split out dragon.dart into package:data_dragon instead of lol_duel.
 - Split lolsim.dart into smaller files.
 - Add more passives, abilities, masteries, runes, etc.
-- Confirm that Jax passive is working (didn't move him in rankings).
 
 ## Abilities missing affecting the lvl 1 round_robin sort.
 - Aatrox passive and bloodthirst

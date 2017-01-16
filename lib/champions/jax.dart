@@ -11,9 +11,7 @@ class RelentlessAssault extends StackedBuff {
           duration: 2.5,
           maxStacks: 8,
           timeBetweenFalloffs: 0.25,
-        ) {
-    refreshAndAddStack();
-  }
+        ) {}
 
   double bonusAttackSpeedPerStackForLevel(int level) {
     // http://leagueoflegends.wikia.com/wiki/Jax
