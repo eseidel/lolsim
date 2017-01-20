@@ -10,6 +10,9 @@ import 'mastery_pages.dart';
 import 'rune_pages.dart';
 import 'champions.dart';
 import 'dragon.dart';
+import 'minions.dart';
+import 'stats.dart';
+export 'stats.dart';
 
 final Logger _log = new Logger('LOL');
 
@@ -17,133 +20,6 @@ final Logger _log = new Logger('LOL');
 // https://www.reddit.com/r/leagueoflegends/comments/2mmlkr/0001_second_kill_on_talon_even_faster_kill_out/cm5tizu/
 const int TICKS_PER_SECOND = 30;
 const double SECONDS_PER_TICK = 1 / TICKS_PER_SECOND;
-
-// Create Mob objects for each champion
-// Have a loop where 2 mobs can fight.
-// Permute over all mobs.
-// cooldowns are modeled using effects?
-// all actions apply at the end of a frame?
-
-double attackDelayFromBaseAttackSpeed(double baseAttackSpeed) {
-  return (0.625 / baseAttackSpeed) - 1.0;
-}
-
-class Stats {
-  double hp;
-  double mp;
-  double attackDamage;
-  double abilityPower = 0.0;
-  double armor;
-  double spellBlock; // aka magic resist.
-  double hpRegen;
-
-  double lifesteal = 0.0;
-  double critChance = 0.0;
-  double critDamageMultiplier = 2.0;
-
-  // Used to compute attack speed:
-  double attackDelay;
-  double bonusAttackSpeed = 0.0;
-
-  // For testing:
-  Stats({
-    this.hp,
-    this.mp,
-    this.attackDamage,
-    this.attackDelay,
-    this.armor,
-    this.spellBlock,
-    this.hpRegen,
-  });
-
-  String debugString() {
-    return """
-    hp: ${hp.toStringAsFixed(1)}
-    ad: ${attackDamage.toStringAsFixed(1)}
-    ap: ${abilityPower.toStringAsFixed(1)}
-    ar: ${armor.toStringAsFixed(1)}
-    mr: ${spellBlock.toStringAsFixed(1)}
-    as: ${attackSpeed.toStringAsFixed(3)}
-    """;
-  }
-
-  // http://leagueoflegends.wikia.com/wiki/Attack_delay
-  double get baseAttackSpeed => 0.625 / (1.0 + attackDelay);
-  // http://leagueoflegends.wikia.com/wiki/Attack_speed
-  double get attackSpeed => baseAttackSpeed * (1.0 + bonusAttackSpeed);
-  double get attackDuration => 1.0 / attackSpeed;
-
-  double get magicalEffectiveHealth => hp * (1 + 0.01 * spellBlock);
-  double get physicalEffectiveHealth => hp * (1 + 0.01 * armor);
-}
-
-class BaseStats extends Stats {
-  BaseStats.fromJSON(json)
-      : spellBlockPerLevel = json['spellblockperlevel'].toDouble(),
-        armorPerLevel = json['armorperlevel'].toDouble(),
-        hpPerLevel = json['hpperlevel'].toDouble(),
-        mpPerLevel = json['mpperlevel'].toDouble(),
-        attackSpeedPerLevel = json['attackspeedperlevel'].toDouble() / 100.0,
-        attackDamagePerLevel = json['attackdamageperlevel'].toDouble(),
-        hpRegenPerLevel = json['hpregenperlevel'].toDouble() {
-    attackDelay = json['attackspeedoffset'].toDouble();
-    attackDamage = json['attackdamage'].toDouble();
-    hp = json['hp'].toDouble();
-    mp = json['mp'].toDouble();
-    armor = json['armor'].toDouble();
-    spellBlock = json['spellblock'].toDouble();
-    hpRegen = json['hpregen'].toDouble();
-  }
-
-  // For testing
-  BaseStats({
-    @required double hp,
-    double mp,
-    double attackDamage,
-    double attackDelay,
-    double hpRegen,
-    double armor,
-    double spellBlock,
-    this.armorPerLevel,
-    this.attackDamagePerLevel,
-    this.attackSpeedPerLevel,
-    this.hpPerLevel,
-    this.hpRegenPerLevel,
-    this.mpPerLevel,
-    this.spellBlockPerLevel,
-  })
-      : super(
-          hp: hp,
-          mp: mp,
-          attackDamage: attackDamage,
-          hpRegen: hpRegen,
-          attackDelay: attackDelay,
-          armor: armor,
-          spellBlock: spellBlock,
-        ) {}
-
-  final double hpPerLevel;
-  final double mpPerLevel;
-  final double armorPerLevel;
-  final double spellBlockPerLevel;
-  final double attackSpeedPerLevel;
-  final double attackDamagePerLevel;
-  final double hpRegenPerLevel;
-
-  Stats statsForLevel(int level) {
-    Stats stats = new Stats();
-    int multiplier = level - 1; // level is 1-based.
-    stats.hp = hp + hpPerLevel * multiplier;
-    stats.mp = mp + mpPerLevel * multiplier;
-    stats.hpRegen = hpRegen + hpRegenPerLevel * multiplier;
-    stats.attackDamage = attackDamage + attackDamagePerLevel * multiplier;
-    stats.armor = armor + armorPerLevel * multiplier;
-    stats.spellBlock = spellBlock + spellBlockPerLevel * multiplier;
-    stats.attackDelay = attackDelay;
-    stats.bonusAttackSpeed = attackSpeedPerLevel * multiplier;
-    return stats;
-  }
-}
 
 class Maps {
   static String CURRENT_TWISTED_TREELINE = "10";
@@ -374,75 +250,6 @@ class DamageRecievedDelta {
   double flatCombined = 0.0;
 }
 
-final Map<String, double> _sharedMinionStats = {
-  'spellblockperlevel': 0.0,
-  'armorperlevel': 0.0,
-  'mpperlevel': 0.0,
-  'movespeed': 325.0,
-  'attackspeedperlevel': 0.0,
-  'armor': 0.0,
-  'spellblock': 0.0,
-  'hpregen': 0.0,
-  'hpregenperlevel': 0.0,
-  'mp': 0.0,
-};
-
-final MobDescription _meleeMinionDescription = new MobDescription.fromJson({
-  'name': 'Melee Minion',
-  'stats': new Map.from(_sharedMinionStats)
-    ..addAll(<String, double>{
-      'hp': 455.0,
-      'hpperlevel': 18.0,
-      'attackspeedoffset': attackDelayFromBaseAttackSpeed(1.25),
-      'attackdamage': 12.0,
-      'attackdamageperlevel': 0.0,
-      'attackrange': 110.0,
-    }),
-}, MobType.minion);
-
-final MobDescription _rangedMinionDescription = new MobDescription.fromJson({
-  'name': 'Ranged Minion',
-  'stats': new Map.from(_sharedMinionStats)
-    ..addAll(<String, double>{
-      'hp': 290.0,
-      'hpperlevel': 6.0,
-      'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.667),
-      'attackdamage': 22.5,
-      'attackdamageperlevel': 1.5,
-      'attackrange': 550.0,
-    }),
-}, MobType.minion);
-
-final MobDescription _siegeMinionDescription = new MobDescription.fromJson({
-  'name': 'Siege Minion',
-  'stats': new Map.from(_sharedMinionStats)
-    ..addAll(<String, double>{
-      'hp': 805.0,
-      'hpperlevel': 0.0, // FIXME: This is likely wrong, missing from wiki.
-      'attackspeedoffset': attackDelayFromBaseAttackSpeed(1.0),
-      'attackdamage': 39.5,
-      'attackdamageperlevel': 1.5,
-      'attackrange': 300.0,
-    }),
-}, MobType.minion);
-
-final MobDescription _superMinionDescription = new MobDescription.fromJson({
-  'name': 'Siege Minion',
-  'stats': new Map.from(_sharedMinionStats)
-    ..addAll(<String, double>{
-      'hp': 1500.0,
-      'hpperlevel': 200.0,
-      'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.694),
-      'attackdamage': 190.0,
-      'attackdamageperlevel': 10.0,
-      'attackrange': 170.0,
-      'armor': 30.0,
-      'spellblock': -30.0,
-    }),
-}, MobType.minion);
-
-enum MinionType { melee, caster, siege, superMinion }
-
 enum LogType {
   healing,
   damage,
@@ -489,14 +296,6 @@ class DamageLog {
   }
 }
 
-// FIXME: Move to dragon.dart.
-enum MobType {
-  champion,
-  minion,
-  monster,
-  structure,
-}
-
 enum MobState {
   ready,
   stopped,
@@ -510,6 +309,8 @@ class Healing extends TickingBuff {
     if (target.healthPercent >= 1.0) expire();
   }
 }
+
+enum MinionType { melee, caster, siege, superMinion }
 
 class Mob {
   MobDescription description;
@@ -575,13 +376,13 @@ class Mob {
   static Mob createMinion(MinionType type) {
     switch (type) {
       case MinionType.melee:
-        return new Mob(_meleeMinionDescription);
+        return new Mob(meleeMinionDescription);
       case MinionType.caster:
-        return new Mob(_rangedMinionDescription);
+        return new Mob(rangedMinionDescription);
       case MinionType.siege:
-        return new Mob(_siegeMinionDescription);
+        return new Mob(siegeMinionDescription);
       case MinionType.superMinion:
-        return new Mob(_superMinionDescription);
+        return new Mob(superMinionDescription);
     }
     assert(false);
     return null;

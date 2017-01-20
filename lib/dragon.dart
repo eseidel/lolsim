@@ -8,6 +8,10 @@ import 'package:meta/meta.dart';
 const String DATA_DIR = 'package:dragon_data/6.24.1/data/en_US';
 final Logger _log = new Logger('dragon');
 
+double attackDelayFromBaseAttackSpeed(double baseAttackSpeed) {
+  return (0.625 / baseAttackSpeed) - 1.0;
+}
+
 class ItemFactory {
   Map<String, Map<String, dynamic>> _json;
 
@@ -125,6 +129,13 @@ class MasteryLibrary {
   MasteryDescription masteryById(int id) {
     return new MasteryDescription.fromJSON(_json['data'][id.toString()]);
   }
+}
+
+enum MobType {
+  champion,
+  minion,
+  monster,
+  structure,
 }
 
 class MobDescription {
