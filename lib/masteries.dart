@@ -1,3 +1,4 @@
+import 'dragon.dart';
 import 'lolsim.dart';
 import 'stat_constants.dart';
 
