@@ -522,10 +522,10 @@ class Mob {
 
   String statsSummary() {
     String summary = """  $name (lvl ${level})
-    HP : ${currentHp} / ${stats.hp} + ${stats.hpRegen.toStringAsFixed(1)}/5
+    HP : ${currentHp.toStringAsFixed(1)} / ${stats.hp} + ${stats.hpRegen.toStringAsFixed(1)}/5
     AD : ${stats.attackDamage.round()}  AP : ${stats.abilityPower.round()}
     AR : ${stats.armor.round()}  MR : ${stats.spellBlock.round()}
-    AS : ${stats.attackSpeed.toStringAsFixed(3)}\n""";
+    AS : ${stats.attackSpeed.toStringAsFixed(3)} (${stats.attackDuration.toStringAsFixed(1)}s)\n""";
     if (runePage != null) summary += '    Runes: ${runePage.summaryString}\n';
     if (masteryPage != null) summary += '    Masteries: ${masteryPage}\n';
     if (items.isNotEmpty) summary += '    Items: ${items}\n';

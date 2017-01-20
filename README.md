@@ -47,23 +47,24 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 ## Passives missing affecting the lvl 1 round_robin sort.
 - Aatrox passive (complicated, likely requires bloodthirst to be useful)
 - Akali passive (CDR interaction? Second hit on a static 4s cooldown?)
+- Ashe passive (semi-complicated crit replacement) and Q
 - Braum passive (needs stuns)
 - Diana passive (how do stacks work? do they fall off?)
 - Ekko passive (when does the per-target cooldown start?)
 - Fizz passive (unclear how to implement this kind of dmg reduction)
 - Graves AA modifier and passive (sounds hard to implement)
+- Gangplank passive (small effect)
 - Jarvan passive (needs on-hit dmg)
 - Kayle passive (needs percent armor mod)
 - Kled passive (non-trivial to implement, needs non-targetable)
 - Malphite passive (needs shields)
 - Master Yi Double Strike passive (non-trivial)
 - Nautalis passive (needs stun)
-- Nocturn Passive (aoe, unclear how best to do dmg-modified autos)
-- Oriana Clockwork Winding (needs on-hit dmg)
+- Nocturn passive (aoe, unclear how best to do dmg-modified autos)
+- Oriana passive (needs on-hit dmg)
 - Pantheon passive (needs blocked)
 - Tahm Kench passive (needs on-hit dmg)
 - Taric passive (needs an ability to be useful)
-- Twitch passive
 - Wukong passive (needs proximity)
 - Xin Zhao passive (needs percent armor mod)
 - Zed passive (needs on-hit dmg)
@@ -75,8 +76,9 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Jinx Q passive
 - Rammus ball curl
 - Teemo E passive
+- Tryndamere Q passive
 - Vayne W passive
-- Volibear Frenzy
+- Volibear W Frenzy
 
 ## Questions to answer:
 - Jungle clear-time approximations.
