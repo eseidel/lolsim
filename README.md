@@ -43,6 +43,7 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Add more passives, abilities, masteries, runes, etc.
 - Convert to integer math (ticks, etc.) to avoid double precision errors.
 - Implement in-combat/out-of-combat (more champs would die to darius and twitch dots).
+- Make round_robin spit out json and be able to compare lists.
 
 ## Passives missing affecting the lvl 1 round_robin sort.
 - Aatrox passive (complicated, likely requires bloodthirst to be useful)

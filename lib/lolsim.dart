@@ -45,6 +45,17 @@ class Stats {
   double attackDelay;
   double bonusAttackSpeed = 0.0;
 
+  // For testing:
+  Stats({
+    this.hp,
+    this.mp,
+    this.attackDamage,
+    this.attackDelay,
+    this.armor,
+    this.spellBlock,
+    this.hpRegen,
+  });
+
   String debugString() {
     return """
     hp: ${hp.toStringAsFixed(1)}
@@ -83,6 +94,33 @@ class BaseStats extends Stats {
     spellBlock = json['spellblock'].toDouble();
     hpRegen = json['hpregen'].toDouble();
   }
+
+  // For testing
+  BaseStats({
+    @required double hp,
+    double mp,
+    double attackDamage,
+    double attackDelay,
+    double hpRegen,
+    double armor,
+    double spellBlock,
+    this.armorPerLevel,
+    this.attackDamagePerLevel,
+    this.attackSpeedPerLevel,
+    this.hpPerLevel,
+    this.hpRegenPerLevel,
+    this.mpPerLevel,
+    this.spellBlockPerLevel,
+  })
+      : super(
+          hp: hp,
+          mp: mp,
+          attackDamage: attackDamage,
+          hpRegen: hpRegen,
+          attackDelay: attackDelay,
+          armor: armor,
+          spellBlock: spellBlock,
+        ) {}
 
   final double hpPerLevel;
   final double mpPerLevel;
@@ -349,7 +387,7 @@ final Map<String, double> _sharedMinionStats = {
   'mp': 0.0,
 };
 
-final Map<String, dynamic> _meleeMinionJson = {
+final MobDescription _meleeMinionDescription = new MobDescription.fromJson({
   'name': 'Melee Minion',
   'stats': new Map.from(_sharedMinionStats)
     ..addAll(<String, double>{
@@ -360,9 +398,9 @@ final Map<String, dynamic> _meleeMinionJson = {
       'attackdamageperlevel': 0.0,
       'attackrange': 110.0,
     }),
-};
+}, MobType.minion);
 
-final Map<String, dynamic> _rangedMinionJson = {
+final MobDescription _rangedMinionDescription = new MobDescription.fromJson({
   'name': 'Ranged Minion',
   'stats': new Map.from(_sharedMinionStats)
     ..addAll(<String, double>{
@@ -373,9 +411,9 @@ final Map<String, dynamic> _rangedMinionJson = {
       'attackdamageperlevel': 1.5,
       'attackrange': 550.0,
     }),
-};
+}, MobType.minion);
 
-final Map<String, dynamic> _siegeMinionJson = {
+final MobDescription _siegeMinionDescription = new MobDescription.fromJson({
   'name': 'Siege Minion',
   'stats': new Map.from(_sharedMinionStats)
     ..addAll(<String, double>{
@@ -386,9 +424,9 @@ final Map<String, dynamic> _siegeMinionJson = {
       'attackdamageperlevel': 1.5,
       'attackrange': 300.0,
     }),
-};
+}, MobType.minion);
 
-final Map<String, dynamic> _superMinionJson = {
+final MobDescription _superMinionDescription = new MobDescription.fromJson({
   'name': 'Siege Minion',
   'stats': new Map.from(_sharedMinionStats)
     ..addAll(<String, double>{
@@ -401,7 +439,7 @@ final Map<String, dynamic> _superMinionJson = {
       'armor': 30.0,
       'spellblock': -30.0,
     }),
-};
+}, MobType.minion);
 
 enum MinionType { melee, caster, siege, superMinion }
 
@@ -451,6 +489,7 @@ class DamageLog {
   }
 }
 
+// FIXME: Move to dragon.dart.
 enum MobType {
   champion,
   minion,
@@ -473,10 +512,9 @@ class Healing extends TickingBuff {
 }
 
 class Mob {
+  MobDescription description;
   Team team;
-  String name;
-  String title;
-  String id;
+
   Mob lastTarget;
   List<Item> items = [];
   List<Buff> buffs = [];
@@ -484,18 +522,20 @@ class Mob {
   List<Buff> _buffsAddedWhileUpdating = [];
   MasteryPage _masteryPage;
   RunePage _runePage;
-  final BaseStats baseStats;
   Stats stats; // updated per-tick.
   int level = 1;
   double hpLost = 0.0;
   bool alive = true;
   MobState state;
-  MobType type;
   DamageLog damageLog = null;
   ChampionEffects effects = null;
 
   double get currentHp => max(0.0, stats.hp - hpLost);
   double get healthPercent => currentHp / stats.hp;
+
+  String get id => description.id;
+  MobType get type => description.type;
+  String get name => description.name;
 
   bool get shouldRecordDamage => damageLog != null;
   void set shouldRecordDamage(bool flag) {
@@ -535,23 +575,19 @@ class Mob {
   static Mob createMinion(MinionType type) {
     switch (type) {
       case MinionType.melee:
-        return new Mob.fromJSON(_meleeMinionJson, MobType.minion);
+        return new Mob(_meleeMinionDescription);
       case MinionType.caster:
-        return new Mob.fromJSON(_rangedMinionJson, MobType.minion);
+        return new Mob(_rangedMinionDescription);
       case MinionType.siege:
-        return new Mob.fromJSON(_siegeMinionJson, MobType.minion);
+        return new Mob(_siegeMinionDescription);
       case MinionType.superMinion:
-        return new Mob.fromJSON(_superMinionJson, MobType.minion);
+        return new Mob(_superMinionDescription);
     }
     assert(false);
     return null;
   }
 
-  Mob.fromJSON(Map<String, dynamic> json, this.type)
-      : baseStats = new BaseStats.fromJSON(json['stats']) {
-    id = json['id'];
-    name = json['name'];
-    title = json['title'];
+  Mob(this.description) {
     ChampionEffectsConstructor effectsConstructor =
         championEffectsConstructors[id];
     if (effectsConstructor != null) effects = effectsConstructor(this);
@@ -607,7 +643,7 @@ class Mob {
   }
 
   Stats computeStats() {
-    Stats computed = baseStats.statsForLevel(level);
+    Stats computed = description.baseStats.statsForLevel(level);
     if (runePage != null) applyStats(computed, runePage.collectStats());
     if (masteryPage != null) {
       for (Mastery mastery in masteryPage.masteries) {

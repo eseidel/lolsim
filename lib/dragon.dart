@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:lol_duel/lolsim.dart';
 import 'package:logging/logging.dart';
 import 'package:resource/resource.dart';
+import 'package:meta/meta.dart';
 
 const String DATA_DIR = 'package:dragon_data/6.24.1/data/en_US';
 final Logger _log = new Logger('dragon');
@@ -126,6 +127,28 @@ class MasteryLibrary {
   }
 }
 
+class MobDescription {
+  final String id;
+  final String name;
+  final String title;
+  final BaseStats baseStats;
+  final MobType type;
+
+  MobDescription({
+    this.name,
+    @required this.baseStats,
+    @required this.type,
+    this.id,
+    this.title,
+  });
+
+  MobDescription.fromJson(Map<String, dynamic> json, this.type)
+      : baseStats = new BaseStats.fromJSON(json['stats']),
+        id = json['id'],
+        name = json['name'],
+        title = json['title'] {}
+}
+
 class ChampionFactory {
   Map<String, Map<String, dynamic>> _json;
 
@@ -142,28 +165,32 @@ class ChampionFactory {
         .toList();
   }
 
+  // FIXME: This should be MobDescription.
   Iterable<Mob> allChamps() {
     return _json['data'].values.map(
-          (champ) => new Mob.fromJSON(
+          (champ) => new Mob(new MobDescription.fromJson(
                 champ as Map<String, dynamic>,
                 MobType.champion,
-              ),
+              )),
         );
   }
 
+  // FIXME: This should be MobDescription.
   Mob championById(String id) {
     Map<String, dynamic> json = _json['data'][id] as Map<String, dynamic>;
     if (json == null) {
       _log.severe("No champion matching id $id.");
       return null;
     }
-    return new Mob.fromJSON(json, MobType.champion);
+    return new Mob(new MobDescription.fromJson(json, MobType.champion));
   }
 
+  // FIXME: This should be MobDescription.
   Mob championByName(String name) {
     for (Map<String, dynamic> champJson in _json['data'].values) {
       if (champJson['name'] == name)
-        return new Mob.fromJSON(champJson, MobType.champion);
+        return new Mob(
+            new MobDescription.fromJson(champJson, MobType.champion));
     }
     _log.severe("No champion matching name $name.");
     return null;
