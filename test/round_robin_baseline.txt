@@ -59,53 +59,53 @@ KogMaw        50
 Evelynn       51                   
 Jinx          51                   
 Mordekaiser   51                   
-AurelionSol   53                   
+AurelionSol   52                   
 Varus         53                   
 Ryze          54                   
 Ashe          55                   
 Kayle         55                   
+Gangplank     56                   
 Quinn         56                   
-Gangplank     57                   
 Morgana       59                   
-Twitch        60                   
-Riven         61                   
+Riven         60                   
+Taric         62                   
 Yasuo         62                   
-Taric         63                   
-Diana         64                   
-Lucian        64                   
-Poppy         65                   
-RekSai        65                   
-Tristana      67                   
-Ekko          70                   
-Amumu         71                   
-Kalista       73                   
-Shen          73                   
-Fiora         75                   
-Zed           75                   
-Aatrox        78                   
-Nautilus      78                   
-Braum         79                   
-Fizz          79                   
-Kassadin      81                   
-Khazix        81                   
-Pantheon      82                   
-Vi            82                   
-Draven        84                   
-JarvanIV      86                   
-Sion          87                   
+Diana         63                   
+Lucian        63                   
+Poppy         64                   
+RekSai        64                   
+Tristana      66                   
+Ekko          69                   
+Amumu         70                   
+Kalista       72                   
+Shen          72                   
+Fiora         74                   
+Zed           74                   
+Aatrox        77                   
+Nautilus      77                   
+Braum         78                   
+Fizz          78                   
+Kassadin      80                   
+Khazix        80                   
+Pantheon      81                   
+Vi            81                   
+Draven        83                   
+JarvanIV      85                   
+Sion          86                   
+Renekton      88                   
 TahmKench     88                   
 Yorick        88                   
-Renekton      89                   
 XinZhao       89                   
-Rengar        92                   
-Leona         93                   
+Twitch        90         (has passive)
+Rengar        91                   
+Leona         92                   
 Nunu          93                   
 Udyr          93                   
 Talon         94                   
 Blitzcrank    95                   
+Hecarim       95                   
 Skarner       95                   
 Camille       96                   
-Hecarim       96                   
 Illaoi        97                   
 Malphite      97                   
 Galio         98                   
@@ -113,7 +113,7 @@ Garen         98
 Katarina      100                  
 LeeSin        100                  
 Zac           100                  
-MonkeyKing    102                  
+MonkeyKing    101                  
 Chogath       103                  
 DrMundo       104        (has passive)
 Nasus         104        (has passive)
@@ -138,7 +138,7 @@ Tryndamere    130        (has passive)
 Volibear      131        (has passive)
 Darius        132        (has passive)
 Olaf          133        (has passive)
-Aatrox 78
+Aatrox 77
   Ahri
   Amumu
   Anivia
@@ -205,7 +205,6 @@ Aatrox 78
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -484,7 +483,7 @@ Alistar 110
   Ziggs
   Zilean
   Zyra
-Amumu 71
+Amumu 70
   Ahri
   Anivia
   Annie
@@ -544,7 +543,6 @@ Amumu 71
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -619,7 +617,7 @@ Ashe 55
   Ziggs
   Zilean
   Zyra
-AurelionSol 53
+AurelionSol 52
   Ahri
   Anivia
   Annie
@@ -662,7 +660,6 @@ AurelionSol 53
   Teemo
   Thresh
   TwistedFate
-  Twitch
   Vayne
   Veigar
   Velkoz
@@ -856,7 +853,7 @@ Brand 34
   Vladimir
   Zilean
   Zyra
-Braum 79
+Braum 78
   Ahri
   Amumu
   Anivia
@@ -923,7 +920,6 @@ Braum 79
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -1364,7 +1360,7 @@ Darius 132 (has passive)
   Ziggs
   Zilean
   Zyra
-Diana 64
+Diana 63
   Ahri
   Anivia
   Annie
@@ -1417,7 +1413,6 @@ Diana 64
   Teemo
   Thresh
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -1534,7 +1529,7 @@ DrMundo 104 (has passive)
   Ziggs
   Zilean
   Zyra
-Draven 84
+Draven 83
   Aatrox
   Ahri
   Anivia
@@ -1605,7 +1600,6 @@ Draven 84
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -1619,7 +1613,7 @@ Draven 84
   Ziggs
   Zilean
   Zyra
-Ekko 70
+Ekko 69
   Ahri
   Anivia
   Annie
@@ -1678,7 +1672,6 @@ Ekko 70
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -1788,7 +1781,7 @@ FiddleSticks 6
   Kled
   Orianna
   Sona
-Fiora 75
+Fiora 74
   Ahri
   Anivia
   Annie
@@ -1851,7 +1844,6 @@ Fiora 75
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -1864,7 +1856,7 @@ Fiora 75
   Ziggs
   Zilean
   Zyra
-Fizz 79
+Fizz 78
   Aatrox
   Ahri
   Amumu
@@ -1931,7 +1923,6 @@ Fizz 79
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -2043,7 +2034,7 @@ Galio 98
   Ziggs
   Zilean
   Zyra
-Gangplank 57
+Gangplank 56
   Ahri
   Anivia
   Annie
@@ -2091,7 +2082,6 @@ Gangplank 57
   Teemo
   Thresh
   TwistedFate
-  Twitch
   Vayne
   Veigar
   Velkoz
@@ -2350,7 +2340,7 @@ Graves 16
   Thresh
   TwistedFate
   Veigar
-Hecarim 96
+Hecarim 95
   Aatrox
   Ahri
   Amumu
@@ -2430,7 +2420,6 @@ Hecarim 96
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Udyr
   Varus
   Vayne
@@ -2741,7 +2730,7 @@ Janna 5
   Kled
   Orianna
   Sona
-JarvanIV 86
+JarvanIV 85
   Aatrox
   Ahri
   Amumu
@@ -2814,7 +2803,6 @@ JarvanIV 86
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -3087,7 +3075,7 @@ Jinx 51
   Ziggs
   Zilean
   Zyra
-Kalista 73
+Kalista 72
   Ahri
   Amumu
   Anivia
@@ -3149,7 +3137,6 @@ Kalista 73
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -3186,7 +3173,7 @@ Karma 21
 Karthus 2
   Kled
   Orianna
-Kassadin 81
+Kassadin 80
   Aatrox
   Ahri
   Amumu
@@ -3256,7 +3243,6 @@ Kassadin 81
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -3473,7 +3459,7 @@ Kennen 47
   Xerath
   Zilean
   Zyra
-Khazix 81
+Khazix 80
   Aatrox
   Ahri
   Amumu
@@ -3542,7 +3528,6 @@ Khazix 81
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -3770,7 +3755,7 @@ LeeSin 100
   Ziggs
   Zilean
   Zyra
-Leona 93
+Leona 92
   Aatrox
   Ahri
   Amumu
@@ -3849,7 +3834,6 @@ Leona 93
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Udyr
   Varus
   Vayne
@@ -3872,7 +3856,7 @@ Lissandra 7
   Kled
   Orianna
   Sona
-Lucian 64
+Lucian 63
   Ahri
   Anivia
   Annie
@@ -3925,7 +3909,6 @@ Lucian 64
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -4338,7 +4321,7 @@ MissFortune 16
   Thresh
   Veigar
   Zilean
-MonkeyKing 102
+MonkeyKing 101
   Aatrox
   Ahri
   Amumu
@@ -4425,7 +4408,6 @@ MonkeyKing 102
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -4672,7 +4654,7 @@ Nasus 104 (has passive)
   Ziggs
   Zilean
   Zyra
-Nautilus 78
+Nautilus 77
   Ahri
   Amumu
   Anivia
@@ -4738,7 +4720,6 @@ Nautilus 78
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -5114,7 +5095,7 @@ Olaf 133 (has passive)
   Zyra
 Orianna 1
   Kled
-Pantheon 82
+Pantheon 81
   Ahri
   Amumu
   Anivia
@@ -5184,7 +5165,6 @@ Pantheon 82
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -5197,7 +5177,7 @@ Pantheon 82
   Ziggs
   Zilean
   Zyra
-Poppy 65
+Poppy 64
   Ahri
   Anivia
   Annie
@@ -5251,7 +5231,6 @@ Poppy 65
   Teemo
   Thresh
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -5432,7 +5411,7 @@ Rammus 111 (has passive)
   Ziggs
   Zilean
   Zyra
-RekSai 65
+RekSai 64
   Ahri
   Anivia
   Annie
@@ -5486,7 +5465,6 @@ RekSai 65
   Teemo
   Thresh
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -5498,7 +5476,7 @@ RekSai 65
   Ziggs
   Zilean
   Zyra
-Renekton 89
+Renekton 88
   Aatrox
   Ahri
   Amumu
@@ -5572,7 +5550,6 @@ Renekton 89
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -5588,7 +5565,7 @@ Renekton 89
   Ziggs
   Zilean
   Zyra
-Rengar 92
+Rengar 91
   Aatrox
   Ahri
   Amumu
@@ -5666,7 +5643,6 @@ Rengar 92
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Udyr
   Varus
   Vayne
@@ -5681,7 +5657,7 @@ Rengar 92
   Ziggs
   Zilean
   Zyra
-Riven 61
+Riven 60
   Ahri
   Anivia
   Annie
@@ -5732,7 +5708,6 @@ Riven 61
   Teemo
   Thresh
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -6148,7 +6123,7 @@ Shaco 112
   Ziggs
   Zilean
   Zyra
-Shen 73
+Shen 72
   Ahri
   Anivia
   Annie
@@ -6209,7 +6184,6 @@ Shen 73
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -6467,7 +6441,7 @@ Singed 121 (has passive)
   Ziggs
   Zilean
   Zyra
-Sion 87
+Sion 86
   Aatrox
   Ahri
   Amumu
@@ -6540,7 +6514,6 @@ Sion 87
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Udyr
   Varus
   Vayne
@@ -6981,7 +6954,7 @@ Talon 94
   Ziggs
   Zilean
   Zyra
-Taric 63
+Taric 62
   Ahri
   Anivia
   Annie
@@ -7033,7 +7006,6 @@ Taric 63
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -7092,7 +7064,7 @@ Thresh 10
   Orianna
   Sona
   Zilean
-Tristana 67
+Tristana 66
   Ahri
   Anivia
   Annie
@@ -7149,7 +7121,6 @@ Tristana 67
   Teemo
   Thresh
   TwistedFate
-  Twitch
   Vayne
   Veigar
   Velkoz
@@ -7437,64 +7408,94 @@ TwistedFate 18
   Veigar
   Zilean
   Zyra
-Twitch 60
+Twitch 90 (has passive)
+  Aatrox
   Ahri
+  Amumu
   Anivia
   Annie
   Ashe
+  AurelionSol
   Azir
   Bard
   Brand
+  Braum
   Caitlyn
   Cassiopeia
   Corki
+  Diana
+  Ekko
   Elise
   Evelynn
   Ezreal
   FiddleSticks
+  Fiora
+  Fizz
+  Gangplank
   Gnar
   Graves
   Heimerdinger
   Ivern
   Janna
+  JarvanIV
   Jayce
   Jhin
   Jinx
+  Kalista
   Karma
   Karthus
+  Kassadin
   Kayle
   Kennen
+  Khazix
   Kindred
   Kled
   KogMaw
   Leblanc
+  Leona
   Lissandra
+  Lucian
   Lulu
   Lux
   Malzahar
   MissFortune
+  MonkeyKing
   Mordekaiser
   Morgana
   Nami
+  Nautilus
   Nidalee
   Orianna
+  Pantheon
+  Poppy
+  Quinn
+  RekSai
+  Renekton
+  Rengar
+  Riven
   Ryze
+  Shen
   Sivir
   Sona
   Soraka
   Swain
   Syndra
   Taliyah
+  Taric
   Teemo
   Thresh
+  Tristana
   TwistedFate
   Varus
   Vayne
   Veigar
   Velkoz
+  Vi
   Viktor
   Vladimir
   Xerath
+  Yasuo
+  Zed
   Ziggs
   Zilean
   Zyra
@@ -7831,7 +7832,7 @@ Velkoz 23
   Veigar
   Zilean
   Zyra
-Vi 82
+Vi 81
   Ahri
   Amumu
   Anivia
@@ -7901,7 +7902,6 @@ Vi 82
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
@@ -8608,7 +8608,7 @@ Zac 100
   Ziggs
   Zilean
   Zyra
-Zed 75
+Zed 74
   Ahri
   Amumu
   Anivia
@@ -8672,7 +8672,6 @@ Zed 75
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar

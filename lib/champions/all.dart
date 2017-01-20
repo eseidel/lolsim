@@ -6,5 +6,6 @@ export 'olaf.dart';
 export 'rammus.dart';
 export 'singed.dart';
 export 'tryndamere.dart';
+export 'twitch.dart';
 export 'urgot.dart';
 export 'volibear.dart';
