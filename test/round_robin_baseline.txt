@@ -87,49 +87,49 @@ Nautilus      78
 Braum         79                   
 Fizz          79                   
 Kassadin      81                   
-Khazix        82                   
+Khazix        81                   
 Pantheon      82                   
 Vi            82                   
 Draven        84                   
 JarvanIV      86                   
 Sion          87                   
-Singed        88                   
 TahmKench     88                   
-Yorick        89                   
-Renekton      90                   
-XinZhao       90                   
-Rengar        93                   
-Leona         94                   
-Nunu          94                   
-Udyr          94                   
-Talon         95                   
-Blitzcrank    96                   
-Skarner       96                   
-Camille       97                   
-Hecarim       97                   
-Illaoi        98                   
-Malphite      98                   
-Galio         99                   
-Garen         99                   
-Katarina      101                  
-LeeSin        101                  
-Zac           101                  
-MonkeyKing    103                  
-Chogath       104                  
-DrMundo       105        (has passive)
-Nasus         105        (has passive)
-Alistar       111                  
+Yorick        88                   
+Renekton      89                   
+XinZhao       89                   
+Rengar        92                   
+Leona         93                   
+Nunu          93                   
+Udyr          93                   
+Talon         94                   
+Blitzcrank    95                   
+Skarner       95                   
+Camille       96                   
+Hecarim       96                   
+Illaoi        97                   
+Malphite      97                   
+Galio         98                   
+Garen         98                   
+Katarina      100                  
+LeeSin        100                  
+Zac           100                  
+MonkeyKing    102                  
+Chogath       103                  
+DrMundo       104        (has passive)
+Nasus         104        (has passive)
+Alistar       110                  
 Nocturne      111                  
 Rammus        111        (has passive)
-Gragas        113                  
-Shaco         113                  
-Rumble        115                  
-Akali         117                  
-Urgot         117        (has passive)
+Gragas        112                  
+Shaco         112                  
+Rumble        114                  
+Akali         116                  
+Urgot         116        (has passive)
 MasterYi      119                  
 Sejuani       121                  
-Shyvana       123                  
-Irelia        124                  
+Singed        121        (has passive)
+Shyvana       122                  
+Irelia        123                  
 Warwick       125                  
 Trundle       126                  
 Maokai        128                  
@@ -256,7 +256,7 @@ Ahri 38
   Vladimir
   Zilean
   Zyra
-Akali 117
+Akali 116
   Aatrox
   Ahri
   Alistar
@@ -340,7 +340,6 @@ Akali 117
   Riven
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Skarner
@@ -374,7 +373,7 @@ Akali 117
   Ziggs
   Zilean
   Zyra
-Alistar 111
+Alistar 110
   Aatrox
   Ahri
   Amumu
@@ -453,7 +452,6 @@ Alistar 111
   Rumble
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Skarner
@@ -727,7 +725,7 @@ Bard 32
   Viktor
   Zilean
   Zyra
-Blitzcrank 96
+Blitzcrank 95
   Aatrox
   Ahri
   Amumu
@@ -794,7 +792,6 @@ Blitzcrank 96
   Riven
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Sona
@@ -954,7 +951,7 @@ Caitlyn 14
   Sona
   Thresh
   Veigar
-Camille 97
+Camille 96
   Aatrox
   Ahri
   Amumu
@@ -1022,7 +1019,6 @@ Camille 97
   Riven
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Sona
@@ -1096,7 +1092,7 @@ Cassiopeia 43
   Xerath
   Zilean
   Zyra
-Chogath 104
+Chogath 103
   Aatrox
   Ahri
   Amumu
@@ -1169,7 +1165,6 @@ Chogath 104
   Riven
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Sona
@@ -1434,7 +1429,7 @@ Diana 64
   Ziggs
   Zilean
   Zyra
-DrMundo 105 (has passive)
+DrMundo 104 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -1508,7 +1503,6 @@ DrMundo 105 (has passive)
   Riven
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Sona
@@ -1950,7 +1944,7 @@ Fizz 79
   Ziggs
   Zilean
   Zyra
-Galio 99
+Galio 98
   Aatrox
   Ahri
   Amumu
@@ -2020,7 +2014,6 @@ Galio 99
   Riven
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Sona
@@ -2108,7 +2101,7 @@ Gangplank 57
   Ziggs
   Zilean
   Zyra
-Garen 99
+Garen 98
   Aatrox
   Ahri
   Amumu
@@ -2177,7 +2170,6 @@ Garen 99
   Riven
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Sona
@@ -2228,7 +2220,7 @@ Gnar 19
   TwistedFate
   Veigar
   Zilean
-Gragas 113
+Gragas 112
   Aatrox
   Ahri
   Akali
@@ -2308,7 +2300,6 @@ Gragas 113
   Ryze
   Shaco
   Shen
-  Singed
   Sion
   Sivir
   Skarner
@@ -2359,7 +2350,7 @@ Graves 16
   Thresh
   TwistedFate
   Veigar
-Hecarim 97
+Hecarim 96
   Aatrox
   Ahri
   Amumu
@@ -2427,7 +2418,6 @@ Hecarim 97
   Riven
   Ryze
   Shen
-  Singed
   Sivir
   Sona
   Soraka
@@ -2476,7 +2466,7 @@ Heimerdinger 18
   Soraka
   TwistedFate
   Veigar
-Illaoi 98
+Illaoi 97
   Aatrox
   Ahri
   Amumu
@@ -2546,7 +2536,6 @@ Illaoi 98
   Riven
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Sona
@@ -2575,7 +2564,7 @@ Illaoi 98
   Ziggs
   Zilean
   Zyra
-Irelia 124
+Irelia 123
   Aatrox
   Ahri
   Akali
@@ -2665,7 +2654,6 @@ Irelia 124
   Shaco
   Shen
   Shyvana
-  Singed
   Sion
   Sivir
   Skarner
@@ -3280,7 +3268,7 @@ Kassadin 81
   Ziggs
   Zilean
   Zyra
-Katarina 101
+Katarina 100
   Aatrox
   Ahri
   Amumu
@@ -3350,7 +3338,6 @@ Katarina 101
   Riven
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Sona
@@ -3486,7 +3473,7 @@ Kennen 47
   Xerath
   Zilean
   Zyra
-Khazix 82
+Khazix 81
   Aatrox
   Ahri
   Amumu
@@ -3544,7 +3531,6 @@ Khazix 82
   Riven
   Ryze
   Shen
-  Singed
   Sivir
   Sona
   Soraka
@@ -3683,7 +3669,7 @@ Leblanc 27
   Xerath
   Zilean
   Zyra
-LeeSin 101
+LeeSin 100
   Aatrox
   Ahri
   Amumu
@@ -3753,7 +3739,6 @@ LeeSin 101
   Riven
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Skarner
@@ -3785,7 +3770,7 @@ LeeSin 101
   Ziggs
   Zilean
   Zyra
-Leona 94
+Leona 93
   Aatrox
   Ahri
   Amumu
@@ -3852,7 +3837,6 @@ Leona 94
   Riven
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Sona
@@ -3964,7 +3948,7 @@ Lux 4
   Annie
   Kled
   Orianna
-Malphite 98
+Malphite 97
   Aatrox
   Ahri
   Amumu
@@ -4033,7 +4017,6 @@ Malphite 98
   Riven
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Sona
@@ -4355,7 +4338,7 @@ MissFortune 16
   Thresh
   Veigar
   Zilean
-MonkeyKing 103
+MonkeyKing 102
   Aatrox
   Ahri
   Amumu
@@ -4428,7 +4411,6 @@ MonkeyKing 103
   Rumble
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Skarner
@@ -4585,7 +4567,7 @@ Nami 13
   Sona
   Soraka
   Veigar
-Nasus 105 (has passive)
+Nasus 104 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -4660,7 +4642,6 @@ Nasus 105 (has passive)
   Sejuani
   Shaco
   Shen
-  Singed
   Sion
   Sivir
   Skarner
@@ -4903,7 +4884,7 @@ Nocturne 111
   Ziggs
   Zilean
   Zyra
-Nunu 94
+Nunu 93
   Aatrox
   Ahri
   Amumu
@@ -4969,7 +4950,6 @@ Nunu 94
   Riven
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Sona
@@ -5518,7 +5498,7 @@ RekSai 65
   Ziggs
   Zilean
   Zyra
-Renekton 90
+Renekton 89
   Aatrox
   Ahri
   Amumu
@@ -5580,7 +5560,6 @@ Renekton 90
   Riven
   Ryze
   Shen
-  Singed
   Sivir
   Sona
   Soraka
@@ -5609,7 +5588,7 @@ Renekton 90
   Ziggs
   Zilean
   Zyra
-Rengar 93
+Rengar 92
   Aatrox
   Ahri
   Amumu
@@ -5675,7 +5654,6 @@ Rengar 93
   Riven
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Sona
@@ -5765,7 +5743,7 @@ Riven 61
   Ziggs
   Zilean
   Zyra
-Rumble 115
+Rumble 114
   Aatrox
   Ahri
   Akali
@@ -5848,7 +5826,6 @@ Rumble 115
   Ryze
   Shaco
   Shen
-  Singed
   Sion
   Sivir
   Skarner
@@ -6058,7 +6035,7 @@ Sejuani 121
   Ziggs
   Zilean
   Zyra
-Shaco 113
+Shaco 112
   Aatrox
   Ahri
   Alistar
@@ -6138,7 +6115,6 @@ Shaco 113
   Riven
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Skarner
@@ -6246,7 +6222,7 @@ Shen 73
   Ziggs
   Zilean
   Zyra
-Shyvana 123
+Shyvana 122
   Aatrox
   Ahri
   Akali
@@ -6335,7 +6311,6 @@ Shyvana 123
   Ryze
   Shaco
   Shen
-  Singed
   Sion
   Sivir
   Skarner
@@ -6370,9 +6345,11 @@ Shyvana 123
   Ziggs
   Zilean
   Zyra
-Singed 88
+Singed 121 (has passive)
   Aatrox
   Ahri
+  Akali
+  Alistar
   Amumu
   Anivia
   Annie
@@ -6380,12 +6357,16 @@ Singed 88
   AurelionSol
   Azir
   Bard
+  Blitzcrank
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
+  Chogath
   Corki
   Diana
+  DrMundo
   Draven
   Ekko
   Elise
@@ -6394,10 +6375,16 @@ Singed 88
   FiddleSticks
   Fiora
   Fizz
+  Galio
   Gangplank
+  Garen
   Gnar
+  Gragas
   Graves
+  Hecarim
   Heimerdinger
+  Illaoi
+  Irelia
   Ivern
   Janna
   JarvanIV
@@ -6408,44 +6395,62 @@ Singed 88
   Karma
   Karthus
   Kassadin
+  Katarina
   Kayle
   Kennen
+  Khazix
   Kindred
   Kled
   KogMaw
   Leblanc
+  LeeSin
+  Leona
   Lissandra
   Lucian
   Lulu
   Lux
+  Malphite
   Malzahar
   MissFortune
+  MonkeyKing
   Mordekaiser
   Morgana
   Nami
+  Nasus
+  Nautilus
   Nidalee
+  Nunu
   Orianna
   Pantheon
   Poppy
   Quinn
   RekSai
+  Renekton
+  Rengar
   Riven
+  Rumble
   Ryze
+  Shaco
   Shen
+  Shyvana
   Sion
   Sivir
+  Skarner
   Sona
   Soraka
   Swain
   Syndra
   TahmKench
   Taliyah
+  Talon
   Taric
   Teemo
   Thresh
   Tristana
   TwistedFate
   Twitch
+  Udyr
+  Urgot
   Varus
   Vayne
   Veigar
@@ -6454,7 +6459,10 @@ Singed 88
   Viktor
   Vladimir
   Xerath
+  XinZhao
   Yasuo
+  Yorick
+  Zac
   Zed
   Ziggs
   Zilean
@@ -6588,7 +6596,7 @@ Sivir 40
   Ziggs
   Zilean
   Zyra
-Skarner 96
+Skarner 95
   Aatrox
   Ahri
   Amumu
@@ -6655,7 +6663,6 @@ Skarner 96
   Riven
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Sona
@@ -6879,7 +6886,7 @@ Taliyah 34
   Ziggs
   Zilean
   Zyra
-Talon 95
+Talon 94
   Aatrox
   Ahri
   Amumu
@@ -6947,7 +6954,6 @@ Talon 95
   Riven
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Sona
@@ -7492,7 +7498,7 @@ Twitch 60
   Ziggs
   Zilean
   Zyra
-Udyr 94
+Udyr 93
   Aatrox
   Ahri
   Amumu
@@ -7558,7 +7564,6 @@ Udyr 94
   Riven
   Ryze
   Shen
-  Singed
   Sivir
   Sona
   Soraka
@@ -7587,7 +7592,7 @@ Udyr 94
   Ziggs
   Zilean
   Zyra
-Urgot 117 (has passive)
+Urgot 116 (has passive)
   Aatrox
   Ahri
   Akali
@@ -7671,7 +7676,6 @@ Urgot 117 (has passive)
   Ryze
   Shaco
   Shen
-  Singed
   Sion
   Sivir
   Skarner
@@ -8261,7 +8265,7 @@ Xerath 25
   Veigar
   Zilean
   Zyra
-XinZhao 90
+XinZhao 89
   Aatrox
   Ahri
   Amumu
@@ -8325,7 +8329,6 @@ XinZhao 90
   Riven
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Sona
@@ -8415,7 +8418,7 @@ Yasuo 62
   Ziggs
   Zilean
   Zyra
-Yorick 89
+Yorick 88
   Aatrox
   Ahri
   Anivia
@@ -8478,7 +8481,6 @@ Yorick 89
   Riven
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Sona
@@ -8505,7 +8507,7 @@ Yorick 89
   Ziggs
   Zilean
   Zyra
-Zac 101
+Zac 100
   Aatrox
   Ahri
   Amumu
@@ -8576,7 +8578,6 @@ Zac 101
   Rumble
   Ryze
   Shen
-  Singed
   Sion
   Sivir
   Skarner

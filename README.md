@@ -42,6 +42,7 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Split lolsim.dart into smaller files.
 - Add more passives, abilities, masteries, runes, etc.
 - Convert to integer math (ticks, etc.) to avoid double precision errors.
+- Implement in-combat/out-of-combat (more champs would die to darius and twitch dots).
 
 ## Passives missing affecting the lvl 1 round_robin sort.
 - Aatrox passive (complicated, likely requires bloodthirst to be useful)
@@ -62,12 +63,13 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Pantheon passive (needs blocked)
 - Tahm Kench passive (needs on-hit dmg)
 - Taric passive (needs an ability to be useful)
+- Twitch passive
 - Wukong passive (needs proximity)
 - Xin Zhao passive (needs percent armor mod)
 - Zed passive (needs on-hit dmg)
 
 ## Abilities affecting round_robin
-- Alistar Trample
+- Alistar Trample (needs stuns)
 - Amumu Tantrum
 - Ivern W brushmaker passive
 - Jinx Q passive
