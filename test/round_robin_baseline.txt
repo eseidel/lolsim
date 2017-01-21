@@ -77,28 +77,28 @@ RekSai        64
 Tristana      66                   
 Ekko          69                   
 Amumu         70                   
+Shen          71                   
 Kalista       72                   
-Shen          72                   
-Fiora         74                   
-Zed           74                   
+Fiora         73                   
+Nautilus      76                   
 Aatrox        77                   
-Nautilus      77                   
-Braum         78                   
-Fizz          78                   
+Braum         77                   
+Fizz          77                   
 Kassadin      79                   
 Khazix        80                   
-Pantheon      81                   
-Vi            81                   
-Draven        83                   
+Pantheon      80                   
+Vi            80                   
+Draven        82                   
+Zed           83         (has passive)
 JarvanIV      85                   
 Sion          86                   
 Renekton      87                   
-Yorick        88                   
-XinZhao       89                   
+Yorick        87                   
+XinZhao       88                   
 Twitch        90         (has passive)
+Nunu          91                   
 Rengar        91                   
 Leona         92                   
-Nunu          92                   
 Udyr          92                   
 Hecarim       94                   
 Talon         94                   
@@ -109,8 +109,8 @@ Illaoi        96
 Garen         97                   
 Malphite      97                   
 Galio         98                   
+LeeSin        98                   
 Katarina      99                   
-LeeSin        99                   
 Zac           99                   
 MonkeyKing    100                  
 Chogath       102                  
@@ -847,7 +847,7 @@ Brand 34
   Vladimir
   Zilean
   Zyra
-Braum 78
+Braum 77
   Ahri
   Amumu
   Anivia
@@ -922,7 +922,6 @@ Braum 78
   Vladimir
   Xerath
   Yasuo
-  Zed
   Ziggs
   Zilean
   Zyra
@@ -1520,7 +1519,7 @@ DrMundo 103 (has passive)
   Ziggs
   Zilean
   Zyra
-Draven 83
+Draven 82
   Aatrox
   Ahri
   Anivia
@@ -1600,7 +1599,6 @@ Draven 83
   Vladimir
   Xerath
   Yasuo
-  Zed
   Ziggs
   Zilean
   Zyra
@@ -1769,7 +1767,7 @@ FiddleSticks 5
   Karthus
   Kled
   Sona
-Fiora 74
+Fiora 73
   Ahri
   Anivia
   Annie
@@ -1840,11 +1838,10 @@ Fiora 74
   Vladimir
   Xerath
   Yasuo
-  Zed
   Ziggs
   Zilean
   Zyra
-Fizz 78
+Fizz 77
   Aatrox
   Ahri
   Amumu
@@ -1919,7 +1916,6 @@ Fizz 78
   Vladimir
   Xerath
   Yasuo
-  Zed
   Ziggs
   Zilean
   Zyra
@@ -3630,7 +3626,7 @@ Leblanc 27
   Xerath
   Zilean
   Zyra
-LeeSin 99
+LeeSin 98
   Aatrox
   Ahri
   Amumu
@@ -3726,7 +3722,6 @@ LeeSin 99
   XinZhao
   Yasuo
   Yorick
-  Zed
   Ziggs
   Zilean
   Zyra
@@ -4620,7 +4615,7 @@ Nasus 103 (has passive)
   Ziggs
   Zilean
   Zyra
-Nautilus 77
+Nautilus 76
   Ahri
   Amumu
   Anivia
@@ -4694,7 +4689,6 @@ Nautilus 77
   Vladimir
   Xerath
   Yasuo
-  Zed
   Ziggs
   Zilean
   Zyra
@@ -4830,7 +4824,7 @@ Nocturne 110
   Ziggs
   Zilean
   Zyra
-Nunu 92
+Nunu 91
   Aatrox
   Ahri
   Amumu
@@ -4919,7 +4913,6 @@ Nunu 92
   Xerath
   Yasuo
   Yorick
-  Zed
   Ziggs
   Zilean
   Zyra
@@ -5086,7 +5079,7 @@ Orianna 28 (has passive)
   Vladimir
   Zilean
   Zyra
-Pantheon 81
+Pantheon 80
   Ahri
   Amumu
   Anivia
@@ -5164,7 +5157,6 @@ Pantheon 81
   Vladimir
   Xerath
   Yasuo
-  Zed
   Ziggs
   Zilean
   Zyra
@@ -6109,7 +6101,7 @@ Shaco 111
   Ziggs
   Zilean
   Zyra
-Shen 72
+Shen 71
   Ahri
   Anivia
   Annie
@@ -6178,7 +6170,6 @@ Shen 72
   Vladimir
   Xerath
   Yasuo
-  Zed
   Ziggs
   Zilean
   Zyra
@@ -7846,7 +7837,7 @@ Velkoz 23
   Veigar
   Zilean
   Zyra
-Vi 81
+Vi 80
   Ahri
   Amumu
   Anivia
@@ -7924,7 +7915,6 @@ Vi 81
   Vladimir
   Xerath
   Yasuo
-  Zed
   Ziggs
   Zilean
   Zyra
@@ -8276,7 +8266,7 @@ Xerath 25
   Veigar
   Zilean
   Zyra
-XinZhao 89
+XinZhao 88
   Aatrox
   Ahri
   Amumu
@@ -8362,7 +8352,6 @@ XinZhao 89
   Vladimir
   Xerath
   Yasuo
-  Zed
   Ziggs
   Zilean
   Zyra
@@ -8429,7 +8418,7 @@ Yasuo 62
   Ziggs
   Zilean
   Zyra
-Yorick 88
+Yorick 87
   Aatrox
   Ahri
   Anivia
@@ -8514,7 +8503,6 @@ Yorick 88
   Vladimir
   Xerath
   Yasuo
-  Zed
   Ziggs
   Zilean
   Zyra
@@ -8618,7 +8606,7 @@ Zac 99
   Ziggs
   Zilean
   Zyra
-Zed 74
+Zed 83 (has passive)
   Ahri
   Amumu
   Anivia
@@ -8632,11 +8620,14 @@ Zed 74
   Cassiopeia
   Corki
   Diana
+  Draven
   Ekko
   Elise
   Evelynn
   Ezreal
   FiddleSticks
+  Fiora
+  Fizz
   Gangplank
   Gnar
   Graves
@@ -8649,6 +8640,7 @@ Zed 74
   Kalista
   Karma
   Karthus
+  Kassadin
   Kayle
   Kennen
   Kindred
@@ -8664,13 +8656,16 @@ Zed 74
   Mordekaiser
   Morgana
   Nami
+  Nautilus
   Nidalee
+  Nunu
   Orianna
   Poppy
   Quinn
   RekSai
   Riven
   Ryze
+  Shen
   Sivir
   Sona
   Soraka
@@ -8689,7 +8684,9 @@ Zed 74
   Viktor
   Vladimir
   Xerath
+  XinZhao
   Yasuo
+  Yorick
   Ziggs
   Zilean
   Zyra

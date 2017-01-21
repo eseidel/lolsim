@@ -2,7 +2,6 @@ import 'package:lol_duel/buffs.dart';
 import 'package:lol_duel/champions.dart';
 import 'package:lol_duel/dragon.dart';
 import 'package:lol_duel/lolsim.dart';
-import 'package:meta/meta.dart';
 
 class Orianna extends ChampionEffects {
   Mob orianna;
@@ -24,10 +23,7 @@ class Orianna extends ChampionEffects {
     ClockworkWinding buff = target.buffs
         .firstWhere((buff) => buff is ClockworkWinding, orElse: () => null);
     if (buff == null) {
-      target.addBuff(new ClockworkWinding(
-        orianna: orianna,
-        target: target,
-      ));
+      target.addBuff(new ClockworkWinding(target));
     } else {
       buff.refreshAndAddStack();
     }
@@ -56,9 +52,7 @@ class Orianna extends ChampionEffects {
 }
 
 class ClockworkWinding extends StackedBuff {
-  final Mob orianna;
-
-  ClockworkWinding({@required this.orianna, @required Mob target})
+  ClockworkWinding(Mob target)
       : super(
           target: target,
           // According to OrianaMains discord both falloff at 4s.

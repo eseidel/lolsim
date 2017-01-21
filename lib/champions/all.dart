@@ -11,3 +11,4 @@ export 'twitch.dart';
 export 'tahm_kench.dart';
 export 'urgot.dart';
 export 'volibear.dart';
+export 'zed.dart';
