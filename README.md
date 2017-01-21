@@ -54,7 +54,6 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Fizz passive (unclear how to implement this kind of dmg reduction)
 - Graves AA modifier and passive (sounds hard to implement)
 - Gangplank passive (small effect)
-- Jarvan passive (needs on-hit dmg)
 - Kayle passive (needs percent armor mod)
 - Kled passive (non-trivial to implement, needs non-targetable)
 - Malphite passive (needs shields)
@@ -65,7 +64,6 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Taric passive (needs an ability to be useful)
 - Wukong passive (needs proximity)
 - Xin Zhao passive (needs percent armor mod)
-- Zed passive (needs on-hit dmg)
 
 ## Abilities affecting round_robin
 - Alistar Trample (needs stuns)

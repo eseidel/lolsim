@@ -88,47 +88,47 @@ Kassadin      79
 Khazix        80                   
 Pantheon      80                   
 Vi            80                   
-Draven        82                   
+Draven        81                   
 Zed           83         (has passive)
-JarvanIV      85                   
-Sion          86                   
+Sion          85                   
+Yorick        86                   
 Renekton      87                   
-Yorick        87                   
-XinZhao       88                   
-Twitch        90         (has passive)
-Nunu          91                   
-Rengar        91                   
-Leona         92                   
+XinZhao       87                   
+Twitch        89         (has passive)
+Nunu          90                   
+Rengar        90                   
+Leona         91                   
 Udyr          92                   
-Hecarim       94                   
-Talon         94                   
-Blitzcrank    95                   
-Skarner       95                   
-Camille       96                   
-Illaoi        96                   
-Garen         97                   
-Malphite      97                   
-Galio         98                   
-LeeSin        98                   
-Katarina      99                   
-Zac           99                   
-MonkeyKing    100                  
-Chogath       102                  
-DrMundo       103        (has passive)
-Nasus         103        (has passive)
-Alistar       109                  
-Nocturne      110                  
-Rammus        110        (has passive)
-Gragas        111                  
-Shaco         111                  
-Rumble        113                  
-Akali         115                  
-Urgot         115        (has passive)
+Hecarim       93                   
+Talon         93                   
+Blitzcrank    94                   
+Skarner       94                   
+Camille       95                   
+Illaoi        95                   
+Garen         96                   
+Malphite      96                   
+Galio         97                   
+LeeSin        97                   
+Katarina      98                   
+Zac           98                   
+MonkeyKing    99                   
+Chogath       101                  
+DrMundo       102        (has passive)
+Nasus         102        (has passive)
+Alistar       108                  
+Nocturne      109                  
+Rammus        109        (has passive)
+Gragas        110                  
+Shaco         110                  
+Rumble        112                  
+Akali         114                  
+Urgot         114        (has passive)
 MasterYi      118                  
+JarvanIV      119        (has passive)
 Sejuani       120                  
+Shyvana       120                  
 Singed        120        (has passive)
-Shyvana       121                  
-Irelia        122                  
+Irelia        121                  
 Warwick       124                  
 Trundle       125                  
 Maokai        127                  
@@ -255,7 +255,7 @@ Ahri 38
   Vladimir
   Zilean
   Zyra
-Akali 115
+Akali 114
   Aatrox
   Ahri
   Alistar
@@ -294,7 +294,6 @@ Akali 115
   Illaoi
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -371,7 +370,7 @@ Akali 115
   Ziggs
   Zilean
   Zyra
-Alistar 109
+Alistar 108
   Aatrox
   Ahri
   Amumu
@@ -407,7 +406,6 @@ Alistar 109
   Illaoi
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -716,7 +714,7 @@ Bard 31
   Viktor
   Zilean
   Zyra
-Blitzcrank 95
+Blitzcrank 94
   Aatrox
   Ahri
   Amumu
@@ -747,7 +745,6 @@ Blitzcrank 95
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -939,7 +936,7 @@ Caitlyn 13
   Sona
   Thresh
   Veigar
-Camille 96
+Camille 95
   Aatrox
   Ahri
   Amumu
@@ -970,7 +967,6 @@ Camille 96
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -1080,7 +1076,7 @@ Cassiopeia 43
   Xerath
   Zilean
   Zyra
-Chogath 102
+Chogath 101
   Aatrox
   Ahri
   Amumu
@@ -1112,7 +1108,6 @@ Chogath 102
   Illaoi
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -1415,7 +1410,7 @@ Diana 63
   Ziggs
   Zilean
   Zyra
-DrMundo 103 (has passive)
+DrMundo 102 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -1447,7 +1442,6 @@ DrMundo 103 (has passive)
   Illaoi
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -1519,7 +1513,7 @@ DrMundo 103 (has passive)
   Ziggs
   Zilean
   Zyra
-Draven 82
+Draven 81
   Aatrox
   Ahri
   Anivia
@@ -1547,7 +1541,6 @@ Draven 82
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -1919,7 +1912,7 @@ Fizz 77
   Ziggs
   Zilean
   Zyra
-Galio 98
+Galio 97
   Aatrox
   Ahri
   Amumu
@@ -1950,7 +1943,6 @@ Galio 98
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -2075,7 +2067,7 @@ Gangplank 56
   Ziggs
   Zilean
   Zyra
-Garen 97
+Garen 96
   Aatrox
   Ahri
   Amumu
@@ -2106,7 +2098,6 @@ Garen 97
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -2192,7 +2183,7 @@ Gnar 18
   TwistedFate
   Veigar
   Zilean
-Gragas 111
+Gragas 110
   Aatrox
   Ahri
   Akali
@@ -2231,7 +2222,6 @@ Gragas 111
   Illaoi
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -2320,7 +2310,7 @@ Graves 15
   Thresh
   TwistedFate
   Veigar
-Hecarim 94
+Hecarim 93
   Aatrox
   Ahri
   Amumu
@@ -2350,7 +2340,6 @@ Hecarim 94
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -2433,7 +2422,7 @@ Heimerdinger 17
   Soraka
   TwistedFate
   Veigar
-Illaoi 96
+Illaoi 95
   Aatrox
   Ahri
   Amumu
@@ -2464,7 +2453,6 @@ Illaoi 96
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -2530,7 +2518,7 @@ Illaoi 96
   Ziggs
   Zilean
   Zyra
-Irelia 122
+Irelia 121
   Aatrox
   Ahri
   Akali
@@ -2571,7 +2559,6 @@ Irelia 122
   Illaoi
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -2705,9 +2692,11 @@ Janna 4
   Karthus
   Kled
   Sona
-JarvanIV 85
+JarvanIV 119 (has passive)
   Aatrox
   Ahri
+  Akali
+  Alistar
   Amumu
   Anivia
   Annie
@@ -2715,12 +2704,17 @@ JarvanIV 85
   AurelionSol
   Azir
   Bard
+  Blitzcrank
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
+  Chogath
   Corki
   Diana
+  DrMundo
+  Draven
   Ekko
   Elise
   Evelynn
@@ -2728,10 +2722,15 @@ JarvanIV 85
   FiddleSticks
   Fiora
   Fizz
+  Galio
   Gangplank
+  Garen
   Gnar
+  Gragas
   Graves
+  Hecarim
   Heimerdinger
+  Illaoi
   Ivern
   Janna
   Jayce
@@ -2741,6 +2740,7 @@ JarvanIV 85
   Karma
   Karthus
   Kassadin
+  Katarina
   Kayle
   Kennen
   Khazix
@@ -2748,36 +2748,54 @@ JarvanIV 85
   Kled
   KogMaw
   Leblanc
+  LeeSin
+  Leona
   Lissandra
   Lucian
   Lulu
   Lux
+  Malphite
   Malzahar
   MissFortune
+  MonkeyKing
   Mordekaiser
   Morgana
   Nami
+  Nasus
   Nautilus
   Nidalee
+  Nocturne
+  Nunu
   Orianna
   Pantheon
   Poppy
   Quinn
+  Rammus
   RekSai
+  Renekton
+  Rengar
   Riven
+  Rumble
   Ryze
+  Shaco
   Shen
+  Sion
   Sivir
+  Skarner
   Sona
   Soraka
   Swain
   Syndra
   Taliyah
+  Talon
   Taric
   Teemo
   Thresh
   Tristana
   TwistedFate
+  Twitch
+  Udyr
+  Urgot
   Varus
   Vayne
   Veigar
@@ -2786,7 +2804,10 @@ JarvanIV 85
   Viktor
   Vladimir
   Xerath
+  XinZhao
   Yasuo
+  Yorick
+  Zac
   Zed
   Ziggs
   Zilean
@@ -3227,7 +3248,7 @@ Kassadin 79
   Ziggs
   Zilean
   Zyra
-Katarina 99
+Katarina 98
   Aatrox
   Ahri
   Amumu
@@ -3258,7 +3279,6 @@ Katarina 99
   Illaoi
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -3626,7 +3646,7 @@ Leblanc 27
   Xerath
   Zilean
   Zyra
-LeeSin 98
+LeeSin 97
   Aatrox
   Ahri
   Amumu
@@ -3660,7 +3680,6 @@ LeeSin 98
   Illaoi
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -3725,7 +3744,7 @@ LeeSin 98
   Ziggs
   Zilean
   Zyra
-Leona 92
+Leona 91
   Aatrox
   Ahri
   Amumu
@@ -3756,7 +3775,6 @@ Leona 92
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -3898,7 +3916,7 @@ Lux 3
   Anivia
   Annie
   Kled
-Malphite 97
+Malphite 96
   Aatrox
   Ahri
   Amumu
@@ -3929,7 +3947,6 @@ Malphite 97
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -4285,7 +4302,7 @@ MissFortune 15
   Thresh
   Veigar
   Zilean
-MonkeyKing 100
+MonkeyKing 99
   Aatrox
   Ahri
   Amumu
@@ -4319,7 +4336,6 @@ MonkeyKing 100
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -4511,7 +4527,7 @@ Nami 12
   Sona
   Soraka
   Veigar
-Nasus 103 (has passive)
+Nasus 102 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -4546,7 +4562,6 @@ Nasus 103 (has passive)
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -4713,7 +4728,7 @@ Nidalee 20
   Veigar
   Zilean
   Zyra
-Nocturne 110
+Nocturne 109
   Aatrox
   Ahri
   Amumu
@@ -4748,7 +4763,6 @@ Nocturne 110
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -4824,7 +4838,7 @@ Nocturne 110
   Ziggs
   Zilean
   Zyra
-Nunu 91
+Nunu 90
   Aatrox
   Ahri
   Amumu
@@ -4854,7 +4868,6 @@ Nunu 91
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -5282,7 +5295,7 @@ Quinn 56
   Ziggs
   Zilean
   Zyra
-Rammus 110 (has passive)
+Rammus 109 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -5317,7 +5330,6 @@ Rammus 110 (has passive)
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -5546,7 +5558,7 @@ Renekton 87
   Ziggs
   Zilean
   Zyra
-Rengar 91
+Rengar 90
   Aatrox
   Ahri
   Amumu
@@ -5577,7 +5589,6 @@ Rengar 91
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -5699,7 +5710,7 @@ Riven 60
   Ziggs
   Zilean
   Zyra
-Rumble 113
+Rumble 112
   Aatrox
   Ahri
   Akali
@@ -5738,7 +5749,6 @@ Rumble 113
   Illaoi
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -5989,7 +5999,7 @@ Sejuani 120
   Ziggs
   Zilean
   Zyra
-Shaco 111
+Shaco 110
   Aatrox
   Ahri
   Alistar
@@ -6028,7 +6038,6 @@ Shaco 111
   Illaoi
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -6173,7 +6182,7 @@ Shen 71
   Ziggs
   Zilean
   Zyra
-Shyvana 121
+Shyvana 120
   Aatrox
   Ahri
   Akali
@@ -6214,7 +6223,6 @@ Shyvana 121
   Illaoi
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -6416,7 +6424,7 @@ Singed 120 (has passive)
   Ziggs
   Zilean
   Zyra
-Sion 86
+Sion 85
   Aatrox
   Ahri
   Amumu
@@ -6444,7 +6452,6 @@ Sion 86
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -6544,7 +6551,7 @@ Sivir 40
   Ziggs
   Zilean
   Zyra
-Skarner 95
+Skarner 94
   Aatrox
   Ahri
   Amumu
@@ -6575,7 +6582,6 @@ Skarner 95
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -6872,7 +6878,7 @@ Taliyah 34
   Ziggs
   Zilean
   Zyra
-Talon 94
+Talon 93
   Aatrox
   Ahri
   Amumu
@@ -6903,7 +6909,6 @@ Talon 94
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -7417,7 +7422,7 @@ TwistedFate 17
   Veigar
   Zilean
   Zyra
-Twitch 90 (has passive)
+Twitch 89 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -7446,7 +7451,6 @@ Twitch 90 (has passive)
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -7601,7 +7605,7 @@ Udyr 92
   Ziggs
   Zilean
   Zyra
-Urgot 115 (has passive)
+Urgot 114 (has passive)
   Aatrox
   Ahri
   Akali
@@ -7641,7 +7645,6 @@ Urgot 115 (has passive)
   Illaoi
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -8266,7 +8269,7 @@ Xerath 25
   Veigar
   Zilean
   Zyra
-XinZhao 88
+XinZhao 87
   Aatrox
   Ahri
   Amumu
@@ -8296,7 +8299,6 @@ XinZhao 88
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -8418,7 +8420,7 @@ Yasuo 62
   Ziggs
   Zilean
   Zyra
-Yorick 87
+Yorick 86
   Aatrox
   Ahri
   Anivia
@@ -8447,7 +8449,6 @@ Yorick 87
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -8506,7 +8507,7 @@ Yorick 87
   Ziggs
   Zilean
   Zyra
-Zac 99
+Zac 98
   Aatrox
   Ahri
   Amumu
@@ -8537,7 +8538,6 @@ Zac 99
   Heimerdinger
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx

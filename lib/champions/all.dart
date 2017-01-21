@@ -1,14 +1,15 @@
 export 'darius.dart';
 export 'drmundo.dart';
+export 'jarvaniv.dart';
 export 'jax.dart';
 export 'nasus.dart';
 export 'olaf.dart';
 export 'orianna.dart';
 export 'rammus.dart';
 export 'singed.dart';
+export 'tahm_kench.dart';
 export 'tryndamere.dart';
 export 'twitch.dart';
-export 'tahm_kench.dart';
 export 'urgot.dart';
 export 'volibear.dart';
 export 'zed.dart';

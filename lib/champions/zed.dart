@@ -2,7 +2,6 @@ import 'package:lol_duel/buffs.dart';
 import 'package:lol_duel/champions.dart';
 import 'package:lol_duel/dragon.dart';
 import 'package:lol_duel/lolsim.dart';
-import 'package:meta/meta.dart';
 
 class Zed extends ChampionEffects {
   Mob zed;
@@ -30,7 +29,7 @@ class Zed extends ChampionEffects {
 }
 
 class ContemptForTheWeak extends TimedBuff {
-  ContemptForTheWeak(@required Mob target)
+  ContemptForTheWeak(Mob target)
       : super(
           target: target,
           duration: 10.0,
