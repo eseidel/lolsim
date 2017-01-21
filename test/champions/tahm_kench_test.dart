@@ -17,7 +17,6 @@ main() async {
       AnAcquiredTaste buff =
           mob.buffs.firstWhere((buff) => buff is AnAcquiredTaste);
       expect(buff.stacks, 1);
-      expect(mob.hpLost, tahm.stats.attackDamage);
       new AutoAttack(tahm, mob).apply(world);
       expect(buff.stacks, 2);
       expect(mob.hpLost, 2.0 * tahm.stats.attackDamage + 0.01 * tahm.stats.hp);

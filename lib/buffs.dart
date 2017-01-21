@@ -179,6 +179,9 @@ class StackedBuff extends Buff {
     String name,
   })
       : super(name: name, target: target) {
+    assert(maxStacks >= 1);
+    assert(duration > 0.0);
+    assert(timeBetweenFalloffs >= 0.0);
     refreshAndAddStack();
   }
 
@@ -186,7 +189,9 @@ class StackedBuff extends Buff {
     // FIXME: Handling totalTimeDelta > timeBetweenFalloffs is only for unittests
     // instead this 'catch-up' logic should move to a higher level.
     while (totalTimeDelta > 0 && !expired) {
-      double timeDelta = min(totalTimeDelta, timeBetweenFalloffs);
+      double timeDelta = timeBetweenFalloffs > 0.0
+          ? min(totalTimeDelta, timeBetweenFalloffs)
+          : totalTimeDelta;
       totalTimeDelta -= timeDelta;
       if (untilFirstFalloff > 0) {
         untilFirstFalloff -= timeDelta;
@@ -194,7 +199,10 @@ class StackedBuff extends Buff {
         untilNextFalloff -= timeDelta;
       }
       if (untilFirstFalloff <= 0) {
-        stacks -= 1;
+        if (timeBetweenFalloffs > 0.0)
+          stacks -= 1;
+        else
+          stacks = 0;
         untilNextFalloff = timeBetweenFalloffs;
       }
       if (stacks <= 0) expire();

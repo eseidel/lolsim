@@ -30,5 +30,20 @@ main() async {
       expect(buff.stacks, 0);
       expect(buff.expired, true);
     });
+    test("timeBetweenFalloffs = 0", () {
+      Mob mob = createTestMob(hp: 100.0);
+      StackedBuff buff = new StackedBuff(
+        target: mob,
+        duration: 0.5,
+        timeBetweenFalloffs: 0.0,
+        maxStacks: 2,
+      );
+      expect(buff.stacks, 1);
+      buff.refreshAndAddStack();
+      expect(buff.stacks, 2);
+      buff.tick(.5);
+      expect(buff.stacks, 0);
+      expect(buff.expired, true);
+    });
   });
 }

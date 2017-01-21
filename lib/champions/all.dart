@@ -3,6 +3,7 @@ export 'drmundo.dart';
 export 'jax.dart';
 export 'nasus.dart';
 export 'olaf.dart';
+export 'orianna.dart';
 export 'rammus.dart';
 export 'singed.dart';
 export 'tryndamere.dart';

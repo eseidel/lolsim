@@ -5,49 +5,49 @@ Note: A few have passives implemented, as indicated.
 Name          Victories  Status    
 ===================================
 Kled          0                    
-Orianna       1                    
-Anivia        2                    
-Karthus       2                    
-Annie         3                    
-Lux           4                    
-Janna         5                    
-Lulu          5                    
-FiddleSticks  6                    
-Lissandra     7                    
-Sona          7                    
-Veigar        7                    
-Zilean        8                    
-Thresh        10                   
-Soraka        12                   
-Nami          13                   
-Caitlyn       14                   
-Graves        16                   
-MissFortune   16                   
-Zyra          16                   
-Azir          18                   
-Elise         18                   
-Heimerdinger  18                   
-TwistedFate   18                   
-Ezreal        19                   
-Gnar          19                   
+Anivia        1                    
+Karthus       1                    
+Annie         2                    
+Lux           3                    
+Janna         4                    
+Lulu          4                    
+FiddleSticks  5                    
+Lissandra     6                    
+Sona          6                    
+Veigar        6                    
+Zilean        7                    
+Thresh        9                    
+Soraka        11                   
+Nami          12                   
+Caitlyn       13                   
+Graves        15                   
+MissFortune   15                   
+Zyra          15                   
+Azir          17                   
+Elise         17                   
+Heimerdinger  17                   
+TwistedFate   17                   
+Ezreal        18                   
+Gnar          18                   
 Nidalee       20                   
 Karma         21                   
-Swain         23                   
+Swain         22                   
 Velkoz        23                   
 Syndra        24                   
 Malzahar      25                   
 Xerath        25                   
 Jhin          26                   
 Leblanc       27                   
-Vladimir      29                   
-Bard          32                   
+Orianna       28         (has passive)
+Vladimir      28                   
+Bard          31                   
 Kindred       33                   
 Brand         34                   
 Corki         34                   
 Taliyah       34                   
+Vayne         34                   
 Teemo         35                   
-Vayne         35                   
-Viktor        36                   
+Viktor        35                   
 Ahri          38                   
 Sivir         40                   
 Cassiopeia    43                   
@@ -552,13 +552,11 @@ Amumu 70
   Ziggs
   Zilean
   Zyra
-Anivia 2
+Anivia 1
   Kled
-  Orianna
-Annie 3
+Annie 2
   Anivia
   Kled
-  Orianna
 Ashe 55
   Ahri
   Anivia
@@ -668,7 +666,7 @@ AurelionSol 52
   Ziggs
   Zilean
   Zyra
-Azir 18
+Azir 17
   Anivia
   Annie
   Caitlyn
@@ -681,13 +679,12 @@ Azir 18
   Lux
   MissFortune
   Nami
-  Orianna
   Sona
   Soraka
   TwistedFate
   Zilean
   Zyra
-Bard 32
+Bard 31
   Ahri
   Anivia
   Annie
@@ -709,7 +706,6 @@ Bard 32
   MissFortune
   Nami
   Nidalee
-  Orianna
   Sona
   Soraka
   Swain
@@ -930,7 +926,7 @@ Braum 78
   Ziggs
   Zilean
   Zyra
-Caitlyn 14
+Caitlyn 13
   Anivia
   Annie
   Graves
@@ -941,7 +937,6 @@ Caitlyn 14
   Lux
   MissFortune
   Nami
-  Orianna
   Sona
   Thresh
   Veigar
@@ -1679,7 +1674,7 @@ Ekko 69
   Ziggs
   Zilean
   Zyra
-Elise 18
+Elise 17
   Anivia
   Annie
   Caitlyn
@@ -1692,7 +1687,6 @@ Elise 18
   Lux
   MissFortune
   Nami
-  Orianna
   Sona
   Thresh
   TwistedFate
@@ -1750,7 +1744,7 @@ Evelynn 51
   Ziggs
   Zilean
   Zyra
-Ezreal 19
+Ezreal 18
   Anivia
   Annie
   Caitlyn
@@ -1765,17 +1759,15 @@ Ezreal 19
   Lux
   MissFortune
   Nami
-  Orianna
   Sona
   Soraka
   TwistedFate
   Veigar
-FiddleSticks 6
+FiddleSticks 5
   Annie
   Caitlyn
   Karthus
   Kled
-  Orianna
   Sona
 Fiora 74
   Ahri
@@ -2185,7 +2177,7 @@ Garen 97
   Ziggs
   Zilean
   Zyra
-Gnar 19
+Gnar 18
   Anivia
   Annie
   Caitlyn
@@ -2199,7 +2191,6 @@ Gnar 19
   Lux
   MissFortune
   Nami
-  Orianna
   Sona
   Thresh
   TwistedFate
@@ -2317,7 +2308,7 @@ Gragas 111
   Ziggs
   Zilean
   Zyra
-Graves 16
+Graves 15
   Anivia
   Annie
   FiddleSticks
@@ -2328,7 +2319,6 @@ Graves 16
   Lulu
   Lux
   Nami
-  Orianna
   Sona
   Soraka
   Thresh
@@ -2429,7 +2419,7 @@ Hecarim 94
   Ziggs
   Zilean
   Zyra
-Heimerdinger 18
+Heimerdinger 17
   Anivia
   Annie
   Caitlyn
@@ -2443,7 +2433,6 @@ Heimerdinger 18
   Lux
   MissFortune
   Nami
-  Orianna
   Sona
   Soraka
   TwistedFate
@@ -2715,11 +2704,10 @@ Ivern 46
   Xerath
   Zilean
   Zyra
-Janna 5
+Janna 4
   Caitlyn
   Karthus
   Kled
-  Orianna
   Sona
 JarvanIV 85
   Aatrox
@@ -3161,9 +3149,8 @@ Karma 21
   Veigar
   Zilean
   Zyra
-Karthus 2
+Karthus 1
   Kled
-  Orianna
 Kassadin 79
   Aatrox
   Ahri
@@ -3836,13 +3823,12 @@ Leona 92
   Ziggs
   Zilean
   Zyra
-Lissandra 7
+Lissandra 6
   Anivia
   Annie
   Janna
   Karthus
   Kled
-  Orianna
   Sona
 Lucian 63
   Ahri
@@ -3908,17 +3894,15 @@ Lucian 63
   Ziggs
   Zilean
   Zyra
-Lulu 5
+Lulu 4
   Anivia
   Annie
   Karthus
   Kled
-  Orianna
-Lux 4
+Lux 3
   Anivia
   Annie
   Kled
-  Orianna
 Malphite 97
   Aatrox
   Ahri
@@ -4290,7 +4274,7 @@ MasterYi 118
   Ziggs
   Zilean
   Zyra
-MissFortune 16
+MissFortune 15
   Anivia
   Annie
   FiddleSticks
@@ -4302,7 +4286,6 @@ MissFortune 16
   Lulu
   Lux
   Nami
-  Orianna
   Sona
   Thresh
   Veigar
@@ -4520,7 +4503,7 @@ Morgana 59
   Ziggs
   Zilean
   Zyra
-Nami 13
+Nami 12
   Anivia
   Annie
   FiddleSticks
@@ -4530,7 +4513,6 @@ Nami 13
   Lissandra
   Lulu
   Lux
-  Orianna
   Sona
   Soraka
   Veigar
@@ -5075,8 +5057,35 @@ Olaf 133 (has passive)
   Ziggs
   Zilean
   Zyra
-Orianna 1
+Orianna 28 (has passive)
+  Anivia
+  Annie
+  Azir
+  Bard
+  Caitlyn
+  Elise
+  Ezreal
+  FiddleSticks
+  Gnar
+  Graves
+  Heimerdinger
+  Janna
+  Karthus
   Kled
+  Lissandra
+  Lulu
+  Lux
+  MissFortune
+  Nami
+  Sona
+  Soraka
+  Swain
+  Thresh
+  TwistedFate
+  Veigar
+  Vladimir
+  Zilean
+  Zyra
 Pantheon 81
   Ahri
   Amumu
@@ -6640,15 +6649,14 @@ Skarner 95
   Ziggs
   Zilean
   Zyra
-Sona 7
+Sona 6
   Anivia
   Annie
   Karthus
   Kled
   Lulu
   Lux
-  Orianna
-Soraka 12
+Soraka 11
   Anivia
   Annie
   Caitlyn
@@ -6658,10 +6666,9 @@ Soraka 12
   Lulu
   Lux
   MissFortune
-  Orianna
   Sona
   Veigar
-Swain 23
+Swain 22
   Anivia
   Annie
   Caitlyn
@@ -6677,7 +6684,6 @@ Swain 23
   Lux
   MissFortune
   Nami
-  Orianna
   Sona
   Soraka
   Thresh
@@ -7069,7 +7075,7 @@ Teemo 35
   Xerath
   Zilean
   Zyra
-Thresh 10
+Thresh 9
   Anivia
   Annie
   FiddleSticks
@@ -7077,7 +7083,6 @@ Thresh 10
   Karthus
   Kled
   Nami
-  Orianna
   Sona
   Zilean
 Tristana 66
@@ -7403,7 +7408,7 @@ Tryndamere 129 (has passive)
   Ziggs
   Zilean
   Zyra
-TwistedFate 18
+TwistedFate 17
   Anivia
   Annie
   Caitlyn
@@ -7415,7 +7420,6 @@ TwistedFate 18
   Lulu
   Lux
   MissFortune
-  Orianna
   Sona
   Soraka
   Thresh
@@ -7776,7 +7780,7 @@ Varus 53
   Xerath
   Zilean
   Zyra
-Vayne 35
+Vayne 34
   Anivia
   Annie
   Azir
@@ -7799,7 +7803,6 @@ Vayne 35
   MissFortune
   Nami
   Nidalee
-  Orianna
   Sona
   Soraka
   Swain
@@ -7812,13 +7815,12 @@ Vayne 35
   Xerath
   Zilean
   Zyra
-Veigar 7
+Veigar 6
   Anivia
   Annie
   Janna
   Karthus
   Kled
-  Orianna
   Sona
 Velkoz 23
   Ahri
@@ -7926,7 +7928,7 @@ Vi 81
   Ziggs
   Zilean
   Zyra
-Viktor 36
+Viktor 35
   Anivia
   Annie
   Azir
@@ -7950,7 +7952,6 @@ Viktor 36
   MissFortune
   Nami
   Nidalee
-  Orianna
   Sona
   Soraka
   Swain
@@ -7963,7 +7964,7 @@ Viktor 36
   Xerath
   Zilean
   Zyra
-Vladimir 29
+Vladimir 28
   Anivia
   Annie
   Azir
@@ -7982,7 +7983,6 @@ Vladimir 29
   Lux
   MissFortune
   Nami
-  Orianna
   Sona
   Soraka
   Swain
@@ -8738,16 +8738,15 @@ Ziggs 44
   Xerath
   Zilean
   Zyra
-Zilean 8
+Zilean 7
   Annie
   Caitlyn
   Graves
   Karthus
   Kled
   Nami
-  Orianna
   Sona
-Zyra 16
+Zyra 15
   Anivia
   Annie
   Caitlyn
@@ -8759,7 +8758,6 @@ Zyra 16
   Lux
   MissFortune
   Nami
-  Orianna
   Sona
   Thresh
   Veigar

@@ -36,7 +36,6 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 
 ## TODO
 - Fix stat-relative buffs to include all stats (not just base).
-- Implement correct handling of damage from on-hit effects.
 - Percent armor mods (for xin and kayle).
 - Split out dragon.dart into package:data_dragon instead of lol_duel.
 - Split lolsim.dart into smaller files.
@@ -62,9 +61,7 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Master Yi Double Strike passive (non-trivial)
 - Nautalis passive (needs stun)
 - Nocturn passive (aoe, unclear how best to do dmg-modified autos)
-- Oriana passive (needs on-hit dmg)
 - Pantheon passive (needs blocked)
-- Tahm Kench passive (needs on-hit dmg)
 - Taric passive (needs an ability to be useful)
 - Wukong passive (needs proximity)
 - Xin Zhao passive (needs percent armor mod)
