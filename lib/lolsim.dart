@@ -556,6 +556,11 @@ class Mob {
     updateStats(); // needed?
   }
 
+  void removeBuff(Buff buff) {
+    buff.expire();
+    buffs.remove(buff);
+  }
+
   Mob computeAttackTarget() {
     if (lastTarget == null) return null;
     if (state != MobState.ready) return null;

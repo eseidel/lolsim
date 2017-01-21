@@ -15,7 +15,7 @@ class Orianna extends ChampionEffects {
         .firstWhere((buff) => buff is ClockworkWinding, orElse: () => null);
     if (lastTargetBuff == null) return null;
     if (lastTarget == hit.target) return lastTargetBuff;
-    lastTarget.buffs.remove(lastTargetBuff);
+    lastTarget.removeBuff(lastTargetBuff);
     return null;
   }
 

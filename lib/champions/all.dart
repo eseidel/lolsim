@@ -1,5 +1,6 @@
 export 'darius.dart';
 export 'drmundo.dart';
+export 'ekko.dart';
 export 'jarvaniv.dart';
 export 'jax.dart';
 export 'nasus.dart';
