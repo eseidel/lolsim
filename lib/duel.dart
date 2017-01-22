@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:yaml/yaml.dart';
 
-import 'dragon.dart';
+import 'creator.dart';
 import 'mastery_pages.dart';
 import 'rune_pages.dart';
 import 'lolsim.dart';
@@ -16,9 +16,9 @@ class Duel {
 }
 
 class DuelLoader {
-  final DragonData dragonData;
+  final Creator creator;
 
-  DuelLoader(this.dragonData);
+  DuelLoader(this.creator);
 
   void addMinions(List<Mob> mobs, int count, MinionType type) {
     if (count != null)
@@ -29,7 +29,7 @@ class DuelLoader {
     String masteriesJson = new File(yamlMasteries['path']).readAsStringSync();
     MasteryPageList pageList = new MasteryPageList.fromJson(
       JSON.decode(masteriesJson),
-      dragonData.masteries,
+      creator.dragon.masteries,
     );
     return pageList.pages[yamlMasteries['page_index']];
   }
@@ -38,19 +38,19 @@ class DuelLoader {
     String runesJson = new File(yamlRunes['path']).readAsStringSync();
     RunePageList pageList = new RunePageList.fromJson(
       JSON.decode(runesJson),
-      dragonData.runes,
+      creator.dragon.runes,
     );
     return pageList.pages[yamlRunes['page_index']];
   }
 
   Mob loadChampion(YamlMap yamlMob) {
-    Mob mob = dragonData.champs.championByName(yamlMob['name']);
+    Mob mob = creator.champs.championByName(yamlMob['name']);
     print('${mob.name} ${mob.type}');
     mob.level = yamlMob['level'] ?? 1;
     YamlList yamlItems = yamlMob['items'];
     if (yamlItems != null) {
-      yamlItems.forEach((String itemName) =>
-          mob.addItem(dragonData.items.itemByName(itemName)));
+      yamlItems.forEach(
+          (String itemName) => mob.addItem(creator.items.itemByName(itemName)));
     }
     YamlMap yamlMasteries = yamlMob['masteries'];
     if (yamlMasteries != null) {

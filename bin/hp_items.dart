@@ -1,6 +1,6 @@
 #!/usr/local/bin/dart
 import 'package:lol_duel/common_args.dart';
-import 'package:lol_duel/dragon.dart';
+import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
 
 class _Computed {
@@ -17,19 +17,19 @@ class _Computed {
 main(List<String> args) async {
   handleCommonArgs(args);
 
-  DragonData data = await DragonData.loadLatest();
-  Mob champ = data.champs.championByName('Irelia');
+  Creator creator = await Creator.loadLatest();
+  Mob champ = creator.champs.championByName('Irelia');
   champ.level = 18;
   Stats stats = champ.computeStats();
   print(stats.debugString());
   print("Php: ${stats.physicalEffectiveHealth.round()}");
   print("Mhp: ${stats.magicalEffectiveHealth.round()}");
 
-  champ.addItem(data.items.itemByName('Sunfire Cape'));
-  champ.addItem(data.items.itemByName('Thornmail'));
-  champ.addItem(data.items.itemByName('Knight\'s Vow'));
-  champ.addItem(data.items.itemByName('Randuin\'s Omen'));
-  champ.addItem(data.items.itemByName('Dead Man\'s Plate'));
+  champ.addItem(creator.items.itemByName('Sunfire Cape'));
+  champ.addItem(creator.items.itemByName('Thornmail'));
+  champ.addItem(creator.items.itemByName('Knight\'s Vow'));
+  champ.addItem(creator.items.itemByName('Randuin\'s Omen'));
+  champ.addItem(creator.items.itemByName('Dead Man\'s Plate'));
 
   Stats withItems = champ.computeStats();
   withItems.armor += 40; // HACK: For Knight's vow.
@@ -37,7 +37,7 @@ main(List<String> args) async {
   print("Php: ${withItems.physicalEffectiveHealth.round()}");
   print("Mhp: ${withItems.magicalEffectiveHealth.round()}");
 
-  List<Item> items = data.items
+  List<Item> items = creator.items
       .allItems()
       .where((item) =>
           item.isAvailableOn(Maps.CURRENT_SUMMONERS_RIFT) &&

@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:logging/logging.dart';
 import 'package:lol_duel/common_args.dart';
-import 'package:lol_duel/dragon.dart';
+import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/duel.dart';
 import 'package:lol_duel/lolsim.dart';
 
@@ -17,8 +17,8 @@ main(List<String> args) async {
     exit(1);
   }
 
-  DragonData data = await DragonData.loadLatest();
-  DuelLoader duelLoader = new DuelLoader(data);
+  Creator creator = await Creator.loadLatest();
+  DuelLoader duelLoader = new DuelLoader(creator);
 
   Duel duel = await duelLoader.duelFromYamlPath(results.rest.first);
   print("${duel.blues} vs. ${duel.reds}");

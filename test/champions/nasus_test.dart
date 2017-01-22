@@ -1,10 +1,10 @@
-import "package:lol_duel/dragon.dart";
+import "package:lol_duel/creator.dart";
 import 'package:lol_duel/lolsim.dart';
 import "package:test/test.dart";
 import 'package:lol_duel/champions/nasus.dart';
 
 main() async {
-  DragonData data = await DragonData.loadLatest();
+  Creator data = await Creator.loadLatest();
   group("Soul Eater", () {
     test("basic", () {
       Mob nasus = data.champs.championById('Nasus');

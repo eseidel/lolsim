@@ -1,10 +1,10 @@
-import "package:lol_duel/dragon.dart";
+import "package:lol_duel/creator.dart";
 import 'package:lol_duel/lolsim.dart';
 import "package:test/test.dart";
 import 'package:lol_duel/champions/singed.dart';
 
 main() async {
-  DragonData data = await DragonData.loadLatest();
+  Creator data = await Creator.loadLatest();
   group("Empowered Bulwark", () {
     test("basic", () {
       Mob singed = data.champs.championById('Singed');

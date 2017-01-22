@@ -1,10 +1,10 @@
-import "package:lol_duel/dragon.dart";
+import "package:lol_duel/creator.dart";
 import 'package:lol_duel/lolsim.dart';
 import "package:test/test.dart";
 import 'package:lol_duel/champions/drmundo.dart';
 
 main() async {
-  DragonData data = await DragonData.loadLatest();
+  Creator data = await Creator.loadLatest();
   group("Adrenaline Rush", () {
     test("basic", () {
       Mob mundo = data.champs.championById('DrMundo');

@@ -1,11 +1,11 @@
-import "package:lol_duel/dragon.dart";
+import "package:lol_duel/creator.dart";
 import 'package:lol_duel/lolsim.dart';
 import "package:test/test.dart";
 import '../test_mob.dart';
 import 'package:lol_duel/champions/lulu.dart';
 
 main() async {
-  DragonData data = await DragonData.loadLatest();
+  Creator data = await Creator.loadLatest();
   group('Pix', () {
     test('basic', () {
       Mob lulu = data.champs.championById('Lulu');

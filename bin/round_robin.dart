@@ -1,9 +1,9 @@
-import 'package:logging/logging.dart';
 import 'package:args/args.dart';
-import 'package:lol_duel/dragon.dart';
+import 'package:logging/logging.dart';
+import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:trotter/trotter.dart';
-import 'package:lol_duel/champions.dart';
 
 int champCompare(Mob red, Mob blue) {
   World world = new World(
@@ -90,7 +90,7 @@ main(List<String> args) async {
   ArgResults argResults = parser.parse(args);
   if (argResults['verbose']) Logger.root.level = Level.ALL;
 
-  DragonData data = await DragonData.loadLatest();
+  Creator data = await Creator.loadLatest();
   List<String> champIds = data.champs.loadChampIds();
   Map<String, ChampResults> resultsById = {};
   champIds.forEach((id) => resultsById[id] = new ChampResults(id));

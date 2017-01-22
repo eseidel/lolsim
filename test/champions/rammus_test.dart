@@ -1,10 +1,10 @@
-import "package:lol_duel/dragon.dart";
+import "package:lol_duel/creator.dart";
 import 'package:lol_duel/lolsim.dart';
 import "package:test/test.dart";
 import 'package:lol_duel/champions/rammus.dart';
 
 main() async {
-  DragonData data = await DragonData.loadLatest();
+  Creator data = await Creator.loadLatest();
   group("Spiked Shell", () {
     test("basic", () {
       // Should test against Armor reduction

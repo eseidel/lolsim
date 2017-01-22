@@ -1,11 +1,11 @@
-import "package:lol_duel/dragon.dart";
+import "package:lol_duel/creator.dart";
 import 'package:lol_duel/lolsim.dart';
 import "package:test/test.dart";
 import 'package:lol_duel/champions/ekko.dart';
 import '../test_mob.dart';
 
 main() async {
-  DragonData data = await DragonData.loadLatest();
+  Creator data = await Creator.loadLatest();
   group('Z-Drive Resonance', () {
     test('basic', () {
       Mob ekko = data.champs.championById('Ekko');

@@ -1,4 +1,4 @@
-import "package:lol_duel/dragon.dart";
+import "package:lol_duel/creator.dart";
 import 'package:lol_duel/lolsim.dart';
 import "package:test/test.dart";
 import 'package:lol_duel/champions/tahm_kench.dart';
@@ -6,7 +6,7 @@ import 'package:matcher/matcher.dart';
 import '../test_mob.dart';
 
 main() async {
-  DragonData data = await DragonData.loadLatest();
+  Creator data = await Creator.loadLatest();
   group("An Acquired Taste", () {
     test("basic", () {
       Mob tahm = data.champs.championById('TahmKench');

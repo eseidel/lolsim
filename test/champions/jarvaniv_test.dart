@@ -1,5 +1,5 @@
 import 'package:lol_duel/champions/jarvaniv.dart';
-import 'package:lol_duel/dragon.dart';
+import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:test/test.dart';
 import 'package:matcher/matcher.dart';
@@ -7,7 +7,7 @@ import 'package:matcher/matcher.dart';
 import '../test_mob.dart';
 
 main() async {
-  DragonData data = await DragonData.loadLatest();
+  Creator data = await Creator.loadLatest();
   group('Martial Cadence', () {
     test('basic', () {
       Mob jarvan = data.champs.championById('JarvanIV');

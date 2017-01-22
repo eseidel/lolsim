@@ -231,13 +231,13 @@ Future<String> _ioReader(String path) {
   return new Resource(path).readAsString();
 }
 
-Future<DragonData> loadDragonData(String dataDir, StringReader reader) async {
+Future<DragonData2> loadDragonData(String dataDir, StringReader reader) async {
   String championString = await reader(dataDir + '/champion.json');
   String itemString = await reader(dataDir + '/item.json');
   String masteryString = await reader(dataDir + '/mastery.json');
   String runeString = await reader(dataDir + '/rune.json');
 
-  return new DragonData(
+  return new DragonData2(
     new ChampionFactory(JSON.decode(championString)),
     new ItemFactory(JSON.decode(itemString)),
     new MasteryLibrary(JSON.decode(masteryString)),
@@ -245,15 +245,15 @@ Future<DragonData> loadDragonData(String dataDir, StringReader reader) async {
   );
 }
 
-class DragonData {
+class DragonData2 {
   final ChampionFactory champs;
   final ItemFactory items;
   final MasteryLibrary masteries;
   final RuneFactory runes;
 
-  DragonData(this.champs, this.items, this.masteries, this.runes);
+  DragonData2(this.champs, this.items, this.masteries, this.runes);
 
-  static Future<DragonData> loadLatest({StringReader reader = _ioReader}) {
+  static Future<DragonData2> loadLatest({StringReader reader = _ioReader}) {
     return loadDragonData(DATA_DIR, reader);
   }
 }
