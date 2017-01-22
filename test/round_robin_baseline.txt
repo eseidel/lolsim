@@ -70,75 +70,75 @@ Morgana       59
 Riven         60                   
 Taric         62                   
 Yasuo         62                   
-Diana         63                   
 Lucian        63                   
 Poppy         64                   
 RekSai        64                   
-Tristana      66                   
-Amumu         70                   
-Shen          71                   
-Kalista       72                   
-Fiora         73                   
-Nautilus      75                   
-Aatrox        76                   
-Braum         76                   
-Fizz          76                   
-Kassadin      78                   
-Pantheon      79                   
-Draven        80                   
-Khazix        80                   
-Vi            80                   
-Zed           82         (has passive)
-Sion          85                   
-Yorick        85                   
-Renekton      86                   
-XinZhao       86                   
-Ekko          87         (has passive)
-Twitch        88         (has passive)
-Nunu          89                   
-Rengar        89                   
-Leona         90                   
-Hecarim       92                   
-Talon         92                   
-Udyr          92                   
-Blitzcrank    93                   
-Skarner       93                   
-Camille       94                   
-Illaoi        94                   
-Garen         95                   
-Malphite      95                   
-Galio         97                   
-LeeSin        97                   
-Zac           97                   
-Katarina      98                   
-MonkeyKing    99                   
-Chogath       101                  
-DrMundo       102        (has passive)
-Nasus         102        (has passive)
-Alistar       108                  
-Nocturne      109                  
-Rammus        109        (has passive)
-Gragas        110                  
-Shaco         110                  
-Rumble        112                  
-Akali         114                  
-Urgot         114        (has passive)
-MasterYi      118                  
-JarvanIV      119        (has passive)
-Sejuani       120                  
-Shyvana       120                  
-Singed        120        (has passive)
-Irelia        121                  
-Warwick       124                  
-Trundle       125                  
-Maokai        127                  
+Tristana      65                   
+Amumu         69                   
+Shen          70                   
+Kalista       71                   
+Fiora         72                   
+Nautilus      74                   
+Aatrox        75                   
+Braum         75                   
+Fizz          75                   
+Kassadin      77                   
+Pantheon      78                   
+Draven        79                   
+Khazix        79                   
+Vi            79                   
+Zed           81         (has passive)
+Sion          84                   
+Yorick        84                   
+Renekton      85                   
+XinZhao       85                   
+Ekko          86         (has passive)
+Twitch        87         (has passive)
+Nunu          88                   
+Rengar        88                   
+Leona         89                   
+Hecarim       91                   
+Talon         91                   
+Udyr          91                   
+Blitzcrank    92                   
+Skarner       92                   
+Camille       93                   
+Illaoi        93                   
+Garen         94                   
+Malphite      94                   
+Galio         96                   
+LeeSin        96                   
+Zac           96                   
+Katarina      97                   
+MonkeyKing    98                   
+Chogath       100                  
+DrMundo       101        (has passive)
+Nasus         101        (has passive)
+Alistar       107                  
+Nocturne      108                  
+Rammus        108        (has passive)
+Gragas        109                  
+Shaco         109                  
+Rumble        111                  
+Akali         113                  
+Urgot         113        (has passive)
+MasterYi      117                  
+JarvanIV      118        (has passive)
+Sejuani       119                  
+Shyvana       119                  
+Singed        119        (has passive)
+Irelia        120                  
+Warwick       123                  
+Trundle       124                  
+Maokai        126                  
+Diana         127        (has passive)
 Jax           129        (has passive)
 TahmKench     129        (has passive)
 Tryndamere    129        (has passive)
 Volibear      131        (has passive)
 Darius        132        (has passive)
 Olaf          133        (has passive)
-Aatrox 76
+Aatrox 75
   Ahri
   Amumu
   Anivia
@@ -151,7 +151,6 @@ Aatrox 76
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Elise
   Evelynn
   Ezreal
@@ -254,7 +253,7 @@ Ahri 38
   Vladimir
   Zilean
   Zyra
-Akali 114
+Akali 113
   Aatrox
   Ahri
   Alistar
@@ -273,7 +272,6 @@ Akali 114
   Cassiopeia
   Chogath
   Corki
-  Diana
   DrMundo
   Draven
   Ekko
@@ -369,7 +367,7 @@ Akali 114
   Ziggs
   Zilean
   Zyra
-Alistar 108
+Alistar 107
   Aatrox
   Ahri
   Amumu
@@ -386,7 +384,6 @@ Alistar 108
   Cassiopeia
   Chogath
   Corki
-  Diana
   DrMundo
   Draven
   Ekko
@@ -478,7 +475,7 @@ Alistar 108
   Ziggs
   Zilean
   Zyra
-Amumu 70
+Amumu 69
   Ahri
   Anivia
   Annie
@@ -490,7 +487,6 @@ Amumu 70
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Elise
   Evelynn
@@ -713,7 +709,7 @@ Bard 31
   Viktor
   Zilean
   Zyra
-Blitzcrank 93
+Blitzcrank 92
   Aatrox
   Ahri
   Amumu
@@ -728,7 +724,6 @@ Blitzcrank 93
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Elise
   Evelynn
@@ -842,7 +837,7 @@ Brand 34
   Vladimir
   Zilean
   Zyra
-Braum 76
+Braum 75
   Ahri
   Amumu
   Anivia
@@ -855,7 +850,6 @@ Braum 76
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Elise
   Evelynn
   Ezreal
@@ -933,7 +927,7 @@ Caitlyn 13
   Sona
   Thresh
   Veigar
-Camille 94
+Camille 93
   Aatrox
   Ahri
   Amumu
@@ -948,7 +942,6 @@ Camille 94
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Elise
   Evelynn
@@ -1072,7 +1065,7 @@ Cassiopeia 43
   Xerath
   Zilean
   Zyra
-Chogath 101
+Chogath 100
   Aatrox
   Ahri
   Amumu
@@ -1087,7 +1080,6 @@ Chogath 101
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Ekko
   Elise
@@ -1342,71 +1334,135 @@ Darius 132 (has passive)
   Ziggs
   Zilean
   Zyra
-Diana 63
+Diana 127 (has passive)
+  Aatrox
   Ahri
+  Akali
+  Alistar
+  Amumu
   Anivia
   Annie
   Ashe
   AurelionSol
   Azir
   Bard
+  Blitzcrank
   Brand
+  Braum
   Caitlyn
+  Camille
   Cassiopeia
+  Chogath
   Corki
+  DrMundo
+  Draven
+  Ekko
   Elise
   Evelynn
   Ezreal
   FiddleSticks
+  Fiora
+  Fizz
+  Galio
+  Gangplank
+  Garen
   Gnar
+  Gragas
   Graves
+  Hecarim
   Heimerdinger
+  Illaoi
+  Irelia
   Ivern
   Janna
+  JarvanIV
   Jayce
   Jhin
   Jinx
+  Kalista
   Karma
   Karthus
+  Kassadin
+  Katarina
   Kayle
   Kennen
+  Khazix
   Kindred
   Kled
   KogMaw
   Leblanc
+  LeeSin
+  Leona
   Lissandra
+  Lucian
   Lulu
   Lux
+  Malphite
   Malzahar
+  Maokai
+  MasterYi
   MissFortune
+  MonkeyKing
   Mordekaiser
   Morgana
   Nami
+  Nasus
+  Nautilus
   Nidalee
+  Nocturne
+  Nunu
   Orianna
+  Pantheon
+  Poppy
   Quinn
+  Rammus
+  RekSai
+  Renekton
+  Rengar
+  Riven
+  Rumble
   Ryze
+  Sejuani
+  Shaco
+  Shen
+  Shyvana
+  Singed
+  Sion
   Sivir
+  Skarner
   Sona
   Soraka
   Swain
   Syndra
   Taliyah
+  Talon
+  Taric
   Teemo
   Thresh
+  Tristana
+  Trundle
   TwistedFate
+  Twitch
+  Udyr
+  Urgot
   Varus
   Vayne
   Veigar
   Velkoz
+  Vi
   Viktor
   Vladimir
+  Warwick
   Xerath
+  XinZhao
   Yasuo
+  Yorick
+  Zac
+  Zed
   Ziggs
   Zilean
   Zyra
-DrMundo 102 (has passive)
+DrMundo 101 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -1421,7 +1477,6 @@ DrMundo 102 (has passive)
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Ekko
   Elise
@@ -1509,7 +1564,7 @@ DrMundo 102 (has passive)
   Ziggs
   Zilean
   Zyra
-Draven 80
+Draven 79
   Aatrox
   Ahri
   Anivia
@@ -1523,7 +1578,6 @@ Draven 80
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Elise
   Evelynn
   Ezreal
@@ -1590,7 +1644,7 @@ Draven 80
   Ziggs
   Zilean
   Zyra
-Ekko 87 (has passive)
+Ekko 86 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -1605,7 +1659,6 @@ Ekko 87 (has passive)
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Elise
   Evelynn
@@ -1773,7 +1826,7 @@ FiddleSticks 5
   Karthus
   Kled
   Sona
-Fiora 73
+Fiora 72
   Ahri
   Anivia
   Annie
@@ -1785,7 +1838,6 @@ Fiora 73
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Elise
   Evelynn
   Ezreal
@@ -1847,7 +1899,7 @@ Fiora 73
   Ziggs
   Zilean
   Zyra
-Fizz 76
+Fizz 75
   Aatrox
   Ahri
   Amumu
@@ -1862,7 +1914,6 @@ Fizz 76
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Elise
   Evelynn
   Ezreal
@@ -1924,7 +1975,7 @@ Fizz 76
   Ziggs
   Zilean
   Zyra
-Galio 97
+Galio 96
   Aatrox
   Ahri
   Amumu
@@ -1939,7 +1990,6 @@ Galio 97
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Ekko
   Elise
@@ -2079,7 +2129,7 @@ Gangplank 56
   Ziggs
   Zilean
   Zyra
-Garen 95
+Garen 94
   Aatrox
   Ahri
   Amumu
@@ -2094,7 +2144,6 @@ Garen 95
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Elise
   Evelynn
@@ -2194,7 +2243,7 @@ Gnar 18
   TwistedFate
   Veigar
   Zilean
-Gragas 110
+Gragas 109
   Aatrox
   Ahri
   Akali
@@ -2213,7 +2262,6 @@ Gragas 110
   Cassiopeia
   Chogath
   Corki
-  Diana
   DrMundo
   Draven
   Ekko
@@ -2321,7 +2369,7 @@ Graves 15
   Thresh
   TwistedFate
   Veigar
-Hecarim 92
+Hecarim 91
   Aatrox
   Ahri
   Amumu
@@ -2336,7 +2384,6 @@ Hecarim 92
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Elise
   Evelynn
@@ -2432,7 +2479,7 @@ Heimerdinger 17
   Soraka
   TwistedFate
   Veigar
-Illaoi 94
+Illaoi 93
   Aatrox
   Ahri
   Amumu
@@ -2447,7 +2494,6 @@ Illaoi 94
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Elise
   Evelynn
@@ -2527,7 +2573,7 @@ Illaoi 94
   Ziggs
   Zilean
   Zyra
-Irelia 121
+Irelia 120
   Aatrox
   Ahri
   Akali
@@ -2547,7 +2593,6 @@ Irelia 121
   Cassiopeia
   Chogath
   Corki
-  Diana
   DrMundo
   Draven
   Ekko
@@ -2701,7 +2746,7 @@ Janna 4
   Karthus
   Kled
   Sona
-JarvanIV 119 (has passive)
+JarvanIV 118 (has passive)
   Aatrox
   Ahri
   Akali
@@ -2721,7 +2766,6 @@ JarvanIV 119 (has passive)
   Cassiopeia
   Chogath
   Corki
-  Diana
   DrMundo
   Draven
   Ekko
@@ -3080,7 +3124,7 @@ Jinx 51
   Ziggs
   Zilean
   Zyra
-Kalista 72
+Kalista 71
   Ahri
   Amumu
   Anivia
@@ -3093,7 +3137,6 @@ Kalista 72
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Elise
   Evelynn
   Ezreal
@@ -3177,7 +3220,7 @@ Karma 21
   Zyra
 Karthus 1
   Kled
-Kassadin 78
+Kassadin 77
   Aatrox
   Ahri
   Amumu
@@ -3191,7 +3234,6 @@ Kassadin 78
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Elise
   Evelynn
@@ -3256,7 +3298,7 @@ Kassadin 78
   Ziggs
   Zilean
   Zyra
-Katarina 98
+Katarina 97
   Aatrox
   Ahri
   Amumu
@@ -3271,7 +3313,6 @@ Katarina 98
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Ekko
   Elise
@@ -3459,7 +3500,7 @@ Kennen 47
   Xerath
   Zilean
   Zyra
-Khazix 80
+Khazix 79
   Aatrox
   Ahri
   Amumu
@@ -3474,7 +3515,6 @@ Khazix 80
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Elise
   Evelynn
   Ezreal
@@ -3654,7 +3694,7 @@ Leblanc 27
   Xerath
   Zilean
   Zyra
-LeeSin 97
+LeeSin 96
   Aatrox
   Ahri
   Amumu
@@ -3671,7 +3711,6 @@ LeeSin 97
   Cassiopeia
   Chogath
   Corki
-  Diana
   DrMundo
   Draven
   Ekko
@@ -3752,7 +3791,7 @@ LeeSin 97
   Ziggs
   Zilean
   Zyra
-Leona 90
+Leona 89
   Aatrox
   Ahri
   Amumu
@@ -3767,7 +3806,6 @@ Leona 90
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Elise
   Evelynn
@@ -3923,7 +3961,7 @@ Lux 3
   Anivia
   Annie
   Kled
-Malphite 95
+Malphite 94
   Aatrox
   Ahri
   Amumu
@@ -3938,7 +3976,6 @@ Malphite 95
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Elise
   Evelynn
@@ -4045,7 +4082,7 @@ Malzahar 25
   Veigar
   Zilean
   Zyra
-Maokai 127
+Maokai 126
   Aatrox
   Ahri
   Akali
@@ -4065,7 +4102,6 @@ Maokai 127
   Cassiopeia
   Chogath
   Corki
-  Diana
   DrMundo
   Draven
   Ekko
@@ -4173,7 +4209,7 @@ Maokai 127
   Ziggs
   Zilean
   Zyra
-MasterYi 118
+MasterYi 117
   Aatrox
   Ahri
   Akali
@@ -4191,7 +4227,6 @@ MasterYi 118
   Camille
   Cassiopeia
   Corki
-  Diana
   Draven
   Ekko
   Elise
@@ -4308,7 +4343,7 @@ MissFortune 15
   Thresh
   Veigar
   Zilean
-MonkeyKing 99
+MonkeyKing 98
   Aatrox
   Ahri
   Amumu
@@ -4325,7 +4360,6 @@ MonkeyKing 99
   Camille
   Cassiopeia
   Corki
-  Diana
   Draven
   Ekko
   Elise
@@ -4533,7 +4567,7 @@ Nami 12
   Sona
   Soraka
   Veigar
-Nasus 102 (has passive)
+Nasus 101 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -4550,7 +4584,6 @@ Nasus 102 (has passive)
   Camille
   Cassiopeia
   Corki
-  Diana
   Draven
   Ekko
   Elise
@@ -4636,7 +4669,7 @@ Nasus 102 (has passive)
   Ziggs
   Zilean
   Zyra
-Nautilus 75
+Nautilus 74
   Ahri
   Amumu
   Anivia
@@ -4649,7 +4682,6 @@ Nautilus 75
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Elise
   Evelynn
   Ezreal
@@ -4733,7 +4765,7 @@ Nidalee 20
   Veigar
   Zilean
   Zyra
-Nocturne 109
+Nocturne 108
   Aatrox
   Ahri
   Amumu
@@ -4750,7 +4782,6 @@ Nocturne 109
   Camille
   Cassiopeia
   Corki
-  Diana
   Draven
   Ekko
   Elise
@@ -4843,7 +4874,7 @@ Nocturne 109
   Ziggs
   Zilean
   Zyra
-Nunu 89
+Nunu 88
   Aatrox
   Ahri
   Amumu
@@ -4858,7 +4889,6 @@ Nunu 89
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Elise
   Evelynn
@@ -5096,7 +5126,7 @@ Orianna 28 (has passive)
   Vladimir
   Zilean
   Zyra
-Pantheon 79
+Pantheon 78
   Ahri
   Amumu
   Anivia
@@ -5110,7 +5140,6 @@ Pantheon 79
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Elise
   Evelynn
   Ezreal
@@ -5298,7 +5327,7 @@ Quinn 56
   Ziggs
   Zilean
   Zyra
-Rammus 109 (has passive)
+Rammus 108 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -5315,7 +5344,6 @@ Rammus 109 (has passive)
   Camille
   Cassiopeia
   Corki
-  Diana
   Draven
   Ekko
   Elise
@@ -5473,7 +5501,7 @@ RekSai 64
   Ziggs
   Zilean
   Zyra
-Renekton 86
+Renekton 85
   Aatrox
   Ahri
   Amumu
@@ -5488,7 +5516,6 @@ Renekton 86
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Elise
   Evelynn
@@ -5560,7 +5587,7 @@ Renekton 86
   Ziggs
   Zilean
   Zyra
-Rengar 89
+Rengar 88
   Aatrox
   Ahri
   Amumu
@@ -5575,7 +5602,6 @@ Rengar 89
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Elise
   Evelynn
@@ -5711,7 +5737,7 @@ Riven 60
   Ziggs
   Zilean
   Zyra
-Rumble 112
+Rumble 111
   Aatrox
   Ahri
   Akali
@@ -5730,7 +5756,6 @@ Rumble 112
   Cassiopeia
   Chogath
   Corki
-  Diana
   DrMundo
   Draven
   Ekko
@@ -5879,7 +5904,7 @@ Ryze 54
   Ziggs
   Zilean
   Zyra
-Sejuani 120
+Sejuani 119
   Aatrox
   Ahri
   Akali
@@ -5899,7 +5924,6 @@ Sejuani 120
   Cassiopeia
   Chogath
   Corki
-  Diana
   DrMundo
   Draven
   Ekko
@@ -6000,7 +6024,7 @@ Sejuani 120
   Ziggs
   Zilean
   Zyra
-Shaco 110
+Shaco 109
   Aatrox
   Ahri
   Alistar
@@ -6019,7 +6043,6 @@ Shaco 110
   Cassiopeia
   Chogath
   Corki
-  Diana
   DrMundo
   Draven
   Ekko
@@ -6111,7 +6134,7 @@ Shaco 110
   Ziggs
   Zilean
   Zyra
-Shen 71
+Shen 70
   Ahri
   Anivia
   Annie
@@ -6123,7 +6146,6 @@ Shen 71
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Elise
   Evelynn
   Ezreal
@@ -6183,7 +6205,7 @@ Shen 71
   Ziggs
   Zilean
   Zyra
-Shyvana 120
+Shyvana 119
   Aatrox
   Ahri
   Akali
@@ -6203,7 +6225,6 @@ Shyvana 120
   Cassiopeia
   Chogath
   Corki
-  Diana
   DrMundo
   Draven
   Ekko
@@ -6304,7 +6325,7 @@ Shyvana 120
   Ziggs
   Zilean
   Zyra
-Singed 120 (has passive)
+Singed 119 (has passive)
   Aatrox
   Ahri
   Akali
@@ -6324,7 +6345,6 @@ Singed 120 (has passive)
   Cassiopeia
   Chogath
   Corki
-  Diana
   DrMundo
   Draven
   Ekko
@@ -6425,7 +6445,7 @@ Singed 120 (has passive)
   Ziggs
   Zilean
   Zyra
-Sion 85
+Sion 84
   Aatrox
   Ahri
   Amumu
@@ -6440,7 +6460,6 @@ Sion 85
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Elise
   Evelynn
   Ezreal
@@ -6552,7 +6571,7 @@ Sivir 40
   Ziggs
   Zilean
   Zyra
-Skarner 93
+Skarner 92
   Aatrox
   Ahri
   Amumu
@@ -6567,7 +6586,6 @@ Skarner 93
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Elise
   Evelynn
@@ -6878,7 +6896,7 @@ Taliyah 34
   Ziggs
   Zilean
   Zyra
-Talon 92
+Talon 91
   Aatrox
   Ahri
   Amumu
@@ -6893,7 +6911,6 @@ Talon 92
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Elise
   Evelynn
@@ -7080,7 +7097,7 @@ Thresh 9
   Nami
   Sona
   Zilean
-Tristana 66
+Tristana 65
   Ahri
   Anivia
   Annie
@@ -7092,7 +7109,6 @@ Tristana 66
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Elise
   Evelynn
   Ezreal
@@ -7147,7 +7163,7 @@ Tristana 66
   Ziggs
   Zilean
   Zyra
-Trundle 125
+Trundle 124
   Aatrox
   Ahri
   Akali
@@ -7167,7 +7183,6 @@ Trundle 125
   Cassiopeia
   Chogath
   Corki
-  Diana
   DrMundo
   Draven
   Ekko
@@ -7421,7 +7436,7 @@ TwistedFate 17
   Veigar
   Zilean
   Zyra
-Twitch 88 (has passive)
+Twitch 87 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -7436,7 +7451,6 @@ Twitch 88 (has passive)
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Elise
   Evelynn
   Ezreal
@@ -7510,7 +7524,7 @@ Twitch 88 (has passive)
   Ziggs
   Zilean
   Zyra
-Udyr 92
+Udyr 91
   Aatrox
   Ahri
   Amumu
@@ -7525,7 +7539,6 @@ Udyr 92
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Ekko
   Elise
@@ -7603,7 +7616,7 @@ Udyr 92
   Ziggs
   Zilean
   Zyra
-Urgot 114 (has passive)
+Urgot 113 (has passive)
   Aatrox
   Ahri
   Akali
@@ -7623,7 +7636,6 @@ Urgot 114 (has passive)
   Cassiopeia
   Chogath
   Corki
-  Diana
   DrMundo
   Draven
   Ekko
@@ -7838,7 +7850,7 @@ Velkoz 23
   Veigar
   Zilean
   Zyra
-Vi 80
+Vi 79
   Ahri
   Amumu
   Anivia
@@ -7852,7 +7864,6 @@ Vi 80
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Ekko
   Elise
   Evelynn
@@ -8116,7 +8127,7 @@ Volibear 131 (has passive)
   Ziggs
   Zilean
   Zyra
-Warwick 124
+Warwick 123
   Aatrox
   Ahri
   Akali
@@ -8136,7 +8147,6 @@ Warwick 124
   Cassiopeia
   Chogath
   Corki
-  Diana
   DrMundo
   Draven
   Ekko
@@ -8267,7 +8277,7 @@ Xerath 25
   Veigar
   Zilean
   Zyra
-XinZhao 86
+XinZhao 85
   Aatrox
   Ahri
   Amumu
@@ -8282,7 +8292,6 @@ XinZhao 86
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Elise
   Evelynn
@@ -8417,7 +8426,7 @@ Yasuo 62
   Ziggs
   Zilean
   Zyra
-Yorick 85
+Yorick 84
   Aatrox
   Ahri
   Anivia
@@ -8431,7 +8440,6 @@ Yorick 85
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Elise
   Evelynn
@@ -8503,7 +8511,7 @@ Yorick 85
   Ziggs
   Zilean
   Zyra
-Zac 97
+Zac 96
   Aatrox
   Ahri
   Amumu
@@ -8518,7 +8526,6 @@ Zac 97
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Elise
   Evelynn
@@ -8601,7 +8608,7 @@ Zac 97
   Ziggs
   Zilean
   Zyra
-Zed 82 (has passive)
+Zed 81 (has passive)
   Ahri
   Amumu
   Anivia
@@ -8614,7 +8621,6 @@ Zed 82 (has passive)
   Caitlyn
   Cassiopeia
   Corki
-  Diana
   Draven
   Elise
   Evelynn

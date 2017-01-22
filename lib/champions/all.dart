@@ -1,4 +1,5 @@
 export 'darius.dart';
+export 'diana.dart';
 export 'drmundo.dart';
 export 'ekko.dart';
 export 'jarvaniv.dart';
