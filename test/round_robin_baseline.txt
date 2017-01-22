@@ -94,41 +94,41 @@ Renekton      85
 XinZhao       85                   
 Ekko          86         (has passive)
 Twitch        87         (has passive)
+Leona         88                   
 Nunu          88                   
 Rengar        88                   
-Leona         89                   
+Talon         90                   
 Hecarim       91                   
-Talon         91                   
 Udyr          91                   
 Blitzcrank    92                   
+Illaoi        92                   
 Skarner       92                   
 Camille       93                   
-Illaoi        93                   
 Garen         94                   
 Malphite      94                   
-Galio         96                   
+Galio         95                   
 LeeSin        96                   
 Zac           96                   
 Katarina      97                   
 MonkeyKing    98                   
-Chogath       100                  
-DrMundo       101        (has passive)
+Chogath       99                   
+DrMundo       100        (has passive)
 Nasus         101        (has passive)
-Alistar       107                  
-Nocturne      108                  
-Rammus        108        (has passive)
+Alistar       106                  
+Rammus        107        (has passive)
 Gragas        109                  
 Shaco         109                  
-Rumble        111                  
-Akali         113                  
+Rumble        110                  
+Akali         112                  
 Urgot         113        (has passive)
-MasterYi      117                  
-JarvanIV      118        (has passive)
+MasterYi      116                  
+JarvanIV      117        (has passive)
+Shyvana       118                  
+Irelia        119                  
 Sejuani       119                  
-Shyvana       119                  
 Singed        119        (has passive)
-Irelia        120                  
-Warwick       123                  
+Nocturne      121        (has passive)
+Warwick       122                  
 Trundle       124                  
 Maokai        126                  
 Diana         127        (has passive)
@@ -252,7 +252,7 @@ Ahri 37
   Vladimir
   Zilean
   Zyra
-Akali 113
+Akali 112
   Aatrox
   Ahri
   Alistar
@@ -321,7 +321,6 @@ Akali 113
   Nasus
   Nautilus
   Nidalee
-  Nocturne
   Nunu
   Orianna
   Pantheon
@@ -366,7 +365,7 @@ Akali 113
   Ziggs
   Zilean
   Zyra
-Alistar 107
+Alistar 106
   Aatrox
   Ahri
   Amumu
@@ -431,7 +430,6 @@ Alistar 107
   Nami
   Nautilus
   Nidalee
-  Nocturne
   Orianna
   Pantheon
   Poppy
@@ -1059,7 +1057,7 @@ Cassiopeia 43
   Xerath
   Zilean
   Zyra
-Chogath 100
+Chogath 99
   Aatrox
   Ahri
   Amumu
@@ -1119,7 +1117,6 @@ Chogath 100
   Nami
   Nautilus
   Nidalee
-  Nocturne
   Orianna
   Pantheon
   Poppy
@@ -1455,7 +1452,7 @@ Diana 127 (has passive)
   Ziggs
   Zilean
   Zyra
-DrMundo 101 (has passive)
+DrMundo 100 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -1515,7 +1512,6 @@ DrMundo 101 (has passive)
   Nami
   Nautilus
   Nidalee
-  Nocturne
   Nunu
   Orianna
   Pantheon
@@ -1966,7 +1962,7 @@ Fizz 75
   Ziggs
   Zilean
   Zyra
-Galio 96
+Galio 95
   Aatrox
   Ahri
   Amumu
@@ -2023,7 +2019,6 @@ Galio 96
   Nami
   Nautilus
   Nidalee
-  Nocturne
   Nunu
   Orianna
   Pantheon
@@ -2466,7 +2461,7 @@ Heimerdinger 16
   Soraka
   TwistedFate
   Veigar
-Illaoi 93
+Illaoi 92
   Aatrox
   Ahri
   Amumu
@@ -2522,7 +2517,6 @@ Illaoi 93
   Nami
   Nautilus
   Nidalee
-  Nocturne
   Orianna
   Pantheon
   Poppy
@@ -2560,7 +2554,7 @@ Illaoi 93
   Ziggs
   Zilean
   Zyra
-Irelia 120
+Irelia 119
   Aatrox
   Ahri
   Akali
@@ -2632,7 +2626,6 @@ Irelia 120
   Nasus
   Nautilus
   Nidalee
-  Nocturne
   Nunu
   Orianna
   Pantheon
@@ -2733,7 +2726,7 @@ Janna 4
   Karthus
   Kled
   Sona
-JarvanIV 118 (has passive)
+JarvanIV 117 (has passive)
   Aatrox
   Ahri
   Akali
@@ -2804,7 +2797,6 @@ JarvanIV 118 (has passive)
   Nasus
   Nautilus
   Nidalee
-  Nocturne
   Nunu
   Orianna
   Pantheon
@@ -3773,7 +3765,7 @@ LeeSin 96
   Ziggs
   Zilean
   Zyra
-Leona 89
+Leona 88
   Aatrox
   Ahri
   Amumu
@@ -3827,7 +3819,6 @@ Leona 89
   Nami
   Nautilus
   Nidalee
-  Nocturne
   Orianna
   Pantheon
   Poppy
@@ -4225,7 +4216,7 @@ Maokai 126
   Ziggs
   Zilean
   Zyra
-MasterYi 117
+MasterYi 116
   Aatrox
   Ahri
   Akali
@@ -4294,7 +4285,6 @@ MasterYi 117
   Nasus
   Nautilus
   Nidalee
-  Nocturne
   Nunu
   Orianna
   Pantheon
@@ -4776,9 +4766,11 @@ Nidalee 19
   Veigar
   Zilean
   Zyra
-Nocturne 108
+Nocturne 121 (has passive)
   Aatrox
   Ahri
+  Akali
+  Alistar
   Amumu
   Anivia
   Annie
@@ -4792,7 +4784,9 @@ Nocturne 108
   Caitlyn
   Camille
   Cassiopeia
+  Chogath
   Corki
+  DrMundo
   Draven
   Ekko
   Elise
@@ -4801,6 +4795,7 @@ Nocturne 108
   FiddleSticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Garen
   Gnar
@@ -4808,8 +4803,11 @@ Nocturne 108
   Graves
   Hecarim
   Heimerdinger
+  Illaoi
+  Irelia
   Ivern
   Janna
+  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -4826,6 +4824,7 @@ Nocturne 108
   KogMaw
   Leblanc
   LeeSin
+  Leona
   Lissandra
   Lucian
   Lulu
@@ -4845,13 +4844,16 @@ Nocturne 108
   Pantheon
   Poppy
   Quinn
+  Rammus
   RekSai
   Renekton
   Rengar
   Riven
+  Rumble
   Ryze
   Shaco
   Shen
+  Shyvana
   Singed
   Sion
   Sivir
@@ -4861,6 +4863,7 @@ Nocturne 108
   Swain
   Syndra
   Taliyah
+  Talon
   Taric
   Teemo
   Thresh
@@ -5337,7 +5340,7 @@ Quinn 56
   Ziggs
   Zilean
   Zyra
-Rammus 108 (has passive)
+Rammus 107 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -5400,7 +5403,6 @@ Rammus 108 (has passive)
   Nasus
   Nautilus
   Nidalee
-  Nocturne
   Nunu
   Orianna
   Pantheon
@@ -5747,7 +5749,7 @@ Riven 60
   Ziggs
   Zilean
   Zyra
-Rumble 111
+Rumble 110
   Aatrox
   Ahri
   Akali
@@ -5814,7 +5816,6 @@ Rumble 111
   Nasus
   Nautilus
   Nidalee
-  Nocturne
   Nunu
   Orianna
   Pantheon
@@ -6214,7 +6215,7 @@ Shen 70
   Ziggs
   Zilean
   Zyra
-Shyvana 119
+Shyvana 118
   Aatrox
   Ahri
   Akali
@@ -6286,7 +6287,6 @@ Shyvana 119
   Nasus
   Nautilus
   Nidalee
-  Nocturne
   Nunu
   Orianna
   Pantheon
@@ -6899,7 +6899,7 @@ Taliyah 33
   Ziggs
   Zilean
   Zyra
-Talon 91
+Talon 90
   Aatrox
   Ahri
   Amumu
@@ -6954,7 +6954,6 @@ Talon 91
   Nami
   Nautilus
   Nidalee
-  Nocturne
   Orianna
   Pantheon
   Poppy
@@ -8125,7 +8124,7 @@ Volibear 131 (has passive)
   Ziggs
   Zilean
   Zyra
-Warwick 123
+Warwick 122
   Aatrox
   Ahri
   Akali
@@ -8199,7 +8198,6 @@ Warwick 123
   Nasus
   Nautilus
   Nidalee
-  Nocturne
   Nunu
   Orianna
   Pantheon

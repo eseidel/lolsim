@@ -6,6 +6,7 @@ export 'jarvaniv.dart';
 export 'jax.dart';
 export 'lulu.dart';
 export 'nasus.dart';
+export 'nocturne.dart';
 export 'olaf.dart';
 export 'orianna.dart';
 export 'rammus.dart';
