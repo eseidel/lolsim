@@ -49,7 +49,7 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Akali passive (CDR interaction? Second hit on a static 4s cooldown?)
 - Ashe passive (semi-complicated crit replacement) and Q
 - Braum passive (needs stuns)
-- Diana passive (how do stacks work? do they fall off?)
+- Caitlyn passive (crit modifier)
 - Fizz passive (unclear how to implement this kind of dmg reduction)
 - Graves AA modifier and passive (sounds hard to implement)
 - Gangplank passive (small effect, needs bonus ad split)
@@ -57,6 +57,7 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Kled passive (non-trivial to implement, needs non-targetable)
 - Malphite passive (needs shields)
 - Master Yi Double Strike passive (non-trivial, same as shivana twin bite)
+- Miss Fortune passive (on hit, small effect)
 - Nautalis passive (needs stun)
 - Nocturn passive (aoe, unclear how best to do dmg-modified autos)
 - Pantheon passive (needs blocked)

@@ -4,6 +4,7 @@ export 'drmundo.dart';
 export 'ekko.dart';
 export 'jarvaniv.dart';
 export 'jax.dart';
+export 'lulu.dart';
 export 'nasus.dart';
 export 'olaf.dart';
 export 'orianna.dart';
