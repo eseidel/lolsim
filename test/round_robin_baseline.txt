@@ -45,34 +45,34 @@ Brand         33
 Corki         33                   
 Taliyah       33                   
 Vayne         33                   
-Teemo         34                   
 Viktor        34                   
+Teemo         35                   
 Ahri          37                   
+Lulu          39         (has passive)
 Sivir         39                   
-Cassiopeia    42                   
-Ziggs         43                   
-Ivern         45                   
-Kennen        46                   
-Jayce         48                   
-Evelynn       50                   
-Jinx          50                   
+Cassiopeia    43                   
+Ziggs         44                   
+Ivern         46                   
+Kennen        47                   
+Jayce         49                   
 KogMaw        50                   
 Mordekaiser   50                   
 AurelionSol   51                   
-Varus         52                   
-Lulu          53         (has passive)
+Evelynn       51                   
+Jinx          51                   
 Ryze          53                   
-Ashe          54                   
+Varus         53                   
 Kayle         54                   
+Ashe          55                   
 Gangplank     55                   
-Quinn         55                   
+Quinn         56                   
 Morgana       58                   
-Riven         59                   
-Taric         61                   
-Yasuo         61                   
+Riven         60                   
+Taric         62                   
+Yasuo         62                   
 Lucian        63                   
-Poppy         63                   
-RekSai        63                   
+Poppy         64                   
+RekSai        64                   
 Tristana      65                   
 Amumu         69                   
 Shen          70                   
@@ -549,7 +549,7 @@ Anivia 1
 Annie 2
   Anivia
   Kled
-Ashe 54
+Ashe 55
   Ahri
   Anivia
   Annie
@@ -579,6 +579,7 @@ Ashe 54
   Kled
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -1014,7 +1015,7 @@ Camille 93
   Ziggs
   Zilean
   Zyra
-Cassiopeia 42
+Cassiopeia 43
   Anivia
   Annie
   Azir
@@ -1035,6 +1036,7 @@ Cassiopeia 42
   Kled
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -1739,7 +1741,7 @@ Elise 16
   TwistedFate
   Veigar
   Zilean
-Evelynn 50
+Evelynn 51
   Ahri
   Anivia
   Annie
@@ -1766,6 +1768,7 @@ Evelynn 50
   KogMaw
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -2678,7 +2681,7 @@ Irelia 120
   Ziggs
   Zilean
   Zyra
-Ivern 45
+Ivern 46
   Anivia
   Annie
   Azir
@@ -2701,6 +2704,7 @@ Ivern 45
   Kled
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -2978,7 +2982,7 @@ Jax 129 (has passive)
   Ziggs
   Zilean
   Zyra
-Jayce 48
+Jayce 49
   Ahri
   Anivia
   Annie
@@ -3004,6 +3008,7 @@ Jayce 48
   Kled
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -3053,7 +3058,7 @@ Jhin 25
   Veigar
   Zilean
   Zyra
-Jinx 50
+Jinx 51
   Ahri
   Anivia
   Annie
@@ -3080,6 +3085,7 @@ Jinx 50
   KogMaw
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -3430,7 +3436,7 @@ Kayle 54
   Ziggs
   Zilean
   Zyra
-Kennen 46
+Kennen 47
   Ahri
   Anivia
   Annie
@@ -3455,6 +3461,7 @@ Kennen 46
   Kled
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -3927,15 +3934,13 @@ Lucian 63
   Ziggs
   Zilean
   Zyra
-Lulu 53 (has passive)
+Lulu 39 (has passive)
   Ahri
   Anivia
   Annie
-  Ashe
   Azir
   Bard
   Caitlyn
-  Cassiopeia
   Corki
   Elise
   Ezreal
@@ -3943,16 +3948,10 @@ Lulu 53 (has passive)
   Gnar
   Graves
   Heimerdinger
-  Ivern
   Janna
-  Jayce
-  Jhin
   Karma
   Karthus
-  Kennen
-  Kindred
   Kled
-  Leblanc
   Lissandra
   Lux
   Malzahar
@@ -3961,24 +3960,18 @@ Lulu 53 (has passive)
   Nami
   Nidalee
   Orianna
-  Quinn
   Sona
   Soraka
   Swain
-  Syndra
   Taliyah
-  Teemo
   Thresh
   TwistedFate
-  Varus
   Vayne
   Veigar
   Velkoz
   Viktor
   Vladimir
   Xerath
-  Yasuo
-  Ziggs
   Zilean
   Zyra
 Lux 3
@@ -5222,7 +5215,7 @@ Pantheon 78
   Ziggs
   Zilean
   Zyra
-Poppy 63
+Poppy 64
   Ahri
   Anivia
   Annie
@@ -5255,6 +5248,7 @@ Poppy 63
   KogMaw
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -5286,7 +5280,7 @@ Poppy 63
   Ziggs
   Zilean
   Zyra
-Quinn 55
+Quinn 56
   Ahri
   Anivia
   Annie
@@ -5316,6 +5310,7 @@ Quinn 55
   KogMaw
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -5451,7 +5446,7 @@ Rammus 108 (has passive)
   Ziggs
   Zilean
   Zyra
-RekSai 63
+RekSai 64
   Ahri
   Anivia
   Annie
@@ -5484,6 +5479,7 @@ RekSai 63
   KogMaw
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -5690,7 +5686,7 @@ Rengar 88
   Ziggs
   Zilean
   Zyra
-Riven 59
+Riven 60
   Ahri
   Anivia
   Annie
@@ -5722,6 +5718,7 @@ Riven 59
   KogMaw
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -6994,7 +6991,7 @@ Talon 91
   Ziggs
   Zilean
   Zyra
-Taric 61
+Taric 62
   Ahri
   Anivia
   Annie
@@ -7025,6 +7022,7 @@ Taric 61
   KogMaw
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -7056,7 +7054,7 @@ Taric 61
   Ziggs
   Zilean
   Zyra
-Teemo 34
+Teemo 35
   Anivia
   Annie
   Azir
@@ -7073,6 +7071,7 @@ Teemo 34
   Kled
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -7733,7 +7732,7 @@ Urgot 113 (has passive)
   Ziggs
   Zilean
   Zyra
-Varus 52
+Varus 53
   Ahri
   Anivia
   Annie
@@ -7761,6 +7760,7 @@ Varus 52
   Kled
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -8360,7 +8360,7 @@ XinZhao 85
   Ziggs
   Zilean
   Zyra
-Yasuo 61
+Yasuo 62
   Ahri
   Anivia
   Annie
@@ -8393,6 +8393,7 @@ Yasuo 61
   KogMaw
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -8686,7 +8687,7 @@ Zed 81 (has passive)
   Ziggs
   Zilean
   Zyra
-Ziggs 43
+Ziggs 44
   Ahri
   Anivia
   Annie
@@ -8711,6 +8712,7 @@ Ziggs 43
   Kled
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune

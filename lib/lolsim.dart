@@ -403,7 +403,7 @@ class Mob {
   MasteryPage _masteryPage;
   RunePage _runePage;
   Stats stats; // updated per-tick.
-  int level = 1;
+  int _level = 1;
   double hpLost = 0.0;
   bool alive = true;
   MobState state;
@@ -416,6 +416,13 @@ class Mob {
   String get id => description.id;
   MobType get type => description.type;
   String get name => description.name;
+
+  int get level => _level;
+  void set level(int newLevel) {
+    assert(newLevel >= 1);
+    assert(newLevel <= 18);
+    _level = newLevel;
+  }
 
   bool get shouldRecordDamage => damageLog != null;
   void set shouldRecordDamage(bool flag) {
