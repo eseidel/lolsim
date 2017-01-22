@@ -36,6 +36,7 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 
 ## TODO
 - Fix stat-relative buffs to include all stats (not just base).
+- Figure out how to do ability passives.
 - Percent armor mods (for xin and kayle).
 - Split out dragon.dart into package:data_dragon instead of lol_duel.
 - Split lolsim.dart into smaller files.
@@ -43,18 +44,23 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Convert to integer math (ticks, etc.) to avoid double precision errors.
 - Implement in-combat/out-of-combat (more champs would die to darius and twitch dots).
 - Make round_robin spit out json and be able to compare lists.
+- Implement proximity (likely requires passing World more places).
 
 ## Passives missing affecting the lvl 1 round_robin sort.
 - Aatrox passive (complicated, likely requires bloodthirst to be useful)
 - Akali passive (CDR interaction? Second hit on a static 4s cooldown?)
 - Ashe passive (semi-complicated crit replacement) and Q
+- Blitzcrank passive (needs mana and shields)
 - Braum passive (needs stuns)
 - Caitlyn passive (crit modifier)
+- Camille passive (requires shields)
+- Elise passive (ai to really use it)
 - Fizz passive (unclear how to implement this kind of dmg reduction)
 - Graves AA modifier and passive (sounds hard to implement)
 - Gangplank passive (small effect, needs bonus ad split)
 - Kayle passive (needs percent armor mod)
-- Kled passive (non-trivial to implement, needs non-targetable)
+- Kha'Zix passive (on-hit, small effect, with abilities bigger)
+- Kled passive (very complicated, needs non-targetable)
 - Malphite passive (needs shields)
 - Master Yi Double Strike passive (non-trivial, same as shivana twin bite)
 - Miss Fortune passive (on hit, small effect)
@@ -73,6 +79,7 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Rammus ball curl
 - Teemo E passive
 - Tryndamere Q passive
+- Udyr all of his abilities
 - Vayne W passive
 - Volibear W Frenzy
 

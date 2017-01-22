@@ -127,9 +127,9 @@ Shyvana       118
 Irelia        119                  
 Sejuani       119                  
 Singed        119        (has passive)
-Nocturne      121        (has passive)
+Nocturne      122        (has passive)
 Warwick       122                  
-Trundle       124                  
+Trundle       123                  
 Maokai        126                  
 Diana         127        (has passive)
 Jax           129        (has passive)
@@ -4766,7 +4766,7 @@ Nidalee 19
   Veigar
   Zilean
   Zyra
-Nocturne 121 (has passive)
+Nocturne 122 (has passive)
   Aatrox
   Ahri
   Akali
@@ -4831,6 +4831,7 @@ Nocturne 121 (has passive)
   Lux
   Malphite
   Malzahar
+  MasterYi
   MissFortune
   MonkeyKing
   Mordekaiser
@@ -7165,7 +7166,7 @@ Tristana 65
   Ziggs
   Zilean
   Zyra
-Trundle 124
+Trundle 123
   Aatrox
   Ahri
   Akali
@@ -7239,7 +7240,6 @@ Trundle 124
   Nasus
   Nautilus
   Nidalee
-  Nocturne
   Nunu
   Orianna
   Pantheon

@@ -7,6 +7,17 @@ class Nocturne extends ChampionEffects {
   Mob nocturne;
   Nocturne(this.nocturne);
 
+  double _baseHealPerEnemyHitForLevel(int level) {
+    if (level < 7) return 10.0;
+    if (level < 13) return 18.0;
+    return 26.0;
+  }
+
+  double get healPerEnemyHit {
+    return _baseHealPerEnemyHitForLevel(nocturne.level) +
+        0.15 * nocturne.stats.abilityPower;
+  }
+
   // FIXME: This is implemented as a self-buff in game.
   @override
   void onHit(Hit hit) {
@@ -29,6 +40,9 @@ class Nocturne extends ChampionEffects {
       label: 'Umbra Blades',
       physicalDamage: 0.20 * nocturne.stats.attackDamage,
     ));
+
+    // FIXME: This should heal per target hit (when splashing)
+    nocturne.healFor(healPerEnemyHit, 'Umbra Blades');
   }
 }
 
