@@ -12,6 +12,32 @@ double attackDelayFromBaseAttackSpeed(double baseAttackSpeed) {
   return (0.625 / baseAttackSpeed) - 1.0;
 }
 
+class ItemDescription {
+  final String name;
+  final String id;
+  final Map<String, bool> maps;
+  final Map<String, num> stats;
+  final Map<String, dynamic> gold;
+  final List<String> tags;
+  final String requiredChampion;
+  final bool inStore;
+  final bool hideFromAll; // true for jungle enchants?
+  final bool hasEffects;
+
+  // FIXME: Should use items['basic'] for defaults.
+  ItemDescription.fromJson({Map<String, dynamic> json, String id})
+      : id = id,
+        name = json['name'],
+        maps = json['maps'],
+        tags = json['tags'],
+        gold = json['gold'],
+        requiredChampion = json['requiredChampion'],
+        inStore = json['in'],
+        hideFromAll = json['hideFromAll'],
+        stats = json['stats'],
+        hasEffects = (json['effect'] != null) {}
+}
+
 class ItemFactory {
   Map<String, Map<String, dynamic>> _json;
 
@@ -19,13 +45,16 @@ class ItemFactory {
 
   static List<Item> _allItemsCache = null;
 
+  // FIXME: Should be ItemDescriptions
   List<Item> allItems() {
     if (_allItemsCache == null) {
       _allItemsCache = new List.unmodifiable(
         _json['data'].keys.map(
-              (String itemId) => new Item.fromJSON(
-                    id: itemId,
-                    json: _json['data'][itemId] as Map<String, dynamic>,
+              (String itemId) => new Item(
+                    new ItemDescription.fromJson(
+                      id: itemId,
+                      json: _json['data'][itemId] as Map<String, dynamic>,
+                    ),
                   ),
             ),
       );
@@ -48,18 +77,6 @@ class RuneFactory {
   Map<String, Map<String, dynamic>> _json;
 
   RuneFactory(Map<String, Map<String, dynamic>> json) : _json = json;
-
-  List<Item> allRunes() {
-    return _json['data']
-        .keys
-        .map(
-          (String runeId) => new Item.fromJSON(
-                id: runeId,
-                json: _json['data'][runeId] as Map<String, dynamic>,
-              ),
-        )
-        .toList();
-  }
 
   Rune runeById(int id) {
     return new Rune.fromJSON(

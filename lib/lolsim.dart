@@ -67,46 +67,33 @@ class Rune {
 }
 
 class Item {
-  final String name;
-  final String id;
-  final Map<String, bool> maps;
-  final Map<String, num> stats;
-  final Map<String, dynamic> gold;
-  final List<String> tags;
-  final String requiredChampion;
-  final bool inStore;
-  final bool hideFromAll; // true for jungle enchants?
+  ItemDescription description;
   ItemEffects effects;
 
+  Item(this.description) {
+    effects = itemEffects[name];
+    if (effects == null && description.hasEffects) logMissingEffects();
+  }
+
+  String get name => description.name;
+  Map<String, num> get stats => description.stats;
+
   bool isAvailableOn(String mapId) {
-    return maps[mapId] == true;
+    return description.maps[mapId] == true;
   }
 
   bool get purchasable {
-    return gold['purchasable'] == true;
+    return description.gold['purchasable'] == true;
   }
 
   bool get generallyAvailable {
-    return gold['base'] > 0 && inStore != false && requiredChampion == null;
+    return description.gold['base'] > 0 &&
+        description.inStore != false &&
+        description.requiredChampion == null;
   }
 
   String toString() {
-    return "${name} (${gold['total']}g)";
-  }
-
-  // FIXME: Should use items['basic'] for defaults.
-  Item.fromJSON({Map<String, dynamic> json, String id})
-      : id = id,
-        name = json['name'],
-        maps = json['maps'],
-        tags = json['tags'],
-        gold = json['gold'],
-        requiredChampion = json['requiredChampion'],
-        inStore = json['in'],
-        hideFromAll = json['hideFromAll'],
-        stats = json['stats'] {
-    effects = itemEffects[name];
-    if (effects == null && json['effect'] != null) logMissingEffects();
+    return "${name} (${description.gold['total']}g)";
   }
 
   static Set _loggedEffects = new Set();

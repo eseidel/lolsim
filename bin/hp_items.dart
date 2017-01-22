@@ -4,13 +4,12 @@ import 'package:lol_duel/dragon.dart';
 import 'package:lol_duel/lolsim.dart';
 
 class _Computed {
-  Item item;
+  ItemDescription item;
   final int cost;
   final int hpMod;
   final int gPerHp;
-  _Computed(Item item)
-      : item = item,
-        hpMod = item.stats['FlatHPPoolMod'],
+  _Computed(this.item)
+      : hpMod = item.stats['FlatHPPoolMod'],
         cost = item.gold['total'],
         gPerHp = (item.gold['total'] / item.stats['FlatHPPoolMod']) {}
 }
@@ -49,7 +48,7 @@ main(List<String> args) async {
         num hpMod = item.stats['FlatHPPoolMod'];
         return hpMod != null && hpMod > 0;
       })
-      .map((item) => new _Computed(item))
+      .map((item) => new _Computed(item.description))
       .toList();
   hpResults.sort((a, b) => a.gPerHp.compareTo(b.gPerHp));
   // hpResults.forEach((result) {
