@@ -38,37 +38,25 @@ class ItemDescription {
         hasEffects = (json['effect'] != null) {}
 }
 
-class ItemFactory {
+class ItemLibrary {
   Map<String, Map<String, dynamic>> _json;
 
-  ItemFactory(Map<String, Map<String, dynamic>> json) : _json = json;
+  ItemLibrary(Map<String, Map<String, dynamic>> json) : _json = json;
 
-  static List<Item> _allItemsCache = null;
+  static List<ItemDescription> _allItemsCache = null;
 
-  // FIXME: Should be ItemDescriptions
-  List<Item> allItems() {
+  List<ItemDescription> all() {
     if (_allItemsCache == null) {
       _allItemsCache = new List.unmodifiable(
         _json['data'].keys.map(
-              (String itemId) => new Item(
-                    new ItemDescription.fromJson(
-                      id: itemId,
-                      json: _json['data'][itemId] as Map<String, dynamic>,
-                    ),
+              (String itemId) => new ItemDescription.fromJson(
+                    id: itemId,
+                    json: _json['data'][itemId] as Map<String, dynamic>,
                   ),
             ),
       );
     }
     return _allItemsCache;
-  }
-
-  Item itemByName(String name) {
-    try {
-      return allItems().firstWhere((item) => item.name == name);
-    } catch (e) {
-      _log.severe("No item maching $name");
-      return null;
-    }
   }
 }
 
@@ -239,7 +227,7 @@ Future<DragonData2> loadDragonData(String dataDir, StringReader reader) async {
 
   return new DragonData2(
     new ChampionFactory(JSON.decode(championString)),
-    new ItemFactory(JSON.decode(itemString)),
+    new ItemLibrary(JSON.decode(itemString)),
     new MasteryLibrary(JSON.decode(masteryString)),
     new RuneFactory(JSON.decode(runeString)),
   );
@@ -247,7 +235,7 @@ Future<DragonData2> loadDragonData(String dataDir, StringReader reader) async {
 
 class DragonData2 {
   final ChampionFactory champs;
-  final ItemFactory items;
+  final ItemLibrary items;
   final MasteryLibrary masteries;
   final RuneFactory runes;
 
