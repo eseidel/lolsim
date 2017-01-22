@@ -38,7 +38,7 @@ class DuelLoader {
     String runesJson = new File(yamlRunes['path']).readAsStringSync();
     RunePageList pageList = new RunePageList.fromJson(
       JSON.decode(runesJson),
-      creator.dragon.runes,
+      creator.runes,
     );
     return pageList.pages[yamlRunes['page_index']];
   }

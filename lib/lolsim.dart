@@ -35,10 +35,15 @@ abstract class ItemEffects {
 }
 
 class Rune {
-  final String name;
-  final int id;
-  String statName;
-  double statValue;
+  RuneDescription description;
+
+  Rune(this.description) {
+    logIfMissingStats();
+  }
+
+  String get name => description.name;
+  String get statName => description.statName;
+  double get statValue => description.statValue;
 
   String toString() {
     return "${name}";
@@ -46,23 +51,10 @@ class Rune {
 
   static Set _loggedRuneNames = new Set();
   void logIfMissingStats() {
-    if (statName != null) return;
+    if (description.statName != null) return;
     if (_loggedRuneNames.contains(name)) return;
     _loggedRuneNames.add(name);
     _log.warning('Rune ${name} has no stats!');
-  }
-
-  // FIXME: Should use items['basic'] for defaults.
-  Rune.fromJSON({Map<String, dynamic> json, int id})
-      : id = id,
-        name = json['name'] {
-    assert(json['rune']['isrune'] == true);
-    Map<String, num> stats = json['stats'];
-    if (stats.length == 1) {
-      statName = stats.keys.first;
-      statValue = stats.values.first;
-    }
-    logIfMissingStats();
   }
 }
 

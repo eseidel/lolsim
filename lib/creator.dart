@@ -28,14 +28,26 @@ class ItemFactory {
   }
 }
 
+class RuneFactory {
+  RuneLibrary library;
+
+  RuneFactory(this.library);
+
+  Rune runeById(int id) {
+    return new Rune(library.runeById(id));
+  }
+}
+
 class Creator {
   DragonData2 dragon;
   ChampionFactory champs;
   ItemFactory items;
+  RuneFactory runes;
 
   Creator(this.dragon)
       : champs = dragon.champs,
-        items = new ItemFactory(dragon.items);
+        items = new ItemFactory(dragon.items),
+        runes = new RuneFactory(dragon.runes);
 
   static Future<Creator> loadLatest() async {
     return new Creator(await DragonData2.loadLatest());

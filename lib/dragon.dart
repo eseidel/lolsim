@@ -1,9 +1,11 @@
-import 'dart:convert';
 import 'dart:async';
-import 'package:lol_duel/lolsim.dart';
+import 'dart:convert';
+
 import 'package:logging/logging.dart';
-import 'package:resource/resource.dart';
 import 'package:meta/meta.dart';
+import 'package:resource/resource.dart';
+
+import 'lolsim.dart';
 
 const String DATA_DIR = 'package:dragon_data/6.24.1/data/en_US';
 final Logger _log = new Logger('dragon');
@@ -60,14 +62,32 @@ class ItemLibrary {
   }
 }
 
-// This could share code with ItemFactory?
-class RuneFactory {
+class RuneDescription {
+  final String name;
+  final int id;
+  final String statName;
+  final double statValue;
+
+  RuneDescription.fromJSON({Map<String, dynamic> json, int id})
+      : id = id,
+        name = json['name'],
+        statName =
+            json['stats'].keys.length == 1 ? json['stats'].keys.first : null,
+        statValue = json['stats'].values.length == 1
+            ? json['stats'].values.first
+            : null {
+    assert(json['rune']['isrune'] == true);
+  }
+}
+
+// This could share code with ItemLibrary?
+class RuneLibrary {
   Map<String, Map<String, dynamic>> _json;
 
-  RuneFactory(Map<String, Map<String, dynamic>> json) : _json = json;
+  RuneLibrary(Map<String, Map<String, dynamic>> json) : _json = json;
 
-  Rune runeById(int id) {
-    return new Rune.fromJSON(
+  RuneDescription runeById(int id) {
+    return new RuneDescription.fromJSON(
       id: id,
       json: _json['data'][id.toString()],
     );
@@ -229,7 +249,7 @@ Future<DragonData2> loadDragonData(String dataDir, StringReader reader) async {
     new ChampionFactory(JSON.decode(championString)),
     new ItemLibrary(JSON.decode(itemString)),
     new MasteryLibrary(JSON.decode(masteryString)),
-    new RuneFactory(JSON.decode(runeString)),
+    new RuneLibrary(JSON.decode(runeString)),
   );
 }
 
@@ -237,7 +257,7 @@ class DragonData2 {
   final ChampionFactory champs;
   final ItemLibrary items;
   final MasteryLibrary masteries;
-  final RuneFactory runes;
+  final RuneLibrary runes;
 
   DragonData2(this.champs, this.items, this.masteries, this.runes);
 

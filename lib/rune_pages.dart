@@ -1,5 +1,5 @@
 import 'lolsim.dart';
-import 'dragon.dart';
+import 'creator.dart';
 
 // typedef double _Combiner(double a, double b);
 // double _Add(double a, double b) => a + b;
