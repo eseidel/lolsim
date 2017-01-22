@@ -34,6 +34,7 @@ class Ekko extends ChampionEffects {
           label: buff.name,
           magicDamage: onHitDamage,
         ));
+        // FIXME: Movespeed buff not implemented.
       }
     }
   }

@@ -50,7 +50,6 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Ashe passive (semi-complicated crit replacement) and Q
 - Braum passive (needs stuns)
 - Diana passive (how do stacks work? do they fall off?)
-- Ekko passive (when does the per-target cooldown start?)
 - Fizz passive (unclear how to implement this kind of dmg reduction)
 - Graves AA modifier and passive (sounds hard to implement)
 - Gangplank passive (small effect, needs bonus ad split)

@@ -52,7 +52,7 @@ class AnAcquiredTaste extends StackedBuff {
           target: target,
           duration: 5.0,
           maxStacks: 3,
-          timeBetweenFalloffs: .25,
+          timeBetweenFalloffs: .5, // According to lolwiki.
           name: 'An Acquired Taste',
         ) {}
 }
