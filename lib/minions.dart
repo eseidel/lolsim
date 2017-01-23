@@ -24,7 +24,7 @@ final MobDescription meleeMinionDescription = new MobDescription.fromJson({
       'attackdamageperlevel': 0.0,
       'attackrange': 110.0,
     }),
-}, MobType.minion);
+});
 
 final MobDescription rangedMinionDescription = new MobDescription.fromJson({
   'name': 'Ranged Minion',
@@ -37,7 +37,7 @@ final MobDescription rangedMinionDescription = new MobDescription.fromJson({
       'attackdamageperlevel': 1.5,
       'attackrange': 550.0,
     }),
-}, MobType.minion);
+});
 
 final MobDescription siegeMinionDescription = new MobDescription.fromJson({
   'name': 'Siege Minion',
@@ -50,7 +50,7 @@ final MobDescription siegeMinionDescription = new MobDescription.fromJson({
       'attackdamageperlevel': 1.5,
       'attackrange': 300.0,
     }),
-}, MobType.minion);
+});
 
 final MobDescription superMinionDescription = new MobDescription.fromJson({
   'name': 'Siege Minion',
@@ -65,4 +65,4 @@ final MobDescription superMinionDescription = new MobDescription.fromJson({
       'armor': 30.0,
       'spellblock': -30.0,
     }),
-}, MobType.minion);
+});

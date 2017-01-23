@@ -12,11 +12,9 @@ Mob createTestMob({
   double hp5: 0.0,
   List<Mastery> masteries: const [],
 }) {
-  // FIXME: This shouldn't modify the shared description!
   Mob mob = new Mob(
     new MobDescription(
       name: 'Test Mob',
-      type: type,
       baseStats: new BaseStats(
         armor: armor,
         armorPerLevel: 0.0,
@@ -34,6 +32,7 @@ Mob createTestMob({
         spellBlockPerLevel: 0.0,
       ),
     ),
+    type,
   );
   if (masteries.isNotEmpty) {
     mob.masteryPage = new MasteryPage(

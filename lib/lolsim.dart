@@ -370,8 +370,16 @@ class Healing extends TickingBuff {
 
 enum MinionType { melee, caster, siege, superMinion }
 
+enum MobType {
+  champion,
+  minion,
+  monster,
+  structure,
+}
+
 class Mob {
   MobDescription description;
+  MobType type;
   Team team;
 
   Mob lastTarget;
@@ -389,11 +397,19 @@ class Mob {
   DamageLog damageLog = null;
   ChampionEffects effects = null;
 
+  Mob(this.description, this.type) {
+    ChampionEffectsConstructor effectsConstructor =
+        championEffectsConstructors[id];
+    if (effectsConstructor != null) effects = effectsConstructor(this);
+    updateStats();
+    if (effects != null) effects.onChampionCreate();
+    revive();
+  }
+
   double get currentHp => max(0.0, stats.hp - hpLost);
   double get healthPercent => currentHp / stats.hp;
 
   String get id => description.id;
-  MobType get type => description.type;
   String get name => description.name;
 
   int get level => _level;
@@ -441,25 +457,16 @@ class Mob {
   static Mob createMinion(MinionType type) {
     switch (type) {
       case MinionType.melee:
-        return new Mob(meleeMinionDescription);
+        return new Mob(meleeMinionDescription, MobType.minion);
       case MinionType.caster:
-        return new Mob(rangedMinionDescription);
+        return new Mob(rangedMinionDescription, MobType.minion);
       case MinionType.siege:
-        return new Mob(siegeMinionDescription);
+        return new Mob(siegeMinionDescription, MobType.minion);
       case MinionType.superMinion:
-        return new Mob(superMinionDescription);
+        return new Mob(superMinionDescription, MobType.minion);
     }
     assert(false);
     return null;
-  }
-
-  Mob(this.description) {
-    ChampionEffectsConstructor effectsConstructor =
-        championEffectsConstructors[id];
-    if (effectsConstructor != null) effects = effectsConstructor(this);
-    updateStats();
-    if (effects != null) effects.onChampionCreate();
-    revive();
   }
 
   static Set _warnedStats = new Set();

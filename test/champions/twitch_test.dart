@@ -1,6 +1,5 @@
 import 'package:lol_duel/champions/twitch.dart';
 import "package:lol_duel/creator.dart";
-import "package:lol_duel/dragon.dart";
 import 'package:lol_duel/lolsim.dart';
 import "package:test/test.dart";
 

@@ -5,8 +5,6 @@ import 'package:logging/logging.dart';
 import 'dragon.dart';
 import 'lolsim.dart';
 
-export 'dragon.dart';
-
 final Logger _log = new Logger('creator');
 
 class ItemFactory {
@@ -38,6 +36,30 @@ class RuneFactory {
   }
 }
 
+class ChampionFactory {
+  ChampionLibrary library;
+
+  ChampionFactory(this.library);
+
+  Iterable<Mob> allChamps() {
+    return library
+        .allChamps()
+        .map((description) => new Mob(description, MobType.champion));
+  }
+
+  Mob championById(String id) {
+    MobDescription description = library.championById(id);
+    if (description == null) return null;
+    return new Mob(description, MobType.champion);
+  }
+
+  Mob championByName(String name) {
+    MobDescription description = library.championByName(name);
+    if (description == null) return null;
+    return new Mob(description, MobType.champion);
+  }
+}
+
 class Creator {
   DragonData2 dragon;
   ChampionFactory champs;
@@ -45,7 +67,7 @@ class Creator {
   RuneFactory runes;
 
   Creator(this.dragon)
-      : champs = dragon.champs,
+      : champs = new ChampionFactory(dragon.champs),
         items = new ItemFactory(dragon.items),
         runes = new RuneFactory(dragon.runes);
 

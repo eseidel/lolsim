@@ -4,8 +4,7 @@ import 'dart:convert';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:resource/resource.dart';
-
-import 'lolsim.dart';
+import 'stats.dart';
 
 const String DATA_DIR = 'package:dragon_data/6.24.1/data/en_US';
 final Logger _log = new Logger('dragon');
@@ -156,39 +155,30 @@ class MasteryLibrary {
   }
 }
 
-enum MobType {
-  champion,
-  minion,
-  monster,
-  structure,
-}
-
 class MobDescription {
   final String id;
   final String name;
   final String title;
   final BaseStats baseStats;
-  final MobType type;
 
   MobDescription({
     this.name,
     @required this.baseStats,
-    @required this.type,
     this.id,
     this.title,
   });
 
-  MobDescription.fromJson(Map<String, dynamic> json, this.type)
+  MobDescription.fromJson(Map<String, dynamic> json)
       : baseStats = new BaseStats.fromJSON(json['stats']),
         id = json['id'],
         name = json['name'],
         title = json['title'] {}
 }
 
-class ChampionFactory {
+class ChampionLibrary {
   Map<String, Map<String, dynamic>> _json;
 
-  ChampionFactory(Map<String, Map<String, dynamic>> json) : _json = json;
+  ChampionLibrary(Map<String, Map<String, dynamic>> json) : _json = json;
 
   List<String> loadChampIds() {
     return _json['data'].keys.toList();
@@ -201,32 +191,27 @@ class ChampionFactory {
         .toList();
   }
 
-  // FIXME: This should be MobDescription.
-  Iterable<Mob> allChamps() {
+  Iterable<MobDescription> allChamps() {
     return _json['data'].values.map(
-          (champ) => new Mob(new MobDescription.fromJson(
+          (champ) => new MobDescription.fromJson(
                 champ as Map<String, dynamic>,
-                MobType.champion,
-              )),
+              ),
         );
   }
 
-  // FIXME: This should be MobDescription.
-  Mob championById(String id) {
+  MobDescription championById(String id) {
     Map<String, dynamic> json = _json['data'][id] as Map<String, dynamic>;
     if (json == null) {
       _log.severe("No champion matching id $id.");
       return null;
     }
-    return new Mob(new MobDescription.fromJson(json, MobType.champion));
+    return new MobDescription.fromJson(json);
   }
 
-  // FIXME: This should be MobDescription.
-  Mob championByName(String name) {
+  MobDescription championByName(String name) {
     for (Map<String, dynamic> champJson in _json['data'].values) {
       if (champJson['name'] == name)
-        return new Mob(
-            new MobDescription.fromJson(champJson, MobType.champion));
+        return new MobDescription.fromJson(champJson);
     }
     _log.severe("No champion matching name $name.");
     return null;
@@ -246,7 +231,7 @@ Future<DragonData2> loadDragonData(String dataDir, StringReader reader) async {
   String runeString = await reader(dataDir + '/rune.json');
 
   return new DragonData2(
-    new ChampionFactory(JSON.decode(championString)),
+    new ChampionLibrary(JSON.decode(championString)),
     new ItemLibrary(JSON.decode(itemString)),
     new MasteryLibrary(JSON.decode(masteryString)),
     new RuneLibrary(JSON.decode(runeString)),
@@ -254,7 +239,7 @@ Future<DragonData2> loadDragonData(String dataDir, StringReader reader) async {
 }
 
 class DragonData2 {
-  final ChampionFactory champs;
+  final ChampionLibrary champs;
   final ItemLibrary items;
   final MasteryLibrary masteries;
   final RuneLibrary runes;

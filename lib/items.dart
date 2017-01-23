@@ -3,7 +3,6 @@
 // a one-off.
 
 import 'package:lol_duel/lolsim.dart';
-import 'package:lol_duel/dragon.dart';
 
 // FIXME: This is a unique effect.
 class DoransShield extends ItemEffects {

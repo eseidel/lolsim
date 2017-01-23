@@ -91,7 +91,7 @@ main(List<String> args) async {
   if (argResults['verbose']) Logger.root.level = Level.ALL;
 
   Creator data = await Creator.loadLatest();
-  List<String> champIds = data.champs.loadChampIds();
+  List<String> champIds = data.dragon.champs.loadChampIds();
   Map<String, ChampResults> resultsById = {};
   champIds.forEach((id) => resultsById[id] = new ChampResults(id));
   Combinations combos = new Combinations(2, champIds);

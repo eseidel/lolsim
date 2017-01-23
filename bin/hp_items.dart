@@ -2,6 +2,7 @@
 import 'package:lol_duel/common_args.dart';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
+import 'package:lol_duel/dragon.dart';
 
 class _Computed {
   ItemDescription item;

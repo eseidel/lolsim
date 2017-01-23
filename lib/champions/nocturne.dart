@@ -1,6 +1,5 @@
 import 'package:lol_duel/buffs.dart';
 import 'package:lol_duel/champions.dart';
-import 'package:lol_duel/dragon.dart';
 import 'package:lol_duel/lolsim.dart';
 
 class Nocturne extends ChampionEffects {
