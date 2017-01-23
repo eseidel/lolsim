@@ -119,13 +119,6 @@ class Mastery {
   }
 }
 
-abstract class PeriodicGlobalEffect {
-  double period;
-
-  bool tick(double timeDelta);
-  void apply();
-}
-
 // FIXME: Support AA Resets.
 class AutoAttackCooldown extends Cooldown {
   AutoAttackCooldown(Mob target, double duration)
@@ -862,15 +855,7 @@ class World {
     } while (!condition(this));
   }
 
-  Iterable<Mob> get livingBlues {
-    return blues.where((Mob mob) => mob.alive);
-  }
-
-  Iterable<Mob> get livingReds {
-    return reds.where((Mob mob) => mob.alive);
-  }
-
-  Iterable<Mob> get living {
-    return allMobs.where((Mob mob) => mob.alive);
-  }
+  Iterable<Mob> get livingBlues => blues.where((Mob mob) => mob.alive);
+  Iterable<Mob> get livingReds => reds.where((Mob mob) => mob.alive);
+  Iterable<Mob> get living => allMobs.where((Mob mob) => mob.alive);
 }
