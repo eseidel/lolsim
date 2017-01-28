@@ -2,7 +2,7 @@ Standing still and AAing-to-death all 8911 pairs of 134 champions
 using no items, runes or masteries or abilities.
 Note: A few have passives implemented, as indicated.
 
-Name          Victories  Status    
+Name          Victories  Skills    
 ===================================
 Kled          0                    
 Anivia        1                    
@@ -37,7 +37,7 @@ Malzahar      24
 Xerath        24                   
 Jhin          25                   
 Leblanc       26                   
-Orianna       27         (has passive)
+Orianna       27         P         
 Vladimir      27                   
 Bard          30                   
 Kindred       32                   
@@ -48,7 +48,7 @@ Vayne         33
 Viktor        34                   
 Teemo         35                   
 Ahri          37                   
-Lulu          39         (has passive)
+Lulu          39         P         
 Sivir         39                   
 Cassiopeia    43                   
 Ziggs         44                   
@@ -87,16 +87,16 @@ Pantheon      78
 Draven        79                   
 Khazix        79                   
 Vi            79                   
-Zed           81         (has passive)
+Zed           81         P         
 Sion          84                   
 Yorick        84                   
 Renekton      85                   
 XinZhao       85                   
-Ekko          86         (has passive)
+Ekko          86         P         
 Camille       87                   
 Leona         88                   
 Rengar        88                   
-Twitch        88         (has passive)
+Twitch        88         P         
 Nunu          89                   
 Talon         90                   
 Hecarim       91                   
@@ -112,33 +112,33 @@ Zac           97
 Katarina      98                   
 MonkeyKing    98                   
 Chogath       100                  
-DrMundo       101        (has passive)
-Nasus         101        (has passive)
+DrMundo       101        P         
+Nasus         101        P         
 Alistar       107                  
-Rammus        107        (has passive)
+Rammus        107        P         
 Gragas        109                  
 Shaco         109                  
 Rumble        110                  
 Akali         112                  
-Urgot         113        (has passive)
+Urgot         113        P         
 MasterYi      116                  
-JarvanIV      117        (has passive)
+JarvanIV      117        P         
 Shyvana       118                  
 Irelia        119                  
 Sejuani       119                  
-Singed        119        (has passive)
-Nocturne      122        (has passive)
+Singed        119        P         
+Nocturne      122        P         
 Warwick       122                  
 Trundle       123                  
 Maokai        126                  
-Diana         127        (has passive)
-Jax           129        (has passive)
-TahmKench     129        (has passive)
-Tryndamere    129        (has passive)
-Volibear      131        (has passive)
-Darius        132        (has passive)
-Olaf          133        (has passive)
-Aatrox 75
+Diana         127        P         
+Jax           129        P         
+TahmKench     129        P         
+Tryndamere    129        P         
+Volibear      131        P         
+Darius        132        P         
+Olaf          133        P         
+Aatrox 75 
   Ahri
   Amumu
   Anivia
@@ -214,7 +214,7 @@ Aatrox 75
   Ziggs
   Zilean
   Zyra
-Ahri 37
+Ahri 37 
   Anivia
   Annie
   Azir
@@ -252,7 +252,7 @@ Ahri 37
   Vladimir
   Zilean
   Zyra
-Akali 112
+Akali 112 
   Aatrox
   Ahri
   Alistar
@@ -365,7 +365,7 @@ Akali 112
   Ziggs
   Zilean
   Zyra
-Alistar 107
+Alistar 107 
   Aatrox
   Ahri
   Amumu
@@ -473,7 +473,7 @@ Alistar 107
   Ziggs
   Zilean
   Zyra
-Amumu 69
+Amumu 69 
   Ahri
   Anivia
   Annie
@@ -543,12 +543,12 @@ Amumu 69
   Ziggs
   Zilean
   Zyra
-Anivia 1
+Anivia 1 
   Kled
-Annie 2
+Annie 2 
   Anivia
   Kled
-Ashe 55
+Ashe 55 
   Ahri
   Anivia
   Annie
@@ -604,7 +604,7 @@ Ashe 55
   Ziggs
   Zilean
   Zyra
-AurelionSol 51
+AurelionSol 51 
   Ahri
   Anivia
   Annie
@@ -656,7 +656,7 @@ AurelionSol 51
   Ziggs
   Zilean
   Zyra
-Azir 16
+Azir 16 
   Anivia
   Annie
   Caitlyn
@@ -673,7 +673,7 @@ Azir 16
   TwistedFate
   Zilean
   Zyra
-Bard 30
+Bard 30 
   Ahri
   Anivia
   Annie
@@ -704,7 +704,7 @@ Bard 30
   Viktor
   Zilean
   Zyra
-Blitzcrank 92
+Blitzcrank 92 
   Aatrox
   Ahri
   Amumu
@@ -797,7 +797,7 @@ Blitzcrank 92
   Ziggs
   Zilean
   Zyra
-Brand 33
+Brand 33 
   Ahri
   Anivia
   Annie
@@ -831,7 +831,7 @@ Brand 33
   Vladimir
   Zilean
   Zyra
-Braum 75
+Braum 75 
   Ahri
   Amumu
   Anivia
@@ -907,7 +907,7 @@ Braum 75
   Ziggs
   Zilean
   Zyra
-Caitlyn 12
+Caitlyn 12 
   Anivia
   Annie
   Graves
@@ -920,7 +920,7 @@ Caitlyn 12
   Sona
   Thresh
   Veigar
-Camille 87
+Camille 87 
   Aatrox
   Ahri
   Amumu
@@ -1008,7 +1008,7 @@ Camille 87
   Ziggs
   Zilean
   Zyra
-Cassiopeia 43
+Cassiopeia 43 
   Anivia
   Annie
   Azir
@@ -1052,7 +1052,7 @@ Cassiopeia 43
   Xerath
   Zilean
   Zyra
-Chogath 100
+Chogath 100 
   Aatrox
   Ahri
   Amumu
@@ -1153,7 +1153,7 @@ Chogath 100
   Ziggs
   Zilean
   Zyra
-Corki 33
+Corki 33 
   Ahri
   Anivia
   Annie
@@ -1187,7 +1187,7 @@ Corki 33
   Ziggs
   Zilean
   Zyra
-Darius 132 (has passive)
+Darius 132 P
   Aatrox
   Ahri
   Akali
@@ -1320,7 +1320,7 @@ Darius 132 (has passive)
   Ziggs
   Zilean
   Zyra
-Diana 127 (has passive)
+Diana 127 P
   Aatrox
   Ahri
   Akali
@@ -1448,7 +1448,7 @@ Diana 127 (has passive)
   Ziggs
   Zilean
   Zyra
-DrMundo 101 (has passive)
+DrMundo 101 P
   Aatrox
   Ahri
   Amumu
@@ -1550,7 +1550,7 @@ DrMundo 101 (has passive)
   Ziggs
   Zilean
   Zyra
-Draven 79
+Draven 79 
   Aatrox
   Ahri
   Anivia
@@ -1630,7 +1630,7 @@ Draven 79
   Ziggs
   Zilean
   Zyra
-Ekko 86 (has passive)
+Ekko 86 P
   Aatrox
   Ahri
   Amumu
@@ -1717,7 +1717,7 @@ Ekko 86 (has passive)
   Ziggs
   Zilean
   Zyra
-Elise 16
+Elise 16 
   Anivia
   Annie
   Caitlyn
@@ -1734,7 +1734,7 @@ Elise 16
   TwistedFate
   Veigar
   Zilean
-Evelynn 51
+Evelynn 51 
   Ahri
   Anivia
   Annie
@@ -1786,7 +1786,7 @@ Evelynn 51
   Ziggs
   Zilean
   Zyra
-Ezreal 17
+Ezreal 17 
   Anivia
   Annie
   Caitlyn
@@ -1804,13 +1804,13 @@ Ezreal 17
   Soraka
   TwistedFate
   Veigar
-FiddleSticks 5
+FiddleSticks 5 
   Annie
   Caitlyn
   Karthus
   Kled
   Sona
-Fiora 72
+Fiora 72 
   Ahri
   Anivia
   Annie
@@ -1883,7 +1883,7 @@ Fiora 72
   Ziggs
   Zilean
   Zyra
-Fizz 75
+Fizz 75 
   Aatrox
   Ahri
   Amumu
@@ -1959,7 +1959,7 @@ Fizz 75
   Ziggs
   Zilean
   Zyra
-Galio 95
+Galio 95 
   Aatrox
   Ahri
   Amumu
@@ -2055,7 +2055,7 @@ Galio 95
   Ziggs
   Zilean
   Zyra
-Gangplank 55
+Gangplank 55 
   Ahri
   Anivia
   Annie
@@ -2111,7 +2111,7 @@ Gangplank 55
   Ziggs
   Zilean
   Zyra
-Garen 94
+Garen 94 
   Aatrox
   Ahri
   Amumu
@@ -2206,7 +2206,7 @@ Garen 94
   Ziggs
   Zilean
   Zyra
-Gnar 17
+Gnar 17 
   Anivia
   Annie
   Caitlyn
@@ -2224,7 +2224,7 @@ Gnar 17
   TwistedFate
   Veigar
   Zilean
-Gragas 109
+Gragas 109 
   Aatrox
   Ahri
   Akali
@@ -2334,7 +2334,7 @@ Gragas 109
   Ziggs
   Zilean
   Zyra
-Graves 14
+Graves 14 
   Anivia
   Annie
   FiddleSticks
@@ -2349,7 +2349,7 @@ Graves 14
   Thresh
   TwistedFate
   Veigar
-Hecarim 91
+Hecarim 91 
   Aatrox
   Ahri
   Amumu
@@ -2441,7 +2441,7 @@ Hecarim 91
   Ziggs
   Zilean
   Zyra
-Heimerdinger 16
+Heimerdinger 16 
   Anivia
   Annie
   Caitlyn
@@ -2458,7 +2458,7 @@ Heimerdinger 16
   Soraka
   TwistedFate
   Veigar
-Illaoi 93
+Illaoi 93 
   Aatrox
   Ahri
   Amumu
@@ -2552,7 +2552,7 @@ Illaoi 93
   Ziggs
   Zilean
   Zyra
-Irelia 119
+Irelia 119 
   Aatrox
   Ahri
   Akali
@@ -2672,7 +2672,7 @@ Irelia 119
   Ziggs
   Zilean
   Zyra
-Ivern 46
+Ivern 46 
   Anivia
   Annie
   Azir
@@ -2719,12 +2719,12 @@ Ivern 46
   Xerath
   Zilean
   Zyra
-Janna 4
+Janna 4 
   Caitlyn
   Karthus
   Kled
   Sona
-JarvanIV 117 (has passive)
+JarvanIV 117 P
   Aatrox
   Ahri
   Akali
@@ -2842,7 +2842,7 @@ JarvanIV 117 (has passive)
   Ziggs
   Zilean
   Zyra
-Jax 129 (has passive)
+Jax 129 P
   Aatrox
   Ahri
   Akali
@@ -2972,7 +2972,7 @@ Jax 129 (has passive)
   Ziggs
   Zilean
   Zyra
-Jayce 49
+Jayce 49 
   Ahri
   Anivia
   Annie
@@ -3022,7 +3022,7 @@ Jayce 49
   Xerath
   Zilean
   Zyra
-Jhin 25
+Jhin 25 
   Anivia
   Annie
   Caitlyn
@@ -3048,7 +3048,7 @@ Jhin 25
   Veigar
   Zilean
   Zyra
-Jinx 51
+Jinx 51 
   Ahri
   Anivia
   Annie
@@ -3100,7 +3100,7 @@ Jinx 51
   Ziggs
   Zilean
   Zyra
-Kalista 71
+Kalista 71 
   Ahri
   Amumu
   Anivia
@@ -3172,7 +3172,7 @@ Kalista 71
   Ziggs
   Zilean
   Zyra
-Karma 20
+Karma 20 
   Anivia
   Annie
   Caitlyn
@@ -3193,9 +3193,9 @@ Karma 20
   Veigar
   Zilean
   Zyra
-Karthus 1
+Karthus 1 
   Kled
-Kassadin 78
+Kassadin 78 
   Aatrox
   Ahri
   Amumu
@@ -3274,7 +3274,7 @@ Kassadin 78
   Ziggs
   Zilean
   Zyra
-Katarina 98
+Katarina 98 
   Aatrox
   Ahri
   Amumu
@@ -3373,7 +3373,7 @@ Katarina 98
   Ziggs
   Zilean
   Zyra
-Kayle 54
+Kayle 54 
   Ahri
   Anivia
   Annie
@@ -3428,7 +3428,7 @@ Kayle 54
   Ziggs
   Zilean
   Zyra
-Kennen 47
+Kennen 47 
   Ahri
   Anivia
   Annie
@@ -3476,7 +3476,7 @@ Kennen 47
   Xerath
   Zilean
   Zyra
-Khazix 79
+Khazix 79 
   Aatrox
   Ahri
   Amumu
@@ -3556,7 +3556,7 @@ Khazix 79
   Ziggs
   Zilean
   Zyra
-Kindred 32
+Kindred 32 
   Anivia
   Annie
   Azir
@@ -3589,8 +3589,8 @@ Kindred 32
   Vladimir
   Zilean
   Zyra
-Kled 0
-KogMaw 50
+Kled 0 
+KogMaw 50 
   Ahri
   Anivia
   Annie
@@ -3641,7 +3641,7 @@ KogMaw 50
   Xerath
   Zilean
   Zyra
-Leblanc 26
+Leblanc 26 
   Ahri
   Anivia
   Annie
@@ -3668,7 +3668,7 @@ Leblanc 26
   Xerath
   Zilean
   Zyra
-LeeSin 97
+LeeSin 97 
   Aatrox
   Ahri
   Amumu
@@ -3766,7 +3766,7 @@ LeeSin 97
   Ziggs
   Zilean
   Zyra
-Leona 88
+Leona 88 
   Aatrox
   Ahri
   Amumu
@@ -3855,14 +3855,14 @@ Leona 88
   Ziggs
   Zilean
   Zyra
-Lissandra 6
+Lissandra 6 
   Anivia
   Annie
   Janna
   Karthus
   Kled
   Sona
-Lucian 63
+Lucian 63 
   Ahri
   Anivia
   Annie
@@ -3926,7 +3926,7 @@ Lucian 63
   Ziggs
   Zilean
   Zyra
-Lulu 39 (has passive)
+Lulu 39 P
   Ahri
   Anivia
   Annie
@@ -3966,11 +3966,11 @@ Lulu 39 (has passive)
   Xerath
   Zilean
   Zyra
-Lux 3
+Lux 3 
   Anivia
   Annie
   Kled
-Malphite 94
+Malphite 94 
   Aatrox
   Ahri
   Amumu
@@ -4065,7 +4065,7 @@ Malphite 94
   Ziggs
   Zilean
   Zyra
-Malzahar 24
+Malzahar 24 
   Ahri
   Anivia
   Annie
@@ -4090,7 +4090,7 @@ Malzahar 24
   Veigar
   Zilean
   Zyra
-Maokai 126
+Maokai 126 
   Aatrox
   Ahri
   Akali
@@ -4217,7 +4217,7 @@ Maokai 126
   Ziggs
   Zilean
   Zyra
-MasterYi 116
+MasterYi 116 
   Aatrox
   Ahri
   Akali
@@ -4334,7 +4334,7 @@ MasterYi 116
   Ziggs
   Zilean
   Zyra
-MissFortune 14
+MissFortune 14 
   Anivia
   Annie
   FiddleSticks
@@ -4349,7 +4349,7 @@ MissFortune 14
   Thresh
   Veigar
   Zilean
-MonkeyKing 98
+MonkeyKing 98 
   Aatrox
   Ahri
   Amumu
@@ -4448,7 +4448,7 @@ MonkeyKing 98
   Ziggs
   Zilean
   Zyra
-Mordekaiser 50
+Mordekaiser 50 
   Ahri
   Anivia
   Annie
@@ -4499,7 +4499,7 @@ Mordekaiser 50
   Ziggs
   Zilean
   Zyra
-Morgana 58
+Morgana 58 
   Ahri
   Anivia
   Annie
@@ -4558,7 +4558,7 @@ Morgana 58
   Ziggs
   Zilean
   Zyra
-Nami 11
+Nami 11 
   Anivia
   Annie
   FiddleSticks
@@ -4570,7 +4570,7 @@ Nami 11
   Sona
   Soraka
   Veigar
-Nasus 101 (has passive)
+Nasus 101 P
   Aatrox
   Ahri
   Amumu
@@ -4672,7 +4672,7 @@ Nasus 101 (has passive)
   Ziggs
   Zilean
   Zyra
-Nautilus 74
+Nautilus 74 
   Ahri
   Amumu
   Anivia
@@ -4747,7 +4747,7 @@ Nautilus 74
   Ziggs
   Zilean
   Zyra
-Nidalee 19
+Nidalee 19 
   Anivia
   Annie
   Caitlyn
@@ -4767,7 +4767,7 @@ Nidalee 19
   Veigar
   Zilean
   Zyra
-Nocturne 122 (has passive)
+Nocturne 122 P
   Aatrox
   Ahri
   Akali
@@ -4890,7 +4890,7 @@ Nocturne 122 (has passive)
   Ziggs
   Zilean
   Zyra
-Nunu 89
+Nunu 89 
   Aatrox
   Ahri
   Amumu
@@ -4980,7 +4980,7 @@ Nunu 89
   Ziggs
   Zilean
   Zyra
-Olaf 133 (has passive)
+Olaf 133 P
   Aatrox
   Ahri
   Akali
@@ -5114,7 +5114,7 @@ Olaf 133 (has passive)
   Ziggs
   Zilean
   Zyra
-Orianna 27 (has passive)
+Orianna 27 P
   Anivia
   Annie
   Azir
@@ -5142,7 +5142,7 @@ Orianna 27 (has passive)
   Vladimir
   Zilean
   Zyra
-Pantheon 78
+Pantheon 78 
   Ahri
   Amumu
   Anivia
@@ -5221,7 +5221,7 @@ Pantheon 78
   Ziggs
   Zilean
   Zyra
-Poppy 64
+Poppy 64 
   Ahri
   Anivia
   Annie
@@ -5286,7 +5286,7 @@ Poppy 64
   Ziggs
   Zilean
   Zyra
-Quinn 56
+Quinn 56 
   Ahri
   Anivia
   Annie
@@ -5343,7 +5343,7 @@ Quinn 56
   Ziggs
   Zilean
   Zyra
-Rammus 107 (has passive)
+Rammus 107 P
   Aatrox
   Ahri
   Amumu
@@ -5451,7 +5451,7 @@ Rammus 107 (has passive)
   Ziggs
   Zilean
   Zyra
-RekSai 64
+RekSai 64 
   Ahri
   Anivia
   Annie
@@ -5516,7 +5516,7 @@ RekSai 64
   Ziggs
   Zilean
   Zyra
-Renekton 85
+Renekton 85 
   Aatrox
   Ahri
   Amumu
@@ -5602,7 +5602,7 @@ Renekton 85
   Ziggs
   Zilean
   Zyra
-Rengar 88
+Rengar 88 
   Aatrox
   Ahri
   Amumu
@@ -5691,7 +5691,7 @@ Rengar 88
   Ziggs
   Zilean
   Zyra
-Riven 60
+Riven 60 
   Ahri
   Anivia
   Annie
@@ -5752,7 +5752,7 @@ Riven 60
   Ziggs
   Zilean
   Zyra
-Rumble 110
+Rumble 110 
   Aatrox
   Ahri
   Akali
@@ -5863,7 +5863,7 @@ Rumble 110
   Ziggs
   Zilean
   Zyra
-Ryze 53
+Ryze 53 
   Ahri
   Anivia
   Annie
@@ -5917,7 +5917,7 @@ Ryze 53
   Ziggs
   Zilean
   Zyra
-Sejuani 119
+Sejuani 119 
   Aatrox
   Ahri
   Akali
@@ -6037,7 +6037,7 @@ Sejuani 119
   Ziggs
   Zilean
   Zyra
-Shaco 109
+Shaco 109 
   Aatrox
   Ahri
   Alistar
@@ -6147,7 +6147,7 @@ Shaco 109
   Ziggs
   Zilean
   Zyra
-Shen 70
+Shen 70 
   Ahri
   Anivia
   Annie
@@ -6218,7 +6218,7 @@ Shen 70
   Ziggs
   Zilean
   Zyra
-Shyvana 118
+Shyvana 118 
   Aatrox
   Ahri
   Akali
@@ -6337,7 +6337,7 @@ Shyvana 118
   Ziggs
   Zilean
   Zyra
-Singed 119 (has passive)
+Singed 119 P
   Aatrox
   Ahri
   Akali
@@ -6457,7 +6457,7 @@ Singed 119 (has passive)
   Ziggs
   Zilean
   Zyra
-Sion 84
+Sion 84 
   Aatrox
   Ahri
   Amumu
@@ -6542,7 +6542,7 @@ Sion 84
   Ziggs
   Zilean
   Zyra
-Sivir 39
+Sivir 39 
   Ahri
   Anivia
   Annie
@@ -6582,7 +6582,7 @@ Sivir 39
   Ziggs
   Zilean
   Zyra
-Skarner 92
+Skarner 92 
   Aatrox
   Ahri
   Amumu
@@ -6675,13 +6675,13 @@ Skarner 92
   Ziggs
   Zilean
   Zyra
-Sona 5
+Sona 5 
   Anivia
   Annie
   Karthus
   Kled
   Lux
-Soraka 10
+Soraka 10 
   Anivia
   Annie
   Caitlyn
@@ -6692,7 +6692,7 @@ Soraka 10
   MissFortune
   Sona
   Veigar
-Swain 21
+Swain 21 
   Anivia
   Annie
   Caitlyn
@@ -6714,7 +6714,7 @@ Swain 21
   Veigar
   Zilean
   Zyra
-Syndra 23
+Syndra 23 
   Anivia
   Annie
   Caitlyn
@@ -6738,7 +6738,7 @@ Syndra 23
   Velkoz
   Zilean
   Zyra
-TahmKench 129 (has passive)
+TahmKench 129 P
   Aatrox
   Ahri
   Akali
@@ -6868,7 +6868,7 @@ TahmKench 129 (has passive)
   Ziggs
   Zilean
   Zyra
-Taliyah 33
+Taliyah 33 
   Ahri
   Anivia
   Annie
@@ -6902,7 +6902,7 @@ Taliyah 33
   Ziggs
   Zilean
   Zyra
-Talon 90
+Talon 90 
   Aatrox
   Ahri
   Amumu
@@ -6993,7 +6993,7 @@ Talon 90
   Ziggs
   Zilean
   Zyra
-Taric 62
+Taric 62 
   Ahri
   Anivia
   Annie
@@ -7056,7 +7056,7 @@ Taric 62
   Ziggs
   Zilean
   Zyra
-Teemo 35
+Teemo 35 
   Anivia
   Annie
   Azir
@@ -7092,7 +7092,7 @@ Teemo 35
   Xerath
   Zilean
   Zyra
-Thresh 9
+Thresh 9 
   Anivia
   Annie
   FiddleSticks
@@ -7102,7 +7102,7 @@ Thresh 9
   Nami
   Sona
   Zilean
-Tristana 65
+Tristana 65 
   Ahri
   Anivia
   Annie
@@ -7168,7 +7168,7 @@ Tristana 65
   Ziggs
   Zilean
   Zyra
-Trundle 123
+Trundle 123 
   Aatrox
   Ahri
   Akali
@@ -7292,7 +7292,7 @@ Trundle 123
   Ziggs
   Zilean
   Zyra
-Tryndamere 129 (has passive)
+Tryndamere 129 P
   Aatrox
   Ahri
   Akali
@@ -7422,7 +7422,7 @@ Tryndamere 129 (has passive)
   Ziggs
   Zilean
   Zyra
-TwistedFate 16
+TwistedFate 16 
   Anivia
   Annie
   Caitlyn
@@ -7439,7 +7439,7 @@ TwistedFate 16
   Veigar
   Zilean
   Zyra
-Twitch 88 (has passive)
+Twitch 88 P
   Aatrox
   Ahri
   Amumu
@@ -7528,7 +7528,7 @@ Twitch 88 (has passive)
   Ziggs
   Zilean
   Zyra
-Udyr 91
+Udyr 91 
   Aatrox
   Ahri
   Amumu
@@ -7620,7 +7620,7 @@ Udyr 91
   Ziggs
   Zilean
   Zyra
-Urgot 113 (has passive)
+Urgot 113 P
   Aatrox
   Ahri
   Akali
@@ -7734,7 +7734,7 @@ Urgot 113 (has passive)
   Ziggs
   Zilean
   Zyra
-Varus 53
+Varus 53 
   Ahri
   Anivia
   Annie
@@ -7788,7 +7788,7 @@ Varus 53
   Xerath
   Zilean
   Zyra
-Vayne 33
+Vayne 33 
   Anivia
   Annie
   Azir
@@ -7822,14 +7822,14 @@ Vayne 33
   Xerath
   Zilean
   Zyra
-Veigar 6
+Veigar 6 
   Anivia
   Annie
   Janna
   Karthus
   Kled
   Sona
-Velkoz 22
+Velkoz 22 
   Ahri
   Anivia
   Annie
@@ -7852,7 +7852,7 @@ Velkoz 22
   Veigar
   Zilean
   Zyra
-Vi 79
+Vi 79 
   Ahri
   Amumu
   Anivia
@@ -7932,7 +7932,7 @@ Vi 79
   Ziggs
   Zilean
   Zyra
-Viktor 34
+Viktor 34 
   Anivia
   Annie
   Azir
@@ -7967,7 +7967,7 @@ Viktor 34
   Xerath
   Zilean
   Zyra
-Vladimir 27
+Vladimir 27 
   Anivia
   Annie
   Azir
@@ -7995,7 +7995,7 @@ Vladimir 27
   Viktor
   Zilean
   Zyra
-Volibear 131 (has passive)
+Volibear 131 P
   Aatrox
   Ahri
   Akali
@@ -8127,7 +8127,7 @@ Volibear 131 (has passive)
   Ziggs
   Zilean
   Zyra
-Warwick 122
+Warwick 122 
   Aatrox
   Ahri
   Akali
@@ -8250,7 +8250,7 @@ Warwick 122
   Ziggs
   Zilean
   Zyra
-Xerath 24
+Xerath 24 
   Ahri
   Anivia
   Annie
@@ -8275,7 +8275,7 @@ Xerath 24
   Veigar
   Zilean
   Zyra
-XinZhao 85
+XinZhao 85 
   Aatrox
   Ahri
   Amumu
@@ -8361,7 +8361,7 @@ XinZhao 85
   Ziggs
   Zilean
   Zyra
-Yasuo 62
+Yasuo 62 
   Ahri
   Anivia
   Annie
@@ -8424,7 +8424,7 @@ Yasuo 62
   Ziggs
   Zilean
   Zyra
-Yorick 84
+Yorick 84 
   Aatrox
   Ahri
   Anivia
@@ -8509,7 +8509,7 @@ Yorick 84
   Ziggs
   Zilean
   Zyra
-Zac 97
+Zac 97 
   Aatrox
   Ahri
   Amumu
@@ -8607,7 +8607,7 @@ Zac 97
   Ziggs
   Zilean
   Zyra
-Zed 81 (has passive)
+Zed 81 P
   Ahri
   Amumu
   Anivia
@@ -8689,7 +8689,7 @@ Zed 81 (has passive)
   Ziggs
   Zilean
   Zyra
-Ziggs 44
+Ziggs 44 
   Ahri
   Anivia
   Annie
@@ -8734,7 +8734,7 @@ Ziggs 44
   Xerath
   Zilean
   Zyra
-Zilean 7
+Zilean 7 
   Annie
   Caitlyn
   Graves
@@ -8742,7 +8742,7 @@ Zilean 7
   Kled
   Nami
   Sona
-Zyra 14
+Zyra 14 
   Anivia
   Annie
   Caitlyn

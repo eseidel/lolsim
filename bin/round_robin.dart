@@ -4,6 +4,7 @@ import 'package:lol_duel/champions.dart';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:trotter/trotter.dart';
+import 'dart:convert';
 
 int champCompare(Mob red, Mob blue) {
   World world = new World(
@@ -20,7 +21,22 @@ class ChampResults implements Comparable<ChampResults> {
   List<String> defeatedChamps = [];
   ChampResults(this.champId);
 
+  Map<String, dynamic> toJson() {
+    return {
+      'champId': champId,
+      'defeatedChamps': sortedDefeatedChamps,
+    };
+  }
+
+  List<String> get sortedDefeatedChamps {
+    List<String> sorted = new List.from(defeatedChamps);
+    sorted.sort((a, b) => a.compareTo(b));
+    return sorted;
+  }
+
   bool get hasEffects => championEffectsConstructors[champId] != null;
+
+  String get skillsString => hasEffects ? 'P' : '';
 
   int get victories => defeatedChamps.length;
 
@@ -56,25 +72,45 @@ class TableLayout {
 
 void printForHumans(List<ChampResults> results) {
   TableLayout layout = new TableLayout([13, 10, 10]);
-  layout.printRow(['Name', 'Victories', 'Status']);
+  layout.printRow(['Name', 'Victories', 'Skills']);
   layout.printDivider();
   results.sort();
   results.forEach((result) {
-    String statusString = result.hasEffects ? '(has passive)' : '';
-    layout
-        .printRow([result.champId, result.victories.toString(), statusString]);
+    layout.printRow(
+        [result.champId, result.victories.toString(), result.skillsString]);
   });
 }
 
 void printForTests(List<ChampResults> results) {
   results.sort((a, b) => a.champId.compareTo(b.champId));
   results.forEach((result) {
-    String titleString = '${result.champId} ${result.victories}';
-    titleString += result.hasEffects ? ' (has passive)' : '';
-    print(titleString);
-    result.defeatedChamps.sort((a, b) => a.compareTo(b));
-    result.defeatedChamps.forEach((champId) => print('  $champId'));
+    print('${result.champId} ${result.victories} ${result.skillsString}');
+    result.sortedDefeatedChamps.forEach((champId) => print('  $champId'));
   });
+}
+
+void printForJson(List<ChampResults> results) {
+  results.sort((a, b) => a.champId.compareTo(b.champId));
+  JsonEncoder encoder = new JsonEncoder.withIndent(' ');
+  print(encoder.convert(results));
+}
+
+enum OutputMode {
+  human,
+  test,
+  json,
+}
+
+OutputMode modeFromString(String mode) {
+  switch (mode) {
+    case 'human':
+      return OutputMode.human;
+    case 'test':
+      return OutputMode.test;
+    case 'json':
+      return OutputMode.json;
+  }
+  return OutputMode.human;
 }
 
 main(List<String> args) async {
@@ -86,19 +122,23 @@ main(List<String> args) async {
 
   ArgParser parser = new ArgParser()
     ..addFlag('verbose', abbr: 'v')
-    ..addFlag('test');
+    ..addOption('mode', allowed: ['human', 'test', 'json']);
   ArgResults argResults = parser.parse(args);
   if (argResults['verbose']) Logger.root.level = Level.ALL;
+
+  OutputMode mode = modeFromString(argResults['mode']);
 
   Creator data = await Creator.loadLatest();
   List<String> champIds = data.dragon.champs.loadChampIds();
   Map<String, ChampResults> resultsById = {};
   champIds.forEach((id) => resultsById[id] = new ChampResults(id));
   Combinations combos = new Combinations(2, champIds);
-  print(
-      "Standing still and AAing-to-death all ${combos.length} pairs of ${champIds.length} champions");
-  print("using no items, runes or masteries or abilities.");
-  print("Note: A few have passives implemented, as indicated.\n");
+  if (mode != OutputMode.json) {
+    print(
+        "Standing still and AAing-to-death all ${combos.length} pairs of ${champIds.length} champions");
+    print("using no items, runes or masteries or abilities.");
+    print("Note: A few have passives implemented, as indicated.\n");
+  }
 
   // Combinations doesn't implement Iterable, so I can't for-in with strong mode. :(
   for (int i = 0; i < combos.length; i += 1) {
@@ -112,6 +152,7 @@ main(List<String> args) async {
     else if (result < 0) resultsById[red.id].recordVictory(blue.id);
   }
   List<ChampResults> results = resultsById.values.toList();
-  printForHumans(results);
-  if (argResults['test']) printForTests(results);
+  if (mode != OutputMode.json) printForHumans(results);
+  if (mode == OutputMode.test) printForTests(results);
+  if (mode == OutputMode.json) printForJson(results);
 }
