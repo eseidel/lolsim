@@ -82,7 +82,7 @@ Nautilus      74
 Aatrox        75                   
 Braum         75                   
 Fizz          75                   
-Kassadin      77                   
+Kassadin      78                   
 Pantheon      78                   
 Draven        79                   
 Khazix        79                   
@@ -93,28 +93,28 @@ Yorick        84
 Renekton      85                   
 XinZhao       85                   
 Ekko          86         (has passive)
-Twitch        87         (has passive)
+Camille       87                   
 Leona         88                   
-Nunu          88                   
 Rengar        88                   
+Twitch        88         (has passive)
+Nunu          89                   
 Talon         90                   
 Hecarim       91                   
 Udyr          91                   
 Blitzcrank    92                   
-Illaoi        92                   
 Skarner       92                   
-Camille       93                   
+Illaoi        93                   
 Garen         94                   
 Malphite      94                   
 Galio         95                   
-LeeSin        96                   
-Zac           96                   
-Katarina      97                   
+LeeSin        97                   
+Zac           97                   
+Katarina      98                   
 MonkeyKing    98                   
-Chogath       99                   
-DrMundo       100        (has passive)
+Chogath       100                  
+DrMundo       101        (has passive)
 Nasus         101        (has passive)
-Alistar       106                  
+Alistar       107                  
 Rammus        107        (has passive)
 Gragas        109                  
 Shaco         109                  
@@ -365,7 +365,7 @@ Akali 112
   Ziggs
   Zilean
   Zyra
-Alistar 106
+Alistar 107
   Aatrox
   Ahri
   Amumu
@@ -379,6 +379,7 @@ Alistar 106
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
   Chogath
   Corki
@@ -919,7 +920,7 @@ Caitlyn 12
   Sona
   Thresh
   Veigar
-Camille 93
+Camille 87
   Aatrox
   Ahri
   Amumu
@@ -954,8 +955,6 @@ Camille 93
   Kalista
   Karma
   Karthus
-  Kassadin
-  Katarina
   Kayle
   Kennen
   Khazix
@@ -963,7 +962,6 @@ Camille 93
   Kled
   KogMaw
   Leblanc
-  LeeSin
   Lissandra
   Lucian
   Lulu
@@ -996,7 +994,6 @@ Camille 93
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Udyr
   Varus
   Vayne
@@ -1006,9 +1003,7 @@ Camille 93
   Viktor
   Vladimir
   Xerath
-  XinZhao
   Yasuo
-  Yorick
   Zed
   Ziggs
   Zilean
@@ -1057,7 +1052,7 @@ Cassiopeia 43
   Xerath
   Zilean
   Zyra
-Chogath 99
+Chogath 100
   Aatrox
   Ahri
   Amumu
@@ -1070,6 +1065,7 @@ Chogath 99
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
   Corki
   Draven
@@ -1452,7 +1448,7 @@ Diana 127 (has passive)
   Ziggs
   Zilean
   Zyra
-DrMundo 100 (has passive)
+DrMundo 101 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -1465,6 +1461,7 @@ DrMundo 100 (has passive)
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
   Corki
   Draven
@@ -2461,7 +2458,7 @@ Heimerdinger 16
   Soraka
   TwistedFate
   Veigar
-Illaoi 92
+Illaoi 93
   Aatrox
   Ahri
   Amumu
@@ -2474,6 +2471,7 @@ Illaoi 92
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
   Corki
   Draven
@@ -3197,7 +3195,7 @@ Karma 20
   Zyra
 Karthus 1
   Kled
-Kassadin 77
+Kassadin 78
   Aatrox
   Ahri
   Amumu
@@ -3209,6 +3207,7 @@ Kassadin 77
   Bard
   Brand
   Caitlyn
+  Camille
   Cassiopeia
   Corki
   Draven
@@ -3275,7 +3274,7 @@ Kassadin 77
   Ziggs
   Zilean
   Zyra
-Katarina 97
+Katarina 98
   Aatrox
   Ahri
   Amumu
@@ -3288,6 +3287,7 @@ Katarina 97
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
   Corki
   Draven
@@ -3668,7 +3668,7 @@ Leblanc 26
   Xerath
   Zilean
   Zyra
-LeeSin 96
+LeeSin 97
   Aatrox
   Ahri
   Amumu
@@ -3682,6 +3682,7 @@ LeeSin 96
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
   Chogath
   Corki
@@ -4889,7 +4890,7 @@ Nocturne 122 (has passive)
   Ziggs
   Zilean
   Zyra
-Nunu 88
+Nunu 89
   Aatrox
   Ahri
   Amumu
@@ -4902,6 +4903,7 @@ Nunu 88
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
   Corki
   Draven
@@ -7437,7 +7439,7 @@ TwistedFate 16
   Veigar
   Zilean
   Zyra
-Twitch 87 (has passive)
+Twitch 88 (has passive)
   Aatrox
   Ahri
   Amumu
@@ -7450,6 +7452,7 @@ Twitch 87 (has passive)
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
   Corki
   Elise
@@ -8506,7 +8509,7 @@ Yorick 84
   Ziggs
   Zilean
   Zyra
-Zac 96
+Zac 97
   Aatrox
   Ahri
   Amumu
@@ -8519,6 +8522,7 @@ Zac 96
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
   Corki
   Draven
