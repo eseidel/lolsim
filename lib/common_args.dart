@@ -9,7 +9,8 @@ ArgResults handleCommonArgs(List<String> args,
     print('${rec.level.name.toLowerCase()}: ${rec.message}');
   });
 
-  ArgParser parser = new ArgParser()..addFlag('verbose', abbr: 'v');
+  ArgParser parser = new ArgParser(allowTrailingOptions: true)
+    ..addFlag('verbose', abbr: 'v');
 
   ArgResults results = parser.parse(args);
   if (results['verbose']) Logger.root.level = Level.ALL;

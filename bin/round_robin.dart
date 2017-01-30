@@ -1,10 +1,11 @@
+import 'dart:convert';
+
 import 'package:args/args.dart';
 import 'package:logging/logging.dart';
 import 'package:lol_duel/champions.dart';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:trotter/trotter.dart';
-import 'dart:convert';
 
 int champCompare(Mob red, Mob blue) {
   World world = new World(
@@ -18,23 +19,41 @@ int champCompare(Mob red, Mob blue) {
 
 class ChampResults implements Comparable<ChampResults> {
   final String champId;
+  final bool hasEffects;
   List<String> defeatedChamps = [];
-  ChampResults(this.champId);
+
+  ChampResults(this.champId)
+      : hasEffects = championEffectsConstructors[champId] != null;
 
   Map<String, dynamic> toJson() {
     return {
       'champId': champId,
+      'skills': hasEffects ? skillsString : null,
       'defeatedChamps': sortedDefeatedChamps,
     };
   }
+
+  String diffString(ChampResults other) {
+    assert(champId == other.champId);
+    String diff = '$champId';
+    if (skillsString != other.skillsString) diff += ' ${skillsString} -> ${other.skillsString}';
+    Set<String> from = new Set.from(defeatedChamps);
+    Set<String> to = new Set.from(other.defeatedChamps);
+    from.difference(to).forEach((champId) => diff += ' -$champId');
+    to.difference(from).forEach((champId) => diff += ' +$champId');
+    return diff;
+  }
+
+  ChampResults.fromJson(Map<String, dynamic> json)
+      : champId = json['champId'],
+        hasEffects = json['skills'] != null,
+        defeatedChamps = json['defeatedChamps'];
 
   List<String> get sortedDefeatedChamps {
     List<String> sorted = new List.from(defeatedChamps);
     sorted.sort((a, b) => a.compareTo(b));
     return sorted;
   }
-
-  bool get hasEffects => championEffectsConstructors[champId] != null;
 
   String get skillsString => hasEffects ? 'P' : '';
 
@@ -53,6 +72,7 @@ class ChampResults implements Comparable<ChampResults> {
 
 class TableLayout {
   List<int> columnWidths;
+
   TableLayout(this.columnWidths);
 
   void printRow(List<String> cells) {
@@ -135,7 +155,8 @@ main(List<String> args) async {
   Combinations combos = new Combinations(2, champIds);
   if (mode != OutputMode.json) {
     print(
-        "Standing still and AAing-to-death all ${combos.length} pairs of ${champIds.length} champions");
+        "Standing still and AAing-to-death all ${combos
+            .length} pairs of ${champIds.length} champions");
     print("using no items, runes or masteries or abilities.");
     print("Note: A few have passives implemented, as indicated.\n");
   }

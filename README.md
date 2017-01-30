@@ -45,6 +45,7 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Implement in-combat/out-of-combat (more champs would die to darius and twitch dots).
 - Make round_robin spit out json and be able to compare lists.
 - Implement proximity (likely requires passing World more places).
+- Move to using Champion API endpoints instead of dragontail.tgz.
 
 ## Passives missing affecting the lvl 1 round_robin sort.
 - Aatrox passive (complicated, likely requires bloodthirst to be useful)
@@ -86,3 +87,8 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 ## Questions to answer:
 - Jungle clear-time approximations.
 - Amumu Dispair or Tantrum first?
+
+## Potential champion.gg integrations
+- Common Roles
+- Common masteries
+- Common skill orders.
