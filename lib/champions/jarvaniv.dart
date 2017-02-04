@@ -31,5 +31,5 @@ class MartialCadence extends TimedBuff {
           target: target,
           duration: duration,
           name: 'Martial Cadence',
-        ) {}
+        );
 }

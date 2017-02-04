@@ -34,6 +34,7 @@ class Hemorrhage extends DOT {
           maxStacks: 5,
         );
 
+  @override
   Hit createHitForStacks(int stackCount) {
     // FIXME: This should include bonus Ad, including buffs, not total.
     double totalDmgPerStack = 9.0 + source.level;

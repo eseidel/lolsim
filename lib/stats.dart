@@ -92,7 +92,7 @@ class BaseStats extends Stats {
           attackDelay: attackDelay,
           armor: armor,
           spellBlock: spellBlock,
-        ) {}
+        );
 
   final double hpPerLevel;
   final double mpPerLevel;

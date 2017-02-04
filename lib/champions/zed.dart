@@ -33,5 +33,5 @@ class ContemptForTheWeak extends TimedBuff {
           target: target,
           duration: 10.0,
           name: 'Contempt For The Weak',
-        ) {}
+        );
 }

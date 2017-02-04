@@ -27,6 +27,11 @@ class ChampResults implements Comparable<ChampResults> {
   ChampResults(this.champId)
       : hasEffects = championEffectsConstructors[champId] != null;
 
+  ChampResults.fromJson(Map<String, dynamic> json)
+      : champId = json['champId'],
+        hasEffects = json['skills'] != null,
+        defeatedChamps = json['defeatedChamps'];
+
   Map<String, dynamic> toJson() {
     return {
       'champId': champId,
@@ -39,18 +44,13 @@ class ChampResults implements Comparable<ChampResults> {
     assert(champId == other.champId);
     String diff = '$champId';
     if (skillsString != other.skillsString)
-      diff += ' ${skillsString} -> ${other.skillsString}';
+      diff += ' $skillsString -> ${other.skillsString}';
     Set<String> from = new Set.from(defeatedChamps);
     Set<String> to = new Set.from(other.defeatedChamps);
     from.difference(to).forEach((champId) => diff += ' -$champId');
     to.difference(from).forEach((champId) => diff += ' +$champId');
     return diff;
   }
-
-  ChampResults.fromJson(Map<String, dynamic> json)
-      : champId = json['champId'],
-        hasEffects = json['skills'] != null,
-        defeatedChamps = json['defeatedChamps'];
 
   List<String> get sortedDefeatedChamps {
     List<String> sorted = new List.from(defeatedChamps);
@@ -66,6 +66,7 @@ class ChampResults implements Comparable<ChampResults> {
     defeatedChamps.add(champId);
   }
 
+  @override
   int compareTo(ChampResults b) {
     int result = victories.compareTo(b.victories);
     if (result != 0) return result;

@@ -3,7 +3,7 @@ import 'package:lol_duel/common_args.dart';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
 
-main(List<String> args) async {
+dynamic main(List<String> args) async {
   handleCommonArgs(args);
 
   Creator creator = await Creator.loadLatest();

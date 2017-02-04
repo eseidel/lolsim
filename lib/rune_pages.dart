@@ -50,9 +50,8 @@ class RunePage {
     return summary;
   }
 
-  String toString() {
-    return "$name";
-  }
+  @override
+  String toString() => name;
 }
 
 class RunePageList {

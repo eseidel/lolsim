@@ -11,7 +11,7 @@ import 'duel.dart';
 
 final Logger _log = new Logger('duel');
 
-main(List<String> args) async {
+dynamic main(List<String> args) async {
   ArgResults results = handleCommonArgs(args);
   if (results.rest.length != 2) {
     _log.severe("simple_duel.dart takes two champion names");

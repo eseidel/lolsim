@@ -45,7 +45,7 @@ class ZDriveResonanceDown extends TimedBuff {
           target: target,
           duration: 5.0,
           name: 'Z-Drive Resonance',
-        ) {}
+        );
 }
 
 class ZDriveResonance extends StackedBuff {
@@ -56,5 +56,5 @@ class ZDriveResonance extends StackedBuff {
           duration: 4.0,
           timeBetweenFalloffs: .0,
           name: 'Z-Drive Resonance',
-        ) {}
+        );
 }

@@ -22,6 +22,7 @@ class DeadlyVenom extends DOT {
     return 30.0;
   }
 
+  @override
   Hit createHitForStacks(int stackCount) {
     double totalDmgPerStack = damagePerStackForLevel(source.level);
     double dmgPerStackPerTick = totalDmgPerStack / initialTicks;

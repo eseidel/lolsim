@@ -30,9 +30,8 @@ class MasteryPage {
         "${countForTree(MasteryTree.resolve)}";
   }
 
-  String toString() {
-    return "$name ($countsString)";
-  }
+  @override
+  String toString() => "$name ($countsString)";
 }
 
 class MasteryPageList {

@@ -22,10 +22,10 @@ abstract class Buff {
   String name;
   Mob target;
 
+  Buff({this.name, @required this.target});
+
   bool expired = false;
   bool get retainedAfterDeath => false;
-
-  Buff({this.name, @required this.target});
 
   @override
   String toString() {
@@ -45,6 +45,8 @@ abstract class Buff {
 
 class PermanentBuff extends Buff {
   PermanentBuff({String name, Mob target}) : super(name: name, target: target);
+
+  @override
   bool get retainedAfterDeath => true;
 
   @override
@@ -84,7 +86,7 @@ abstract class TickingBuff extends Buff {
   TickingBuff(
       {String name, Mob target, this.secondsBetweenTicks: 0.5, double duration})
       : untilNextTick = secondsBetweenTicks,
-        super(name: name, target: target) {}
+        super(name: name, target: target);
 
   @override
   void tick(double timeDelta) {
@@ -185,6 +187,7 @@ class StackedBuff extends Buff {
     refreshAndAddStack();
   }
 
+  @override
   void tick(double totalTimeDelta) {
     // FIXME: Handling totalTimeDelta > timeBetweenFalloffs is only for unittests
     // instead this 'catch-up' logic should move to a higher level.

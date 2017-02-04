@@ -77,5 +77,5 @@ class MoonsilverBladeOnHit extends StackedBuff {
           maxStacks: 3,
           timeBetweenFalloffs: 0.0, // Unclear what this should be?
           name: 'Moonsilver Blade',
-        ) {}
+        );
 }

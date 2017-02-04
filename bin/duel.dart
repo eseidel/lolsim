@@ -43,7 +43,7 @@ void runDuel(Duel duel) {
       _log.info("$mob ${mob.hpStatusString}\n${mob.damageLog.summaryString}"));
 }
 
-main(List<String> args) async {
+dynamic main(List<String> args) async {
   ArgResults results = handleCommonArgs(args);
   if (results.rest.length != 1) {
     _log.severe("duel.dart takes a single path argument.");

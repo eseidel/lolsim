@@ -31,6 +31,7 @@ class Fury extends MasteryEffects {
   Fury(int rank) : super(rank);
 
   // .8% * rank attack speed
+  @override
   Map<String, num> get stats => {PercentAttackSpeedMod: .008 * rank};
 }
 
@@ -58,6 +59,7 @@ class Vampirism extends MasteryEffects {
   Vampirism(int rank) : super(rank);
 
   // .4% * R lifesteal and spell vamp.
+  @override
   Map<String, num> get stats => {
         PercentLifeStealMod: .004 * rank,
         PercentSpellVampMod: .004 * rank,
@@ -67,8 +69,9 @@ class Vampirism extends MasteryEffects {
 class NaturalTalent extends MasteryEffects {
   NaturalTalent(int rank) : super(rank);
 
-// Gain 0.4 * R + 0.09 * R per level Attack Damage, and
-// 0.6 * R + 0.13 * R per level Ability Power (+2 Attack Damage and 3 Ability Power at level 18)
+  // Gain 0.4 * R + 0.09 * R per level Attack Damage, and
+  // 0.6 * R + 0.13 * R per level Ability Power (+2 Attack Damage and 3 Ability Power at level 18)
+  @override
   Map<String, num> get stats => {
         FlatPhysicalDamageMod: .004 * rank,
         FlatPhysicalDamageModPerLevel: .0009 * rank,
@@ -107,6 +110,7 @@ class BatteringBlows extends MasteryEffects {
   BatteringBlows(int rank) : super(rank);
 
   // 1.4 * R percent Armor Penetration
+  @override
   Map<String, num> get stats => {
         PercentArmorPenetrationMod: .014 * rank,
       };
@@ -116,6 +120,7 @@ class PiercingThoughts extends MasteryEffects {
   PiercingThoughts(int rank) : super(rank);
 
   // +1.4 * R percent Magic Penetration
+  @override
   Map<String, num> get stats => {
         PercentMagicPenetrationMod: .014 * rank,
       };
@@ -244,7 +249,9 @@ class WindspeakersBlessing {
 
 class Recovery extends MasteryEffects {
   Recovery(int rank) : super(rank);
+
   // +0.4 * R Health per 5 seconds
+  @override
   Map<String, num> get stats => {
         FlatHPRegenMod: .4 * rank,
       };
@@ -283,7 +290,9 @@ class RunicArmor {
 
 class VeteransScars extends MasteryEffects {
   VeteransScars(int rank) : super(rank);
+
   // +10 * R Health
+  @override
   Map<String, num> get stats => {
         FlatHPPoolMod: 10 * rank,
       };

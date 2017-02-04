@@ -51,5 +51,5 @@ class UmbraBladesCooldown extends TimedBuff {
           target: nocturne,
           duration: 10.0,
           name: 'Umbra Blades',
-        ) {}
+        );
 }

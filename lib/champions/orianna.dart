@@ -59,5 +59,5 @@ class ClockworkWinding extends StackedBuff {
           maxStacks: 2,
           timeBetweenFalloffs: 0.0,
           name: 'Clockwork Winding',
-        ) {}
+        );
 }

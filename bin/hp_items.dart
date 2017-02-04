@@ -12,10 +12,10 @@ class _Computed {
   _Computed(this.item)
       : hpMod = item.stats['FlatHPPoolMod'],
         cost = item.gold['total'],
-        gPerHp = (item.gold['total'] / item.stats['FlatHPPoolMod']) {}
+        gPerHp = (item.gold['total'] / item.stats['FlatHPPoolMod']);
 }
 
-main(List<String> args) async {
+dynamic main(List<String> args) async {
   handleCommonArgs(args);
 
   Creator creator = await Creator.loadLatest();

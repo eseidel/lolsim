@@ -31,6 +31,15 @@ class TahmKench extends ChampionEffects {
 class AnAcquiredTaste extends StackedBuff {
   final Mob tahm;
 
+  AnAcquiredTaste({@required this.tahm, @required Mob target})
+      : super(
+          target: target,
+          duration: 5.0,
+          maxStacks: 3,
+          timeBetweenFalloffs: .5, // According to lolwiki.
+          name: 'An Acquired Taste',
+        );
+
   static double percentMaxHealthDamagePerStack(int level) {
     if (level < 6) return 0.0100;
     if (level < 11) return 0.0125;
@@ -45,13 +54,4 @@ class AnAcquiredTaste extends StackedBuff {
       magicDamage: dmgPerStack * stacks,
     );
   }
-
-  AnAcquiredTaste({@required this.tahm, @required Mob target})
-      : super(
-          target: target,
-          duration: 5.0,
-          maxStacks: 3,
-          timeBetweenFalloffs: .5, // According to lolwiki.
-          name: 'An Acquired Taste',
-        ) {}
 }

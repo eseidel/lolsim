@@ -7,6 +7,7 @@ class Nasus extends ChampionEffects {
   Mob nasus;
   Nasus(this.nasus);
 
+  @override
   void onChampionCreate() {
     nasus.addBuff(new SoulEater(nasus));
   }
@@ -22,6 +23,7 @@ class SoulEater extends PermanentBuff {
     return 0.20;
   }
 
+  @override
   Map<String, num> get stats => {
         PercentLifeStealMod: bonusLifestealForLevel(target.level),
       };
