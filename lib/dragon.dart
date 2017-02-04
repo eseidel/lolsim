@@ -6,7 +6,8 @@ import 'package:meta/meta.dart';
 import 'package:resource/resource.dart';
 import 'stats.dart';
 
-const String DATA_DIR = 'package:dragon_data/7.1.1/data/en_US';
+const String VERSION = '7.1.1';
+const String DATA_DIR = 'package:dragon_data/$VERSION/data/en_US';
 final Logger _log = new Logger('dragon');
 
 double attackDelayFromBaseAttackSpeed(double baseAttackSpeed) {

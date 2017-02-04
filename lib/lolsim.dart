@@ -399,7 +399,7 @@ class Mob {
     revive();
   }
 
-  double get currentHp => max(0.0, stats.hp - hpLost);
+  double get currentHp => alive ? max(0.0, stats.hp - hpLost) : 0.0;
   double get healthPercent => currentHp / stats.hp;
 
   String get id => description.id;
@@ -730,6 +730,7 @@ class Mob {
   }
 
   void healFor(double healing, String source) {
+    if (!alive) return;
     if (healing == 0.0) return;
     assert(healing > 0.0);
     _log.fine(
@@ -748,6 +749,7 @@ class Mob {
 
   void die() {
     _log.info("DEATH: $this");
+    hpLost = stats.hp;
     if (damageLog != null) _log.info(damageLog.summaryString);
     // FIXME: Death could be a buff if there are rez timers.
     alive = false;

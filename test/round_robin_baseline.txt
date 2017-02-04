@@ -112,8 +112,8 @@ Zac           97
 Katarina      98                   
 MonkeyKing    98                   
 Chogath       100                  
+Nasus         100        P         
 DrMundo       101        P         
-Nasus         101        P         
 Alistar       107                  
 Rammus        107        P         
 Gragas        109                  
@@ -4570,7 +4570,7 @@ Nami 11
   Sona
   Soraka
   Veigar
-Nasus 101 P
+Nasus 100 P
   Aatrox
   Ahri
   Amumu
@@ -4588,7 +4588,6 @@ Nasus 101 P
   Cassiopeia
   Corki
   Draven
-  Ekko
   Elise
   Evelynn
   Ezreal
