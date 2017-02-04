@@ -35,11 +35,10 @@ Many.  Including at least:
 Mostly what the simulation supports is having groups of champs/mobs auto-attack until death.
 
 ## TODO
-- Update after 7.2
--- Darius Passive numbers
--- Lulu passive numbers
 - Fix stat-relative buffs to include all stats (not just base).
 - Split bonus vs. base armor, ad, etc.
+- Coverage & coveralls.io
+- Run tests on travis
 - Figure out how to do ability passives.
 - Unify Buffs, Items, Abilities as Scripts.
 - Percent armor mods (for xin and kayle).
@@ -65,7 +64,6 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Fizz passive (unclear how to implement this kind of dmg reduction)
 - Graves AA modifier and passive (sounds hard to implement)
 - Gangplank passive (small effect, needs bonus ad split)
-- Heimerdinger passive (small effect)
 - Kayle passive (needs percent armor mod)
 - Kha'Zix passive (on-hit, small effect, with abilities bigger)
 - Kled passive (very complicated, needs non-targetable)
@@ -76,7 +74,6 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Nocturn passive (aoe, unclear how best to do dmg-modified autos)
 - Pantheon passive (needs blocked)
 - Taric passive (needs an ability to be useful)
-- Warwick passive
 - Wukong passive (needs proximity)
 - Xin Zhao passive (needs percent armor mod)
 
