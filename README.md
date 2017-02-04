@@ -3,7 +3,6 @@ lolsim
 
 [![Build Status -](https://travis-ci.org/eseidel/lolsim.svg?branch=master)](https://travis-ci.org/eseidel/lolsim)
 
-
 Toy implementation of League of Legends' combat engine.
 
 My goal here is to familiarize myself with the finer details of LOL's rules as
@@ -102,3 +101,10 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Common Roles
 - Common masteries
 - Common skill orders.
+
+## Disclaimer
+This isn't endorsed by Riot Games and doesn't reflect the views
+or opinions of Riot Games or anyone officially involved in producing
+or managing League of Legends. League of Legends and Riot Games are
+trademarks or registered trademarks of Riot Games, Inc. League of
+Legends © Riot Games, Inc.
