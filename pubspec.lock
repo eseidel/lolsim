@@ -163,6 +163,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.2"
+  quiver:
+    description:
+      name: quiver
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.24.0"
   resource:
     description:
       name: resource

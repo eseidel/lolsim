@@ -61,7 +61,7 @@ class ChampionFactory {
 }
 
 class Creator {
-  DragonData2 dragon;
+  DragonData dragon;
   ChampionFactory champs;
   ItemFactory items;
   RuneFactory runes;
@@ -72,6 +72,6 @@ class Creator {
         runes = new RuneFactory(dragon.runes);
 
   static Future<Creator> loadLatest() async {
-    return new Creator(await DragonData2.loadLatest());
+    return new Creator(await DragonData.loadLatest());
   }
 }

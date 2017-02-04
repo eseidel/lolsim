@@ -9,6 +9,7 @@ dependencies:
   resource: any
   trotter: any
   matcher: any
+  quiver: any
 dev_dependencies:
   test: any
 executables:

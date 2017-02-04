@@ -3,11 +3,9 @@ import 'dart:convert';
 
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
-import 'package:resource/resource.dart';
 import 'stats.dart';
+import 'dragon_loader.dart';
 
-const String VERSION = '7.2.1';
-const String DATA_DIR = 'package:dragon_data/$VERSION/data/en_US';
 final Logger _log = new Logger('dragon');
 
 double attackDelayFromBaseAttackSpeed(double baseAttackSpeed) {
@@ -219,35 +217,21 @@ class ChampionLibrary {
   }
 }
 
-typedef Future<String> StringReader(String path);
-
-Future<String> _ioReader(String path) {
-  return new Resource(path).readAsString();
-}
-
-Future<DragonData2> loadDragonData(String dataDir, StringReader reader) async {
-  String championString = await reader(dataDir + '/champion.json');
-  String itemString = await reader(dataDir + '/item.json');
-  String masteryString = await reader(dataDir + '/mastery.json');
-  String runeString = await reader(dataDir + '/rune.json');
-
-  return new DragonData2(
-    new ChampionLibrary(JSON.decode(championString)),
-    new ItemLibrary(JSON.decode(itemString)),
-    new MasteryLibrary(JSON.decode(masteryString)),
-    new RuneLibrary(JSON.decode(runeString)),
-  );
-}
-
-class DragonData2 {
+class DragonData {
   final ChampionLibrary champs;
   final ItemLibrary items;
   final MasteryLibrary masteries;
   final RuneLibrary runes;
 
-  DragonData2(this.champs, this.items, this.masteries, this.runes);
+  DragonData(this.champs, this.items, this.masteries, this.runes);
 
-  static Future<DragonData2> loadLatest({StringReader reader = _ioReader}) {
-    return loadDragonData(DATA_DIR, reader);
+  static Future<DragonData> loadLatest({DragonLoader loader}) async {
+    loader ??= new LocalLoader();
+    return new DragonData(
+      new ChampionLibrary(JSON.decode(await loader.load('champion.json'))),
+      new ItemLibrary(JSON.decode(await loader.load('item.json'))),
+      new MasteryLibrary(JSON.decode(await loader.load('mastery.json'))),
+      new RuneLibrary(JSON.decode(await loader.load('rune.json'))),
+    );
   }
 }
