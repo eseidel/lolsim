@@ -14,7 +14,9 @@ int champCompare(Mob red, Mob blue) {
     critProvider: new PredictableCrits([blue.id, red.id]),
   );
   world.tickUntil(World.oneSideDies);
-  return (blue.currentHp - red.currentHp).ceil();
+  // This math handles hp < 1.
+  double hpDiff = blue.currentHp - red.currentHp;
+  return hpDiff.abs().ceil() * hpDiff.sign.toInt();
 }
 
 class ChampResults implements Comparable<ChampResults> {

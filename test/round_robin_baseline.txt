@@ -26,8 +26,8 @@ Azir          16
 Elise         16                   
 Heimerdinger  16                   
 TwistedFate   16                   
-Ezreal        17                   
 Gnar          17                   
+Ezreal        18                   
 Nidalee       19                   
 Karma         20                   
 Swain         22                   
@@ -36,10 +36,10 @@ Syndra        23
 Xerath        24                   
 Jhin          25                   
 Malzahar      25                   
-Leblanc       27                   
 Orianna       27         P         
 Vladimir      27                   
-Bard          30                   
+Leblanc       29                   
+Bard          31                   
 Kindred       32                   
 Brand         33                   
 Corki         33                   
@@ -53,7 +53,7 @@ Sivir         39
 Cassiopeia    43                   
 Ziggs         44                   
 Ivern         46                   
-Kennen        47                   
+Kennen        48                   
 Jayce         49                   
 KogMaw        50                   
 AurelionSol   51                   
@@ -62,9 +62,9 @@ Jinx          51
 Mordekaiser   51                   
 Ryze          53                   
 Varus         53                   
-Kayle         54                   
 Ashe          55                   
 Gangplank     55                   
+Kayle         55                   
 Quinn         56                   
 Morgana       58                   
 Riven         60                   
@@ -75,8 +75,8 @@ Poppy         64
 RekSai        65                   
 Tristana      65                   
 Amumu         69                   
-Shen          70                   
 Kalista       71                   
+Shen          71                   
 Fiora         72                   
 Nautilus      74                   
 Aatrox        75                   
@@ -93,32 +93,32 @@ Yorick        84
 XinZhao       85                   
 Renekton      86                   
 Camille       87                   
-Ekko          87         P         
 Rengar        88                   
+Ekko          89         P         
 Leona         89                   
 Twitch        89         P         
 Nunu          90                   
-Hecarim       91                   
 Blitzcrank    92                   
+Hecarim       92                   
 Skarner       92                   
 Udyr          92                   
 Illaoi        93                   
 Talon         93                   
-Garen         94                   
 Malphite      94                   
 Galio         95                   
+Garen         95                   
 LeeSin        97                   
 Zac           97                   
 Katarina      98                   
-MonkeyKing    98                   
+MonkeyKing    99                   
 Chogath       100                  
 Nasus         100        P         
 DrMundo       101        P         
 Alistar       107                  
 Gragas        109                  
-Rammus        109        P         
 Shaco         109                  
 Rumble        110                  
+Rammus        111        P         
 Akali         112                  
 Urgot         113        P         
 MasterYi      116                  
@@ -673,7 +673,7 @@ Azir 16
   TwistedFate
   Zilean
   Zyra
-Bard 30 
+Bard 31 
   Ahri
   Anivia
   Annie
@@ -697,6 +697,7 @@ Bard 30
   Sona
   Soraka
   Swain
+  Teemo
   Thresh
   TwistedFate
   Vayne
@@ -1630,7 +1631,7 @@ Draven 79
   Ziggs
   Zilean
   Zyra
-Ekko 87 P
+Ekko 89 P
   Aatrox
   Ahri
   Amumu
@@ -1651,6 +1652,7 @@ Ekko 87 P
   Evelynn
   Ezreal
   FiddleSticks
+  Fiora
   Fizz
   Gangplank
   Gnar
@@ -1690,6 +1692,7 @@ Ekko 87 P
   Quinn
   RekSai
   Renekton
+  Rengar
   Riven
   Ryze
   Shen
@@ -1787,7 +1790,7 @@ Evelynn 51
   Ziggs
   Zilean
   Zyra
-Ezreal 17 
+Ezreal 18 
   Anivia
   Annie
   Caitlyn
@@ -1803,6 +1806,7 @@ Ezreal 17
   Nami
   Sona
   Soraka
+  Thresh
   TwistedFate
   Veigar
 FiddleSticks 5 
@@ -2112,7 +2116,7 @@ Gangplank 55
   Ziggs
   Zilean
   Zyra
-Garen 94 
+Garen 95 
   Aatrox
   Ahri
   Amumu
@@ -2169,6 +2173,7 @@ Garen 94
   Nami
   Nautilus
   Nidalee
+  Nunu
   Orianna
   Pantheon
   Poppy
@@ -2350,7 +2355,7 @@ Graves 14
   Thresh
   TwistedFate
   Veigar
-Hecarim 91 
+Hecarim 92 
   Aatrox
   Ahri
   Amumu
@@ -2426,6 +2431,7 @@ Hecarim 91
   Thresh
   Tristana
   TwistedFate
+  Twitch
   Udyr
   Varus
   Vayne
@@ -3376,7 +3382,7 @@ Katarina 98
   Ziggs
   Zilean
   Zyra
-Kayle 54 
+Kayle 55 
   Ahri
   Anivia
   Annie
@@ -3412,6 +3418,7 @@ Kayle 54
   Nidalee
   Orianna
   Quinn
+  Ryze
   Sivir
   Sona
   Soraka
@@ -3431,7 +3438,7 @@ Kayle 54
   Ziggs
   Zilean
   Zyra
-Kennen 47 
+Kennen 48 
   Ahri
   Anivia
   Annie
@@ -3464,6 +3471,7 @@ Kennen 47
   Nami
   Nidalee
   Orianna
+  Sivir
   Sona
   Soraka
   Swain
@@ -3644,7 +3652,7 @@ KogMaw 50
   Xerath
   Zilean
   Zyra
-Leblanc 27 
+Leblanc 29 
   Ahri
   Anivia
   Annie
@@ -3660,6 +3668,7 @@ Leblanc 27
   Kled
   Lissandra
   Lux
+  Malzahar
   MissFortune
   Nami
   Nidalee
@@ -3669,6 +3678,7 @@ Leblanc 27
   Thresh
   TwistedFate
   Veigar
+  Velkoz
   Xerath
   Zilean
   Zyra
@@ -4355,7 +4365,7 @@ MissFortune 14
   Thresh
   Veigar
   Zilean
-MonkeyKing 98 
+MonkeyKing 99 
   Aatrox
   Ahri
   Amumu
@@ -4425,6 +4435,7 @@ MonkeyKing 98
   Riven
   Rumble
   Ryze
+  Shaco
   Shen
   Sion
   Sivir
@@ -5350,7 +5361,7 @@ Quinn 56
   Ziggs
   Zilean
   Zyra
-Rammus 109 P
+Rammus 111 P
   Aatrox
   Ahri
   Amumu
@@ -5422,6 +5433,7 @@ Rammus 109 P
   Quinn
   RekSai
   Renekton
+  Rengar
   Riven
   Ryze
   Sejuani
@@ -5436,6 +5448,7 @@ Rammus 109 P
   Swain
   Syndra
   Taliyah
+  Talon
   Taric
   Teemo
   Thresh
@@ -6158,7 +6171,7 @@ Shaco 109
   Ziggs
   Zilean
   Zyra
-Shen 70 
+Shen 71 
   Ahri
   Anivia
   Annie
@@ -6214,6 +6227,7 @@ Shen 70
   Swain
   Syndra
   Taliyah
+  Taric
   Teemo
   Thresh
   Tristana
