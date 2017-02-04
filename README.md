@@ -1,4 +1,9 @@
-# lolsim
+lolsim
+======
+
+[![Build Status -](https://travis-ci.org/eseidel/lolsim.svg?branch=master)](https://travis-ci.org/eseidel/lolsim)
+
+
 Toy implementation of League of Legends' combat engine.
 
 My goal here is to familiarize myself with the finer details of LOL's rules as
