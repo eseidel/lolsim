@@ -18,7 +18,7 @@ main() async {
       new AutoAttack(darius, mob).apply(world);
       Hemorrhage buff = mob.buffs.firstWhere((buff) => buff is Hemorrhage);
       // DOT has not yet ticked yet.
-      double singleTickDmg = (10 + (dariusAd * .3)) / 4;
+      double singleTickDmg = 10 / 4;
       expect(mob.hpLost, dariusAd);
       // Bleeds tick every 1.25 seconds?
       buff.tick(2.0);
@@ -52,6 +52,27 @@ main() async {
       new AutoAttack(darius, structure).apply(world);
       bool hasBleed = structure.buffs.any((buff) => buff is Hemorrhage);
       expect(hasBleed, false);
+    });
+    test('7.2 Noxian Might Damage', () {
+      List<int> levels = [1, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
+      List<int> expectedAd = [
+        30,
+        35,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100,
+        120,
+        140,
+        160,
+        180,
+        200
+      ];
+      List<int> actualAd = levels.map(NoxianMight.bonusAdForLevel).toList();
+      expect(actualAd, expectedAd);
     });
   });
 }

@@ -8,12 +8,12 @@ class NoxianMight extends TimedBuff {
   NoxianMight(Mob target)
       : super(name: "Noxian Might", target: target, duration: 5.0);
 
-  int bonusAdForLevel(int level) {
+  static int bonusAdForLevel(int level) {
     // http://leagueoflegends.wikia.com/wiki/Darius
-    if (level < 3) return 40;
-    if (level < 7) return 45;
-    if (level < 15) return (level * 10) - 20;
-    return level * 10 + (level - 16) * 20;
+    if (level < 3) return 30;
+    if (level < 7) return 35;
+    if (level < 14) return (level * 10) - 30;
+    return (level - 8) * 20;
   }
 
   @override
@@ -35,8 +35,8 @@ class Hemorrhage extends DOT {
         );
 
   Hit createHitForStacks(int stackCount) {
-    double totalDmgPerStack =
-        9 + source.level + (.3 * source.stats.attackDamage);
+    // FIXME: This should include bonus Ad, including buffs, not total.
+    double totalDmgPerStack = 9.0 + source.level;
     double dmgPerStackPerTick = totalDmgPerStack / initialTicks;
     // Choosing to do all the dmg at once for all stacks.
     return new Hit(
