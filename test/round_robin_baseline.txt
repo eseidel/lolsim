@@ -24,40 +24,40 @@ MissFortune   14
 Zyra          14                   
 Azir          16                   
 Elise         16                   
-Heimerdinger  16                   
 TwistedFate   16                   
+Ezreal        17                   
 Gnar          17                   
-Ezreal        18                   
 Karma         20                   
+Swain         21                   
 Velkoz        21                   
-Swain         22                   
 Syndra        23                   
 Xerath        23                   
+Jhin          24                   
 Malzahar      24                   
-Jhin          25                   
-Orianna       27         P         
-Vladimir      27                   
+Heimerdinger  26         P         
+Orianna       26         P         
+Vladimir      26                   
 Leblanc       28                   
-Bard          30                   
-Nidalee       31                   
-Brand         32                   
-Corki         32                   
-Kindred       32                   
-Taliyah       32                   
+Bard          29                   
+Nidalee       30                   
+Brand         31                   
+Corki         31                   
+Kindred       31                   
+Taliyah       31                   
 Vayne         32                   
 Viktor        33                   
 Teemo         34                   
-Ahri          37                   
-Sivir         39                   
+Ahri          36                   
+Sivir         38                   
 Cassiopeia    41                   
 Ziggs         43                   
 Ivern         45                   
 Kennen        47                   
 Jayce         48                   
+Evelynn       49                   
+Jinx          49                   
 KogMaw        49                   
 AurelionSol   50                   
-Evelynn       50                   
-Jinx          50                   
 Mordekaiser   51                   
 Varus         52                   
 Ryze          53                   
@@ -214,7 +214,7 @@ Aatrox 75
   Ziggs
   Zilean
   Zyra
-Ahri 37 
+Ahri 36 
   Anivia
   Annie
   Azir
@@ -225,7 +225,6 @@ Ahri 37
   FiddleSticks
   Gnar
   Graves
-  Heimerdinger
   Ivern
   Janna
   Jhin
@@ -671,7 +670,7 @@ Azir 16
   TwistedFate
   Zilean
   Zyra
-Bard 30 
+Bard 29 
   Ahri
   Anivia
   Annie
@@ -682,7 +681,6 @@ Bard 30
   FiddleSticks
   Gnar
   Graves
-  Heimerdinger
   Janna
   Jhin
   Karthus
@@ -795,7 +793,7 @@ Blitzcrank 92
   Ziggs
   Zilean
   Zyra
-Brand 32 
+Brand 31 
   Ahri
   Anivia
   Annie
@@ -807,7 +805,6 @@ Brand 32
   FiddleSticks
   Gnar
   Graves
-  Heimerdinger
   Janna
   Jhin
   Karthus
@@ -1148,7 +1145,7 @@ Chogath 100
   Ziggs
   Zilean
   Zyra
-Corki 32 
+Corki 31 
   Ahri
   Anivia
   Annie
@@ -1158,7 +1155,6 @@ Corki 32
   Ezreal
   FiddleSticks
   Graves
-  Heimerdinger
   Janna
   Karma
   Karthus
@@ -1729,7 +1725,7 @@ Elise 16
   TwistedFate
   Veigar
   Zilean
-Evelynn 50 
+Evelynn 49 
   Ahri
   Anivia
   Annie
@@ -1743,7 +1739,6 @@ Evelynn 50
   FiddleSticks
   Gnar
   Graves
-  Heimerdinger
   Ivern
   Janna
   Jayce
@@ -1780,13 +1775,12 @@ Evelynn 50
   Ziggs
   Zilean
   Zyra
-Ezreal 18 
+Ezreal 17 
   Anivia
   Annie
   Caitlyn
   FiddleSticks
   Graves
-  Heimerdinger
   Janna
   Karthus
   Kled
@@ -2440,23 +2434,33 @@ Hecarim 92
   Ziggs
   Zilean
   Zyra
-Heimerdinger 16 
+Heimerdinger 26 P
+  Ahri
   Anivia
   Annie
+  Azir
   Caitlyn
+  Elise
   FiddleSticks
   Graves
   Janna
+  Karma
   Karthus
   Kled
   Lissandra
   Lux
   MissFortune
   Nami
+  Orianna
   Sona
   Soraka
+  Syndra
+  Teemo
+  Thresh
   TwistedFate
   Veigar
+  Zilean
+  Zyra
 Illaoi 93 
   Aatrox
   Ahri
@@ -3020,7 +3024,7 @@ Jayce 48
   Xerath
   Zilean
   Zyra
-Jhin 25 
+Jhin 24 
   Anivia
   Annie
   Caitlyn
@@ -3029,7 +3033,6 @@ Jhin 25
   FiddleSticks
   Gnar
   Graves
-  Heimerdinger
   Janna
   Karthus
   Kled
@@ -3046,7 +3049,7 @@ Jhin 25
   Veigar
   Zilean
   Zyra
-Jinx 50 
+Jinx 49 
   Ahri
   Anivia
   Annie
@@ -3060,7 +3063,6 @@ Jinx 50
   FiddleSticks
   Gnar
   Graves
-  Heimerdinger
   Ivern
   Janna
   Jayce
@@ -3555,7 +3557,7 @@ Khazix 79
   Ziggs
   Zilean
   Zyra
-Kindred 32 
+Kindred 31 
   Anivia
   Annie
   Azir
@@ -3566,7 +3568,6 @@ Kindred 32
   FiddleSticks
   Gnar
   Graves
-  Heimerdinger
   Janna
   Karthus
   Kled
@@ -4771,7 +4772,7 @@ Nautilus 74
   Ziggs
   Zilean
   Zyra
-Nidalee 31 
+Nidalee 30 
   Anivia
   Annie
   Azir
@@ -4782,7 +4783,6 @@ Nidalee 31
   FiddleSticks
   Gnar
   Graves
-  Heimerdinger
   Janna
   Jhin
   Karthus
@@ -5151,7 +5151,7 @@ Olaf 133 P
   Ziggs
   Zilean
   Zyra
-Orianna 27 P
+Orianna 26 P
   Anivia
   Annie
   Azir
@@ -5162,7 +5162,6 @@ Orianna 27 P
   FiddleSticks
   Gnar
   Graves
-  Heimerdinger
   Janna
   Karthus
   Kled
@@ -6580,7 +6579,7 @@ Sion 84
   Ziggs
   Zilean
   Zyra
-Sivir 39 
+Sivir 38 
   Ahri
   Anivia
   Annie
@@ -6592,7 +6591,6 @@ Sivir 39
   FiddleSticks
   Gnar
   Graves
-  Heimerdinger
   Ivern
   Janna
   Jhin
@@ -6730,7 +6728,7 @@ Soraka 10
   MissFortune
   Sona
   Veigar
-Swain 22 
+Swain 21 
   Anivia
   Annie
   Caitlyn
@@ -6738,7 +6736,6 @@ Swain 22
   FiddleSticks
   Gnar
   Graves
-  Heimerdinger
   Janna
   Karthus
   Kled
@@ -6906,7 +6903,7 @@ TahmKench 128 P
   Ziggs
   Zilean
   Zyra
-Taliyah 32 
+Taliyah 31 
   Ahri
   Anivia
   Annie
@@ -6916,7 +6913,6 @@ Taliyah 32
   Ezreal
   FiddleSticks
   Graves
-  Heimerdinger
   Janna
   Karma
   Karthus
@@ -8003,7 +7999,7 @@ Viktor 33
   Xerath
   Zilean
   Zyra
-Vladimir 27 
+Vladimir 26 
   Anivia
   Annie
   Azir
@@ -8013,7 +8009,6 @@ Vladimir 27
   FiddleSticks
   Gnar
   Graves
-  Heimerdinger
   Janna
   Karthus
   Kled
