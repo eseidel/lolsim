@@ -66,7 +66,6 @@ Gangplank     55
 Kayle         55                   
 Quinn         55                   
 Morgana       58                   
-Warwick       58                   
 Riven         59                   
 Taric         61                   
 Yasuo         61                   
@@ -76,69 +75,70 @@ RekSai        64
 Lulu          65         P         
 Tristana      65                   
 Amumu         69                   
-Shen          71                   
-Fiora         72                   
-Kalista       72                   
-Nautilus      75                   
-Aatrox        76                   
-Braum         76                   
-Fizz          76                   
-Draven        79                   
-Kassadin      79                   
-Pantheon      79                   
-Khazix        80                   
-Vi            81                   
-Zed           82         P         
-Yorick        84                   
-Sion          85                   
-XinZhao       86                   
-Renekton      87                   
-Camille       88                   
-Rengar        89                   
-Ekko          90         P         
-Leona         90                   
-Twitch        90         P         
-Nunu          91                   
-Blitzcrank    93                   
-Hecarim       93                   
-Skarner       93                   
-Udyr          93                   
-Illaoi        94                   
-Talon         94                   
-Malphite      95                   
-Galio         96                   
-Garen         96                   
-LeeSin        98                   
-Zac           98                   
-Katarina      99                   
-MonkeyKing    99                   
-Nasus         100        P         
-Chogath       101                  
-DrMundo       102        P         
-Alistar       108                  
-Shaco         110                  
-Rammus        111        P         
-Rumble        111                  
-Akali         113                  
-Gragas        113                  
-Urgot         114        P         
-MasterYi      117                  
-JarvanIV      118        P         
-Shyvana       119                  
-Irelia        120                  
-Sejuani       120                  
-Singed        120        P         
-Nocturne      123        P         
-Trundle       124                  
-Maokai        126                  
-Diana         127        P         
+Shen          70                   
+Fiora         71                   
+Kalista       71                   
+Nautilus      74                   
+Aatrox        75                   
+Braum         75                   
+Fizz          75                   
+Draven        78                   
+Kassadin      78                   
+Pantheon      78                   
+Khazix        79                   
+Vi            80                   
+Zed           81         P         
+Yorick        83                   
+Sion          84                   
+XinZhao       85                   
+Renekton      86                   
+Camille       87                   
+Rengar        88                   
+Ekko          89         P         
+Leona         89                   
+Twitch        89         P         
+Nunu          90                   
+Blitzcrank    92                   
+Hecarim       92                   
+Skarner       92                   
+Udyr          92                   
+Illaoi        93                   
+Talon         93                   
+Malphite      94                   
+Galio         95                   
+Garen         95                   
+LeeSin        97                   
+Zac           97                   
+Katarina      98                   
+MonkeyKing    98                   
+Nasus         99         P         
+Chogath       100                  
+DrMundo       101        P         
+Alistar       107                  
+Shaco         109                  
+Rammus        110        P         
+Rumble        110                  
+Akali         112                  
+Gragas        112                  
+Urgot         113        P         
+MasterYi      116                  
+JarvanIV      117        P         
+Shyvana       118                  
+Irelia        119                  
+Sejuani       119                  
+Singed        119        P         
+Nocturne      122        P         
+Trundle       123                  
+Maokai        125                  
+Diana         126        P         
+TahmKench     128        P         
+Tryndamere    128        P         
 Jax           129        P         
-TahmKench     129        P         
-Tryndamere    129        P         
-Volibear      131        P         
+Volibear      130        P         
+Warwick       130        P         
 Darius        132        P         
 Olaf          133        P         
-Aatrox 76 
+Aatrox 75 
   Ahri
   Amumu
   Anivia
@@ -209,7 +209,6 @@ Aatrox 76
   Velkoz
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Ziggs
@@ -253,7 +252,7 @@ Ahri 37
   Vladimir
   Zilean
   Zyra
-Akali 113 
+Akali 112 
   Aatrox
   Ahri
   Alistar
@@ -357,7 +356,6 @@ Akali 113
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -367,7 +365,7 @@ Akali 113
   Ziggs
   Zilean
   Zyra
-Alistar 108 
+Alistar 107 
   Aatrox
   Ahri
   Amumu
@@ -467,7 +465,6 @@ Alistar 108
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -705,7 +702,7 @@ Bard 30
   Viktor
   Zilean
   Zyra
-Blitzcrank 93 
+Blitzcrank 92 
   Aatrox
   Ahri
   Amumu
@@ -790,7 +787,6 @@ Blitzcrank 93
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -832,7 +828,7 @@ Brand 32
   Vladimir
   Zilean
   Zyra
-Braum 76 
+Braum 75 
   Ahri
   Amumu
   Anivia
@@ -903,7 +899,6 @@ Braum 76
   Velkoz
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Ziggs
@@ -922,7 +917,7 @@ Caitlyn 12
   Sona
   Thresh
   Veigar
-Camille 88 
+Camille 87 
   Aatrox
   Ahri
   Amumu
@@ -1004,7 +999,6 @@ Camille 88
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Zed
@@ -1053,7 +1047,7 @@ Cassiopeia 41
   Xerath
   Zilean
   Zyra
-Chogath 101 
+Chogath 100 
   Aatrox
   Ahri
   Amumu
@@ -1146,7 +1140,6 @@ Chogath 101
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -1321,7 +1314,7 @@ Darius 132 P
   Ziggs
   Zilean
   Zyra
-Diana 127 P
+Diana 126 P
   Aatrox
   Ahri
   Akali
@@ -1439,7 +1432,6 @@ Diana 127 P
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -1449,7 +1441,7 @@ Diana 127 P
   Ziggs
   Zilean
   Zyra
-DrMundo 102 P
+DrMundo 101 P
   Aatrox
   Ahri
   Amumu
@@ -1543,7 +1535,6 @@ DrMundo 102 P
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -1552,7 +1543,7 @@ DrMundo 102 P
   Ziggs
   Zilean
   Zyra
-Draven 79 
+Draven 78 
   Aatrox
   Ahri
   Anivia
@@ -1626,13 +1617,12 @@ Draven 79
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Ziggs
   Zilean
   Zyra
-Ekko 90 P
+Ekko 89 P
   Aatrox
   Ahri
   Amumu
@@ -1716,7 +1706,6 @@ Ekko 90 P
   Velkoz
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Zed
@@ -1816,7 +1805,7 @@ FiddleSticks 5
   Karthus
   Kled
   Sona
-Fiora 72 
+Fiora 71 
   Ahri
   Anivia
   Annie
@@ -1883,13 +1872,12 @@ Fiora 72
   Velkoz
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Ziggs
   Zilean
   Zyra
-Fizz 76 
+Fizz 75 
   Aatrox
   Ahri
   Amumu
@@ -1960,13 +1948,12 @@ Fizz 76
   Velkoz
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Ziggs
   Zilean
   Zyra
-Galio 96 
+Galio 95 
   Aatrox
   Ahri
   Amumu
@@ -2054,7 +2041,6 @@ Galio 96
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -2119,7 +2105,7 @@ Gangplank 55
   Ziggs
   Zilean
   Zyra
-Garen 96 
+Garen 95 
   Aatrox
   Ahri
   Amumu
@@ -2207,7 +2193,6 @@ Garen 96
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -2234,7 +2219,7 @@ Gnar 17
   TwistedFate
   Veigar
   Zilean
-Gragas 113 
+Gragas 112 
   Aatrox
   Ahri
   Akali
@@ -2338,7 +2323,6 @@ Gragas 113
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -2363,7 +2347,7 @@ Graves 14
   Thresh
   TwistedFate
   Veigar
-Hecarim 93 
+Hecarim 92 
   Aatrox
   Ahri
   Amumu
@@ -2448,7 +2432,6 @@ Hecarim 93
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -2474,7 +2457,7 @@ Heimerdinger 16
   Soraka
   TwistedFate
   Veigar
-Illaoi 94 
+Illaoi 93 
   Aatrox
   Ahri
   Amumu
@@ -2562,14 +2545,13 @@ Illaoi 94
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Zed
   Ziggs
   Zilean
   Zyra
-Irelia 120 
+Irelia 119 
   Aatrox
   Ahri
   Akali
@@ -2680,7 +2662,6 @@ Irelia 120
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -2742,7 +2723,7 @@ Janna 5
   Karthus
   Kled
   Sona
-JarvanIV 118 P
+JarvanIV 117 P
   Aatrox
   Ahri
   Akali
@@ -2851,7 +2832,6 @@ JarvanIV 118 P
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -3117,7 +3097,7 @@ Jinx 50
   Ziggs
   Zilean
   Zyra
-Kalista 72 
+Kalista 71 
   Ahri
   Amumu
   Anivia
@@ -3184,7 +3164,6 @@ Kalista 72
   Velkoz
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Ziggs
@@ -3214,7 +3193,7 @@ Karma 20
 Karthus 2 
   Annie
   Kled
-Kassadin 79 
+Kassadin 78 
   Aatrox
   Ahri
   Amumu
@@ -3288,13 +3267,12 @@ Kassadin 79
   Velkoz
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Ziggs
   Zilean
   Zyra
-Katarina 99 
+Katarina 98 
   Aatrox
   Ahri
   Amumu
@@ -3384,7 +3362,6 @@ Katarina 99
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -3498,7 +3475,7 @@ Kennen 47
   Xerath
   Zilean
   Zyra
-Khazix 80 
+Khazix 79 
   Aatrox
   Ahri
   Amumu
@@ -3572,7 +3549,6 @@ Khazix 80
   Velkoz
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Zed
@@ -3692,7 +3668,7 @@ Leblanc 28
   Xerath
   Zilean
   Zyra
-LeeSin 98 
+LeeSin 97 
   Aatrox
   Ahri
   Amumu
@@ -3783,7 +3759,6 @@ LeeSin 98
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -3791,7 +3766,7 @@ LeeSin 98
   Ziggs
   Zilean
   Zyra
-Leona 90 
+Leona 89 
   Aatrox
   Ahri
   Amumu
@@ -3875,7 +3850,6 @@ Leona 90
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Zed
@@ -4022,7 +3996,7 @@ Lux 3
   Anivia
   Annie
   Kled
-Malphite 95 
+Malphite 94 
   Aatrox
   Ahri
   Amumu
@@ -4109,7 +4083,6 @@ Malphite 95
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -4143,7 +4116,7 @@ Malzahar 24
   Veigar
   Zilean
   Zyra
-Maokai 126 
+Maokai 125 
   Aatrox
   Ahri
   Akali
@@ -4260,7 +4233,6 @@ Maokai 126
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -4270,7 +4242,7 @@ Maokai 126
   Ziggs
   Zilean
   Zyra
-MasterYi 117 
+MasterYi 116 
   Aatrox
   Ahri
   Akali
@@ -4378,7 +4350,6 @@ MasterYi 117
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -4403,7 +4374,7 @@ MissFortune 14
   Thresh
   Veigar
   Zilean
-MonkeyKing 99 
+MonkeyKing 98 
   Aatrox
   Ahri
   Amumu
@@ -4494,7 +4465,6 @@ MonkeyKing 99
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -4626,7 +4596,7 @@ Nami 11
   Sona
   Soraka
   Veigar
-Nasus 100 P
+Nasus 99 P
   Aatrox
   Ahri
   Amumu
@@ -4718,7 +4688,6 @@ Nasus 100 P
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -4727,7 +4696,7 @@ Nasus 100 P
   Ziggs
   Zilean
   Zyra
-Nautilus 75 
+Nautilus 74 
   Ahri
   Amumu
   Anivia
@@ -4797,7 +4766,6 @@ Nautilus 75
   Velkoz
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Ziggs
@@ -4835,7 +4803,7 @@ Nidalee 31
   Vladimir
   Zilean
   Zyra
-Nocturne 123 P
+Nocturne 122 P
   Aatrox
   Ahri
   Akali
@@ -4949,7 +4917,6 @@ Nocturne 123 P
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -4959,7 +4926,7 @@ Nocturne 123 P
   Ziggs
   Zilean
   Zyra
-Nunu 91 
+Nunu 90 
   Aatrox
   Ahri
   Amumu
@@ -5044,7 +5011,6 @@ Nunu 91
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Yorick
@@ -5213,7 +5179,7 @@ Orianna 27 P
   Vladimir
   Zilean
   Zyra
-Pantheon 79 
+Pantheon 78 
   Ahri
   Amumu
   Anivia
@@ -5287,7 +5253,6 @@ Pantheon 79
   Velkoz
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Ziggs
@@ -5413,7 +5378,7 @@ Quinn 55
   Ziggs
   Zilean
   Zyra
-Rammus 111 P
+Rammus 110 P
   Aatrox
   Ahri
   Amumu
@@ -5515,7 +5480,6 @@ Rammus 111 P
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -5590,7 +5554,7 @@ RekSai 64
   Ziggs
   Zilean
   Zyra
-Renekton 87 
+Renekton 86 
   Aatrox
   Ahri
   Amumu
@@ -5669,7 +5633,6 @@ Renekton 87
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -5678,7 +5641,7 @@ Renekton 87
   Ziggs
   Zilean
   Zyra
-Rengar 89 
+Rengar 88 
   Aatrox
   Ahri
   Amumu
@@ -5761,7 +5724,6 @@ Rengar 89
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Zed
@@ -5828,7 +5790,7 @@ Riven 59
   Ziggs
   Zilean
   Zyra
-Rumble 111 
+Rumble 110 
   Aatrox
   Ahri
   Akali
@@ -5931,7 +5893,6 @@ Rumble 111
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -5994,7 +5955,7 @@ Ryze 53
   Ziggs
   Zilean
   Zyra
-Sejuani 120 
+Sejuani 119 
   Aatrox
   Ahri
   Akali
@@ -6105,7 +6066,6 @@ Sejuani 120
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -6115,7 +6075,7 @@ Sejuani 120
   Ziggs
   Zilean
   Zyra
-Shaco 110 
+Shaco 109 
   Aatrox
   Ahri
   Alistar
@@ -6216,7 +6176,6 @@ Shaco 110
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -6226,7 +6185,7 @@ Shaco 110
   Ziggs
   Zilean
   Zyra
-Shen 71 
+Shen 70 
   Ahri
   Anivia
   Annie
@@ -6292,13 +6251,12 @@ Shen 71
   Velkoz
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Ziggs
   Zilean
   Zyra
-Shyvana 119 
+Shyvana 118 
   Aatrox
   Ahri
   Akali
@@ -6408,7 +6366,6 @@ Shyvana 119
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -6418,7 +6375,7 @@ Shyvana 119
   Ziggs
   Zilean
   Zyra
-Singed 120 P
+Singed 119 P
   Aatrox
   Ahri
   Akali
@@ -6529,7 +6486,6 @@ Singed 120 P
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -6539,7 +6495,7 @@ Singed 120 P
   Ziggs
   Zilean
   Zyra
-Sion 85 
+Sion 84 
   Aatrox
   Ahri
   Amumu
@@ -6618,7 +6574,6 @@ Sion 85
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Zed
@@ -6665,7 +6620,7 @@ Sivir 39
   Ziggs
   Zilean
   Zyra
-Skarner 93 
+Skarner 92 
   Aatrox
   Ahri
   Amumu
@@ -6750,7 +6705,6 @@ Skarner 93
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -6823,7 +6777,7 @@ Syndra 23
   Velkoz
   Zilean
   Zyra
-TahmKench 129 P
+TahmKench 128 P
   Aatrox
   Ahri
   Akali
@@ -6943,7 +6897,6 @@ TahmKench 129 P
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -6986,7 +6939,7 @@ Taliyah 32
   Ziggs
   Zilean
   Zyra
-Talon 94 
+Talon 93 
   Aatrox
   Ahri
   Amumu
@@ -7074,7 +7027,6 @@ Talon 94
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Zed
@@ -7254,7 +7206,7 @@ Tristana 65
   Ziggs
   Zilean
   Zyra
-Trundle 124 
+Trundle 123 
   Aatrox
   Ahri
   Akali
@@ -7369,7 +7321,6 @@ Trundle 124
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -7379,7 +7330,7 @@ Trundle 124
   Ziggs
   Zilean
   Zyra
-Tryndamere 129 P
+Tryndamere 128 P
   Aatrox
   Ahri
   Akali
@@ -7499,7 +7450,6 @@ Tryndamere 129 P
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -7526,7 +7476,7 @@ TwistedFate 16
   Veigar
   Zilean
   Zyra
-Twitch 90 P
+Twitch 89 P
   Aatrox
   Ahri
   Amumu
@@ -7610,14 +7560,13 @@ Twitch 90 P
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Zed
   Ziggs
   Zilean
   Zyra
-Udyr 93 
+Udyr 92 
   Aatrox
   Ahri
   Amumu
@@ -7702,7 +7651,6 @@ Udyr 93
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -7711,7 +7659,7 @@ Udyr 93
   Ziggs
   Zilean
   Zyra
-Urgot 114 P
+Urgot 113 P
   Aatrox
   Ahri
   Akali
@@ -7816,7 +7764,6 @@ Urgot 114 P
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -7941,7 +7888,7 @@ Velkoz 21
   Veigar
   Zilean
   Zyra
-Vi 81 
+Vi 80 
   Ahri
   Amumu
   Anivia
@@ -8017,7 +7964,6 @@ Vi 81
   Velkoz
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Ziggs
@@ -8085,7 +8031,7 @@ Vladimir 27
   Viktor
   Zilean
   Zyra
-Volibear 131 P
+Volibear 130 P
   Aatrox
   Ahri
   Akali
@@ -8207,7 +8153,6 @@ Volibear 131 P
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
@@ -8217,62 +8162,134 @@ Volibear 131 P
   Ziggs
   Zilean
   Zyra
-Warwick 58 
+Warwick 130 P
+  Aatrox
   Ahri
+  Akali
+  Alistar
+  Amumu
   Anivia
   Annie
   Ashe
   AurelionSol
   Azir
   Bard
+  Blitzcrank
   Brand
+  Braum
   Caitlyn
+  Camille
   Cassiopeia
+  Chogath
   Corki
+  Diana
+  DrMundo
+  Draven
+  Ekko
   Elise
+  Evelynn
   Ezreal
   FiddleSticks
+  Fiora
+  Fizz
+  Galio
+  Gangplank
+  Garen
   Gnar
+  Gragas
   Graves
+  Hecarim
   Heimerdinger
+  Illaoi
+  Irelia
   Ivern
   Janna
+  JarvanIV
   Jayce
   Jhin
+  Jinx
+  Kalista
   Karma
   Karthus
+  Kassadin
+  Katarina
+  Kayle
   Kennen
+  Khazix
   Kindred
   Kled
   KogMaw
   Leblanc
+  LeeSin
+  Leona
   Lissandra
+  Lucian
+  Lulu
   Lux
+  Malphite
   Malzahar
+  Maokai
+  MasterYi
   MissFortune
+  MonkeyKing
   Mordekaiser
+  Morgana
   Nami
+  Nasus
+  Nautilus
   Nidalee
+  Nocturne
+  Nunu
   Orianna
+  Pantheon
+  Poppy
   Quinn
+  Rammus
+  RekSai
+  Renekton
+  Rengar
+  Riven
+  Rumble
+  Ryze
+  Sejuani
+  Shaco
+  Shen
+  Shyvana
+  Singed
+  Sion
   Sivir
+  Skarner
   Sona
   Soraka
   Swain
   Syndra
+  TahmKench
   Taliyah
+  Talon
+  Taric
   Teemo
   Thresh
   Tristana
+  Trundle
+  Tryndamere
   TwistedFate
+  Twitch
+  Udyr
+  Urgot
   Varus
   Vayne
   Veigar
   Velkoz
+  Vi
   Viktor
   Vladimir
+  Volibear
   Xerath
+  XinZhao
   Yasuo
+  Yorick
+  Zac
+  Zed
   Ziggs
   Zilean
   Zyra
@@ -8300,7 +8317,7 @@ Xerath 23
   Veigar
   Zilean
   Zyra
-XinZhao 86 
+XinZhao 85 
   Aatrox
   Ahri
   Amumu
@@ -8381,7 +8398,6 @@ XinZhao 86
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Ziggs
@@ -8449,7 +8465,7 @@ Yasuo 61
   Ziggs
   Zilean
   Zyra
-Yorick 84 
+Yorick 83 
   Aatrox
   Ahri
   Anivia
@@ -8528,13 +8544,12 @@ Yorick 84
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Ziggs
   Zilean
   Zyra
-Zac 98 
+Zac 97 
   Aatrox
   Ahri
   Amumu
@@ -8625,7 +8640,6 @@ Zac 98
   Vi
   Viktor
   Vladimir
-  Warwick
   Xerath
   Yasuo
   Yorick
@@ -8633,7 +8647,7 @@ Zac 98
   Ziggs
   Zilean
   Zyra
-Zed 82 P
+Zed 81 P
   Ahri
   Amumu
   Anivia
@@ -8708,7 +8722,6 @@ Zed 82 P
   Velkoz
   Viktor
   Vladimir
-  Warwick
   Xerath
   XinZhao
   Yasuo
