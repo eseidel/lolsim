@@ -6,7 +6,7 @@ import 'package:meta/meta.dart';
 import 'package:resource/resource.dart';
 import 'stats.dart';
 
-const String VERSION = '7.1.1';
+const String VERSION = '7.2.1';
 const String DATA_DIR = 'package:dragon_data/$VERSION/data/en_US';
 final Logger _log = new Logger('dragon');
 
