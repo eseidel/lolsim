@@ -12,6 +12,8 @@ class Duel {
   List<Mob> reds;
   List<Mob> blues;
 
+  Duel({this.reds, this.blues});
+
   List<Mob> get allMobs => []..addAll(reds)..addAll(blues);
 }
 

@@ -696,7 +696,7 @@ class Mob {
 
   String get hpStatusString {
     int percent = (healthPercent * 100).round();
-    return "$percent% (${currentHp.toStringAsFixed(1)} / ${stats.hp.round()})";
+    return "$percent% (${currentHp.toStringAsFixed(2)} / ${stats.hp.round()})";
   }
 
   void startHealingIfNecessary() {

@@ -8,19 +8,9 @@ import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/duel.dart';
 import 'package:lol_duel/lolsim.dart';
 
-main(List<String> args) async {
-  ArgResults results = handleCommonArgs(args);
-  final Logger _log = new Logger('duel');
+final Logger _log = new Logger('duel');
 
-  if (results.rest.length != 1) {
-    _log.severe("duel.dart takes a single path argument.");
-    exit(1);
-  }
-
-  Creator creator = await Creator.loadLatest();
-  DuelLoader duelLoader = new DuelLoader(creator);
-
-  Duel duel = await duelLoader.duelFromYamlPath(results.rest.first);
+void runDuel(Duel duel) {
   print("${duel.blues} vs. ${duel.reds}");
   print("Blue Team");
   duel.blues.forEach((mob) => print(mob.statsSummary()));
@@ -51,4 +41,15 @@ main(List<String> args) async {
   print("Red Team");
   world.reds.forEach((mob) =>
       _log.info("$mob ${mob.hpStatusString}\n${mob.damageLog.summaryString}"));
+}
+
+main(List<String> args) async {
+  ArgResults results = handleCommonArgs(args);
+  if (results.rest.length != 1) {
+    _log.severe("duel.dart takes a single path argument.");
+    exit(1);
+  }
+
+  DuelLoader duelLoader = new DuelLoader(await Creator.loadLatest());
+  runDuel(await duelLoader.duelFromYamlPath(results.rest.first));
 }

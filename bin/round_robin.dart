@@ -14,7 +14,7 @@ int champCompare(Mob red, Mob blue) {
     critProvider: new PredictableCrits([blue.id, red.id]),
   );
   world.tickUntil(World.oneSideDies);
-  return blue.currentHp.floor() - red.currentHp.floor();
+  return (blue.currentHp - red.currentHp).ceil();
 }
 
 class ChampResults implements Comparable<ChampResults> {
@@ -36,7 +36,8 @@ class ChampResults implements Comparable<ChampResults> {
   String diffString(ChampResults other) {
     assert(champId == other.champId);
     String diff = '$champId';
-    if (skillsString != other.skillsString) diff += ' ${skillsString} -> ${other.skillsString}';
+    if (skillsString != other.skillsString)
+      diff += ' ${skillsString} -> ${other.skillsString}';
     Set<String> from = new Set.from(defeatedChamps);
     Set<String> to = new Set.from(other.defeatedChamps);
     from.difference(to).forEach((champId) => diff += ' -$champId');
@@ -154,8 +155,7 @@ main(List<String> args) async {
   champIds.forEach((id) => resultsById[id] = new ChampResults(id));
   Combinations combos = new Combinations(2, champIds);
   if (mode != OutputMode.json) {
-    print(
-        "Standing still and AAing-to-death all ${combos
+    print("Standing still and AAing-to-death all ${combos
             .length} pairs of ${champIds.length} champions");
     print("using no items, runes or masteries or abilities.");
     print("Note: A few have passives implemented, as indicated.\n");

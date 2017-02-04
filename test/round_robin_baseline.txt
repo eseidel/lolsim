@@ -6,15 +6,15 @@ Name          Victories  Skills
 ===================================
 Kled          0                    
 Anivia        1                    
-Karthus       1                    
 Annie         2                    
+Karthus       2                    
 Lux           3                    
-Janna         4                    
 FiddleSticks  5                    
+Janna         5                    
 Sona          5                    
 Lissandra     6                    
 Veigar        6                    
-Zilean        7                    
+Zilean        8                    
 Thresh        9                    
 Soraka        10                   
 Nami          11                   
@@ -30,13 +30,13 @@ Ezreal        17
 Gnar          17                   
 Nidalee       19                   
 Karma         20                   
-Swain         21                   
+Swain         22                   
 Velkoz        22                   
 Syndra        23                   
-Malzahar      24                   
 Xerath        24                   
 Jhin          25                   
-Leblanc       26                   
+Malzahar      25                   
+Leblanc       27                   
 Orianna       27         P         
 Vladimir      27                   
 Bard          30                   
@@ -56,10 +56,10 @@ Ivern         46
 Kennen        47                   
 Jayce         49                   
 KogMaw        50                   
-Mordekaiser   50                   
 AurelionSol   51                   
 Evelynn       51                   
 Jinx          51                   
+Mordekaiser   51                   
 Ryze          53                   
 Varus         53                   
 Kayle         54                   
@@ -72,7 +72,7 @@ Taric         62
 Yasuo         62                   
 Lucian        63                   
 Poppy         64                   
-RekSai        64                   
+RekSai        65                   
 Tristana      65                   
 Amumu         69                   
 Shen          70                   
@@ -86,24 +86,24 @@ Kassadin      78
 Pantheon      78                   
 Draven        79                   
 Khazix        79                   
-Vi            79                   
+Vi            80                   
 Zed           81         P         
 Sion          84                   
 Yorick        84                   
-Renekton      85                   
 XinZhao       85                   
-Ekko          86         P         
+Renekton      86                   
 Camille       87                   
-Leona         88                   
+Ekko          87         P         
 Rengar        88                   
-Twitch        88         P         
-Nunu          89                   
-Talon         90                   
+Leona         89                   
+Twitch        89         P         
+Nunu          90                   
 Hecarim       91                   
-Udyr          91                   
 Blitzcrank    92                   
 Skarner       92                   
+Udyr          92                   
 Illaoi        93                   
+Talon         93                   
 Garen         94                   
 Malphite      94                   
 Galio         95                   
@@ -115,8 +115,8 @@ Chogath       100
 Nasus         100        P         
 DrMundo       101        P         
 Alistar       107                  
-Rammus        107        P         
 Gragas        109                  
+Rammus        109        P         
 Shaco         109                  
 Rumble        110                  
 Akali         112                  
@@ -1630,7 +1630,7 @@ Draven 79
   Ziggs
   Zilean
   Zyra
-Ekko 86 P
+Ekko 87 P
   Aatrox
   Ahri
   Amumu
@@ -1643,6 +1643,7 @@ Ekko 86 P
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
   Corki
   Draven
@@ -2719,7 +2720,8 @@ Ivern 46
   Xerath
   Zilean
   Zyra
-Janna 4 
+Janna 5 
+  Annie
   Caitlyn
   Karthus
   Kled
@@ -3193,7 +3195,8 @@ Karma 20
   Veigar
   Zilean
   Zyra
-Karthus 1 
+Karthus 2 
+  Annie
   Kled
 Kassadin 78 
   Aatrox
@@ -3641,7 +3644,7 @@ KogMaw 50
   Xerath
   Zilean
   Zyra
-Leblanc 26 
+Leblanc 27 
   Ahri
   Anivia
   Annie
@@ -3649,6 +3652,7 @@ Leblanc 26
   Caitlyn
   Elise
   FiddleSticks
+  Gnar
   Graves
   Janna
   Karma
@@ -3766,7 +3770,7 @@ LeeSin 97
   Ziggs
   Zilean
   Zyra
-Leona 88 
+Leona 89 
   Aatrox
   Ahri
   Amumu
@@ -3782,6 +3786,7 @@ Leona 88
   Cassiopeia
   Corki
   Draven
+  Ekko
   Elise
   Evelynn
   Ezreal
@@ -4065,12 +4070,13 @@ Malphite 94
   Ziggs
   Zilean
   Zyra
-Malzahar 24 
+Malzahar 25 
   Ahri
   Anivia
   Annie
   Azir
   Caitlyn
+  Elise
   FiddleSticks
   Graves
   Janna
@@ -4448,7 +4454,7 @@ MonkeyKing 98
   Ziggs
   Zilean
   Zyra
-Mordekaiser 50 
+Mordekaiser 51 
   Ahri
   Anivia
   Annie
@@ -4460,6 +4466,7 @@ Mordekaiser 50
   Cassiopeia
   Corki
   Elise
+  Evelynn
   Ezreal
   FiddleSticks
   Gnar
@@ -4889,7 +4896,7 @@ Nocturne 122 P
   Ziggs
   Zilean
   Zyra
-Nunu 89 
+Nunu 90 
   Aatrox
   Ahri
   Amumu
@@ -4932,6 +4939,7 @@ Nunu 89
   Kled
   KogMaw
   Leblanc
+  LeeSin
   Lissandra
   Lucian
   Lulu
@@ -5342,7 +5350,7 @@ Quinn 56
   Ziggs
   Zilean
   Zyra
-Rammus 107 P
+Rammus 109 P
   Aatrox
   Ahri
   Amumu
@@ -5374,6 +5382,7 @@ Rammus 107 P
   Graves
   Hecarim
   Heimerdinger
+  Illaoi
   Ivern
   Janna
   Jayce
@@ -5392,6 +5401,7 @@ Rammus 107 P
   KogMaw
   Leblanc
   LeeSin
+  Leona
   Lissandra
   Lucian
   Lulu
@@ -5450,11 +5460,12 @@ Rammus 107 P
   Ziggs
   Zilean
   Zyra
-RekSai 64 
+RekSai 65 
   Ahri
   Anivia
   Annie
   Ashe
+  AurelionSol
   Azir
   Bard
   Brand
@@ -5515,7 +5526,7 @@ RekSai 64
   Ziggs
   Zilean
   Zyra
-Renekton 85 
+Renekton 86 
   Aatrox
   Ahri
   Amumu
@@ -5536,6 +5547,7 @@ Renekton 85
   Ezreal
   FiddleSticks
   Fiora
+  Fizz
   Gangplank
   Gnar
   Graves
@@ -6691,7 +6703,7 @@ Soraka 10
   MissFortune
   Sona
   Veigar
-Swain 21 
+Swain 22 
   Anivia
   Annie
   Caitlyn
@@ -6699,6 +6711,7 @@ Swain 21
   FiddleSticks
   Gnar
   Graves
+  Heimerdinger
   Janna
   Karthus
   Kled
@@ -6901,7 +6914,7 @@ Taliyah 33
   Ziggs
   Zilean
   Zyra
-Talon 90 
+Talon 93 
   Aatrox
   Ahri
   Amumu
@@ -6914,6 +6927,7 @@ Talon 90
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
   Corki
   Draven
@@ -6944,6 +6958,7 @@ Talon 90
   Kled
   KogMaw
   Leblanc
+  Leona
   Lissandra
   Lucian
   Lulu
@@ -6962,6 +6977,7 @@ Talon 90
   Quinn
   RekSai
   Renekton
+  Rengar
   Riven
   Ryze
   Shen
@@ -7438,7 +7454,7 @@ TwistedFate 16
   Veigar
   Zilean
   Zyra
-Twitch 88 P
+Twitch 89 P
   Aatrox
   Ahri
   Amumu
@@ -7454,6 +7470,7 @@ Twitch 88 P
   Camille
   Cassiopeia
   Corki
+  Draven
   Elise
   Evelynn
   Ezreal
@@ -7527,7 +7544,7 @@ Twitch 88 P
   Ziggs
   Zilean
   Zyra
-Udyr 91 
+Udyr 92 
   Aatrox
   Ahri
   Amumu
@@ -7565,6 +7582,7 @@ Udyr 91
   Kassadin
   Kayle
   Kennen
+  Khazix
   Kindred
   Kled
   KogMaw
@@ -7851,7 +7869,7 @@ Velkoz 22
   Veigar
   Zilean
   Zyra
-Vi 79 
+Vi 80 
   Ahri
   Amumu
   Anivia
@@ -7903,6 +7921,7 @@ Vi 79
   Nautilus
   Nidalee
   Orianna
+  Pantheon
   Poppy
   Quinn
   RekSai
@@ -8733,7 +8752,8 @@ Ziggs 44
   Xerath
   Zilean
   Zyra
-Zilean 7 
+Zilean 8 
+  Anivia
   Annie
   Caitlyn
   Graves
