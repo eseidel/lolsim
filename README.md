@@ -39,6 +39,7 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 -- Darius Passive numbers
 -- Lulu passive numbers
 - Fix stat-relative buffs to include all stats (not just base).
+- Split bonus vs. base armor, ad, etc.
 - Figure out how to do ability passives.
 - Unify Buffs, Items, Abilities as Scripts.
 - Percent armor mods (for xin and kayle).

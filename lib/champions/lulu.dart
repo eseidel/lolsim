@@ -6,7 +6,7 @@ class Lulu extends ChampionEffects {
   Lulu(this.lulu);
 
   double get damagePerPixShot =>
-      3 + ((lulu.level - 1) ~/ 2) * 4 + 0.05 * lulu.stats.abilityPower;
+      3 + (2 * lulu.level) + 0.05 * lulu.stats.abilityPower;
 
   // FIXME: Pix should be implemented as a buff or separate mob (or both).
   // FIXME: Also Pix's attacks are delayed skillshots/missles with a travel time.

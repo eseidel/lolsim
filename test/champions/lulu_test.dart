@@ -12,29 +12,29 @@ main() async {
       Mob mob = createTestMob(hp: 1000.0);
       World world = new World();
       new AutoAttack(lulu, mob).apply(world);
-      expect(mob.hpLost, lulu.stats.attackDamage + 9);
+      expect(mob.hpLost, lulu.stats.attackDamage + 15);
     });
     test('level scaling', () {
       // expected copied from lolwiki.
       List<double> expected = [
-        3,
-        3,
+        5,
         7,
-        7,
+        9,
         11,
-        11,
+        13,
         15,
-        15,
+        17,
         19,
-        19,
+        21,
         23,
-        23,
+        25,
         27,
-        27,
+        29,
         31,
-        31,
+        33,
         35,
-        35
+        37,
+        39
       ].map((i) => i.toDouble()).toList();
       Mob lulu = data.champs.championById('Lulu');
 
