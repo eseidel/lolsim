@@ -36,7 +36,17 @@ class LocalLoader extends DragonLoader {
       pathPackage.join(rootDir, key.toDragonPath());
 
   @override
-  Future<String> loadKey(DragonKey key) => reader(_pathForKey(key));
+  Future<String> loadKey(DragonKey key, {bool exitOnFailure: true}) {
+    Future<String> result = reader(_pathForKey(key));
+    if (exitOnFailure) {
+      return result.catchError((e) {
+        print(
+            "Failed to load $key.\n$e\nTry running bin/precache_dragondata.dart first.");
+        exit(1);
+      });
+    }
+    return result;
+  }
 }
 
 class DragonKey {
