@@ -1,12 +1,17 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:logging/logging.dart';
+import 'package:http/http.dart' as http;
 import 'package:path/path.dart' as pathPackage;
 import 'package:quiver/cache.dart';
 import 'package:resource/resource.dart';
 
+final Logger _log = new Logger('dragon_loader');
+
 const String DEFAULT_VERSION = '7.2.1';
 const String DEFAULT_LOCALE = 'en_US';
+const String DEFAULT_CACHE_DIR = '/tmp/lolsim';
 
 typedef Future<String> StringReader(String path);
 
@@ -24,11 +29,14 @@ abstract class DragonLoader {
 
 class LocalLoader extends DragonLoader {
   final StringReader reader;
-  LocalLoader({this.reader = _ioReader});
+  final String rootDir;
+  LocalLoader({this.rootDir = DEFAULT_CACHE_DIR, this.reader = _ioReader});
 
-  Future<String> loadKey(DragonKey key) {
-    return reader('package:dragon_data/${key.toDragonPath()}');
-  }
+  String _pathForKey(DragonKey key) =>
+      pathPackage.join(rootDir, key.toDragonPath());
+
+  @override
+  Future<String> loadKey(DragonKey key) => reader(_pathForKey(key));
 }
 
 class DragonKey {
@@ -37,7 +45,10 @@ class DragonKey {
   final String locale;
   DragonKey(this.filename, {String version, String locale})
       : this.version = version ?? DEFAULT_VERSION,
-        this.locale = locale ?? DEFAULT_LOCALE {}
+        this.locale = locale ?? DEFAULT_LOCALE;
+
+  @override
+  String toString() => '${version}-${locale}-${filename}';
 
   /// Path following Rito's dragontail layout pattern.
   // FIXME: This won't work correctly on windows and likely
@@ -47,43 +58,62 @@ class DragonKey {
 }
 
 class NetworkLoader extends DragonLoader {
-  DiskCache cache =
-      new DiskCache(pathPackage.join(Directory.systemTemp.path, 'lolsim'));
+  Cache<DragonKey, String> cache;
 
+  NetworkLoader({this.cache}) {
+    // FIXME: This will not work on windows.
+    // Directory.systemTemp doesn't give a consistent value between runs.
+    cache ??= new DiskCache(pathPackage.join('/tmp', 'lolsim'));
+  }
+
+  String _urlForKey(DragonKey key) =>
+      'http://ddragon.leagueoflegends.com/cdn/${key.toDragonPath()}';
+
+  @override
   Future<String> loadKey(DragonKey key) {
     Future<String> _fetchDataForKey(DragonKey key) {
-      String url =
-          'http://ddragon.leagueoflegends.com/cdn/${key.toDragonPath()}';
-      return new Resource(url).readAsString();
+      // FIXME: Should be possible to use package:resource here and share
+      // code with the LocalLoader path, except for
+      // https://github.com/dart-lang/resource/issues/21
+      return http.read(_urlForKey(key));
     }
 
     return cache.get(key, ifAbsent: _fetchDataForKey);
   }
 }
 
+// FIXME: This has no locking and is thus racey.
 class DiskCache extends Cache<DragonKey, String> {
-  String cacheRoot;
-  DiskCache(this.cacheRoot);
+  String cacheDir;
+  DiskCache(this.cacheDir);
 
   String _pathForKey(DragonKey key) =>
-      pathPackage.join(cacheRoot, key.toDragonPath());
+      pathPackage.join(cacheDir, key.toDragonPath());
 
+  @override
   Future<String> get(DragonKey key, {Loader<DragonKey> ifAbsent}) async {
     File file = new File(_pathForKey(key));
-    if (await file.exists()) return file.readAsString();
+    if (await file.exists()) {
+      _log.info('Cache hit: $key');
+      return file.readAsString();
+    }
+    _log.info('Cache miss: $key, fetching.');
     String value = await ifAbsent(key);
-    set(key, value);
+    await set(key, value);
     return value;
   }
 
+  @override
   Future set(DragonKey key, String value) async {
+    _log.info('Cache set: $key ${value.length} bytes.');
     File file = new File(_pathForKey(key));
-    await file.create(recursive: true);
-    return file.writeAsString(value);
+    file = await file.create(recursive: true);
+    file.writeAsString(value);
+    return new Future.value(1);
   }
 
+  @override
   Future invalidate(DragonKey key) {
-    File file = new File(_pathForKey(key));
-    return file.delete();
+    return new File(_pathForKey(key)).delete();
   }
 }

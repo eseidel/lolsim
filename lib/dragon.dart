@@ -35,7 +35,7 @@ class ItemDescription {
         inStore = json['in'],
         hideFromAll = json['hideFromAll'],
         stats = json['stats'],
-        hasEffects = (json['effect'] != null) {}
+        hasEffects = (json['effect'] != null);
 }
 
 class ItemLibrary {
@@ -43,7 +43,7 @@ class ItemLibrary {
 
   ItemLibrary(Map<String, Map<String, dynamic>> json) : _json = json;
 
-  static List<ItemDescription> _allItemsCache = null;
+  static List<ItemDescription> _allItemsCache;
 
   List<ItemDescription> all() {
     if (_allItemsCache == null) {
@@ -104,6 +104,12 @@ class MasteryDescription {
   final List<String> descriptions;
   final int ranks;
 
+  MasteryDescription.fromJSON(Map<String, dynamic> json)
+      : id = json['id'],
+        name = json['name'],
+        descriptions = json['description'],
+        ranks = json['ranks'];
+
   MasteryTree get tree {
     // HACK: But seems to work and is quick.
     // Could also load the tree definitions from mastery.json.
@@ -113,12 +119,6 @@ class MasteryDescription {
     assert(id >= 6100);
     return MasteryTree.ferocity;
   }
-
-  MasteryDescription.fromJSON(Map<String, dynamic> json)
-      : id = json['id'],
-        name = json['name'],
-        descriptions = json['description'],
-        ranks = json['ranks'] {}
 }
 
 class MasteryLibrary {
@@ -126,7 +126,7 @@ class MasteryLibrary {
 
   MasteryLibrary(Map<String, Map<String, dynamic>> json) : _json = json;
 
-  static List<MasteryDescription> _allMasteriesCache = null;
+  static List<MasteryDescription> _allMasteriesCache;
 
   List<MasteryDescription> allMasteries() {
     if (_allMasteriesCache == null) {
@@ -171,7 +171,7 @@ class MobDescription {
       : baseStats = new BaseStats.fromJSON(json['stats']),
         id = json['id'],
         name = json['name'],
-        title = json['title'] {}
+        title = json['title'];
 }
 
 class ChampionLibrary {

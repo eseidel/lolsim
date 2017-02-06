@@ -4,8 +4,6 @@ dependencies:
   logging: any
   args: any
   yaml: any
-  dragon_data:
-    path: ../dragon_data
   resource: any
   trotter: any
   matcher: any
