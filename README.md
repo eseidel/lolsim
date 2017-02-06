@@ -42,18 +42,15 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Fix stat-relative buffs to include all stats (not just base).
 - Split bonus vs. base armor, ad, etc.
 - Coverage & coveralls.io
-- Run tests on travis
 - Figure out how to do ability passives.
 - Unify Buffs, Items, Abilities as Scripts.
 - Percent armor mods (for xin and kayle).
-- Split out dragon.dart into package:data_dragon instead of lol_duel.
 - Split lolsim.dart into smaller files.
 - Add more passives, abilities, masteries, runes, etc.
 - Convert to integer math (ticks, etc.) to avoid double precision errors.
 - Implement in-combat/out-of-combat (more champs would die to darius and twitch dots).
 - Make round_robin spit out json and be able to compare lists.
 - Implement proximity (likely requires passing World more places).
-- Move to using Champion API endpoints instead of dragontail.tgz.
 
 ## Passives missing affecting the lvl 1 round_robin sort.
 - Aatrox passive (complicated, likely requires bloodthirst to be useful)
