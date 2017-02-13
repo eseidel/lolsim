@@ -63,7 +63,7 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Darius passive (wrong, missing bonus ad)
 - Elise passive (ai to really use it)
 - Fizz passive (unclear how to implement this kind of dmg reduction)
-- Graves AA modifier and passive (sounds hard to implement)
+- Graves AA modifier and passive (impactful, hard to implement)
 - Gangplank passive (small effect, needs bonus ad split)
 - Kayle passive (needs percent armor mod)
 - Kha'Zix passive (on-hit, small effect, with abilities bigger)

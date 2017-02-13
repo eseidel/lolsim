@@ -45,9 +45,8 @@ class Rune {
   String get statName => description.statName;
   double get statValue => description.statValue;
 
-  String toString() {
-    return "${name}";
-  }
+  @override
+  String toString() => name;
 
   static Set _loggedRuneNames = new Set();
   void logIfMissingStats() {
@@ -84,9 +83,8 @@ class Item {
         description.requiredChampion == null;
   }
 
-  String toString() {
-    return "${name} (${description.gold['total']}g)";
-  }
+  @override
+  String toString() => '${name} (${description.gold['total']}g)';
 
   static Set _loggedEffects = new Set();
   void logMissingEffects() {
@@ -145,6 +143,7 @@ class AutoAttack extends Action {
 
   AutoAttack(this.source, Mob target) : super(target);
 
+  @override
   void apply(World world) {
     source.buffs
         .add(new AutoAttackCooldown(source, source.stats.attackDuration));
@@ -180,9 +179,8 @@ class Damage {
 
   double get totalDamage => physicalDamage + magicDamage + trueDamage;
 
-  String toString() {
-    return label != null ? '$totalDamage ($label)' : '$totalDamage';
-  }
+  @override
+  String toString() => label != null ? '$totalDamage ($label)' : '$totalDamage';
 }
 
 enum Targeting {
@@ -353,7 +351,9 @@ enum MobState {
 }
 
 class Healing extends TickingBuff {
-  Healing(Mob target) : super(name: 'Healing', target: target) {}
+  Healing(Mob target) : super(name: 'Healing', target: target);
+
+  @override
   void onTick() {
     double hpPerSecond = target.stats.hpRegen / 5.0;
     target.healFor(hpPerSecond * secondsBetweenTicks, 'hp5');
@@ -387,8 +387,8 @@ class Mob {
   double hpLost = 0.0;
   bool alive = true;
   MobState state;
-  DamageLog damageLog = null;
-  ChampionEffects effects = null;
+  DamageLog damageLog;
+  ChampionEffects effects;
 
   Mob(this.description, this.type) {
     ChampionEffectsConstructor effectsConstructor =
@@ -524,6 +524,7 @@ class Mob {
     return computed;
   }
 
+  @override
   String toString() {
     String teamString = (team != null) ? "${teamToString(team)} " : "";
     return "$teamString$name";
