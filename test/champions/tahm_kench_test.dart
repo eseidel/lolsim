@@ -5,7 +5,7 @@ import 'package:lol_duel/champions/tahm_kench.dart';
 import 'package:matcher/matcher.dart';
 import '../test_mob.dart';
 
-main() async {
+dynamic main() async {
   Creator data = await Creator.loadLatest();
   group("An Acquired Taste", () {
     test("basic", () {

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:async';
 
 import 'package:args/args.dart';
 import 'package:logging/logging.dart';
@@ -137,7 +138,7 @@ OutputMode modeFromString(String mode) {
   return OutputMode.human;
 }
 
-main(List<String> args) async {
+Future main(List<String> args) async {
   Logger.root.level = Level.WARNING;
   Logger.root.onRecord.listen((LogRecord rec) {
     // ${rec.time}:

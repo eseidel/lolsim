@@ -3,7 +3,7 @@ import 'package:lol_duel/lolsim.dart';
 import "package:test/test.dart";
 import 'package:lol_duel/champions/drmundo.dart';
 
-main() async {
+dynamic main() async {
   Creator data = await Creator.loadLatest();
   group("Adrenaline Rush", () {
     test("basic", () {

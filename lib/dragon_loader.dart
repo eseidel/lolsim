@@ -118,8 +118,7 @@ class DiskCache extends Cache<DragonKey, String> {
     _log.info('Cache set: $key ${value.length} bytes.');
     File file = new File(_pathForKey(key));
     file = await file.create(recursive: true);
-    file.writeAsString(value);
-    return new Future.value(1);
+    return file.writeAsString(value);
   }
 
   @override

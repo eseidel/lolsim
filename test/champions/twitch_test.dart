@@ -5,7 +5,7 @@ import "package:test/test.dart";
 
 import '../test_mob.dart';
 
-main() async {
+dynamic main() async {
   Creator data = await Creator.loadLatest();
 
   group("Deadly Venom", () {

@@ -1,6 +1,7 @@
 #!/usr/local/bin/dart
-import 'package:lol_duel/common_args.dart';
 import 'dart:convert';
+
+import 'package:lol_duel/common_args.dart';
 import 'package:resource/resource.dart';
 
 class Spell {
@@ -8,7 +9,7 @@ class Spell {
   Map data;
 }
 
-main(List<String> args) async {
+dynamic main(List<String> args) async {
   handleCommonArgs(args);
 
   String path = 'package:dragon_data/6.24.1/data/en_US/championFull.json';

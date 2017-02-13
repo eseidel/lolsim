@@ -3,7 +3,7 @@ import "package:test/test.dart";
 
 import 'test_mob.dart';
 
-main() async {
+dynamic main() async {
   group("Minions", () {
     test("attackspeed", () {
       Mob mob = Mob.createMinion(MinionType.melee);

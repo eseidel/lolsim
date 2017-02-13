@@ -4,7 +4,7 @@ import "package:test/test.dart";
 import 'package:lol_duel/champions/ekko.dart';
 import '../test_mob.dart';
 
-main() async {
+dynamic main() async {
   Creator data = await Creator.loadLatest();
   group('Z-Drive Resonance', () {
     test('basic', () {

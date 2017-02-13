@@ -4,7 +4,7 @@ import "package:test/test.dart";
 
 import 'test_mob.dart';
 
-main() async {
+dynamic main() async {
   group("StackedBuff", () {
     test("tick", () {
       Mob mob = createTestMob(hp: 100.0);

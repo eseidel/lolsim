@@ -4,7 +4,7 @@ import "package:test/test.dart";
 import '../test_mob.dart';
 import 'package:lol_duel/champions/lulu.dart';
 
-main() async {
+dynamic main() async {
   Creator data = await Creator.loadLatest();
   group('Pix', () {
     test('basic', () {

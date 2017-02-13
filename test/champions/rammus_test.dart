@@ -3,7 +3,7 @@ import 'package:lol_duel/lolsim.dart';
 import "package:test/test.dart";
 import 'package:lol_duel/champions/rammus.dart';
 
-main() async {
+dynamic main() async {
   Creator data = await Creator.loadLatest();
   group("Spiked Shell", () {
     test("basic", () {

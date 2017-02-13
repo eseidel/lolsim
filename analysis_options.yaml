@@ -2,13 +2,23 @@ analyzer:
   strong-mode: true
 linter:
   rules:
-    # - always_declare_return_types
-    - camel_case_types
-    - empty_constructor_bodies
+    - always_declare_return_types
     - annotate_overrides
+    - avoid_empty_else
     - avoid_init_to_null
-    # - constant_identifier_names
+    - avoid_return_types_on_setters
+    - await_only_futures
+    - camel_case_types
+    - empty_catches
+    - empty_constructor_bodies
+    - empty_statements
+    - hash_and_equals
+    - invariant_booleans
     - one_member_abstracts
+    - prefer_final_fields
     - slash_for_doc_comments
     - sort_constructors_first
+    - super_goes_last
+    - unawaited_futures
+    # - constant_identifier_names
     # - unnecessary_brace_in_string_interp

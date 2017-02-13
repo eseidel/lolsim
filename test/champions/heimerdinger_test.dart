@@ -1,7 +1,7 @@
 import 'package:lol_duel/champions/heimerdinger.dart';
 import "package:test/test.dart";
 
-main() async {
+dynamic main() async {
   group('Techmaturgical Repair Bots', () {
     test('hp5 scaling', () {
       List<int> levels = [1, 2, 5, 9, 13, 17, 18];

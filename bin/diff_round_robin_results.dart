@@ -13,7 +13,7 @@ Future<List<ChampResults>> load(String path) async {
   return jsonList.map((json) => new ChampResults.fromJson(json)).toList();
 }
 
-main(List<String> args) async {
+Future main(List<String> args) async {
   Logger.root.level = Level.INFO;
   Logger.root.onRecord.listen((LogRecord rec) {
     // ${rec.time}:
@@ -34,7 +34,6 @@ main(List<String> args) async {
     ChampResults to = toList[i];
     String diffString = from.diffString(to);
     // This is a hack to detect if there is a difference.
-    if (diffString != from.champId)
-      print(diffString);
+    if (diffString != from.champId) print(diffString);
   }
 }

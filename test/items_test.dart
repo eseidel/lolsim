@@ -4,7 +4,7 @@ import "package:test/test.dart";
 
 import 'test_mob.dart';
 
-main() async {
+dynamic main() async {
   Creator data = await Creator.loadLatest();
   List<Item> items = data.items
       .allItems()

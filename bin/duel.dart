@@ -51,5 +51,5 @@ dynamic main(List<String> args) async {
   }
 
   DuelLoader duelLoader = new DuelLoader(await Creator.loadLatest());
-  runDuel(await duelLoader.duelFromYamlPath(results.rest.first));
+  runDuel(duelLoader.duelFromYamlPath(results.rest.first));
 }

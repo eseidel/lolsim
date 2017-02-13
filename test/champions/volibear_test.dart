@@ -4,7 +4,7 @@ import "package:test/test.dart";
 import 'package:lol_duel/champions/volibear.dart';
 import '../test_mob.dart';
 
-main() async {
+dynamic main() async {
   Creator data = await Creator.loadLatest();
   group("Chosen of the Storm", () {
     test("basic", () {

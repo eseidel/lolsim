@@ -5,7 +5,7 @@ import "package:test/test.dart";
 
 import 'test_mob.dart';
 
-main() async {
+dynamic main() async {
   Creator creator = await Creator.loadLatest();
 
   Mastery masteryByName(String name, int rank) {

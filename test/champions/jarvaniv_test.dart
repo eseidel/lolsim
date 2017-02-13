@@ -6,7 +6,7 @@ import 'package:matcher/matcher.dart';
 
 import '../test_mob.dart';
 
-main() async {
+dynamic main() async {
   Creator data = await Creator.loadLatest();
   group('Martial Cadence', () {
     test('basic', () {

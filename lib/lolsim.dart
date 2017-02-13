@@ -27,11 +27,11 @@ class Maps {
   static String CURRENT_HOWLING_ABYSS = "12";
 }
 
-typedef DamageDealtModifier(Hit hit, DamageDealtModifier);
-typedef DamageRecievedModifier(Hit hit, DamageRecievedDelta);
+typedef void DamageDealtModifier(Hit hit, DamageDealtModifier);
+typedef void DamageRecievedModifier(Hit hit, DamageRecievedDelta);
 
 abstract class ItemEffects {
-  damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {}
+  void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {}
 }
 
 class Rune {
@@ -406,14 +406,14 @@ class Mob {
   String get name => description.name;
 
   int get level => _level;
-  void set level(int newLevel) {
+  set level(int newLevel) {
     assert(newLevel >= 1);
     assert(newLevel <= 18);
     _level = newLevel;
   }
 
   bool get shouldRecordDamage => damageLog != null;
-  void set shouldRecordDamage(bool flag) {
+  set shouldRecordDamage(bool flag) {
     if (flag == shouldRecordDamage) return;
     if (flag)
       damageLog = new DamageLog();
@@ -422,14 +422,14 @@ class Mob {
   }
 
   MasteryPage get masteryPage => _masteryPage;
-  void set masteryPage(MasteryPage newPage) {
+  set masteryPage(MasteryPage newPage) {
     _masteryPage = newPage;
     _masteryPage.logAnyMissingEffects();
     updateStats();
   }
 
   RunePage get runePage => _runePage;
-  void set runePage(RunePage newPage) {
+  set runePage(RunePage newPage) {
     _runePage = newPage;
     _runePage.logAnyMissingStats();
     updateStats();

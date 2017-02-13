@@ -80,7 +80,7 @@ class RuneDescription {
 
 // This could share code with ItemLibrary?
 class RuneLibrary {
-  Map<String, Map<String, dynamic>> _json;
+  final Map<String, Map<String, dynamic>> _json;
 
   RuneLibrary(Map<String, Map<String, dynamic>> json) : _json = json;
 
@@ -175,7 +175,7 @@ class MobDescription {
 }
 
 class ChampionLibrary {
-  Map<String, Map<String, dynamic>> _json;
+  final Map<String, Map<String, dynamic>> _json;
 
   ChampionLibrary(Map<String, Map<String, dynamic>> json) : _json = json;
 
