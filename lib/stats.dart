@@ -104,15 +104,21 @@ class BaseStats extends Stats {
 
   Stats statsForLevel(int level) {
     Stats stats = new Stats();
-    int multiplier = level - 1; // level is 1-based.
-    stats.hp = hp + hpPerLevel * multiplier;
-    stats.mp = mp + mpPerLevel * multiplier;
-    stats.hpRegen = hpRegen + hpRegenPerLevel * multiplier;
-    stats.attackDamage = attackDamage + attackDamagePerLevel * multiplier;
-    stats.armor = armor + armorPerLevel * multiplier;
-    stats.spellBlock = spellBlock + spellBlockPerLevel * multiplier;
+
+    // http://leagueoflegends.wikia.com/wiki/Champion_statistic#Growth_statistic_per_level
+    double _curve(double base, double perLevel, int level) {
+      return base + perLevel * (level - 1) * (0.685 + 0.0175 * level);
+    }
+
+    stats.hp = _curve(hp, hpPerLevel, level);
+    stats.mp = _curve(mp, mpPerLevel, level);
+    stats.hpRegen = _curve(hpRegen, hpRegenPerLevel, level);
+    stats.attackDamage = _curve(attackDamage, attackDamagePerLevel, level);
+    stats.armor = _curve(armor, armorPerLevel, level);
+    stats.spellBlock = _curve(spellBlock, spellBlockPerLevel, level);
     stats.attackDelay = attackDelay;
-    stats.bonusAttackSpeed = attackSpeedPerLevel * multiplier;
+    stats.bonusAttackSpeed =
+        attackSpeedPerLevel * (level - 1) * (0.685 + 0.0175 * level);
     return stats;
   }
 }

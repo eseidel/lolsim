@@ -39,6 +39,10 @@ Many.  Including at least:
 Mostly what the simulation supports is having groups of champs/mobs auto-attack until death.
 
 ## TODO
+- Update to latest patch (currently 7.2.1).
+- pub run test dies w/o message when no precache.
+- Jarvan is busted "Jarvan IV dps: 139.00".
+- Compute dps.
 - Fix stat-relative buffs to include all stats (not just base).
 - Split bonus vs. base armor, ad, etc.
 - Coverage & coveralls.io
@@ -77,6 +81,11 @@ Mostly what the simulation supports is having groups of champs/mobs auto-attack 
 - Taric passive (needs an ability to be useful)
 - Wukong passive (needs proximity)
 - Xin Zhao passive (needs percent armor mod)
+- Sejuani passive (easy)
+
+Plan for stuns?
+- Stuns should cancel AA windups, but not AA missiles?
+- Stuns prevent new AA windups during duration.
 
 ## Abilities affecting round_robin
 - Alistar Trample (needs stuns)

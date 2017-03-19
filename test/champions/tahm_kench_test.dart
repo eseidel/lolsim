@@ -42,5 +42,7 @@ dynamic main() async {
       // His on-hit should be included in lifesteal?
       expect(tahm.currentHp - previousHp, greaterThan(expectedBaseLifesteal));
     });
+    // FIXME: Need to test with bonus health.
+    // This probably already works?
   });
 }
