@@ -159,19 +159,22 @@ class MobDescription {
   final String name;
   final String title;
   final BaseStats baseStats;
+  final List<String> tags;
 
   MobDescription({
     this.name,
     @required this.baseStats,
     this.id,
     this.title,
-  });
+  })
+      : tags = [];
 
   MobDescription.fromJson(Map<String, dynamic> json)
       : baseStats = new BaseStats.fromJSON(json['stats']),
         id = json['id'],
         name = json['name'],
-        title = json['title'];
+        title = json['title'],
+        tags = json['tags'];
 }
 
 class ChampionLibrary {

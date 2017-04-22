@@ -91,7 +91,7 @@ class Item {
     // Note this one does not check if missing, unlike Rune or Mastery's version.
     if (_loggedEffects.contains(name)) return;
     _loggedEffects.add(name);
-    _log.warning('Item ${name} references effects but no effects class found.');
+    _log.fine('Item ${name} references effects but no effects class found.');
   }
 }
 
@@ -343,6 +343,17 @@ class DamageLog {
     });
     return summary;
   }
+
+  double totalForType(LogType type) {
+    double total = 0.0;
+    entries.values.forEach((entry) {
+      if (entry.type != type) return;
+      total += entry.total;
+    });
+    return total;
+  }
+
+  double get totalDamage => totalForType(LogType.damage);
 }
 
 enum MobState {

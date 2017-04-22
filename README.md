@@ -39,10 +39,13 @@ Many.  Including at least:
 Mostly what the simulation supports is having groups of champs/mobs auto-attack until death.
 
 ## TODO
+- When are various items (liandries, BOTRK, etc.) worth it?
+- DPS and burst for each champ.
+- Range catagories for each stats (high, med, low)
+- Guestimate as to power ranges of various champs
+- How Burst scales.
 - Update to latest patch (currently 7.2.1).
 - pub run test dies w/o message when no precache.
-- Jarvan is busted "Jarvan IV dps: 139.00".
-- Compute dps.
 - Fix stat-relative buffs to include all stats (not just base).
 - Split bonus vs. base armor, ad, etc.
 - Coverage & coveralls.io

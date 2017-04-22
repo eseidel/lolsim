@@ -1,13 +1,14 @@
 name: lol_duel
 dependencies:
-  path: any
-  logging: any
   args: any
-  yaml: any
+  logging: any
+  matcher: any
+  path: any
+  quiver: any
+  range: any
   resource: any
   trotter: any
-  matcher: any
-  quiver: any
+  yaml: any
 dev_dependencies:
   test: any
 executables:

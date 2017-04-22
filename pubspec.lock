@@ -169,6 +169,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.24.0"
+  range:
+    description:
+      name: range
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.1"
   resource:
     description:
       name: resource
@@ -259,6 +265,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.3"
+  unittest:
+    description:
+      name: unittest
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.6.14+2"
   utf:
     description:
       name: utf
