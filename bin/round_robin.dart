@@ -6,6 +6,7 @@ import 'package:logging/logging.dart';
 import 'package:lol_duel/champions.dart';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
+import 'package:lol_duel/cli_table.dart';
 import 'package:trotter/trotter.dart';
 
 int champCompare(Mob red, Mob blue) {
@@ -72,26 +73,6 @@ class ChampResults implements Comparable<ChampResults> {
     int result = victories.compareTo(b.victories);
     if (result != 0) return result;
     return champId.compareTo(b.champId);
-  }
-}
-
-class TableLayout {
-  List<int> columnWidths;
-
-  TableLayout(this.columnWidths);
-
-  void printRow(List<String> cells) {
-    assert(cells.length == columnWidths.length);
-    List<String> paddedCells = [];
-    for (int i = 0; i < cells.length; i += 1) {
-      paddedCells.add(cells[i].padRight(columnWidths[i]));
-    }
-    print(paddedCells.join(' '));
-  }
-
-  void printDivider() {
-    int width = columnWidths.reduce((a, b) => a + b) + columnWidths.length - 1;
-    print('=' * width);
   }
 }
 

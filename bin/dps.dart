@@ -3,6 +3,7 @@ import 'package:lol_duel/common_args.dart';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/dragon.dart';
+import 'package:lol_duel/cli_table.dart';
 
 // Level 1
 // All Champs
@@ -53,32 +54,21 @@ double calculateDps(Mob mob, {double totalTime = 100.0}) {
 
 class _Calculate {
   String champName;
+  bool hasEffects;
   double baseDps;
   double asDps;
   double adDps;
 
   _Calculate(Creator creator, this.champName) {
-    baseDps = calculateDps(creator.champs.championByName(champName));
+    Mob base = creator.champs.championByName(champName);
+    hasEffects = base.effects != null;
+    baseDps = calculateDps(base);
     Mob withAs = creator.champs.championByName(champName)
       ..addItem(creator.items.itemByName('Dagger'));
     asDps = calculateDps(withAs);
     Mob withAd = creator.champs.championByName(champName)
       ..addItem(creator.items.itemByName('Long Sword'));
     adDps = calculateDps(withAd);
-  }
-
-  @override
-  String toString() {
-    String _withPercentFrom(double baseline, double actual) {
-      double change = (actual - baseline) / baseline;
-      return "${actual.toStringAsFixed(2)} (${change.toStringAsFixed(2)}%)";
-    }
-
-    return [
-      "$champName dps: ${baseDps.toStringAsFixed(2)}",
-      _withPercentFrom(baseDps, asDps),
-      _withPercentFrom(baseDps, adDps)
-    ].join(' ');
   }
 }
 
@@ -99,8 +89,23 @@ dynamic main(List<String> args) async {
     return new _Calculate(creator, champName);
   }).toList();
   results.sort((a, b) => a.baseDps.compareTo(b.baseDps));
-  print('name , +15% AS , +10 AD');
-  for (var result in results) {
-    print(result);
+
+  TableLayout layout = new TableLayout([1, 13, 6, 15, 15]);
+  layout.printRow(['P', 'Name', 'DPS', '+15% AS', '+10 AD']);
+  layout.printDivider();
+
+  String _withPercentFrom(double baseline, double actual) {
+    double change = (actual - baseline) / baseline;
+    return "${actual.toStringAsFixed(2)} (${(100 * change).toStringAsFixed(1)}%)";
+  }
+
+  for (var r in results) {
+    layout.printRow([
+      r.hasEffects ? '*' : ' ',
+      r.champName,
+      r.baseDps.toStringAsFixed(2),
+      _withPercentFrom(r.baseDps, r.asDps),
+      _withPercentFrom(r.baseDps, r.adDps)
+    ]);
   }
 }
