@@ -12,6 +12,7 @@ class Stats {
   double lifesteal = 0.0;
   double critChance = 0.0;
   double critDamageMultiplier = 2.0;
+  int range;
 
   // Used to compute attack speed:
   double attackDelay;
@@ -65,6 +66,7 @@ class BaseStats extends Stats {
     armor = json['armor'].toDouble();
     spellBlock = json['spellblock'].toDouble();
     hpRegen = json['hpregen'].toDouble();
+    range = json['attackrange'].toInt();
   }
 
   // For testing
@@ -110,6 +112,7 @@ class BaseStats extends Stats {
       return base + perLevel * (level - 1) * (0.685 + 0.0175 * level);
     }
 
+    // Every stat must be listed here or it will be its initial value.
     stats.hp = _curve(hp, hpPerLevel, level);
     stats.mp = _curve(mp, mpPerLevel, level);
     stats.hpRegen = _curve(hpRegen, hpRegenPerLevel, level);
@@ -119,6 +122,7 @@ class BaseStats extends Stats {
     stats.attackDelay = attackDelay;
     stats.bonusAttackSpeed =
         attackSpeedPerLevel * (level - 1) * (0.685 + 0.0175 * level);
+    stats.range = range;
     return stats;
   }
 }

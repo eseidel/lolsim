@@ -231,7 +231,7 @@ class DragonData {
   static Future<DragonData> loadLatest({DragonLoader loader}) async {
     loader ??= new LocalLoader();
     return new DragonData(
-      new ChampionLibrary(JSON.decode(await loader.load('champion.json'))),
+      new ChampionLibrary(JSON.decode(await loader.load('championFull.json'))),
       new ItemLibrary(JSON.decode(await loader.load('item.json'))),
       new MasteryLibrary(JSON.decode(await loader.load('mastery.json'))),
       new RuneLibrary(JSON.decode(await loader.load('rune.json'))),

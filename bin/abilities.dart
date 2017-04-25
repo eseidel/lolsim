@@ -2,40 +2,29 @@
 import 'dart:convert';
 
 import 'package:lol_duel/common_args.dart';
-import 'package:resource/resource.dart';
-
-class Spell {
-  String champ;
-  Map data;
-}
+import 'package:lol_duel/dragon_loader.dart';
+import 'package:lol_duel/spell_parser.dart';
 
 dynamic main(List<String> args) async {
   handleCommonArgs(args);
+  var loader = new LocalLoader();
+  var json = JSON.decode(await loader.load('championFull.json'));
 
-  String path = 'package:dragon_data/6.24.1/data/en_US/championFull.json';
-  String string = await new Resource(path).readAsString();
-  var json = JSON.decode(string);
-  List<Spell> damageSpells = [];
+  List<Spell> allSpells = [];
 
   // json['data'].values.first['spells'].first.keys.forEach((name) {
   //   print(name);
   // });
   // print(json['data'].values.first['spells'].first['tooltip']);
-  var damage = new RegExp('amage');
+
   json['data'].values.forEach((champ) {
     List spells = champ['spells'];
     for (int x = 0; x < spells.length; x++) {
-      var spell = spells[x];
-      if (spell['tooltip'].contains(damage)) {
-        damageSpells.add(new Spell()
-          ..champ = champ['name']
-          ..data = spell);
-      }
-      // var tooltip = spell['tooltip'];
-      // if (!tooltip.contains(damage)) {
-      //   print("${champ['name']} ${tooltip}");
-      // }
-      // tuples.add([champ['name'], spell['name'], spell['cooldown'].first, spell['cost'].first]);
+      allSpells.add(new Spell.fromJson(
+        champName: champ['name'],
+        key: new Key.fromIndex(x),
+        json: spells[x],
+      ));
     }
   });
 
@@ -47,8 +36,10 @@ dynamic main(List<String> args) async {
   // Collect all abilities.
   // Sort them by cost, cooldown, etc.
 
-  damageSpells.forEach((spell) {
-    print(spell.champ);
+  allSpells.forEach((spell) {
+    print(
+        "${spell.champName} ${spell.key} ${spell.data['name']} ${spell.damageEffects.length}");
+    // print(spell.champName);
     print(spell.data['tooltip']);
     spell.data.keys.forEach((key) => print(key));
     spell.data['vars'].forEach((key) => print(key));
