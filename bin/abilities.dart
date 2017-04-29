@@ -29,13 +29,13 @@ dynamic main(List<String> args) async {
   // });
   List<Spell> parseError = allSpells.where((var spell) => spell.parseError);
   print("Total: ${allSpells.length}");
-  print("Parse Error: ${parseError.length}"); // 39
-  print("Does damage: ${doesDamage.length}"); // 303
+  print("Parse Error: ${parseError.length}"); // 40
+  print("Does damage: ${doesDamage.length}"); // 305
   print("Mentions damage: ${mentionsDamage.length}"); // 471
-  // mentionsDamage.forEach((var spell) {
-  //   if (doesDamage.contains(spell)) return;
-  //   String errorString = spell.parseError ? '* ' : '';
-  //   print("$errorString${spell.name}");
-  //   print(spell.data['tooltip']);
-  // });
+  mentionsDamage.forEach((var spell) {
+    if (doesDamage.contains(spell)) return;
+    String errorString = spell.parseError ? '* ' : '';
+    print("$errorString${spell.name}");
+    // print(spell.data['tooltip']);
+  });
 }

@@ -57,6 +57,34 @@ dynamic main() async {
           "{{ f4 }}</span> <span class=\"color99FF99\">(+{{ f2 }})</span>.";
       expect(effectRegexp.hasMatch(tooltip), true);
     });
+    test('jihn', () {
+      // Has a space before the closing span tag.
+      var tooltip =
+          "Jhin launches a cartridge at the targeted enemy that deals "
+          "{{ e1 }} <span class=\"colorFF8C00\">(+{{ f1 }})</span> <span "
+          "class=\"color99FF99\">(+{{ a1 }}) </span>physical damage before "
+          "bouncing to a nearby target that has not yet been hit.<br><br>The "
+          "cartridge can hit a maximum of 4 times. Each kill by the cartridge "
+          "increases the damage of subsequent hits by {{ e2 }}%.";
+      expect(effectRegexp.hasMatch(tooltip), true);
+    });
+    test('reksai', () {
+      // Has a flat damage, no scaling.
+      var tooltip =
+          "<span class=\"colorFFFFFF\">Un-Burrowed:</span> Rek'Sai bites "
+          "a target dealing <span class=\"colorFF8C00\">{{ f1 }}</span> Physical "
+          "Damage, increasing by up to 100% at maximum Fury. Deals True Damage "
+          "if Rek'Sai has 100 Fury.<br><br>Maximum Damage: <span "
+          "class=\"colorFFFFFF\">{{ f2 }}</span><br><br><span "
+          "class=\"colorFFFFFF\">Burrowed:</span> Rek'Sai tunnels forward "
+          "leaving two connected <span class=\"colorF0F2B1\">Tunnel Entrances"
+          "</span>. Clicking a <span class=\"colorF0F2B1\">Tunnel Entrance"
+          "</span> will make Rek'Sai dive to the other entrance.<br><br><span "
+          "class=\"colorF0F2B1\">Tunnel Entrances</span> last for {{ e5 }} "
+          "minutes and can be destroyed by enemies. Rek'Sai may have {{ e6 }} "
+          "tunnels at one time. Tunnels have a {{ e8 }} second cooldown on use.";
+      expect(effectRegexp.hasMatch(tooltip), true);
+    }, skip: true);
   });
   group("parseEffects", () {
     test('null apRatio', () {

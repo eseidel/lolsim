@@ -123,8 +123,8 @@ class Spell {
 
 final RegExp effectRegexp =
     new RegExp(r'(?:<span[^>]*>\s*)?\{\{ (\w+) \}\}\s*(?:</span>\s*)?'
-        r'<span[^>]*>\s*\(\+\{\{ (\w+) \}\}\)</span>\s*'
-        r'(?:<span[^>]*>\s*\(\+\{\{ (\w+) \}\}\)</span>\s*)?'
+        r'<span[^>]*>\s*\(\+\{\{ (\w+) \}\}\)\s*</span>\s*'
+        r'(?:<span[^>]*>\s*\(\+\{\{ (\w+) \}\}\)\s*</span>\s*)?'
         r'([Mm]agic|[Pp]hysical|[Tt]rue)');
 
 List<double> lookupEffectArray(Map data, String effectName) {
@@ -168,10 +168,8 @@ Iterable<DamageEffect> parseEffects(Map data) sync* {
       damageType: damageTypeFromString(damageType),
       baseByRank: lookupEffectArray(data, baseVar),
     );
-    applyScaleVar(effect, data, firstScaleVar);
-    if (secondScaleVar != null) {
-      applyScaleVar(effect, data, secondScaleVar);
-    }
+    if (firstScaleVar != null) applyScaleVar(effect, data, firstScaleVar);
+    if (secondScaleVar != null) applyScaleVar(effect, data, secondScaleVar);
 
     yield effect;
   }
