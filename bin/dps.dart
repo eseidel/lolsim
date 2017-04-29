@@ -2,8 +2,8 @@
 import 'package:lol_duel/common_args.dart';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
-import 'package:lol_duel/dragon.dart';
 import 'package:lol_duel/cli_table.dart';
+import 'package:lol_duel/dummy_mob.dart';
 
 // Level 1
 // All Champs
@@ -11,35 +11,8 @@ import 'package:lol_duel/cli_table.dart';
 // no items
 // 10s, stop, divide
 
-Mob createDummy() {
-  Mob mob = new Mob(
-    new MobDescription(
-      name: 'Dummy',
-      baseStats: new BaseStats(
-        armor: 0.0,
-        armorPerLevel: 0.0,
-        attackDamage: 0.0,
-        attackDamagePerLevel: 0.0,
-        attackSpeedPerLevel: 0.0,
-        attackDelay: 0.0,
-        hp: 1000.0,
-        hpPerLevel: 0.0,
-        hpRegen: 1000.0,
-        hpRegenPerLevel: 0.0,
-        mp: 0.0,
-        mpPerLevel: 0.0,
-        spellBlock: 0.0,
-        spellBlockPerLevel: 0.0,
-      ),
-    ),
-    MobType.champion,
-  );
-  mob.updateStats();
-  return mob;
-}
-
 double calculateDps(Mob mob, {double totalTime = 100.0}) {
-  Mob dummy = createDummy();
+  Mob dummy = createDummyMob(hp: 1000.0);
   dummy.shouldRecordDamage = true;
   World world = new World(
     reds: [mob],

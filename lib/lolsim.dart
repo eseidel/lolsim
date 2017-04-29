@@ -48,7 +48,7 @@ class Rune {
   @override
   String toString() => name;
 
-  static Set _loggedRuneNames = new Set();
+  static final Set _loggedRuneNames = new Set();
   void logIfMissingStats() {
     if (description.statName != null) return;
     if (_loggedRuneNames.contains(name)) return;
@@ -86,7 +86,7 @@ class Item {
   @override
   String toString() => '${name} (${description.gold['total']}g)';
 
-  static Set _loggedEffects = new Set();
+  static final Set _loggedEffects = new Set();
   void logMissingEffects() {
     // Note this one does not check if missing, unlike Rune or Mastery's version.
     if (_loggedEffects.contains(name)) return;
@@ -108,7 +108,7 @@ class Mastery {
     if (effectsConstructor != null) effects = effectsConstructor(rank);
   }
 
-  static Set _loggedEffects = new Set();
+  static final Set _loggedEffects = new Set();
   void logIfMissingEffects() {
     if (effects != null) return;
     if (_loggedEffects.contains(description.name)) return;
@@ -473,7 +473,7 @@ class Mob {
     return null;
   }
 
-  static Set _warnedStats = new Set();
+  static final Set _warnedStats = new Set();
   void warnUnhandledStat(String statName) {
     if (!_warnedStats.contains(statName)) {
       _log.warning("Stat: $statName missing apply rule.");
