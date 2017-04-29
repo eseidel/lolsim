@@ -27,15 +27,25 @@ dynamic main(List<String> args) async {
   //   // spell.data['vars'].forEach((key) => print(key));
   //   // spell.data['effect'].forEach((key) => print(key));
   // });
-  List<Spell> parseError = allSpells.where((var spell) => spell.parseError);
+  List<Spell> parseError =
+      allSpells.where((var spell) => spell.parseError).toList();
   print("Total: ${allSpells.length}");
   print("Parse Error: ${parseError.length}"); // 40
   print("Does damage: ${doesDamage.length}"); // 305
   print("Mentions damage: ${mentionsDamage.length}"); // 471
-  mentionsDamage.forEach((var spell) {
-    if (doesDamage.contains(spell)) return;
-    String errorString = spell.parseError ? '* ' : '';
-    print("$errorString${spell.name}");
-    // print(spell.data['tooltip']);
-  });
+
+  for (Spell spell in doesDamage) {
+    if (spell.damageEffects.length < 2) continue;
+    print('${spell.name}');
+    for (var effect in spell.damageEffects) {
+      print(effect.summaryStringForRank(1));
+    }
+  }
+
+  // mentionsDamage.forEach((var spell) {
+  //   if (doesDamage.contains(spell)) return;
+  //   String errorString = spell.parseError ? '* ' : '';
+  //   print("$errorString${spell.name}");
+  //   // print(spell.data['tooltip']);
+  // });
 }

@@ -6,6 +6,23 @@ import 'package:lol_duel/dummy_mob.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/spell_parser.dart';
 
+double applyRatio(ScaledValue ratio, int rank, Mob source) {
+  switch (ratio.scalingSource) {
+    case ScalingSource.attackDamage:
+    case ScalingSource.bonusAttackDamage: // FIXME: bonus vs. base
+      return ratio.ratioByRank[rank] * source.stats.attackDamage;
+    case ScalingSource.spellPower:
+      return ratio.ratioByRank[rank] * source.stats.abilityPower;
+    case ScalingSource.armor:
+      return ratio.ratioByRank[rank] * source.stats.armor;
+    case ScalingSource.bonusHealth: // FIXME: bonus vs. base
+      return ratio.ratioByRank[rank] * source.stats.hp;
+    case ScalingSource.bonusSpellBlock: // FIXME: bonus vs. base
+      return ratio.ratioByRank[rank] * source.stats.spellBlock;
+  }
+  return null;
+}
+
 void applySpell(Spell spell, Mob source, Mob target, int rank) {
   double physicalDamage = 0.0;
   double magicDamage = 0.0;
@@ -13,26 +30,9 @@ void applySpell(Spell spell, Mob source, Mob target, int rank) {
   for (DamageEffect effect in spell.damageEffects) {
     // print('${effect.base} ${effect.adRatio} ${source.stats.attackDamage} '
     //     '${effect.apRatio} ${source.stats.abilityPower}');
-    double damage = effect.baseByRank[rank];
-    switch (effect.scalingSource) {
-      case ScalingSource.attackDamage:
-        continue;
-      case ScalingSource.bonusAttackDamage: // FIXME: bonus vs. base
-        damage += effect.ratioByRank[rank] * source.stats.attackDamage;
-        break;
-      case ScalingSource.spellPower:
-        damage += effect.ratioByRank[rank] * source.stats.abilityPower;
-        break;
-      case ScalingSource.armor:
-        damage += effect.ratioByRank[rank] * source.stats.armor;
-        break;
-      case ScalingSource.bonusHealth: // FIXME: bonus vs. base
-        damage += effect.ratioByRank[rank] * source.stats.hp;
-        break;
-      case ScalingSource.bonusSpellBlock: // FIXME: bonus vs. base
-        damage += effect.ratioByRank[rank] * source.stats.spellBlock;
-        break;
-    }
+    double damage = effect.baseByRank[rank].toDouble();
+    for (ScaledValue ratio in effect.ratios)
+      damage += applyRatio(ratio, rank, source);
     physicalDamage += (effect.damageType == DamageType.physical) ? damage : 0.0;
     magicDamage += (effect.damageType == DamageType.magic) ? damage : 0.0;
     trueDamage += (effect.damageType == DamageType.trueDamage) ? damage : 0.0;

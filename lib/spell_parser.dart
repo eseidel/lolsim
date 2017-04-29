@@ -64,6 +64,14 @@ DamageType damageTypeFromString(String string) {
     'magic': DamageType.magic,
     'physical': DamageType.physical,
     'true': DamageType.trueDamage,
+  }[string.toLowerCase()];
+}
+
+String stringFromDamageType(DamageType string) {
+  return {
+    DamageType.magic: 'magic',
+    DamageType.physical: 'physical',
+    DamageType.trueDamage: 'true',
   }[string];
 }
 
@@ -76,7 +84,7 @@ enum ScalingSource {
   armor,
 }
 
-ScalingSource scalingSourceFromString(String string) {
+ScalingSource scalingSourceFromLink(String string) {
   return {
     'spelldamage': ScalingSource.spellPower,
     'bonusattackdamage': ScalingSource.bonusAttackDamage,
@@ -87,18 +95,42 @@ ScalingSource scalingSourceFromString(String string) {
   }[string];
 }
 
+String shortHandForScalingSource(ScalingSource source) {
+  return {
+    ScalingSource.spellPower: 'AP',
+    ScalingSource.bonusAttackDamage: 'bonus AD',
+    ScalingSource.attackDamage: 'AD',
+    ScalingSource.bonusSpellBlock: 'bonus MR',
+    ScalingSource.bonusHealth: 'bonus HP',
+    ScalingSource.armor: 'Armor',
+  }[source];
+}
+
+class ScaledValue {
+  List<double> ratioByRank;
+  ScalingSource scalingSource;
+}
+
 class DamageEffect {
   DamageType damageType;
   List<double> baseByRank;
-  List<double> ratioByRank;
-  ScalingSource scalingSource;
+  List<ScaledValue> ratios = [];
 
   DamageEffect({
     @required this.damageType,
     this.baseByRank,
-    this.ratioByRank,
-    this.scalingSource,
-  });
+  }) {
+    assert(damageType != null);
+  }
+
+  String summaryStringForRank(int rank) {
+    String summary = '${baseByRank[rank]} ';
+    for (var ratio in ratios) {
+      summary += '+${ratio.ratioByRank[rank]}';
+      summary += ' ' + shortHandForScalingSource(ratio.scalingSource);
+    }
+    return summary + ' ' + stringFromDamageType(damageType) + ' damage';
+  }
 }
 
 class Spell {
@@ -128,8 +160,7 @@ final RegExp effectRegexp =
         r'([Mm]agic|[Pp]hysical|[Tt]rue)');
 
 List<double> lookupEffectArray(Map data, String effectName) {
-  assert(effectName.startsWith('e'));
-  assert(effectName.length == 2);
+  // assert(effectName.startsWith('e'));
   List<List<double>> effects = data['effect'];
   int effectIndex = int.parse(effectName.substring(1));
   return effects[effectIndex];
@@ -143,17 +174,18 @@ void applyScaleVar(DamageEffect effect, Map data, String varName) {
     throw new ArgumentError("${data['name']} VAR ${varName} is not defined");
   }
 
-  dynamic coeffValue = varMap['coeff'];
-  if (coeffValue is List)
-    effect.ratioByRank = coeffValue;
-  else
-    effect.ratioByRank = new List.filled(data['maxrank'], coeffValue);
-
-  effect.scalingSource = scalingSourceFromString(varMap['link']);
-  if (effect.scalingSource == null) {
+  ScaledValue ratio = new ScaledValue();
+  ratio.scalingSource = scalingSourceFromLink(varMap['link']);
+  if (ratio.scalingSource == null) {
     throw new ArgumentError(
         '${data['name']} UNKNOWN SOURCE ${varMap['link']}.');
   }
+
+  dynamic coeffValue = varMap['coeff'];
+  ratio.ratioByRank = (coeffValue is List)
+      ? coeffValue
+      : new List.filled(data['maxrank'], coeffValue);
+  effect.ratios.add(ratio);
 }
 
 Iterable<DamageEffect> parseEffects(Map data) sync* {

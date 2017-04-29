@@ -321,7 +321,7 @@ class DamageLog {
   void recordDamage(Hit hit, double damage) {
     String source = hit.sourceString;
     LogEntry entry = entries[source] ?? new LogEntry(LogType.damage);
-    assert(entry.type == damage);
+    assert(entry.type == LogType.damage);
     entry.total += damage;
     entry.count += 1;
     entries[source] = entry;
