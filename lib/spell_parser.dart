@@ -67,16 +67,37 @@ DamageType damageTypeFromString(String string) {
   }[string];
 }
 
+enum ScalingSource {
+  spellPower,
+  attackDamage,
+  bonusAttackDamage,
+  bonusSpellBlock,
+  bonusHealth,
+  armor,
+}
+
+ScalingSource scalingSourceFromString(String string) {
+  return {
+    'spelldamage': ScalingSource.spellPower,
+    'bonusattackdamage': ScalingSource.bonusAttackDamage,
+    'attackdamage': ScalingSource.attackDamage,
+    'bonusspellblock': ScalingSource.bonusSpellBlock,
+    'bonushealth': ScalingSource.bonusHealth,
+    'armor': ScalingSource.armor,
+  }[string];
+}
+
 class DamageEffect {
   DamageType damageType;
-  double base;
-  double apRatio;
-  double adRatio;
+  List<double> baseByRank;
+  List<double> ratioByRank;
+  ScalingSource scalingSource;
+
   DamageEffect({
     @required this.damageType,
-    this.base: 0.0,
-    this.apRatio: 0.0,
-    this.adRatio: 0.0,
+    this.baseByRank,
+    this.ratioByRank,
+    this.scalingSource,
   });
 }
 
@@ -85,64 +106,58 @@ class Spell {
   final String name;
   final Key key;
   final Map data;
-  List<DamageEffect> damageEffects;
+  List<DamageEffect> damageEffects = [];
+  bool parseError = false;
 
-  Spell.fromJson({this.champName, this.key, this.data})
-      : name = data['name'],
-        damageEffects = parseEffects(data).toList();
+  Spell.fromJson({this.champName, this.key, this.data}) : name = data['name'] {
+    try {
+      damageEffects = parseEffects(data).toList();
+    } on ArgumentError catch (e) {
+      parseError = true;
+      _log.warning(e.message);
+    }
+  }
 
-  bool get doesDamage => damageEffects.length > 0;
-
-  // FIXME: This doesn't work yet.
-  List<DamageEffect> damageEffectsAtRank(int rank) => damageEffects;
+  bool get doesDamage => damageEffects.isNotEmpty;
 }
 
-final RegExp effectRegexp = new RegExp(
-    r'\{\{ (\w+) \}\}\s*<span[^>]*>\s*\(\+\{\{ (\w+) \}\}\)</span>\s*(?:<span[^>]*>\s*\(\+\{\{ (\w+) \}\}\)</span>\s*)?([Mm]agic|[Pp]hysical|[Tt]rue)');
+final RegExp effectRegexp =
+    new RegExp(r'(?:<span[^>]*>\s*)?\{\{ (\w+) \}\}\s*(?:</span>\s*)?'
+        r'<span[^>]*>\s*\(\+\{\{ (\w+) \}\}\)</span>\s*'
+        r'(?:<span[^>]*>\s*\(\+\{\{ (\w+) \}\}\)</span>\s*)?'
+        r'([Mm]agic|[Pp]hysical|[Tt]rue)');
 
-double lookupForRank(Map data, String effectName, int rank) {
+List<double> lookupEffectArray(Map data, String effectName) {
   assert(effectName.startsWith('e'));
   assert(effectName.length == 2);
   List<List<double>> effects = data['effect'];
   int effectIndex = int.parse(effectName.substring(1));
-  return effects[effectIndex][rank - 1].toDouble();
+  return effects[effectIndex];
 }
 
-bool applyScaleVar(DamageEffect effect, Map data, String varName, int rank) {
+void applyScaleVar(DamageEffect effect, Map data, String varName) {
   List<Map> vars = data['vars'];
   Map varMap =
       vars.firstWhere((varMap) => varMap['key'] == varName, orElse: () => null);
   if (varMap == null) {
-    _log.warning(
-        "${data['name']} references ${varName} which is not defined, ignoring.");
-    return false;
+    throw new ArgumentError("${data['name']} VAR ${varName} is not defined");
   }
 
   dynamic coeffValue = varMap['coeff'];
-  double ratio;
   if (coeffValue is List)
-    ratio = coeffValue[rank - 1];
+    effect.ratioByRank = coeffValue;
   else
-    ratio = coeffValue;
+    effect.ratioByRank = new List.filled(data['maxrank'], coeffValue);
 
-  String scalingSource = varMap['link'];
-  if (scalingSource == 'spelldamage')
-    effect.apRatio = ratio;
-  else if (scalingSource == 'bonusattackdamage')
-    effect.adRatio = ratio;
-  else if (scalingSource == 'attackdamage')
-    effect.adRatio = ratio;
-  else {
-    _log.warning(
-        '${data['name']} uses unknown scaling source $scalingSource, ignoring.');
-    return false;
+  effect.scalingSource = scalingSourceFromString(varMap['link']);
+  if (effect.scalingSource == null) {
+    throw new ArgumentError(
+        '${data['name']} UNKNOWN SOURCE ${varMap['link']}.');
   }
-  return true;
 }
 
 Iterable<DamageEffect> parseEffects(Map data) sync* {
   String tooltip = data['tooltip'];
-  int rank = 1;
   for (Match match in effectRegexp.allMatches(tooltip)) {
     String baseVar = match[1];
     String firstScaleVar = match[2];
@@ -151,11 +166,11 @@ Iterable<DamageEffect> parseEffects(Map data) sync* {
 
     var effect = new DamageEffect(
       damageType: damageTypeFromString(damageType),
-      base: lookupForRank(data, baseVar, rank),
+      baseByRank: lookupEffectArray(data, baseVar),
     );
-    if (!applyScaleVar(effect, data, firstScaleVar, rank)) continue;
+    applyScaleVar(effect, data, firstScaleVar);
     if (secondScaleVar != null) {
-      if (!applyScaleVar(effect, data, secondScaleVar, rank)) continue;
+      applyScaleVar(effect, data, secondScaleVar);
     }
 
     yield effect;

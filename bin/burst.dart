@@ -10,13 +10,29 @@ void applySpell(Spell spell, Mob source, Mob target, int rank) {
   double physicalDamage = 0.0;
   double magicDamage = 0.0;
   double trueDamage = 0.0;
-  for (DamageEffect effect in spell.damageEffectsAtRank(rank)) {
-    print('${effect.base} ${effect.adRatio} ${source.stats.attackDamage} '
-        '${effect.apRatio} ${source.stats.abilityPower}');
-
-    double damage = effect.base +
-        effect.adRatio * source.stats.attackDamage +
-        effect.apRatio * source.stats.abilityPower;
+  for (DamageEffect effect in spell.damageEffects) {
+    // print('${effect.base} ${effect.adRatio} ${source.stats.attackDamage} '
+    //     '${effect.apRatio} ${source.stats.abilityPower}');
+    double damage = effect.baseByRank[rank];
+    switch (effect.scalingSource) {
+      case ScalingSource.attackDamage:
+        continue;
+      case ScalingSource.bonusAttackDamage: // FIXME: bonus vs. base
+        damage += effect.ratioByRank[rank] * source.stats.attackDamage;
+        break;
+      case ScalingSource.spellPower:
+        damage += effect.ratioByRank[rank] * source.stats.abilityPower;
+        break;
+      case ScalingSource.armor:
+        damage += effect.ratioByRank[rank] * source.stats.armor;
+        break;
+      case ScalingSource.bonusHealth: // FIXME: bonus vs. base
+        damage += effect.ratioByRank[rank] * source.stats.hp;
+        break;
+      case ScalingSource.bonusSpellBlock: // FIXME: bonus vs. base
+        damage += effect.ratioByRank[rank] * source.stats.spellBlock;
+        break;
+    }
     physicalDamage += (effect.damageType == DamageType.physical) ? damage : 0.0;
     magicDamage += (effect.damageType == DamageType.magic) ? damage : 0.0;
     trueDamage += (effect.damageType == DamageType.trueDamage) ? damage : 0.0;
@@ -45,15 +61,21 @@ double burstDamage(Mob champ, SpellBook spells) {
   applySpell(spells.e, champ, dummy, rank);
   applySpell(spells.w, champ, dummy, rank);
 
-  print(dummy.damageLog.summaryString);
+  // print(dummy.damageLog.summaryString);
   return dummy.damageLog.totalDamage;
 }
 
 String abilitiesString(Mob champ, SpellBook book) {
+  String keyChar(Spell spell, String char) {
+    if (spell.parseError) return '*';
+    if (spell.doesDamage) return char;
+    return ' ';
+  }
+
   return (champ.effects != null ? 'P' : ' ') +
-      (book.q.doesDamage ? 'Q' : ' ') +
-      (book.e.doesDamage ? 'E' : ' ') +
-      (book.w.doesDamage ? 'W' : ' ');
+      keyChar(book.q, 'Q') +
+      keyChar(book.w, 'W') +
+      keyChar(book.e, 'E');
 }
 
 class _Result {

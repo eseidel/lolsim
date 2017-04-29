@@ -7,19 +7,35 @@ dynamic main(List<String> args) async {
   SpellFactory spells = await SpellFactory.load();
   List<Spell> allSpells = spells.allSpells;
 
-  RegExp damageRegexp = new RegExp('amage');
+  List<Spell> doesDamage =
+      spells.allSpells.where((spell) => spell.doesDamage).toList();
 
-  allSpells.forEach((spell) {
-    if (spell.damageEffects.length > 0) return;
-    String tooltip = spell.data['tooltip'];
-    if (!tooltip.contains(damageRegexp)) return;
-    print(
-        "${spell.champName} ${spell.key} ${spell.data['name']} ${spell.damageEffects.length}");
-    // print(spell.champName);
-    // print(spell.data['tooltip']);
-    // spell.data.keys.forEach((key) => print(key));
-    // spell.data['vars'].forEach((key) => print(key));
-    // spell.data['effect'].forEach((key) => print(key));
-  });
-  print("count: ${allSpells.length}"); // currently 536
+  RegExp damageRegexp = new RegExp('amage');
+  List<Spell> mentionsDamage = spells.allSpells
+      .where((spell) => spell.data['tooltip'].contains(damageRegexp))
+      .toList();
+
+  // allSpells.forEach((spell) {
+  //   if (spell.damageEffects.length > 0) return;
+  //   String tooltip = spell.data['tooltip'];
+  //   if (!tooltip.contains(damageRegexp)) return;
+  //   print(
+  //       "${spell.champName} ${spell.key} ${spell.data['name']} ${spell.damageEffects.length}");
+  //   // print(spell.champName);
+  //   // print(spell.data['tooltip']);
+  //   // spell.data.keys.forEach((key) => print(key));
+  //   // spell.data['vars'].forEach((key) => print(key));
+  //   // spell.data['effect'].forEach((key) => print(key));
+  // });
+  List<Spell> parseError = allSpells.where((var spell) => spell.parseError);
+  print("Total: ${allSpells.length}");
+  print("Parse Error: ${parseError.length}"); // 39
+  print("Does damage: ${doesDamage.length}"); // 303
+  print("Mentions damage: ${mentionsDamage.length}"); // 471
+  // mentionsDamage.forEach((var spell) {
+  //   if (doesDamage.contains(spell)) return;
+  //   String errorString = spell.parseError ? '* ' : '';
+  //   print("$errorString${spell.name}");
+  //   print(spell.data['tooltip']);
+  // });
 }
