@@ -35,7 +35,6 @@ dynamic main(List<String> args) async {
   print("Mentions damage: ${mentionsDamage.length}"); // 471
 
   for (Spell spell in doesDamage) {
-    if (spell.damageEffects.length < 2) continue;
     print('${spell.name}');
     for (var effect in spell.damageEffects) {
       print(effect.summaryStringForRank(1));

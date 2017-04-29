@@ -114,19 +114,29 @@ class ScaledValue {
 class DamageEffect {
   DamageType damageType;
   List<double> baseByRank;
+  int maxRank;
   List<ScaledValue> ratios = [];
 
   DamageEffect({
     @required this.damageType,
-    this.baseByRank,
+    @required this.maxRank,
+    @required this.baseByRank,
   }) {
     assert(damageType != null);
+    assert(baseByRank != null);
+    assert(baseByRank.length == maxRank);
+  }
+
+  void validate() {
+    assert(baseByRank.length == maxRank);
+    for (var ratio in ratios) assert(ratio.ratioByRank.length == maxRank);
   }
 
   String summaryStringForRank(int rank) {
-    String summary = '${baseByRank[rank]} ';
+    int rankIndex = rank - 1;
+    String summary = '${baseByRank[rankIndex]}';
     for (var ratio in ratios) {
-      summary += '+${ratio.ratioByRank[rank]}';
+      summary += ' +${ratio.ratioByRank[rankIndex]}';
       summary += ' ' + shortHandForScalingSource(ratio.scalingSource);
     }
     return summary + ' ' + stringFromDamageType(damageType) + ' damage';
@@ -160,10 +170,17 @@ final RegExp effectRegexp =
         r'([Mm]agic|[Pp]hysical|[Tt]rue)');
 
 List<double> lookupEffectArray(Map data, String effectName) {
-  // assert(effectName.startsWith('e'));
+  if (!effectName.startsWith('e')) {
+    throw new ArgumentError('$effectName is not an effect in ${data["name"]}');
+  }
+
   List<List<double>> effects = data['effect'];
   int effectIndex = int.parse(effectName.substring(1));
-  return effects[effectIndex];
+  List<double> effectArray = effects[effectIndex];
+  if (effectArray == null) {
+    throw new ArgumentError('Lookup failed for $effectName in ${data["name"]}');
+  }
+  return effectArray;
 }
 
 void applyScaleVar(DamageEffect effect, Map data, String varName) {
@@ -199,10 +216,12 @@ Iterable<DamageEffect> parseEffects(Map data) sync* {
     var effect = new DamageEffect(
       damageType: damageTypeFromString(damageType),
       baseByRank: lookupEffectArray(data, baseVar),
+      maxRank: data['maxrank'],
     );
     if (firstScaleVar != null) applyScaleVar(effect, data, firstScaleVar);
     if (secondScaleVar != null) applyScaleVar(effect, data, secondScaleVar);
 
+    effect.validate();
     yield effect;
   }
 }

@@ -7,18 +7,19 @@ import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/spell_parser.dart';
 
 double applyRatio(ScaledValue ratio, int rank, Mob source) {
+  int rankIndex = rank - 1;
   switch (ratio.scalingSource) {
     case ScalingSource.attackDamage:
     case ScalingSource.bonusAttackDamage: // FIXME: bonus vs. base
-      return ratio.ratioByRank[rank] * source.stats.attackDamage;
+      return ratio.ratioByRank[rankIndex] * source.stats.attackDamage;
     case ScalingSource.spellPower:
-      return ratio.ratioByRank[rank] * source.stats.abilityPower;
+      return ratio.ratioByRank[rankIndex] * source.stats.abilityPower;
     case ScalingSource.armor:
-      return ratio.ratioByRank[rank] * source.stats.armor;
+      return ratio.ratioByRank[rankIndex] * source.stats.armor;
     case ScalingSource.bonusHealth: // FIXME: bonus vs. base
-      return ratio.ratioByRank[rank] * source.stats.hp;
+      return ratio.ratioByRank[rankIndex] * source.stats.hp;
     case ScalingSource.bonusSpellBlock: // FIXME: bonus vs. base
-      return ratio.ratioByRank[rank] * source.stats.spellBlock;
+      return ratio.ratioByRank[rankIndex] * source.stats.spellBlock;
   }
   return null;
 }
@@ -27,10 +28,11 @@ void applySpell(Spell spell, Mob source, Mob target, int rank) {
   double physicalDamage = 0.0;
   double magicDamage = 0.0;
   double trueDamage = 0.0;
+  int rankIndex = rank - 1;
   for (DamageEffect effect in spell.damageEffects) {
     // print('${effect.base} ${effect.adRatio} ${source.stats.attackDamage} '
     //     '${effect.apRatio} ${source.stats.abilityPower}');
-    double damage = effect.baseByRank[rank].toDouble();
+    double damage = effect.baseByRank[rankIndex].toDouble();
     for (ScaledValue ratio in effect.ratios)
       damage += applyRatio(ratio, rank, source);
     physicalDamage += (effect.damageType == DamageType.physical) ? damage : 0.0;
@@ -56,7 +58,7 @@ double burstDamage(Mob champ, SpellBook spells) {
 
   World world = new World();
   new AutoAttack(champ, dummy).apply(world);
-  int rank = 1; // HACK
+  int rank = 1; // HACK, should pull values from mob.
   applySpell(spells.q, champ, dummy, rank);
   applySpell(spells.e, champ, dummy, rank);
   applySpell(spells.w, champ, dummy, rank);
