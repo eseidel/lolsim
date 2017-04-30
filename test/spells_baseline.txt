@@ -421,7 +421,6 @@ Lee Sin Dragon's Rage
 150 +2 bonus AD physical damage
 Leona Shield of Daybreak
 Leona Eclipse
-20 +0.2 bonus MR magic damage
 60 +0.4 AP magic damage
 Leona Zenith Blade
 60 +0.4 AP magic damage

@@ -85,6 +85,30 @@ dynamic main() async {
           "tunnels at one time. Tunnels have a {{ e8 }} second cooldown on use.";
       expect(parseTooltip(tooltip), isNotEmpty);
     }, skip: true);
+    test('corkie', () {
+      // Missing (+) from a scaling factor.
+      var tooltip = "<span class=\"colorFF9900\">Active:</span> Corki fires a "
+          "missile that explodes at the first enemy it hits, dealing {{ e1 }} "
+          "<span class=\"colorFF8C00\">{{ f3 }}</span> <span class=\"color99FF99\">"
+          "(+{{ a1 }})</span> magic damage to all nearby enemies.<br><br>Corki "
+          "can store up to 7 missiles, and every 3rd missile will be a Big One, "
+          "dealing {{ e8 }}% increased damage.";
+      List<TooltipMatch> matches = parseTooltip(tooltip).toList();
+      expect(matches, isNotEmpty);
+      TooltipMatch match = matches.first;
+      expect(match.baseVar, "e1");
+      expect(match.firstScaleVar, "f3");
+      expect(match.secondScaleVar, "a1");
+    }, skip: true);
+    test('magical damage', () {
+      // teemo uses 'magical damage' instead of 'magic damage'.
+      var tooltip =
+          "Teemo's basic attacks poison their target, dealing {{ e2 }} "
+          "<span class=\"color99FF99\">(+{{ a1 }})</span> magical damage "
+          "upon impact and {{ e1 }} <span class=\"color99FF99\">(+{{ a2 }})"
+          "</span> magical damage each second for {{ e3 }} seconds.";
+      expect(parseTooltip(tooltip), isNotEmpty);
+    });
   });
   group("parseEffects", () {
     test('null apRatio', () {

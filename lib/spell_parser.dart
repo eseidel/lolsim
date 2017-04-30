@@ -197,14 +197,18 @@ class TooltipMatch {
 final RegExp _effectRegexp = new RegExp(r'\{\{ (\w+) \}\}\s*'
     r'\(\+\{\{ (\w+) \}\}\)\s*'
     r'(?:\(\+\{\{ (\w+) \}\}\)\s*)?'
-    r'(magic|physical|true)');
+    r'(magic|physical|true) damage');
 
 final RegExp _tagRegexp = new RegExp(r'<[^>]+?>');
 
-Iterable<TooltipMatch> parseTooltip(String tooltip, String spellName) sync* {
+Iterable<TooltipMatch> parseTooltip(String tooltip, [String spellName]) sync* {
   tooltip = tooltip.toLowerCase();
   tooltip = tooltip.replaceAll(_tagRegexp, '');
+  tooltip =
+      tooltip.replaceAll('magical damage', 'magic damage'); // old spelling
   tooltip = tooltip.replaceAll('  ', ' ');
+
+  // if (spellName == 'Eclipse') print(tooltip);
 
   for (Match match in _effectRegexp.allMatches(tooltip)) {
     yield new TooltipMatch()
