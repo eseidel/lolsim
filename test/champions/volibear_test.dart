@@ -37,6 +37,6 @@ dynamic main() async {
       volibear.addItem(data.items.itemByName('Ruby Crystal'));
       volibear.tick(1.0);
       expect(volibear.stats.hpRegen, greaterThan(buffedHp5));
-    }, skip: 'Buffs can only read base stats, so this fails.');
+    });
   });
 }

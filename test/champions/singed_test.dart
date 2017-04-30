@@ -17,6 +17,6 @@ dynamic main() async {
       singed.addItem(data.items.itemByName('Sapphire Crystal'));
       expect(initialMana, lessThan(singed.stats.mp));
       expect(intialHealth, lessThan(singed.stats.hp));
-    }, skip: 'Buffs can only read base stats, so this fails.');
+    });
   });
 }

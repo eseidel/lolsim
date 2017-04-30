@@ -19,6 +19,6 @@ dynamic main() async {
       rammus.addItem(data.items.itemByName('Cloth Armor'));
       expect(initialArmor, lessThan(rammus.stats.armor));
       expect(initialAd, lessThan(rammus.stats.attackDamage));
-    }, skip: 'Buffs can only read base stats, so this fails.');
+    });
   });
 }

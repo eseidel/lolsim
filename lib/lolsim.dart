@@ -493,7 +493,7 @@ class Mob {
     'FlatMagicDamageMod': (computed, statValue) =>
         computed.abilityPower += statValue,
     // 'FlatMovementSpeedMod': (computed, statValue) => computed.movespeed += statValue,
-    // 'FlatMPPoolMod': (computed, statValue) => computed.mpRegen += statValue,
+    'FlatMPPoolMod': (computed, statValue) => computed.mp += statValue,
     'FlatSpellBlockMod': (computed, statValue) =>
         computed.spellBlock += statValue,
     'FlatPhysicalDamageMod': (computed, statValue) =>
@@ -505,8 +505,20 @@ class Mob {
     // 'PercentMovementSpeedMod': (computed, statValue) => computed.movespeed *= statValue,
   };
 
-  void updateStats() {
-    stats = computeStats();
+  Stats updateStats() {
+    stats = description.baseStats.statsForLevel(level);
+    if (runePage != null) applyStats(stats, runePage.collectStats());
+    if (masteryPage != null) {
+      for (Mastery mastery in masteryPage.masteries) {
+        if (mastery?.effects?.stats != null) {
+          applyStats(stats, mastery.effects.stats);
+        }
+      }
+    }
+    for (Item item in items) applyStats(stats, item.stats);
+    for (Buff buff in buffs)
+      if (buff.stats != null) applyStats(stats, buff.stats);
+    return stats;
   }
 
   void applyStats(Stats computed, Map<String, num> stats) {
@@ -517,22 +529,6 @@ class Mob {
       else
         statApplier(computed, stats[statName]);
     }
-  }
-
-  Stats computeStats() {
-    Stats computed = description.baseStats.statsForLevel(level);
-    if (runePage != null) applyStats(computed, runePage.collectStats());
-    if (masteryPage != null) {
-      for (Mastery mastery in masteryPage.masteries) {
-        if (mastery?.effects?.stats != null) {
-          applyStats(computed, mastery.effects.stats);
-        }
-      }
-    }
-    for (Buff buff in buffs)
-      if (buff.stats != null) applyStats(computed, buff.stats);
-    for (Item item in items) applyStats(computed, item.stats);
-    return computed;
   }
 
   @override

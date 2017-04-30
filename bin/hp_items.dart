@@ -21,7 +21,8 @@ dynamic main(List<String> args) async {
   Creator creator = await Creator.loadLatest();
   Mob champ = creator.champs.championByName('Irelia');
   champ.level = 18;
-  Stats stats = champ.computeStats();
+
+  Stats stats = champ.updateStats();
   print(stats.debugString());
   print("Php: ${stats.physicalEffectiveHealth.round()}");
   print("Mhp: ${stats.magicalEffectiveHealth.round()}");
@@ -32,7 +33,7 @@ dynamic main(List<String> args) async {
   champ.addItem(creator.items.itemByName('Randuin\'s Omen'));
   champ.addItem(creator.items.itemByName('Dead Man\'s Plate'));
 
-  Stats withItems = champ.computeStats();
+  Stats withItems = champ.updateStats();
   withItems.armor += 40; // HACK: For Knight's vow.
   print(withItems.debugString());
   print("Php: ${withItems.physicalEffectiveHealth.round()}");

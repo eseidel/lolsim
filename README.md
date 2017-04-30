@@ -50,18 +50,17 @@ Many.  Including at least:
 - DPS and burst for each champ.
 
 ## TODO / Bugs
-- Fix stat-relative buffs to include all stats (not just base).
-- Split bonus vs. base armor, ad, etc.
-- pub run test dies w/o message when no precache.
-- Coverage & coveralls.io
+- Split bonus vs. base armor, ad, etc. (e.g. Darius is using total ad instead of bonus).
 - Figure out how to do ability passives.
 - Unify Buffs, Items, Abilities as Scripts.
 - Percent armor mods (for xin and kayle).
+- pub run test dies w/o message when no precache.
+- Coverage & coveralls.io
 - Split lolsim.dart into smaller files.
 - Add more passives, abilities, masteries, runes, etc.
 - Convert to integer math (ticks, etc.) to avoid double precision errors.
 - Implement in-combat/out-of-combat (more champs would die to darius and twitch dots).
-- Make round_robin spit out json and be able to compare lists.
+- Use round_robin json to compare lists.
 - Implement proximity (likely requires passing World more places).
 
 ## Passives missing affecting the lvl 1 round_robin sort.

@@ -16,6 +16,6 @@ dynamic main() async {
       // hp5 buff should be relative to total health, including items:
       mundo.addItem(data.items.itemByName('Ruby Crystal'));
       expect(mundo.stats.hpRegen, greaterThan(initialHp));
-    }, skip: 'Buffs can only read base stats, so this fails.');
+    });
   });
 }
