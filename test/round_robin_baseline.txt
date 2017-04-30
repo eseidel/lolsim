@@ -82,40 +82,40 @@ Galio         72
 Vi            74                   
 Fizz          75                   
 Nautilus      75                   
-Braum         76                   
+Braum         77                   
 Draven        77                   
+Nunu          77                   
 Khazix        78                   
-Pantheon      79                   
-Kassadin      80                   
+Pantheon      80                   
+Kassadin      81                   
 Rengar        83                   
 Yorick        83                   
 Zed           83         P         
-Sion          84                   
+Sion          85                   
 Camille       86                   
 XinZhao       86                   
 Renekton      88                   
-Leona         89                   
-Ekko          90         P         
-Twitch        90         P         
+Leona         90                   
+Ekko          91         P         
+Twitch        91         P         
 Blitzcrank    92                   
-Nunu          92                   
 Skarner       92                   
-Illaoi        93                   
 Hecarim       94                   
+Illaoi        94                   
 Malphite      94                   
 Udyr          94                   
 Garen         96                   
-LeeSin        96                   
-Aatrox        98                   
+LeeSin        97                   
 Katarina      98                   
-MonkeyKing    98                   
-Zac           98                   
-Chogath       100                  
+Aatrox        99                   
+MonkeyKing    99                   
+Zac           99                   
+Chogath       101                  
 DrMundo       101        P         
-Nasus         101        P         
+Nasus         102        P         
 Shaco         107                  
-Alistar       108                  
 Rumble        108                  
+Alistar       109                  
 Gragas        110                  
 Rammus        110        P         
 Akali         111                  
@@ -138,7 +138,7 @@ Volibear      130        P
 Warwick       130        P         
 Darius        132        P         
 Olaf          133        P         
-Aatrox 98 
+Aatrox 99 
   Ahri
   Amumu
   Anivia
@@ -199,6 +199,7 @@ Aatrox 98
   Nami
   Nautilus
   Nidalee
+  Nunu
   Orianna
   Pantheon
   Poppy
@@ -385,7 +386,7 @@ Akali 111
   Ziggs
   Zilean
   Zyra
-Alistar 108 
+Alistar 109 
   Aatrox
   Ahri
   Amumu
@@ -452,6 +453,7 @@ Alistar 108
   Nami
   Nautilus
   Nidalee
+  Nunu
   Orianna
   Pantheon
   Poppy
@@ -845,7 +847,7 @@ Brand 30
   Viktor
   Zilean
   Zyra
-Braum 76 
+Braum 77 
   Ahri
   Amumu
   Anivia
@@ -893,6 +895,7 @@ Braum 76
   Nami
   Nautilus
   Nidalee
+  Nunu
   Orianna
   Poppy
   Quinn
@@ -1063,7 +1066,7 @@ Cassiopeia 40
   Xerath
   Zilean
   Zyra
-Chogath 100 
+Chogath 101 
   Ahri
   Amumu
   Anivia
@@ -1124,6 +1127,7 @@ Chogath 100
   Nami
   Nautilus
   Nidalee
+  Nunu
   Orianna
   Pantheon
   Poppy
@@ -1636,7 +1640,7 @@ Draven 77
   Ziggs
   Zilean
   Zyra
-Ekko 90 P
+Ekko 91 P
   Ahri
   Amumu
   Anivia
@@ -1691,6 +1695,7 @@ Ekko 90 P
   Nami
   Nautilus
   Nidalee
+  Nunu
   Orianna
   Pantheon
   Poppy
@@ -2458,7 +2463,7 @@ Heimerdinger 26 P
   Veigar
   Zilean
   Zyra
-Illaoi 93 
+Illaoi 94 
   Ahri
   Amumu
   Anivia
@@ -2515,6 +2520,7 @@ Illaoi 93
   Nami
   Nautilus
   Nidalee
+  Nunu
   Orianna
   Pantheon
   Poppy
@@ -3188,7 +3194,7 @@ Karma 20
 Karthus 2 
   Annie
   Kled
-Kassadin 80 
+Kassadin 81 
   Ahri
   Amumu
   Anivia
@@ -3238,6 +3244,7 @@ Kassadin 80
   Morgana
   Nami
   Nidalee
+  Nunu
   Orianna
   Poppy
   Quinn
@@ -3659,7 +3666,7 @@ Leblanc 28
   Xerath
   Zilean
   Zyra
-LeeSin 96 
+LeeSin 97 
   Ahri
   Amumu
   Anivia
@@ -3719,6 +3726,7 @@ LeeSin 96
   Nami
   Nautilus
   Nidalee
+  Nunu
   Orianna
   Pantheon
   Poppy
@@ -3756,7 +3764,7 @@ LeeSin 96
   Ziggs
   Zilean
   Zyra
-Leona 89 
+Leona 90 
   Ahri
   Amumu
   Anivia
@@ -3811,6 +3819,7 @@ Leona 89
   Nami
   Nautilus
   Nidalee
+  Nunu
   Orianna
   Pantheon
   Poppy
@@ -4363,7 +4372,7 @@ MissFortune 14
   Thresh
   Veigar
   Zilean
-MonkeyKing 98 
+MonkeyKing 99 
   Aatrox
   Ahri
   Amumu
@@ -4423,6 +4432,7 @@ MonkeyKing 98
   Nami
   Nautilus
   Nidalee
+  Nunu
   Orianna
   Pantheon
   Poppy
@@ -4583,7 +4593,7 @@ Nami 11
   Sona
   Soraka
   Veigar
-Nasus 101 P
+Nasus 102 P
   Aatrox
   Ahri
   Amumu
@@ -4644,6 +4654,7 @@ Nasus 101 P
   Nami
   Nautilus
   Nidalee
+  Nunu
   Orianna
   Pantheon
   Poppy
@@ -4914,8 +4925,7 @@ Nocturne 122 P
   Ziggs
   Zilean
   Zyra
-Nunu 92 
-  Aatrox
+Nunu 77 
   Ahri
   Amumu
   Anivia
@@ -4925,9 +4935,7 @@ Nunu 92
   Azir
   Bard
   Brand
-  Braum
   Caitlyn
-  Camille
   Cassiopeia
   Corki
   Draven
@@ -4935,9 +4943,7 @@ Nunu 92
   Evelynn
   Ezreal
   Fiddlesticks
-  Fiora
   Fizz
-  Galio
   Gangplank
   Gnar
   Graves
@@ -4950,7 +4956,6 @@ Nunu 92
   Kalista
   Karma
   Karthus
-  Kassadin
   Kayle
   Kennen
   Khazix
@@ -4958,30 +4963,24 @@ Nunu 92
   Kled
   KogMaw
   Leblanc
-  LeeSin
   Lissandra
   Lucian
   Lulu
   Lux
   Malzahar
   MissFortune
-  MonkeyKing
   Mordekaiser
   Morgana
   Nami
   Nautilus
   Nidalee
   Orianna
-  Pantheon
   Poppy
   Quinn
   RekSai
   Renekton
-  Rengar
   Riven
   Ryze
-  Shen
-  Sion
   Sivir
   Sona
   Soraka
@@ -4993,17 +4992,14 @@ Nunu 92
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
   Velkoz
-  Vi
   Viktor
   Vladimir
   Xerath
   Yasuo
-  Yorick
   Ziggs
   Zilean
   Zyra
@@ -5167,7 +5163,7 @@ Orianna 25 P
   Veigar
   Zilean
   Zyra
-Pantheon 79 
+Pantheon 80 
   Ahri
   Amumu
   Anivia
@@ -5218,6 +5214,7 @@ Pantheon 79
   Nami
   Nautilus
   Nidalee
+  Nunu
   Orianna
   Poppy
   Quinn
@@ -6474,7 +6471,7 @@ Singed 118 P
   Ziggs
   Zilean
   Zyra
-Sion 84 
+Sion 85 
   Ahri
   Amumu
   Anivia
@@ -6525,6 +6522,7 @@ Sion 84
   Nami
   Nautilus
   Nidalee
+  Nunu
   Orianna
   Pantheon
   Poppy
@@ -7471,7 +7469,7 @@ TwistedFate 16
   Veigar
   Zilean
   Zyra
-Twitch 90 P
+Twitch 91 P
   Aatrox
   Ahri
   Amumu
@@ -7528,6 +7526,7 @@ Twitch 90 P
   Nami
   Nautilus
   Nidalee
+  Nunu
   Orianna
   Pantheon
   Poppy
@@ -8566,7 +8565,7 @@ Yorick 83
   Ziggs
   Zilean
   Zyra
-Zac 98 
+Zac 99 
   Aatrox
   Ahri
   Amumu
@@ -8625,6 +8624,7 @@ Zac 98
   Nami
   Nautilus
   Nidalee
+  Nunu
   Orianna
   Pantheon
   Poppy

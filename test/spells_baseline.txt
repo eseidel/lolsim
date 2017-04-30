@@ -1,7 +1,7 @@
 Total: 536
-Parse Error: 56
-Does damage: 301
-Mentions damage: 467
+Parse Error: 55
+Does damage: 300
+Mentions damage: 466
 Aatrox Dark Flight
 10 +1.1 AD physical damage
 Aatrox Blood Thirst / Blood Price
@@ -36,7 +36,6 @@ Alistar Unbreakable Will
 Amumu Bandage Toss
 80 +0.7 AP magic damage
 Amumu Despair
-8 magic damage
 Amumu Tantrum
 75 +0.5 AP magic damage
 Amumu Curse of the Sad Mummy
@@ -214,7 +213,7 @@ Fizz Playful / Trickster
 Fizz Chum the Waters
 300 +1.2 AP magic damage
 Galio Winds of War
-60 +0.6 AP magic damage
+60 +0.75 AP magic damage
 Galio Shield of Durand
 ERROR: VAR f3 is not defined for Shield of Durand
 Galio Justice Punch
@@ -546,7 +545,7 @@ Nocturne Unspeakable Horror
 Nocturne Paranoia
 150 +1.2 bonus AD physical damage
 Nunu Consume
-400 true damage
+340 true damage
 Nunu Blood Boil
 Nunu Ice Blast
 80 +0.9 AP magic damage
@@ -646,7 +645,6 @@ Sejuani Permafrost
 Sejuani Glacial Prison
 150 +0.8 AP magic damage
 Shaco Deceive
-ERROR: VAR f1 is not defined for Deceive
 Shaco Jack In The Box
 35 +0.2 AP magic damage
 Shaco Two-Shiv Poison
@@ -733,7 +731,7 @@ Taliyah Unraveled Earth
 ERROR: VAR f3 is not defined for Unraveled Earth
 Taliyah Weaver's Wall
 Talon Noxian Diplomacy
-80 +1.1 bonus AD physical damage
+60 +1.1 bonus AD physical damage
 Talon Rake
 ERROR: VAR f1 is not defined for Rake
 Talon Assassin's Path
