@@ -8,7 +8,7 @@ dynamic main() async {
           "dealing {{ e1 }}<span class=\"colorF88017\"> (+{{ a1 }})</span> "
           "physical damage and knocking up enemies at the center of impact "
           "for {{ e5 }} second.";
-      expect(effectRegexp.hasMatch(tooltip), true);
+      expect(parseTooltip(tooltip), isNotEmpty);
     });
     test("duel scaling", () {
       var tooltip = "Dashes through target enemy, dealing {{ e1 }} <span "
@@ -18,14 +18,14 @@ dynamic main() async {
           "<br><br>Cannot be re-cast on the same enemy for {{ e2 }} seconds."
           "<br><br><span class=\"color99FF99\">If cast while dashing, Steel "
           "Tempest will strike as a circle.</span>";
-      expect(effectRegexp.hasMatch(tooltip), true);
+      expect(parseTooltip(tooltip), isNotEmpty);
     });
     test('nested spans', () {
       var tooltip = "Aatrox unleashes the power of his blade, dealing "
           "{{ e1 }} <span class=\"color99FF99\">(+{{ a1 }}) <span "
           "class=\"colorF88017\">(+{{ a2 }})</span></span> Magic Damage to "
           "enemies hit and slowing them by {{ e2 }}% for {{ e4 }} seconds.";
-      expect(effectRegexp.hasMatch(tooltip), true);
+      expect(parseTooltip(tooltip), isNotEmpty);
     }, skip: true);
     test('mf', () {
       var tooltip = "Miss Fortune fires a bouncing shot through an enemy, "
@@ -35,7 +35,7 @@ dynamic main() async {
           "(+{{ f2 }})</span> <span class=\"color99FF99\">(+{{ a2 }})</span> "
           "damage to the second. Both apply on-hit effects.<br><br>If the "
           "first shot kills its target, the second deals 50% increased damage.";
-      expect(effectRegexp.hasMatch(tooltip), true);
+      expect(parseTooltip(tooltip), isNotEmpty);
     });
     test('braum q max health', () {
       var tooltip = "Braum propels freezing ice from his shield dealing "
@@ -43,7 +43,7 @@ dynamic main() async {
           "Max Health]</span> magic damage to the first enemy hit and slowing "
           "them by {{ e2 }}%, decaying over the next {{ e5 }} seconds.<br><br>"
           "Applies a stack of <span class=\"colorFFF673\">Concussive Blows</span>. ";
-      expect(effectRegexp.hasMatch(tooltip), true);
+      expect(parseTooltip(tooltip), isNotEmpty);
     }, skip: true);
     test('casseopia twin fangs', () {
       // Has a span around the base damage which is unusual.
@@ -55,7 +55,7 @@ dynamic main() async {
           "{{ e1 }} <span class=\"color99FF99\">(+{{ a2 }})</span> additional "
           "magic damage and Cassiopeia heals for <span class=\"colorFFFFFF\">"
           "{{ f4 }}</span> <span class=\"color99FF99\">(+{{ f2 }})</span>.";
-      expect(effectRegexp.hasMatch(tooltip), true);
+      expect(parseTooltip(tooltip), isNotEmpty);
     });
     test('jihn', () {
       // Has a space before the closing span tag.
@@ -66,7 +66,7 @@ dynamic main() async {
           "bouncing to a nearby target that has not yet been hit.<br><br>The "
           "cartridge can hit a maximum of 4 times. Each kill by the cartridge "
           "increases the damage of subsequent hits by {{ e2 }}%.";
-      expect(effectRegexp.hasMatch(tooltip), true);
+      expect(parseTooltip(tooltip), isNotEmpty);
     });
     test('reksai', () {
       // Has a flat damage, no scaling.
@@ -83,7 +83,7 @@ dynamic main() async {
           "class=\"colorF0F2B1\">Tunnel Entrances</span> last for {{ e5 }} "
           "minutes and can be destroyed by enemies. Rek'Sai may have {{ e6 }} "
           "tunnels at one time. Tunnels have a {{ e8 }} second cooldown on use.";
-      expect(effectRegexp.hasMatch(tooltip), true);
+      expect(parseTooltip(tooltip), isNotEmpty);
     }, skip: true);
   });
   group("parseEffects", () {
