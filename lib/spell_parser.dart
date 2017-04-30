@@ -144,12 +144,13 @@ class DamageEffect {
 
   String summaryStringForRank(int rank) {
     int rankIndex = rank - 1;
-    String summary = '${baseByRank[rankIndex]}';
+    double baseDamage = baseByRank[rankIndex];
+    String summary = baseDamage == 0.0 ? '' : '${baseDamage} ';
     for (var ratio in ratios) {
-      summary += ' +${ratio.ratioByRank[rankIndex]}';
-      summary += ' ' + shortHandForScalingSource(ratio.scalingSource);
+      summary += '+${ratio.ratioByRank[rankIndex]} ';
+      summary += shortHandForScalingSource(ratio.scalingSource) + ' ';
     }
-    return summary + ' ' + stringFromDamageType(damageType) + ' damage';
+    return summary + stringFromDamageType(damageType) + ' damage';
   }
 }
 
@@ -258,9 +259,21 @@ void applyScaleVar(DamageEffect effect, Map data, String varName) {
 Iterable<DamageEffect> parseEffects(Map data) sync* {
   String tooltip = data['tooltip'];
   for (TooltipMatch match in parseTooltip(tooltip, data['name'])) {
+    List<double> baseByRank;
+    if (match.baseVar.startsWith('e')) {
+      baseByRank = lookupEffectArray(data, match.baseVar);
+    } else {
+      // Treat baseVar as a scaleVar instead:
+      if (match.secondScaleVar != null)
+        throw new ArgumentError('Matched too many variables.');
+      match.secondScaleVar = match.firstScaleVar;
+      match.firstScaleVar = match.baseVar;
+      match.baseVar = null;
+      baseByRank = new List.filled(data['maxrank'], 0.0);
+    }
     var effect = new DamageEffect(
       damageType: damageTypeFromString(match.damageType),
-      baseByRank: lookupEffectArray(data, match.baseVar),
+      baseByRank: baseByRank,
       maxRank: data['maxrank'],
     );
     if (match.firstScaleVar != null)
