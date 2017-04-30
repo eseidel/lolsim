@@ -1,11 +1,12 @@
 Total: 536
 Parse Error: 50
-Does damage: 295
+Does damage: 297
 Mentions damage: 471
 Aatrox Dark Flight
 70 +0.6 bonus AD physical damage
 Aatrox Blood Thirst / Blood Price
 Aatrox Blades of Torment
+75 +0.6 AP +0.6 bonus AD magic damage
 Aatrox Massacre
 200 +1 AP magic damage
 Ahri Orb of Deception
@@ -216,6 +217,7 @@ Galio Righteous Gust
 Galio Idol of Durand
 200 +0.6 AP magic damage
 Gangplank Parrrley
+20 +1 AD physical damage
 Gangplank Remove Scurvy
 Gangplank Powder Keg
 Gangplank Cannon Barrage

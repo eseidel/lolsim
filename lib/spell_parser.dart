@@ -194,13 +194,18 @@ class TooltipMatch {
   String damageType;
 }
 
-final RegExp _effectRegexp =
-    new RegExp(r'(?:<span[^>]*>\s*)?\{\{ (\w+) \}\}\s*(?:</span>\s*)?'
-        r'<span[^>]*>\s*\(\+\{\{ (\w+) \}\}\)\s*</span>\s*'
-        r'(?:<span[^>]*>\s*\(\+\{\{ (\w+) \}\}\)\s*</span>\s*)?'
-        r'([Mm]agic|[Pp]hysical|[Tt]rue)');
+final RegExp _effectRegexp = new RegExp(r'\{\{ (\w+) \}\}\s*'
+    r'\(\+\{\{ (\w+) \}\}\)\s*'
+    r'(?:\(\+\{\{ (\w+) \}\}\)\s*)?'
+    r'(magic|physical|true)');
 
-Iterable<TooltipMatch> parseTooltip(String tooltip) sync* {
+final RegExp _tagRegexp = new RegExp(r'<[^>]+?>');
+
+Iterable<TooltipMatch> parseTooltip(String tooltip, String spellName) sync* {
+  tooltip = tooltip.toLowerCase();
+  tooltip = tooltip.replaceAll(_tagRegexp, '');
+  tooltip = tooltip.replaceAll('  ', ' ');
+
   for (Match match in _effectRegexp.allMatches(tooltip)) {
     yield new TooltipMatch()
       ..baseVar = match[1]
@@ -248,7 +253,7 @@ void applyScaleVar(DamageEffect effect, Map data, String varName) {
 
 Iterable<DamageEffect> parseEffects(Map data) sync* {
   String tooltip = data['tooltip'];
-  for (TooltipMatch match in parseTooltip(tooltip)) {
+  for (TooltipMatch match in parseTooltip(tooltip, data['name'])) {
     var effect = new DamageEffect(
       damageType: damageTypeFromString(match.damageType),
       baseByRank: lookupEffectArray(data, match.baseVar),
