@@ -26,9 +26,9 @@ Azir          16
 Elise         16                   
 TwistedFate   16                   
 Ezreal        17                   
-Gnar          17                   
+Gnar          18                   
 Karma         20                   
-Swain         21                   
+Swain         20                   
 Velkoz        21                   
 Syndra        23                   
 Xerath        23                   
@@ -36,8 +36,8 @@ Jhin          24
 Malzahar      24                   
 Orianna       25         P         
 Heimerdinger  26         P         
+Bard          28                   
 Leblanc       28                   
-Bard          29                   
 Nidalee       29                   
 Brand         30                   
 Kindred       30                   
@@ -78,47 +78,47 @@ Amumu         69
 Shen          70                   
 Fiora         71                   
 Kalista       71                   
-Nautilus      74                   
+Galio         72                   
 Vi            74                   
-Braum         75                   
 Fizz          75                   
-Aatrox        76                   
-Draven        78                   
-Pantheon      78                   
-Khazix        79                   
+Nautilus      75                   
+Braum         76                   
+Draven        77                   
+Khazix        78                   
+Pantheon      79                   
 Kassadin      80                   
-Zed           82         P         
+Rengar        83                   
 Yorick        83                   
-Rengar        84                   
+Zed           83         P         
 Sion          84                   
+Camille       86                   
 XinZhao       86                   
-Camille       87                   
-Renekton      87                   
+Renekton      88                   
 Leona         89                   
-Twitch        89         P         
 Ekko          90         P         
-Nunu          91                   
+Twitch        90         P         
 Blitzcrank    92                   
+Nunu          92                   
 Skarner       92                   
-Hecarim       93                   
 Illaoi        93                   
-Udyr          93                   
+Hecarim       94                   
 Malphite      94                   
-Galio         95                   
+Udyr          94                   
 Garen         96                   
 LeeSin        96                   
-Katarina      97                   
-Zac           97                   
+Aatrox        98                   
+Katarina      98                   
 MonkeyKing    98                   
+Zac           98                   
 Chogath       100                  
-Nasus         100        P         
 DrMundo       101        P         
-Alistar       107                  
-Shaco         108                  
-Rammus        109        P         
-Rumble        109                  
+Nasus         101        P         
+Shaco         107                  
+Alistar       108                  
+Rumble        108                  
+Gragas        110                  
+Rammus        110        P         
 Akali         111                  
-Gragas        111                  
 Urgot         112        P         
 MasterYi      115                  
 Talon         115                  
@@ -138,7 +138,7 @@ Volibear      130        P
 Warwick       130        P         
 Darius        132        P         
 Olaf          133        P         
-Aatrox 76 
+Aatrox 98 
   Ahri
   Amumu
   Anivia
@@ -147,19 +147,30 @@ Aatrox 76
   AurelionSol
   Azir
   Bard
+  Blitzcrank
   Brand
+  Braum
   Caitlyn
+  Camille
   Cassiopeia
+  Chogath
   Corki
+  DrMundo
+  Draven
+  Ekko
   Elise
   Evelynn
   Ezreal
   Fiddlesticks
   Fiora
+  Fizz
+  Galio
   Gangplank
+  Garen
   Gnar
   Graves
   Heimerdinger
+  Illaoi
   Ivern
   Janna
   Jayce
@@ -170,14 +181,17 @@ Aatrox 76
   Karthus
   Kayle
   Kennen
+  Khazix
   Kindred
   Kled
   KogMaw
   Leblanc
+  Leona
   Lissandra
   Lucian
   Lulu
   Lux
+  Malphite
   Malzahar
   MissFortune
   Mordekaiser
@@ -186,13 +200,18 @@ Aatrox 76
   Nautilus
   Nidalee
   Orianna
+  Pantheon
   Poppy
   Quinn
   RekSai
+  Rengar
   Riven
   Ryze
+  Shaco
   Shen
+  Sion
   Sivir
+  Skarner
   Sona
   Soraka
   Swain
@@ -211,7 +230,10 @@ Aatrox 76
   Viktor
   Vladimir
   Xerath
+  XinZhao
   Yasuo
+  Yorick
+  Zed
   Ziggs
   Zilean
   Zyra
@@ -363,7 +385,7 @@ Akali 111
   Ziggs
   Zilean
   Zyra
-Alistar 107 
+Alistar 108 
   Aatrox
   Ahri
   Amumu
@@ -390,6 +412,7 @@ Alistar 107
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Gragas
@@ -669,7 +692,7 @@ Azir 16
   TwistedFate
   Zilean
   Zyra
-Bard 29 
+Bard 28 
   Ahri
   Anivia
   Annie
@@ -678,7 +701,6 @@ Bard 29
   Elise
   Ezreal
   Fiddlesticks
-  Gnar
   Graves
   Janna
   Jhin
@@ -700,7 +722,6 @@ Bard 29
   Zilean
   Zyra
 Blitzcrank 92 
-  Aatrox
   Ahri
   Amumu
   Anivia
@@ -721,6 +742,7 @@ Blitzcrank 92
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -823,7 +845,7 @@ Brand 30
   Viktor
   Zilean
   Zyra
-Braum 75 
+Braum 76 
   Ahri
   Amumu
   Anivia
@@ -841,6 +863,7 @@ Braum 75
   Ezreal
   Fiddlesticks
   Fiora
+  Galio
   Gangplank
   Gnar
   Graves
@@ -912,8 +935,7 @@ Caitlyn 12
   Sona
   Thresh
   Veigar
-Camille 87 
-  Aatrox
+Camille 86 
   Ahri
   Amumu
   Anivia
@@ -1042,7 +1064,6 @@ Cassiopeia 40
   Zilean
   Zyra
 Chogath 100 
-  Aatrox
   Ahri
   Amumu
   Anivia
@@ -1065,6 +1086,7 @@ Chogath 100
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -1435,7 +1457,6 @@ Diana 126 P
   Zilean
   Zyra
 DrMundo 101 P
-  Aatrox
   Ahri
   Amumu
   Anivia
@@ -1458,6 +1479,7 @@ DrMundo 101 P
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -1536,8 +1558,7 @@ DrMundo 101 P
   Ziggs
   Zilean
   Zyra
-Draven 78 
-  Aatrox
+Draven 77 
   Ahri
   Anivia
   Annie
@@ -1616,7 +1637,6 @@ Draven 78
   Zilean
   Zyra
 Ekko 90 P
-  Aatrox
   Ahri
   Amumu
   Anivia
@@ -1638,6 +1658,7 @@ Ekko 90 P
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -1870,7 +1891,6 @@ Fiora 71
   Zilean
   Zyra
 Fizz 75 
-  Aatrox
   Ahri
   Amumu
   Anivia
@@ -1888,6 +1908,7 @@ Fizz 75
   Evelynn
   Ezreal
   Fiddlesticks
+  Galio
   Gangplank
   Gnar
   Graves
@@ -1945,10 +1966,8 @@ Fizz 75
   Ziggs
   Zilean
   Zyra
-Galio 95 
-  Aatrox
+Galio 72 
   Ahri
-  Amumu
   Anivia
   Annie
   Ashe
@@ -1956,22 +1975,17 @@ Galio 95
   Azir
   Bard
   Brand
-  Braum
   Caitlyn
   Cassiopeia
   Corki
   Draven
-  Ekko
   Elise
   Evelynn
   Ezreal
   Fiddlesticks
-  Fiora
-  Fizz
   Gangplank
   Gnar
   Graves
-  Hecarim
   Heimerdinger
   Ivern
   Janna
@@ -1981,8 +1995,6 @@ Galio 95
   Kalista
   Karma
   Karthus
-  Kassadin
-  Katarina
   Kayle
   Kennen
   Khazix
@@ -1990,9 +2002,7 @@ Galio 95
   Kled
   KogMaw
   Leblanc
-  LeeSin
   Lissandra
-  Lucian
   Lulu
   Lux
   Malzahar
@@ -2000,19 +2010,13 @@ Galio 95
   Mordekaiser
   Morgana
   Nami
-  Nautilus
   Nidalee
-  Nunu
   Orianna
-  Pantheon
   Poppy
   Quinn
   RekSai
-  Renekton
   Riven
   Ryze
-  Shen
-  Sion
   Sivir
   Sona
   Soraka
@@ -2024,20 +2028,14 @@ Galio 95
   Thresh
   Tristana
   TwistedFate
-  Twitch
-  Udyr
   Varus
   Vayne
   Veigar
   Velkoz
-  Vi
   Viktor
   Vladimir
   Xerath
-  XinZhao
   Yasuo
-  Yorick
-  Zed
   Ziggs
   Zilean
   Zyra
@@ -2097,7 +2095,6 @@ Gangplank 54
   Zilean
   Zyra
 Garen 96 
-  Aatrox
   Ahri
   Amumu
   Anivia
@@ -2118,6 +2115,7 @@ Garen 96
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -2193,9 +2191,10 @@ Garen 96
   Ziggs
   Zilean
   Zyra
-Gnar 17 
+Gnar 18 
   Anivia
   Annie
+  Azir
   Caitlyn
   Fiddlesticks
   Graves
@@ -2211,8 +2210,7 @@ Gnar 17
   TwistedFate
   Veigar
   Zilean
-Gragas 111 
-  Aatrox
+Gragas 110 
   Ahri
   Akali
   Amumu
@@ -2338,7 +2336,7 @@ Graves 14
   Thresh
   TwistedFate
   Veigar
-Hecarim 93 
+Hecarim 94 
   Aatrox
   Ahri
   Amumu
@@ -2360,6 +2358,7 @@ Hecarim 93
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -2460,7 +2459,6 @@ Heimerdinger 26 P
   Zilean
   Zyra
 Illaoi 93 
-  Aatrox
   Ahri
   Amumu
   Anivia
@@ -2482,6 +2480,7 @@ Illaoi 93
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -3190,7 +3189,6 @@ Karthus 2
   Annie
   Kled
 Kassadin 80 
-  Aatrox
   Ahri
   Amumu
   Anivia
@@ -3210,6 +3208,7 @@ Kassadin 80
   Ezreal
   Fiddlesticks
   Fiora
+  Galio
   Gangplank
   Gnar
   Graves
@@ -3270,7 +3269,7 @@ Kassadin 80
   Ziggs
   Zilean
   Zyra
-Katarina 97 
+Katarina 98 
   Aatrox
   Ahri
   Amumu
@@ -3294,6 +3293,7 @@ Katarina 97
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -3470,8 +3470,7 @@ Kennen 46
   Xerath
   Zilean
   Zyra
-Khazix 79 
-  Aatrox
+Khazix 78 
   Ahri
   Amumu
   Anivia
@@ -3661,7 +3660,6 @@ Leblanc 28
   Zilean
   Zyra
 LeeSin 96 
-  Aatrox
   Ahri
   Amumu
   Anivia
@@ -3687,6 +3685,7 @@ LeeSin 96
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -3758,7 +3757,6 @@ LeeSin 96
   Zilean
   Zyra
 Leona 89 
-  Aatrox
   Ahri
   Amumu
   Anivia
@@ -3780,6 +3778,7 @@ Leona 89
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -3988,7 +3987,6 @@ Lux 3
   Annie
   Kled
 Malphite 94 
-  Aatrox
   Ahri
   Amumu
   Anivia
@@ -4009,6 +4007,7 @@ Malphite 94
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -4584,7 +4583,7 @@ Nami 11
   Sona
   Soraka
   Veigar
-Nasus 100 P
+Nasus 101 P
   Aatrox
   Ahri
   Amumu
@@ -4608,6 +4607,7 @@ Nasus 100 P
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Garen
   Gnar
@@ -4685,7 +4685,7 @@ Nasus 100 P
   Ziggs
   Zilean
   Zyra
-Nautilus 74 
+Nautilus 75 
   Ahri
   Amumu
   Anivia
@@ -4703,6 +4703,7 @@ Nautilus 74
   Ezreal
   Fiddlesticks
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -4913,7 +4914,7 @@ Nocturne 122 P
   Ziggs
   Zilean
   Zyra
-Nunu 91 
+Nunu 92 
   Aatrox
   Ahri
   Amumu
@@ -4936,6 +4937,7 @@ Nunu 91
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -5165,7 +5167,7 @@ Orianna 25 P
   Veigar
   Zilean
   Zyra
-Pantheon 78 
+Pantheon 79 
   Ahri
   Amumu
   Anivia
@@ -5185,6 +5187,7 @@ Pantheon 78
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -5364,7 +5367,7 @@ Quinn 55
   Ziggs
   Zilean
   Zyra
-Rammus 109 P
+Rammus 110 P
   Aatrox
   Ahri
   Amumu
@@ -5389,6 +5392,7 @@ Rammus 109 P
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Garen
   Gnar
@@ -5539,7 +5543,7 @@ RekSai 64
   Ziggs
   Zilean
   Zyra
-Renekton 87 
+Renekton 88 
   Aatrox
   Ahri
   Amumu
@@ -5561,6 +5565,7 @@ Renekton 87
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -5627,8 +5632,7 @@ Renekton 87
   Ziggs
   Zilean
   Zyra
-Rengar 84 
-  Aatrox
+Rengar 83 
   Ahri
   Amumu
   Anivia
@@ -5772,8 +5776,7 @@ Riven 59
   Ziggs
   Zilean
   Zyra
-Rumble 109 
-  Aatrox
+Rumble 108 
   Ahri
   Akali
   Amumu
@@ -6054,8 +6057,7 @@ Sejuani 118
   Ziggs
   Zilean
   Zyra
-Shaco 108 
-  Aatrox
+Shaco 107 
   Ahri
   Alistar
   Amumu
@@ -6473,7 +6475,6 @@ Singed 118 P
   Zilean
   Zyra
 Sion 84 
-  Aatrox
   Ahri
   Amumu
   Anivia
@@ -6493,6 +6494,7 @@ Sion 84
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -6596,7 +6598,6 @@ Sivir 37
   Zilean
   Zyra
 Skarner 92 
-  Aatrox
   Ahri
   Amumu
   Anivia
@@ -6617,6 +6618,7 @@ Skarner 92
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -6705,13 +6707,12 @@ Soraka 10
   MissFortune
   Sona
   Veigar
-Swain 21 
+Swain 20 
   Anivia
   Annie
   Caitlyn
   Elise
   Fiddlesticks
-  Gnar
   Graves
   Janna
   Karthus
@@ -7470,7 +7471,7 @@ TwistedFate 16
   Veigar
   Zilean
   Zyra
-Twitch 89 P
+Twitch 90 P
   Aatrox
   Ahri
   Amumu
@@ -7493,6 +7494,7 @@ Twitch 89 P
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -7560,7 +7562,7 @@ Twitch 89 P
   Ziggs
   Zilean
   Zyra
-Udyr 93 
+Udyr 94 
   Aatrox
   Ahri
   Amumu
@@ -7583,6 +7585,7 @@ Udyr 93
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -8331,7 +8334,6 @@ Xerath 23
   Zilean
   Zyra
 XinZhao 86 
-  Aatrox
   Ahri
   Amumu
   Anivia
@@ -8352,6 +8354,7 @@ XinZhao 86
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -8480,7 +8483,6 @@ Yasuo 61
   Zilean
   Zyra
 Yorick 83 
-  Aatrox
   Ahri
   Anivia
   Annie
@@ -8500,6 +8502,7 @@ Yorick 83
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -8563,7 +8566,7 @@ Yorick 83
   Ziggs
   Zilean
   Zyra
-Zac 97 
+Zac 98 
   Aatrox
   Ahri
   Amumu
@@ -8586,6 +8589,7 @@ Zac 97
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves
@@ -8661,7 +8665,7 @@ Zac 97
   Ziggs
   Zilean
   Zyra
-Zed 82 P
+Zed 83 P
   Ahri
   Amumu
   Anivia
@@ -8681,6 +8685,7 @@ Zed 82 P
   Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
   Gnar
   Graves

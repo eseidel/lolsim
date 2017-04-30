@@ -7,7 +7,7 @@ import 'package:path/path.dart' as pathPackage;
 
 final Logger _log = new Logger('dragon_loader');
 
-const String DEFAULT_VERSION = '7.5.1';
+const String DEFAULT_VERSION = '7.6.1';
 const String DEFAULT_LOCALE = 'en_US';
 const String DEFAULT_CACHE_DIR = '/tmp/lolsim';
 

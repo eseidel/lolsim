@@ -1,5 +1,5 @@
 Total: 536
-Parse Error: 55
+Parse Error: 56
 Does damage: 301
 Mentions damage: 467
 Aatrox Dark Flight
@@ -213,13 +213,14 @@ Fizz Playful / Trickster
 70 +0.75 AP magic damage
 Fizz Chum the Waters
 300 +1.2 AP magic damage
-Galio Resolute Smite
-80 +0.6 AP magic damage
-Galio Bulwark
-Galio Righteous Gust
-60 +0.5 AP magic damage
-Galio Idol of Durand
-200 +0.6 AP magic damage
+Galio Winds of War
+60 +0.6 AP magic damage
+Galio Shield of Durand
+ERROR: VAR f3 is not defined for Shield of Durand
+Galio Justice Punch
+100 +0.7 AP magic damage
+Galio Hero's Entrance
+150 +0.7 AP magic damage
 Gangplank Parrrley
 20 +1 AD physical damage
 Gangplank Remove Scurvy
@@ -485,7 +486,7 @@ Master Yi Meditate
 Master Yi Wuju Style
 Master Yi Highlander
 Miss Fortune Double Up
-20 +0.85 AD +0.35 AP physical damage
+20 +1 AD +0.35 AP physical damage
 Miss Fortune Strut
 Miss Fortune Make It Rain
 80 +0.8 AP magic damage
