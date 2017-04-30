@@ -6,7 +6,7 @@ class Warwick extends ChampionEffects {
   Warwick(this.warwick);
 
   @override
-  String get lastUpdate => VERSION_7_2_1;
+  String get lastUpdate => VERSION_7_8_1;
 
   static double bonusDamagePerLevel(int level) => 8.0 + 2.0 * level;
 
