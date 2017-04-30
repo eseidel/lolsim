@@ -60,6 +60,7 @@ Many.  Including at least:
 - Implement in-combat/out-of-combat (more champs would die to darius and twitch dots).
 - Make round_robin spit out json and be able to compare lists.
 - Implement proximity (likely requires passing World more places).
+- Could change SpellParser to normalize strings first (lowercase, remove span).
 
 ## Passives missing affecting the lvl 1 round_robin sort.
 - Aatrox passive (complicated, likely requires bloodthirst to be useful)

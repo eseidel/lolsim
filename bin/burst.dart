@@ -24,7 +24,8 @@ double applyRatio(ScaledValue ratio, int rank, Mob source) {
   return null;
 }
 
-void applySpell(Spell spell, Mob source, Mob target, int rank) {
+void applySpell(Spell spell, int rank, Mob source, Mob target) {
+  if (rank < 1) return;
   double physicalDamage = 0.0;
   double magicDamage = 0.0;
   double trueDamage = 0.0;
@@ -50,70 +51,121 @@ void applySpell(Spell spell, Mob source, Mob target, int rank) {
   ));
 }
 
-double burstDamage(Mob champ, SpellBook spells) {
-  champ.level = 3;
-  champ.updateStats();
+double burstDamage(Mob champ, SpellBook spells, AbilityRanks ranks) {
   Mob dummy = createDummyMob();
   dummy.shouldRecordDamage = true;
 
   World world = new World();
   new AutoAttack(champ, dummy).apply(world);
-  int rank = 1; // HACK, should pull values from mob.
-  applySpell(spells.q, champ, dummy, rank);
-  applySpell(spells.e, champ, dummy, rank);
-  applySpell(spells.w, champ, dummy, rank);
+  applySpell(spells.q, ranks.q, champ, dummy);
+  applySpell(spells.e, ranks.e, champ, dummy);
+  applySpell(spells.w, ranks.w, champ, dummy);
+  applySpell(spells.r, ranks.r, champ, dummy);
 
   // print(dummy.damageLog.summaryString);
   return dummy.damageLog.totalDamage;
 }
 
-String abilitiesString(Mob champ, SpellBook book) {
-  String keyChar(Spell spell, String char) {
-    if (spell.parseError) return '*';
-    if (spell.doesDamage) return char;
+String abilitiesString(Mob champ, SpellBook book, AbilityRanks ranks) {
+  String keyChar(Spell spell, int rank) {
+    if (spell.parseError != null) return '*';
+    if (spell.doesDamage && rank > 0) return spell.key.toString();
     return ' ';
   }
 
   return (champ.effects != null ? 'P' : ' ') +
-      keyChar(book.q, 'Q') +
-      keyChar(book.w, 'W') +
-      keyChar(book.e, 'E');
+      keyChar(book.q, ranks.q) +
+      keyChar(book.w, ranks.w) +
+      keyChar(book.e, ranks.e) +
+      keyChar(book.r, ranks.r);
 }
 
 class _Result {
   String champName;
   double burst;
   String abilitiesString;
+  double burstAdRatio;
+  double burstBonusAdRatio;
+  double burstApRatio;
+}
+
+double sumOfDamageRatios(
+    SpellBook book, ScalingSource source, AbilityRanks ranks) {
+  double sum = 0.0;
+  void addFrom(Spell spell, int rank) {
+    if (!spell.doesDamage || rank < 1) return;
+    sum += spell.sumOfRatios(source, rank);
+  }
+
+  addFrom(book.q, ranks.q);
+  addFrom(book.w, ranks.w);
+  addFrom(book.e, ranks.e);
+  addFrom(book.r, ranks.r);
+  return sum;
+}
+
+class AbilityRanks {
+  int q;
+  int w;
+  int e;
+  int r;
+  AbilityRanks({this.q: 0, this.w: 0, this.e: 0, this.r: 0});
 }
 
 dynamic main(List<String> args) async {
   handleCommonArgs(args);
   Creator creator = await Creator.loadLatest();
   SpellFactory spells = await SpellFactory.load();
+  AbilityRanks ranks = new AbilityRanks(q: 1, w: 1, e: 1);
+  int level = 3;
 
   // Mob champ = creator.champs.championByName('Pantheon');
   // SpellBook spellBook = spells.bookForChampionName('Pantheon');
   // print(burstDamage(champ, spellBook));
 
-  TableLayout layout = new TableLayout([10, 13, 6]);
-  layout.printRow(['Abilities', 'Name', 'Burst']);
+  TableLayout layout = new TableLayout([10, 13, 6, 8, 8, 8]);
+  layout.printRow([
+    'Abilities',
+    'Name',
+    'Burst',
+    'AP Ratio',
+    'AD Ratio',
+    'Bonus AD Ratio',
+  ]);
   layout.printDivider();
 
   List<String> champNames = creator.dragon.champs.loadChampNames();
   List<_Result> results = champNames.map((champName) {
     Mob champ = creator.champs.championByName(champName);
+    champ.level = level;
+    champ.updateStats();
+
     SpellBook spellBook = spells.bookForChampionName(champName);
     return new _Result()
-      ..abilitiesString = abilitiesString(champ, spellBook)
-      ..burst = burstDamage(champ, spellBook)
-      ..champName = champName;
+      ..abilitiesString = abilitiesString(champ, spellBook, ranks)
+      ..burst = burstDamage(champ, spellBook, ranks)
+      ..champName = champName
+      ..burstAdRatio =
+          sumOfDamageRatios(spellBook, ScalingSource.attackDamage, ranks)
+      ..burstBonusAdRatio =
+          sumOfDamageRatios(spellBook, ScalingSource.bonusAttackDamage, ranks)
+      ..burstApRatio =
+          sumOfDamageRatios(spellBook, ScalingSource.spellPower, ranks);
   }).toList();
   results.sort((a, b) => a.burst.compareTo(b.burst));
+
+  String emptyIfZero(double value) {
+    return value == 0.0 ? '' : value.toStringAsFixed(1);
+  }
+
   for (_Result result in results) {
     layout.printRow([
       result.abilitiesString,
       result.champName,
-      result.burst.toStringAsFixed(1)
+      result.burst.toStringAsFixed(1),
+      emptyIfZero(result.burstApRatio),
+      emptyIfZero(result.burstAdRatio),
+      emptyIfZero(result.burstBonusAdRatio),
     ]);
   }
 
@@ -122,7 +174,6 @@ dynamic main(List<String> args) async {
 
   // A more sophisticated version would run for 3s and would include
   // AAs and likely need some sort of planning:
-  // - json-based default ability approximation
   // -- knows how to apply damage, based on scaling and set a cooldown.
   // - Default plan just AAs
   // - Burst plan does rotations on cooldown.

@@ -1,6 +1,7 @@
 #!/usr/local/bin/dart
 import 'package:lol_duel/common_args.dart';
 import 'package:lol_duel/spell_parser.dart';
+import 'package:lol_duel/cli_table.dart';
 
 dynamic main(List<String> args) async {
   handleCommonArgs(args);
@@ -28,17 +29,18 @@ dynamic main(List<String> args) async {
   //   // spell.data['effect'].forEach((key) => print(key));
   // });
   List<Spell> parseError =
-      allSpells.where((var spell) => spell.parseError).toList();
+      allSpells.where((var spell) => spell.parseError != null).toList();
   print("Total: ${allSpells.length}");
   print("Parse Error: ${parseError.length}"); // 40
   print("Does damage: ${doesDamage.length}"); // 305
   print("Mentions damage: ${mentionsDamage.length}"); // 471
 
+  TableLayout layout = new TableLayout([30, 50]);
+  layout.printRow(['Ability', 'Damage']);
+  layout.printDivider();
+
   for (Spell spell in doesDamage) {
-    print('${spell.name}');
-    for (var effect in spell.damageEffects) {
-      print(effect.summaryStringForRank(1));
-    }
+    layout.printRow([spell.name, spell.effectsSummaryForRank(1)]);
   }
 
   // mentionsDamage.forEach((var spell) {

@@ -132,6 +132,16 @@ class DamageEffect {
     for (var ratio in ratios) assert(ratio.ratioByRank.length == maxRank);
   }
 
+  double sumOfRatios(ScalingSource source, int rank) {
+    int rankIndex = rank - 1;
+    Iterable<ScaledValue> matching =
+        ratios.where((ratio) => ratio.scalingSource == source);
+    if (matching.isEmpty) return 0.0;
+    return matching
+        .map((ratio) => ratio.ratioByRank[rankIndex].toDouble())
+        .reduce((a, b) => a + b);
+  }
+
   String summaryStringForRank(int rank) {
     int rankIndex = rank - 1;
     String summary = '${baseByRank[rankIndex]}';
@@ -149,18 +159,32 @@ class Spell {
   final Key key;
   final Map data;
   List<DamageEffect> damageEffects = [];
-  bool parseError = false;
+  String parseError;
 
   Spell.fromJson({this.champName, this.key, this.data}) : name = data['name'] {
     try {
       damageEffects = parseEffects(data).toList();
     } on ArgumentError catch (e) {
-      parseError = true;
+      parseError = e.message;
       _log.warning(e.message);
     }
   }
 
   bool get doesDamage => damageEffects.isNotEmpty;
+
+  double sumOfRatios(ScalingSource source, int rank) {
+    if (damageEffects.isEmpty) return 0.0;
+    return damageEffects
+        .map((effect) => effect.sumOfRatios(source, rank))
+        .reduce((a, b) => a + b);
+  }
+
+  String effectsSummaryForRank(int rank, {String joiner = ', '}) {
+    List<String> effectSummaries = damageEffects
+        .map((effect) => effect.summaryStringForRank(rank))
+        .toList();
+    return effectSummaries.join(joiner);
+  }
 }
 
 final RegExp effectRegexp =
