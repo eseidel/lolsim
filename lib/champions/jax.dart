@@ -36,6 +36,9 @@ class Jax extends ChampionEffects {
   Mob jax;
   Jax(this.jax);
 
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   void gainRelentlessAssault() {
     RelentlessAssault assault = jax.buffs
         .firstWhere((buff) => buff is RelentlessAssault, orElse: () => null);

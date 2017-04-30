@@ -6,6 +6,9 @@ class JarvanIV extends ChampionEffects {
   Mob jarvan;
   JarvanIV(this.jarvan);
 
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   double get passiveCooldown {
     if (jarvan.level < 7) return 10.0;
     if (jarvan.level < 13) return 8.0;

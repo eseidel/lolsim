@@ -5,6 +5,9 @@ class Warwick extends ChampionEffects {
   Mob warwick;
   Warwick(this.warwick);
 
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   static double bonusDamagePerLevel(int level) => 8.0 + 2.0 * level;
 
   // FIXME: This could be a buff instead.

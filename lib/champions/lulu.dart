@@ -5,6 +5,9 @@ class Lulu extends ChampionEffects {
   Mob lulu;
   Lulu(this.lulu);
 
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   double get damagePerPixShot =>
       3 + (2 * lulu.level) + 0.05 * lulu.stats.abilityPower;
 

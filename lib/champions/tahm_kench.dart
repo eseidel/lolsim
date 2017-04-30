@@ -8,6 +8,9 @@ class TahmKench extends ChampionEffects {
   TahmKench(this.tahm);
 
   @override
+  String get lastUpdate => VERSION_7_2_1;
+
+  @override
   void onActionHit(Hit hit) {
     if (hit.target.type == MobType.structure) return;
     AnAcquiredTaste buff = hit.target.buffs

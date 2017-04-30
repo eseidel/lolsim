@@ -7,6 +7,9 @@ class Diana extends ChampionEffects {
   Mob diana;
   Diana(this.diana);
 
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   static double onHitDamageForLevel(int level) {
     // Values from lolwiki.
     return const [

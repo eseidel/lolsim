@@ -40,6 +40,9 @@ class Twitch extends ChampionEffects {
   Mob twitch;
   Twitch(this.twitch);
 
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   // FIXME: I don't think this should apply to structures, right?
   void applyDeadlyVenomStack(Mob target) {
     if (target.type == MobType.structure) return;

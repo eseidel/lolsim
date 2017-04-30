@@ -6,6 +6,9 @@ class Zed extends ChampionEffects {
   Mob zed;
   Zed(this.zed);
 
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   double get percentTheirMaxHealth {
     if (zed.level < 7) return 0.06;
     if (zed.level < 17) return 0.08;

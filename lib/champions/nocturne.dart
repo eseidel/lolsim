@@ -6,6 +6,9 @@ class Nocturne extends ChampionEffects {
   Mob nocturne;
   Nocturne(this.nocturne);
 
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   double _baseHealPerEnemyHitForLevel(int level) {
     if (level < 7) return 10.0;
     if (level < 13) return 18.0;

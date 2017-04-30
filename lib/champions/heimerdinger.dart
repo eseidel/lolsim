@@ -7,6 +7,9 @@ class Heimerdinger extends ChampionEffects {
   Mob heimerdinger;
   Heimerdinger(this.heimerdinger);
 
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   // FIXME: This should (also) be aplied to nearby champions.
   @override
   void onChampionCreate() {

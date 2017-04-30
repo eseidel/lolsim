@@ -57,6 +57,9 @@ class Darius extends ChampionEffects {
   Mob darius;
   Darius(this.darius);
 
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   void gainNoxianMight() {
     NoxianMight might = darius.buffs
         .firstWhere((buff) => buff is NoxianMight, orElse: () => null);

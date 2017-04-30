@@ -1,7 +1,10 @@
 import 'champions/all.dart';
 import 'lolsim.dart';
 
-class ChampionEffects {
+const String VERSION_7_2_1 = '7.2.1';
+
+abstract class ChampionEffects {
+  String get lastUpdate;
   void onChampionCreate() {}
   void onActionHit(Hit hit) {}
   void onHit(Hit target) {}

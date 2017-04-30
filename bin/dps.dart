@@ -5,12 +5,6 @@ import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/cli_table.dart';
 import 'package:lol_duel/dummy_mob.dart';
 
-// Level 1
-// All Champs
-// vs champ, 10k health
-// no items
-// 10s, stop, divide
-
 double calculateDps(Mob mob, {double totalTime = 100.0}) {
   Mob dummy = createDummyMob(hp: 1000.0);
   dummy.shouldRecordDamage = true;
@@ -32,22 +26,27 @@ class _Calculate {
   double asDps;
   double adDps;
 
-  _Calculate(Creator creator, this.champName) {
-    Mob base = creator.champs.championByName(champName);
+  _Calculate(Creator creator, this.champName, int level) {
+    Mob makeChamp() {
+      return creator.champs.championByName(champName)
+        ..level = level
+        ..updateStats();
+    }
+
+    Item item(String name) => creator.items.itemByName(name);
+
+    Mob base = makeChamp();
     hasEffects = base.effects != null;
     baseDps = calculateDps(base);
-    Mob withAs = creator.champs.championByName(champName)
-      ..addItem(creator.items.itemByName('Dagger'));
-    asDps = calculateDps(withAs);
-    Mob withAd = creator.champs.championByName(champName)
-      ..addItem(creator.items.itemByName('Long Sword'));
-    adDps = calculateDps(withAd);
+    asDps = calculateDps(makeChamp()..addItem(item('Dagger')));
+    adDps = calculateDps(makeChamp()..addItem(item('Long Sword')));
   }
 }
 
 dynamic main(List<String> args) async {
   handleCommonArgs(args);
 
+  int level = 1;
   Creator creator = await Creator.loadLatest();
   creator.items.itemByName('Dagger'); // Get warnings over with.
 
@@ -59,7 +58,7 @@ dynamic main(List<String> args) async {
   // }
   List<String> champNames = creator.dragon.champs.loadChampNames();
   List<_Calculate> results = champNames.map((champName) {
-    return new _Calculate(creator, champName);
+    return new _Calculate(creator, champName, level);
   }).toList();
   results.sort((a, b) => a.baseDps.compareTo(b.baseDps));
 

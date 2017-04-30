@@ -9,6 +9,9 @@ class Tryndamere extends ChampionEffects {
   BattleFury battleFury;
   Tryndamere(this.tryndamere);
 
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   // Should this move onto the buff?
   @override
   void onHit(Hit hit) {

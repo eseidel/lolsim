@@ -7,6 +7,9 @@ class Ekko extends ChampionEffects {
   Mob ekko;
   Ekko(this.ekko);
 
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   double get onHitDamage {
     int level = ekko.level;
     if (level < 7) return (level + 2) * 10.0;

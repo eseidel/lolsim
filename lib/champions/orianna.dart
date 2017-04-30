@@ -8,6 +8,9 @@ class Orianna extends ChampionEffects {
   // FIXME: lastTarget should clear when ClockworkWinding expires.
   Mob lastTarget;
 
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   ClockworkWinding validateLastTargetBuff(Hit hit) {
     if (lastTarget == null) return null;
     ClockworkWinding lastTargetBuff = lastTarget.buffs

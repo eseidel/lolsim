@@ -8,6 +8,9 @@ class Volibear extends ChampionEffects {
   Volibear(this.volibear);
 
   @override
+  String get lastUpdate => VERSION_7_2_1;
+
+  @override
   void onDamageRecieved() {
     if (volibear.healthPercent > 0.3) return;
     if (volibear.buffs.any((buff) => buff is ChosenOfTheStorm)) return;

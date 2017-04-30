@@ -8,6 +8,9 @@ class DrMundo extends ChampionEffects {
   DrMundo(this.mundo);
 
   @override
+  String get lastUpdate => VERSION_7_2_1;
+
+  @override
   void onChampionCreate() {
     mundo.addBuff(new AdrenalineRush(mundo));
   }

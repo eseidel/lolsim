@@ -8,6 +8,9 @@ class Olaf extends ChampionEffects {
   Olaf(this.olaf);
 
   @override
+  String get lastUpdate => VERSION_7_2_1;
+
+  @override
   void onChampionCreate() {
     olaf.addBuff(new BerserkerRage(olaf));
   }
