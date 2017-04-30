@@ -52,7 +52,7 @@ class SpellBook {
         r = spell;
         break;
       default:
-        throw new ArgumentError("$i is not in the range 0-3");
+        throw new ArgumentError("$i is not in the range 0-3 for $champName");
     }
   }
 }
@@ -113,7 +113,7 @@ class ScaledValue {
 
 class DamageEffect {
   DamageType damageType;
-  List<double> baseByRank;
+  List<int> baseByRank;
   int maxRank;
   List<ScaledValue> ratios = [];
 
@@ -144,7 +144,7 @@ class DamageEffect {
 
   String summaryStringForRank(int rank) {
     int rankIndex = rank - 1;
-    double baseDamage = baseByRank[rankIndex];
+    int baseDamage = baseByRank[rankIndex];
     String summary = baseDamage == 0.0 ? '' : '${baseDamage} ';
     for (var ratio in ratios) {
       summary += '+${ratio.ratioByRank[rankIndex]} ';
@@ -220,16 +220,17 @@ Iterable<TooltipMatch> parseTooltip(String tooltip, [String spellName]) sync* {
   }
 }
 
-List<double> lookupEffectArray(Map data, String effectName) {
+List<int> lookupEffectArray(Map data, String effectName) {
   if (!effectName.startsWith('e')) {
-    throw new ArgumentError('$effectName is not an effect in ${data["name"]}');
+    throw new ArgumentError(
+        'NAME $effectName is not an effect in ${data["name"]}');
   }
 
-  List<List<double>> effects = data['effect'];
+  List<List<int>> effects = data['effect'];
   int effectIndex = int.parse(effectName.substring(1));
-  List<double> effectArray = effects[effectIndex];
+  List<int> effectArray = effects[effectIndex];
   if (effectArray == null) {
-    throw new ArgumentError('Lookup failed for $effectName in ${data["name"]}');
+    throw new ArgumentError('LOOKUP failed for $effectName in ${data["name"]}');
   }
   return effectArray;
 }
@@ -239,14 +240,15 @@ void applyScaleVar(DamageEffect effect, Map data, String varName) {
   Map varMap =
       vars.firstWhere((varMap) => varMap['key'] == varName, orElse: () => null);
   if (varMap == null) {
-    throw new ArgumentError("${data['name']} VAR ${varName} is not defined");
+    throw new ArgumentError(
+        "VAR ${varName} is not defined for ${data['name']}");
   }
 
   ScaledValue ratio = new ScaledValue();
   ratio.scalingSource = scalingSourceFromLink(varMap['link']);
   if (ratio.scalingSource == null) {
     throw new ArgumentError(
-        '${data['name']} UNKNOWN SOURCE ${varMap['link']}.');
+        'UNKNOWN SOURCE ${varMap['link']} for ${data['name']}.');
   }
 
   dynamic coeffValue = varMap['coeff'];
@@ -259,17 +261,18 @@ void applyScaleVar(DamageEffect effect, Map data, String varName) {
 Iterable<DamageEffect> parseEffects(Map data) sync* {
   String tooltip = data['tooltip'];
   for (TooltipMatch match in parseTooltip(tooltip, data['name'])) {
-    List<double> baseByRank;
+    List<int> baseByRank;
     if (match.baseVar.startsWith('e')) {
       baseByRank = lookupEffectArray(data, match.baseVar);
     } else {
       // Treat baseVar as a scaleVar instead:
       if (match.secondScaleVar != null)
-        throw new ArgumentError('Matched too many variables.');
+        throw new ArgumentError(
+            'MATCHED too many variables in ${data["name"]}');
       match.secondScaleVar = match.firstScaleVar;
       match.firstScaleVar = match.baseVar;
       match.baseVar = null;
-      baseByRank = new List.filled(data['maxrank'], 0.0);
+      baseByRank = new List.filled(data['maxrank'], 0);
     }
     var effect = new DamageEffect(
       damageType: damageTypeFromString(match.damageType),
