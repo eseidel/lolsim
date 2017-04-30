@@ -70,7 +70,7 @@ class DiskCache extends Cache<DragonKey, String> {
   }
 }
 
-void main() {
-  DragonData.loadLatest(loader: new NetworkLoader());
+dynamic main() async {
+  await DragonData.loadLatest(loader: new NetworkLoader());
   print("Successfully cached dragon data to $DEFAULT_CACHE_DIR");
 }

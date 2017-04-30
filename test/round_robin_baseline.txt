@@ -85,33 +85,33 @@ Fizz          75
 Aatrox        76                   
 Draven        78                   
 Pantheon      78                   
-Kassadin      79                   
 Khazix        79                   
+Kassadin      80                   
 Zed           82         P         
 Yorick        83                   
+Rengar        84                   
 Sion          84                   
-XinZhao       85                   
-Renekton      86                   
+XinZhao       86                   
 Camille       87                   
-Rengar        88                   
+Renekton      87                   
 Leona         89                   
 Twitch        89         P         
 Ekko          90         P         
-Nunu          90                   
+Nunu          91                   
 Blitzcrank    92                   
-Hecarim       92                   
 Skarner       92                   
-Udyr          92                   
+Hecarim       93                   
 Illaoi        93                   
+Udyr          93                   
 Malphite      94                   
 Galio         95                   
-Garen         95                   
+Garen         96                   
 LeeSin        96                   
 Katarina      97                   
 Zac           97                   
 MonkeyKing    98                   
-Nasus         99         P         
 Chogath       100                  
+Nasus         100        P         
 DrMundo       101        P         
 Alistar       107                  
 Shaco         108                  
@@ -2096,7 +2096,7 @@ Gangplank 54
   Ziggs
   Zilean
   Zyra
-Garen 95 
+Garen 96 
   Aatrox
   Ahri
   Amumu
@@ -2160,6 +2160,7 @@ Garen 95
   Quinn
   RekSai
   Renekton
+  Rengar
   Riven
   Ryze
   Shen
@@ -2337,7 +2338,7 @@ Graves 14
   Thresh
   TwistedFate
   Veigar
-Hecarim 92 
+Hecarim 93 
   Aatrox
   Ahri
   Amumu
@@ -2399,6 +2400,7 @@ Hecarim 92
   Quinn
   RekSai
   Renekton
+  Rengar
   Riven
   Ryze
   Shen
@@ -3187,7 +3189,7 @@ Karma 20
 Karthus 2 
   Annie
   Kled
-Kassadin 79 
+Kassadin 80 
   Aatrox
   Ahri
   Amumu
@@ -3241,6 +3243,7 @@ Kassadin 79
   Poppy
   Quinn
   RekSai
+  Rengar
   Riven
   Ryze
   Shen
@@ -4581,7 +4584,7 @@ Nami 11
   Sona
   Soraka
   Veigar
-Nasus 99 P
+Nasus 100 P
   Aatrox
   Ahri
   Amumu
@@ -4647,6 +4650,7 @@ Nasus 99 P
   Quinn
   RekSai
   Renekton
+  Rengar
   Riven
   Ryze
   Sejuani
@@ -4909,7 +4913,7 @@ Nocturne 122 P
   Ziggs
   Zilean
   Zyra
-Nunu 90 
+Nunu 91 
   Aatrox
   Ahri
   Amumu
@@ -4971,6 +4975,7 @@ Nunu 90
   Quinn
   RekSai
   Renekton
+  Rengar
   Riven
   Ryze
   Shen
@@ -5534,7 +5539,7 @@ RekSai 64
   Ziggs
   Zilean
   Zyra
-Renekton 86 
+Renekton 87 
   Aatrox
   Ahri
   Amumu
@@ -5592,6 +5597,7 @@ Renekton 86
   Poppy
   Quinn
   RekSai
+  Rengar
   Riven
   Ryze
   Shen
@@ -5621,7 +5627,7 @@ Renekton 86
   Ziggs
   Zilean
   Zyra
-Rengar 88 
+Rengar 84 
   Aatrox
   Ahri
   Amumu
@@ -5646,7 +5652,6 @@ Rengar 88
   Gangplank
   Gnar
   Graves
-  Hecarim
   Heimerdinger
   Ivern
   Janna
@@ -5656,7 +5661,6 @@ Rengar 88
   Kalista
   Karma
   Karthus
-  Kassadin
   Kayle
   Kennen
   Khazix
@@ -5680,7 +5684,6 @@ Rengar 88
   Poppy
   Quinn
   RekSai
-  Renekton
   Riven
   Ryze
   Shen
@@ -5696,7 +5699,6 @@ Rengar 88
   Thresh
   Tristana
   TwistedFate
-  Udyr
   Varus
   Vayne
   Veigar
@@ -7558,7 +7560,7 @@ Twitch 89 P
   Ziggs
   Zilean
   Zyra
-Udyr 92 
+Udyr 93 
   Aatrox
   Ahri
   Amumu
@@ -7621,6 +7623,7 @@ Udyr 92
   Quinn
   RekSai
   Renekton
+  Rengar
   Riven
   Ryze
   Shen
@@ -8327,7 +8330,7 @@ Xerath 23
   Veigar
   Zilean
   Zyra
-XinZhao 85 
+XinZhao 86 
   Aatrox
   Ahri
   Amumu
@@ -8385,6 +8388,7 @@ XinZhao 85
   Poppy
   Quinn
   RekSai
+  Rengar
   Riven
   Ryze
   Shen

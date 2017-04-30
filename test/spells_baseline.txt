@@ -1,12 +1,12 @@
 Total: 536
 Parse Error: 55
-Does damage: 306
-Mentions damage: 471
+Does damage: 301
+Mentions damage: 467
 Aatrox Dark Flight
-70 +0.6 bonus AD physical damage
+10 +1.1 AD physical damage
 Aatrox Blood Thirst / Blood Price
 Aatrox Blades of Torment
-75 +0.6 AP +0.6 bonus AD magic damage
+70 +0.7 bonus AD physical damage
 Aatrox Massacre
 200 +1 AP magic damage
 Ahri Orb of Deception
@@ -31,7 +31,7 @@ Alistar Pulverize
 Alistar Headbutt
 55 +0.7 AP magic damage
 Alistar Trample
-ERROR: Trample VAR f1 is not defined
+ERROR: VAR f1 is not defined for Trample
 Alistar Unbreakable Will
 Amumu Bandage Toss
 80 +0.7 AP magic damage
@@ -58,7 +58,7 @@ Annie Molten Shield
 Annie Summon: Tibbers
 150 +0.65 AP magic damage
 Ashe Ranger's Focus
-ERROR: Ranger's Focus VAR f1 is not defined
+ERROR: VAR f1 is not defined for Ranger's Focus
 Ashe Volley
 20 +1 AD physical damage
 Ashe Hawkshot
@@ -67,14 +67,14 @@ Ashe Enchanted Crystal Arrow
 Aurelion Sol Starsurge
 70 +0.65 AP magic damage
 Aurelion Sol Celestial Expansion
-ERROR: Celestial Expansion VAR f1 is not defined
+ERROR: VAR f1 is not defined for Celestial Expansion
 Aurelion Sol Comet of Legend
 Aurelion Sol Voice of Light
 150 +0.7 AP magic damage
 Azir Conquering Sands
 65 +0.5 AP magic damage
 Azir Arise!
-ERROR: Arise! VAR f2 is not defined
+ERROR: VAR f2 is not defined for Arise!
 Azir Shifting Sands
 60 +0.4 AP magic damage
 Azir Emperor's Divide
@@ -105,7 +105,7 @@ Braum Unbreakable
 Braum Glacial Fissure
 150 +0.6 AP magic damage
 Caitlyn Piltover Peacemaker
-ERROR: Piltover Peacemaker VAR f1 is not defined
+ERROR: VAR f1 is not defined for Piltover Peacemaker
 Caitlyn Yordle Snap Trap
 Caitlyn 90 Caliber Net
 70 +0.8 AP magic damage
@@ -113,9 +113,9 @@ Caitlyn Ace in the Hole
 250 +2 bonus AD physical damage
 Camille Precision Protocol
 Camille Tactical Sweep
-ERROR: Tactical Sweep VAR f1 is not defined
+ERROR: VAR f1 is not defined for Tactical Sweep
 Camille Hookshot
-ERROR: Hookshot VAR f1 is not defined
+ERROR: VAR f1 is not defined for Hookshot
 Camille The Hextech Ultimatum
 Cassiopeia Noxious Blast
 75 +0.7 AP magic damage
@@ -132,18 +132,18 @@ Cho'Gath Feral Scream
 Cho'Gath Vorpal Spikes
 20 +0.3 AP magic damage
 Cho'Gath Feast
-300 +0.7 AP true damage
+ERROR: VAR f2 is not defined for Feast
 Corki Phosphorus Bomb
-ERROR: Phosphorus Bomb VAR f1 is not defined
+ERROR: VAR f1 is not defined for Phosphorus Bomb
 Corki Valkyrie
-ERROR: Matched too many variables.
+ERROR: MATCHED too many variables in Valkyrie
 Corki Gatling Gun
 Corki Missile Barrage
-ERROR: Missile Barrage UNKNOWN SOURCE @dynamic.attackdamage.
+ERROR: UNKNOWN SOURCE @dynamic.attackdamage for Missile Barrage.
 Darius Decimate
 40 +1.05 bonus AD physical damage
 Darius Crippling Strike
-ERROR: Crippling Strike VAR f1 is not defined
+ERROR: VAR f1 is not defined for Crippling Strike
 Darius Apprehend
 Darius Noxian Guillotine
 100 +0.75 bonus AD true damage
@@ -162,9 +162,8 @@ Draven Whirling Death
 175 +1.1 bonus AD physical damage
 Dr. Mundo Infected Cleaver
 Dr. Mundo Burning Agony
-35 +0.2 AP magic damage
 Dr. Mundo Masochism
-ERROR: Masochism VAR f1 is not defined
+ERROR: VAR f1 is not defined for Masochism
 Dr. Mundo Sadism
 Ekko Timewinder
 60 +0.3 AP magic damage
@@ -179,7 +178,7 @@ Elise Volatile Spiderling / Skittering Frenzy
 Elise Cocoon / Rappel
 Elise Spider Form
 Evelynn Hate Spike
-ERROR: Hate Spike VAR f2 is not defined
+ERROR: VAR f2 is not defined for Hate Spike
 Evelynn Dark Frenzy
 Evelynn Ravage
 70 +1 AP +0.4 bonus AD physical damage
@@ -202,12 +201,12 @@ Fiddlesticks Crowstorm
 Fiora Lunge
 65 +0.6 bonus AD physical damage
 Fiora Riposte
-ERROR: Riposte VAR f1 is not defined
+ERROR: VAR f1 is not defined for Riposte
 Fiora Bladework
 Fiora Grand Challenge
 Fizz Urchin Strike
 +1 AD physical damage
-10 +0.35 AP magic damage
+10 +0.55 AP magic damage
 Fizz Seastone Trident
 25 +0.33 AP magic damage
 Fizz Playful / Trickster
@@ -231,7 +230,7 @@ Garen Decisive Strike
 30 +1.4 AD physical damage
 Garen Courage
 Garen Judgment
-ERROR: Judgment VAR f3 is not defined
+ERROR: VAR f3 is not defined for Judgment
 Garen Demacian Justice
 Gnar Boomerang Throw / Boulder Toss
 5 +1.15 AD physical damage
@@ -249,12 +248,12 @@ Gragas Body Slam
 Gragas Explosive Cask
 200 +0.7 AP magic damage
 Graves End of the Line
-ERROR: End of the Line VAR f1 is not defined
+ERROR: VAR f1 is not defined for End of the Line
 Graves Smoke Screen
 60 +0.6 AP magic damage
 Graves Quickdraw
 Graves Collateral Damage
-ERROR: Collateral Damage VAR f1 is not defined
+ERROR: VAR f1 is not defined for Collateral Damage
 Hecarim Rampage
 50 +0.6 bonus AD physical damage
 Hecarim Spirit of Dread
@@ -272,14 +271,14 @@ Heimerdinger Hextech Micro-Rockets
 Heimerdinger CH-2 Electron Storm Grenade
 60 +0.6 AP magic damage
 Heimerdinger UPGRADE!!!
-ERROR: UPGRADE!!! UNKNOWN SOURCE @dynamic.abilitypower.
+ERROR: UNKNOWN SOURCE @dynamic.abilitypower for UPGRADE!!!.
 Illaoi Tentacle Smash
 Illaoi Harsh Lesson
 Illaoi Test of Spirit
 Illaoi Leap of Faith
 150 +0.5 bonus AD physical damage
 Irelia Bladesurge
-ERROR: Bladesurge VAR f1 is not defined
+ERROR: VAR f1 is not defined for Bladesurge
 Irelia Hiten Style
 15 true damage
 Irelia Equilibrium Strike
@@ -287,10 +286,10 @@ Irelia Equilibrium Strike
 Irelia Transcendent Blades
 80 +0.7 bonus AD +0.5 AP physical damage
 Ivern Rootcaller
-ERROR: Rootcaller VAR f1 is not defined
+ERROR: VAR f1 is not defined for Rootcaller
 Ivern Brushmaker
 Ivern Triggerseed
-ERROR: Triggerseed VAR f4 is not defined
+ERROR: VAR f4 is not defined for Triggerseed
 Ivern Daisy!
 Janna Howling Gale
 60 +0.35 AP magic damage
@@ -313,13 +312,13 @@ Jax Counter Strike
 50 +0.5 bonus AD physical damage
 Jax Grandmaster's Might
 Jayce To the Skies! / Shock Blast
-40 +1.2 bonus AD physical damage
+35 +1.2 bonus AD physical damage
 Jayce Lightning Field / Hyper Charge
 100 +1 AP magic damage
 Jayce Thundering Blow / Acceleration Gate
 Jayce Mercury Cannon / Mercury Hammer
 Jhin Dancing Grenade
-ERROR: Dancing Grenade VAR f1 is not defined
+ERROR: VAR f1 is not defined for Dancing Grenade
 Jhin Deadly Flourish
 50 +0.5 AD physical damage
 Jhin Captive Audience
@@ -340,7 +339,7 @@ Kalista Rend
 20 +0.6 AD physical damage
 Kalista Fate's Call
 Karma Inner Flame
-ERROR: Inner Flame UNKNOWN SOURCE @text.
+ERROR: UNKNOWN SOURCE @text for Inner Flame.
 Karma Focused Resolve
 Karma Inspire
 Karma Mantra
@@ -358,14 +357,14 @@ Kassadin Nether Blade
 Kassadin Force Pulse
 80 +0.7 AP magic damage
 Kassadin Riftwalk
-ERROR: Riftwalk VAR f2 is not defined
+ERROR: VAR f2 is not defined for Riftwalk
 Katarina Bouncing Blade
 75 +0.3 AP magic damage
 Katarina Preparation
 Katarina Shunpo
 30 +0.5 AD +0.25 AP magic damage
 Katarina Death Lotus
-ERROR: Matched too many variables.
+ERROR: MATCHED too many variables in Death Lotus
 Kayle Reckoning
 60 +1 bonus AD +0.6 AP magic damage
 Kayle Divine Blessing
@@ -383,19 +382,18 @@ Kennen Lightning Rush
 Kennen Slicing Maelstrom
 40 +0.2 AP magic damage
 Kha'Zix Taste Their Fear
-70 +1.4 bonus AD physical damage
+70 +1.2 bonus AD physical damage
 Kha'Zix Void Spike
 80 +1 bonus AD physical damage
 Kha'Zix Leap
 65 +0.2 bonus AD physical damage
 Kha'Zix Void Assault
 Kindred Dance of Arrows
-ERROR: Dance of Arrows VAR f2 is not defined
+ERROR: VAR f2 is not defined for Dance of Arrows
 Kindred Wolf's Frenzy
 Kindred Mounting Dread
 Kindred Lamb's Respite
 Kled Bear Trap on a Rope
-50 +0.6 bonus AD physical damage
 50 +0.6 bonus AD physical damage
 Kled Violent Tendencies
 Kled Jousting
@@ -407,16 +405,16 @@ Kog'Maw Bio-Arcane Barrage
 Kog'Maw Void Ooze
 60 +0.5 AP magic damage
 Kog'Maw Living Artillery
-ERROR: Matched too many variables.
+ERROR: MATCHED too many variables in Living Artillery
 LeBlanc Shatter Orb
 55 +0.5 AP magic damage
 LeBlanc Distortion
-85 +0.6 AP magic damage
+40 +0.2 AP magic damage
 LeBlanc Ethereal Chains
 40 +0.5 AP magic damage
 40 +0.5 AP magic damage
 LeBlanc Mimic
-ERROR: Mimic VAR f1 is not defined
+ERROR: VAR f1 is not defined for Mimic
 Lee Sin Sonic Wave / Resonating Strike
 50 +0.9 bonus AD physical damage
 50 +0.9 bonus AD physical damage
@@ -462,7 +460,7 @@ Lux Final Spark
 Malphite Seismic Shard
 70 +0.6 AP magic damage
 Malphite Brutal Strikes
-ERROR: Brutal Strikes VAR f2 is not defined
+ERROR: VAR f2 is not defined for Brutal Strikes
 Malphite Ground Slam
 60 +0.3 Armor +0.2 AP magic damage
 Malphite Unstoppable Force
@@ -470,7 +468,7 @@ Malphite Unstoppable Force
 Malzahar Call of the Void
 70 +0.7 AP magic damage
 Malzahar Void Swarm
-ERROR: Void Swarm VAR f1 is not defined
+ERROR: VAR f1 is not defined for Void Swarm
 Malzahar Malefic Visions
 80 +0.7 AP magic damage
 Malzahar Nether Grasp
@@ -478,7 +476,6 @@ Maokai Arcane Smash
 70 +0.4 AP magic damage
 Maokai Twisted Advance
 Maokai Sapling Toss
-40 +0.4 AP magic damage
 80 +0.6 AP magic damage
 Maokai Vengeful Maelstrom
 Master Yi Alpha Strike
@@ -488,7 +485,7 @@ Master Yi Meditate
 Master Yi Wuju Style
 Master Yi Highlander
 Miss Fortune Double Up
-ERROR: Double Up VAR f1 is not defined
+20 +0.85 AD +0.35 AP physical damage
 Miss Fortune Strut
 Miss Fortune Make It Rain
 80 +0.8 AP magic damage
@@ -502,7 +499,6 @@ Wukong Cyclone
 20 +1.1 AD physical damage
 Mordekaiser Mace of Spades
 Mordekaiser Harvesters of Sorrow
-140 +0.9 AP magic damage
 Mordekaiser Siphon of Destruction
 35 +0.6 AD +0.6 AD magic damage
 Mordekaiser Children of the Grave
@@ -523,7 +519,7 @@ Nami Tidecaller's Blessing
 Nami Tidal Wave
 150 +0.6 AP magic damage
 Nasus Siphoning Strike
-ERROR: Siphoning Strike UNKNOWN SOURCE @stacks.
+ERROR: UNKNOWN SOURCE @stacks for Siphoning Strike.
 Nasus Wither
 Nasus Spirit Fire
 55 +0.6 AP magic damage
@@ -538,9 +534,7 @@ Nautilus Depth Charge
 125 +0.4 AP magic damage
 200 +0.8 AP magic damage
 Nidalee Javelin Toss / Takedown
-70 +0.4 AP magic damage
 Nidalee Bushwhack / Pounce
-40 +0.2 AP magic damage
 Nidalee Primal Surge / Swipe
 Nidalee Aspect Of The Cougar
 Nocturne Duskbringer
@@ -586,7 +580,7 @@ Poppy Heroic Charge
 Poppy Keeper's Verdict
 200 +0.9 bonus AD physical damage
 Quinn Blinding Assault
-ERROR: Blinding Assault VAR f2 is not defined
+ERROR: VAR f2 is not defined for Blinding Assault
 Quinn Heightened Senses
 Quinn Vault
 40 +0.2 bonus AD physical damage
@@ -602,7 +596,7 @@ Rek'Sai Queen's Wrath / Prey Seeker
 Rek'Sai Burrow / Un-burrow
 40 +0.4 bonus AD physical damage
 Rek'Sai Furious Bite / Tunnel
-ERROR: Furious Bite / Tunnel VAR f1 is not defined
+ERROR: VAR f1 is not defined for Furious Bite / Tunnel
 Rek'Sai Void Rush
 Renekton Cull the Meek
 60 +0.8 bonus AD physical damage
@@ -614,11 +608,11 @@ Renekton Slice and Dice
 Renekton Dominus
 40 +0.1 AP magic damage
 Rengar Savagery
-ERROR: Savagery VAR f2 is not defined
+ERROR: VAR f2 is not defined for Savagery
 Rengar Battle Roar
-ERROR: Battle Roar VAR f1 is not defined
+ERROR: VAR f1 is not defined for Battle Roar
 Rengar Bola Strike
-ERROR: Bola Strike VAR f1 is not defined
+ERROR: VAR f1 is not defined for Bola Strike
 Rengar Thrill of the Hunt
 Riven Broken Wings
 10 +0.4 AD physical damage
@@ -636,11 +630,11 @@ Rumble Electro Harpoon
 Rumble The Equalizer
 130 +0.3 AP magic damage
 Ryze Overload
-ERROR: Overload VAR f1 is not defined
+ERROR: VAR f1 is not defined for Overload
 Ryze Rune Prison
-ERROR: Rune Prison VAR f1 is not defined
+ERROR: VAR f1 is not defined for Rune Prison
 Ryze Spell Flux
-ERROR: Spell Flux VAR f1 is not defined
+ERROR: VAR f1 is not defined for Spell Flux
 Ryze Realm Warp
 Sejuani Arctic Assault
 80 +0.4 AP magic damage
@@ -651,7 +645,7 @@ Sejuani Permafrost
 Sejuani Glacial Prison
 150 +0.8 AP magic damage
 Shaco Deceive
-ERROR: Deceive VAR f1 is not defined
+ERROR: VAR f1 is not defined for Deceive
 Shaco Jack In The Box
 35 +0.2 AP magic damage
 Shaco Two-Shiv Poison
@@ -666,11 +660,10 @@ Shyvana Twin Bite
 Shyvana Burnout
 20 +0.2 bonus AD +0.1 AP magic damage
 Shyvana Flame Breath
-ERROR: Flame Breath VAR f3 is not defined
+ERROR: VAR f3 is not defined for Flame Breath
 Shyvana Dragon's Descent
 150 +0.7 AP magic damage
 Singed Poison Trail
-22 +0.075 AP magic damage
 Singed Mega Adhesive
 Singed Fling
 Singed Insanity Potion
@@ -682,9 +675,9 @@ Sion Roar of the Slayer
 Sion Unstoppable Onslaught
 150 +0.4 bonus AD physical damage
 Sivir Boomerang Blade
-25 +0.7 AD +0.5 AP physical damage
+25 +0 AD +0.5 AP physical damage
 Sivir Ricochet
-+1 AD physical damage
++0 AD physical damage
 +0 AD physical damage
 Sivir Spell Shield
 Sivir On The Hunt
@@ -711,7 +704,7 @@ Soraka Equinox
 70 +0.4 AP magic damage
 Soraka Wish
 Swain Decrepify
-ERROR: Decrepify VAR f1 is not defined
+ERROR: VAR f1 is not defined for Decrepify
 Swain Nevermove
 80 +0.7 AP magic damage
 Swain Torment
@@ -736,19 +729,19 @@ Taliyah Threaded Volley
 Taliyah Seismic Shove
 60 +0.4 AP magic damage
 Taliyah Unraveled Earth
-ERROR: Unraveled Earth VAR f3 is not defined
+ERROR: VAR f3 is not defined for Unraveled Earth
 Taliyah Weaver's Wall
 Talon Noxian Diplomacy
 80 +1.1 bonus AD physical damage
 Talon Rake
-ERROR: Rake VAR f1 is not defined
+ERROR: VAR f1 is not defined for Rake
 Talon Assassin's Path
 Talon Shadow Assault
 90 +0.8 bonus AD physical damage
 Taric Starlight's Touch
 Taric Bastion
 Taric Dazzle
-ERROR: Dazzle VAR f1 is not defined
+ERROR: VAR f1 is not defined for Dazzle
 Taric Cosmic Radiance
 Teemo Blinding Dart
 80 +0.8 AP magic damage
@@ -769,7 +762,7 @@ Tristana Rapid Fire
 Tristana Rocket Jump
 60 +0.5 AP magic damage
 Tristana Explosive Charge
-ERROR: Explosive Charge VAR f1 is not defined
+ERROR: VAR f1 is not defined for Explosive Charge
 Tristana Buster Shot
 300 +1 AP magic damage
 Trundle Chomp
@@ -780,7 +773,7 @@ Trundle Subjugate
 Tryndamere Bloodlust
 Tryndamere Mocking Shout
 Tryndamere Spinning Slash
-ERROR: Spinning Slash VAR f1 is not defined
+ERROR: VAR f1 is not defined for Spinning Slash
 Tryndamere Undying Rage
 Twisted Fate Wild Cards
 60 +0.65 AP magic damage
@@ -810,7 +803,7 @@ Urgot Noxian Corrosive Charge
 75 +0.6 bonus AD physical damage
 Urgot Hyper-Kinetic Position Reverser
 Varus Piercing Arrow
-15 +1.65 AD physical damage
+15 +1.5 AD physical damage
 Varus Blighted Quiver
 Varus Hail of Arrows
 65 +0.6 bonus AD physical damage
@@ -837,7 +830,7 @@ Vel'Koz Tectonic Disruption
 70 +0.3 AP magic damage
 Vel'Koz Life Form Disintegration Ray
 Vi Vault Breaker
-ERROR: Vault Breaker VAR f2 is not defined
+ERROR: VAR f2 is not defined for Vault Breaker
 Vi Denting Blows
 Vi Excessive Force
 10 +1.15 AD +0.7 AP physical damage
@@ -853,10 +846,10 @@ Viktor Chaos Storm
 100 +0.5 AP magic damage
 150 +0.6 AP magic damage
 Vladimir Transfusion
-75 +0.55 AP magic damage
+80 +0.6 AP magic damage
 Vladimir Sanguine Pool
 Vladimir Tides of Blood
-ERROR: Tides of Blood VAR f4 is not defined
+ERROR: LOOKUP failed for e0 in Tides of Blood
 Vladimir Hemoplague
 150 +0.7 AP magic damage
 Volibear Rolling Thunder
@@ -874,7 +867,7 @@ Warwick Infinite Duress
 Xerath Arcanopulse
 80 +0.75 AP magic damage
 Xerath Eye of Destruction
-ERROR: Eye of Destruction VAR f1 is not defined
+ERROR: VAR f1 is not defined for Eye of Destruction
 Xerath Shocking Orb
 80 +0.45 AP magic damage
 Xerath Rite of the Arcane
@@ -889,7 +882,7 @@ Yasuo Steel Tempest
 20 +1 AD physical damage
 Yasuo Wind Wall
 Yasuo Sweeping Blade
-ERROR: Sweeping Blade VAR f3 is not defined
+ERROR: VAR f3 is not defined for Sweeping Blade
 Yasuo Last Breath
 200 +1.5 bonus AD physical damage
 Yorick Last Rites
@@ -897,7 +890,7 @@ Yorick Last Rites
 Yorick Dark Procession
 Yorick Mourning Mist
 Yorick Eulogy of the Isles
-ERROR: Eulogy of the Isles VAR f2 is not defined
+ERROR: VAR f2 is not defined for Eulogy of the Isles
 Zac Stretching Strike
 70 +0.5 AP magic damage
 Zac Unstable Matter
@@ -927,9 +920,9 @@ Zilean Rewind
 Zilean Time Warp
 Zilean Chronoshift
 Zyra Deadly Spines
-ERROR: Deadly Spines VAR f1 is not defined
+ERROR: VAR f1 is not defined for Deadly Spines
 Zyra Rampant Growth
 Zyra Grasping Roots
-ERROR: Grasping Roots VAR f1 is not defined
+ERROR: VAR f1 is not defined for Grasping Roots
 Zyra Stranglethorns
 180 +0.7 AP magic damage
