@@ -1,6 +1,6 @@
 Total: 536
-Parse Error: 50
-Does damage: 297
+Parse Error: 62
+Does damage: 299
 Mentions damage: 471
 Aatrox Dark Flight
 70 +0.6 bonus AD physical damage
@@ -36,6 +36,7 @@ Alistar Unbreakable Will
 Amumu Bandage Toss
 80 +0.7 AP magic damage
 Amumu Despair
+8 magic damage
 Amumu Tantrum
 75 +0.5 AP magic damage
 Amumu Curse of the Sad Mummy
@@ -57,6 +58,7 @@ Annie Molten Shield
 Annie Summon: Tibbers
 150 +0.65 AP magic damage
 Ashe Ranger's Focus
+ERROR: f1 is not an effect in Ranger's Focus
 Ashe Volley
 20 +1 AD physical damage
 Ashe Hawkshot
@@ -141,6 +143,7 @@ ERROR: f3 is not an effect in Missile Barrage
 Darius Decimate
 40 +1.05 bonus AD physical damage
 Darius Crippling Strike
+ERROR: f1 is not an effect in Crippling Strike
 Darius Apprehend
 Darius Noxian Guillotine
 100 +0.75 bonus AD true damage
@@ -161,6 +164,7 @@ Dr. Mundo Infected Cleaver
 Dr. Mundo Burning Agony
 35 +0.2 AP magic damage
 Dr. Mundo Masochism
+ERROR: f1 is not an effect in Masochism
 Dr. Mundo Sadism
 Ekko Timewinder
 60 +0.3 AP magic damage
@@ -202,7 +206,7 @@ ERROR: Riposte VAR f1 is not defined
 Fiora Bladework
 Fiora Grand Challenge
 Fizz Urchin Strike
-10 +0.35 AP magic damage
+ERROR: a2 is not an effect in Urchin Strike
 Fizz Seastone Trident
 25 +0.33 AP magic damage
 Fizz Playful / Trickster
@@ -226,6 +230,7 @@ Garen Decisive Strike
 30 +1.4 AD physical damage
 Garen Courage
 Garen Judgment
+ERROR: f3 is not an effect in Judgment
 Garen Demacian Justice
 Gnar Boomerang Throw / Boulder Toss
 5 +1.15 AD physical damage
@@ -266,8 +271,7 @@ Heimerdinger Hextech Micro-Rockets
 Heimerdinger CH-2 Electron Storm Grenade
 60 +0.6 AP magic damage
 Heimerdinger UPGRADE!!!
-80 +0.3 AP magic damage
-200 +0.7 AP magic damage
+ERROR: f1 is not an effect in UPGRADE!!!
 Illaoi Tentacle Smash
 Illaoi Harsh Lesson
 Illaoi Test of Spirit
@@ -276,6 +280,7 @@ Illaoi Leap of Faith
 Irelia Bladesurge
 ERROR: Bladesurge VAR f1 is not defined
 Irelia Hiten Style
+15 true damage
 Irelia Equilibrium Strike
 80 +0.5 AP magic damage
 Irelia Transcendent Blades
@@ -476,7 +481,7 @@ Maokai Sapling Toss
 80 +0.6 AP magic damage
 Maokai Vengeful Maelstrom
 Master Yi Alpha Strike
-25 +1 AD physical damage
+ERROR: f1 is not an effect in Alpha Strike
 Master Yi Meditate
 Master Yi Wuju Style
 Master Yi Highlander
@@ -544,6 +549,7 @@ Nocturne Unspeakable Horror
 Nocturne Paranoia
 150 +1.2 bonus AD physical damage
 Nunu Consume
+400 true damage
 Nunu Blood Boil
 Nunu Ice Blast
 80 +0.9 AP magic damage
@@ -594,6 +600,7 @@ Rek'Sai Queen's Wrath / Prey Seeker
 Rek'Sai Burrow / Un-burrow
 40 +0.4 bonus AD physical damage
 Rek'Sai Furious Bite / Tunnel
+ERROR: f1 is not an effect in Furious Bite / Tunnel
 Rek'Sai Void Rush
 Renekton Cull the Meek
 60 +0.8 bonus AD physical damage
@@ -653,6 +660,7 @@ Shen Spirit's Refuge
 Shen Shadow Dash
 Shen Stand United
 Shyvana Twin Bite
+ERROR: f1 is not an effect in Twin Bite
 Shyvana Burnout
 20 +0.2 bonus AD +0.1 AP magic damage
 Shyvana Flame Breath
@@ -674,14 +682,16 @@ Sion Unstoppable Onslaught
 Sivir Boomerang Blade
 25 +0.7 AD +0.5 AP physical damage
 Sivir Ricochet
+ERROR: f1 is not an effect in Ricochet
 Sivir Spell Shield
 Sivir On The Hunt
 Skarner Crystal Slash
+ERROR: f1 is not an effect in Crystal Slash
 Skarner Crystalline Exoskeleton
 Skarner Fracture
 40 +0.2 AP magic damage
 Skarner Impale
-20 +0.5 AP magic damage
+ERROR: a2 is not an effect in Impale
 Sona Hymn of Valor
 40 +0.5 AP magic damage
 20 +0.2 AP magic damage
@@ -780,6 +790,7 @@ Twisted Fate Destiny
 Twitch Ambush
 Twitch Venom Cask
 Twitch Contaminate
+20 physical damage
 Twitch Spray and Pray
 Udyr Tiger Stance
 30 +1.2 AD physical damage
@@ -845,6 +856,7 @@ ERROR: Tides of Blood VAR f4 is not defined
 Vladimir Hemoplague
 150 +0.7 AP magic damage
 Volibear Rolling Thunder
+30 physical damage
 Volibear Frenzy
 Volibear Majestic Roar
 60 +0.6 AP magic damage
@@ -885,6 +897,7 @@ ERROR: Eulogy of the Isles VAR f2 is not defined
 Zac Stretching Strike
 70 +0.5 AP magic damage
 Zac Unstable Matter
+40 magic damage
 Zac Elastic Slingshot
 80 +0.7 AP magic damage
 Zac Let's Bounce!

@@ -26,7 +26,7 @@ dynamic main() async {
           "class=\"colorF88017\">(+{{ a2 }})</span></span> Magic Damage to "
           "enemies hit and slowing them by {{ e2 }}% for {{ e4 }} seconds.";
       expect(parseTooltip(tooltip), isNotEmpty);
-    }, skip: true);
+    });
     test('mf', () {
       var tooltip = "Miss Fortune fires a bouncing shot through an enemy, "
           "dealing {{ e2 }} <span class=\"colorFF8C00\">(+{{ f1 }})</span> "
@@ -84,7 +84,7 @@ dynamic main() async {
           "minutes and can be destroyed by enemies. Rek'Sai may have {{ e6 }} "
           "tunnels at one time. Tunnels have a {{ e8 }} second cooldown on use.";
       expect(parseTooltip(tooltip), isNotEmpty);
-    }, skip: true);
+    });
     test('corkie', () {
       // Missing (+) from a scaling factor.
       var tooltip = "<span class=\"colorFF9900\">Active:</span> Corki fires a "
