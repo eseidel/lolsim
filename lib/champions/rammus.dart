@@ -19,7 +19,6 @@ class Rammus extends ChampionEffects {
 class SpikedShell extends PermanentBuff {
   SpikedShell(Mob target) : super(name: "Spiked Shell", target: target);
 
-  // FIXME: This doesn't work, since it reads from base stats, instead of total.
   @override
   Map<String, num> get stats => {
         FlatPhysicalDamageMod: target.stats.armor * 0.25,

@@ -19,7 +19,6 @@ class DrMundo extends ChampionEffects {
 class AdrenalineRush extends PermanentBuff {
   AdrenalineRush(Mob target) : super(name: "Adrenaline Rush", target: target);
 
-  // FIXME: This only reads from base hp and does not include other items!
   @override
   Map<String, num> get stats => {
         FlatHPRegenMod: 0.003 * target.stats.hp,
