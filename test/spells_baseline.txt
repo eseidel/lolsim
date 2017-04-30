@@ -1,7 +1,7 @@
-Total: 536
-Parse Error: 55
-Does damage: 300
-Mentions damage: 466
+Total: 544
+Parse Error: 57
+Does damage: 304
+Mentions damage: 473
 Aatrox Dark Flight
 10 +1.1 AD physical damage
 Aatrox Blood Thirst / Blood Price
@@ -431,7 +431,7 @@ Leona Zenith Blade
 Leona Solar Flare
 100 +0.8 AP magic damage
 Lissandra Ice Shard
-70 +0.65 AP magic damage
+70 +0.7 AP magic damage
 Lissandra Ring of Frost
 70 +0.4 AP magic damage
 Lissandra Glacial Path
@@ -585,6 +585,13 @@ Quinn Heightened Senses
 Quinn Vault
 40 +0.2 bonus AD physical damage
 Quinn Behind Enemy Lines
+Rakan Gleaming Quill
+70 +0.5 AP magic damage
+Rakan Grand Entrance
+70 +0.5 AP magic damage
+Rakan Battle Dance
+Rakan The Quickness
+100 +0.5 AP magic damage
 Rammus Powerball
 100 +1 AP magic damage
 Rammus Defensive Ball Curl
@@ -863,6 +870,13 @@ Warwick Blood Hunt
 Warwick Primal Howl
 Warwick Infinite Duress
 175 +1.67 bonus AD magic damage
+Xayah Double Daggers
+ERROR: VAR f1 is not defined for Double Daggers
+Xayah Deadly Plumage
+Xayah Bladecaller
+ERROR: VAR f3 is not defined for Bladecaller
+Xayah Featherstorm
+100 +1 bonus AD physical damage
 Xerath Arcanopulse
 80 +0.75 AP magic damage
 Xerath Eye of Destruction

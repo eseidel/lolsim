@@ -1,4 +1,4 @@
-Standing still and AAing-to-death all 8911 pairs of 134 champions
+Standing still and AAing-to-death all 9180 pairs of 136 champions
 using no items, runes or masteries or abilities.
 Note: A few have passives implemented, as indicated.
 
@@ -30,18 +30,18 @@ Gnar          18
 Karma         20                   
 Swain         20                   
 Velkoz        21                   
-Syndra        23                   
+Malzahar      22                   
 Xerath        23                   
 Jhin          24                   
-Malzahar      24                   
+Syndra        24                   
 Orianna       25         P         
 Heimerdinger  26         P         
 Bard          28                   
 Leblanc       28                   
 Nidalee       29                   
 Brand         30                   
-Kindred       30                   
 Corki         31                   
+Kindred       31                   
 Taliyah       31                   
 Vayne         32                   
 Teemo         33                   
@@ -51,94 +51,96 @@ Sivir         37
 Cassiopeia    40                   
 Ziggs         42                   
 Ivern         44                   
-Kennen        46                   
-Jayce         47                   
+Kennen        47                   
+Jayce         48                   
 Jinx          48                   
 KogMaw        48                   
 Evelynn       49                   
 AurelionSol   50                   
 Mordekaiser   50                   
-Varus         51                   
 Ryze          52                   
-Vladimir      53                   
+Xayah         52                   
+Varus         53                   
 Ashe          54                   
 Gangplank     54                   
 Kayle         54                   
-Quinn         55                   
+Vladimir      54                   
+Quinn         56                   
 Morgana       57                   
+Rakan         57                   
 Riven         59                   
-Taric         61                   
-Yasuo         61                   
 Lucian        62                   
-Poppy         63                   
-RekSai        64                   
-Lulu          65         P         
-Tristana      65                   
-Amumu         69                   
-Shen          70                   
-Fiora         71                   
-Kalista       71                   
-Galio         72                   
-Vi            74                   
-Fizz          75                   
-Nautilus      75                   
-Braum         77                   
-Draven        77                   
-Nunu          77                   
-Khazix        78                   
-Pantheon      80                   
-Kassadin      81                   
-Rengar        83                   
-Yorick        83                   
-Zed           83         P         
-Sion          85                   
-Camille       86                   
-XinZhao       86                   
-Renekton      88                   
-Leona         90                   
-Ekko          91         P         
-Twitch        91         P         
-Blitzcrank    92                   
-Skarner       92                   
-Hecarim       94                   
-Illaoi        94                   
-Malphite      94                   
-Udyr          94                   
-Garen         96                   
-LeeSin        97                   
-Katarina      98                   
-Aatrox        99                   
-MonkeyKing    99                   
-Zac           99                   
-Chogath       101                  
-DrMundo       101        P         
-Nasus         102        P         
-Shaco         107                  
-Rumble        108                  
-Alistar       109                  
-Gragas        110                  
-Rammus        110        P         
-Akali         111                  
-Urgot         112        P         
-MasterYi      115                  
-Talon         115                  
-JarvanIV      116        P         
-Sejuani       118                  
-Shyvana       118                  
-Singed        118        P         
-Irelia        119                  
-Nocturne      122        P         
-Trundle       123                  
-Maokai        125                  
-Diana         126        P         
-TahmKench     128        P         
-Tryndamere    128        P         
-Jax           129        P         
-Volibear      130        P         
-Warwick       130        P         
-Darius        132        P         
-Olaf          133        P         
-Aatrox 99 
+Yasuo         62                   
+Taric         63                   
+Poppy         64                   
+RekSai        65                   
+Lulu          66         P         
+Tristana      67                   
+Amumu         70                   
+Shen          72                   
+Fiora         73                   
+Galio         73                   
+Kalista       73                   
+Vi            76                   
+Fizz          77                   
+Nautilus      77                   
+Braum         79                   
+Draven        79                   
+Nunu          79                   
+Khazix        80                   
+Pantheon      82                   
+Kassadin      83                   
+Rengar        85                   
+Yorick        85                   
+Zed           85         P         
+Sion          87                   
+Camille       88                   
+XinZhao       88                   
+Renekton      90                   
+Leona         92                   
+Ekko          93         P         
+Twitch        93         P         
+Blitzcrank    94                   
+Skarner       94                   
+Hecarim       96                   
+Illaoi        96                   
+Malphite      96                   
+Udyr          96                   
+Garen         98                   
+LeeSin        99                   
+Katarina      100                  
+Aatrox        101                  
+MonkeyKing    101                  
+Zac           101                  
+Chogath       103                  
+DrMundo       103        P         
+Nasus         104        P         
+Shaco         109                  
+Rumble        110                  
+Alistar       111                  
+Gragas        112                  
+Rammus        112        P         
+Akali         113                  
+Urgot         114        P         
+MasterYi      117                  
+Talon         117                  
+JarvanIV      118        P         
+Sejuani       120                  
+Shyvana       120                  
+Singed        120        P         
+Irelia        121                  
+Nocturne      124        P         
+Trundle       125                  
+Maokai        127                  
+Diana         128        P         
+TahmKench     130        P         
+Tryndamere    130        P         
+Jax           131        P         
+Volibear      132        P         
+Warwick       132        P         
+Darius        134        P         
+Olaf          135        P         
+Aatrox 101 
   Ahri
   Amumu
   Anivia
@@ -204,6 +206,7 @@ Aatrox 99
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Rengar
   Riven
@@ -230,6 +233,7 @@ Aatrox 99
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -274,7 +278,7 @@ Ahri 35
   Viktor
   Zilean
   Zyra
-Akali 111 
+Akali 113 
   Aatrox
   Ahri
   Alistar
@@ -348,6 +352,7 @@ Akali 111
   Pantheon
   Poppy
   Quinn
+  Rakan
   Rammus
   RekSai
   Renekton
@@ -377,6 +382,7 @@ Akali 111
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -386,7 +392,7 @@ Akali 111
   Ziggs
   Zilean
   Zyra
-Alistar 109 
+Alistar 111 
   Aatrox
   Ahri
   Amumu
@@ -458,6 +464,7 @@ Alistar 109
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Rengar
@@ -488,6 +495,7 @@ Alistar 109
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -496,7 +504,7 @@ Alistar 109
   Ziggs
   Zilean
   Zyra
-Amumu 69 
+Amumu 70 
   Ahri
   Anivia
   Annie
@@ -561,6 +569,7 @@ Amumu 69
   Velkoz
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
@@ -723,7 +732,7 @@ Bard 28
   Viktor
   Zilean
   Zyra
-Blitzcrank 92 
+Blitzcrank 94 
   Ahri
   Amumu
   Anivia
@@ -782,6 +791,7 @@ Blitzcrank 92
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Riven
@@ -808,6 +818,7 @@ Blitzcrank 92
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -847,7 +858,7 @@ Brand 30
   Viktor
   Zilean
   Zyra
-Braum 77 
+Braum 79 
   Ahri
   Amumu
   Anivia
@@ -899,6 +910,7 @@ Braum 77
   Orianna
   Poppy
   Quinn
+  Rakan
   RekSai
   Riven
   Ryze
@@ -920,6 +932,7 @@ Braum 77
   Velkoz
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
@@ -938,7 +951,7 @@ Caitlyn 12
   Sona
   Thresh
   Veigar
-Camille 86 
+Camille 88 
   Ahri
   Amumu
   Anivia
@@ -994,6 +1007,7 @@ Camille 86
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Riven
@@ -1019,6 +1033,7 @@ Camille 86
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Zed
@@ -1066,7 +1081,7 @@ Cassiopeia 40
   Xerath
   Zilean
   Zyra
-Chogath 101 
+Chogath 103 
   Ahri
   Amumu
   Anivia
@@ -1132,6 +1147,7 @@ Chogath 101
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Rengar
@@ -1160,6 +1176,7 @@ Chogath 101
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -1200,7 +1217,7 @@ Corki 31
   Ziggs
   Zilean
   Zyra
-Darius 132 P
+Darius 134 P
   Aatrox
   Ahri
   Akali
@@ -1283,6 +1300,7 @@ Darius 132 P
   Pantheon
   Poppy
   Quinn
+  Rakan
   Rammus
   RekSai
   Renekton
@@ -1324,6 +1342,7 @@ Darius 132 P
   Vladimir
   Volibear
   Warwick
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -1333,7 +1352,7 @@ Darius 132 P
   Ziggs
   Zilean
   Zyra
-Diana 126 P
+Diana 128 P
   Aatrox
   Ahri
   Akali
@@ -1414,6 +1433,7 @@ Diana 126 P
   Pantheon
   Poppy
   Quinn
+  Rakan
   Rammus
   RekSai
   Renekton
@@ -1451,6 +1471,7 @@ Diana 126 P
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -1460,7 +1481,7 @@ Diana 126 P
   Ziggs
   Zilean
   Zyra
-DrMundo 101 P
+DrMundo 103 P
   Ahri
   Amumu
   Anivia
@@ -1526,6 +1547,7 @@ DrMundo 101 P
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Rengar
@@ -1554,6 +1576,7 @@ DrMundo 101 P
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -1562,7 +1585,7 @@ DrMundo 101 P
   Ziggs
   Zilean
   Zyra
-Draven 77 
+Draven 79 
   Ahri
   Anivia
   Annie
@@ -1613,6 +1636,7 @@ Draven 77
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Riven
   Ryze
@@ -1635,12 +1659,13 @@ Draven 77
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
   Zilean
   Zyra
-Ekko 91 P
+Ekko 93 P
   Ahri
   Amumu
   Anivia
@@ -1700,6 +1725,7 @@ Ekko 91 P
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Rengar
@@ -1726,6 +1752,7 @@ Ekko 91 P
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Zed
@@ -1823,7 +1850,7 @@ Fiddlesticks 5
   Karthus
   Kled
   Sona
-Fiora 71 
+Fiora 73 
   Ahri
   Anivia
   Annie
@@ -1871,6 +1898,7 @@ Fiora 71
   Nidalee
   Orianna
   Quinn
+  Rakan
   Riven
   Ryze
   Sivir
@@ -1890,12 +1918,13 @@ Fiora 71
   Velkoz
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
   Zilean
   Zyra
-Fizz 75 
+Fizz 77 
   Ahri
   Amumu
   Anivia
@@ -1946,6 +1975,7 @@ Fizz 75
   Orianna
   Poppy
   Quinn
+  Rakan
   RekSai
   Riven
   Ryze
@@ -1966,12 +1996,13 @@ Fizz 75
   Velkoz
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
   Zilean
   Zyra
-Galio 72 
+Galio 73 
   Ahri
   Anivia
   Annie
@@ -2039,6 +2070,7 @@ Galio 72
   Velkoz
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
@@ -2099,7 +2131,7 @@ Gangplank 54
   Ziggs
   Zilean
   Zyra
-Garen 96 
+Garen 98 
   Ahri
   Amumu
   Anivia
@@ -2161,6 +2193,7 @@ Garen 96
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Rengar
@@ -2188,6 +2221,7 @@ Garen 96
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -2215,7 +2249,7 @@ Gnar 18
   TwistedFate
   Veigar
   Zilean
-Gragas 110 
+Gragas 112 
   Ahri
   Akali
   Amumu
@@ -2287,6 +2321,7 @@ Gragas 110
   Pantheon
   Poppy
   Quinn
+  Rakan
   Rammus
   RekSai
   Renekton
@@ -2317,6 +2352,7 @@ Gragas 110
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -2341,7 +2377,7 @@ Graves 14
   Thresh
   TwistedFate
   Veigar
-Hecarim 94 
+Hecarim 96 
   Aatrox
   Ahri
   Amumu
@@ -2402,6 +2438,7 @@ Hecarim 94
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Rengar
@@ -2428,6 +2465,7 @@ Hecarim 94
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -2463,7 +2501,7 @@ Heimerdinger 26 P
   Veigar
   Zilean
   Zyra
-Illaoi 94 
+Illaoi 96 
   Ahri
   Amumu
   Anivia
@@ -2525,6 +2563,7 @@ Illaoi 94
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Rengar
@@ -2552,13 +2591,14 @@ Illaoi 94
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Zed
   Ziggs
   Zilean
   Zyra
-Irelia 119 
+Irelia 121 
   Aatrox
   Ahri
   Akali
@@ -2635,6 +2675,7 @@ Irelia 119
   Pantheon
   Poppy
   Quinn
+  Rakan
   Rammus
   RekSai
   Renekton
@@ -2669,6 +2710,7 @@ Irelia 119
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -2729,7 +2771,7 @@ Janna 5
   Karthus
   Kled
   Sona
-JarvanIV 116 P
+JarvanIV 118 P
   Aatrox
   Ahri
   Akali
@@ -2805,6 +2847,7 @@ JarvanIV 116 P
   Pantheon
   Poppy
   Quinn
+  Rakan
   Rammus
   RekSai
   Renekton
@@ -2837,6 +2880,7 @@ JarvanIV 116 P
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -2846,7 +2890,7 @@ JarvanIV 116 P
   Ziggs
   Zilean
   Zyra
-Jax 129 P
+Jax 131 P
   Aatrox
   Ahri
   Akali
@@ -2928,6 +2972,7 @@ Jax 129 P
   Pantheon
   Poppy
   Quinn
+  Rakan
   Rammus
   RekSai
   Renekton
@@ -2967,6 +3012,7 @@ Jax 129 P
   Viktor
   Vladimir
   Warwick
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -2976,7 +3022,7 @@ Jax 129 P
   Ziggs
   Zilean
   Zyra
-Jayce 47 
+Jayce 48 
   Ahri
   Anivia
   Annie
@@ -3021,6 +3067,7 @@ Jayce 47
   Veigar
   Velkoz
   Viktor
+  Xayah
   Xerath
   Zilean
   Zyra
@@ -3098,7 +3145,7 @@ Jinx 48
   Ziggs
   Zilean
   Zyra
-Kalista 71 
+Kalista 73 
   Ahri
   Amumu
   Anivia
@@ -3145,6 +3192,7 @@ Kalista 71
   Orianna
   Poppy
   Quinn
+  Rakan
   RekSai
   Riven
   Ryze
@@ -3165,6 +3213,7 @@ Kalista 71
   Velkoz
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
@@ -3194,7 +3243,7 @@ Karma 20
 Karthus 2 
   Annie
   Kled
-Kassadin 81 
+Kassadin 83 
   Ahri
   Amumu
   Anivia
@@ -3248,6 +3297,7 @@ Kassadin 81
   Orianna
   Poppy
   Quinn
+  Rakan
   RekSai
   Rengar
   Riven
@@ -3271,12 +3321,13 @@ Kassadin 81
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
   Zilean
   Zyra
-Katarina 98 
+Katarina 100 
   Aatrox
   Ahri
   Amumu
@@ -3341,6 +3392,7 @@ Katarina 98
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Rengar
   Riven
@@ -3366,6 +3418,7 @@ Katarina 98
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -3430,7 +3483,7 @@ Kayle 54
   Ziggs
   Zilean
   Zyra
-Kennen 46 
+Kennen 47 
   Ahri
   Anivia
   Annie
@@ -3474,10 +3527,11 @@ Kennen 46
   Veigar
   Velkoz
   Viktor
+  Xayah
   Xerath
   Zilean
   Zyra
-Khazix 78 
+Khazix 80 
   Ahri
   Amumu
   Anivia
@@ -3528,6 +3582,7 @@ Khazix 78
   Orianna
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Riven
@@ -3550,13 +3605,14 @@ Khazix 78
   Velkoz
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Zed
   Ziggs
   Zilean
   Zyra
-Kindred 30 
+Kindred 31 
   Anivia
   Annie
   Azir
@@ -3572,6 +3628,7 @@ Kindred 30
   Kled
   Lissandra
   Lux
+  Malzahar
   MissFortune
   Mordekaiser
   Nami
@@ -3666,7 +3723,7 @@ Leblanc 28
   Xerath
   Zilean
   Zyra
-LeeSin 97 
+LeeSin 99 
   Ahri
   Amumu
   Anivia
@@ -3731,6 +3788,7 @@ LeeSin 97
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Rengar
   Riven
@@ -3757,6 +3815,7 @@ LeeSin 97
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -3764,7 +3823,7 @@ LeeSin 97
   Ziggs
   Zilean
   Zyra
-Leona 90 
+Leona 92 
   Ahri
   Amumu
   Anivia
@@ -3824,6 +3883,7 @@ Leona 90
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Riven
@@ -3849,6 +3909,7 @@ Leona 90
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Zed
@@ -3925,7 +3986,7 @@ Lucian 62
   Ziggs
   Zilean
   Zyra
-Lulu 65 P
+Lulu 66 P
   Ahri
   Anivia
   Annie
@@ -3986,6 +4047,7 @@ Lulu 65 P
   Velkoz
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
@@ -3995,7 +4057,7 @@ Lux 3
   Anivia
   Annie
   Kled
-Malphite 94 
+Malphite 96 
   Ahri
   Amumu
   Anivia
@@ -4056,6 +4118,7 @@ Malphite 94
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Riven
@@ -4082,6 +4145,7 @@ Malphite 94
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -4090,13 +4154,12 @@ Malphite 94
   Ziggs
   Zilean
   Zyra
-Malzahar 24 
+Malzahar 22 
   Ahri
   Anivia
   Annie
   Azir
   Caitlyn
-  Elise
   Fiddlesticks
   Graves
   Janna
@@ -4109,13 +4172,12 @@ Malzahar 24
   Nami
   Orianna
   Sona
-  Soraka
   Thresh
   TwistedFate
   Veigar
   Zilean
   Zyra
-Maokai 125 
+Maokai 127 
   Aatrox
   Ahri
   Akali
@@ -4195,6 +4257,7 @@ Maokai 125
   Pantheon
   Poppy
   Quinn
+  Rakan
   Rammus
   RekSai
   Renekton
@@ -4232,6 +4295,7 @@ Maokai 125
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -4241,7 +4305,7 @@ Maokai 125
   Ziggs
   Zilean
   Zyra
-MasterYi 115 
+MasterYi 117 
   Aatrox
   Ahri
   Akali
@@ -4315,6 +4379,7 @@ MasterYi 115
   Pantheon
   Poppy
   Quinn
+  Rakan
   Rammus
   RekSai
   Renekton
@@ -4348,6 +4413,7 @@ MasterYi 115
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -4372,7 +4438,7 @@ MissFortune 14
   Thresh
   Veigar
   Zilean
-MonkeyKing 99 
+MonkeyKing 101 
   Aatrox
   Ahri
   Amumu
@@ -4437,6 +4503,7 @@ MonkeyKing 99
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Rengar
   Riven
@@ -4464,6 +4531,7 @@ MonkeyKing 99
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -4593,7 +4661,7 @@ Nami 11
   Sona
   Soraka
   Veigar
-Nasus 102 P
+Nasus 104 P
   Aatrox
   Ahri
   Amumu
@@ -4659,6 +4727,7 @@ Nasus 102 P
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Rengar
@@ -4688,6 +4757,7 @@ Nasus 102 P
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -4696,7 +4766,7 @@ Nasus 102 P
   Ziggs
   Zilean
   Zyra
-Nautilus 75 
+Nautilus 77 
   Ahri
   Amumu
   Anivia
@@ -4747,6 +4817,7 @@ Nautilus 75
   Orianna
   Poppy
   Quinn
+  Rakan
   RekSai
   Riven
   Ryze
@@ -4767,6 +4838,7 @@ Nautilus 75
   Velkoz
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
@@ -4802,7 +4874,7 @@ Nidalee 29
   Viktor
   Zilean
   Zyra
-Nocturne 122 P
+Nocturne 124 P
   Aatrox
   Ahri
   Akali
@@ -4881,6 +4953,7 @@ Nocturne 122 P
   Pantheon
   Poppy
   Quinn
+  Rakan
   Rammus
   RekSai
   Renekton
@@ -4916,6 +4989,7 @@ Nocturne 122 P
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -4925,7 +4999,7 @@ Nocturne 122 P
   Ziggs
   Zilean
   Zyra
-Nunu 77 
+Nunu 79 
   Ahri
   Amumu
   Anivia
@@ -4977,6 +5051,7 @@ Nunu 77
   Orianna
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Riven
@@ -4998,12 +5073,13 @@ Nunu 77
   Velkoz
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
   Zilean
   Zyra
-Olaf 133 P
+Olaf 135 P
   Aatrox
   Ahri
   Akali
@@ -5087,6 +5163,7 @@ Olaf 133 P
   Pantheon
   Poppy
   Quinn
+  Rakan
   Rammus
   RekSai
   Renekton
@@ -5128,6 +5205,7 @@ Olaf 133 P
   Vladimir
   Volibear
   Warwick
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -5163,7 +5241,7 @@ Orianna 25 P
   Veigar
   Zilean
   Zyra
-Pantheon 80 
+Pantheon 82 
   Ahri
   Amumu
   Anivia
@@ -5218,6 +5296,7 @@ Pantheon 80
   Orianna
   Poppy
   Quinn
+  Rakan
   RekSai
   Riven
   Ryze
@@ -5239,12 +5318,13 @@ Pantheon 80
   Velkoz
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
   Zilean
   Zyra
-Poppy 63 
+Poppy 64 
   Ahri
   Anivia
   Annie
@@ -5303,12 +5383,13 @@ Poppy 63
   Velkoz
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
   Zilean
   Zyra
-Quinn 55 
+Quinn 56 
   Ahri
   Anivia
   Annie
@@ -5360,11 +5441,70 @@ Quinn 55
   Velkoz
   Viktor
   Vladimir
+  Xayah
   Xerath
   Ziggs
   Zilean
   Zyra
-Rammus 110 P
+Rakan 57 
+  Ahri
+  Anivia
+  Annie
+  Ashe
+  AurelionSol
+  Azir
+  Bard
+  Brand
+  Caitlyn
+  Cassiopeia
+  Corki
+  Elise
+  Evelynn
+  Ezreal
+  Fiddlesticks
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  Jayce
+  Jhin
+  Jinx
+  Karma
+  Karthus
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  Lissandra
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Nami
+  Nidalee
+  Orianna
+  Quinn
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Teemo
+  Thresh
+  TwistedFate
+  Vayne
+  Veigar
+  Velkoz
+  Viktor
+  Vladimir
+  Xerath
+  Yasuo
+  Ziggs
+  Zilean
+  Zyra
+Rammus 112 P
   Aatrox
   Ahri
   Amumu
@@ -5434,6 +5574,7 @@ Rammus 110 P
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Rengar
@@ -5466,6 +5607,7 @@ Rammus 110 P
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -5475,7 +5617,7 @@ Rammus 110 P
   Ziggs
   Zilean
   Zyra
-RekSai 64 
+RekSai 65 
   Ahri
   Anivia
   Annie
@@ -5535,12 +5677,13 @@ RekSai 64
   Velkoz
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
   Zilean
   Zyra
-Renekton 88 
+Renekton 90 
   Aatrox
   Ahri
   Amumu
@@ -5598,6 +5741,7 @@ Renekton 88
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Rengar
   Riven
@@ -5621,6 +5765,7 @@ Renekton 88
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -5629,7 +5774,7 @@ Renekton 88
   Ziggs
   Zilean
   Zyra
-Rengar 83 
+Rengar 85 
   Ahri
   Amumu
   Anivia
@@ -5684,6 +5829,7 @@ Rengar 83
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Riven
   Ryze
@@ -5707,6 +5853,7 @@ Rengar 83
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Zed
@@ -5773,7 +5920,7 @@ Riven 59
   Ziggs
   Zilean
   Zyra
-Rumble 108 
+Rumble 110 
   Ahri
   Akali
   Amumu
@@ -5844,6 +5991,7 @@ Rumble 108
   Pantheon
   Poppy
   Quinn
+  Rakan
   Rammus
   RekSai
   Renekton
@@ -5874,6 +6022,7 @@ Rumble 108
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -5935,7 +6084,7 @@ Ryze 52
   Ziggs
   Zilean
   Zyra
-Sejuani 118 
+Sejuani 120 
   Aatrox
   Ahri
   Akali
@@ -6012,6 +6161,7 @@ Sejuani 118
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Rengar
@@ -6045,6 +6195,7 @@ Sejuani 118
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -6054,7 +6205,7 @@ Sejuani 118
   Ziggs
   Zilean
   Zyra
-Shaco 107 
+Shaco 109 
   Ahri
   Alistar
   Amumu
@@ -6125,6 +6276,7 @@ Shaco 107
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Rengar
@@ -6153,6 +6305,7 @@ Shaco 107
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -6162,7 +6315,7 @@ Shaco 107
   Ziggs
   Zilean
   Zyra
-Shen 70 
+Shen 72 
   Ahri
   Anivia
   Annie
@@ -6209,6 +6362,7 @@ Shen 70
   Nidalee
   Orianna
   Quinn
+  Rakan
   Riven
   Ryze
   Sivir
@@ -6228,12 +6382,13 @@ Shen 70
   Velkoz
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
   Zilean
   Zyra
-Shyvana 118 
+Shyvana 120 
   Aatrox
   Ahri
   Akali
@@ -6310,6 +6465,7 @@ Shyvana 118
   Pantheon
   Poppy
   Quinn
+  Rakan
   Rammus
   RekSai
   Renekton
@@ -6343,6 +6499,7 @@ Shyvana 118
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -6352,7 +6509,7 @@ Shyvana 118
   Ziggs
   Zilean
   Zyra
-Singed 118 P
+Singed 120 P
   Aatrox
   Ahri
   Akali
@@ -6430,6 +6587,7 @@ Singed 118 P
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Rengar
@@ -6462,6 +6620,7 @@ Singed 118 P
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -6471,7 +6630,7 @@ Singed 118 P
   Ziggs
   Zilean
   Zyra
-Sion 85 
+Sion 87 
   Ahri
   Amumu
   Anivia
@@ -6527,6 +6686,7 @@ Sion 85
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Riven
@@ -6551,6 +6711,7 @@ Sion 85
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Zed
@@ -6595,7 +6756,7 @@ Sivir 37
   Ziggs
   Zilean
   Zyra
-Skarner 92 
+Skarner 94 
   Ahri
   Amumu
   Anivia
@@ -6654,6 +6815,7 @@ Skarner 92
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Riven
@@ -6680,6 +6842,7 @@ Skarner 92
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -6726,7 +6889,7 @@ Swain 20
   Veigar
   Zilean
   Zyra
-Syndra 23 
+Syndra 24 
   Anivia
   Annie
   Caitlyn
@@ -6739,6 +6902,7 @@ Syndra 23
   Kled
   Lissandra
   Lux
+  Malzahar
   MissFortune
   Nami
   Orianna
@@ -6750,7 +6914,7 @@ Syndra 23
   Velkoz
   Zilean
   Zyra
-TahmKench 128 P
+TahmKench 130 P
   Aatrox
   Ahri
   Akali
@@ -6832,6 +6996,7 @@ TahmKench 128 P
   Pantheon
   Poppy
   Quinn
+  Rakan
   Rammus
   RekSai
   Renekton
@@ -6870,6 +7035,7 @@ TahmKench 128 P
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -6911,7 +7077,7 @@ Taliyah 31
   Ziggs
   Zilean
   Zyra
-Talon 115 
+Talon 117 
   Aatrox
   Ahri
   Akali
@@ -6985,6 +7151,7 @@ Talon 115
   Pantheon
   Poppy
   Quinn
+  Rakan
   Rammus
   RekSai
   Renekton
@@ -7018,6 +7185,7 @@ Talon 115
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -7027,7 +7195,7 @@ Talon 115
   Ziggs
   Zilean
   Zyra
-Taric 61 
+Taric 63 
   Ahri
   Anivia
   Annie
@@ -7067,6 +7235,7 @@ Taric 61
   Nidalee
   Orianna
   Quinn
+  Rakan
   Ryze
   Sivir
   Sona
@@ -7084,6 +7253,7 @@ Taric 61
   Velkoz
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
@@ -7133,7 +7303,7 @@ Thresh 9
   Nami
   Sona
   Zilean
-Tristana 65 
+Tristana 67 
   Ahri
   Anivia
   Annie
@@ -7177,6 +7347,7 @@ Tristana 65
   Orianna
   Poppy
   Quinn
+  Rakan
   RekSai
   Riven
   Ryze
@@ -7194,12 +7365,13 @@ Tristana 65
   Velkoz
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
   Zilean
   Zyra
-Trundle 123 
+Trundle 125 
   Aatrox
   Ahri
   Akali
@@ -7278,6 +7450,7 @@ Trundle 123
   Pantheon
   Poppy
   Quinn
+  Rakan
   Rammus
   RekSai
   Renekton
@@ -7314,6 +7487,7 @@ Trundle 123
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -7323,7 +7497,7 @@ Trundle 123
   Ziggs
   Zilean
   Zyra
-Tryndamere 128 P
+Tryndamere 130 P
   Aatrox
   Ahri
   Akali
@@ -7406,6 +7580,7 @@ Tryndamere 128 P
   Pantheon
   Poppy
   Quinn
+  Rakan
   Rammus
   RekSai
   Renekton
@@ -7443,6 +7618,7 @@ Tryndamere 128 P
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -7469,7 +7645,7 @@ TwistedFate 16
   Veigar
   Zilean
   Zyra
-Twitch 91 P
+Twitch 93 P
   Aatrox
   Ahri
   Amumu
@@ -7531,6 +7707,7 @@ Twitch 91 P
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Rengar
@@ -7555,13 +7732,14 @@ Twitch 91 P
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Zed
   Ziggs
   Zilean
   Zyra
-Udyr 94 
+Udyr 96 
   Aatrox
   Ahri
   Amumu
@@ -7623,6 +7801,7 @@ Udyr 94
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Rengar
@@ -7648,6 +7827,7 @@ Udyr 94
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -7656,7 +7836,7 @@ Udyr 94
   Ziggs
   Zilean
   Zyra
-Urgot 112 P
+Urgot 114 P
   Aatrox
   Ahri
   Akali
@@ -7731,6 +7911,7 @@ Urgot 112 P
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Rengar
@@ -7760,6 +7941,7 @@ Urgot 112 P
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -7769,7 +7951,7 @@ Urgot 112 P
   Ziggs
   Zilean
   Zyra
-Varus 51 
+Varus 53 
   Ahri
   Anivia
   Annie
@@ -7804,6 +7986,7 @@ Varus 51
   Nami
   Nidalee
   Orianna
+  Rakan
   Ryze
   Sivir
   Sona
@@ -7818,6 +8001,7 @@ Varus 51
   Veigar
   Velkoz
   Viktor
+  Xayah
   Xerath
   Zilean
   Zyra
@@ -7883,7 +8067,7 @@ Velkoz 21
   Veigar
   Zilean
   Zyra
-Vi 74 
+Vi 76 
   Ahri
   Anivia
   Annie
@@ -7933,6 +8117,7 @@ Vi 74
   Orianna
   Pantheon
   Quinn
+  Rakan
   RekSai
   Riven
   Ryze
@@ -7953,6 +8138,7 @@ Vi 74
   Velkoz
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
@@ -7992,7 +8178,7 @@ Viktor 33
   Xerath
   Zilean
   Zyra
-Vladimir 53 
+Vladimir 54 
   Ahri
   Anivia
   Annie
@@ -8043,10 +8229,11 @@ Vladimir 53
   Veigar
   Velkoz
   Viktor
+  Xayah
   Xerath
   Zilean
   Zyra
-Volibear 130 P
+Volibear 132 P
   Aatrox
   Ahri
   Akali
@@ -8129,6 +8316,7 @@ Volibear 130 P
   Pantheon
   Poppy
   Quinn
+  Rakan
   Rammus
   RekSai
   Renekton
@@ -8168,6 +8356,7 @@ Volibear 130 P
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
@@ -8177,7 +8366,7 @@ Volibear 130 P
   Ziggs
   Zilean
   Zyra
-Warwick 130 P
+Warwick 132 P
   Aatrox
   Ahri
   Akali
@@ -8259,6 +8448,7 @@ Warwick 130 P
   Pantheon
   Poppy
   Quinn
+  Rakan
   Rammus
   RekSai
   Renekton
@@ -8299,12 +8489,66 @@ Warwick 130 P
   Viktor
   Vladimir
   Volibear
+  Xayah
   Xerath
   XinZhao
   Yasuo
   Yorick
   Zac
   Zed
+  Ziggs
+  Zilean
+  Zyra
+Xayah 52 
+  Ahri
+  Anivia
+  Annie
+  Ashe
+  Azir
+  Bard
+  Brand
+  Caitlyn
+  Cassiopeia
+  Corki
+  Elise
+  Evelynn
+  Ezreal
+  Fiddlesticks
+  Gnar
+  Graves
+  Heimerdinger
+  Ivern
+  Janna
+  Jhin
+  Jinx
+  Karma
+  Karthus
+  Kindred
+  Kled
+  KogMaw
+  Leblanc
+  Lissandra
+  Lux
+  Malzahar
+  MissFortune
+  Mordekaiser
+  Nami
+  Nidalee
+  Orianna
+  Sivir
+  Sona
+  Soraka
+  Swain
+  Syndra
+  Taliyah
+  Teemo
+  Thresh
+  TwistedFate
+  Vayne
+  Veigar
+  Velkoz
+  Viktor
+  Xerath
   Ziggs
   Zilean
   Zyra
@@ -8332,7 +8576,7 @@ Xerath 23
   Veigar
   Zilean
   Zyra
-XinZhao 86 
+XinZhao 88 
   Ahri
   Amumu
   Anivia
@@ -8389,6 +8633,7 @@ XinZhao 86
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Rengar
   Riven
@@ -8414,12 +8659,13 @@ XinZhao 86
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
   Zilean
   Zyra
-Yasuo 61 
+Yasuo 62 
   Ahri
   Anivia
   Annie
@@ -8477,11 +8723,12 @@ Yasuo 61
   Velkoz
   Viktor
   Vladimir
+  Xayah
   Xerath
   Ziggs
   Zilean
   Zyra
-Yorick 83 
+Yorick 85 
   Ahri
   Anivia
   Annie
@@ -8536,6 +8783,7 @@ Yorick 83
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Riven
   Ryze
@@ -8560,12 +8808,13 @@ Yorick 83
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Ziggs
   Zilean
   Zyra
-Zac 99 
+Zac 101 
   Aatrox
   Ahri
   Amumu
@@ -8629,6 +8878,7 @@ Zac 99
   Pantheon
   Poppy
   Quinn
+  Rakan
   RekSai
   Renekton
   Rengar
@@ -8658,6 +8908,7 @@ Zac 99
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   Yasuo
   Yorick
@@ -8665,7 +8916,7 @@ Zac 99
   Ziggs
   Zilean
   Zyra
-Zed 83 P
+Zed 85 P
   Ahri
   Amumu
   Anivia
@@ -8720,6 +8971,7 @@ Zed 83 P
   Orianna
   Poppy
   Quinn
+  Rakan
   RekSai
   Riven
   Ryze
@@ -8742,6 +8994,7 @@ Zed 83 P
   Vi
   Viktor
   Vladimir
+  Xayah
   Xerath
   XinZhao
   Yasuo
