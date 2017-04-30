@@ -5,14 +5,15 @@ lolsim
 
 Toy implementation of League of Legends' combat engine.
 
+Current patch: 7.8.1.
+
 My goal here is to familiarize myself with the finer details of LOL's rules as
 well as have a chance to play around with Dart.
 
 It's difficult to imagine this ever being perfect simulation, in part because
 Riot does not make all of their rule values public (e.g. attack-windup,
 ability-durations, etc.) but also because keeping up with LOL would be a huge
-task and would be largely obsoleted by any successful LOL sandbox mode (there
-have been many attempts).
+task.
 
 ## Requirements
 Need a copy of `champion.json` and `item.json` from [Riot's static data](https://developer.riotgames.com/docs/static-data).
@@ -28,9 +29,9 @@ There are several other dart files in bin/, most of them are for testing.
 ## Limitations
 Many.  Including at least:
  - Chamion/Item/Mastery/Rune lookups are case sensitive and expect names in Title Case.
- - Incomplete support for Runes and Masteries.
+ - Incomplete (and partially outdated) support for Runes and Masteries.
  - Very limited item support.
- - No support for abilities.
+ - Very limited abilities support.
  - Limited support for Buffs.
  - No CC.
  - No AOE or support for location or proximity.
@@ -48,7 +49,6 @@ Many.  Including at least:
 ## TODO / Bugs
 - Fix stat-relative buffs to include all stats (not just base).
 - Split bonus vs. base armor, ad, etc.
-- Update to latest patch (currently 7.2.1).
 - pub run test dies w/o message when no precache.
 - Coverage & coveralls.io
 - Figure out how to do ability passives.

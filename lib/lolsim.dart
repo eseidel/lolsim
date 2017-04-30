@@ -329,7 +329,7 @@ class DamageLog {
 
   void recordHealing(String source, double healing) {
     LogEntry entry = entries[source] ?? new LogEntry(LogType.healing);
-    assert(entry.type == healing);
+    assert(entry.type == LogType.healing);
     entry.total += healing;
     entry.count += 1;
     entries[source] = entry;
