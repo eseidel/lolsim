@@ -9,7 +9,7 @@ Anivia        1
 Annie         2                    
 Karthus       2                    
 Lux           3                    
-FiddleSticks  5                    
+Fiddlesticks  5                    
 Janna         5                    
 Sona          5                    
 Lissandra     6                    
@@ -34,38 +34,38 @@ Syndra        23
 Xerath        23                   
 Jhin          24                   
 Malzahar      24                   
+Orianna       25         P         
 Heimerdinger  26         P         
-Orianna       26         P         
-Vladimir      26                   
 Leblanc       28                   
 Bard          29                   
-Nidalee       30                   
-Brand         31                   
+Nidalee       29                   
+Brand         30                   
+Kindred       30                   
 Corki         31                   
-Kindred       31                   
 Taliyah       31                   
 Vayne         32                   
+Teemo         33                   
 Viktor        33                   
-Teemo         34                   
-Ahri          36                   
-Sivir         38                   
-Cassiopeia    41                   
-Ziggs         43                   
-Ivern         45                   
-Kennen        47                   
-Jayce         48                   
+Ahri          35                   
+Sivir         37                   
+Cassiopeia    40                   
+Ziggs         42                   
+Ivern         44                   
+Kennen        46                   
+Jayce         47                   
+Jinx          48                   
+KogMaw        48                   
 Evelynn       49                   
-Jinx          49                   
-KogMaw        49                   
 AurelionSol   50                   
-Mordekaiser   51                   
-Varus         52                   
-Ryze          53                   
+Mordekaiser   50                   
+Varus         51                   
+Ryze          52                   
+Vladimir      53                   
 Ashe          54                   
-Gangplank     55                   
-Kayle         55                   
+Gangplank     54                   
+Kayle         54                   
 Quinn         55                   
-Morgana       58                   
+Morgana       57                   
 Riven         59                   
 Taric         61                   
 Yasuo         61                   
@@ -79,54 +79,54 @@ Shen          70
 Fiora         71                   
 Kalista       71                   
 Nautilus      74                   
-Aatrox        75                   
+Vi            74                   
 Braum         75                   
 Fizz          75                   
+Aatrox        76                   
 Draven        78                   
-Kassadin      78                   
 Pantheon      78                   
+Kassadin      79                   
 Khazix        79                   
-Vi            80                   
-Zed           81         P         
+Zed           82         P         
 Yorick        83                   
 Sion          84                   
 XinZhao       85                   
 Renekton      86                   
 Camille       87                   
 Rengar        88                   
-Ekko          89         P         
 Leona         89                   
 Twitch        89         P         
+Ekko          90         P         
 Nunu          90                   
 Blitzcrank    92                   
 Hecarim       92                   
 Skarner       92                   
 Udyr          92                   
 Illaoi        93                   
-Talon         93                   
 Malphite      94                   
 Galio         95                   
 Garen         95                   
-LeeSin        97                   
+LeeSin        96                   
+Katarina      97                   
 Zac           97                   
-Katarina      98                   
 MonkeyKing    98                   
 Nasus         99         P         
 Chogath       100                  
 DrMundo       101        P         
 Alistar       107                  
-Shaco         109                  
-Rammus        110        P         
-Rumble        110                  
-Akali         112                  
-Gragas        112                  
-Urgot         113        P         
-MasterYi      116                  
-JarvanIV      117        P         
+Shaco         108                  
+Rammus        109        P         
+Rumble        109                  
+Akali         111                  
+Gragas        111                  
+Urgot         112        P         
+MasterYi      115                  
+Talon         115                  
+JarvanIV      116        P         
+Sejuani       118                  
 Shyvana       118                  
+Singed        118        P         
 Irelia        119                  
-Sejuani       119                  
-Singed        119        P         
 Nocturne      122        P         
 Trundle       123                  
 Maokai        125                  
@@ -138,7 +138,7 @@ Volibear      130        P
 Warwick       130        P         
 Darius        132        P         
 Olaf          133        P         
-Aatrox 75 
+Aatrox 76 
   Ahri
   Amumu
   Anivia
@@ -154,7 +154,7 @@ Aatrox 75
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Gangplank
   Gnar
@@ -207,6 +207,7 @@ Aatrox 75
   Vayne
   Veigar
   Velkoz
+  Vi
   Viktor
   Vladimir
   Xerath
@@ -214,7 +215,7 @@ Aatrox 75
   Ziggs
   Zilean
   Zyra
-Ahri 36 
+Ahri 35 
   Anivia
   Annie
   Azir
@@ -222,7 +223,7 @@ Ahri 36
   Cassiopeia
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Ivern
@@ -248,10 +249,9 @@ Ahri 36
   Vayne
   Veigar
   Viktor
-  Vladimir
   Zilean
   Zyra
-Akali 112 
+Akali 111 
   Aatrox
   Ahri
   Alistar
@@ -276,7 +276,7 @@ Akali 112
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -340,7 +340,6 @@ Akali 112
   Swain
   Syndra
   Taliyah
-  Talon
   Taric
   Teemo
   Thresh
@@ -388,7 +387,7 @@ Alistar 107
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -488,7 +487,7 @@ Amumu 69
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gangplank
   Gnar
   Graves
@@ -560,7 +559,7 @@ Ashe 54
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Heimerdinger
@@ -614,7 +613,7 @@ AurelionSol 50
   Corki
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Heimerdinger
@@ -657,7 +656,7 @@ Azir 16
   Anivia
   Annie
   Caitlyn
-  FiddleSticks
+  Fiddlesticks
   Graves
   Janna
   Karthus
@@ -678,7 +677,7 @@ Bard 29
   Caitlyn
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Janna
@@ -719,7 +718,7 @@ Blitzcrank 92
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -793,7 +792,7 @@ Blitzcrank 92
   Ziggs
   Zilean
   Zyra
-Brand 31 
+Brand 30 
   Ahri
   Anivia
   Annie
@@ -802,7 +801,7 @@ Brand 31
   Cassiopeia
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Janna
@@ -822,7 +821,6 @@ Brand 31
   Vayne
   Veigar
   Viktor
-  Vladimir
   Zilean
   Zyra
 Braum 75 
@@ -841,7 +839,7 @@ Braum 75
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Gangplank
   Gnar
@@ -933,7 +931,7 @@ Camille 87
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -1002,7 +1000,7 @@ Camille 87
   Ziggs
   Zilean
   Zyra
-Cassiopeia 41 
+Cassiopeia 40 
   Anivia
   Annie
   Azir
@@ -1011,7 +1009,7 @@ Cassiopeia 41
   Corki
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Heimerdinger
@@ -1040,7 +1038,6 @@ Cassiopeia 41
   Veigar
   Velkoz
   Viktor
-  Vladimir
   Xerath
   Zilean
   Zyra
@@ -1065,7 +1062,7 @@ Chogath 100
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -1153,7 +1150,7 @@ Corki 31
   Caitlyn
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Graves
   Janna
   Karma
@@ -1204,7 +1201,7 @@ Darius 132 P
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -1336,7 +1333,7 @@ Diana 126 P
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -1458,7 +1455,7 @@ DrMundo 101 P
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -1556,7 +1553,7 @@ Draven 78
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -1618,7 +1615,7 @@ Draven 78
   Ziggs
   Zilean
   Zyra
-Ekko 89 P
+Ekko 90 P
   Aatrox
   Ahri
   Amumu
@@ -1638,7 +1635,7 @@ Ekko 89 P
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -1700,6 +1697,7 @@ Ekko 89 P
   Vayne
   Veigar
   Velkoz
+  Vi
   Viktor
   Vladimir
   Xerath
@@ -1736,7 +1734,7 @@ Evelynn 49
   Cassiopeia
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Ivern
@@ -1779,7 +1777,7 @@ Ezreal 17
   Anivia
   Annie
   Caitlyn
-  FiddleSticks
+  Fiddlesticks
   Graves
   Janna
   Karthus
@@ -1793,7 +1791,7 @@ Ezreal 17
   Thresh
   TwistedFate
   Veigar
-FiddleSticks 5 
+Fiddlesticks 5 
   Annie
   Caitlyn
   Karthus
@@ -1814,7 +1812,7 @@ Fiora 71
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fizz
   Gangplank
   Gnar
@@ -1889,7 +1887,7 @@ Fizz 75
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gangplank
   Gnar
   Graves
@@ -1967,7 +1965,7 @@ Galio 95
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -2043,7 +2041,7 @@ Galio 95
   Ziggs
   Zilean
   Zyra
-Gangplank 55 
+Gangplank 54 
   Ahri
   Anivia
   Annie
@@ -2057,7 +2055,7 @@ Gangplank 55
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Heimerdinger
@@ -2094,7 +2092,6 @@ Gangplank 55
   Veigar
   Velkoz
   Viktor
-  Vladimir
   Xerath
   Ziggs
   Zilean
@@ -2118,7 +2115,7 @@ Garen 95
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -2199,7 +2196,7 @@ Gnar 17
   Anivia
   Annie
   Caitlyn
-  FiddleSticks
+  Fiddlesticks
   Graves
   Janna
   Karthus
@@ -2213,7 +2210,7 @@ Gnar 17
   TwistedFate
   Veigar
   Zilean
-Gragas 112 
+Gragas 111 
   Aatrox
   Ahri
   Akali
@@ -2238,7 +2235,7 @@ Gragas 112
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -2302,7 +2299,6 @@ Gragas 112
   Swain
   Syndra
   Taliyah
-  Talon
   Taric
   Teemo
   Thresh
@@ -2329,7 +2325,7 @@ Gragas 112
 Graves 14 
   Anivia
   Annie
-  FiddleSticks
+  Fiddlesticks
   Janna
   Karthus
   Kled
@@ -2360,7 +2356,7 @@ Hecarim 92
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -2441,7 +2437,7 @@ Heimerdinger 26 P
   Azir
   Caitlyn
   Elise
-  FiddleSticks
+  Fiddlesticks
   Graves
   Janna
   Karma
@@ -2481,7 +2477,7 @@ Illaoi 93
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -2581,7 +2577,7 @@ Irelia 119
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -2675,7 +2671,7 @@ Irelia 119
   Ziggs
   Zilean
   Zyra
-Ivern 45 
+Ivern 44 
   Anivia
   Annie
   Azir
@@ -2685,7 +2681,7 @@ Ivern 45
   Corki
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Heimerdinger
@@ -2717,7 +2713,6 @@ Ivern 45
   Veigar
   Velkoz
   Viktor
-  Vladimir
   Xerath
   Zilean
   Zyra
@@ -2727,7 +2722,7 @@ Janna 5
   Karthus
   Kled
   Sona
-JarvanIV 117 P
+JarvanIV 116 P
   Aatrox
   Ahri
   Akali
@@ -2753,7 +2748,7 @@ JarvanIV 117 P
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -2820,7 +2815,6 @@ JarvanIV 117 P
   Swain
   Syndra
   Taliyah
-  Talon
   Taric
   Teemo
   Thresh
@@ -2872,7 +2866,7 @@ Jax 129 P
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -2975,7 +2969,7 @@ Jax 129 P
   Ziggs
   Zilean
   Zyra
-Jayce 48 
+Jayce 47 
   Ahri
   Anivia
   Annie
@@ -2987,7 +2981,7 @@ Jayce 48
   Corki
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Heimerdinger
@@ -3020,7 +3014,6 @@ Jayce 48
   Veigar
   Velkoz
   Viktor
-  Vladimir
   Xerath
   Zilean
   Zyra
@@ -3030,7 +3023,7 @@ Jhin 24
   Caitlyn
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Janna
@@ -3049,7 +3042,7 @@ Jhin 24
   Veigar
   Zilean
   Zyra
-Jinx 49 
+Jinx 48 
   Ahri
   Anivia
   Annie
@@ -3060,7 +3053,7 @@ Jinx 49
   Cassiopeia
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Ivern
@@ -3094,7 +3087,6 @@ Jinx 49
   Veigar
   Velkoz
   Viktor
-  Vladimir
   Xerath
   Ziggs
   Zilean
@@ -3115,7 +3107,7 @@ Kalista 71
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gangplank
   Gnar
   Graves
@@ -3175,7 +3167,7 @@ Karma 20
   Anivia
   Annie
   Caitlyn
-  FiddleSticks
+  Fiddlesticks
   Graves
   Janna
   Karthus
@@ -3195,7 +3187,7 @@ Karma 20
 Karthus 2 
   Annie
   Kled
-Kassadin 78 
+Kassadin 79 
   Aatrox
   Ahri
   Amumu
@@ -3214,7 +3206,7 @@ Kassadin 78
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Gangplank
   Gnar
@@ -3267,6 +3259,7 @@ Kassadin 78
   Vayne
   Veigar
   Velkoz
+  Vi
   Viktor
   Vladimir
   Xerath
@@ -3274,7 +3267,7 @@ Kassadin 78
   Ziggs
   Zilean
   Zyra
-Katarina 98 
+Katarina 97 
   Aatrox
   Ahri
   Amumu
@@ -3295,7 +3288,7 @@ Katarina 98
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -3350,7 +3343,6 @@ Katarina 98
   Swain
   Syndra
   Taliyah
-  Talon
   Taric
   Teemo
   Thresh
@@ -3373,7 +3365,7 @@ Katarina 98
   Ziggs
   Zilean
   Zyra
-Kayle 55 
+Kayle 54 
   Ahri
   Anivia
   Annie
@@ -3385,7 +3377,7 @@ Kayle 55
   Corki
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Heimerdinger
@@ -3424,12 +3416,11 @@ Kayle 55
   Veigar
   Velkoz
   Viktor
-  Vladimir
   Xerath
   Ziggs
   Zilean
   Zyra
-Kennen 47 
+Kennen 46 
   Ahri
   Anivia
   Annie
@@ -3442,7 +3433,7 @@ Kennen 47
   Corki
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Heimerdinger
@@ -3473,7 +3464,6 @@ Kennen 47
   Veigar
   Velkoz
   Viktor
-  Vladimir
   Xerath
   Zilean
   Zyra
@@ -3495,7 +3485,7 @@ Khazix 79
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fizz
   Gangplank
   Gnar
@@ -3557,7 +3547,7 @@ Khazix 79
   Ziggs
   Zilean
   Zyra
-Kindred 31 
+Kindred 30 
   Anivia
   Annie
   Azir
@@ -3565,7 +3555,7 @@ Kindred 31
   Caitlyn
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Janna
@@ -3586,11 +3576,10 @@ Kindred 31
   Veigar
   Velkoz
   Viktor
-  Vladimir
   Zilean
   Zyra
 Kled 0 
-KogMaw 49 
+KogMaw 48 
   Ahri
   Anivia
   Annie
@@ -3603,7 +3592,7 @@ KogMaw 49
   Corki
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Heimerdinger
@@ -3636,7 +3625,6 @@ KogMaw 49
   Veigar
   Velkoz
   Viktor
-  Vladimir
   Xerath
   Zilean
   Zyra
@@ -3647,7 +3635,7 @@ Leblanc 28
   Azir
   Caitlyn
   Elise
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Janna
@@ -3669,7 +3657,7 @@ Leblanc 28
   Xerath
   Zilean
   Zyra
-LeeSin 97 
+LeeSin 96 
   Aatrox
   Ahri
   Amumu
@@ -3693,7 +3681,7 @@ LeeSin 97
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -3746,7 +3734,6 @@ LeeSin 97
   Swain
   Syndra
   Taliyah
-  Talon
   Taric
   Teemo
   Thresh
@@ -3787,7 +3774,7 @@ Leona 89
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -3879,7 +3866,7 @@ Lucian 62
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Heimerdinger
@@ -3943,7 +3930,7 @@ Lulu 65 P
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gangplank
   Gnar
   Graves
@@ -4016,7 +4003,7 @@ Malphite 94
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -4099,7 +4086,7 @@ Malzahar 24
   Azir
   Caitlyn
   Elise
-  FiddleSticks
+  Fiddlesticks
   Graves
   Janna
   Karma
@@ -4143,7 +4130,7 @@ Maokai 125
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -4243,7 +4230,7 @@ Maokai 125
   Ziggs
   Zilean
   Zyra
-MasterYi 116 
+MasterYi 115 
   Aatrox
   Ahri
   Akali
@@ -4266,7 +4253,7 @@ MasterYi 116
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -4335,7 +4322,6 @@ MasterYi 116
   Swain
   Syndra
   Taliyah
-  Talon
   Taric
   Teemo
   Thresh
@@ -4363,7 +4349,7 @@ MasterYi 116
 MissFortune 14 
   Anivia
   Annie
-  FiddleSticks
+  Fiddlesticks
   Graves
   Janna
   Karthus
@@ -4397,7 +4383,7 @@ MonkeyKing 98
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -4474,7 +4460,7 @@ MonkeyKing 98
   Ziggs
   Zilean
   Zyra
-Mordekaiser 51 
+Mordekaiser 50 
   Ahri
   Anivia
   Annie
@@ -4488,7 +4474,7 @@ Mordekaiser 51
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Heimerdinger
@@ -4521,12 +4507,11 @@ Mordekaiser 51
   Veigar
   Velkoz
   Viktor
-  Vladimir
   Xerath
   Ziggs
   Zilean
   Zyra
-Morgana 58 
+Morgana 57 
   Ahri
   Anivia
   Annie
@@ -4540,7 +4525,7 @@ Morgana 58
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Heimerdinger
@@ -4580,7 +4565,6 @@ Morgana 58
   Veigar
   Velkoz
   Viktor
-  Vladimir
   Xerath
   Ziggs
   Zilean
@@ -4588,7 +4572,7 @@ Morgana 58
 Nami 11 
   Anivia
   Annie
-  FiddleSticks
+  Fiddlesticks
   Janna
   Karthus
   Kled
@@ -4618,7 +4602,7 @@ Nasus 99 P
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -4713,7 +4697,7 @@ Nautilus 74
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fizz
   Gangplank
   Gnar
@@ -4772,7 +4756,7 @@ Nautilus 74
   Ziggs
   Zilean
   Zyra
-Nidalee 30 
+Nidalee 29 
   Anivia
   Annie
   Azir
@@ -4780,7 +4764,7 @@ Nidalee 30
   Cassiopeia
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Janna
@@ -4800,7 +4784,6 @@ Nidalee 30
   Vayne
   Veigar
   Viktor
-  Vladimir
   Zilean
   Zyra
 Nocturne 122 P
@@ -4829,7 +4812,7 @@ Nocturne 122 P
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -4946,7 +4929,7 @@ Nunu 90
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -5045,7 +5028,7 @@ Olaf 133 P
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -5151,7 +5134,7 @@ Olaf 133 P
   Ziggs
   Zilean
   Zyra
-Orianna 26 P
+Orianna 25 P
   Anivia
   Annie
   Azir
@@ -5159,7 +5142,7 @@ Orianna 26 P
   Caitlyn
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Janna
@@ -5175,7 +5158,6 @@ Orianna 26 P
   Thresh
   TwistedFate
   Veigar
-  Vladimir
   Zilean
   Zyra
 Pantheon 78 
@@ -5195,7 +5177,7 @@ Pantheon 78
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -5271,7 +5253,7 @@ Poppy 63
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gangplank
   Gnar
   Graves
@@ -5334,7 +5316,7 @@ Quinn 55
   Corki
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gangplank
   Gnar
   Graves
@@ -5377,7 +5359,7 @@ Quinn 55
   Ziggs
   Zilean
   Zyra
-Rammus 110 P
+Rammus 109 P
   Aatrox
   Ahri
   Amumu
@@ -5399,7 +5381,7 @@ Rammus 110 P
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -5463,7 +5445,6 @@ Rammus 110 P
   Swain
   Syndra
   Taliyah
-  Talon
   Taric
   Teemo
   Thresh
@@ -5503,7 +5484,7 @@ RekSai 64
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gangplank
   Gnar
   Graves
@@ -5572,7 +5553,7 @@ Renekton 86
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -5659,7 +5640,7 @@ Rengar 88
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -5743,7 +5724,7 @@ Riven 59
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Heimerdinger
@@ -5789,7 +5770,7 @@ Riven 59
   Ziggs
   Zilean
   Zyra
-Rumble 110 
+Rumble 109 
   Aatrox
   Ahri
   Akali
@@ -5814,7 +5795,7 @@ Rumble 110
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -5877,7 +5858,6 @@ Rumble 110
   Swain
   Syndra
   Taliyah
-  Talon
   Taric
   Teemo
   Thresh
@@ -5900,7 +5880,7 @@ Rumble 110
   Ziggs
   Zilean
   Zyra
-Ryze 53 
+Ryze 52 
   Ahri
   Anivia
   Annie
@@ -5912,7 +5892,7 @@ Ryze 53
   Corki
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Heimerdinger
@@ -5949,12 +5929,11 @@ Ryze 53
   Veigar
   Velkoz
   Viktor
-  Vladimir
   Xerath
   Ziggs
   Zilean
   Zyra
-Sejuani 119 
+Sejuani 118 
   Aatrox
   Ahri
   Akali
@@ -5980,7 +5959,7 @@ Sejuani 119
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -6049,7 +6028,6 @@ Sejuani 119
   Swain
   Syndra
   Taliyah
-  Talon
   Taric
   Teemo
   Thresh
@@ -6074,7 +6052,7 @@ Sejuani 119
   Ziggs
   Zilean
   Zyra
-Shaco 109 
+Shaco 108 
   Aatrox
   Ahri
   Alistar
@@ -6099,7 +6077,7 @@ Shaco 109
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -6160,7 +6138,6 @@ Shaco 109
   Swain
   Syndra
   Taliyah
-  Talon
   Taric
   Teemo
   Thresh
@@ -6199,7 +6176,7 @@ Shen 70
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fizz
   Gangplank
   Gnar
@@ -6281,7 +6258,7 @@ Shyvana 118
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -6374,7 +6351,7 @@ Shyvana 118
   Ziggs
   Zilean
   Zyra
-Singed 119 P
+Singed 118 P
   Aatrox
   Ahri
   Akali
@@ -6400,7 +6377,7 @@ Singed 119 P
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -6469,7 +6446,6 @@ Singed 119 P
   Swain
   Syndra
   Taliyah
-  Talon
   Taric
   Teemo
   Thresh
@@ -6512,7 +6488,7 @@ Sion 84
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -6579,7 +6555,7 @@ Sion 84
   Ziggs
   Zilean
   Zyra
-Sivir 38 
+Sivir 37 
   Ahri
   Anivia
   Annie
@@ -6588,7 +6564,7 @@ Sivir 38
   Cassiopeia
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Ivern
@@ -6614,7 +6590,6 @@ Sivir 38
   Vayne
   Veigar
   Viktor
-  Vladimir
   Ziggs
   Zilean
   Zyra
@@ -6637,7 +6612,7 @@ Skarner 92
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -6733,7 +6708,7 @@ Swain 21
   Annie
   Caitlyn
   Elise
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Janna
@@ -6755,7 +6730,7 @@ Syndra 23
   Annie
   Caitlyn
   Elise
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Janna
@@ -6801,7 +6776,7 @@ TahmKench 128 P
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -6911,7 +6886,7 @@ Taliyah 31
   Caitlyn
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Graves
   Janna
   Karma
@@ -6935,9 +6910,10 @@ Taliyah 31
   Ziggs
   Zilean
   Zyra
-Talon 93 
+Talon 115 
   Aatrox
   Ahri
+  Akali
   Amumu
   Anivia
   Annie
@@ -6945,6 +6921,7 @@ Talon 93
   AurelionSol
   Azir
   Bard
+  Blitzcrank
   Brand
   Braum
   Caitlyn
@@ -6952,19 +6929,25 @@ Talon 93
   Cassiopeia
   Corki
   Draven
+  Ekko
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
+  Galio
   Gangplank
+  Garen
   Gnar
+  Gragas
   Graves
   Hecarim
   Heimerdinger
+  Illaoi
   Ivern
   Janna
+  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -6972,6 +6955,7 @@ Talon 93
   Karma
   Karthus
   Kassadin
+  Katarina
   Kayle
   Kennen
   Khazix
@@ -6979,31 +6963,40 @@ Talon 93
   Kled
   KogMaw
   Leblanc
+  LeeSin
   Leona
   Lissandra
   Lucian
   Lulu
   Lux
+  Malphite
   Malzahar
   MissFortune
   MonkeyKing
   Mordekaiser
   Morgana
   Nami
+  Nasus
   Nautilus
   Nidalee
+  Nunu
   Orianna
   Pantheon
   Poppy
   Quinn
+  Rammus
   RekSai
   Renekton
   Rengar
   Riven
+  Rumble
   Ryze
+  Shaco
   Shen
+  Singed
   Sion
   Sivir
+  Skarner
   Sona
   Soraka
   Swain
@@ -7016,6 +7009,7 @@ Talon 93
   TwistedFate
   Twitch
   Udyr
+  Urgot
   Varus
   Vayne
   Veigar
@@ -7024,7 +7018,10 @@ Talon 93
   Viktor
   Vladimir
   Xerath
+  XinZhao
   Yasuo
+  Yorick
+  Zac
   Zed
   Ziggs
   Zilean
@@ -7043,7 +7040,7 @@ Taric 61
   Corki
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gangplank
   Gnar
   Graves
@@ -7091,13 +7088,13 @@ Taric 61
   Ziggs
   Zilean
   Zyra
-Teemo 34 
+Teemo 33 
   Anivia
   Annie
   Azir
   Caitlyn
   Elise
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Janna
@@ -7122,14 +7119,13 @@ Teemo 34
   TwistedFate
   Veigar
   Velkoz
-  Vladimir
   Xerath
   Zilean
   Zyra
 Thresh 9 
   Anivia
   Annie
-  FiddleSticks
+  Fiddlesticks
   Janna
   Karthus
   Kled
@@ -7151,7 +7147,7 @@ Tristana 65
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gangplank
   Gnar
   Graves
@@ -7228,7 +7224,7 @@ Trundle 123
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -7353,7 +7349,7 @@ Tryndamere 128 P
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -7459,7 +7455,7 @@ TwistedFate 16
   Anivia
   Annie
   Caitlyn
-  FiddleSticks
+  Fiddlesticks
   Janna
   Karthus
   Kled
@@ -7492,7 +7488,7 @@ Twitch 89 P
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -7582,7 +7578,7 @@ Udyr 92
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -7655,7 +7651,7 @@ Udyr 92
   Ziggs
   Zilean
   Zyra
-Urgot 113 P
+Urgot 112 P
   Aatrox
   Ahri
   Akali
@@ -7681,7 +7677,7 @@ Urgot 113 P
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -7745,7 +7741,6 @@ Urgot 113 P
   Swain
   Syndra
   Taliyah
-  Talon
   Taric
   Teemo
   Thresh
@@ -7769,7 +7764,7 @@ Urgot 113 P
   Ziggs
   Zilean
   Zyra
-Varus 52 
+Varus 51 
   Ahri
   Anivia
   Annie
@@ -7782,7 +7777,7 @@ Varus 52
   Corki
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gangplank
   Gnar
   Graves
@@ -7818,7 +7813,6 @@ Varus 52
   Veigar
   Velkoz
   Viktor
-  Vladimir
   Xerath
   Zilean
   Zyra
@@ -7829,7 +7823,7 @@ Vayne 32
   Caitlyn
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Heimerdinger
@@ -7868,7 +7862,7 @@ Velkoz 21
   Annie
   Azir
   Caitlyn
-  FiddleSticks
+  Fiddlesticks
   Graves
   Janna
   Karthus
@@ -7884,9 +7878,8 @@ Velkoz 21
   Veigar
   Zilean
   Zyra
-Vi 80 
+Vi 74 
   Ahri
-  Amumu
   Anivia
   Annie
   Ashe
@@ -7898,12 +7891,10 @@ Vi 80
   Caitlyn
   Cassiopeia
   Corki
-  Ekko
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
-  Fiora
+  Fiddlesticks
   Fizz
   Gangplank
   Gnar
@@ -7926,7 +7917,6 @@ Vi 80
   Leblanc
   Lissandra
   Lucian
-  Lulu
   Lux
   Malzahar
   MissFortune
@@ -7937,12 +7927,10 @@ Vi 80
   Nidalee
   Orianna
   Pantheon
-  Poppy
   Quinn
   RekSai
   Riven
   Ryze
-  Shen
   Sivir
   Sona
   Soraka
@@ -7972,7 +7960,7 @@ Viktor 33
   Caitlyn
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Heimerdinger
@@ -7999,31 +7987,58 @@ Viktor 33
   Xerath
   Zilean
   Zyra
-Vladimir 26 
+Vladimir 53 
+  Ahri
   Anivia
   Annie
   Azir
+  Bard
+  Brand
   Caitlyn
+  Cassiopeia
+  Corki
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
+  Gangplank
   Gnar
   Graves
+  Heimerdinger
+  Ivern
   Janna
+  Jhin
+  Jinx
+  Karma
   Karthus
+  Kayle
+  Kennen
+  Kindred
   Kled
+  Leblanc
   Lissandra
   Lux
+  Malzahar
   MissFortune
+  Mordekaiser
+  Morgana
   Nami
+  Nidalee
+  Orianna
+  Ryze
+  Sivir
   Sona
   Soraka
   Swain
+  Syndra
+  Taliyah
+  Teemo
   Thresh
   TwistedFate
   Vayne
   Veigar
+  Velkoz
   Viktor
+  Xerath
   Zilean
   Zyra
 Volibear 130 P
@@ -8053,7 +8068,7 @@ Volibear 130 P
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -8184,7 +8199,7 @@ Warwick 130 P
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Galio
@@ -8294,7 +8309,7 @@ Xerath 23
   Annie
   Azir
   Caitlyn
-  FiddleSticks
+  Fiddlesticks
   Graves
   Janna
   Karma
@@ -8331,7 +8346,7 @@ XinZhao 85
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -8412,7 +8427,7 @@ Yasuo 61
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gangplank
   Gnar
   Graves
@@ -8478,7 +8493,7 @@ Yorick 83
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -8564,7 +8579,7 @@ Zac 97
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -8642,7 +8657,7 @@ Zac 97
   Ziggs
   Zilean
   Zyra
-Zed 81 P
+Zed 82 P
   Ahri
   Amumu
   Anivia
@@ -8659,7 +8674,7 @@ Zed 81 P
   Elise
   Evelynn
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Fiora
   Fizz
   Gangplank
@@ -8715,6 +8730,7 @@ Zed 81 P
   Vayne
   Veigar
   Velkoz
+  Vi
   Viktor
   Vladimir
   Xerath
@@ -8724,7 +8740,7 @@ Zed 81 P
   Ziggs
   Zilean
   Zyra
-Ziggs 43 
+Ziggs 42 
   Ahri
   Anivia
   Annie
@@ -8735,7 +8751,7 @@ Ziggs 43
   Cassiopeia
   Elise
   Ezreal
-  FiddleSticks
+  Fiddlesticks
   Gnar
   Graves
   Heimerdinger
@@ -8764,7 +8780,6 @@ Ziggs 43
   TwistedFate
   Veigar
   Velkoz
-  Vladimir
   Xerath
   Zilean
   Zyra
