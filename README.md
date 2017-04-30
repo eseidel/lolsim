@@ -15,14 +15,17 @@ Riot does not make all of their rule values public (e.g. attack-windup,
 ability-durations, etc.) but also because keeping up with LOL would be a huge
 task.
 
-## Requirements
-Need a copy of `champion.json` and `item.json` from [Riot's static data](https://developer.riotgames.com/docs/static-data).
+## Setup
+Need a copy of [Dart](https://www.dartlang.org/install).
+Run `dart bin/precache_dragondata.dart` to download the necessary files from [Riot's static data](https://developer.riotgames.com/docs/static-data).
 
 ## Usage
 There are many entry points into the simulation used to answer different questions.
 Examples incude:
  - `dart bin/duel.dart -v examples/duel.yaml` -- Used for testing groups of champs/mobs/items against one another.
  - `dart bin/round_robin.dart` -- Used for testing all champ pairs against one another.
+ - `dart bin/dps.dart` -- Show various champs ranked by lvl 1 dps.
+ - `dart bin/burst.dart` -- Show various champs ranked by lvl 3 burst.
 
 There are several other dart files in bin/, most of them are for testing.
 
@@ -60,7 +63,6 @@ Many.  Including at least:
 - Implement in-combat/out-of-combat (more champs would die to darius and twitch dots).
 - Make round_robin spit out json and be able to compare lists.
 - Implement proximity (likely requires passing World more places).
-- Could change SpellParser to normalize strings first (lowercase, remove span).
 
 ## Passives missing affecting the lvl 1 round_robin sort.
 - Aatrox passive (complicated, likely requires bloodthirst to be useful)
