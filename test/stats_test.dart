@@ -7,7 +7,7 @@ dynamic main() async {
     BaseStats base = new BaseStats(
       armor: 100.0,
       armorPerLevel: 5.0,
-      attackDamage: 100.0,
+      baseAttackDamage: 100.0,
       attackDamagePerLevel: 5.0,
       attackSpeedPerLevel: 5.0,
       attackDelay: 0.0,

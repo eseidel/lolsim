@@ -10,8 +10,9 @@ double applyRatio(ScaledValue ratio, int rank, Mob source) {
   int rankIndex = rank - 1;
   switch (ratio.scalingSource) {
     case ScalingSource.attackDamage:
-    case ScalingSource.bonusAttackDamage: // FIXME: bonus vs. base
       return ratio.ratioByRank[rankIndex] * source.stats.attackDamage;
+    case ScalingSource.bonusAttackDamage:
+      return ratio.ratioByRank[rankIndex] * source.stats.bonusAttackDamage;
     case ScalingSource.spellPower:
       return ratio.ratioByRank[rankIndex] * source.stats.abilityPower;
     case ScalingSource.armor:

@@ -23,8 +23,8 @@ class NoxianMight extends TimedBuff {
 }
 
 class Hemorrhage extends DOT {
-  Mob source;
-  Hemorrhage({@required this.source, @required Mob target, int initialStacks})
+  Mob darius;
+  Hemorrhage({@required this.darius, @required Mob target, int initialStacks})
       : super(
           name: 'Hemorrhage',
           target: target,
@@ -37,11 +37,12 @@ class Hemorrhage extends DOT {
   @override
   Hit createHitForStacks(int stackCount) {
     // FIXME: This should include bonus Ad, including buffs, not total.
-    double totalDmgPerStack = 9.0 + source.level;
+    double totalDmgPerStack =
+        9.0 + darius.level + (0.3 * darius.stats.bonusAttackDamage);
     double dmgPerStackPerTick = totalDmgPerStack / initialTicks;
     // Choosing to do all the dmg at once for all stacks.
     return new Hit(
-      source: source,
+      source: darius,
       target: target,
       label: name,
       physicalDamage: dmgPerStackPerTick * stackCount,
@@ -79,7 +80,7 @@ class Darius extends ChampionEffects {
         .firstWhere((buff) => buff is Hemorrhage, orElse: () => null);
     if (bleed == null) {
       bleed = new Hemorrhage(
-        source: darius,
+        darius: darius,
         target: target,
         initialStacks: stacksToApply,
       );

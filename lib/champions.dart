@@ -3,6 +3,7 @@ import 'lolsim.dart';
 
 const String VERSION_7_2_1 = '7.2.1';
 const String VERSION_7_8_1 = '7.8.1';
+const String VERSION_7_9_1 = '7.9.1';
 
 abstract class ChampionEffects {
   String get lastUpdate;

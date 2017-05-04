@@ -43,6 +43,20 @@ dynamic main() async {
       // Darius's AA's apply 5 stacks to new targets.
       // Stacks fall off one at a time.
     });
+    test("items", () {
+      Mob darius = data.champs.championById('Darius');
+      darius.addItem(data.items.itemByName('Long Sword'));
+      darius.updateStats();
+      double dariusAd = darius.stats.attackDamage;
+      Mob mob = createTestMob(hp: 1000.0);
+      World world = new World();
+      new AutoAttack(darius, mob).apply(world);
+      Hemorrhage buff = mob.buffs.firstWhere((buff) => buff is Hemorrhage);
+      expect(mob.hpLost, dariusAd);
+      buff.tick(2.0); // Bleeds tick every 1.25 seconds.
+      double singleTickDmg = (10 + 3.0) / 4;
+      expect(mob.hpLost, dariusAd + singleTickDmg);
+    });
     test("structures", () {
       // The wiki doesn't say, but I don't believe he applies to structures?
       Mob darius = data.champs.championById('Darius');

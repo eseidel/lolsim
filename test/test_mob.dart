@@ -18,7 +18,7 @@ Mob createTestMob({
       baseStats: new BaseStats(
         armor: armor,
         armorPerLevel: 0.0,
-        attackDamage: ad,
+        baseAttackDamage: ad,
         attackDamagePerLevel: 0.0,
         attackSpeedPerLevel: 0.0,
         attackDelay: 0.0,

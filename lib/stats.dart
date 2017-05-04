@@ -3,7 +3,8 @@ import 'package:meta/meta.dart';
 class Stats {
   double hp;
   double mp;
-  double attackDamage;
+  double baseAttackDamage;
+  double bonusAttackDamage = 0.0;
   double abilityPower = 0.0;
   double armor;
   double spellBlock; // aka magic resist.
@@ -22,7 +23,7 @@ class Stats {
   Stats({
     this.hp,
     this.mp,
-    this.attackDamage,
+    this.baseAttackDamage,
     this.attackDelay,
     this.armor,
     this.spellBlock,
@@ -46,6 +47,8 @@ class Stats {
   double get attackSpeed => baseAttackSpeed * (1.0 + bonusAttackSpeed);
   double get attackDuration => 1.0 / attackSpeed;
 
+  double get attackDamage => baseAttackDamage + bonusAttackDamage;
+
   double get magicalEffectiveHealth => hp * (1 + 0.01 * spellBlock);
   double get physicalEffectiveHealth => hp * (1 + 0.01 * armor);
 }
@@ -60,7 +63,7 @@ class BaseStats extends Stats {
         attackDamagePerLevel = json['attackdamageperlevel'].toDouble(),
         hpRegenPerLevel = json['hpregenperlevel'].toDouble() {
     attackDelay = json['attackspeedoffset'].toDouble();
-    attackDamage = json['attackdamage'].toDouble();
+    baseAttackDamage = json['attackdamage'].toDouble();
     hp = json['hp'].toDouble();
     mp = json['mp'].toDouble();
     armor = json['armor'].toDouble();
@@ -73,7 +76,7 @@ class BaseStats extends Stats {
   BaseStats({
     @required double hp,
     double mp,
-    double attackDamage,
+    double baseAttackDamage,
     double attackDelay,
     double hpRegen,
     double armor,
@@ -89,7 +92,7 @@ class BaseStats extends Stats {
       : super(
           hp: hp,
           mp: mp,
-          attackDamage: attackDamage,
+          baseAttackDamage: baseAttackDamage,
           hpRegen: hpRegen,
           attackDelay: attackDelay,
           armor: armor,
@@ -116,7 +119,8 @@ class BaseStats extends Stats {
     stats.hp = _curve(hp, hpPerLevel, level);
     stats.mp = _curve(mp, mpPerLevel, level);
     stats.hpRegen = _curve(hpRegen, hpRegenPerLevel, level);
-    stats.attackDamage = _curve(attackDamage, attackDamagePerLevel, level);
+    stats.baseAttackDamage =
+        _curve(baseAttackDamage, attackDamagePerLevel, level);
     stats.armor = _curve(armor, armorPerLevel, level);
     stats.spellBlock = _curve(spellBlock, spellBlockPerLevel, level);
     stats.attackDelay = attackDelay;

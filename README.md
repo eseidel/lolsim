@@ -50,7 +50,7 @@ Many.  Including at least:
 - DPS and burst for each champ.
 
 ## TODO / Bugs
-- Split bonus vs. base armor, ad, etc. (e.g. Darius is using total ad instead of bonus).
+- Split bonus vs. base armor, etc.
 - Figure out how to do ability passives.
 - Unify Buffs, Items, Abilities as Scripts.
 - Percent armor mods (for xin and kayle).
@@ -73,6 +73,7 @@ Many.  Including at least:
 - Camille passive (requires shields)
 - Darius passive (wrong, missing bonus ad)
 - Elise passive (ai to really use it)
+- Fiora passive (requires proximity)
 - Fizz passive (unclear how to implement this kind of dmg reduction)
 - Graves AA modifier and passive (impactful, hard to implement)
 - Gangplank passive (small effect, needs bonus ad split)

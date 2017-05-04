@@ -149,18 +149,19 @@ class AutoAttack extends Action {
         .add(new AutoAttackCooldown(source, source.stats.attackDuration));
     bool isCrit = world.critProvider(source);
     String attackString = isCrit ? 'CRITS' : 'attacks';
-    String damageString = source.stats.attackDamage.toStringAsFixed(1);
+    double attackDamage = source.stats.attackDamage;
+    String damageString = attackDamage.toStringAsFixed(1);
     _log.fine(
         "${world.logTime}: $source $attackString $target for $damageString damage");
     Hit hit = source.createHitForTarget(
       label: isCrit ? 'AA Crit' : 'AA',
       target: target,
       isCrit: isCrit,
-      physicalDamage: source.stats.attackDamage,
+      physicalDamage: attackDamage,
     );
     source.applyOnHitEffects(hit);
-    double damage = target.applyHit(hit);
-    source.lifestealFrom(damage);
+    double appliedDamage = target.applyHit(hit);
+    source.lifestealFrom(appliedDamage);
   }
 }
 
@@ -497,7 +498,7 @@ class Mob {
     'FlatSpellBlockMod': (computed, statValue) =>
         computed.spellBlock += statValue,
     'FlatPhysicalDamageMod': (computed, statValue) =>
-        computed.attackDamage += statValue,
+        computed.bonusAttackDamage += statValue,
     'PercentAttackSpeedMod': (computed, statValue) =>
         computed.bonusAttackSpeed += statValue,
     'PercentLifeStealMod': (computed, statValue) =>
