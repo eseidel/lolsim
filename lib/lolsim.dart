@@ -362,6 +362,14 @@ enum MobState {
   stopped,
 }
 
+class AbilityRanks {
+  int q;
+  int w;
+  int e;
+  int r;
+  AbilityRanks({this.q: 0, this.w: 0, this.e: 0, this.r: 0});
+}
+
 class Healing extends TickingBuff {
   Healing(Mob target) : super(name: 'Healing', target: target);
 
@@ -396,6 +404,7 @@ class Mob {
   RunePage _runePage;
   Stats stats; // updated per-tick.
   int _level = 1;
+  AbilityRanks abilityRanks;
   double hpLost = 0.0;
   bool alive = true;
   MobState state;
@@ -407,6 +416,7 @@ class Mob {
         championEffectsConstructors[id];
     if (effectsConstructor != null) effects = effectsConstructor(this);
     updateStats();
+    if (type == MobType.champion) abilityRanks = new AbilityRanks();
     if (effects != null) effects.onChampionCreate();
     revive();
   }
@@ -556,11 +566,10 @@ class Mob {
     buffs.remove(buff);
   }
 
-  Mob computeAttackTarget() {
-    if (lastTarget == null) return null;
+  Mob validateAttackTarget(Mob target) {
     if (state != MobState.ready) return null;
     if (buffs.any((buff) => buff is AutoAttackCooldown)) return null;
-    return lastTarget;
+    return target;
   }
 
   void _tickBuffs(double timeDelta) {
@@ -581,7 +590,7 @@ class Mob {
     if (!alive) return actions;
     _tickBuffs(timeDelta);
     updateStats(); // Buffs can affect stats.
-    Mob target = computeAttackTarget();
+    Mob target = validateAttackTarget(lastTarget);
     if (target != null) actions.add(new AutoAttack(this, target));
     return actions;
   }
@@ -796,11 +805,17 @@ class World {
   List<Mob> reds = [];
   List<Mob> blues = [];
   CritProvider critProvider;
+  static World _current;
 
   World({this.reds: const [], this.blues: const [], this.critProvider}) {
     reds.forEach((mob) => mob.team = Team.red);
     blues.forEach((mob) => mob.team = Team.blue);
     if (critProvider == null) critProvider = new RandomCrits();
+  }
+
+  static World get current {
+    assert(_current != null, 'No current world use makeCurrentForScope');
+    return _current;
   }
 
   List<Mob> get allMobs => []..addAll(reds)..addAll(blues);
@@ -825,9 +840,15 @@ class World {
     });
   }
 
-  Mob closestTarget(Mob mob) {
-    if (mob.team == Team.red) return livingBlues.first;
+  Mob closestTarget(Mob reference) {
+    if (reference.team == Team.red) return livingBlues.first;
     return livingReds.first;
+  }
+
+  Iterable<Mob> opposingChampionsNear(Mob reference) {
+    Iterable<Mob> allMobs =
+        (reference.team == Team.red) ? livingBlues : livingReds;
+    return allMobs.where((mob) => mob.team != reference.team);
   }
 
   void updateTargets() {
@@ -861,9 +882,26 @@ class World {
   };
 
   void tickUntil(TickCondition condition) {
-    do {
-      tick();
-    } while (!condition(this));
+    makeCurrentForScope(() {
+      do {
+        tick();
+      } while (!condition(this));
+    });
+  }
+
+  void tickFor(double duration) {
+    double endTime = time + duration;
+    tickUntil((world) => world.time >= endTime);
+  }
+
+  void makeCurrentForScope(void closure()) {
+    World previous = _current;
+    _current = this;
+    try {
+      closure();
+    } finally {
+      _current = previous;
+    }
   }
 
   Iterable<Mob> get livingBlues => blues.where((Mob mob) => mob.alive);

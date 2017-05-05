@@ -52,12 +52,13 @@ void applySpell(Spell spell, int rank, Mob source, Mob target) {
   ));
 }
 
-double burstDamage(Mob champ, SpellBook spells, AbilityRanks ranks) {
+double burstDamage(Mob champ, SpellBook spells) {
   Mob dummy = createDummyMob();
   dummy.shouldRecordDamage = true;
 
   World world = new World();
   new AutoAttack(champ, dummy).apply(world);
+  var ranks = champ.abilityRanks;
   applySpell(spells.q, ranks.q, champ, dummy);
   applySpell(spells.e, ranks.e, champ, dummy);
   applySpell(spells.w, ranks.w, champ, dummy);
@@ -67,13 +68,14 @@ double burstDamage(Mob champ, SpellBook spells, AbilityRanks ranks) {
   return dummy.damageLog.totalDamage;
 }
 
-String abilitiesString(Mob champ, SpellBook book, AbilityRanks ranks) {
+String abilitiesString(Mob champ, SpellBook book) {
   String keyChar(Spell spell, int rank) {
     if (spell.parseError != null) return '*';
     if (spell.doesDamage && rank > 0) return spell.key.toString();
     return ' ';
   }
 
+  var ranks = champ.abilityRanks;
   return (champ.effects != null ? 'P' : ' ') +
       keyChar(book.q, ranks.q) +
       keyChar(book.w, ranks.w) +
@@ -105,14 +107,6 @@ double sumOfDamageRatios(
   return sum;
 }
 
-class AbilityRanks {
-  int q;
-  int w;
-  int e;
-  int r;
-  AbilityRanks({this.q: 0, this.w: 0, this.e: 0, this.r: 0});
-}
-
 dynamic main(List<String> args) async {
   handleCommonArgs(args);
   Creator creator = await Creator.loadLatest();
@@ -139,12 +133,13 @@ dynamic main(List<String> args) async {
   List<_Result> results = champNames.map((champName) {
     Mob champ = creator.champs.championByName(champName);
     champ.level = level;
+    champ.abilityRanks = ranks;
     champ.updateStats();
 
     SpellBook spellBook = spells.bookForChampionName(champName);
     return new _Result()
-      ..abilitiesString = abilitiesString(champ, spellBook, ranks)
-      ..burst = burstDamage(champ, spellBook, ranks)
+      ..abilitiesString = abilitiesString(champ, spellBook)
+      ..burst = burstDamage(champ, spellBook)
       ..champName = champName
       ..burstAdRatio =
           sumOfDamageRatios(spellBook, ScalingSource.attackDamage, ranks)

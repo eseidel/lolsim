@@ -83,8 +83,7 @@ abstract class TickingBuff extends Buff {
   final double secondsBetweenTicks;
   double untilNextTick;
 
-  TickingBuff(
-      {String name, Mob target, this.secondsBetweenTicks: 0.5, double duration})
+  TickingBuff({String name, Mob target, this.secondsBetweenTicks: 0.5})
       : untilNextTick = secondsBetweenTicks,
         super(name: name, target: target);
 
