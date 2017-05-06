@@ -53,7 +53,8 @@ Many.  Including at least:
 - Split bonus vs. base armor, etc.
 - Figure out how to do ability passives.
 - Unify Buffs, Items, Abilities as Scripts.
-- Percent armor mods (for xin and kayle).
+- Percent armor (xin, kayle, etc.): http://leagueoflegends.wikia.com/wiki/Armor_penetration
+- Handle stat modifying buffs first, before other buffs.
 - pub run test dies w/o message when no precache.
 - Coverage & coveralls.io
 - Split lolsim.dart into smaller files.

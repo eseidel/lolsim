@@ -7,6 +7,7 @@ export 'heimerdinger.dart';
 export 'jarvaniv.dart';
 export 'jax.dart';
 export 'lulu.dart';
+export 'masteryi.dart';
 export 'nasus.dart';
 export 'nocturne.dart';
 export 'olaf.dart';

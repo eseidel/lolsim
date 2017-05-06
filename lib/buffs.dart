@@ -211,6 +211,8 @@ class StackedBuff extends Buff {
     }
   }
 
+  bool get atMaxStacks => stacks == maxStacks;
+
   void refreshAndAddStack() {
     untilFirstFalloff = duration;
     untilNextFalloff = 0.0;

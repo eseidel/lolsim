@@ -143,18 +143,20 @@ class AutoAttack extends Action {
 
   AutoAttack(this.source, Mob target) : super(target);
 
-  @override
-  void apply(World world) {
-    source.buffs
-        .add(new AutoAttackCooldown(source, source.stats.attackDuration));
+  static void applyAuto(
+    World world,
+    Mob source,
+    Mob target,
+    double attackDamage, {
+    String label: 'AA',
+  }) {
     bool isCrit = world.critProvider(source);
     String attackString = isCrit ? 'CRITS' : 'attacks';
-    double attackDamage = source.stats.attackDamage;
     String damageString = attackDamage.toStringAsFixed(1);
     _log.fine(
         "${world.logTime}: $source $attackString $target for $damageString damage");
     Hit hit = source.createHitForTarget(
-      label: isCrit ? 'AA Crit' : 'AA',
+      label: isCrit ? '$label Crit' : label,
       target: target,
       isCrit: isCrit,
       physicalDamage: attackDamage,
@@ -162,6 +164,13 @@ class AutoAttack extends Action {
     source.applyOnHitEffects(hit);
     double appliedDamage = target.applyHit(hit);
     source.lifestealFrom(appliedDamage);
+  }
+
+  @override
+  void apply(World world) {
+    source.buffs
+        .add(new AutoAttackCooldown(source, source.stats.attackDuration));
+    applyAuto(world, source, target, source.stats.attackDamage, label: 'AA');
   }
 }
 

@@ -111,29 +111,29 @@ Katarina      99
 Aatrox        100                  
 MonkeyKing    100                  
 Zac           100                  
-Chogath       102                  
-DrMundo       102        P         
+Chogath       101                  
+DrMundo       101        P         
 Nasus         103        P         
 Shaco         108                  
+Alistar       109                  
 Rumble        109                  
-Alistar       110                  
 Gragas        111                  
 Rammus        111        P         
 Akali         112                  
 Urgot         113        P         
-MasterYi      116                  
 Talon         116                  
 JarvanIV      117        P         
+Shyvana       118                  
+Irelia        119                  
 Sejuani       119                  
-Shyvana       119                  
 Singed        119        P         
-Irelia        120                  
-Nocturne      123        P         
-Trundle       124                  
-Maokai        126                  
-Diana         127        P         
-TahmKench     129        P         
-Tryndamere    129        P         
+Nocturne      122        P         
+Trundle       123                  
+Maokai        125                  
+Diana         126        P         
+MasterYi      127        P         
+TahmKench     128        P         
+Tryndamere    128        P         
 Jax           130        P         
 Volibear      131        P         
 Warwick       131        P         
@@ -390,7 +390,7 @@ Akali 112
   Ziggs
   Zilean
   Zyra
-Alistar 110 
+Alistar 109 
   Aatrox
   Ahri
   Amumu
@@ -448,7 +448,6 @@ Alistar 110
   Lulu
   Lux
   Malzahar
-  MasterYi
   MissFortune
   MonkeyKing
   Mordekaiser
@@ -1075,7 +1074,7 @@ Cassiopeia 40
   Xerath
   Zilean
   Zyra
-Chogath 102 
+Chogath 101 
   Ahri
   Amumu
   Anivia
@@ -1127,7 +1126,6 @@ Chogath 102
   Lulu
   Lux
   Malzahar
-  MasterYi
   MissFortune
   MonkeyKing
   Mordekaiser
@@ -1344,7 +1342,7 @@ Darius 133 P
   Ziggs
   Zilean
   Zyra
-Diana 127 P
+Diana 126 P
   Aatrox
   Ahri
   Akali
@@ -1409,7 +1407,6 @@ Diana 127 P
   Malphite
   Malzahar
   Maokai
-  MasterYi
   MissFortune
   MonkeyKing
   Mordekaiser
@@ -1472,7 +1469,7 @@ Diana 127 P
   Ziggs
   Zilean
   Zyra
-DrMundo 102 P
+DrMundo 101 P
   Ahri
   Amumu
   Anivia
@@ -1524,7 +1521,6 @@ DrMundo 102 P
   Lulu
   Lux
   Malzahar
-  MasterYi
   MissFortune
   MonkeyKing
   Mordekaiser
@@ -2643,7 +2639,7 @@ Illaoi 95
   Ziggs
   Zilean
   Zyra
-Irelia 120 
+Irelia 119 
   Aatrox
   Ahri
   Akali
@@ -2705,7 +2701,6 @@ Irelia 120
   Lux
   Malphite
   Malzahar
-  MasterYi
   MissFortune
   MonkeyKing
   Mordekaiser
@@ -4214,7 +4209,7 @@ Malzahar 22
   Veigar
   Zilean
   Zyra
-Maokai 126 
+Maokai 125 
   Aatrox
   Ahri
   Akali
@@ -4278,7 +4273,6 @@ Maokai 126
   Lux
   Malphite
   Malzahar
-  MasterYi
   MissFortune
   MonkeyKing
   Mordekaiser
@@ -4341,10 +4335,11 @@ Maokai 126
   Ziggs
   Zilean
   Zyra
-MasterYi 116 
+MasterYi 127 P
   Aatrox
   Ahri
   Akali
+  Alistar
   Amumu
   Anivia
   Annie
@@ -4358,7 +4353,10 @@ MasterYi 116
   Caitlyn
   Camille
   Cassiopeia
+  Chogath
   Corki
+  Diana
+  DrMundo
   Draven
   Ekko
   Elise
@@ -4375,6 +4373,7 @@ MasterYi 116
   Hecarim
   Heimerdinger
   Illaoi
+  Irelia
   Ivern
   Janna
   JarvanIV
@@ -4401,6 +4400,7 @@ MasterYi 116
   Lux
   Malphite
   Malzahar
+  Maokai
   MissFortune
   MonkeyKing
   Mordekaiser
@@ -4422,8 +4422,10 @@ MasterYi 116
   Riven
   Rumble
   Ryze
+  Sejuani
   Shaco
   Shen
+  Shyvana
   Singed
   Sion
   Sivir
@@ -4432,11 +4434,14 @@ MasterYi 116
   Soraka
   Swain
   Syndra
+  TahmKench
   Taliyah
+  Talon
   Taric
   Teemo
   Thresh
   Tristana
+  Trundle
   TwistedFate
   Twitch
   Udyr
@@ -4907,7 +4912,7 @@ Nidalee 29
   Viktor
   Zilean
   Zyra
-Nocturne 123 P
+Nocturne 122 P
   Aatrox
   Ahri
   Akali
@@ -4971,7 +4976,6 @@ Nocturne 123 P
   Lux
   Malphite
   Malzahar
-  MasterYi
   MissFortune
   MonkeyKing
   Mordekaiser
@@ -6413,7 +6417,7 @@ Shen 72
   Ziggs
   Zilean
   Zyra
-Shyvana 119 
+Shyvana 118 
   Aatrox
   Ahri
   Akali
@@ -6475,7 +6479,6 @@ Shyvana 119
   Lux
   Malphite
   Malzahar
-  MasterYi
   MissFortune
   MonkeyKing
   Mordekaiser
@@ -6935,7 +6938,7 @@ Syndra 24
   Velkoz
   Zilean
   Zyra
-TahmKench 129 P
+TahmKench 128 P
   Aatrox
   Ahri
   Akali
@@ -7001,7 +7004,6 @@ TahmKench 129 P
   Malphite
   Malzahar
   Maokai
-  MasterYi
   MissFortune
   MonkeyKing
   Mordekaiser
@@ -7390,7 +7392,7 @@ Tristana 67
   Ziggs
   Zilean
   Zyra
-Trundle 124 
+Trundle 123 
   Aatrox
   Ahri
   Akali
@@ -7454,7 +7456,6 @@ Trundle 124
   Lux
   Malphite
   Malzahar
-  MasterYi
   MissFortune
   MonkeyKing
   Mordekaiser
@@ -7515,7 +7516,7 @@ Trundle 124
   Ziggs
   Zilean
   Zyra
-Tryndamere 129 P
+Tryndamere 128 P
   Aatrox
   Ahri
   Akali
@@ -7582,7 +7583,6 @@ Tryndamere 129 P
   Malphite
   Malzahar
   Maokai
-  MasterYi
   MissFortune
   MonkeyKing
   Mordekaiser
