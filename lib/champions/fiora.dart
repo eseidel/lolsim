@@ -69,7 +69,7 @@ class DuelistsDance extends TickingBuff {
     }
 
     List<Mob> opponents =
-        World.current.opposingChampionsNear(this.target).toList();
+        World.current.visibleNearbyEnemyChampions(this.target).toList();
     markedTarget = pickOne(opponents);
     if (markedTarget != null)
       markedTarget.addBuff(new MarkedWithVital(markedTarget));

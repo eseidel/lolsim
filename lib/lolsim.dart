@@ -845,7 +845,8 @@ class World {
     return livingReds.first;
   }
 
-  Iterable<Mob> opposingChampionsNear(Mob reference) {
+  Iterable<Mob> visibleNearbyEnemyChampions(Mob reference, {int range = 1000}) {
+    if (range == 0) return []; // range is ignored for now.
     Iterable<Mob> allMobs =
         (reference.team == Team.red) ? livingBlues : livingReds;
     return allMobs.where((mob) => mob.team != reference.team);

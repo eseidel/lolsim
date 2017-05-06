@@ -61,7 +61,6 @@ Many.  Including at least:
 - Convert to integer math (ticks, etc.) to avoid double precision errors.
 - Implement in-combat/out-of-combat (more champs would die to darius and twitch dots).
 - Use round_robin json to compare lists.
-- Implement proximity (likely requires passing World more places).
 
 ## Passives missing affecting the lvl 1 round_robin sort.
 - Aatrox passive (complicated, likely requires bloodthirst to be useful)
@@ -71,9 +70,7 @@ Many.  Including at least:
 - Braum passive (needs stuns)
 - Caitlyn passive (crit modifier)
 - Camille passive (requires shields)
-- Darius passive (wrong, missing bonus ad)
 - Elise passive (ai to really use it)
-- Fiora passive (requires proximity)
 - Fizz passive (unclear how to implement this kind of dmg reduction)
 - Graves AA modifier and passive (impactful, hard to implement)
 - Gangplank passive (small effect, needs bonus ad split)
