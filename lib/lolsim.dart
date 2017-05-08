@@ -69,14 +69,9 @@ class Item {
   String get name => description.name;
   Map<String, num> get stats => description.stats;
 
-  bool isAvailableOn(String mapId) {
-    return description.maps[mapId] == true;
-  }
-
-  bool get purchasable {
-    return description.gold['purchasable'] == true;
-  }
-
+  // FIXME: These should all move onto description:
+  bool isAvailableOn(String mapId) => description.maps[mapId] == true;
+  bool get purchasable => description.gold['purchasable'] == true;
   bool get generallyAvailable {
     return description.gold['base'] > 0 &&
         description.inStore != false &&

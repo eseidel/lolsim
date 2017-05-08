@@ -79,7 +79,6 @@ Many.  Including at least:
 - Kha'Zix passive (on-hit, small effect, with abilities bigger)
 - Kled passive (very complicated, needs non-targetable)
 - Malphite passive (needs shields)
-- Master Yi Double Strike passive (non-trivial, same as shivana twin bite)
 - Miss Fortune passive (on hit, small effect)
 - Nautalis passive (needs stun)
 - Nocturn passive (aoe, unclear how best to do dmg-modified autos)

@@ -5,6 +5,7 @@ import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'stats.dart';
 import 'dragon_loader.dart';
+import 'dragon_hacks.dart';
 
 final Logger _log = new Logger('dragon');
 
@@ -23,6 +24,7 @@ class ItemDescription {
   final bool inStore;
   final bool hideFromAll; // true for jungle enchants?
   final bool hasEffects;
+  final bool consumable;
 
   // FIXME: Should use items['basic'] for defaults.
   ItemDescription.fromJson({Map<String, dynamic> json, String id})
@@ -34,8 +36,11 @@ class ItemDescription {
         requiredChampion = json['requiredChampion'],
         inStore = json['in'],
         hideFromAll = json['hideFromAll'],
-        stats = json['stats'],
+        stats = hackInMissingStats(json['name'], json['stats']),
+        consumable = json['consumed'] == true,
         hasEffects = (json['effect'] != null);
+
+  bool get isTrinket => !tags.contains('Trinket');
 }
 
 class ItemLibrary {
