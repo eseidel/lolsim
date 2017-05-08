@@ -1,6 +1,7 @@
 import "package:lol_duel/creator.dart";
 import 'package:lol_duel/lolsim.dart';
 import "package:test/test.dart";
+import 'package:lol_duel/dragon.dart';
 
 import 'test_mob.dart';
 
@@ -9,8 +10,8 @@ dynamic main() async {
   List<Item> items = data.items
       .allItems()
       .where((item) =>
-          item.isAvailableOn(Maps.CURRENT_SUMMONERS_RIFT) &&
-          item.generallyAvailable)
+          item.description.isAvailableOn(Maps.CURRENT_SUMMONERS_RIFT) &&
+          item.description.generallyAvailable)
       .toList();
 
   Item itemNamed(String name) {

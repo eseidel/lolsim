@@ -13,6 +13,12 @@ double attackDelayFromBaseAttackSpeed(double baseAttackSpeed) {
   return (0.625 / baseAttackSpeed) - 1.0;
 }
 
+class Maps {
+  static String CURRENT_TWISTED_TREELINE = "10";
+  static String CURRENT_SUMMONERS_RIFT = "11";
+  static String CURRENT_HOWLING_ABYSS = "12";
+}
+
 class ItemDescription {
   final String name;
   final String id;
@@ -40,6 +46,12 @@ class ItemDescription {
         consumable = json['consumed'] == true,
         hasEffects = (json['effect'] != null);
 
+  bool isAvailableOn(String mapId) => maps[mapId] == true;
+  bool get purchasable => gold['purchasable'] == true;
+  bool get generallyAvailable {
+    return gold['base'] > 0 && inStore != false && requiredChampion == null;
+  }
+
   bool get isTrinket => !tags.contains('Trinket');
 }
 
@@ -62,6 +74,24 @@ class ItemLibrary {
       );
     }
     return _allItemsCache;
+  }
+
+  ItemDescription itemById(String id) {
+    try {
+      return all().firstWhere((item) => item.id == id);
+    } catch (e) {
+      _log.severe("No item with id $id");
+      return null;
+    }
+  }
+
+  ItemDescription itemByName(String name) {
+    try {
+      return all().firstWhere((item) => item.name == name);
+    } catch (e) {
+      _log.severe("No item maching $name");
+      return null;
+    }
   }
 }
 

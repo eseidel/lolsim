@@ -39,8 +39,8 @@ dynamic main(List<String> args) async {
   print("Php: ${withItems.physicalEffectiveHealth.round()}");
   print("Mhp: ${withItems.magicalEffectiveHealth.round()}");
 
-  List<Item> items = creator.items
-      .allItems()
+  List<ItemDescription> items = creator.dragon.items
+      .all()
       .where((item) =>
           item.isAvailableOn(Maps.CURRENT_SUMMONERS_RIFT) &&
           item.generallyAvailable)
@@ -50,7 +50,7 @@ dynamic main(List<String> args) async {
         num hpMod = item.stats['FlatHPPoolMod'];
         return hpMod != null && hpMod > 0;
       })
-      .map((item) => new _Computed(item.description))
+      .map((item) => new _Computed(item))
       .toList();
   hpResults.sort((a, b) => a.gPerHp.compareTo(b.gPerHp));
   // hpResults.forEach((result) {

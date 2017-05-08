@@ -21,12 +21,6 @@ final Logger _log = new Logger('LOL');
 const int TICKS_PER_SECOND = 30;
 const double SECONDS_PER_TICK = 1 / TICKS_PER_SECOND;
 
-class Maps {
-  static String CURRENT_TWISTED_TREELINE = "10";
-  static String CURRENT_SUMMONERS_RIFT = "11";
-  static String CURRENT_HOWLING_ABYSS = "12";
-}
-
 typedef void DamageDealtModifier(Hit hit, DamageDealtModifier);
 typedef void DamageRecievedModifier(Hit hit, DamageRecievedDelta);
 
@@ -68,15 +62,6 @@ class Item {
 
   String get name => description.name;
   Map<String, num> get stats => description.stats;
-
-  // FIXME: These should all move onto description:
-  bool isAvailableOn(String mapId) => description.maps[mapId] == true;
-  bool get purchasable => description.gold['purchasable'] == true;
-  bool get generallyAvailable {
-    return description.gold['base'] > 0 &&
-        description.inStore != false &&
-        description.requiredChampion == null;
-  }
 
   @override
   String toString() => '${name} (${description.gold['total']}g)';
