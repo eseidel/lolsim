@@ -49,10 +49,14 @@ class ItemDescription {
   bool isAvailableOn(String mapId) => maps[mapId] == true;
   bool get purchasable => gold['purchasable'] == true;
   bool get generallyAvailable {
-    return gold['base'] > 0 && inStore != false && requiredChampion == null;
+    return gold['base'] > 0 &&
+        inStore != false &&
+        requiredChampion == null &&
+        // No clue what the quick charge items do.
+        !name.contains('(Quick Charge)');
   }
 
-  bool get isTrinket => !tags.contains('Trinket');
+  bool get isTrinket => tags.contains('Trinket');
 }
 
 class ItemLibrary {

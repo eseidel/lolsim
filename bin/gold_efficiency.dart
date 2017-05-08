@@ -84,6 +84,7 @@ dynamic main(List<String> args) async {
       .where((item) =>
           item.isAvailableOn(Maps.CURRENT_SUMMONERS_RIFT) &&
           item.generallyAvailable &&
+          !item.isTrinket &&
           !item.consumable)
       .toList();
 
