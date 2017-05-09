@@ -5,6 +5,7 @@
 import 'package:lol_duel/lolsim.dart';
 
 // FIXME: This is a unique effect.
+// FIXME: Needs update for 7.9.1
 class DoransShield extends ItemEffects {
   @override
   void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {

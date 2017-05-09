@@ -5,7 +5,7 @@ lolsim
 
 Toy implementation of League of Legends' combat engine.
 
-Current patch: 7.8.1.
+Current patch: 7.9.1.
 
 My goal here is to familiarize myself with the finer details of LOL's rules as
 well as have a chance to play around with Dart.
@@ -54,6 +54,7 @@ Many.  Including at least:
 - Figure out how to do ability passives.
 - Unify Buffs, Items, Abilities as Scripts.
 - Percent armor (xin, kayle, etc.): http://leagueoflegends.wikia.com/wiki/Armor_penetration
+- Lethality
 - Handle stat modifying buffs first, before other buffs.
 - pub run test dies w/o message when no precache.
 - Coverage & coveralls.io

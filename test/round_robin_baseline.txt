@@ -88,48 +88,48 @@ Draven        78
 Nunu          79                   
 Khazix        80                   
 Pantheon      81                   
-Kassadin      82                   
+Kassadin      83                   
 Rengar        84                   
 Yorick        84                   
 Zed           84         P         
+Sejuani       85                   
 Sion          86                   
 Camille       87                   
 XinZhao       87                   
-Renekton      89                   
+Renekton      90                   
 Leona         91                   
 Ekko          92         P         
 Twitch        92         P         
 Blitzcrank    93                   
 Skarner       93                   
-Hecarim       95                   
-Illaoi        95                   
-Malphite      95                   
-Udyr          95                   
-Garen         97                   
-LeeSin        98                   
-Katarina      99                   
-Aatrox        100                  
-MonkeyKing    100                  
-Zac           100                  
-Chogath       101                  
-DrMundo       101        P         
+Hecarim       96                   
+Illaoi        96                   
+Malphite      96                   
+Udyr          96                   
+Garen         98                   
+LeeSin        99                   
+Katarina      100                  
+Aatrox        101                  
+MonkeyKing    101                  
+Chogath       102                  
+DrMundo       102        P         
+Zac           102                  
 Nasus         103        P         
-Shaco         108                  
-Alistar       109                  
-Rumble        109                  
-Gragas        111                  
+Shaco         109                  
+Alistar       110                  
 Rammus        111        P         
-Akali         112                  
-Urgot         113        P         
-Talon         116                  
-JarvanIV      117        P         
-Shyvana       118                  
-Irelia        119                  
-Sejuani       119                  
-Singed        119        P         
-Nocturne      122        P         
+Rumble        111                  
+Akali         113                  
+Gragas        113                  
+Maokai        113                  
+Urgot         114        P         
+Talon         117                  
+JarvanIV      119        P         
+Shyvana       120                  
+Singed        120        P         
+Irelia        121                  
 Trundle       123                  
-Maokai        125                  
+Nocturne      124        P         
 Diana         126        P         
 MasterYi      127        P         
 TahmKench     128        P         
@@ -140,7 +140,7 @@ Warwick       131        P
 Darius        133        P         
 Fiora         134        P         
 Olaf          135        P         
-Aatrox 100 
+Aatrox 101 
   Ahri
   Amumu
   Anivia
@@ -210,6 +210,7 @@ Aatrox 100
   Rengar
   Riven
   Ryze
+  Sejuani
   Shaco
   Shen
   Sion
@@ -277,7 +278,7 @@ Ahri 35
   Viktor
   Zilean
   Zyra
-Akali 112 
+Akali 113 
   Aatrox
   Ahri
   Alistar
@@ -357,6 +358,7 @@ Akali 112
   Rengar
   Riven
   Ryze
+  Sejuani
   Shen
   Sion
   Sivir
@@ -390,7 +392,7 @@ Akali 112
   Ziggs
   Zilean
   Zyra
-Alistar 109 
+Alistar 110 
   Aatrox
   Ahri
   Amumu
@@ -467,6 +469,7 @@ Alistar 109
   Riven
   Rumble
   Ryze
+  Sejuani
   Shen
   Sion
   Sivir
@@ -1074,7 +1077,7 @@ Cassiopeia 40
   Xerath
   Zilean
   Zyra
-Chogath 101 
+Chogath 102 
   Ahri
   Amumu
   Anivia
@@ -1144,6 +1147,7 @@ Chogath 101
   Rengar
   Riven
   Ryze
+  Sejuani
   Shen
   Sion
   Sivir
@@ -1469,7 +1473,7 @@ Diana 126 P
   Ziggs
   Zilean
   Zyra
-DrMundo 101 P
+DrMundo 102 P
   Ahri
   Amumu
   Anivia
@@ -1539,6 +1543,7 @@ DrMundo 101 P
   Rengar
   Riven
   Ryze
+  Sejuani
   Shen
   Sion
   Sivir
@@ -2176,7 +2181,7 @@ Gangplank 54
   Ziggs
   Zilean
   Zyra
-Garen 97 
+Garen 98 
   Ahri
   Amumu
   Anivia
@@ -2243,6 +2248,7 @@ Garen 97
   Rengar
   Riven
   Ryze
+  Sejuani
   Shen
   Sion
   Sivir
@@ -2293,7 +2299,7 @@ Gnar 18
   TwistedFate
   Veigar
   Zilean
-Gragas 111 
+Gragas 113 
   Ahri
   Akali
   Amumu
@@ -2351,6 +2357,7 @@ Gragas 111
   Lux
   Malphite
   Malzahar
+  Maokai
   MissFortune
   MonkeyKing
   Mordekaiser
@@ -2371,6 +2378,7 @@ Gragas 111
   Rengar
   Riven
   Ryze
+  Sejuani
   Shaco
   Shen
   Sion
@@ -2420,7 +2428,7 @@ Graves 14
   Thresh
   TwistedFate
   Veigar
-Hecarim 95 
+Hecarim 96 
   Aatrox
   Ahri
   Amumu
@@ -2486,6 +2494,7 @@ Hecarim 95
   Rengar
   Riven
   Ryze
+  Sejuani
   Shen
   Sivir
   Sona
@@ -2543,7 +2552,7 @@ Heimerdinger 26 P
   Veigar
   Zilean
   Zyra
-Illaoi 95 
+Illaoi 96 
   Ahri
   Amumu
   Anivia
@@ -2610,6 +2619,7 @@ Illaoi 95
   Rengar
   Riven
   Ryze
+  Sejuani
   Shen
   Sion
   Sivir
@@ -2639,7 +2649,7 @@ Illaoi 95
   Ziggs
   Zilean
   Zyra
-Irelia 119 
+Irelia 121 
   Aatrox
   Ahri
   Akali
@@ -2701,6 +2711,7 @@ Irelia 119
   Lux
   Malphite
   Malzahar
+  Maokai
   MissFortune
   MonkeyKing
   Mordekaiser
@@ -2722,6 +2733,7 @@ Irelia 119
   Riven
   Rumble
   Ryze
+  Sejuani
   Shaco
   Shen
   Shyvana
@@ -2810,7 +2822,7 @@ Janna 5
   Karthus
   Kled
   Sona
-JarvanIV 117 P
+JarvanIV 119 P
   Aatrox
   Ahri
   Akali
@@ -2872,6 +2884,7 @@ JarvanIV 117 P
   Lux
   Malphite
   Malzahar
+  Maokai
   MissFortune
   MonkeyKing
   Mordekaiser
@@ -2893,6 +2906,7 @@ JarvanIV 117 P
   Riven
   Rumble
   Ryze
+  Sejuani
   Shaco
   Shen
   Sion
@@ -3280,7 +3294,7 @@ Karma 20
 Karthus 2 
   Annie
   Kled
-Kassadin 82 
+Kassadin 83 
   Ahri
   Amumu
   Anivia
@@ -3338,6 +3352,7 @@ Kassadin 82
   Rengar
   Riven
   Ryze
+  Sejuani
   Shen
   Sivir
   Sona
@@ -3363,7 +3378,7 @@ Kassadin 82
   Ziggs
   Zilean
   Zyra
-Katarina 99 
+Katarina 100 
   Aatrox
   Ahri
   Amumu
@@ -3432,6 +3447,7 @@ Katarina 99
   Rengar
   Riven
   Ryze
+  Sejuani
   Shen
   Sion
   Sivir
@@ -3758,7 +3774,7 @@ Leblanc 28
   Xerath
   Zilean
   Zyra
-LeeSin 98 
+LeeSin 99 
   Ahri
   Amumu
   Anivia
@@ -3827,6 +3843,7 @@ LeeSin 98
   Rengar
   Riven
   Ryze
+  Sejuani
   Shen
   Sion
   Sivir
@@ -4090,7 +4107,7 @@ Lux 3
   Anivia
   Annie
   Kled
-Malphite 95 
+Malphite 96 
   Ahri
   Amumu
   Anivia
@@ -4155,6 +4172,7 @@ Malphite 95
   Renekton
   Riven
   Ryze
+  Sejuani
   Shen
   Sion
   Sivir
@@ -4209,11 +4227,9 @@ Malzahar 22
   Veigar
   Zilean
   Zyra
-Maokai 125 
+Maokai 113 
   Aatrox
   Ahri
-  Akali
-  Alistar
   Amumu
   Anivia
   Annie
@@ -4227,9 +4243,7 @@ Maokai 125
   Caitlyn
   Camille
   Cassiopeia
-  Chogath
   Corki
-  DrMundo
   Draven
   Ekko
   Elise
@@ -4241,15 +4255,12 @@ Maokai 125
   Gangplank
   Garen
   Gnar
-  Gragas
   Graves
   Hecarim
   Heimerdinger
   Illaoi
-  Irelia
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
@@ -4271,7 +4282,6 @@ Maokai 125
   Lucian
   Lulu
   Lux
-  Malphite
   Malzahar
   MissFortune
   MonkeyKing
@@ -4281,24 +4291,20 @@ Maokai 125
   Nasus
   Nautilus
   Nidalee
-  Nocturne
   Nunu
   Orianna
   Pantheon
   Poppy
   Quinn
   Rakan
-  Rammus
   RekSai
   Renekton
   Rengar
   Riven
-  Rumble
   Ryze
   Sejuani
   Shaco
   Shen
-  Shyvana
   Singed
   Sion
   Sivir
@@ -4478,7 +4484,7 @@ MissFortune 14
   Thresh
   Veigar
   Zilean
-MonkeyKing 100 
+MonkeyKing 101 
   Aatrox
   Ahri
   Amumu
@@ -4548,6 +4554,7 @@ MonkeyKing 100
   Riven
   Rumble
   Ryze
+  Sejuani
   Shaco
   Shen
   Sion
@@ -4912,7 +4919,7 @@ Nidalee 29
   Viktor
   Zilean
   Zyra
-Nocturne 122 P
+Nocturne 124 P
   Aatrox
   Ahri
   Akali
@@ -4976,6 +4983,7 @@ Nocturne 122 P
   Lux
   Malphite
   Malzahar
+  Maokai
   MissFortune
   MonkeyKing
   Mordekaiser
@@ -4997,6 +5005,7 @@ Nocturne 122 P
   Riven
   Rumble
   Ryze
+  Sejuani
   Shaco
   Shen
   Shyvana
@@ -5717,7 +5726,7 @@ RekSai 65
   Ziggs
   Zilean
   Zyra
-Renekton 89 
+Renekton 90 
   Aatrox
   Ahri
   Amumu
@@ -5779,6 +5788,7 @@ Renekton 89
   Rengar
   Riven
   Ryze
+  Sejuani
   Shen
   Sivir
   Sona
@@ -5952,7 +5962,7 @@ Riven 59
   Ziggs
   Zilean
   Zyra
-Rumble 109 
+Rumble 111 
   Ahri
   Akali
   Amumu
@@ -6010,6 +6020,7 @@ Rumble 109
   Lux
   Malphite
   Malzahar
+  Maokai
   MissFortune
   Mordekaiser
   Morgana
@@ -6029,6 +6040,7 @@ Rumble 109
   Rengar
   Riven
   Ryze
+  Sejuani
   Shaco
   Shen
   Sion
@@ -6115,11 +6127,8 @@ Ryze 52
   Ziggs
   Zilean
   Zyra
-Sejuani 119 
-  Aatrox
+Sejuani 85 
   Ahri
-  Akali
-  Alistar
   Amumu
   Anivia
   Annie
@@ -6127,43 +6136,29 @@ Sejuani 119
   AurelionSol
   Azir
   Bard
-  Blitzcrank
   Brand
   Braum
   Caitlyn
-  Camille
   Cassiopeia
-  Chogath
   Corki
-  DrMundo
   Draven
-  Ekko
   Elise
   Evelynn
   Ezreal
   Fiddlesticks
   Fizz
-  Galio
   Gangplank
-  Garen
   Gnar
-  Gragas
   Graves
-  Hecarim
   Heimerdinger
-  Illaoi
-  Irelia
   Ivern
   Janna
-  JarvanIV
   Jayce
   Jhin
   Jinx
   Kalista
   Karma
   Karthus
-  Kassadin
-  Katarina
   Kayle
   Kennen
   Khazix
@@ -6171,40 +6166,28 @@ Sejuani 119
   Kled
   KogMaw
   Leblanc
-  LeeSin
-  Leona
   Lissandra
   Lucian
   Lulu
   Lux
-  Malphite
   Malzahar
   MissFortune
-  MonkeyKing
   Mordekaiser
   Morgana
   Nami
   Nautilus
   Nidalee
-  Nunu
   Orianna
   Pantheon
   Poppy
   Quinn
   Rakan
   RekSai
-  Renekton
-  Rengar
   Riven
-  Rumble
   Ryze
-  Shaco
   Shen
-  Shyvana
-  Singed
   Sion
   Sivir
-  Skarner
   Sona
   Soraka
   Swain
@@ -6216,8 +6199,6 @@ Sejuani 119
   Tristana
   TwistedFate
   Twitch
-  Udyr
-  Urgot
   Varus
   Vayne
   Veigar
@@ -6227,15 +6208,12 @@ Sejuani 119
   Vladimir
   Xayah
   Xerath
-  XinZhao
   Yasuo
-  Yorick
-  Zac
   Zed
   Ziggs
   Zilean
   Zyra
-Shaco 108 
+Shaco 109 
   Ahri
   Alistar
   Amumu
@@ -6311,6 +6289,7 @@ Shaco 108
   Rengar
   Riven
   Ryze
+  Sejuani
   Shen
   Sion
   Sivir
@@ -6417,7 +6396,7 @@ Shen 72
   Ziggs
   Zilean
   Zyra
-Shyvana 118 
+Shyvana 120 
   Aatrox
   Ahri
   Akali
@@ -6479,6 +6458,7 @@ Shyvana 118
   Lux
   Malphite
   Malzahar
+  Maokai
   MissFortune
   MonkeyKing
   Mordekaiser
@@ -6500,6 +6480,7 @@ Shyvana 118
   Riven
   Rumble
   Ryze
+  Sejuani
   Shaco
   Shen
   Sion
@@ -6536,7 +6517,7 @@ Shyvana 118
   Ziggs
   Zilean
   Zyra
-Singed 119 P
+Singed 120 P
   Aatrox
   Ahri
   Akali
@@ -6620,6 +6601,7 @@ Singed 119 P
   Riven
   Rumble
   Ryze
+  Sejuani
   Shaco
   Shen
   Shyvana
@@ -7099,7 +7081,7 @@ Taliyah 31
   Ziggs
   Zilean
   Zyra
-Talon 116 
+Talon 117 
   Aatrox
   Ahri
   Akali
@@ -7180,6 +7162,7 @@ Talon 116
   Riven
   Rumble
   Ryze
+  Sejuani
   Shaco
   Shen
   Singed
@@ -7755,7 +7738,7 @@ Twitch 92 P
   Ziggs
   Zilean
   Zyra
-Udyr 95 
+Udyr 96 
   Aatrox
   Ahri
   Amumu
@@ -7822,6 +7805,7 @@ Udyr 95
   Rengar
   Riven
   Ryze
+  Sejuani
   Shen
   Sivir
   Sona
@@ -7851,7 +7835,7 @@ Udyr 95
   Ziggs
   Zilean
   Zyra
-Urgot 113 P
+Urgot 114 P
   Aatrox
   Ahri
   Akali
@@ -7931,6 +7915,7 @@ Urgot 113 P
   Rengar
   Riven
   Ryze
+  Sejuani
   Shaco
   Shen
   Sion
@@ -8824,7 +8809,7 @@ Yorick 84
   Ziggs
   Zilean
   Zyra
-Zac 100 
+Zac 102 
   Aatrox
   Ahri
   Amumu
@@ -8834,6 +8819,7 @@ Zac 100
   AurelionSol
   Azir
   Bard
+  Blitzcrank
   Brand
   Braum
   Caitlyn
@@ -8894,6 +8880,7 @@ Zac 100
   Riven
   Rumble
   Ryze
+  Sejuani
   Shen
   Sion
   Sivir

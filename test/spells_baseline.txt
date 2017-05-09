@@ -1,6 +1,6 @@
 Total: 544
-Parse Error: 57
-Does damage: 304
+Parse Error: 58
+Does damage: 303
 Mentions damage: 473
 Aatrox Dark Flight
 10 +1.1 AD physical damage
@@ -472,12 +472,13 @@ ERROR: VAR f1 is not defined for Void Swarm
 Malzahar Malefic Visions
 80 +0.7 AP magic damage
 Malzahar Nether Grasp
-Maokai Arcane Smash
+Maokai Bramble Smash
 70 +0.4 AP magic damage
 Maokai Twisted Advance
+50 +0.4 AP magic damage
 Maokai Sapling Toss
-80 +0.6 AP magic damage
-Maokai Vengeful Maelstrom
+Maokai Nature's Grasp
+150 +0.75 AP magic damage
 Master Yi Alpha Strike
 25 +1 AD physical damage
 +0.6 AD physical damage
@@ -608,7 +609,6 @@ Rek'Sai Void Rush
 Renekton Cull the Meek
 60 +0.8 bonus AD physical damage
 Renekton Ruthless Predator
-5 +1.5 AD physical damage
 Renekton Slice and Dice
 30 +0.9 bonus AD physical damage
 30 +0.9 bonus AD physical damage
@@ -644,12 +644,14 @@ Ryze Spell Flux
 ERROR: VAR f1 is not defined for Spell Flux
 Ryze Realm Warp
 Sejuani Arctic Assault
-80 +0.4 AP magic damage
-Sejuani Flail of the Northern Winds
-40 +0.1 bonus HP +0.6 AP magic damage
+60 +0.4 AP magic damage
+Sejuani Winter's Wrath
+ERROR: VAR f1 is not defined for Winter's Wrath
 Sejuani Permafrost
-80 +0.5 AP magic damage
+40 +0.3 AP magic damage
 Sejuani Glacial Prison
+100 +0.4 AP magic damage
+150 +0.4 AP magic damage
 150 +0.8 AP magic damage
 Shaco Deceive
 Shaco Jack In The Box
@@ -904,14 +906,15 @@ Yorick Dark Procession
 Yorick Mourning Mist
 Yorick Eulogy of the Isles
 ERROR: VAR f2 is not defined for Eulogy of the Isles
-Zac Stretching Strike
-70 +0.5 AP magic damage
+Zac Stretching Strikes
+50 +0.3 AP magic damage
+50 +0.3 AP magic damage
 Zac Unstable Matter
 40 magic damage
 Zac Elastic Slingshot
 80 +0.7 AP magic damage
 Zac Let's Bounce!
-140 +0.4 AP magic damage
+150 +0.7 AP magic damage
 Zed Razor Shuriken
 70 +0.9 bonus AD physical damage
 42 +0.54 bonus AD physical damage
