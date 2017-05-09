@@ -22,6 +22,7 @@ class Maps {
 class ItemDescription {
   final String name;
   final String id;
+  final String tooltip;
   final Map<String, bool> maps;
   final Map<String, num> stats;
   final Map<String, dynamic> gold;
@@ -36,6 +37,7 @@ class ItemDescription {
   ItemDescription.fromJson({Map<String, dynamic> json, String id})
       : id = id,
         name = json['name'],
+        tooltip = json['description'],
         maps = json['maps'],
         tags = json['tags'],
         gold = json['gold'],

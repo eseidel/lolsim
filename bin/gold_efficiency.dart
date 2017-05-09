@@ -4,16 +4,26 @@ import 'package:lol_duel/dragon.dart';
 import 'package:lol_duel/stat_constants.dart';
 import 'package:lol_duel/cli_table.dart';
 
-class _GoldEfficiency {
+class _Result {
   ItemDescription item;
-  double value;
+  double statGoldValue;
+  int tooltipPassivesCount;
+  int tooltipActivesCount;
 
-  _GoldEfficiency(this.item, _StatCosts statCosts) {
-    value = statCosts.goldValueOfStats(item);
+  static final RegExp _passivePattern =
+      new RegExp('passive', caseSensitive: false);
+  static final RegExp _activePattern =
+      new RegExp('active', caseSensitive: false);
+
+  _Result(this.item, _StatCosts statCosts) {
+    statGoldValue = statCosts.goldValueOfStats(item);
+    tooltipPassivesCount = _passivePattern.allMatches(item.tooltip).length;
+    tooltipActivesCount = _activePattern.allMatches(item.tooltip).length;
   }
 
+  int get statCount => item.stats.length;
   int get cost => item.gold['total'];
-  double get efficiency => value / cost;
+  double get efficiency => statGoldValue / cost;
 }
 
 class _StatCosts {
@@ -90,13 +100,18 @@ dynamic main(List<String> args) async {
 
   _StatCosts statCosts = new _StatCosts(dragon.items);
 
-  List<_GoldEfficiency> results =
-      items.map((item) => new _GoldEfficiency(item, statCosts)).toList();
+  List<_Result> results =
+      items.map((item) => new _Result(item, statCosts)).toList();
   results.sort((a, b) => a.efficiency.compareTo(b.efficiency));
 
-  TableLayout layout = new TableLayout([35, 6, 15]);
-  layout.printRow(['Item', 'Cost', 'Efficiency']);
+  TableLayout layout = new TableLayout([35, 6, 10, 5, 8, 7]);
+  layout
+      .printRow(['Item', 'Cost', 'Efficiency', 'Stats', 'Passives', 'Actives']);
   layout.printDivider();
+
+  String emptyIfZero(int value) {
+    return value == 0 ? '' : value.toString();
+  }
 
   for (var result in results) {
     layout.printRow([
@@ -104,6 +119,9 @@ dynamic main(List<String> args) async {
       result.cost.toString(),
       // result.value.toStringAsFixed(1),
       _toPercentString(result.efficiency),
+      emptyIfZero(result.statCount),
+      emptyIfZero(result.tooltipPassivesCount),
+      emptyIfZero(result.tooltipActivesCount),
     ]);
   }
 }
