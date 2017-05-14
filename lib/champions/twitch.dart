@@ -32,6 +32,7 @@ class DeadlyVenom extends DOT {
       target: target,
       label: name,
       trueDamage: dmgPerStackPerTick * stackCount,
+      targeting: Targeting.dot,
     );
   }
 }

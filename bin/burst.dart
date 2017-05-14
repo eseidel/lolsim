@@ -49,6 +49,8 @@ void applySpell(Spell spell, int rank, Mob source, Mob target) {
     physicalDamage: physicalDamage,
     magicDamage: magicDamage,
     trueDamage: trueDamage,
+    // FIXME: Not all spells are single-target.
+    targeting: Targeting.singleTargetSpell,
   ));
 }
 

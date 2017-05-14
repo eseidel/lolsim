@@ -272,7 +272,7 @@ class ToughSkin extends MasteryEffects {
   // You take 2 less damage from champion and neutral monster basic attacks
   @override
   void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {
-    // FIXME: This should only apply to basic attacks.
+    if (hit.targeting != Targeting.basicAttack) return;
     MobType sourceType = hit.source.type;
     if (sourceType == MobType.champion || sourceType == MobType.monster)
       delta.flatPhysical -= 2;

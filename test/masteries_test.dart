@@ -44,6 +44,14 @@ dynamic main() async {
       expect(toughSkinMob.currentHp, 84.0);
       new AutoAttack(minion, toughSkinMob).apply(world);
       expect(toughSkinMob.currentHp, 74.0);
+      toughSkinMob.applyHit(new Hit(
+        label: 'test',
+        physicalDamage: 10.0,
+        source: champion,
+        targeting: Targeting.singleTargetSpell,
+      ));
+      // Tough Skin has no effect on non-basic attacks.
+      expect(toughSkinMob.currentHp, 64.0);
     });
   });
   group("Merciless", () {

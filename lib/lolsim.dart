@@ -140,6 +140,7 @@ class AutoAttack extends Action {
       target: target,
       isCrit: isCrit,
       physicalDamage: attackDamage,
+      targeting: Targeting.basicAttack,
     );
     source.applyOnHitEffects(hit);
     double appliedDamage = target.applyHit(hit);
@@ -174,7 +175,9 @@ class Damage {
 }
 
 enum Targeting {
-  singleTarget,
+  singleTargetSpell,
+  basicAttack,
+  dot,
   aoe,
 }
 
@@ -195,7 +198,7 @@ class Hit {
     double trueDamage: 0.0,
     this.source: null,
     this.target: null,
-    this.targeting: Targeting.singleTarget,
+    this.targeting: Targeting.singleTargetSpell,
   })
       : baseDamage = new Damage(
           label: label,
@@ -620,6 +623,7 @@ class Mob {
     double physicalDamage: 0.0,
     double magicDamage: 0.0,
     double trueDamage: 0.0,
+    Targeting targeting: Targeting.basicAttack,
   }) {
     Hit hit = new Hit(
       source: this,
@@ -629,6 +633,7 @@ class Mob {
       physicalDamage: physicalDamage,
       magicDamage: magicDamage,
       trueDamage: trueDamage,
+      targeting: targeting,
     );
 
     DamageDealtDelta delta = computeDamageDealtDelta(hit);

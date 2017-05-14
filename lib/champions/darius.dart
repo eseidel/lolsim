@@ -46,6 +46,7 @@ class Hemorrhage extends DOT {
       target: target,
       label: name,
       physicalDamage: dmgPerStackPerTick * stackCount,
+      targeting: Targeting.dot,
     );
   }
 }
