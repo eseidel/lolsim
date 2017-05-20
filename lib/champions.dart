@@ -4,6 +4,7 @@ import 'lolsim.dart';
 const String VERSION_7_2_1 = '7.2.1';
 const String VERSION_7_8_1 = '7.8.1';
 const String VERSION_7_9_1 = '7.9.1';
+const String VERSION_7_10_1 = '7.10.1';
 
 abstract class ChampionEffects {
   String get lastUpdate;
@@ -38,5 +39,6 @@ Map<String, ChampionEffectsConstructor> championEffectsConstructors = {
   'Urgot': (Mob champ) => new Urgot(champ),
   'Volibear': (Mob champ) => new Volibear(champ),
   'Warwick': (Mob champ) => new Warwick(champ),
+  'XinZhao': (Mob champ) => new XinZhao(champ),
   'Zed': (Mob champ) => new Zed(champ),
 };

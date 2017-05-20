@@ -85,8 +85,8 @@ dynamic main() async {
   group("Doran's Blade", () {
     test("lifesteal", () {
       Mob attacker = createTestMob(hp: 100.0, ad: 192.0);
-      Mob noArmor = createTestMob(hp: 1000.0, armor: 0.0);
-      Mob withArmor = createTestMob(hp: 1000.0, armor: 100.0);
+      Mob noArmor = createTestMob(hp: 1000.0, baseArmor: 0.0);
+      Mob withArmor = createTestMob(hp: 1000.0, baseArmor: 100.0);
 
       attacker.addItem(itemNamed("Doran's Blade"));
 

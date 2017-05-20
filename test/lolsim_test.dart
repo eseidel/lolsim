@@ -85,7 +85,7 @@ dynamic main() async {
       }));
       // Target A has 300 armor (100 base and 200 bonus armor).
       var targetA = createTestMob(
-        armor: 100.0,
+        baseArmor: 100.0,
         level: 18,
         hp: 1000.0,
       );
@@ -110,7 +110,7 @@ dynamic main() async {
       expect(targetA.hpLost, closeTo(100.0 * (100.0 / (100.0 + 122.3)), 0.01));
       // Target B has 18 armor.
       var targetB = createTestMob(
-        armor: 18.0,
+        baseArmor: 18.0,
         level: 18,
         hp: 1000.0,
       );

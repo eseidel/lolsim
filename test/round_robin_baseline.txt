@@ -89,32 +89,32 @@ Nunu          79
 Khazix        80                   
 Pantheon      81                   
 Kassadin      83                   
+Zed           83         P         
 Rengar        84                   
 Yorick        84                   
-Zed           84         P         
 Sejuani       85                   
 Sion          86                   
 Camille       87                   
-XinZhao       87                   
-Renekton      90                   
+Renekton      89                   
 Leona         91                   
+Blitzcrank    92                   
 Ekko          92         P         
+Skarner       92                   
 Twitch        92         P         
-Blitzcrank    93                   
-Skarner       93                   
-Hecarim       96                   
+Hecarim       95                   
+Malphite      95                   
+XinZhao       95         P         
 Illaoi        96                   
-Malphite      96                   
 Udyr          96                   
-Garen         98                   
+Garen         97                   
 LeeSin        99                   
+Aatrox        100                  
 Katarina      100                  
-Aatrox        101                  
-MonkeyKing    101                  
+MonkeyKing    100                  
 Chogath       102                  
 DrMundo       102        P         
+Nasus         102        P         
 Zac           102                  
-Nasus         103        P         
 Shaco         109                  
 Alistar       110                  
 Rammus        111        P         
@@ -140,7 +140,7 @@ Warwick       131        P
 Darius        133        P         
 Fiora         134        P         
 Olaf          135        P         
-Aatrox 101 
+Aatrox 100 
   Ahri
   Amumu
   Anivia
@@ -235,7 +235,6 @@ Aatrox 101
   Vladimir
   Xayah
   Xerath
-  XinZhao
   Yasuo
   Yorick
   Zed
@@ -731,7 +730,7 @@ Bard 28
   Viktor
   Zilean
   Zyra
-Blitzcrank 93 
+Blitzcrank 92 
   Ahri
   Amumu
   Anivia
@@ -818,7 +817,6 @@ Blitzcrank 93
   Vladimir
   Xayah
   Xerath
-  XinZhao
   Yasuo
   Yorick
   Zed
@@ -2181,7 +2179,7 @@ Gangplank 54
   Ziggs
   Zilean
   Zyra
-Garen 98 
+Garen 97 
   Ahri
   Amumu
   Anivia
@@ -2273,7 +2271,6 @@ Garen 98
   Vladimir
   Xayah
   Xerath
-  XinZhao
   Yasuo
   Yorick
   Zed
@@ -2428,7 +2425,7 @@ Graves 14
   Thresh
   TwistedFate
   Veigar
-Hecarim 96 
+Hecarim 95 
   Aatrox
   Ahri
   Amumu
@@ -2518,7 +2515,6 @@ Hecarim 96
   Vladimir
   Xayah
   Xerath
-  XinZhao
   Yasuo
   Yorick
   Zed
@@ -4107,7 +4103,7 @@ Lux 3
   Anivia
   Annie
   Kled
-Malphite 96 
+Malphite 95 
   Ahri
   Amumu
   Anivia
@@ -4197,7 +4193,6 @@ Malphite 96
   Vladimir
   Xayah
   Xerath
-  XinZhao
   Yasuo
   Yorick
   Zed
@@ -4484,7 +4479,7 @@ MissFortune 14
   Thresh
   Veigar
   Zilean
-MonkeyKing 101 
+MonkeyKing 100 
   Aatrox
   Ahri
   Amumu
@@ -4579,7 +4574,6 @@ MonkeyKing 101
   Vladimir
   Xayah
   Xerath
-  XinZhao
   Yasuo
   Yorick
   Zed
@@ -4707,7 +4701,7 @@ Nami 11
   Sona
   Soraka
   Veigar
-Nasus 103 P
+Nasus 102 P
   Aatrox
   Ahri
   Amumu
@@ -4804,7 +4798,6 @@ Nasus 103 P
   Vladimir
   Xayah
   Xerath
-  XinZhao
   Yasuo
   Yorick
   Zed
@@ -5726,7 +5719,7 @@ RekSai 65
   Ziggs
   Zilean
   Zyra
-Renekton 90 
+Renekton 89 
   Aatrox
   Ahri
   Amumu
@@ -5810,7 +5803,6 @@ Renekton 90
   Vladimir
   Xayah
   Xerath
-  XinZhao
   Yasuo
   Yorick
   Zed
@@ -6763,7 +6755,7 @@ Sivir 37
   Ziggs
   Zilean
   Zyra
-Skarner 93 
+Skarner 92 
   Ahri
   Amumu
   Anivia
@@ -6850,7 +6842,6 @@ Skarner 93
   Vladimir
   Xayah
   Xerath
-  XinZhao
   Yasuo
   Yorick
   Zed
@@ -8573,7 +8564,8 @@ Xerath 23
   Veigar
   Zilean
   Zyra
-XinZhao 87 
+XinZhao 95 P
+  Aatrox
   Ahri
   Amumu
   Anivia
@@ -8585,6 +8577,7 @@ XinZhao 87
   Brand
   Braum
   Caitlyn
+  Camille
   Cassiopeia
   Corki
   Draven
@@ -8597,6 +8590,7 @@ XinZhao 87
   Gangplank
   Gnar
   Graves
+  Hecarim
   Heimerdinger
   Ivern
   Janna
@@ -8620,20 +8614,24 @@ XinZhao 87
   Lux
   Malzahar
   MissFortune
+  MonkeyKing
   Mordekaiser
   Morgana
   Nami
   Nautilus
   Nidalee
+  Nunu
   Orianna
   Pantheon
   Poppy
   Quinn
   Rakan
   RekSai
+  Renekton
   Rengar
   Riven
   Ryze
+  Sejuani
   Shen
   Sion
   Sivir
@@ -8658,6 +8656,7 @@ XinZhao 87
   Xayah
   Xerath
   Yasuo
+  Zed
   Ziggs
   Zilean
   Zyra
@@ -8912,7 +8911,7 @@ Zac 102
   Ziggs
   Zilean
   Zyra
-Zed 84 P
+Zed 83 P
   Ahri
   Amumu
   Anivia
@@ -8991,7 +8990,6 @@ Zed 84 P
   Vladimir
   Xayah
   Xerath
-  XinZhao
   Yasuo
   Yorick
   Ziggs

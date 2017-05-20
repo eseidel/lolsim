@@ -50,11 +50,8 @@ Many.  Including at least:
 - DPS and burst for each champ.
 
 ## TODO / Bugs
-- Split bonus vs. base armor, etc.
 - Figure out how to do ability passives.
 - Unify Buffs, Items, Abilities as Scripts.
-- Percent armor (xin, kayle, etc.): http://leagueoflegends.wikia.com/wiki/Armor_penetration
-- Lethality
 - Handle stat modifying buffs first, before other buffs.
 - pub run test dies w/o message when no precache.
 - Coverage & coveralls.io

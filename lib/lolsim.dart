@@ -689,6 +689,7 @@ class Mob {
         // hit.target can be null.
         delta.percentPhysical *=
             _resistanceMultiplier(armorAfterPenatration(hit.source));
+        // FIXME: Missing Spell Spentration
         delta.percentMagical *= _resistanceMultiplier(stats.spellBlock);
       }
     ];

@@ -26,7 +26,7 @@ Buff createTestBuff({Map<String, num> stats}) {
 Mob createTestMob({
   double hp: 100.0,
   double ad: 10.0,
-  double armor: 0.0,
+  double baseArmor: 0.0,
   MobType type: MobType.minion,
   double hp5: 0.0,
   List<Mastery> masteries: const [],
@@ -36,7 +36,7 @@ Mob createTestMob({
     new MobDescription.forTesting(
       name: 'Test Mob',
       baseStats: new BaseStats(
-        baseArmor: armor,
+        baseArmor: baseArmor,
         armorPerLevel: 0.0,
         baseAttackDamage: ad,
         attackDamagePerLevel: 0.0,

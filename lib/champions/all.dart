@@ -20,4 +20,5 @@ export 'twitch.dart';
 export 'urgot.dart';
 export 'volibear.dart';
 export 'warwick.dart';
+export 'xinzhao.dart';
 export 'zed.dart';
