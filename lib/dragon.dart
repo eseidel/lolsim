@@ -33,6 +33,22 @@ class ItemDescription {
   final bool hasEffects;
   final bool consumable;
 
+  // For unit tests.
+  ItemDescription.forTesting({
+    @required this.stats,
+  })
+      : name = null,
+        id = null,
+        tooltip = null,
+        maps = null,
+        gold = null,
+        tags = null,
+        requiredChampion = null,
+        inStore = true,
+        hideFromAll = false,
+        hasEffects = false,
+        consumable = false;
+
   // FIXME: Should use items['basic'] for defaults.
   ItemDescription.fromJson({Map<String, dynamic> json, String id})
       : id = id,
@@ -202,7 +218,7 @@ class MobDescription {
   final BaseStats baseStats;
   final List<String> tags;
 
-  MobDescription({
+  MobDescription.forTesting({
     this.name,
     @required this.baseStats,
     this.id,

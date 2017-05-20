@@ -18,3 +18,11 @@ const String PercentSpellVampMod = 'PercentSpellVampMod';
 const String FlatArmorModPerLevel = 'rFlatArmorModPerLevel';
 const String FlatSpellBlockModPerLevel = 'rFlatSpellBlockModPerLevel';
 const String PercentCooldownMod = 'rPercentCooldownMod';
+
+// I've added these:
+const String Lethality = 'CustomLethality';
+const String PercentArmorMod = 'CustomPercentArmorMod';
+const String FlatArmorReduction = 'CustomFlatArmorReduction';
+const String PercentBonusArmorMod = 'CustomPercentBonusArmorMod';
+const String PercentBonusArmorPenetrationMod =
+    'CustomPercentBonusArmorPenetrationMod';

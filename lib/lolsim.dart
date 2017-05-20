@@ -13,6 +13,7 @@ import 'dragon.dart';
 import 'minions.dart';
 import 'stats.dart';
 export 'stats.dart';
+import 'stat_constants.dart';
 
 final Logger _log = new Logger('LOL');
 
@@ -488,23 +489,35 @@ class Mob {
   // stat modifications together in json form and then collapse them all at the end instead.
   // FIXME: These are neither complete, nor necessarily correct.
   final Map<String, StatApplier> appliers = {
-    'FlatArmorMod': (computed, statValue) => computed.armor += statValue,
-    'FlatHPPoolMod': (computed, statValue) => computed.hp += statValue,
-    'FlatCritChanceMod': (computed, statValue) =>
+    FlatArmorMod: (computed, statValue) =>
+        computed.addBonusArmor(statValue.toDouble()),
+    FlatHPPoolMod: (computed, statValue) => computed.hp += statValue,
+    FlatCritChanceMod: (computed, statValue) =>
         computed.critChance += statValue,
-    'FlatHPRegenMod': (computed, statValue) => computed.hpRegen += statValue,
-    'FlatMagicDamageMod': (computed, statValue) =>
+    FlatHPRegenMod: (computed, statValue) => computed.hpRegen += statValue,
+    FlatMagicDamageMod: (computed, statValue) =>
         computed.abilityPower += statValue,
     // 'FlatMovementSpeedMod': (computed, statValue) => computed.movespeed += statValue,
-    'FlatMPPoolMod': (computed, statValue) => computed.mp += statValue,
-    'FlatSpellBlockMod': (computed, statValue) =>
+    FlatMPPoolMod: (computed, statValue) => computed.mp += statValue,
+    FlatSpellBlockMod: (computed, statValue) =>
         computed.spellBlock += statValue,
-    'FlatPhysicalDamageMod': (computed, statValue) =>
+    FlatPhysicalDamageMod: (computed, statValue) =>
         computed.bonusAttackDamage += statValue,
-    'PercentAttackSpeedMod': (computed, statValue) =>
+    PercentAttackSpeedMod: (computed, statValue) =>
         computed.bonusAttackSpeed += statValue,
-    'PercentLifeStealMod': (computed, statValue) =>
+    PercentLifeStealMod: (computed, statValue) =>
         computed.lifesteal += statValue,
+    Lethality: (computed, statValue) => computed.lethality += statValue,
+    PercentArmorMod: (computed, statValue) =>
+        computed.armorPercentMod = (100.0 + statValue) / 100,
+    FlatArmorReduction: (computed, statValue) =>
+        computed.flatArmorReduction += statValue,
+
+    PercentArmorPenetrationMod: (computed, statValue) =>
+        computed.percentArmorPenetration *= (100.0 - statValue) / 100,
+    PercentBonusArmorPenetrationMod: (computed, statValue) =>
+        computed.percentBonusArmorPenetration *= (100.0 - statValue) / 100,
+
     // 'PercentMovementSpeedMod': (computed, statValue) => computed.movespeed *= statValue,
   };
 
@@ -646,6 +659,18 @@ class Mob {
     return 2 - (100 / (100 - resistance));
   }
 
+  double armorAfterPenatration(Mob source) {
+    // Pen is ignored when source is null (during some tests).
+    if (source == null) return stats.armor;
+    if (stats.armor <= 0) return stats.armor;
+    double effectiveArmor = (stats.baseArmor +
+            stats.bonusArmor * source.stats.percentBonusArmorPenetration) *
+        source.stats.percentArmorPenetration;
+    effectiveArmor -=
+        source.stats.flatArmorPenetrationForTargetWithLevel(level);
+    return max(effectiveArmor, 0.0);
+  }
+
   List<DamageRecievedModifier> collectDamageRecievedModifiers() {
     List<DamageRecievedModifier> modifiers = [
       (hit, delta) {
@@ -661,7 +686,9 @@ class Mob {
         // 4. Armor penetration, flat
         // Supposedly base and bonus armor are computed separately?
         // http://leagueoflegends.wikia.com/wiki/Armor_penetration
-        delta.percentPhysical *= _resistanceMultiplier(stats.armor);
+        // hit.target can be null.
+        delta.percentPhysical *=
+            _resistanceMultiplier(armorAfterPenatration(hit.source));
         delta.percentMagical *= _resistanceMultiplier(stats.spellBlock);
       }
     ];

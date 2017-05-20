@@ -1,8 +1,27 @@
 import "package:lol_duel/lolsim.dart";
 import 'package:lol_duel/mastery_pages.dart';
 import 'package:lol_duel/dragon.dart';
+import 'package:lol_duel/buffs.dart';
 
 CritProvider alwaysCrit = (Mob) => true;
+
+Item createTestItem({Map<String, num> stats}) {
+  return new Item(new ItemDescription.forTesting(
+    stats: stats,
+  ));
+}
+
+class TestBuff extends PermanentBuff {
+  Map<String, num> _stats;
+  TestBuff(this._stats);
+
+  @override
+  Map<String, num> get stats => _stats;
+}
+
+Buff createTestBuff({Map<String, num> stats}) {
+  return new TestBuff(stats);
+}
 
 Mob createTestMob({
   double hp: 100.0,
@@ -11,12 +30,13 @@ Mob createTestMob({
   MobType type: MobType.minion,
   double hp5: 0.0,
   List<Mastery> masteries: const [],
+  int level: 1,
 }) {
   Mob mob = new Mob(
-    new MobDescription(
+    new MobDescription.forTesting(
       name: 'Test Mob',
       baseStats: new BaseStats(
-        armor: armor,
+        baseArmor: armor,
         armorPerLevel: 0.0,
         baseAttackDamage: ad,
         attackDamagePerLevel: 0.0,
@@ -41,6 +61,7 @@ Mob createTestMob({
     );
     mob.masteryPage.logAnyMissingEffects();
   }
+  mob.level = level;
   mob.updateStats();
   return mob;
 }

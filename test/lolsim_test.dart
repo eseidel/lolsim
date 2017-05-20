@@ -1,5 +1,6 @@
 import 'package:lol_duel/lolsim.dart';
 import "package:test/test.dart";
+import 'package:lol_duel/stat_constants.dart';
 
 import 'test_mob.dart';
 
@@ -61,6 +62,65 @@ dynamic main() async {
       mob1.stats.critDamageMultiplier = 3.0;
       new AutoAttack(mob1, mob2).apply(world);
       expect(mob2.currentHp, 40);
+    });
+  });
+  group('Letahlity', () {
+    test('basic', () {
+      // Flat Armor Penetration = LETHALITY × (0.6 + 0.4 × Target's level ÷ 18)
+      expect(letalityToFlatPenatration(1), closeTo(0.622, 0.01));
+      expect(letalityToFlatPenatration(6), closeTo(0.733, 0.01));
+      expect(letalityToFlatPenatration(11), closeTo(0.844, 0.01));
+      expect(letalityToFlatPenatration(18), 1);
+    });
+  });
+  group('Armor', () {
+    test('lolwiki example', () {
+      World world = new World();
+      // Given 30 flat armor reduction and 30% armor reduction, and the target
+      // is affected by 10 flat armor penetration and 45% bonus armor penetration,
+      var attacker = createTestMob(ad: 100.0);
+      attacker.addItem(createTestItem(stats: {
+        Lethality: 10,
+        PercentBonusArmorPenetrationMod: 45,
+      }));
+      // Target A has 300 armor (100 base and 200 bonus armor).
+      var targetA = createTestMob(
+        armor: 100.0,
+        level: 18,
+        hp: 1000.0,
+      );
+      targetA.addItem(createTestItem(stats: {
+        FlatArmorMod: 200,
+      }));
+      var debuff = createTestBuff(stats: {
+        FlatArmorReduction: 30,
+        PercentArmorMod: -30,
+      });
+      targetA.addBuff(debuff);
+      // The 300 is reduced to 270 (90 base and 180 bonus armor) by the 30 armor reduction.
+      // The 270 is reduced to 189 (63 base and 126 bonus armor) by the 30% armor reduction.
+      expect(targetA.stats.armorPercentMod, 0.7);
+      expect(targetA.stats.baseArmor, closeTo(63, 0.01));
+      expect(targetA.stats.bonusArmor, closeTo(126, 0.01));
+      expect(targetA.stats.armor, closeTo(189, 0.01));
+      // The 189 is considered to be 132.3 (63 base and 69.3 bonus armor) by the 45% bonus armor penetration.
+      // The 132.3 is considered to be 122.3 by the 10 armor penetration.
+      // Target A takes damage as if it has 122.3 armor.
+      new AutoAttack(attacker, targetA).apply(world);
+      expect(targetA.hpLost, closeTo(100.0 * (100.0 / (100.0 + 122.3)), 0.01));
+      // Target B has 18 armor.
+      var targetB = createTestMob(
+        armor: 18.0,
+        level: 18,
+        hp: 1000.0,
+      );
+      targetB.addBuff(debuff);
+      expect(targetB.stats.armor, -12);
+      // The 18 is reduced to −12 by the 30 armor reduction.
+      // The −12 is not affected by any further calculations because it is less than 0.
+      // Target B takes damage as if it has −12 armor.
+      new AutoAttack(attacker, targetB).apply(world);
+      expect(targetB.hpLost, 100.0 * (2 - (100.0 / 112.0)));
     });
   });
 }

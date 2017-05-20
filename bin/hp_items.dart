@@ -34,7 +34,7 @@ dynamic main(List<String> args) async {
   champ.addItem(creator.items.itemByName('Dead Man\'s Plate'));
 
   Stats withItems = champ.updateStats();
-  withItems.armor += 40; // HACK: For Knight's vow.
+  withItems.addBonusArmor(40.0); // HACK: For Knight's vow.
   print(withItems.debugString());
   print("Php: ${withItems.physicalEffectiveHealth.round()}");
   print("Mhp: ${withItems.magicalEffectiveHealth.round()}");

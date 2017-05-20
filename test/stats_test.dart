@@ -5,7 +5,7 @@ import "package:test/test.dart";
 dynamic main() async {
   test("statsForLevel curve", () {
     BaseStats base = new BaseStats(
-      armor: 100.0,
+      baseArmor: 100.0,
       armorPerLevel: 5.0,
       baseAttackDamage: 100.0,
       attackDamagePerLevel: 5.0,

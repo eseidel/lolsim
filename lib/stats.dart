@@ -1,14 +1,27 @@
 import 'package:meta/meta.dart';
 
+double letalityToFlatPenatration(int targetLevel) {
+  //  LETHALITY × (0.6 + 0.4 × Target's level ÷ 18)
+  return 0.6 + 0.4 * targetLevel / 18.0;
+}
+
 class Stats {
   double hp;
   double mp;
   double baseAttackDamage;
   double bonusAttackDamage = 0.0;
   double abilityPower = 0.0;
-  double armor;
+  double _baseArmor; // Before reductions.
+  double _bonusArmor = 0.0; // incoming bonus armor.
+  double flatArmorReduction = 0.0;
+  double armorPercentMod = 1.0; // incoming armor changes.
+
   double spellBlock; // aka magic resist.
   double hpRegen;
+
+  double lethality = 0.0; // outgoing armor changes.
+  double percentArmorPenetration = 1.0; // outgoing armor changes.
+  double percentBonusArmorPenetration = 1.0; // outgoing armor changes.
 
   double lifesteal = 0.0;
   double critChance = 0.0;
@@ -25,10 +38,14 @@ class Stats {
     this.mp,
     this.baseAttackDamage,
     this.attackDelay,
-    this.armor,
+    double baseArmor,
     this.spellBlock,
     this.hpRegen,
-  });
+  })
+      : _baseArmor = baseArmor;
+
+  double flatArmorPenetrationForTargetWithLevel(int level) =>
+      lethality * letalityToFlatPenatration(level);
 
   String debugString() {
     return """
@@ -51,6 +68,38 @@ class Stats {
 
   double get magicalEffectiveHealth => hp * (1 + 0.01 * spellBlock);
   double get physicalEffectiveHealth => hp * (1 + 0.01 * armor);
+
+  void addBonusArmor(double newArmor) {
+    assert(newArmor > 0);
+    _bonusArmor += newArmor;
+  }
+
+  double get _bonusArmorReductionRatio {
+    if (_baseArmor <= 0) return 1.0;
+    if (_bonusArmor < 0) return 0.0;
+    double totalArmor = _baseArmor + _bonusArmor;
+    assert(totalArmor > 0);
+    return _bonusArmor / totalArmor;
+  }
+
+  double get _bonusArmorFlatReduction =>
+      _bonusArmorReductionRatio * flatArmorReduction;
+  double get _baseArmorFlatReduction =>
+      (1.0 - _bonusArmorReductionRatio) * flatArmorReduction;
+
+  double get bonusArmor {
+    double afterReduction = _bonusArmor - _bonusArmorFlatReduction;
+    if (afterReduction < 0) return afterReduction;
+    return afterReduction * armorPercentMod;
+  }
+
+  double get baseArmor {
+    double afterReduction = _baseArmor - _baseArmorFlatReduction;
+    if (afterReduction < 0) return afterReduction;
+    return afterReduction * armorPercentMod;
+  }
+
+  double get armor => baseArmor + bonusArmor;
 }
 
 class BaseStats extends Stats {
@@ -66,7 +115,7 @@ class BaseStats extends Stats {
     baseAttackDamage = json['attackdamage'].toDouble();
     hp = json['hp'].toDouble();
     mp = json['mp'].toDouble();
-    armor = json['armor'].toDouble();
+    _baseArmor = json['armor'].toDouble();
     spellBlock = json['spellblock'].toDouble();
     hpRegen = json['hpregen'].toDouble();
     range = json['attackrange'].toInt();
@@ -79,7 +128,7 @@ class BaseStats extends Stats {
     double baseAttackDamage,
     double attackDelay,
     double hpRegen,
-    double armor,
+    double baseArmor,
     double spellBlock,
     this.armorPerLevel,
     this.attackDamagePerLevel,
@@ -95,7 +144,7 @@ class BaseStats extends Stats {
           baseAttackDamage: baseAttackDamage,
           hpRegen: hpRegen,
           attackDelay: attackDelay,
-          armor: armor,
+          baseArmor: baseArmor,
           spellBlock: spellBlock,
         );
 
@@ -121,7 +170,7 @@ class BaseStats extends Stats {
     stats.hpRegen = _curve(hpRegen, hpRegenPerLevel, level);
     stats.baseAttackDamage =
         _curve(baseAttackDamage, attackDamagePerLevel, level);
-    stats.armor = _curve(armor, armorPerLevel, level);
+    stats._baseArmor = _curve(armor, armorPerLevel, level);
     stats.spellBlock = _curve(spellBlock, spellBlockPerLevel, level);
     stats.attackDelay = attackDelay;
     stats.bonusAttackSpeed =

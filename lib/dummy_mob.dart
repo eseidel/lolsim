@@ -3,10 +3,10 @@ import 'dragon.dart';
 
 Mob createDummyMob({double hp: 1000.0, MobType type: MobType.champion}) {
   Mob mob = new Mob(
-    new MobDescription(
+    new MobDescription.forTesting(
       name: 'Dummy',
       baseStats: new BaseStats(
-        armor: 0.0,
+        baseArmor: 0.0,
         armorPerLevel: 0.0,
         baseAttackDamage: 0.0,
         attackDamagePerLevel: 0.0,
