@@ -3,7 +3,6 @@ export 'diana.dart';
 export 'drmundo.dart';
 export 'ekko.dart';
 export 'fiora.dart';
-export 'heimerdinger.dart';
 export 'jarvaniv.dart';
 export 'jax.dart';
 export 'lulu.dart';

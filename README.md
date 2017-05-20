@@ -5,7 +5,7 @@ lolsim
 
 Toy implementation of League of Legends' combat engine.
 
-Current patch: 7.9.1.
+Current patch: 7.10.1.
 
 My goal here is to familiarize myself with the finer details of LOL's rules as
 well as have a chance to play around with Dart.
@@ -83,7 +83,6 @@ Many.  Including at least:
 - Pantheon passive (needs blocked)
 - Taric passive (needs an ability to be useful)
 - Wukong passive (needs proximity)
-- Xin Zhao passive (needs percent armor mod)
 - Sejuani passive (easy)
 
 Plan for stuns?

@@ -1,6 +1,6 @@
 Total: 544
-Parse Error: 58
-Does damage: 303
+Parse Error: 59
+Does damage: 302
 Mentions damage: 473
 Aatrox Dark Flight
 10 +1.1 AD physical damage
@@ -207,7 +207,7 @@ Fizz Urchin Strike
 +1 AD physical damage
 10 +0.55 AP magic damage
 Fizz Seastone Trident
-25 +0.33 AP magic damage
+20 +0.4 AP magic damage
 Fizz Playful / Trickster
 70 +0.75 AP magic damage
 Fizz Chum the Waters
@@ -263,7 +263,7 @@ Hecarim Devastating Charge
 Hecarim Onslaught of Shadows
 150 +1 AP magic damage
 Heimerdinger H-28G Evolution Turret
-12 +0.15 AP magic damage
+6 +0.3 AP magic damage
 40 +0.55 AP magic damage
 Heimerdinger Hextech Micro-Rockets
 60 +0.45 AP magic damage
@@ -596,9 +596,9 @@ Rakan The Quickness
 Rammus Powerball
 100 +1 AP magic damage
 Rammus Defensive Ball Curl
-Rammus Puncturing Taunt
+Rammus Frenzying Taunt
 Rammus Tremors
-65 +0.3 AP magic damage
+40 +0.2 AP magic damage
 Rek'Sai Queen's Wrath / Prey Seeker
 60 +0.7 AP magic damage
 Rek'Sai Burrow / Un-burrow
@@ -651,7 +651,7 @@ Sejuani Permafrost
 40 +0.3 AP magic damage
 Sejuani Glacial Prison
 100 +0.4 AP magic damage
-150 +0.4 AP magic damage
+150 +0.8 AP magic damage
 150 +0.8 AP magic damage
 Shaco Deceive
 Shaco Jack In The Box
@@ -907,8 +907,7 @@ Yorick Mourning Mist
 Yorick Eulogy of the Isles
 ERROR: VAR f2 is not defined for Eulogy of the Isles
 Zac Stretching Strikes
-50 +0.3 AP magic damage
-50 +0.3 AP magic damage
+ERROR: VAR f2 is not defined for Stretching Strikes
 Zac Unstable Matter
 40 magic damage
 Zac Elastic Slingshot

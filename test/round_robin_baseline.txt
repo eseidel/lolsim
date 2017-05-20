@@ -16,91 +16,91 @@ Lissandra     6
 Veigar        6                    
 Zilean        8                    
 Thresh        9                    
+Heimerdinger  10                   
 Soraka        10                   
 Nami          11                   
 Caitlyn       12                   
-Graves        14                   
-MissFortune   14                   
 Zyra          14                   
+Graves        15                   
+MissFortune   15                   
 Azir          16                   
-Elise         16                   
-TwistedFate   16                   
-Ezreal        17                   
-Gnar          18                   
+Elise         17                   
+TwistedFate   17                   
+Ezreal        18                   
+Gnar          19                   
 Karma         20                   
-Swain         20                   
-Velkoz        21                   
-Malzahar      22                   
-Xerath        23                   
-Jhin          24                   
-Syndra        24                   
-Orianna       25         P         
-Heimerdinger  26         P         
-Bard          28                   
-Leblanc       28                   
-Nidalee       29                   
-Brand         30                   
-Corki         31                   
-Kindred       31                   
-Taliyah       31                   
+Swain         21                   
+Velkoz        22                   
+Malzahar      23                   
+Xerath        24                   
+Jhin          25                   
+Syndra        25                   
+Orianna       26         P         
+Bard          29                   
+Leblanc       29                   
+Nidalee       30                   
+Brand         31                   
+Corki         32                   
+Kindred       32                   
+Taliyah       32                   
 Vayne         32                   
-Teemo         33                   
 Viktor        33                   
-Ahri          35                   
-Sivir         37                   
+Teemo         34                   
+Ahri          36                   
+Sivir         38                   
 Cassiopeia    40                   
 Ziggs         42                   
 Ivern         44                   
 Kennen        47                   
-Jayce         48                   
-Jinx          48                   
 KogMaw        48                   
-Evelynn       49                   
+Jayce         49                   
+Jinx          49                   
 AurelionSol   50                   
+Evelynn       50                   
 Mordekaiser   50                   
+Lulu          52         P         
 Ryze          52                   
 Xayah         52                   
-Varus         53                   
 Ashe          54                   
 Gangplank     54                   
 Kayle         54                   
-Vladimir      54                   
-Quinn         56                   
+Varus         54                   
+Vladimir      55                   
 Morgana       57                   
+Quinn         57                   
 Rakan         57                   
 Riven         59                   
 Lucian        62                   
-Yasuo         62                   
-Taric         63                   
-Poppy         64                   
-RekSai        65                   
-Lulu          66         P         
+Yasuo         63                   
+Taric         64                   
+Poppy         65                   
+RekSai        66                   
 Tristana      67                   
 Amumu         70                   
-Shen          72                   
-Galio         73                   
-Kalista       73                   
-Vi            76                   
-Fizz          77                   
+Sejuani       70                   
+Shen          73                   
+Galio         74                   
+Kalista       74                   
 Nautilus      77                   
-Braum         78                   
-Draven        78                   
-Nunu          79                   
-Khazix        80                   
-Pantheon      81                   
+Vi            77                   
+Fizz          78                   
+Braum         79                   
+Draven        80                   
+Nunu          80                   
+Khazix        81                   
+Pantheon      82                   
 Kassadin      83                   
-Zed           83         P         
-Rengar        84                   
-Yorick        84                   
-Sejuani       85                   
-Sion          86                   
-Camille       87                   
+Zed           84         P         
+Rengar        85                   
+Yorick        86                   
+Sion          87                   
+Camille       88                   
 Renekton      89                   
-Leona         91                   
-Blitzcrank    92                   
-Ekko          92         P         
-Skarner       92                   
-Twitch        92         P         
+Leona         92                   
+Blitzcrank    93                   
+Ekko          93         P         
+Skarner       93                   
+Twitch        93         P         
 Hecarim       95                   
 Malphite      95                   
 XinZhao       95         P         
@@ -241,7 +241,7 @@ Aatrox 100
   Ziggs
   Zilean
   Zyra
-Ahri 35 
+Ahri 36 
   Anivia
   Annie
   Azir
@@ -252,6 +252,7 @@ Ahri 35
   Fiddlesticks
   Gnar
   Graves
+  Heimerdinger
   Ivern
   Janna
   Jhin
@@ -701,7 +702,7 @@ Azir 16
   TwistedFate
   Zilean
   Zyra
-Bard 28 
+Bard 29 
   Ahri
   Anivia
   Annie
@@ -711,6 +712,7 @@ Bard 28
   Ezreal
   Fiddlesticks
   Graves
+  Heimerdinger
   Janna
   Jhin
   Karthus
@@ -730,7 +732,7 @@ Bard 28
   Viktor
   Zilean
   Zyra
-Blitzcrank 92 
+Blitzcrank 93 
   Ahri
   Amumu
   Anivia
@@ -793,6 +795,7 @@ Blitzcrank 92
   Renekton
   Riven
   Ryze
+  Sejuani
   Shen
   Sion
   Sivir
@@ -823,7 +826,7 @@ Blitzcrank 92
   Ziggs
   Zilean
   Zyra
-Brand 30 
+Brand 31 
   Ahri
   Anivia
   Annie
@@ -835,6 +838,7 @@ Brand 30
   Fiddlesticks
   Gnar
   Graves
+  Heimerdinger
   Janna
   Jhin
   Karthus
@@ -854,7 +858,7 @@ Brand 30
   Viktor
   Zilean
   Zyra
-Braum 78 
+Braum 79 
   Ahri
   Amumu
   Anivia
@@ -909,6 +913,7 @@ Braum 78
   RekSai
   Riven
   Ryze
+  Sejuani
   Shen
   Sivir
   Sona
@@ -946,7 +951,7 @@ Caitlyn 12
   Sona
   Thresh
   Veigar
-Camille 87 
+Camille 88 
   Ahri
   Amumu
   Anivia
@@ -1006,6 +1011,7 @@ Camille 87
   Renekton
   Riven
   Ryze
+  Sejuani
   Shen
   Sion
   Sivir
@@ -1178,7 +1184,7 @@ Chogath 102
   Ziggs
   Zilean
   Zyra
-Corki 31 
+Corki 32 
   Ahri
   Anivia
   Annie
@@ -1188,6 +1194,7 @@ Corki 31
   Ezreal
   Fiddlesticks
   Graves
+  Heimerdinger
   Janna
   Karma
   Karthus
@@ -1574,7 +1581,7 @@ DrMundo 102 P
   Ziggs
   Zilean
   Zyra
-Draven 78 
+Draven 80 
   Ahri
   Anivia
   Annie
@@ -1612,6 +1619,7 @@ Draven 78
   Leblanc
   Lissandra
   Lucian
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -1628,6 +1636,7 @@ Draven 78
   RekSai
   Riven
   Ryze
+  Sejuani
   Shen
   Sivir
   Sona
@@ -1653,7 +1662,7 @@ Draven 78
   Ziggs
   Zilean
   Zyra
-Ekko 92 P
+Ekko 93 P
   Ahri
   Amumu
   Anivia
@@ -1718,6 +1727,7 @@ Ekko 92 P
   Rengar
   Riven
   Ryze
+  Sejuani
   Shen
   Sion
   Sivir
@@ -1746,11 +1756,12 @@ Ekko 92 P
   Ziggs
   Zilean
   Zyra
-Elise 16 
+Elise 17 
   Anivia
   Annie
   Caitlyn
   Graves
+  Heimerdinger
   Janna
   Karthus
   Kled
@@ -1763,7 +1774,7 @@ Elise 16
   TwistedFate
   Veigar
   Zilean
-Evelynn 49 
+Evelynn 50 
   Ahri
   Anivia
   Annie
@@ -1777,6 +1788,7 @@ Evelynn 49
   Fiddlesticks
   Gnar
   Graves
+  Heimerdinger
   Ivern
   Janna
   Jayce
@@ -1813,12 +1825,13 @@ Evelynn 49
   Ziggs
   Zilean
   Zyra
-Ezreal 17 
+Ezreal 18 
   Anivia
   Annie
   Caitlyn
   Fiddlesticks
   Graves
+  Heimerdinger
   Janna
   Karthus
   Kled
@@ -1972,7 +1985,7 @@ Fiora 134 P
   Ziggs
   Zilean
   Zyra
-Fizz 77 
+Fizz 78 
   Ahri
   Amumu
   Anivia
@@ -2027,6 +2040,7 @@ Fizz 77
   RekSai
   Riven
   Ryze
+  Sejuani
   Sivir
   Sona
   Soraka
@@ -2050,7 +2064,7 @@ Fizz 77
   Ziggs
   Zilean
   Zyra
-Galio 73 
+Galio 74 
   Ahri
   Anivia
   Annie
@@ -2101,6 +2115,7 @@ Galio 73
   RekSai
   Riven
   Ryze
+  Sejuani
   Sivir
   Sona
   Soraka
@@ -2277,13 +2292,14 @@ Garen 97
   Ziggs
   Zilean
   Zyra
-Gnar 18 
+Gnar 19 
   Anivia
   Annie
   Azir
   Caitlyn
   Fiddlesticks
   Graves
+  Heimerdinger
   Janna
   Karthus
   Kled
@@ -2410,10 +2426,11 @@ Gragas 113
   Ziggs
   Zilean
   Zyra
-Graves 14 
+Graves 15 
   Anivia
   Annie
   Fiddlesticks
+  Heimerdinger
   Janna
   Karthus
   Kled
@@ -2521,33 +2538,17 @@ Hecarim 95
   Ziggs
   Zilean
   Zyra
-Heimerdinger 26 P
-  Ahri
+Heimerdinger 10 
   Anivia
   Annie
-  Azir
   Caitlyn
-  Elise
   Fiddlesticks
-  Graves
   Janna
-  Karma
   Karthus
   Kled
-  Lissandra
   Lux
-  MissFortune
   Nami
-  Orianna
   Sona
-  Soraka
-  Syndra
-  Teemo
-  Thresh
-  TwistedFate
-  Veigar
-  Zilean
-  Zyra
 Illaoi 96 
   Ahri
   Amumu
@@ -3069,7 +3070,7 @@ Jax 130 P
   Ziggs
   Zilean
   Zyra
-Jayce 48 
+Jayce 49 
   Ahri
   Anivia
   Annie
@@ -3095,6 +3096,7 @@ Jayce 48
   Kled
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -3118,7 +3120,7 @@ Jayce 48
   Xerath
   Zilean
   Zyra
-Jhin 24 
+Jhin 25 
   Anivia
   Annie
   Caitlyn
@@ -3127,6 +3129,7 @@ Jhin 24
   Fiddlesticks
   Gnar
   Graves
+  Heimerdinger
   Janna
   Karthus
   Kled
@@ -3143,7 +3146,7 @@ Jhin 24
   Veigar
   Zilean
   Zyra
-Jinx 48 
+Jinx 49 
   Ahri
   Anivia
   Annie
@@ -3157,6 +3160,7 @@ Jinx 48
   Fiddlesticks
   Gnar
   Graves
+  Heimerdinger
   Ivern
   Janna
   Jayce
@@ -3192,7 +3196,7 @@ Jinx 48
   Ziggs
   Zilean
   Zyra
-Kalista 73 
+Kalista 74 
   Ahri
   Amumu
   Anivia
@@ -3243,6 +3247,7 @@ Kalista 73
   RekSai
   Riven
   Ryze
+  Sejuani
   Sivir
   Sona
   Soraka
@@ -3578,7 +3583,7 @@ Kennen 47
   Xerath
   Zilean
   Zyra
-Khazix 80 
+Khazix 81 
   Ahri
   Amumu
   Anivia
@@ -3634,6 +3639,7 @@ Khazix 80
   Renekton
   Riven
   Ryze
+  Sejuani
   Shen
   Sivir
   Sona
@@ -3659,7 +3665,7 @@ Khazix 80
   Ziggs
   Zilean
   Zyra
-Kindred 31 
+Kindred 32 
   Anivia
   Annie
   Azir
@@ -3670,6 +3676,7 @@ Kindred 31
   Fiddlesticks
   Gnar
   Graves
+  Heimerdinger
   Janna
   Karthus
   Kled
@@ -3741,7 +3748,7 @@ KogMaw 48
   Xerath
   Zilean
   Zyra
-Leblanc 28 
+Leblanc 29 
   Ahri
   Anivia
   Annie
@@ -3751,6 +3758,7 @@ Leblanc 28
   Fiddlesticks
   Gnar
   Graves
+  Heimerdinger
   Janna
   Karma
   Karthus
@@ -3870,7 +3878,7 @@ LeeSin 99
   Ziggs
   Zilean
   Zyra
-Leona 91 
+Leona 92 
   Ahri
   Amumu
   Anivia
@@ -3934,6 +3942,7 @@ Leona 91
   Renekton
   Riven
   Ryze
+  Sejuani
   Shen
   Sion
   Sivir
@@ -4032,36 +4041,30 @@ Lucian 62
   Ziggs
   Zilean
   Zyra
-Lulu 66 P
+Lulu 52 P
   Ahri
   Anivia
   Annie
   Ashe
-  AurelionSol
   Azir
   Bard
   Brand
   Caitlyn
   Cassiopeia
   Corki
-  Draven
   Elise
   Evelynn
   Ezreal
   Fiddlesticks
-  Gangplank
   Gnar
   Graves
   Heimerdinger
   Ivern
   Janna
-  Jayce
   Jhin
   Jinx
   Karma
   Karthus
-  Kayle
-  Kennen
   Kindred
   Kled
   KogMaw
@@ -4071,13 +4074,9 @@ Lulu 66 P
   Malzahar
   MissFortune
   Mordekaiser
-  Morgana
   Nami
   Nidalee
   Orianna
-  Quinn
-  Riven
-  Ryze
   Sivir
   Sona
   Soraka
@@ -4087,15 +4086,11 @@ Lulu 66 P
   Teemo
   Thresh
   TwistedFate
-  Varus
   Vayne
   Veigar
   Velkoz
   Viktor
-  Vladimir
-  Xayah
   Xerath
-  Yasuo
   Ziggs
   Zilean
   Zyra
@@ -4199,7 +4194,7 @@ Malphite 95
   Ziggs
   Zilean
   Zyra
-Malzahar 22 
+Malzahar 23 
   Ahri
   Anivia
   Annie
@@ -4207,6 +4202,7 @@ Malzahar 22
   Caitlyn
   Fiddlesticks
   Graves
+  Heimerdinger
   Janna
   Karma
   Karthus
@@ -4464,11 +4460,12 @@ MasterYi 127 P
   Ziggs
   Zilean
   Zyra
-MissFortune 14 
+MissFortune 15 
   Anivia
   Annie
   Fiddlesticks
   Graves
+  Heimerdinger
   Janna
   Karthus
   Kled
@@ -4882,7 +4879,7 @@ Nautilus 77
   Ziggs
   Zilean
   Zyra
-Nidalee 29 
+Nidalee 30 
   Anivia
   Annie
   Azir
@@ -4893,6 +4890,7 @@ Nidalee 29
   Fiddlesticks
   Gnar
   Graves
+  Heimerdinger
   Janna
   Jhin
   Karthus
@@ -5037,7 +5035,7 @@ Nocturne 124 P
   Ziggs
   Zilean
   Zyra
-Nunu 79 
+Nunu 80 
   Ahri
   Amumu
   Anivia
@@ -5094,6 +5092,7 @@ Nunu 79
   Renekton
   Riven
   Ryze
+  Sejuani
   Sivir
   Sona
   Soraka
@@ -5253,7 +5252,7 @@ Olaf 135 P
   Ziggs
   Zilean
   Zyra
-Orianna 25 P
+Orianna 26 P
   Anivia
   Annie
   Azir
@@ -5264,6 +5263,7 @@ Orianna 25 P
   Fiddlesticks
   Gnar
   Graves
+  Heimerdinger
   Janna
   Karthus
   Kled
@@ -5279,7 +5279,7 @@ Orianna 25 P
   Veigar
   Zilean
   Zyra
-Pantheon 81 
+Pantheon 82 
   Ahri
   Amumu
   Anivia
@@ -5337,6 +5337,7 @@ Pantheon 81
   RekSai
   Riven
   Ryze
+  Sejuani
   Shen
   Sivir
   Sona
@@ -5361,7 +5362,7 @@ Pantheon 81
   Ziggs
   Zilean
   Zyra
-Poppy 64 
+Poppy 65 
   Ahri
   Anivia
   Annie
@@ -5394,6 +5395,7 @@ Poppy 64
   KogMaw
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -5426,7 +5428,7 @@ Poppy 64
   Ziggs
   Zilean
   Zyra
-Quinn 56 
+Quinn 57 
   Ahri
   Anivia
   Annie
@@ -5456,6 +5458,7 @@ Quinn 56
   KogMaw
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -5653,7 +5656,7 @@ Rammus 111 P
   Ziggs
   Zilean
   Zyra
-RekSai 65 
+RekSai 66 
   Ahri
   Anivia
   Annie
@@ -5687,6 +5690,7 @@ RekSai 65
   KogMaw
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -5809,7 +5813,7 @@ Renekton 89
   Ziggs
   Zilean
   Zyra
-Rengar 84 
+Rengar 85 
   Ahri
   Amumu
   Anivia
@@ -5867,6 +5871,7 @@ Rengar 84
   RekSai
   Riven
   Ryze
+  Sejuani
   Shen
   Sion
   Sivir
@@ -6119,9 +6124,8 @@ Ryze 52
   Ziggs
   Zilean
   Zyra
-Sejuani 85 
+Sejuani 70 
   Ahri
-  Amumu
   Anivia
   Annie
   Ashe
@@ -6129,16 +6133,13 @@ Sejuani 85
   Azir
   Bard
   Brand
-  Braum
   Caitlyn
   Cassiopeia
   Corki
-  Draven
   Elise
   Evelynn
   Ezreal
   Fiddlesticks
-  Fizz
   Gangplank
   Gnar
   Graves
@@ -6148,12 +6149,10 @@ Sejuani 85
   Jayce
   Jhin
   Jinx
-  Kalista
   Karma
   Karthus
   Kayle
   Kennen
-  Khazix
   Kindred
   Kled
   KogMaw
@@ -6170,38 +6169,29 @@ Sejuani 85
   Nautilus
   Nidalee
   Orianna
-  Pantheon
-  Poppy
   Quinn
   Rakan
-  RekSai
   Riven
   Ryze
-  Shen
-  Sion
   Sivir
   Sona
   Soraka
   Swain
   Syndra
   Taliyah
-  Taric
   Teemo
   Thresh
   Tristana
   TwistedFate
-  Twitch
   Varus
   Vayne
   Veigar
   Velkoz
-  Vi
   Viktor
   Vladimir
   Xayah
   Xerath
   Yasuo
-  Zed
   Ziggs
   Zilean
   Zyra
@@ -6315,7 +6305,7 @@ Shaco 109
   Ziggs
   Zilean
   Zyra
-Shen 72 
+Shen 73 
   Ahri
   Anivia
   Annie
@@ -6352,6 +6342,7 @@ Shen 72
   Leblanc
   Lissandra
   Lucian
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -6630,7 +6621,7 @@ Singed 120 P
   Ziggs
   Zilean
   Zyra
-Sion 86 
+Sion 87 
   Ahri
   Amumu
   Anivia
@@ -6690,6 +6681,7 @@ Sion 86
   Renekton
   Riven
   Ryze
+  Sejuani
   Shen
   Sivir
   Sona
@@ -6717,7 +6709,7 @@ Sion 86
   Ziggs
   Zilean
   Zyra
-Sivir 37 
+Sivir 38 
   Ahri
   Anivia
   Annie
@@ -6729,6 +6721,7 @@ Sivir 37
   Fiddlesticks
   Gnar
   Graves
+  Heimerdinger
   Ivern
   Janna
   Jhin
@@ -6755,7 +6748,7 @@ Sivir 37
   Ziggs
   Zilean
   Zyra
-Skarner 92 
+Skarner 93 
   Ahri
   Amumu
   Anivia
@@ -6818,6 +6811,7 @@ Skarner 92
   Renekton
   Riven
   Ryze
+  Sejuani
   Shen
   Sion
   Sivir
@@ -6865,13 +6859,14 @@ Soraka 10
   MissFortune
   Sona
   Veigar
-Swain 20 
+Swain 21 
   Anivia
   Annie
   Caitlyn
   Elise
   Fiddlesticks
   Graves
+  Heimerdinger
   Janna
   Karthus
   Kled
@@ -6886,7 +6881,7 @@ Swain 20
   Veigar
   Zilean
   Zyra
-Syndra 24 
+Syndra 25 
   Anivia
   Annie
   Caitlyn
@@ -6894,6 +6889,7 @@ Syndra 24
   Fiddlesticks
   Gnar
   Graves
+  Heimerdinger
   Janna
   Karthus
   Kled
@@ -7040,7 +7036,7 @@ TahmKench 128 P
   Ziggs
   Zilean
   Zyra
-Taliyah 31 
+Taliyah 32 
   Ahri
   Anivia
   Annie
@@ -7050,6 +7046,7 @@ Taliyah 31
   Ezreal
   Fiddlesticks
   Graves
+  Heimerdinger
   Janna
   Karma
   Karthus
@@ -7190,7 +7187,7 @@ Talon 117
   Ziggs
   Zilean
   Zyra
-Taric 63 
+Taric 64 
   Ahri
   Anivia
   Annie
@@ -7221,6 +7218,7 @@ Taric 63
   KogMaw
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -7254,7 +7252,7 @@ Taric 63
   Ziggs
   Zilean
   Zyra
-Teemo 33 
+Teemo 34 
   Anivia
   Annie
   Azir
@@ -7263,6 +7261,7 @@ Teemo 33
   Fiddlesticks
   Gnar
   Graves
+  Heimerdinger
   Janna
   Jhin
   Karma
@@ -7619,11 +7618,12 @@ Tryndamere 128 P
   Ziggs
   Zilean
   Zyra
-TwistedFate 16 
+TwistedFate 17 
   Anivia
   Annie
   Caitlyn
   Fiddlesticks
+  Heimerdinger
   Janna
   Karthus
   Kled
@@ -7636,7 +7636,7 @@ TwistedFate 16
   Veigar
   Zilean
   Zyra
-Twitch 92 P
+Twitch 93 P
   Aatrox
   Ahri
   Amumu
@@ -7703,6 +7703,7 @@ Twitch 92 P
   Rengar
   Riven
   Ryze
+  Sejuani
   Shen
   Sivir
   Sona
@@ -7941,7 +7942,7 @@ Urgot 114 P
   Ziggs
   Zilean
   Zyra
-Varus 53 
+Varus 54 
   Ahri
   Anivia
   Annie
@@ -7969,6 +7970,7 @@ Varus 53
   Kled
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -8035,7 +8037,7 @@ Veigar 6
   Karthus
   Kled
   Sona
-Velkoz 21 
+Velkoz 22 
   Ahri
   Anivia
   Annie
@@ -8043,6 +8045,7 @@ Velkoz 21
   Caitlyn
   Fiddlesticks
   Graves
+  Heimerdinger
   Janna
   Karthus
   Kled
@@ -8057,7 +8060,7 @@ Velkoz 21
   Veigar
   Zilean
   Zyra
-Vi 76 
+Vi 77 
   Ahri
   Anivia
   Annie
@@ -8096,6 +8099,7 @@ Vi 76
   Leblanc
   Lissandra
   Lucian
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -8168,7 +8172,7 @@ Viktor 33
   Xerath
   Zilean
   Zyra
-Vladimir 54 
+Vladimir 55 
   Ahri
   Anivia
   Annie
@@ -8197,6 +8201,7 @@ Vladimir 54
   Kled
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -8540,7 +8545,7 @@ Xayah 52
   Ziggs
   Zilean
   Zyra
-Xerath 23 
+Xerath 24 
   Ahri
   Anivia
   Annie
@@ -8548,6 +8553,7 @@ Xerath 23
   Caitlyn
   Fiddlesticks
   Graves
+  Heimerdinger
   Janna
   Karma
   Karthus
@@ -8660,7 +8666,7 @@ XinZhao 95 P
   Ziggs
   Zilean
   Zyra
-Yasuo 62 
+Yasuo 63 
   Ahri
   Anivia
   Annie
@@ -8693,6 +8699,7 @@ Yasuo 62
   KogMaw
   Leblanc
   Lissandra
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -8723,7 +8730,7 @@ Yasuo 62
   Ziggs
   Zilean
   Zyra
-Yorick 84 
+Yorick 86 
   Ahri
   Anivia
   Annie
@@ -8765,6 +8772,7 @@ Yorick 84
   Leblanc
   Lissandra
   Lucian
+  Lulu
   Lux
   Malzahar
   MissFortune
@@ -8781,6 +8789,7 @@ Yorick 84
   RekSai
   Riven
   Ryze
+  Sejuani
   Shen
   Sion
   Sivir
@@ -8911,7 +8920,7 @@ Zac 102
   Ziggs
   Zilean
   Zyra
-Zed 83 P
+Zed 84 P
   Ahri
   Amumu
   Anivia
@@ -8969,6 +8978,7 @@ Zed 83 P
   RekSai
   Riven
   Ryze
+  Sejuani
   Shen
   Sivir
   Sona
