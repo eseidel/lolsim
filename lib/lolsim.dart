@@ -11,6 +11,7 @@ import 'rune_pages.dart';
 import 'champions.dart';
 import 'dragon.dart';
 import 'minions.dart';
+import 'monsters.dart';
 import 'stats.dart';
 export 'stats.dart';
 import 'stat_constants.dart';
@@ -22,10 +23,23 @@ final Logger _log = new Logger('LOL');
 const int TICKS_PER_SECOND = 30;
 const double SECONDS_PER_TICK = 1 / TICKS_PER_SECOND;
 
+typedef void OnHitCallback(Hit target);
 typedef void DamageDealtModifier(Hit hit, DamageDealtModifier);
 typedef void DamageRecievedModifier(Hit hit, DamageRecievedDelta);
 
-abstract class ItemEffects {
+// Champion, Buff, Item, Spell (Ability)
+// FIXME: Champion doesn't have to inherit from this.
+abstract class EffectsBase {
+  void onActionHit(Hit hit) {}
+  void onHit(Hit target) {}
+  // Unclear the right name, should be called after dmg applied:
+  void onDamageRecieved() {}
+
+  void damageDealtModifier(Hit hit, DamageDealtDelta delta) {}
+  Map<String, num> get stats => null;
+}
+
+abstract class ItemEffects extends EffectsBase {
   void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {}
 }
 
@@ -374,7 +388,16 @@ class Healing extends TickingBuff {
   }
 }
 
-enum MinionType { melee, caster, siege, superMinion }
+enum MinionType {
+  melee,
+  caster,
+  siege,
+  superMinion,
+}
+
+enum MonsterType {
+  blueSentinal,
+}
 
 enum MobType {
   champion,
@@ -389,10 +412,10 @@ class Mob {
   Team team;
 
   Mob lastTarget;
-  List<Item> items = [];
-  List<Buff> buffs = [];
+  List<Item> items = <Item>[];
+  List<Buff> buffs = <Buff>[];
   bool _updatingBuffs = false;
-  List<Buff> _buffsAddedWhileUpdating = [];
+  List<Buff> _buffsAddedWhileUpdating = <Buff>[];
   MasteryPage _masteryPage;
   RunePage _runePage;
   Stats stats; // updated per-tick.
@@ -402,15 +425,16 @@ class Mob {
   bool alive = true;
   MobState state;
   DamageLog damageLog;
-  ChampionEffects effects;
+  ChampionEffects championEffects;
+  List<EffectsBase> _cachedEffects = <EffectsBase>[];
 
   Mob(this.description, this.type) {
     ChampionEffectsConstructor effectsConstructor =
         championEffectsConstructors[id];
-    if (effectsConstructor != null) effects = effectsConstructor(this);
+    if (effectsConstructor != null) championEffects = effectsConstructor(this);
     updateStats();
     if (type == MobType.champion) abilityRanks = new AbilityRanks();
-    if (effects != null) effects.onChampionCreate();
+    if (championEffects != null) championEffects.onChampionCreate();
     revive();
   }
 
@@ -477,6 +501,15 @@ class Mob {
     return null;
   }
 
+  static Mob createMonster(MonsterType type) {
+    switch (type) {
+      case MonsterType.blueSentinal:
+        return new Mob(blueSentinalDescription, MobType.monster);
+    }
+    assert(false);
+    return null;
+  }
+
   static final Set _warnedStats = new Set();
   void warnUnhandledStat(String statName) {
     if (!_warnedStats.contains(statName)) {
@@ -531,7 +564,11 @@ class Mob {
         }
       }
     }
-    for (Item item in items) applyStats(stats, item.stats);
+    for (Item item in items) {
+      applyStats(stats, item.stats);
+      if (item.effects != null && item.effects.stats != null)
+        applyStats(stats, item.effects.stats);
+    }
     for (Buff buff in buffs)
       if (buff.stats != null) applyStats(stats, buff.stats);
     return stats;
@@ -561,9 +598,15 @@ class Mob {
   void addBuff(Buff buff) {
     if (_updatingBuffs)
       _buffsAddedWhileUpdating.add(buff);
-    else
+    else {
       buffs.add(buff);
+      _didUpdateBuffs();
+    }
+  }
+
+  void _didUpdateBuffs() {
     updateStats(); // needed?
+    _updateCachedEffects();
   }
 
   void removeBuff(Buff buff) {
@@ -577,6 +620,19 @@ class Mob {
     return target;
   }
 
+  List<EffectsBase> collectEffects() {
+    var effects = new List.from(buffs);
+    if (championEffects != null) effects.add(championEffects);
+    items.forEach((i) {
+      if (i != null && i.effects != null) effects.add(i.effects);
+    });
+    return effects;
+  }
+
+  void _updateCachedEffects() {
+    _cachedEffects = collectEffects();
+  }
+
   void _tickBuffs(double timeDelta) {
     // Buffs can cause dmg which can add other buffs so we
     // guard traversal.
@@ -586,6 +642,7 @@ class Mob {
     _buffsAddedWhileUpdating = [];
     buffs = buffs.where((buff) => !buff.expired).toList();
     _updatingBuffs = false;
+    _didUpdateBuffs();
   }
 
   // Not clear if buffs should be held on the Mob or not.
@@ -752,17 +809,15 @@ class Mob {
         "$this took ${damage.toStringAsFixed(1)} damage from ${hit.sourceString}, "
         "$hpStatusString remains");
     damageLog?.recordDamage(hit, damage);
-    if (effects != null) effects.onDamageRecieved();
+    _cachedEffects.forEach((effect) => effect.onDamageRecieved());
     startHealingIfNecessary();
     if (currentHp <= 0.0) die();
     return damage; // This could be beyond-fatal damage.
   }
 
   void applyOnHitEffects(Hit hit) {
-    if (effects != null) {
-      effects.onHit(hit);
-      effects.onActionHit(hit);
-    }
+    _cachedEffects.forEach((effect) => effect.onHit(hit));
+    _cachedEffects.forEach((effect) => effect.onActionHit(hit));
   }
 
   void lifestealFrom(double damage) {
@@ -781,10 +836,11 @@ class Mob {
   }
 
   void revive() {
-    buffs = buffs.where((buff) => buff.retainedAfterDeath).toList();
     alive = true;
     state = MobState.ready;
     hpLost = 0.0;
+    buffs = buffs.where((buff) => buff.retainedAfterDeath).toList();
+    _didUpdateBuffs();
   }
 
   void die() {
@@ -871,7 +927,8 @@ class World {
     if (range == 0) return []; // range is ignored for now.
     Iterable<Mob> allMobs =
         (reference.team == Team.red) ? livingBlues : livingReds;
-    return allMobs.where((mob) => mob.team != reference.team);
+    return allMobs.where(
+        (mob) => mob.type == MobType.champion && mob.team != reference.team);
   }
 
   void updateTargets() {

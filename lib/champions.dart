@@ -6,13 +6,9 @@ const String VERSION_7_8_1 = '7.8.1';
 const String VERSION_7_9_1 = '7.9.1';
 const String VERSION_7_10_1 = '7.10.1';
 
-abstract class ChampionEffects {
+abstract class ChampionEffects extends EffectsBase {
   String get lastUpdate;
   void onChampionCreate() {}
-  void onActionHit(Hit hit) {}
-  void onHit(Hit target) {}
-  // Unclear the right name, should be called after dmg applied:
-  void onDamageRecieved() {}
 }
 
 typedef ChampionEffects ChampionEffectsConstructor(Mob champion);

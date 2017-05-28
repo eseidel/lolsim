@@ -78,7 +78,7 @@ String abilitiesString(Mob champ, SpellBook book) {
   }
 
   var ranks = champ.abilityRanks;
-  return (champ.effects != null ? 'P' : ' ') +
+  return (champ.championEffects != null ? 'P' : ' ') +
       keyChar(book.q, ranks.q) +
       keyChar(book.w, ranks.w) +
       keyChar(book.e, ranks.e) +

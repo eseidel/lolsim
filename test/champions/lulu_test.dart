@@ -38,7 +38,7 @@ dynamic main() async {
       ].map((i) => i.toDouble()).toList();
       Mob lulu = data.champs.championById('Lulu');
 
-      Lulu luluEffects = lulu.effects;
+      Lulu luluEffects = lulu.championEffects;
       List<double> actual = new List.generate(18, (i) {
         lulu.level = i + 1;
         return luluEffects.damagePerPixShot;

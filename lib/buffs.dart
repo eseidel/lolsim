@@ -18,7 +18,7 @@ final Logger _log = new Logger('buffs');
 // Ticks know how to catch-up from time?
 
 // FIXME: Not all buffs are finite and need ticks.
-abstract class Buff {
+abstract class Buff extends EffectsBase {
   String name;
   Mob target;
 
@@ -32,9 +32,6 @@ abstract class Buff {
     if (name != null) return name;
     return "Buff";
   }
-
-  void damageDealtModifier(Hit hit, DamageDealtDelta delta) {}
-  Map<String, num> get stats => null;
 
   void tick(double timeDelta);
 

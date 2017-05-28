@@ -36,7 +36,7 @@ class _Calculate {
     Item item(String name) => creator.items.itemByName(name);
 
     Mob base = makeChamp();
-    hasEffects = base.effects != null;
+    hasEffects = base.championEffects != null;
     baseDps = calculateDps(base);
     asDps = calculateDps(makeChamp()..addItem(item('Dagger')));
     adDps = calculateDps(makeChamp()..addItem(item('Long Sword')));
