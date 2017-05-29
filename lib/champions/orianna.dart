@@ -1,12 +1,13 @@
 import 'package:lol_duel/buffs.dart';
-import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/effects.dart';
 import 'package:lol_duel/lolsim.dart';
 
 class Orianna extends ChampionEffects {
-  Mob orianna;
-  Orianna(this.orianna);
+  final Mob orianna;
   // FIXME: lastTarget should clear when ClockworkWinding expires.
   Mob lastTarget;
+
+  Orianna(this.orianna);
 
   @override
   String get lastUpdate => VERSION_7_2_1;
@@ -63,4 +64,7 @@ class ClockworkWinding extends StackedBuff {
           timeBetweenFalloffs: 0.0,
           name: 'Clockwork Winding',
         );
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 }

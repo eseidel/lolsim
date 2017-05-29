@@ -1,9 +1,10 @@
-import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/effects.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/buffs.dart';
 
 class MasterYi extends ChampionEffects {
-  Mob masterYi;
+  final Mob masterYi;
+
   MasterYi(this.masterYi);
 
   @override
@@ -36,11 +37,17 @@ class DoubleStrike extends StackedBuff {
           timeBetweenFalloffs: 0.0,
           maxStacks: 3,
         );
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 }
 
 class DoubleStrikeExecuting extends TimedBuff {
   DoubleStrikeExecuting(Mob masterYi)
       : super(name: "Double Strike", target: masterYi, duration: 0.1);
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 
   @override
   void expire() {

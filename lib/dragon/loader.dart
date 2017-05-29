@@ -28,6 +28,7 @@ abstract class DragonLoader {
 class LocalLoader extends DragonLoader {
   final StringReader reader;
   final String rootDir;
+
   LocalLoader({this.rootDir = DEFAULT_CACHE_DIR, this.reader = _ioReader});
 
   String _pathForKey(DragonKey key) =>

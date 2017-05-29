@@ -1,10 +1,11 @@
 import 'package:lol_duel/buffs.dart';
-import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/effects.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/dragon/stat_constants.dart';
 
 class Diana extends ChampionEffects {
-  Mob diana;
+  final Mob diana;
+
   Diana(this.diana);
 
   @override
@@ -67,6 +68,9 @@ class MoonsilverBladeAttackSpeed extends PermanentBuff {
       : super(name: "Moonsilver Blade", target: target);
 
   @override
+  String get lastUpdate => VERSION_7_2_1;
+
+  @override
   Map<String, num> get stats => {
         PercentAttackSpeedMod: 0.20,
       };
@@ -81,4 +85,7 @@ class MoonsilverBladeOnHit extends StackedBuff {
           timeBetweenFalloffs: 0.0, // Unclear what this should be?
           name: 'Moonsilver Blade',
         );
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 }

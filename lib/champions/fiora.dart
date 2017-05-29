@@ -1,10 +1,11 @@
 import 'package:lol_duel/buffs.dart';
-import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/effects.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'dart:math';
 
 class Fiora extends ChampionEffects {
-  Mob fiora;
+  final Mob fiora;
+
   Fiora(this.fiora);
 
   @override
@@ -50,6 +51,9 @@ class DuelistsDance extends TickingBuff {
           secondsBetweenTicks: 0.5, // No clue how often this checks.
         );
 
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   // This buff could instead come and go when MarkedWithVital expires?
   @override
   bool get retainedAfterDeath => true;
@@ -83,6 +87,9 @@ class MarkedWithVital extends TimedBuff {
           target: target,
           duration: 15.5,
         );
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 
   // Takes a .5 seconds to activate.
   bool get isActive => remaining < 15.0;

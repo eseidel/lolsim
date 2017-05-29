@@ -1,11 +1,14 @@
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/buffs.dart';
-import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/effects.dart';
 
 class ZaunTouchedBoltAugmenter extends TimedBuff {
   ZaunTouchedBoltAugmenter(Mob target)
       : super(
             name: "Zaun-Touched Bolt Augmenter", target: target, duration: 2.5);
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 
   @override
   void damageDealtModifier(Hit hit, DamageDealtDelta delta) {
@@ -15,7 +18,8 @@ class ZaunTouchedBoltAugmenter extends TimedBuff {
 }
 
 class Urgot extends ChampionEffects {
-  Mob urgot;
+  final Mob urgot;
+
   Urgot(this.urgot);
 
   @override

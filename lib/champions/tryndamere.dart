@@ -1,18 +1,18 @@
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/buffs.dart';
 import 'package:lol_duel/dragon/stat_constants.dart';
-import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/effects.dart';
 import 'dart:math';
 
 class Tryndamere extends ChampionEffects {
-  Mob tryndamere;
+  final Mob tryndamere;
   BattleFury battleFury;
   Tryndamere(this.tryndamere);
 
   @override
   String get lastUpdate => VERSION_7_2_1;
 
-  // Should this move onto the buff?
+  // FIXME: Move this onto the buff.
   @override
   void onHit(Hit hit) {
     if (hit.target.isStructure) return;
@@ -33,6 +33,9 @@ class BattleFury extends PermanentBuff {
   int fury = 0; // Should move to Mob?
 
   BattleFury(Mob target) : super(name: "Battle Fury", target: target);
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 
   void addFury(int newFury) {
     fury = min(100, fury + newFury);

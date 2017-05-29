@@ -1,5 +1,5 @@
 import 'package:lol_duel/buffs.dart';
-import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/effects.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/dragon/stat_constants.dart';
 import 'package:meta/meta.dart';
@@ -7,6 +7,9 @@ import 'package:meta/meta.dart';
 class NoxianMight extends TimedBuff {
   NoxianMight(Mob target)
       : super(name: "Noxian Might", target: target, duration: 5.0);
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 
   static int bonusAdForLevel(int level) {
     // http://leagueoflegends.wikia.com/wiki/Darius
@@ -23,7 +26,8 @@ class NoxianMight extends TimedBuff {
 }
 
 class Hemorrhage extends DOT {
-  Mob darius;
+  final Mob darius;
+
   Hemorrhage({@required this.darius, @required Mob target, int initialStacks})
       : super(
           name: 'Hemorrhage',
@@ -33,6 +37,9 @@ class Hemorrhage extends DOT {
           initialStacks: initialStacks,
           maxStacks: 5,
         );
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 
   @override
   Hit createHitForStacks(int stackCount) {
@@ -56,7 +63,8 @@ class Hemorrhage extends DOT {
 // With noxian might, 40-200 AD. applies full stacks.
 // ticks every 1.25s
 class Darius extends ChampionEffects {
-  Mob darius;
+  final Mob darius;
+
   Darius(this.darius);
 
   @override

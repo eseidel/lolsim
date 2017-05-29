@@ -1,10 +1,11 @@
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/buffs.dart';
 import 'package:lol_duel/dragon/stat_constants.dart';
-import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/effects.dart';
 
 class DrMundo extends ChampionEffects {
-  Mob mundo;
+  final Mob mundo;
+
   DrMundo(this.mundo);
 
   @override
@@ -23,4 +24,7 @@ class AdrenalineRush extends PermanentBuff {
   Map<String, num> get stats => {
         FlatHPRegenMod: 0.003 * target.stats.hp,
       };
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 }

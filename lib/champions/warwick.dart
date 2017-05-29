@@ -1,8 +1,9 @@
-import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/effects.dart';
 import 'package:lol_duel/lolsim.dart';
 
 class Warwick extends ChampionEffects {
-  Mob warwick;
+  final Mob warwick;
+
   Warwick(this.warwick);
 
   @override

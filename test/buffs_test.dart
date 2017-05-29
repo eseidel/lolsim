@@ -4,11 +4,29 @@ import "package:test/test.dart";
 
 import 'utils.dart';
 
+class _ConcreteStackedBuff extends StackedBuff {
+  _ConcreteStackedBuff({
+    Mob target,
+    double duration,
+    double timeBetweenFalloffs,
+    int maxStacks,
+  })
+      : super(
+          target: target,
+          duration: duration,
+          timeBetweenFalloffs: timeBetweenFalloffs,
+          maxStacks: maxStacks,
+        );
+
+  @override
+  String get lastUpdate => null;
+}
+
 dynamic main() async {
   group("StackedBuff", () {
     test("tick", () {
       Mob mob = createTestMob(hp: 100.0);
-      StackedBuff buff = new StackedBuff(
+      StackedBuff buff = new _ConcreteStackedBuff(
         target: mob,
         duration: 0.5,
         timeBetweenFalloffs: 0.25,
@@ -32,7 +50,7 @@ dynamic main() async {
     });
     test("timeBetweenFalloffs = 0", () {
       Mob mob = createTestMob(hp: 100.0);
-      StackedBuff buff = new StackedBuff(
+      StackedBuff buff = new _ConcreteStackedBuff(
         target: mob,
         duration: 0.5,
         timeBetweenFalloffs: 0.0,

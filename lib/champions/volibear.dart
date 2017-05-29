@@ -1,10 +1,11 @@
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/buffs.dart';
 import 'package:lol_duel/dragon/stat_constants.dart';
-import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/effects.dart';
 
 class Volibear extends ChampionEffects {
-  Mob volibear;
+  final Mob volibear;
+
   Volibear(this.volibear);
 
   @override
@@ -28,6 +29,9 @@ class ChosenOfTheStorm extends TimedBuff {
           target: target,
           duration: totalDuration,
         );
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 
   // Volibear periodically regenerates 30% maximum health over 6 seconds when below 30% maximum health.
   double hpPerFive() {

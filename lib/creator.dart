@@ -8,7 +8,7 @@ import 'lolsim.dart';
 final Logger _log = new Logger('creator');
 
 class ItemFactory {
-  ItemLibrary library;
+  final ItemLibrary library;
 
   ItemFactory(this.library);
 
@@ -27,7 +27,7 @@ class ItemFactory {
 }
 
 class RuneFactory {
-  RuneLibrary library;
+  final RuneLibrary library;
 
   RuneFactory(this.library);
 
@@ -37,7 +37,7 @@ class RuneFactory {
 }
 
 class ChampionFactory {
-  ChampionLibrary library;
+  final ChampionLibrary library;
 
   ChampionFactory(this.library);
 
@@ -61,10 +61,10 @@ class ChampionFactory {
 }
 
 class Creator {
-  DragonData dragon;
-  ChampionFactory champs;
-  ItemFactory items;
-  RuneFactory runes;
+  final DragonData dragon;
+  final ChampionFactory champs;
+  final ItemFactory items;
+  final RuneFactory runes;
 
   Creator(this.dragon)
       : champs = new ChampionFactory(dragon.champs),

@@ -180,7 +180,7 @@ class MasteryDescription {
 }
 
 class MasteryLibrary {
-  Map<String, Map<String, dynamic>> _json;
+  final Map<String, Map<String, dynamic>> _json;
 
   MasteryLibrary(Map<String, Map<String, dynamic>> json) : _json = json;
 

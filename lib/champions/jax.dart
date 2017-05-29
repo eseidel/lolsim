@@ -1,5 +1,5 @@
 import 'package:lol_duel/buffs.dart';
-import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/effects.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/dragon/stat_constants.dart';
 
@@ -12,6 +12,9 @@ class RelentlessAssault extends StackedBuff {
           maxStacks: 8,
           timeBetweenFalloffs: 0.25,
         );
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 
   double bonusAttackSpeedPerStackForLevel(int level) {
     // http://leagueoflegends.wikia.com/wiki/Jax
@@ -33,7 +36,8 @@ class RelentlessAssault extends StackedBuff {
 }
 
 class Jax extends ChampionEffects {
-  Mob jax;
+  final Mob jax;
+
   Jax(this.jax);
 
   @override

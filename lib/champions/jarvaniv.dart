@@ -1,9 +1,10 @@
 import 'package:lol_duel/buffs.dart';
-import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/effects.dart';
 import 'package:lol_duel/lolsim.dart';
 
 class JarvanIV extends ChampionEffects {
-  Mob jarvan;
+  final Mob jarvan;
+
   JarvanIV(this.jarvan);
 
   @override
@@ -35,4 +36,7 @@ class MartialCadence extends TimedBuff {
           duration: duration,
           name: 'Martial Cadence',
         );
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 }

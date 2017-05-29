@@ -4,7 +4,8 @@ import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 
 import 'buffs.dart';
-import 'champions.dart';
+import 'effects.dart';
+import 'champions/all.dart';
 import 'dragon/dragon.dart';
 import 'dragon/stat_constants.dart';
 import 'dragon/stats.dart';
@@ -27,22 +28,6 @@ const double SECONDS_PER_TICK = 1 / TICKS_PER_SECOND;
 typedef void OnHitCallback(Hit target);
 typedef void DamageDealtModifier(Hit hit, DamageDealtModifier);
 typedef void DamageRecievedModifier(Hit hit, DamageRecievedDelta);
-
-// Champion, Buff, Item, Spell (Ability)
-// FIXME: Champion doesn't have to inherit from this.
-abstract class EffectsBase {
-  void onActionHit(Hit hit) {}
-  void onHit(Hit target) {}
-  // Unclear the right name, should be called after dmg applied:
-  void onDamageRecieved() {}
-
-  void damageDealtModifier(Hit hit, DamageDealtDelta delta) {}
-  Map<String, num> get stats => null;
-}
-
-abstract class ItemEffects extends EffectsBase {
-  void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {}
-}
 
 class Rune {
   RuneDescription description;
@@ -119,6 +104,9 @@ class AutoAttackCooldown extends Cooldown {
       : super(name: 'AutoAttackCooldown', target: target, duration: duration) {
     // _log.fine("${target} aa cooldown for ${duration.toStringAsFixed(1)}s");
   }
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 }
 
 abstract class Action {
@@ -380,6 +368,9 @@ class AbilityRanks {
 
 class Healing extends TickingBuff {
   Healing(Mob target) : super(name: 'Healing', target: target);
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 
   @override
   void onTick() {

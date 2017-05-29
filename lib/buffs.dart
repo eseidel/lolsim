@@ -4,20 +4,10 @@ import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 
 import 'lolsim.dart';
+import 'effects.dart';
 
 final Logger _log = new Logger('buffs');
 
-// I think you want ticks to be synchronized.  Unclear if that's across dots or not.
-
-// Refreshing dots, options:
-// 1. Add N ticks (or N-1) ticks to the exisitng dot, do not update stats or start time.
-// 2. Update start-time, possibly skipping a tick.
-
-// I think you want a fixed start time, a refresh updates stacks, etc.
-// Stacks all share the same stats, which can be updated when a stack is applied.
-// Ticks know how to catch-up from time?
-
-// FIXME: Not all buffs are finite and need ticks.
 abstract class Buff extends EffectsBase {
   String name;
   Mob target;
@@ -28,10 +18,7 @@ abstract class Buff extends EffectsBase {
   bool get retainedAfterDeath => false;
 
   @override
-  String toString() {
-    if (name != null) return name;
-    return "Buff";
-  }
+  String toString() => (name != null) ? name : "Buff";
 
   void tick(double timeDelta);
 
@@ -40,7 +27,7 @@ abstract class Buff extends EffectsBase {
   }
 }
 
-class PermanentBuff extends Buff {
+abstract class PermanentBuff extends Buff {
   PermanentBuff({String name, Mob target}) : super(name: name, target: target);
 
   @override
@@ -50,7 +37,7 @@ class PermanentBuff extends Buff {
   void tick(double timeDelta) {}
 }
 
-class TimedBuff extends Buff {
+abstract class TimedBuff extends Buff {
   final double duration;
   double remaining;
 
@@ -69,7 +56,7 @@ class TimedBuff extends Buff {
   }
 }
 
-class Cooldown extends TimedBuff {
+abstract class Cooldown extends TimedBuff {
   // Fixed at time of creation in LOL. CDR does not affect in-progress cooldowns:
   // http://leagueoflegends.wikia.com/wiki/Cooldown_reduction
   Cooldown({String name, Mob target, double duration})
@@ -160,7 +147,7 @@ abstract class DOT extends TickingBuff {
 }
 
 // FIXME: This could share code with DOT.
-class StackedBuff extends Buff {
+abstract class StackedBuff extends Buff {
   final int maxStacks;
   final double duration;
   final double timeBetweenFalloffs;

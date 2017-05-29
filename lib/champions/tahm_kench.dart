@@ -1,10 +1,11 @@
 import 'package:lol_duel/buffs.dart';
-import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/effects.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:meta/meta.dart';
 
 class TahmKench extends ChampionEffects {
-  Mob tahm;
+  final Mob tahm;
+
   TahmKench(this.tahm);
 
   @override
@@ -42,6 +43,9 @@ class AnAcquiredTaste extends StackedBuff {
           timeBetweenFalloffs: .5, // According to lolwiki.
           name: 'An Acquired Taste',
         );
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 
   static double percentMaxHealthDamagePerStack(int level) {
     if (level < 6) return 0.0100;

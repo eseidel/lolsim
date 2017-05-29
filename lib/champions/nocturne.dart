@@ -1,9 +1,10 @@
 import 'package:lol_duel/buffs.dart';
-import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/effects.dart';
 import 'package:lol_duel/lolsim.dart';
 
 class Nocturne extends ChampionEffects {
-  Mob nocturne;
+  final Mob nocturne;
+
   Nocturne(this.nocturne);
 
   @override
@@ -55,4 +56,7 @@ class UmbraBladesCooldown extends TimedBuff {
           duration: 10.0,
           name: 'Umbra Blades',
         );
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 }

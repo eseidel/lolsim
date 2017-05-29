@@ -3,7 +3,7 @@ import 'dart:async';
 
 import 'package:args/args.dart';
 import 'package:logging/logging.dart';
-import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/champions/all.dart';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/utils/cli_table.dart';

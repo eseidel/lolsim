@@ -1,10 +1,11 @@
-import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/buffs.dart';
-import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/effects.dart';
+import 'package:lol_duel/lolsim.dart';
 import 'package:meta/meta.dart';
 
 class DeadlyVenom extends DOT {
-  Mob source;
+  final Mob source;
+
   DeadlyVenom({@required this.source, @required Mob target})
       : super(
           name: 'Deadly Venom',
@@ -13,6 +14,9 @@ class DeadlyVenom extends DOT {
           secondsBetweenTicks: 1.0, // No clue if this is correct.
           maxStacks: 6,
         );
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 
   double damagePerStackForLevel(int level) {
     if (level < 5) return 6.0;

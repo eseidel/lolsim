@@ -4,10 +4,14 @@
 
 import 'lolsim.dart';
 import 'dragon/stat_constants.dart';
+import 'effects.dart';
 
 // FIXME: This is a unique effect.
 // FIXME: Needs update for 7.9.1
 class DoransShield extends ItemEffects {
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   @override
   void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {
     // FIXME: This needs to check that the dmg source is single target.
@@ -16,6 +20,9 @@ class DoransShield extends ItemEffects {
 }
 
 class HuntersMachete extends ItemEffects {
+  @override
+  String get lastUpdate => VERSION_7_10_1;
+
   // FIXME: No way to identify this as a unique effect.
 
   // FIXME: This should only apply to monsters!

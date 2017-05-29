@@ -1,10 +1,11 @@
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/buffs.dart';
 import 'package:lol_duel/dragon/stat_constants.dart';
-import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/effects.dart';
 
 class Rammus extends ChampionEffects {
-  Mob rammus;
+  final Mob rammus;
+
   Rammus(this.rammus);
 
   @override
@@ -19,6 +20,9 @@ class Rammus extends ChampionEffects {
 // FIXME: This is now wrong in 7.10.1, but easy to fix.
 class SpikedShell extends PermanentBuff {
   SpikedShell(Mob target) : super(name: "Spiked Shell", target: target);
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 
   @override
   Map<String, num> get stats => {

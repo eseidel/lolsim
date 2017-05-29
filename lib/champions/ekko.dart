@@ -1,10 +1,11 @@
 import 'package:lol_duel/buffs.dart';
-import 'package:lol_duel/champions.dart';
+import 'package:lol_duel/effects.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:meta/meta.dart';
 
 class Ekko extends ChampionEffects {
-  Mob ekko;
+  final Mob ekko;
+
   Ekko(this.ekko);
 
   @override
@@ -49,6 +50,9 @@ class ZDriveResonanceDown extends TimedBuff {
           duration: 5.0,
           name: 'Z-Drive Resonance',
         );
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 }
 
 class ZDriveResonance extends StackedBuff {
@@ -60,4 +64,7 @@ class ZDriveResonance extends StackedBuff {
           timeBetweenFalloffs: .0,
           name: 'Z-Drive Resonance',
         );
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 }
