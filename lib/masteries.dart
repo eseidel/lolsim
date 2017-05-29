@@ -1,6 +1,6 @@
-import 'lolsim.dart';
 import 'dragon/stat_constants.dart';
 import 'effects.dart';
+import 'lolsim.dart';
 
 typedef MasteryEffects MasteryEffectsConstructor(int rank);
 
@@ -35,7 +35,8 @@ class Sorcery {
 }
 
 class FreshBlood {
-  // Your first basic attack against a champion deals an additional 10 +1 per level damage (6 second cooldown)
+  // Your first basic attack against a champion deals an additional
+  // 10 +1 per level damage (6 second cooldown)
   // damage modifer + cooldown buff.
 }
 
@@ -70,7 +71,8 @@ class NaturalTalent extends MasteryEffects {
   String get lastUpdate => VERSION_7_2_1;
 
   // Gain 0.4 * R + 0.09 * R per level Attack Damage, and
-  // 0.6 * R + 0.13 * R per level Ability Power (+2 Attack Damage and 3 Ability Power at level 18)
+  // 0.6 * R + 0.13 * R per level Ability Power (+2 Attack
+  // Damage and 3 Ability Power at level 18)
   @override
   Map<String, num> get stats => {
         FlatPhysicalDamageMod: .004 * rank,
@@ -138,7 +140,8 @@ class PiercingThoughts extends MasteryEffects {
 
 class WarlordsBloodlust {
   // Gain increasingly more Life Steal based on your missing health
-  // against champions (up to 20%). Against minions gain 50% benefit (25% for ranged champions).
+  // against champions (up to 20%). Against minions gain 50%
+  // benefit (25% for ranged champions).
   // Non-linear curve (need to work it out).
   // hp-sensitive stat boost.
 }
@@ -242,7 +245,8 @@ class Precision {
 }
 
 class Intelligence {
-  // Your Cooldown Reduction cap is increased by 1% * R and you gain 1% * R Cooldown Reduction
+  // Your Cooldown Reduction cap is increased by 1% * R and
+  // you gain 1% * R Cooldown Reduction
 }
 
 class StormraidersSurge {
