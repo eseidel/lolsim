@@ -444,6 +444,11 @@ class Mob {
   String get id => description.id;
   String get name => description.name;
 
+  bool get isChampion => type == MobType.champion;
+  bool get isMinion => type == MobType.minion;
+  bool get isMonster => type == MobType.monster;
+  bool get isStructure => type == MobType.structure;
+
   int get level => _level;
   set level(int newLevel) {
     assert(newLevel >= 1);

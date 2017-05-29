@@ -4,12 +4,15 @@ import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/cli_table.dart';
 import 'package:lol_duel/rune_pages.dart';
+import 'package:logging/logging.dart';
 import 'dart:io';
 import 'dart:convert';
 
 class _Calculate {
   String champName;
   bool hasEffects;
+  bool alive;
+  double hp;
   double hpPercent;
   double clearTime;
 
@@ -39,14 +42,16 @@ class _Calculate {
       critProvider: new PredictableCrits([champ.id, monster.id]),
     );
     world.tickUntil(World.oneSideDies);
+    hp = champ.currentHp;
     hpPercent = champ.healthPercent;
+    alive = champ.alive;
 
     clearTime = world.time;
   }
 }
 
 dynamic main(List<String> args) async {
-  handleCommonArgs(args);
+  handleCommonArgs(args, defaultLogLevel: Level.WARNING);
 
   Creator creator = await Creator.loadLatest();
 
@@ -61,22 +66,28 @@ dynamic main(List<String> args) async {
   List<_Calculate> results = champNames.map((champName) {
     return new _Calculate(creator, champName, runePage);
   }).toList();
-  results.sort((a, b) => a.clearTime.compareTo(b.clearTime));
+  results.sort((a, b) {
+    if (a.alive != b.alive) return a.alive ? 1 : -1;
+    if (a.hpPercent != b.hpPercent) return a.hpPercent.compareTo(b.hpPercent);
+    if (a.clearTime != b.clearTime) return a.clearTime.compareTo(b.clearTime);
+    return 0;
+  });
 
-  TableLayout layout = new TableLayout([1, 13, 6, 6]);
-  layout.printRow(['P', 'Name', 'HP%', 'Time']);
+  TableLayout layout = new TableLayout([1, 13, 11, 6]);
+  layout.printRow(['P', 'Name', 'HP', 'Time']);
   layout.printDivider();
 
-  String _toPercentString(double value) {
-    return "${(100 * value).toStringAsFixed(1)}%";
+  String hpString(var r) {
+    if (!r.alive) return '-';
+    return "${r.hp.round()} (${(100 * r.hpPercent).toStringAsFixed(1)}%)";
   }
 
   for (var r in results) {
     layout.printRow([
       r.hasEffects ? '*' : ' ',
       r.champName,
-      _toPercentString(r.hpPercent),
-      "${r.clearTime.toStringAsFixed(0)}s",
+      hpString(r),
+      "${r.clearTime.round()}s",
     ]);
   }
 

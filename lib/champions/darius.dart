@@ -89,7 +89,7 @@ class Darius extends ChampionEffects {
     } else {
       bleed.addStacks(stacksToApply);
     }
-    if (bleed.stacks == 5) gainNoxianMight();
+    if (bleed.stacks == 5 && target.isChampion) gainNoxianMight();
   }
 
   @override

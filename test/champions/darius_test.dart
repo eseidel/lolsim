@@ -12,7 +12,7 @@ dynamic main() async {
     test("basic", () {
       Mob darius = data.champs.championById('Darius');
       double dariusAd = darius.stats.attackDamage;
-      Mob mob = createTestMob(hp: 1000.0);
+      Mob mob = createTestMob(hp: 1000.0, type: MobType.champion);
       World world = new World();
       // AA applies bleed.
       new AutoAttack(darius, mob).apply(world);
