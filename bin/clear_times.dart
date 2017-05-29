@@ -3,6 +3,9 @@ import 'package:lol_duel/common_args.dart';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/cli_table.dart';
+import 'package:lol_duel/rune_pages.dart';
+import 'dart:io';
+import 'dart:convert';
 
 class _Calculate {
   String champName;
@@ -10,7 +13,7 @@ class _Calculate {
   double hpPercent;
   double clearTime;
 
-  _Calculate(Creator creator, this.champName) {
+  _Calculate(Creator creator, this.champName, RunePage runePage) {
     Mob makeChamp() {
       return creator.champs.championByName(champName)..updateStats();
     }
@@ -18,6 +21,7 @@ class _Calculate {
     Item item(String name) => creator.items.itemByName(name);
 
     Mob champ = makeChamp();
+    champ.runePage = runePage;
     champ.addItem(item("Hunter's Machete"));
 
     hasEffects = champ.championEffects != null;
@@ -46,9 +50,16 @@ dynamic main(List<String> args) async {
 
   Creator creator = await Creator.loadLatest();
 
+  String runesJson = new File('examples/rune_pages.json').readAsStringSync();
+  RunePageList pageList = new RunePageList.fromJson(
+    JSON.decode(runesJson),
+    creator.runes,
+  );
+  RunePage runePage = pageList.pages[2];
+
   List<String> champNames = creator.dragon.champs.loadChampNames();
   List<_Calculate> results = champNames.map((champName) {
-    return new _Calculate(creator, champName);
+    return new _Calculate(creator, champName, runePage);
   }).toList();
   results.sort((a, b) => a.clearTime.compareTo(b.clearTime));
 

@@ -47,7 +47,6 @@ class DuelLoader {
 
   Mob loadChampion(YamlMap yamlMob) {
     Mob mob = creator.champs.championByName(yamlMob['name']);
-    print('${mob.name} ${mob.type}');
     mob.level = yamlMob['level'] ?? 1;
     YamlList yamlItems = yamlMob['items'];
     if (yamlItems != null) {
@@ -65,6 +64,16 @@ class DuelLoader {
     return mob;
   }
 
+  Mob loadMonster(YamlMap yamlMob) {
+    MonsterType type = {
+      'Blue Sentinel': MonsterType.blueSentinal,
+    }[yamlMob['name']];
+    assert(type != null);
+    Mob mob = Mob.createMonster(type);
+    mob.level = yamlMob['level'] ?? 1;
+    return mob;
+  }
+
   List<Mob> loadTeam(Team color, YamlMap yamlTeam) {
     List<Mob> mobs = [];
     YamlList yamlChampions = yamlTeam['champions'];
@@ -76,6 +85,9 @@ class DuelLoader {
       addMinions(mobs, yamlMinions['melee'], MinionType.melee);
       addMinions(mobs, yamlMinions['super'], MinionType.superMinion);
     }
+    YamlList yamlMonsters = yamlTeam['monsters'];
+    if (yamlMonsters != null) mobs.addAll(yamlMonsters.map(loadMonster));
+
     mobs.forEach((mob) {
       mob.team = color;
     });

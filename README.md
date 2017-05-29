@@ -51,7 +51,6 @@ Many.  Including at least:
 
 ## TODO / Bugs
 - Figure out how to do ability passives.
-- Unify Buffs, Items, Abilities as Scripts.
 - Handle stat modifying buffs first, before other buffs.
 - pub run test dies w/o message when no precache.
 - Coverage & coveralls.io
@@ -60,6 +59,9 @@ Many.  Including at least:
 - Convert to integer math (ticks, etc.) to avoid double precision errors.
 - Implement in-combat/out-of-combat (more champs would die to darius and twitch dots).
 - Use round_robin json to compare lists.
+- Auto-attack windup.
+- Missle system & proximity.
+- Neutral teams logic (do not attack until attacked).
 
 ## Passives missing affecting the lvl 1 round_robin sort.
 - Aatrox passive (complicated, likely requires bloodthirst to be useful)
