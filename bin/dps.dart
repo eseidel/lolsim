@@ -3,7 +3,7 @@ import 'package:lol_duel/utils/common_args.dart';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/utils/cli_table.dart';
-import 'package:lol_duel/dummy_mob.dart';
+import 'package:lol_duel/utils/dummy_mob.dart';
 
 double calculateDps(Mob mob, {double totalTime = 100.0}) {
   Mob dummy = createDummyMob(hp: 1000.0);

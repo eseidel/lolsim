@@ -1,6 +1,7 @@
-import 'lolsim.dart';
-import 'dragon/dragon.dart';
+import '../lolsim.dart';
+import '../dragon/dragon.dart';
 
+// FIXME: Potentially merge with createTestMob() in test/
 Mob createDummyMob({double hp: 1000.0, MobType type: MobType.champion}) {
   Mob mob = new Mob(
     new MobDescription.forTesting(

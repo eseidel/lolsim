@@ -3,7 +3,7 @@ import "package:lol_duel/creator.dart";
 import 'package:lol_duel/lolsim.dart';
 import "package:test/test.dart";
 
-import 'test_mob.dart';
+import 'utils.dart';
 
 dynamic main() async {
   Creator creator = await Creator.loadLatest();
