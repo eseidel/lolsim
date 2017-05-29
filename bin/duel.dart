@@ -5,7 +5,7 @@ import 'package:args/args.dart';
 import 'package:logging/logging.dart';
 import 'package:lol_duel/utils/common_args.dart';
 import 'package:lol_duel/creator.dart';
-import 'package:lol_duel/duel.dart';
+import 'package:lol_duel/utils/duel.dart';
 import 'package:lol_duel/lolsim.dart';
 
 final Logger _log = new Logger('duel');

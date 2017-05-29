@@ -3,10 +3,10 @@ import 'dart:convert';
 
 import 'package:yaml/yaml.dart';
 
-import 'creator.dart';
-import 'mastery_pages.dart';
-import 'rune_pages.dart';
-import 'lolsim.dart';
+import '../creator.dart';
+import '../mastery_pages.dart';
+import '../rune_pages.dart';
+import '../lolsim.dart';
 
 class Duel {
   List<Mob> reds;
