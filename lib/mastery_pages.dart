@@ -1,5 +1,5 @@
 import 'lolsim.dart';
-import 'dragon.dart';
+import 'dragon/dragon.dart';
 
 class MasteryPage {
   String name;

@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:lol_duel/stat_constants.dart';
-import 'package:lol_duel/dragon.dart';
+import 'package:lol_duel/dragon/stat_constants.dart';
+import 'package:lol_duel/dragon/dragon.dart';
 import 'package:lol_duel/creator.dart';
 
 // Inspired by https://www.reddit.com/r/leagueoflegends/comments/2bay6z/should_you_buy_armor_or_health_graph_inside/

@@ -62,6 +62,7 @@ Many.  Including at least:
 - Auto-attack windup.
 - Missle system & proximity.
 - Neutral teams logic (do not attack until attacked).
+- Split into layers: Dragon, 
 
 ## Passives missing affecting the lvl 1 round_robin sort.
 - Aatrox passive (complicated, likely requires bloodthirst to be useful)

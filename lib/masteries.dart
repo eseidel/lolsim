@@ -1,5 +1,5 @@
 import 'lolsim.dart';
-import 'stat_constants.dart';
+import 'dragon/stat_constants.dart';
 
 class MasteryEffects {
   final int rank;

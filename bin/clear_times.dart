@@ -1,12 +1,13 @@
 #!/usr/local/bin/dart
-import 'package:lol_duel/common_args.dart';
-import 'package:lol_duel/creator.dart';
-import 'package:lol_duel/lolsim.dart';
-import 'package:lol_duel/cli_table.dart';
-import 'package:lol_duel/rune_pages.dart';
-import 'package:logging/logging.dart';
-import 'dart:io';
 import 'dart:convert';
+import 'dart:io';
+
+import 'package:logging/logging.dart';
+import 'package:lol_duel/creator.dart';
+import 'package:lol_duel/rune_pages.dart';
+import 'package:lol_duel/lolsim.dart';
+import 'package:lol_duel/utils/cli_table.dart';
+import 'package:lol_duel/utils/common_args.dart';
 
 class _Calculate {
   String champName;

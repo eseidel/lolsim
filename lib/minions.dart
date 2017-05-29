@@ -1,4 +1,4 @@
-import 'dragon.dart';
+import 'dragon/dragon.dart';
 
 final Map<String, double> _sharedMinionStats = {
   'spellblockperlevel': 0.0,

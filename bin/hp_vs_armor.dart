@@ -1,8 +1,8 @@
 #!/usr/local/bin/dart
-import 'package:lol_duel/common_args.dart';
+import 'package:lol_duel/utils/common_args.dart';
 import 'package:lol_duel/creator.dart';
-import 'package:lol_duel/dragon.dart';
-import 'package:lol_duel/stat_relations.dart';
+import 'package:lol_duel/dragon/dragon.dart';
+import 'package:lol_duel/utils/stat_relations.dart';
 
 Iterable<double> _fromTo(double start, double stop, double increment) sync* {
   double i = start;

@@ -6,7 +6,7 @@ import 'package:logging/logging.dart';
 import 'package:lol_duel/champions.dart';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
-import 'package:lol_duel/cli_table.dart';
+import 'package:lol_duel/utils/cli_table.dart';
 import 'package:trotter/trotter.dart';
 
 int champCompare(Mob red, Mob blue) {

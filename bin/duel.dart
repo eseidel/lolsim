@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:args/args.dart';
 import 'package:logging/logging.dart';
-import 'package:lol_duel/common_args.dart';
+import 'package:lol_duel/utils/common_args.dart';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/duel.dart';
 import 'package:lol_duel/lolsim.dart';

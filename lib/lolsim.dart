@@ -4,17 +4,18 @@ import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 
 import 'buffs.dart';
+import 'champions.dart';
+import 'dragon/dragon.dart';
+import 'dragon/stat_constants.dart';
+import 'dragon/stats.dart';
 import 'items.dart';
 import 'masteries.dart';
 import 'mastery_pages.dart';
-import 'rune_pages.dart';
-import 'champions.dart';
-import 'dragon.dart';
 import 'minions.dart';
 import 'monsters.dart';
-import 'stats.dart';
-export 'stats.dart';
-import 'stat_constants.dart';
+import 'rune_pages.dart';
+
+export 'dragon/stats.dart';
 
 final Logger _log = new Logger('LOL');
 

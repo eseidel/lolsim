@@ -1,8 +1,8 @@
 #!/usr/local/bin/dart
-import 'package:lol_duel/common_args.dart';
+import 'package:lol_duel/utils/common_args.dart';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
-import 'package:lol_duel/cli_table.dart';
+import 'package:lol_duel/utils/cli_table.dart';
 import 'package:lol_duel/dummy_mob.dart';
 
 double calculateDps(Mob mob, {double totalTime = 100.0}) {

@@ -1,8 +1,8 @@
 #!/usr/local/bin/dart
-import 'package:lol_duel/common_args.dart';
-import 'package:lol_duel/dragon.dart';
-import 'package:lol_duel/stat_constants.dart';
-import 'package:lol_duel/cli_table.dart';
+import 'package:lol_duel/dragon/dragon.dart';
+import 'package:lol_duel/dragon/stat_constants.dart';
+import 'package:lol_duel/utils/cli_table.dart';
+import 'package:lol_duel/utils/common_args.dart';
 
 class _Result {
   ItemDescription item;

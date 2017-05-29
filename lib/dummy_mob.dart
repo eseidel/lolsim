@@ -1,5 +1,5 @@
 import 'lolsim.dart';
-import 'dragon.dart';
+import 'dragon/dragon.dart';
 
 Mob createDummyMob({double hp: 1000.0, MobType type: MobType.champion}) {
   Mob mob = new Mob(

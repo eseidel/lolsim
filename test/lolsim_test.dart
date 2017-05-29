@@ -1,6 +1,6 @@
 import 'package:lol_duel/lolsim.dart';
 import "package:test/test.dart";
-import 'package:lol_duel/stat_constants.dart';
+import 'package:lol_duel/dragon/stat_constants.dart';
 
 import 'test_mob.dart';
 

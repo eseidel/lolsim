@@ -1,7 +1,7 @@
 import 'package:lol_duel/buffs.dart';
 import 'package:lol_duel/champions.dart';
 import 'package:lol_duel/lolsim.dart';
-import 'package:lol_duel/stat_constants.dart';
+import 'package:lol_duel/dragon/stat_constants.dart';
 import 'package:meta/meta.dart';
 
 class NoxianMight extends TimedBuff {

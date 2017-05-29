@@ -3,7 +3,7 @@
 // a one-off.
 
 import 'lolsim.dart';
-import 'stat_constants.dart';
+import 'dragon/stat_constants.dart';
 
 // FIXME: This is a unique effect.
 // FIXME: Needs update for 7.9.1

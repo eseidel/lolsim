@@ -1,7 +1,7 @@
 #!/usr/local/bin/dart
-import 'package:lol_duel/common_args.dart';
-import 'package:lol_duel/spell_parser.dart';
-import 'package:lol_duel/cli_table.dart';
+import 'package:lol_duel/dragon/spell_parser.dart';
+import 'package:lol_duel/utils/cli_table.dart';
+import 'package:lol_duel/utils/common_args.dart';
 
 dynamic main(List<String> args) async {
   handleCommonArgs(args);

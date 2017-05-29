@@ -1,10 +1,10 @@
 #!/usr/local/bin/dart
-import 'package:lol_duel/cli_table.dart';
-import 'package:lol_duel/common_args.dart';
 import 'package:lol_duel/creator.dart';
+import 'package:lol_duel/dragon/spell_parser.dart';
 import 'package:lol_duel/dummy_mob.dart';
 import 'package:lol_duel/lolsim.dart';
-import 'package:lol_duel/spell_parser.dart';
+import 'package:lol_duel/utils/cli_table.dart';
+import 'package:lol_duel/utils/common_args.dart';
 
 double applyRatio(ScaledValue ratio, int rank, Mob source) {
   int rankIndex = rank - 1;

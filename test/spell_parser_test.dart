@@ -1,4 +1,4 @@
-import 'package:lol_duel/spell_parser.dart';
+import 'package:lol_duel/dragon/spell_parser.dart';
 import "package:test/test.dart";
 
 dynamic main() async {

@@ -1,9 +1,10 @@
-import 'package:lol_duel/cli_table.dart';
-import 'package:lol_duel/common_args.dart';
+#!/usr/local/bin/dart
 import 'package:lol_duel/creator.dart';
-import 'package:lol_duel/dragon.dart';
+import 'package:lol_duel/dragon/dragon.dart';
+import 'package:lol_duel/dragon/stat_constants.dart';
 import 'package:lol_duel/lolsim.dart';
-import 'package:lol_duel/stat_constants.dart';
+import 'package:lol_duel/utils/cli_table.dart';
+import 'package:lol_duel/utils/common_args.dart';
 
 class _Calculated {
   final String champName;

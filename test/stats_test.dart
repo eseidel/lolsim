@@ -1,4 +1,4 @@
-import "package:lol_duel/stats.dart";
+import "package:lol_duel/dragon/stats.dart";
 import 'package:lol_duel/lolsim.dart';
 import "package:test/test.dart";
 
