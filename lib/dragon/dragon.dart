@@ -3,9 +3,10 @@ import 'dart:convert';
 
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
+
+import 'hacks.dart';
+import 'loader.dart';
 import 'stats.dart';
-import 'dragon_loader.dart';
-import 'dragon_hacks.dart';
 
 final Logger _log = new Logger('dragon');
 

@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:lol_duel/dragon/dragon.dart';
-import 'package:lol_duel/dragon/dragon_loader.dart';
-import 'package:quiver/cache.dart';
-import 'package:path/path.dart' as pathPackage;
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
+import 'package:lol_duel/dragon/dragon.dart';
+import 'package:lol_duel/dragon/loader.dart';
+import 'package:path/path.dart' as pathPackage;
+import 'package:quiver/cache.dart';
 
 final Logger _log = new Logger('dragon_loader');
 

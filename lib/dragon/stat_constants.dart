@@ -19,7 +19,8 @@ const String FlatArmorModPerLevel = 'rFlatArmorModPerLevel';
 const String FlatSpellBlockModPerLevel = 'rFlatSpellBlockModPerLevel';
 const String PercentCooldownMod = 'rPercentCooldownMod';
 
-// I've added these:
+// I added these.  They probably belong in a file
+// outside of the dragon directory.
 const String Lethality = 'CustomLethality';
 const String PercentArmorMod = 'CustomPercentArmorMod';
 const String FlatArmorReduction = 'CustomFlatArmorReduction';
