@@ -1,15 +1,6 @@
 import 'lolsim.dart';
 import 'dragon/stat_constants.dart';
-
-class MasteryEffects {
-  final int rank;
-  MasteryEffects(this.rank);
-
-  void damageDealtModifier(Hit hit, DamageDealtDelta delta) {}
-  void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {}
-
-  Map<String, num> get stats => null;
-}
+import 'effects.dart';
 
 typedef MasteryEffects MasteryEffectsConstructor(int rank);
 
@@ -29,6 +20,9 @@ final Map<String, MasteryEffectsConstructor> masteryEffectsConstructors = {
 
 class Fury extends MasteryEffects {
   Fury(int rank) : super(rank);
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 
   // .8% * rank attack speed
   @override
@@ -58,6 +52,9 @@ class ExposeWeakness {
 class Vampirism extends MasteryEffects {
   Vampirism(int rank) : super(rank);
 
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   // .4% * R lifesteal and spell vamp.
   @override
   Map<String, num> get stats => {
@@ -68,6 +65,9 @@ class Vampirism extends MasteryEffects {
 
 class NaturalTalent extends MasteryEffects {
   NaturalTalent(int rank) : super(rank);
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 
   // Gain 0.4 * R + 0.09 * R per level Attack Damage, and
   // 0.6 * R + 0.13 * R per level Ability Power (+2 Attack Damage and 3 Ability Power at level 18)
@@ -87,6 +87,10 @@ class BountyHunter {
 
 class DoubleEdgedSword extends MasteryEffects {
   DoubleEdgedSword(int rank) : super(rank);
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   // Deal 5% additional damage, take 2.5% additional damage.
   @override
   void damageDealtModifier(Hit hit, DamageDealtDelta delta) {
@@ -109,6 +113,9 @@ class BattleTrance {
 class BatteringBlows extends MasteryEffects {
   BatteringBlows(int rank) : super(rank);
 
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   // 1.4 * R percent Armor Penetration
   @override
   Map<String, num> get stats => {
@@ -118,6 +125,9 @@ class BatteringBlows extends MasteryEffects {
 
 class PiercingThoughts extends MasteryEffects {
   PiercingThoughts(int rank) : super(rank);
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 
   // +1.4 * R percent Magic Penetration
   @override
@@ -156,6 +166,9 @@ class Wanderer {
 class Savagery extends MasteryEffects {
   Savagery(int rank) : super(rank);
 
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   // Single target attacks and spells deal 1 * R bonus damage to minions and monsters
   @override
   void damageDealtModifier(Hit hit, DamageDealtDelta delta) {
@@ -187,6 +200,9 @@ class Assassin {
 
 class Merciless extends MasteryEffects {
   Merciless(int rank) : super(rank);
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 
   // Deal 1% * R percent increased damage to champions below 40% Health
   @override
@@ -250,6 +266,9 @@ class WindspeakersBlessing {
 class Recovery extends MasteryEffects {
   Recovery(int rank) : super(rank);
 
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   // +0.4 * R Health per 5 seconds
   @override
   Map<String, num> get stats => {
@@ -269,6 +288,10 @@ class Explorer {
 
 class ToughSkin extends MasteryEffects {
   ToughSkin(int rank) : super(rank);
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
+
   // You take 2 less damage from champion and neutral monster basic attacks
   @override
   void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {
@@ -288,6 +311,9 @@ class RunicArmor {
 
 class VeteransScars extends MasteryEffects {
   VeteransScars(int rank) : super(rank);
+
+  @override
+  String get lastUpdate => VERSION_7_2_1;
 
   // +10 * R Health
   @override

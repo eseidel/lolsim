@@ -8,7 +8,7 @@ import 'effects.dart';
 
 final Logger _log = new Logger('buffs');
 
-abstract class Buff extends EffectsBase {
+abstract class Buff extends BuffEffects {
   String name;
   Mob target;
 
