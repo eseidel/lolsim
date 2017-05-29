@@ -20,7 +20,7 @@ void runDuel(Duel duel) {
   List<String> champIds = [];
   duel.allMobs.forEach((mob) {
     mob.shouldRecordDamage = true;
-    if (mob.type == MobType.champion) champIds.add(mob.id);
+    if (mob.isChampion) champIds.add(mob.id);
   });
   World world = new World(
     blues: duel.blues,

@@ -32,7 +32,7 @@ class Nocturne extends ChampionEffects {
     }
 
     // Structure hits reduce cooldown but do not trigger splash.
-    if (hit.target.type == MobType.structure) return;
+    if (hit.target.isStructure) return;
 
     nocturne.addBuff(new UmbraBladesCooldown(nocturne));
     // lolwiki is phrased strangely, but since this does not interact

@@ -23,7 +23,7 @@ class Urgot extends ChampionEffects {
 
   @override
   void onHit(Hit hit) {
-    if (hit.target.type == MobType.structure) return;
+    if (hit.target.isStructure) return;
     ZaunTouchedBoltAugmenter buff = hit.target.buffs.firstWhere(
         (buff) => buff is ZaunTouchedBoltAugmenter,
         orElse: () => null);

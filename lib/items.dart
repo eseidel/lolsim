@@ -11,7 +11,7 @@ class DoransShield extends ItemEffects {
   @override
   void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {
     // FIXME: This needs to check that the dmg source is single target.
-    if (hit.source.type == MobType.champion) delta.flatCombined = -8.0;
+    if (hit.source.isChampion) delta.flatCombined = -8.0;
   }
 }
 

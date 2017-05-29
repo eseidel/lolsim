@@ -26,7 +26,7 @@ class XinZhao extends ChampionEffects {
   @override
   void onHit(Hit hit) {
     // Does this affect structures?
-    if (hit.target.type == MobType.structure) return;
+    if (hit.target.isStructure) return;
 
     Challange lastTargetBuff = validateLastTargetBuff(hit);
     lastTarget = hit.target;

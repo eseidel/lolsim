@@ -932,8 +932,7 @@ class World {
     if (range == 0) return []; // range is ignored for now.
     Iterable<Mob> allMobs =
         (reference.team == Team.red) ? livingBlues : livingReds;
-    return allMobs.where(
-        (mob) => mob.type == MobType.champion && mob.team != reference.team);
+    return allMobs.where((mob) => mob.isChampion && mob.team != reference.team);
   }
 
   void updateTargets() {

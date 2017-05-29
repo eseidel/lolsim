@@ -18,7 +18,7 @@ class Zed extends ChampionEffects {
   // FIXME: This is implemented as a self-buff in game.
   @override
   void onHit(Hit hit) {
-    if (hit.target.type == MobType.structure) return;
+    if (hit.target.isStructure) return;
     // Should shields count in this calculation?
     if (hit.target.healthPercent >= .5) return;
     if (hit.target.buffs.any((buff) => buff is ContemptForTheWeak)) return;

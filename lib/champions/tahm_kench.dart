@@ -12,7 +12,7 @@ class TahmKench extends ChampionEffects {
 
   @override
   void onActionHit(Hit hit) {
-    if (hit.target.type == MobType.structure) return;
+    if (hit.target.isStructure) return;
     AnAcquiredTaste buff = hit.target.buffs
         .firstWhere((buff) => buff is AnAcquiredTaste, orElse: () => null);
 

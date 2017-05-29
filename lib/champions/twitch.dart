@@ -46,7 +46,7 @@ class Twitch extends ChampionEffects {
 
   // FIXME: I don't think this should apply to structures, right?
   void applyDeadlyVenomStack(Mob target) {
-    if (target.type == MobType.structure) return;
+    if (target.isStructure) return;
     DeadlyVenom bleed = target.buffs
         .firstWhere((buff) => buff is DeadlyVenom, orElse: () => null);
     if (bleed == null) {

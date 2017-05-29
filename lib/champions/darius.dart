@@ -74,7 +74,7 @@ class Darius extends ChampionEffects {
 
   // FIXME: I don't think this should apply to structures, right?
   void applyHemorrhageStack(Mob target) {
-    if (target.type == MobType.structure) return;
+    if (target.isStructure) return;
     bool hasNoxianMight = darius.buffs.any((buff) => buff is NoxianMight);
     int stacksToApply = hasNoxianMight ? 5 : 1;
     Hemorrhage bleed = target.buffs

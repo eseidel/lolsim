@@ -273,9 +273,7 @@ class ToughSkin extends MasteryEffects {
   @override
   void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {
     if (hit.targeting != Targeting.basicAttack) return;
-    MobType sourceType = hit.source.type;
-    if (sourceType == MobType.champion || sourceType == MobType.monster)
-      delta.flatPhysical -= 2;
+    if (hit.source.isChampion || hit.source.isMonster) delta.flatPhysical -= 2;
   }
 }
 

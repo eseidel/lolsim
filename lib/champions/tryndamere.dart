@@ -15,7 +15,7 @@ class Tryndamere extends ChampionEffects {
   // Should this move onto the buff?
   @override
   void onHit(Hit hit) {
-    if (hit.target.type == MobType.structure) return;
+    if (hit.target.isStructure) return;
     if (hit.isCrit)
       battleFury.addFury(10);
     else

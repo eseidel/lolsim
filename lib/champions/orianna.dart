@@ -35,7 +35,7 @@ class Orianna extends ChampionEffects {
   // Unclear what happens to the existing stacks if target blocks?
   @override
   void onHit(Hit hit) {
-    if (hit.target.type == MobType.structure) return;
+    if (hit.target.isStructure) return;
 
     double windupDamage = 10.0 + (((orianna.level - 1) / 3) * 5.0);
     windupDamage += .15 * orianna.stats.abilityPower;
