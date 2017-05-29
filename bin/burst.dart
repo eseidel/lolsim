@@ -25,7 +25,7 @@ double applyRatio(ScaledValue ratio, int rank, Mob source) {
   return null;
 }
 
-void applySpell(Spell spell, int rank, Mob source, Mob target) {
+void applySpell(SpellDescription spell, int rank, Mob source, Mob target) {
   if (rank < 1) return;
   double physicalDamage = 0.0;
   double magicDamage = 0.0;
@@ -54,7 +54,7 @@ void applySpell(Spell spell, int rank, Mob source, Mob target) {
   ));
 }
 
-double burstDamage(Mob champ, SpellBook spells) {
+double burstDamage(Mob champ, SpellDescriptionBook spells) {
   Mob dummy = createDummyMob();
   dummy.shouldRecordDamage = true;
 
@@ -70,8 +70,8 @@ double burstDamage(Mob champ, SpellBook spells) {
   return dummy.damageLog.totalDamage;
 }
 
-String abilitiesString(Mob champ, SpellBook book) {
-  String keyChar(Spell spell, int rank) {
+String abilitiesString(Mob champ, SpellDescriptionBook book) {
+  String keyChar(SpellDescription spell, int rank) {
     if (spell.parseError != null) return '*';
     if (spell.doesDamage && rank > 0) return spell.key.toString();
     return ' ';
@@ -95,9 +95,9 @@ class _Result {
 }
 
 double sumOfDamageRatios(
-    SpellBook book, ScalingSource source, AbilityRanks ranks) {
+    SpellDescriptionBook book, ScalingSource source, AbilityRanks ranks) {
   double sum = 0.0;
-  void addFrom(Spell spell, int rank) {
+  void addFrom(SpellDescription spell, int rank) {
     if (!spell.doesDamage || rank < 1) return;
     sum += spell.sumOfRatios(source, rank);
   }
@@ -112,7 +112,7 @@ double sumOfDamageRatios(
 dynamic main(List<String> args) async {
   handleCommonArgs(args);
   Creator creator = await Creator.loadLatest();
-  SpellFactory spells = await SpellFactory.load();
+  SpellLibrary spells = await SpellLibrary.load();
   AbilityRanks ranks = new AbilityRanks(q: 1, w: 1, e: 1);
   int level = 3;
 
@@ -138,7 +138,7 @@ dynamic main(List<String> args) async {
     champ.abilityRanks = ranks;
     champ.updateStats();
 
-    SpellBook spellBook = spells.bookForChampionName(champName);
+    SpellDescriptionBook spellBook = spells.bookForChampionName(champName);
     return new _Result()
       ..abilitiesString = abilitiesString(champ, spellBook)
       ..burst = burstDamage(champ, spellBook)

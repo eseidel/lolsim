@@ -5,18 +5,18 @@ import 'package:lol_duel/utils/common_args.dart';
 
 dynamic main(List<String> args) async {
   handleCommonArgs(args, defaultLogLevel: Level.SEVERE);
-  SpellFactory spells = await SpellFactory.load();
-  List<Spell> allSpells = spells.allSpells;
+  SpellLibrary spells = await SpellLibrary.load();
+  List<SpellDescription> allSpells = spells.allSpells;
 
-  List<Spell> doesDamage =
+  List<SpellDescription> doesDamage =
       spells.allSpells.where((spell) => spell.doesDamage).toList();
 
   RegExp damageRegexp = new RegExp('amage');
-  List<Spell> mentionsDamage = spells.allSpells
+  List<SpellDescription> mentionsDamage = spells.allSpells
       .where((spell) => spell.data['tooltip'].contains(damageRegexp))
       .toList();
 
-  List<Spell> parseError =
+  List<SpellDescription> parseError =
       allSpells.where((var spell) => spell.parseError != null).toList();
   print("Total: ${allSpells.length}");
   print("Parse Error: ${parseError.length}"); // 40

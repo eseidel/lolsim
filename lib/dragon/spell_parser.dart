@@ -8,21 +8,21 @@ import 'loader.dart';
 
 final Logger _log = new Logger('spell_parser');
 
-class Key {
+class SpellKey {
   final String char;
-  const Key(this.char);
+  const SpellKey(this.char);
 
-  static Key q = const Key('Q');
-  static Key w = const Key('W');
-  static Key e = const Key('E');
-  static Key r = const Key('R');
+  static SpellKey q = const SpellKey('Q');
+  static SpellKey w = const SpellKey('W');
+  static SpellKey e = const SpellKey('E');
+  static SpellKey r = const SpellKey('R');
 
-  factory Key.fromIndex(int index) {
+  factory SpellKey.fromIndex(int index) {
     return [
-      Key.q,
-      Key.w,
-      Key.e,
-      Key.r,
+      SpellKey.q,
+      SpellKey.w,
+      SpellKey.e,
+      SpellKey.r,
     ][index];
   }
 
@@ -30,14 +30,13 @@ class Key {
   String toString() => char;
 }
 
-class SpellBook {
-  String champName;
-  Spell q;
-  Spell e;
-  Spell w;
-  Spell r;
+class SpellDescriptionBook {
+  SpellDescription q;
+  SpellDescription e;
+  SpellDescription w;
+  SpellDescription r;
 
-  operator []=(int i, Spell spell) {
+  operator []=(int i, SpellDescription spell) {
     switch (i) {
       case 0:
         q = spell;
@@ -52,7 +51,7 @@ class SpellBook {
         r = spell;
         break;
       default:
-        throw new ArgumentError("$i is not in the range 0-3 for $champName");
+        throw new ArgumentError("$i is not in the range 0-3");
     }
   }
 }
@@ -154,15 +153,16 @@ class DamageEffect {
   }
 }
 
-class Spell {
+class SpellDescription {
   final String champName;
   final String name;
-  final Key key;
+  final SpellKey key;
   final Map data;
   List<DamageEffect> damageEffects = [];
   String parseError;
 
-  Spell.fromJson({this.champName, this.key, this.data}) : name = data['name'] {
+  SpellDescription.fromJson({this.champName, this.key, this.data})
+      : name = data['name'] {
     try {
       damageEffects = parseEffects(data).toList();
     } on ArgumentError catch (e) {
@@ -208,8 +208,6 @@ Iterable<TooltipMatch> parseTooltip(String tooltip, [String spellName]) sync* {
   tooltip =
       tooltip.replaceAll('magical damage', 'magic damage'); // old spelling
   tooltip = tooltip.replaceAll('  ', ' ');
-
-  // if (spellName == "Ranger's Focus") print(tooltip);
 
   for (Match match in _effectRegexp.allMatches(tooltip)) {
     yield new TooltipMatch()
@@ -289,22 +287,23 @@ Iterable<DamageEffect> parseEffects(Map data) sync* {
   }
 }
 
-class SpellFactory {
-  List<Spell> allSpells;
-  Map<String, SpellBook> _bookByChampionName;
+class SpellLibrary {
+  List<SpellDescription> allSpells;
+  Map<String, SpellDescriptionBook> _bookByChampionName;
 
-  SpellFactory.fromJson(Map<String, dynamic> json) {
+  SpellLibrary.fromJson(Map<String, dynamic> json) {
     allSpells = [];
     _bookByChampionName = {};
     json['data'].values.forEach((champ) {
-      List spells = champ['spells'];
-      SpellBook book = new SpellBook();
+      List spellMaps = champ['spells'];
+      assert(spellMaps.length == 4);
+      SpellDescriptionBook book = new SpellDescriptionBook();
       _bookByChampionName[champ['name']] = book;
-      for (int x = 0; x < spells.length; x++) {
-        Spell spell = new Spell.fromJson(
+      for (int x = 0; x < spellMaps.length; x++) {
+        SpellDescription spell = new SpellDescription.fromJson(
           champName: champ['name'],
-          key: new Key.fromIndex(x),
-          data: spells[x],
+          key: new SpellKey.fromIndex(x),
+          data: spellMaps[x],
         );
         book[x] = spell;
         allSpells.add(spell);
@@ -312,13 +311,13 @@ class SpellFactory {
     });
   }
 
-  static Future<SpellFactory> load({DragonLoader loader}) async {
+  static Future<SpellLibrary> load({DragonLoader loader}) async {
     loader = loader ?? new LocalLoader();
     Map json = JSON.decode(await loader.load('championFull.json'));
-    return new SpellFactory.fromJson(json);
+    return new SpellLibrary.fromJson(json);
   }
 
-  SpellBook bookForChampionName(String championName) {
+  SpellDescriptionBook bookForChampionName(String championName) {
     return _bookByChampionName[championName];
   }
 }

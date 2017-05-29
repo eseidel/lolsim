@@ -5,14 +5,14 @@ import 'package:lol_duel/utils/common_args.dart';
 
 dynamic main(List<String> args) async {
   handleCommonArgs(args);
-  SpellFactory spells = await SpellFactory.load();
-  List<Spell> allSpells = spells.allSpells;
+  SpellLibrary spells = await SpellLibrary.load();
+  List<SpellDescription> allSpells = spells.allSpells;
 
-  List<Spell> doesDamage =
+  List<SpellDescription> doesDamage =
       spells.allSpells.where((spell) => spell.doesDamage).toList();
 
   RegExp damageRegexp = new RegExp('amage');
-  List<Spell> mentionsDamage = spells.allSpells
+  List<SpellDescription> mentionsDamage = spells.allSpells
       .where((spell) => spell.data['tooltip'].contains(damageRegexp))
       .toList();
 
@@ -28,7 +28,7 @@ dynamic main(List<String> args) async {
   //   // spell.data['vars'].forEach((key) => print(key));
   //   // spell.data['effect'].forEach((key) => print(key));
   // });
-  List<Spell> parseError =
+  List<SpellDescription> parseError =
       allSpells.where((var spell) => spell.parseError != null).toList();
   print("Total: ${allSpells.length}");
   print("Parse Error: ${parseError.length}"); // 40
@@ -39,7 +39,7 @@ dynamic main(List<String> args) async {
   layout.printRow(['Ability', 'Damage']);
   layout.printDivider();
 
-  for (Spell spell in doesDamage) {
+  for (SpellDescription spell in doesDamage) {
     layout.printRow([spell.name, spell.effectsSummaryForRank(1)]);
   }
 
