@@ -2,13 +2,12 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:args/args.dart';
-import 'package:logging/logging.dart';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/mastery_pages.dart';
 import 'package:lol_duel/rune_pages.dart';
 import 'package:lol_duel/utils/cli_table.dart';
+import 'package:lol_duel/utils/common_args.dart';
 
 void addSkillPoints(Mob champ) {
   if (champ.name == 'Volibear')
@@ -63,17 +62,7 @@ class _Calculate {
 }
 
 dynamic main(List<String> args) async {
-  Logger.root.level = Level.WARNING;
-  Logger.root.onRecord.listen((LogRecord rec) {
-    if (rec.loggerName == 'spell_parser') return;
-    print('${rec.level.name.toLowerCase()}(${rec.loggerName}): ${rec.message}');
-  });
-
-  ArgParser parser = new ArgParser(allowTrailingOptions: true)
-    ..addFlag('verbose', abbr: 'v');
-
-  ArgResults argResults = parser.parse(args);
-  if (argResults['verbose']) Logger.root.level = Level.ALL;
+  handleCommonArgs(args);
 
   Creator creator = await Creator.loadLatest();
 

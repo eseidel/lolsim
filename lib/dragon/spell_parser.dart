@@ -146,7 +146,8 @@ class SpellDescription {
       damageEffects = parseEffects(data).toList();
     } on ArgumentError catch (e) {
       parseError = e.message;
-      _log.warning(e.message);
+      // FIXME: This should be a warning, but there are way too many.
+      _log.info(e.message);
     }
   }
 
