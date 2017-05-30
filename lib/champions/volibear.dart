@@ -46,3 +46,43 @@ class ChosenOfTheStorm extends TimedBuff {
         FlatHPRegenMod: hpPerFive(),
       };
 }
+
+class Frenzy extends StackedBuff {
+  int rank;
+
+  Frenzy(Mob target, this.rank)
+      : super(
+          name: 'Frenzy',
+          maxStacks: 3,
+          duration: 4.0,
+          timeBetweenFalloffs: 0.0, // FIXME: Needs testing.
+          target: target,
+        );
+
+  @override
+  Map<String, num> get stats => {
+        PercentAttackSpeedMod: 0.04 * rank,
+      };
+
+  @override
+  String get lastUpdate => VERSION_7_10_1;
+}
+
+class VolibearW extends SpellEffects {
+  Mob champ;
+  int rank;
+  VolibearW(this.champ, this.rank);
+
+  @override
+  String get lastUpdate => VERSION_7_10_1;
+
+  @override
+  void onHit(Hit hit) {
+    Frenzy frenzy =
+        champ.buffs.firstWhere((buff) => buff is Frenzy, orElse: () => null);
+    if (frenzy == null)
+      champ.addBuff(new Frenzy(champ, rank));
+    else
+      frenzy.refreshAndAddStack();
+  }
+}

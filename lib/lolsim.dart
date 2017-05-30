@@ -4,11 +4,12 @@ import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 
 import 'buffs.dart';
-import 'effects.dart';
 import 'champions/all.dart';
 import 'dragon/dragon.dart';
+import 'dragon/spellkey.dart';
 import 'dragon/stat_constants.dart';
 import 'dragon/stats.dart';
+import 'effects.dart';
 import 'items.dart';
 import 'masteries.dart';
 import 'mastery_pages.dart';
@@ -16,6 +17,7 @@ import 'minions.dart';
 import 'monsters.dart';
 import 'rune_pages.dart';
 
+export 'dragon/spellkey.dart';
 export 'dragon/stats.dart';
 
 final Logger _log = new Logger('LOL');
@@ -398,34 +400,89 @@ enum MobType {
   structure,
 }
 
+class Spell {
+  final SpellDescription description;
+  final Mob mob;
+  SpellEffects effects;
+  int _rank = 0;
+
+  Spell(this.mob, this.description);
+
+  void addSkillPoint() {
+    _rank += 1;
+    effects = constructEffectsForSpell(description, mob, _rank);
+  }
+
+  int get rank => _rank;
+
+  @override
+  String toString() => "Rank $_rank ${description.name}";
+}
+
+class SpellBook {
+  Spell q;
+  Spell e;
+  Spell w;
+  Spell r;
+
+  SpellBook(Mob mob, SpellDescriptionBook description)
+      : q = new Spell(mob, description.q),
+        e = new Spell(mob, description.e),
+        w = new Spell(mob, description.w),
+        r = new Spell(mob, description.r);
+
+  Spell spellForKey(SpellKey key) {
+    return {
+      SpellKey.q: q,
+      SpellKey.w: w,
+      SpellKey.e: e,
+      SpellKey.r: r,
+    }[key];
+  }
+
+  void addSkillPointTo(SpellKey key) {
+    spellForKey(key).addSkillPoint();
+  }
+
+  void forEach(void callback(Spell spell)) {
+    callback(q);
+    callback(e);
+    callback(w);
+    callback(r);
+  }
+}
+
 class Mob {
   MobDescription description;
   MobType type;
   Team team;
 
-  Mob lastTarget;
   List<Item> items = <Item>[];
   List<Buff> buffs = <Buff>[];
-  bool _updatingBuffs = false;
-  List<Buff> _buffsAddedWhileUpdating = <Buff>[];
   MasteryPage _masteryPage;
   RunePage _runePage;
+  ChampionEffects championEffects;
+  SpellBook spells;
+
   Stats stats; // updated per-tick.
   int _level = 1;
-  AbilityRanks abilityRanks;
   double hpLost = 0.0;
   bool alive = true;
-  MobState state;
   DamageLog damageLog;
-  ChampionEffects championEffects;
+
+  MobState state; // Eventually for CC, etc.
+  Mob lastTarget; // Belong in some sort of planning system.
+
+  bool _updatingBuffs = false;
+  List<Buff> _buffsAddedWhileUpdating = <Buff>[];
   List<EffectsBase> _cachedEffects = <EffectsBase>[];
 
+  // FIXME: Split this out into named constructors.
   Mob(this.description, this.type) {
     ChampionEffectsConstructor effectsConstructor =
         championEffectsConstructors[id];
     if (effectsConstructor != null) championEffects = effectsConstructor(this);
     updateStats();
-    if (type == MobType.champion) abilityRanks = new AbilityRanks();
     if (championEffects != null) championEffects.onChampionCreate();
     revive();
   }
@@ -446,6 +503,11 @@ class Mob {
     assert(newLevel >= 1);
     assert(newLevel <= 18);
     _level = newLevel;
+  }
+
+  void addSkillPointTo(SpellKey key) {
+    spells.addSkillPointTo(key);
+    _updateCachedEffects();
   }
 
   bool get shouldRecordDamage => damageLog != null;
@@ -620,8 +682,11 @@ class Mob {
   List<EffectsBase> collectEffects() {
     var effects = new List.from(buffs);
     if (championEffects != null) effects.add(championEffects);
-    items.forEach((i) {
-      if (i != null && i.effects != null) effects.add(i.effects);
+    items.forEach((item) {
+      if (item != null && item.effects != null) effects.add(item.effects);
+    });
+    spells?.forEach((Spell spell) {
+      if (spell.effects != null) effects.add(spell.effects);
     });
     return effects;
   }

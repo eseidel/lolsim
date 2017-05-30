@@ -5,30 +5,9 @@ import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 
 import 'loader.dart';
+import 'spellkey.dart';
 
 final Logger _log = new Logger('spell_parser');
-
-class SpellKey {
-  final String char;
-  const SpellKey(this.char);
-
-  static SpellKey q = const SpellKey('Q');
-  static SpellKey w = const SpellKey('W');
-  static SpellKey e = const SpellKey('E');
-  static SpellKey r = const SpellKey('R');
-
-  factory SpellKey.fromIndex(int index) {
-    return [
-      SpellKey.q,
-      SpellKey.w,
-      SpellKey.e,
-      SpellKey.r,
-    ][index];
-  }
-
-  @override
-  String toString() => char;
-}
 
 class SpellDescriptionBook {
   SpellDescription q;
@@ -42,10 +21,10 @@ class SpellDescriptionBook {
         q = spell;
         break;
       case 1:
-        e = spell;
+        w = spell;
         break;
       case 2:
-        w = spell;
+        e = spell;
         break;
       case 3:
         r = spell;

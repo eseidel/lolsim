@@ -39,4 +39,19 @@ dynamic main() async {
       expect(volibear.stats.hpRegen, greaterThan(buffedHp5));
     });
   });
+  group('Frenzy', () {
+    test('passive', () {
+      Mob volibear = data.champs.championById('Volibear');
+      expect(volibear.spells, isNotNull);
+      volibear.addSkillPointTo(SpellKey.w);
+      expect(volibear.spells.w.effects, isNotNull);
+      Mob mob = createTestMob();
+      World world = new World();
+      double restingAttackSpeed = volibear.stats.attackSpeed;
+      new AutoAttack(volibear, mob).apply(world);
+      expect(volibear.stats.attackSpeed, greaterThan(restingAttackSpeed));
+      volibear.tick(4.0);
+      expect(volibear.stats.attackSpeed, restingAttackSpeed);
+    });
+  });
 }

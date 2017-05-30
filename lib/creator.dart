@@ -31,33 +31,38 @@ class RuneFactory {
 
   RuneFactory(this.library);
 
-  Rune runeById(int id) {
-    return new Rune(library.runeById(id));
+  Rune runeById(int id) => new Rune(library.runeById(id));
+}
+
+class SpellFactory {
+  final SpellLibrary library;
+
+  SpellFactory(this.library);
+
+  SpellBook bookForChampion(Mob champ) {
+    return new SpellBook(champ, library.bookForChampionName(champ.name));
   }
 }
 
 class ChampionFactory {
   final ChampionLibrary library;
+  final SpellFactory spells;
 
-  ChampionFactory(this.library);
+  ChampionFactory(this.library, this.spells);
 
-  Iterable<Mob> allChamps() {
-    return library
-        .allChamps()
-        .map((description) => new Mob(description, MobType.champion));
+  Mob _makeChampion(MobDescription description) {
+    Mob champ = new Mob(description, MobType.champion);
+    champ.spells = spells.bookForChampion(champ);
+    return champ;
   }
 
-  Mob championById(String id) {
-    MobDescription description = library.championById(id);
-    if (description == null) return null;
-    return new Mob(description, MobType.champion);
-  }
+  Mob _makeChampionOrNull(MobDescription description) =>
+      (description == null) ? null : _makeChampion(description);
 
-  Mob championByName(String name) {
-    MobDescription description = library.championByName(name);
-    if (description == null) return null;
-    return new Mob(description, MobType.champion);
-  }
+  Iterable<Mob> allChamps() => library.allChamps().map(_makeChampion);
+  Mob championById(String id) => _makeChampionOrNull(library.championById(id));
+  Mob championByName(String name) =>
+      _makeChampionOrNull(library.championByName(name));
 }
 
 class Creator {
@@ -67,7 +72,8 @@ class Creator {
   final RuneFactory runes;
 
   Creator(this.dragon)
-      : champs = new ChampionFactory(dragon.champs),
+      : champs =
+            new ChampionFactory(dragon.champs, new SpellFactory(dragon.spells)),
         items = new ItemFactory(dragon.items),
         runes = new RuneFactory(dragon.runes);
 

@@ -24,6 +24,7 @@ import 'zed.dart';
 
 import '../effects.dart';
 import '../lolsim.dart';
+import '../dragon/spell_parser.dart';
 
 typedef ChampionEffects ChampionEffectsConstructor(Mob champion);
 Map<String, ChampionEffectsConstructor> championEffectsConstructors = {
@@ -51,3 +52,16 @@ Map<String, ChampionEffectsConstructor> championEffectsConstructors = {
   'XinZhao': (Mob champ) => new XinZhao(champ),
   'Zed': (Mob champ) => new Zed(champ),
 };
+
+typedef SpellEffects SpellEffectsConstructor(Mob champ, int rank);
+final Map<String, SpellEffectsConstructor> _spellEffectsConstructors = {
+  'VolibearW': (Mob champ, int rank) => new VolibearW(champ, rank),
+};
+
+SpellEffects constructEffectsForSpell(
+    SpellDescription description, Mob champ, int rank) {
+  String id = description.champName + description.key.char;
+  SpellEffectsConstructor constructor = _spellEffectsConstructors[id];
+  if (constructor == null) return null;
+  return constructor(champ, rank);
+}

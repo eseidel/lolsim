@@ -54,13 +54,12 @@ void applySpell(SpellDescription spell, int rank, Mob source, Mob target) {
   ));
 }
 
-double burstDamage(Mob champ, SpellDescriptionBook spells) {
+double burstDamage(Mob champ, SpellDescriptionBook spells, AbilityRanks ranks) {
   Mob dummy = createDummyMob();
   dummy.shouldRecordDamage = true;
 
   World world = new World();
   new AutoAttack(champ, dummy).apply(world);
-  var ranks = champ.abilityRanks;
   applySpell(spells.q, ranks.q, champ, dummy);
   applySpell(spells.e, ranks.e, champ, dummy);
   applySpell(spells.w, ranks.w, champ, dummy);
@@ -70,14 +69,14 @@ double burstDamage(Mob champ, SpellDescriptionBook spells) {
   return dummy.damageLog.totalDamage;
 }
 
-String abilitiesString(Mob champ, SpellDescriptionBook book) {
+String abilitiesString(
+    Mob champ, SpellDescriptionBook book, AbilityRanks ranks) {
   String keyChar(SpellDescription spell, int rank) {
     if (spell.parseError != null) return '*';
     if (spell.doesDamage && rank > 0) return spell.key.toString();
     return ' ';
   }
 
-  var ranks = champ.abilityRanks;
   return (champ.championEffects != null ? 'P' : ' ') +
       keyChar(book.q, ranks.q) +
       keyChar(book.w, ranks.w) +
@@ -135,13 +134,12 @@ dynamic main(List<String> args) async {
   List<_Result> results = champNames.map((champName) {
     Mob champ = creator.champs.championByName(champName);
     champ.level = level;
-    champ.abilityRanks = ranks;
     champ.updateStats();
 
     SpellDescriptionBook spellBook = spells.bookForChampionName(champName);
     return new _Result()
-      ..abilitiesString = abilitiesString(champ, spellBook)
-      ..burst = burstDamage(champ, spellBook)
+      ..abilitiesString = abilitiesString(champ, spellBook, ranks)
+      ..burst = burstDamage(champ, spellBook, ranks)
       ..champName = champName
       ..burstAdRatio =
           sumOfDamageRatios(spellBook, ScalingSource.attackDamage, ranks)

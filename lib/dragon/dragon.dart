@@ -7,6 +7,9 @@ import 'package:meta/meta.dart';
 import 'hacks.dart';
 import 'loader.dart';
 import 'stats.dart';
+import 'spell_parser.dart';
+
+export 'spell_parser.dart';
 
 final Logger _log = new Logger('dragon');
 
@@ -283,16 +286,19 @@ class DragonData {
   final ItemLibrary items;
   final MasteryLibrary masteries;
   final RuneLibrary runes;
+  final SpellLibrary spells;
 
-  DragonData(this.champs, this.items, this.masteries, this.runes);
+  DragonData(this.champs, this.items, this.masteries, this.runes, this.spells);
 
   static Future<DragonData> loadLatest({DragonLoader loader}) async {
     loader ??= new LocalLoader();
+    Map championFull = JSON.decode(await loader.load('championFull.json'));
     return new DragonData(
-      new ChampionLibrary(JSON.decode(await loader.load('championFull.json'))),
+      new ChampionLibrary(championFull),
       new ItemLibrary(JSON.decode(await loader.load('item.json'))),
       new MasteryLibrary(JSON.decode(await loader.load('mastery.json'))),
       new RuneLibrary(JSON.decode(await loader.load('rune.json'))),
+      new SpellLibrary.fromJson(championFull),
     );
   }
 }
