@@ -20,7 +20,7 @@ import 'rune_pages.dart';
 export 'dragon/spellkey.dart';
 export 'dragon/stats.dart';
 
-final Logger _log = new Logger('LOL');
+final Logger _log = new Logger('lolsim');
 
 // Supposedly the internal server tick rate is 30fps:
 // https://www.reddit.com/r/leagueoflegends/comments/2mmlkr/0001_second_kill_on_talon_even_faster_kill_out/cm5tizu/

@@ -2,12 +2,20 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:args/args.dart';
 import 'package:logging/logging.dart';
 import 'package:lol_duel/creator.dart';
-import 'package:lol_duel/rune_pages.dart';
 import 'package:lol_duel/lolsim.dart';
+import 'package:lol_duel/mastery_pages.dart';
+import 'package:lol_duel/rune_pages.dart';
 import 'package:lol_duel/utils/cli_table.dart';
-import 'package:lol_duel/utils/common_args.dart';
+
+void addSkillPoints(Mob champ) {
+  if (champ.name == 'Volibear')
+    champ.addSkillPointTo(SpellKey.w);
+  else
+    champ.addSkillPointTo(SpellKey.w);
+}
 
 class _Calculate {
   String champName;
@@ -17,7 +25,8 @@ class _Calculate {
   double hpPercent;
   double clearTime;
 
-  _Calculate(Creator creator, this.champName, RunePage runePage) {
+  _Calculate(Creator creator, this.champName, RunePage runePage,
+      MasteryPage masteryPage) {
     Mob makeChamp() {
       return creator.champs.championByName(champName)..updateStats();
     }
@@ -26,7 +35,9 @@ class _Calculate {
 
     Mob champ = makeChamp();
     champ.runePage = runePage;
+    champ.masteryPage = masteryPage;
     champ.addItem(item("Hunter's Machete"));
+    addSkillPoints(champ);
 
     hasEffects = champ.championEffects != null;
     computeClearTime(creator, champ);
@@ -52,20 +63,38 @@ class _Calculate {
 }
 
 dynamic main(List<String> args) async {
-  handleCommonArgs(args, defaultLogLevel: Level.WARNING);
+  Logger.root.level = Level.WARNING;
+  Logger.root.onRecord.listen((LogRecord rec) {
+    if (rec.loggerName == 'spell_parser') return;
+    print('${rec.level.name.toLowerCase()}(${rec.loggerName}): ${rec.message}');
+  });
+
+  ArgParser parser = new ArgParser(allowTrailingOptions: true)
+    ..addFlag('verbose', abbr: 'v');
+
+  ArgResults argResults = parser.parse(args);
+  if (argResults['verbose']) Logger.root.level = Level.ALL;
 
   Creator creator = await Creator.loadLatest();
 
-  String runesJson = new File('examples/rune_pages.json').readAsStringSync();
-  RunePageList pageList = new RunePageList.fromJson(
-    JSON.decode(runesJson),
+  String runesString = new File('examples/rune_pages.json').readAsStringSync();
+  RunePageList runePages = new RunePageList.fromJson(
+    JSON.decode(runesString),
     creator.runes,
   );
-  RunePage runePage = pageList.pages[2];
+  RunePage runePage = runePages.pages[2];
+
+  String masteriesString =
+      new File('examples/mastery_pages.json').readAsStringSync();
+  MasteryPageList masteryPages = new MasteryPageList.fromJson(
+    JSON.decode(masteriesString),
+    creator.dragon.masteries,
+  );
+  MasteryPage masteryPage = masteryPages.pages[11];
 
   List<String> champNames = creator.dragon.champs.loadChampNames();
   List<_Calculate> results = champNames.map((champName) {
-    return new _Calculate(creator, champName, runePage);
+    return new _Calculate(creator, champName, runePage, masteryPage);
   }).toList();
   results.sort((a, b) {
     if (a.alive != b.alive) return a.alive ? 1 : -1;
