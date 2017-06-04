@@ -271,6 +271,15 @@ class ChampionLibrary {
     return new MobDescription.fromJson(json);
   }
 
+  MobDescription championByKey(String key) {
+    for (Map<String, dynamic> champJson in _json['data'].values) {
+      if (champJson['key'] == key)
+        return new MobDescription.fromJson(champJson);
+    }
+    _log.severe("No champion matching key $key.");
+    return null;
+  }
+
   MobDescription championByName(String name) {
     for (Map<String, dynamic> champJson in _json['data'].values) {
       if (champJson['name'] == name)
