@@ -1,12 +1,47 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'dart:async';
+
 import 'package:lol_duel/dragon/dragon.dart';
+
+class Role {
+  final String id;
+  const Role(this.id);
+
+  factory Role.fromChampionGG(String id) {
+    return {
+      top.id: top,
+      mid.id: mid,
+      jungle.id: jungle,
+      support.id: support,
+      adc.id: adc,
+    }[id];
+  }
+
+  static const Role top = const Role('TOP');
+  static const Role mid = const Role('MIDDLE');
+  static const Role jungle = const Role('JUNGLE');
+  static const Role support = const Role('DUO_SUPPORT');
+  static const Role adc = const Role('DUO_CARRY');
+
+  String get shortName {
+    return {
+      top.id: 'Top',
+      mid.id: 'Mid',
+      jungle.id: 'Jung',
+      adc.id: 'ADC',
+      support.id: 'Support',
+    }[id];
+  }
+}
 
 class ChampionStats {
   final MobDescription champ;
   List<RoleEntry> roles = [];
   ChampionStats(this.champ);
+
+  RoleEntry entryForRole(Role role) =>
+      roles.firstWhere((r) => (r.role == role), orElse: () => null);
 
   RoleEntry get mostPlayed {
     double maxValue = 0.0;
@@ -24,7 +59,7 @@ class ChampionStats {
 class RoleEntry {
   final double percentRolePlayed;
   final String key;
-  final String role;
+  final Role role;
   final List<String> mostCommonSkillOrder;
 
   RoleEntry.fromJson(Map json)
@@ -40,8 +75,8 @@ class RoleEntry {
 }
 
 class ChampionGG {
-  List jsonEntries;
-  List championStats;
+  List<Map> jsonEntries;
+  List<ChampionStats> championStats;
 
   ChampionGG(this.jsonEntries, DragonData dragon) {
     Map<String, ChampionStats> statsByKey = {};
@@ -58,6 +93,12 @@ class ChampionGG {
     championStats.sort((a, b) => a.champ.name.compareTo(b.champ.name));
   }
 
+  ChampionStats statsForChampionName(String championName) =>
+      championStats.firstWhere((stats) => stats.champ.name == championName,
+          orElse: () => null);
+
+  // FIXME: Another way would be to teach the precache script to
+  // download this and then have a load-latest method.
   static Future<ChampionGG> loadExampleData(DragonData dragon) async {
     File jsonFile = new File('examples/championgg.json');
     List<Map> json = JSON.decode(await jsonFile.readAsString());

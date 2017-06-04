@@ -119,9 +119,9 @@ dynamic main(List<String> args) async {
   // SpellBook spellBook = spells.bookForChampionName('Pantheon');
   // print(burstDamage(champ, spellBook));
 
-  TableLayout layout = new TableLayout([10, 13, 6, 8, 8, 8]);
+  TableLayout layout = new TableLayout([6, 13, 6, 8, 8, 8]);
   layout.printRow([
-    'Abilities',
+    'Skills',
     'Name',
     'Burst',
     'AP Ratio',

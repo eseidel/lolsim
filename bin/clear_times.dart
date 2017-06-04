@@ -8,24 +8,20 @@ import 'package:lol_duel/mastery_pages.dart';
 import 'package:lol_duel/rune_pages.dart';
 import 'package:lol_duel/utils/cli_table.dart';
 import 'package:lol_duel/utils/common_args.dart';
-
-void addSkillPoints(Mob champ) {
-  if (champ.name == 'Volibear')
-    champ.addSkillPointTo(SpellKey.w);
-  else
-    champ.addSkillPointTo(SpellKey.w);
-}
+import 'package:lol_duel/championgg.dart';
 
 class _Calculate {
   String champName;
-  bool hasEffects;
+  bool hasPassive;
+  bool hasSkillEffects;
+  SpellKey startingSkill;
   bool alive;
   double hp;
   double hpPercent;
   double clearTime;
 
   _Calculate(Creator creator, this.champName, RunePage runePage,
-      MasteryPage masteryPage) {
+      MasteryPage masteryPage, ChampionGG championGG) {
     Mob makeChamp() {
       return creator.champs.championByName(champName)..updateStats();
     }
@@ -36,10 +32,20 @@ class _Calculate {
     champ.runePage = runePage;
     champ.masteryPage = masteryPage;
     champ.addItem(item("Hunter's Machete"));
-    addSkillPoints(champ);
+    startingSkill = _mostCommonJungleSkillStart(champ, championGG);
+    champ.addSkillPointTo(startingSkill);
 
-    hasEffects = champ.championEffects != null;
+    hasSkillEffects = champ.spells.spellForKey(startingSkill).effects != null;
+    hasPassive = champ.championEffects != null;
     computeClearTime(creator, champ);
+  }
+
+  SpellKey _mostCommonJungleSkillStart(Mob champ, ChampionGG championGG) {
+    ChampionStats stats = championGG.statsForChampionName(champ.name);
+    if (stats == null) return SpellKey.q;
+    RoleEntry entry = stats.entryForRole(Role.jungle);
+    if (entry == null) entry = stats.mostPlayed;
+    return new SpellKey.fromChar(entry.mostCommonSkillOrder.first);
   }
 
   void computeClearTime(Creator creator, Mob champ) {
@@ -65,6 +71,7 @@ dynamic main(List<String> args) async {
   handleCommonArgs(args);
 
   Creator creator = await Creator.loadLatest();
+  ChampionGG championGG = await ChampionGG.loadExampleData(creator.dragon);
 
   String runesString = new File('examples/rune_pages.json').readAsStringSync();
   RunePageList runePages = new RunePageList.fromJson(
@@ -83,7 +90,13 @@ dynamic main(List<String> args) async {
 
   List<String> champNames = creator.dragon.champs.loadChampNames();
   List<_Calculate> results = champNames.map((champName) {
-    return new _Calculate(creator, champName, runePage, masteryPage);
+    return new _Calculate(
+      creator,
+      champName,
+      runePage,
+      masteryPage,
+      championGG,
+    );
   }).toList();
   results.sort((a, b) {
     if (a.alive != b.alive) return a.alive ? 1 : -1;
@@ -92,8 +105,8 @@ dynamic main(List<String> args) async {
     return 0;
   });
 
-  TableLayout layout = new TableLayout([1, 13, 11, 6]);
-  layout.printRow(['P', 'Name', 'HP', 'Time']);
+  TableLayout layout = new TableLayout([2, 13, 11, 6]);
+  layout.printRow(['', 'Name', 'HP', 'Time']);
   layout.printDivider();
 
   String hpString(var r) {
@@ -102,8 +115,10 @@ dynamic main(List<String> args) async {
   }
 
   for (var r in results) {
+    String effectsStatus = (r.hasPassive ? 'P' : ' ') +
+        (r.hasSkillEffects ? r.startingSkill.char : ' ');
     layout.printRow([
-      r.hasEffects ? '*' : ' ',
+      effectsStatus,
       r.champName,
       hpString(r),
       "${r.clearTime.round()}s",

@@ -8,16 +8,6 @@ String _toPercentString(double value) {
   return "${(100 * value).toStringAsFixed(1)}%";
 }
 
-String _roleShortName(String roleName) {
-  return {
-    'TOP': 'Top',
-    'MIDDLE': 'Mid',
-    'JUNGLE': 'Jung',
-    'DUO_CARRY': 'ADC',
-    'DUO_SUPPORT': 'Support',
-  }[roleName];
-}
-
 dynamic main(List<String> args) async {
   handleCommonArgs(args);
   DragonData dragon = await DragonData.loadLatest();
@@ -32,7 +22,7 @@ dynamic main(List<String> args) async {
     String mostPlayedString = _toPercentString(mostPlayed.percentRolePlayed);
     layout.printRow([
       stats.champ.name,
-      _roleShortName(mostPlayed.role),
+      mostPlayed.role.shortName,
       mostPlayedString,
       mostPlayed.mostCommonSkillOrder.first,
     ]);
