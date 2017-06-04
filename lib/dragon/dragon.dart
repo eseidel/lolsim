@@ -133,7 +133,7 @@ class RuneDescription {
         statName =
             json['stats'].keys.length == 1 ? json['stats'].keys.first : null,
         statValue = json['stats'].values.length == 1
-            ? json['stats'].values.first
+            ? json['stats'].values.first.toDouble()
             : null {
     assert(json['rune']['isrune'] == true);
   }

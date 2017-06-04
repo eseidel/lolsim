@@ -46,4 +46,18 @@ dynamic main() async {
       // expect(battleFury.fury, 0);
     });
   });
+  group('Bloodlust', () {
+    test('passive', () {
+      Mob tryndamere = data.champs.championById('Tryndamere');
+      expect(tryndamere.spells, isNotNull);
+      tryndamere.addSkillPointTo(SpellKey.q);
+      expect(tryndamere.spells.q.effects, isNotNull);
+      Mob mob = createTestMob(ad: 100.0);
+      World world = new World();
+      double restingAttackDamage = tryndamere.stats.attackDamage;
+      new AutoAttack(mob, tryndamere).apply(world);
+      expect(tryndamere.hpLost, greaterThan(0.0));
+      expect(tryndamere.stats.attackDamage, greaterThan(restingAttackDamage));
+    });
+  });
 }

@@ -31,6 +31,10 @@ class BattleFury extends PermanentBuff {
     fury = min(100, fury + newFury);
   }
 
+  // FIXME: Missing fury from onKill.
+  // FIXME: Fury should fall-off if not dealt or recieved dmg for 8s.
+  // Is that the same as "out of combat"?
+
   @override
   void onHit(Hit hit) {
     if (hit.target.isStructure) return;
@@ -43,5 +47,25 @@ class BattleFury extends PermanentBuff {
   @override
   Map<String, num> get stats => {
         FlatCritChanceMod: 0.0035 * fury,
+      };
+}
+
+class TryndamereQ extends SpellEffects {
+  Mob champ;
+  int rank;
+  TryndamereQ(this.champ, this.rank);
+
+  @override
+  String get lastUpdate => VERSION_7_10_1;
+
+  int get flatAdBonus => 5 * rank;
+  double get percentAdBonus =>
+      (0.10 + 0.05 * rank) * (1.0 - champ.healthPercent);
+
+  // FIXME: Missing active.
+
+  @override
+  Map<String, num> get stats => {
+        FlatPhysicalDamageMod: flatAdBonus + percentAdBonus,
       };
 }

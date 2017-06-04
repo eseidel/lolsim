@@ -630,6 +630,10 @@ class Mob {
     }
     for (Buff buff in buffs)
       if (buff.stats != null) applyStats(stats, buff.stats);
+    spells?.forEach((Spell spell) {
+      Map spellStats = spell?.effects?.stats;
+      if (spellStats != null) applyStats(stats, spellStats);
+    });
     return stats;
   }
 

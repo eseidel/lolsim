@@ -56,6 +56,7 @@ Map<String, ChampionEffectsConstructor> championEffectsConstructors = {
 typedef SpellEffects SpellEffectsConstructor(Mob champ, int rank);
 final Map<String, SpellEffectsConstructor> _spellEffectsConstructors = {
   'VolibearW': (Mob champ, int rank) => new VolibearW(champ, rank),
+  'TryndamereQ': (Mob champ, int rank) => new TryndamereQ(champ, rank),
 };
 
 SpellEffects constructEffectsForSpell(

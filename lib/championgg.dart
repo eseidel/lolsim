@@ -65,7 +65,7 @@ class RoleEntry {
   RoleEntry.fromJson(Map json)
       : key = json['championId'].toString(),
         percentRolePlayed = json['percentRolePlayed'],
-        role = json['role'],
+        role = new Role.fromChampionGG(json['role']),
         mostCommonSkillOrder = _parseSkillOrderHash(
             json['hashes']['skillorderhash']['highestCount']['hash']);
 
