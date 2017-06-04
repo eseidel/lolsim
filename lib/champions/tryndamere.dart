@@ -12,16 +12,6 @@ class Tryndamere extends ChampionEffects {
   @override
   String get lastUpdate => VERSION_7_2_1;
 
-  // FIXME: Move this onto the buff.
-  @override
-  void onHit(Hit hit) {
-    if (hit.target.isStructure) return;
-    if (hit.isCrit)
-      battleFury.addFury(10);
-    else
-      battleFury.addFury(5);
-  }
-
   @override
   void onChampionCreate() {
     battleFury = new BattleFury(tryndamere);
@@ -30,7 +20,7 @@ class Tryndamere extends ChampionEffects {
 }
 
 class BattleFury extends PermanentBuff {
-  int fury = 0; // Should move to Mob?
+  int fury = 0; // FIXME: Should move to Mob?
 
   BattleFury(Mob target) : super(name: "Battle Fury", target: target);
 
@@ -39,6 +29,15 @@ class BattleFury extends PermanentBuff {
 
   void addFury(int newFury) {
     fury = min(100, fury + newFury);
+  }
+
+  @override
+  void onHit(Hit hit) {
+    if (hit.target.isStructure) return;
+    if (hit.isCrit)
+      addFury(10);
+    else
+      addFury(5);
   }
 
   @override

@@ -90,17 +90,18 @@ Plan for stuns?
 - Stuns should cancel AA windups, but not AA missiles?
 - Stuns prevent new AA windups during duration.
 
-## Abilities affecting round_robin
+## Abilities affecting round_robin / clear_times
 - Alistar Trample (needs stuns)
 - Amumu Tantrum
 - Ivern W brushmaker passive
 - Jinx Q passive
-- Rammus ball curl
+- Rammus W ball curl
 - Teemo E passive
 - Tryndamere Q passive
 - Udyr all of his abilities
 - Vayne W passive
 - Volibear W Frenzy
+- Sejuani E Permafrost
 
 ## Potential champion.gg integrations
 - Common Roles
