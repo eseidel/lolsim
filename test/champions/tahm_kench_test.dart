@@ -10,7 +10,7 @@ dynamic main() async {
   group("An Acquired Taste", () {
     test("basic", () {
       Mob tahm = data.champs.championById('TahmKench');
-      Mob mob = createTestMob(hp: 1000.0);
+      Mob mob = createTestMob(hp: 1000.0, type: MobType.champion);
       World world = new World();
       new AutoAttack(tahm, mob).apply(world);
       expect(mob.hpLost, tahm.stats.attackDamage);
