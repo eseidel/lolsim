@@ -67,6 +67,7 @@ class DuelLoader {
   Mob loadMonster(YamlMap yamlMob) {
     MonsterType type = {
       'Blue Sentinel': MonsterType.blueSentinal,
+      'Red Brambleback': MonsterType.redBrambleback,
     }[yamlMob['name']];
     assert(type != null);
     Mob mob = Mob.createMonster(type);

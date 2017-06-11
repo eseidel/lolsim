@@ -399,6 +399,7 @@ enum MinionType {
 
 enum MonsterType {
   blueSentinal,
+  redBrambleback,
 }
 
 enum MobType {
@@ -573,6 +574,8 @@ class Mob {
     switch (type) {
       case MonsterType.blueSentinal:
         return new Mob(blueSentinalDescription, MobType.monster);
+      case MonsterType.redBrambleback:
+        return new Mob(redBramblebackDescription, MobType.monster);
     }
     assert(false);
     return null;

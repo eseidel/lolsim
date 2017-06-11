@@ -52,6 +52,8 @@ Many.  Including at least:
 ## TODO / Bugs
 - Handle stat modifying buffs first, before other buffs.
 - percent hp regen.
+- monster leveling
+- Improved proximity (for masteries).
 - Coverage & coveralls.io
 - Split lolsim.dart into smaller files.
 - Add more passives, abilities, masteries, runes, etc.
