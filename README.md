@@ -51,7 +51,7 @@ Many.  Including at least:
 
 ## TODO / Bugs
 - Handle stat modifying buffs first, before other buffs.
-- pub run test dies w/o message when no precache.
+- percent hp regen.
 - Coverage & coveralls.io
 - Split lolsim.dart into smaller files.
 - Add more passives, abilities, masteries, runes, etc.

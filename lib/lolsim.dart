@@ -216,6 +216,11 @@ class Hit {
           trueDamage: trueDamage,
         );
 
+  bool get isSingleTarget =>
+      targeting == Targeting.singleTargetSpell ||
+      targeting == Targeting.basicAttack ||
+      targeting == Targeting.dot;
+
   double get physicalDamage {
     double totalPhysical = baseDamage.physicalDamage;
     onHits.forEach((onHit) => totalPhysical += onHit.physicalDamage);
@@ -525,8 +530,8 @@ class Mob {
   MasteryPage get masteryPage => _masteryPage;
   set masteryPage(MasteryPage newPage) {
     _masteryPage = newPage;
-    _masteryPage.logAnyMissingEffects();
     _masteryPage.initForChamp(this);
+    _masteryPage.logAnyMissingEffects();
     updateStats();
   }
 

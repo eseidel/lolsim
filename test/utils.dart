@@ -46,7 +46,7 @@ Mob createTestMob({
   double hp: 100.0,
   double ad: 10.0,
   double baseArmor: 0.0,
-  double spellBlock: 0.0,
+  double baseSpellBlock: 0.0,
   MobType type: MobType.minion,
   double hp5: 0.0,
   List<Mastery> masteries: const [],
@@ -68,7 +68,7 @@ Mob createTestMob({
         hpRegenPerLevel: 0.0,
         mp: 0.0,
         mpPerLevel: 0.0,
-        baseSpellBlock: spellBlock,
+        baseSpellBlock: baseSpellBlock,
         spellBlockPerLevel: 0.0,
       ),
     ),
@@ -79,6 +79,7 @@ Mob createTestMob({
       name: 'Test Page',
       masteries: masteries,
     );
+    mob.masteryPage.initForChamp(mob);
     mob.masteryPage.logAnyMissingEffects();
   }
   mob.level = level;

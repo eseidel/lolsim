@@ -155,7 +155,7 @@ dynamic main() async {
       expect(targetA.hpLost, closeTo(100.0 * (100.0 / (100.0 + 17.3)), 0.01));
 
       // Target B has 18 magic resistance.
-      var targetB = createTestMob(spellBlock: 18.0, hp: 1000.0);
+      var targetB = createTestMob(baseSpellBlock: 18.0, hp: 1000.0);
       // The 18 is reduced to −2 by the 20 magic resistance reduction.
       // The −2 is not affected by any further calculations because it is less than 0.
       targetB.addBuff(debuff);

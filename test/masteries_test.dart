@@ -25,9 +25,9 @@ dynamic main() async {
       new AutoAttack(doubleEdgeMob, normalMob).apply(world);
       new AutoAttack(normalMob, doubleEdgeMob).apply(world);
 
-      // Take 2.5% more damage, deal 5% more damage.
-      expect(doubleEdgeMob.currentHp, 897.5);
-      expect(normalMob.currentHp, 895.0);
+      // Take 1.5% more damage, deal 3% more damage.
+      expect(doubleEdgeMob.currentHp, 898.5);
+      expect(normalMob.currentHp, 897.0);
     });
   });
   group("Tough Skin", () {
@@ -104,7 +104,7 @@ dynamic main() async {
       Hit magicalHit = savageryMob.createHitForTarget(
         target: normalMob,
         label: 'test',
-        physicalDamage: 10.0,
+        magicDamage: 10.0,
       );
       expect(15.0, normalMob.applyHit(magicalHit));
       Hit mixedHit = savageryMob.createHitForTarget(
@@ -114,6 +114,19 @@ dynamic main() async {
         magicDamage: 10.0,
       );
       expect(25.0, normalMob.applyHit(mixedHit));
+    });
+
+    test("single target only", () {
+      Mob savageryMob =
+          createTestMob(hp: 100.0, masteries: [masteryByName('Savagery', 5)]);
+      Mob normalMob = createTestMob(hp: 100.0);
+      Hit aoeHit = savageryMob.createHitForTarget(
+        target: normalMob,
+        targeting: Targeting.aoe,
+        label: 'test',
+        physicalDamage: 10.0,
+      );
+      expect(10.0, normalMob.applyHit(aoeHit));
     });
   });
   group('Precision', () {
@@ -147,6 +160,16 @@ dynamic main() async {
         expect(precisionMob.stats.flatMagicPenetration, expectedValue);
         level++;
       });
+    });
+  });
+  group('Unyielding', () {
+    test('basic', () {
+      Mob unyieldingMob = createTestMob(
+          baseArmor: 100.0,
+          baseSpellBlock: 100.0,
+          masteries: [masteryByName('Unyielding', 5)]);
+      expect(unyieldingMob.stats.spellBlock, 105.0);
+      expect(unyieldingMob.stats.armor, 105.0);
     });
   });
 }

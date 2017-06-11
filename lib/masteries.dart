@@ -17,6 +17,7 @@ final Map<String, MasteryEffectsConstructor> masteryEffectsConstructors = {
   'Recovery': (Mob champ, int rank) => new Recovery(champ, rank),
   'Savagery': (Mob champ, int rank) => new Savagery(champ, rank),
   'Tough Skin': (Mob champ, int rank) => new ToughSkin(champ, rank),
+  'Unyielding': (Mob champ, int rank) => new Unyielding(champ, rank),
   'Vampirism': (Mob champ, int rank) => new Vampirism(champ, rank),
   'Veterans Scars': (Mob champ, int rank) => new VeteransScars(champ, rank),
 };
@@ -62,7 +63,7 @@ class Vampirism extends MasteryEffects {
   Vampirism(Mob champ, int rank) : super(champ, rank);
 
   @override
-  String get lastUpdate => VERSION_7_2_1;
+  String get lastUpdate => VERSION_7_11_1;
 
   // .4% * R lifesteal and spell vamp.
   @override
@@ -100,19 +101,19 @@ class DoubleEdgedSword extends MasteryEffects {
   DoubleEdgedSword(Mob champ, int rank) : super(champ, rank);
 
   @override
-  String get lastUpdate => VERSION_7_2_1;
+  String get lastUpdate => VERSION_7_11_1;
 
-  // Deal 5% additional damage, take 2.5% additional damage.
+  // Deal 3% additional damage, take 1.5% additional damage.
   @override
   void damageDealtModifier(Hit hit, DamageDealtDelta delta) {
-    delta.percentPhysical *= 1.05;
-    delta.percentMagical *= 1.05;
+    delta.percentPhysical *= 1.03;
+    delta.percentMagical *= 1.03;
   }
 
   @override
   void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {
-    delta.percentPhysical *= 1.025;
-    delta.percentMagical *= 1.025;
+    delta.percentPhysical *= 1.015;
+    delta.percentMagical *= 1.015;
   }
 }
 
@@ -184,9 +185,8 @@ class Savagery extends MasteryEffects {
   // Single target attacks and spells deal 1 * R bonus damage to minions and monsters
   @override
   void damageDealtModifier(Hit hit, DamageDealtDelta delta) {
-    MobType targetType = hit.target.type;
-    if (targetType != MobType.minion && targetType != MobType.monster) return;
-    // FIXME: Need to check for single-target-ness.
+    if (!hit.target.isMinion && !hit.target.isMonster) return;
+    if (!hit.isSingleTarget) return;
     // Unclear if this preference to magic dmg is correct, lolwiki has no guidance.
     if (hit.magicDamage > 0)
       delta.flatMagical += rank;
@@ -299,9 +299,18 @@ class Recovery extends MasteryEffects {
       };
 }
 
-class Unyielding {
+class Unyielding extends MasteryEffects {
+  Unyielding(Mob champ, int rank) : super(champ, rank);
+
+  @override
+  String get lastUpdate => VERSION_7_11_1;
+
   // +1% Bonus Armor and Magic Resist
-  // Stat modifier (percent resistances).
+  @override
+  Map<String, num> get stats => {
+        PercentArmorMod: 1 * rank,
+        PercentSpellBlockMod: 1 * rank,
+      };
 }
 
 class Explorer {
