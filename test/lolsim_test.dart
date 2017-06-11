@@ -99,7 +99,7 @@ dynamic main() async {
       targetA.addBuff(debuff);
       // The 300 is reduced to 270 (90 base and 180 bonus armor) by the 30 armor reduction.
       // The 270 is reduced to 189 (63 base and 126 bonus armor) by the 30% armor reduction.
-      expect(targetA.stats.armorPercentMod, 0.7);
+      expect(targetA.stats.percentArmorMod, 0.7);
       expect(targetA.stats.baseArmor, closeTo(63, 0.01));
       expect(targetA.stats.bonusArmor, closeTo(126, 0.01));
       expect(targetA.stats.armor, closeTo(189, 0.01));
@@ -121,6 +121,48 @@ dynamic main() async {
       // Target B takes damage as if it has −12 armor.
       new AutoAttack(attacker, targetB).apply(world);
       expect(targetB.hpLost, 100.0 * (2 - (100.0 / 112.0)));
+    });
+  });
+  group('spell penetration', () {
+    test('lolwiki example', () {
+      // Given 20 flat magic resistance reduction and 30% magic resistance
+      // reduction, and the target is affected by 10 flat magic penetration
+      // and 35% magic penetration,
+
+      var attacker = createTestMob();
+      attacker.addItem(createTestItem(stats: {
+        FlatMagicPenetrationMod: 10,
+        PercentMagicPenetrationMod: 35,
+      }));
+      var debuff = createTestBuff(stats: {
+        FlatSpellBlockMod: -20,
+        PercentSpellBlockMod: -30,
+      });
+
+      // Target A has 80 magic resistance.
+      var targetA = createTestMob(hp: 1000.0);
+      targetA.addItem(createTestItem(stats: {FlatSpellBlockMod: 80}));
+      targetA.addBuff(debuff);
+      // The 80 is reduced to 60 by the 20 magic resistance reduction.
+      // The 60 is reduced to 42 by the 30% magic resistance reduction.
+      expect(targetA.stats.percentSpellBlockMod, 0.70);
+      expect(targetA.stats.spellBlock, closeTo(42, 0.01));
+
+      // The 42 is considered to be 27.3 by the 35% magic resistance penetration.
+      // The 27.3 is considered to be 17.3 by the 10 magic resistance penetration.
+      // Target A takes damage as if it has 17.3 magic resistance.
+      applySpellHit(source: attacker, target: targetA, magicDamage: 100.0);
+      expect(targetA.hpLost, closeTo(100.0 * (100.0 / (100.0 + 17.3)), 0.01));
+
+      // Target B has 18 magic resistance.
+      var targetB = createTestMob(spellBlock: 18.0, hp: 1000.0);
+      // The 18 is reduced to −2 by the 20 magic resistance reduction.
+      // The −2 is not affected by any further calculations because it is less than 0.
+      targetB.addBuff(debuff);
+      expect(targetB.stats.spellBlock, -2);
+      // Target B takes damage as if it has −2 magic resistance.
+      applySpellHit(source: attacker, target: targetB, magicDamage: 100.0);
+      expect(targetB.hpLost, 100.0 * (2 - (100.0 / 102.0)));
     });
   });
 }

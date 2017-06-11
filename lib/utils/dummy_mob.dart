@@ -19,7 +19,7 @@ Mob createDummyMob({double hp: 1000.0, MobType type: MobType.champion}) {
         hpRegenPerLevel: 0.0,
         mp: 0.0,
         mpPerLevel: 0.0,
-        spellBlock: 0.0,
+        baseSpellBlock: 0.0,
         spellBlockPerLevel: 0.0,
       ),
     ),

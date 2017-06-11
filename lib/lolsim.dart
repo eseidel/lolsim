@@ -79,16 +79,19 @@ class Item {
 }
 
 class Mastery {
-  MasteryDescription description;
-  int rank;
+  final MasteryDescription description;
+  final int rank;
   MasteryEffects effects;
 
   Mastery(this.description, this.rank) {
     assert(rank >= 1);
     assert(rank <= description.ranks);
+  }
+
+  void initForChamp(Mob champ) {
     MasteryEffectsConstructor effectsConstructor =
         masteryEffectsConstructors[description.name];
-    if (effectsConstructor != null) effects = effectsConstructor(rank);
+    if (effectsConstructor != null) effects = effectsConstructor(champ, rank);
   }
 
   static final Set _loggedEffects = new Set();
@@ -523,6 +526,7 @@ class Mob {
   set masteryPage(MasteryPage newPage) {
     _masteryPage = newPage;
     _masteryPage.logAnyMissingEffects();
+    _masteryPage.initForChamp(this);
     updateStats();
   }
 
@@ -581,35 +585,45 @@ class Mob {
   // stat modifications together in json form and then collapse them all at the end instead.
   // FIXME: These are neither complete, nor necessarily correct.
   final Map<String, StatApplier> appliers = {
-    FlatArmorMod: (computed, statValue) =>
-        computed.addBonusArmor(statValue.toDouble()),
     FlatHPPoolMod: (computed, statValue) => computed.hp += statValue,
     FlatCritChanceMod: (computed, statValue) =>
         computed.critChance += statValue,
     FlatHPRegenMod: (computed, statValue) => computed.hpRegen += statValue,
     FlatMagicDamageMod: (computed, statValue) =>
         computed.abilityPower += statValue,
-    // 'FlatMovementSpeedMod': (computed, statValue) => computed.movespeed += statValue,
     FlatMPPoolMod: (computed, statValue) => computed.mp += statValue,
+
+    PercentSpellBlockMod: (computed, statValue) =>
+        computed.percentSpellBlockMod = (100.0 + statValue) / 100,
     FlatSpellBlockMod: (computed, statValue) =>
-        computed.spellBlock += statValue,
+        computed.flatSpellBlockMod += statValue,
+
     FlatPhysicalDamageMod: (computed, statValue) =>
         computed.bonusAttackDamage += statValue,
     PercentAttackSpeedMod: (computed, statValue) =>
         computed.bonusAttackSpeed += statValue,
     PercentLifeStealMod: (computed, statValue) =>
         computed.lifesteal += statValue,
-    Lethality: (computed, statValue) => computed.lethality += statValue,
+
+    FlatArmorMod: (computed, statValue) =>
+        computed.addBonusArmor(statValue.toDouble()),
     PercentArmorMod: (computed, statValue) =>
-        computed.armorPercentMod = (100.0 + statValue) / 100,
+        computed.percentArmorMod = (100.0 + statValue) / 100,
     FlatArmorReduction: (computed, statValue) =>
         computed.flatArmorReduction += statValue,
 
+    FlatMagicPenetrationMod: (computed, statValue) =>
+        computed.flatMagicPenetration += statValue,
+    PercentMagicPenetrationMod: (computed, statValue) =>
+        computed.percentMagicPenetration *= (100.0 - statValue) / 100,
+
+    Lethality: (computed, statValue) => computed.lethality += statValue,
     PercentArmorPenetrationMod: (computed, statValue) =>
         computed.percentArmorPenetration *= (100.0 - statValue) / 100,
     PercentBonusArmorPenetrationMod: (computed, statValue) =>
         computed.percentBonusArmorPenetration *= (100.0 - statValue) / 100,
 
+    // 'FlatMovementSpeedMod': (computed, statValue) => computed.movespeed += statValue,
     // 'PercentMovementSpeedMod': (computed, statValue) => computed.movespeed *= statValue,
   };
 
@@ -794,6 +808,16 @@ class Mob {
     return max(effectiveArmor, 0.0);
   }
 
+  double spellBlockAfterPenatration(Mob source) {
+    // Pen is ignored when source is null (during some tests).
+    if (source == null) return stats.spellBlock;
+    if (stats.spellBlock <= 0) return stats.spellBlock;
+    double effectiveSpellBlock =
+        stats.spellBlock * source.stats.percentMagicPenetration;
+    effectiveSpellBlock -= source.stats.flatMagicPenetration;
+    return max(effectiveSpellBlock, 0.0);
+  }
+
   List<DamageRecievedModifier> collectDamageRecievedModifiers() {
     List<DamageRecievedModifier> modifiers = [
       (hit, delta) {
@@ -812,8 +836,8 @@ class Mob {
         // hit.target can be null.
         delta.percentPhysical *=
             _resistanceMultiplier(armorAfterPenatration(hit.source));
-        // FIXME: Missing Spell Spentration
-        delta.percentMagical *= _resistanceMultiplier(stats.spellBlock);
+        delta.percentMagical *=
+            _resistanceMultiplier(spellBlockAfterPenatration(hit.source));
       }
     ];
     // Do I need to cache these?

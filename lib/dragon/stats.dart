@@ -11,17 +11,23 @@ class Stats {
   double baseAttackDamage;
   double bonusAttackDamage = 0.0;
   double abilityPower = 0.0;
-  double _baseArmor; // Before reductions.
-  double _bonusArmor = 0.0; // incoming bonus armor.
-  double flatArmorReduction = 0.0;
-  double armorPercentMod = 1.0; // incoming armor changes.
-
-  double spellBlock; // aka magic resist.
   double hpRegen;
+
+  double _baseArmor; // Before reductions.
+  double _bonusArmor = 0.0; // incoming armor changes.
+  double flatArmorReduction = 0.0; // incoming armor changes.
+  double percentArmorMod = 1.0; // incoming armor changes.
 
   double lethality = 0.0; // outgoing armor changes.
   double percentArmorPenetration = 1.0; // outgoing armor changes.
   double percentBonusArmorPenetration = 1.0; // outgoing armor changes.
+
+  double _baseSpellBlock; // aka magic resist, before reductions.
+  double flatSpellBlockMod = 0.0; // incoming mr changes.
+  double percentSpellBlockMod = 1.0; // incoming mr changes.
+
+  double flatMagicPenetration = 0.0; // outgoing mr changes.
+  double percentMagicPenetration = 1.0; // outgoing mr changes.
 
   double lifesteal = 0.0;
   double critChance = 0.0;
@@ -39,13 +45,14 @@ class Stats {
     this.baseAttackDamage,
     this.attackDelay,
     double baseArmor,
-    this.spellBlock,
+    double baseSpellBlock,
     this.hpRegen,
   })
-      : _baseArmor = baseArmor;
+      : _baseArmor = baseArmor,
+        _baseSpellBlock = baseSpellBlock;
 
-  double flatArmorPenetrationForTargetWithLevel(int level) =>
-      lethality * letalityToFlatPenatration(level);
+  double flatArmorPenetrationForTargetWithLevel(int targetLevel) =>
+      lethality * letalityToFlatPenatration(targetLevel);
 
   String debugString() {
     return """
@@ -90,13 +97,19 @@ class Stats {
   double get bonusArmor {
     double afterReduction = _bonusArmor - _bonusArmorFlatReduction;
     if (afterReduction < 0) return afterReduction;
-    return afterReduction * armorPercentMod;
+    return afterReduction * percentArmorMod;
   }
 
   double get baseArmor {
     double afterReduction = _baseArmor - _baseArmorFlatReduction;
     if (afterReduction < 0) return afterReduction;
-    return afterReduction * armorPercentMod;
+    return afterReduction * percentArmorMod;
+  }
+
+  double get spellBlock {
+    double afterReduction = _baseSpellBlock + flatSpellBlockMod;
+    if (afterReduction < 0) return afterReduction;
+    return afterReduction * percentSpellBlockMod;
   }
 
   double get armor => baseArmor + bonusArmor;
@@ -116,7 +129,7 @@ class BaseStats extends Stats {
     hp = json['hp'].toDouble();
     mp = json['mp'].toDouble();
     _baseArmor = json['armor'].toDouble();
-    spellBlock = json['spellblock'].toDouble();
+    _baseSpellBlock = json['spellblock'].toDouble();
     hpRegen = json['hpregen'].toDouble();
     range = json['attackrange'].toInt();
   }
@@ -129,7 +142,7 @@ class BaseStats extends Stats {
     double attackDelay,
     double hpRegen,
     double baseArmor,
-    double spellBlock,
+    double baseSpellBlock,
     this.armorPerLevel,
     this.attackDamagePerLevel,
     this.attackSpeedPerLevel,
@@ -145,7 +158,7 @@ class BaseStats extends Stats {
           hpRegen: hpRegen,
           attackDelay: attackDelay,
           baseArmor: baseArmor,
-          spellBlock: spellBlock,
+          baseSpellBlock: baseSpellBlock,
         );
 
   final double hpPerLevel;
@@ -170,8 +183,8 @@ class BaseStats extends Stats {
     stats.hpRegen = _curve(hpRegen, hpRegenPerLevel, level);
     stats.baseAttackDamage =
         _curve(baseAttackDamage, attackDamagePerLevel, level);
-    stats._baseArmor = _curve(armor, armorPerLevel, level);
-    stats.spellBlock = _curve(spellBlock, spellBlockPerLevel, level);
+    stats._baseArmor = _curve(_baseArmor, armorPerLevel, level);
+    stats._baseSpellBlock = _curve(_baseSpellBlock, spellBlockPerLevel, level);
     stats.attackDelay = attackDelay;
     stats.bonusAttackSpeed =
         attackSpeedPerLevel * (level - 1) * (0.685 + 0.0175 * level);

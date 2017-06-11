@@ -17,7 +17,7 @@ dynamic main() async {
       hpRegenPerLevel: 5.0,
       mp: 0.0,
       mpPerLevel: 0.0,
-      spellBlock: 100.0,
+      baseSpellBlock: 100.0,
       spellBlockPerLevel: 5.0,
     );
     Stats one = base.statsForLevel(1);

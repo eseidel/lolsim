@@ -2,27 +2,30 @@ import 'dragon/stat_constants.dart';
 import 'effects.dart';
 import 'lolsim.dart';
 
-typedef MasteryEffects MasteryEffectsConstructor(int rank);
+typedef MasteryEffects MasteryEffectsConstructor(Mob champ, int rank);
 
 final Map<String, MasteryEffectsConstructor> masteryEffectsConstructors = {
-  'Battering Blows': (int rank) => new BatteringBlows(rank),
-  'Double Edged Sword': (int rank) => new DoubleEdgedSword(rank),
-  'Fury': (int rank) => new Fury(rank),
-  'Merciless': (int rank) => new Merciless(rank),
-  'Natural Talent': (int rank) => new NaturalTalent(rank),
-  'Piercing Thoughts': (int rank) => new PiercingThoughts(rank),
-  'Recovery': (int rank) => new Recovery(rank),
-  'Savagery': (int rank) => new Savagery(rank),
-  'Tough Skin': (int rank) => new ToughSkin(rank),
-  'Vampirism': (int rank) => new Vampirism(rank),
-  'Veterans Scars': (int rank) => new VeteransScars(rank),
+  'Battering Blows': (Mob champ, int rank) => new BatteringBlows(champ, rank),
+  'Double Edged Sword': (Mob champ, int rank) =>
+      new DoubleEdgedSword(champ, rank),
+  'Fury': (Mob champ, int rank) => new Fury(champ, rank),
+  'Merciless': (Mob champ, int rank) => new Merciless(champ, rank),
+  'Natural Talent': (Mob champ, int rank) => new NaturalTalent(champ, rank),
+  'Piercing Thoughts': (Mob champ, int rank) =>
+      new PiercingThoughts(champ, rank),
+  'Precision': (Mob champ, int rank) => new Precision(champ, rank),
+  'Recovery': (Mob champ, int rank) => new Recovery(champ, rank),
+  'Savagery': (Mob champ, int rank) => new Savagery(champ, rank),
+  'Tough Skin': (Mob champ, int rank) => new ToughSkin(champ, rank),
+  'Vampirism': (Mob champ, int rank) => new Vampirism(champ, rank),
+  'Veterans Scars': (Mob champ, int rank) => new VeteransScars(champ, rank),
 };
 
 class Fury extends MasteryEffects {
-  Fury(int rank) : super(rank);
+  Fury(Mob champ, int rank) : super(champ, rank);
 
   @override
-  String get lastUpdate => VERSION_7_2_1;
+  String get lastUpdate => VERSION_7_11_1;
 
   // .8% * rank attack speed
   @override
@@ -30,8 +33,13 @@ class Fury extends MasteryEffects {
 }
 
 class Sorcery {
-  // .4 * R increased Ability damage
-  // Some sort of damage modifier?
+  // .04 * R increased Ability damage
+  void damageDealtModifier(Hit hit, DamageDealtDelta delta) {
+    // Only applies to ability or spell damage.
+    if (hit.targeting == Targeting.basicAttack) return;
+    // FIXME: Needs a perentCombined:
+    // delta.percentCombined *= 1.0 + (.004 * rank);
+  }
 }
 
 class FreshBlood {
@@ -51,7 +59,7 @@ class ExposeWeakness {
 }
 
 class Vampirism extends MasteryEffects {
-  Vampirism(int rank) : super(rank);
+  Vampirism(Mob champ, int rank) : super(champ, rank);
 
   @override
   String get lastUpdate => VERSION_7_2_1;
@@ -65,7 +73,7 @@ class Vampirism extends MasteryEffects {
 }
 
 class NaturalTalent extends MasteryEffects {
-  NaturalTalent(int rank) : super(rank);
+  NaturalTalent(Mob champ, int rank) : super(champ, rank);
 
   @override
   String get lastUpdate => VERSION_7_2_1;
@@ -85,10 +93,11 @@ class NaturalTalent extends MasteryEffects {
 class BountyHunter {
   // Deal 1.5% increased damage for each unique enemy champion you have killed
   // buff which applies a damage amp.
+  // OnKill hook with a stacking buff.
 }
 
 class DoubleEdgedSword extends MasteryEffects {
-  DoubleEdgedSword(int rank) : super(rank);
+  DoubleEdgedSword(Mob champ, int rank) : super(champ, rank);
 
   @override
   String get lastUpdate => VERSION_7_2_1;
@@ -113,7 +122,7 @@ class BattleTrance {
 }
 
 class BatteringBlows extends MasteryEffects {
-  BatteringBlows(int rank) : super(rank);
+  BatteringBlows(Mob champ, int rank) : super(champ, rank);
 
   @override
   String get lastUpdate => VERSION_7_2_1;
@@ -126,7 +135,7 @@ class BatteringBlows extends MasteryEffects {
 }
 
 class PiercingThoughts extends MasteryEffects {
-  PiercingThoughts(int rank) : super(rank);
+  PiercingThoughts(Mob champ, int rank) : super(champ, rank);
 
   @override
   String get lastUpdate => VERSION_7_2_1;
@@ -167,7 +176,7 @@ class Wanderer {
 }
 
 class Savagery extends MasteryEffects {
-  Savagery(int rank) : super(rank);
+  Savagery(Mob champ, int rank) : super(champ, rank);
 
   @override
   String get lastUpdate => VERSION_7_2_1;
@@ -202,7 +211,7 @@ class Assassin {
 }
 
 class Merciless extends MasteryEffects {
-  Merciless(int rank) : super(rank);
+  Merciless(Mob champ, int rank) : super(champ, rank);
 
   @override
   String get lastUpdate => VERSION_7_2_1;
@@ -239,9 +248,19 @@ class DangerousGame {
   // on-kill or on-assist trigger.
 }
 
-class Precision {
-  // Gain 1.7 * R Lethality and 0.6 * R + 0.06 * R per level Magic Penetration
-  // Easy item once I understand leathlity.
+class Precision extends MasteryEffects {
+  Precision(Mob champ, int rank) : super(champ, rank);
+
+  @override
+  String get lastUpdate => VERSION_7_11_1;
+
+  // Gain 1.2 * R Lethality and 0.3 * R + 0.05 * R per level Magic Penetration
+  @override
+  Map<String, num> get stats => {
+        Lethality: 1.2 * rank,
+        // This seems to want linear per-level scaling instead of curved?
+        FlatMagicPenetrationMod: 0.3 * rank + 0.05 * rank * champ.level,
+      };
 }
 
 class Intelligence {
@@ -268,7 +287,7 @@ class WindspeakersBlessing {
 }
 
 class Recovery extends MasteryEffects {
-  Recovery(int rank) : super(rank);
+  Recovery(Mob champ, int rank) : super(champ, rank);
 
   @override
   String get lastUpdate => VERSION_7_2_1;
@@ -291,7 +310,7 @@ class Explorer {
 }
 
 class ToughSkin extends MasteryEffects {
-  ToughSkin(int rank) : super(rank);
+  ToughSkin(Mob champ, int rank) : super(champ, rank);
 
   @override
   String get lastUpdate => VERSION_7_2_1;
@@ -314,7 +333,7 @@ class RunicArmor {
 }
 
 class VeteransScars extends MasteryEffects {
-  VeteransScars(int rank) : super(rank);
+  VeteransScars(Mob champ, int rank) : super(champ, rank);
 
   @override
   String get lastUpdate => VERSION_7_2_1;

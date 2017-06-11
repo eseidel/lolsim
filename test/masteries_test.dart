@@ -116,4 +116,37 @@ dynamic main() async {
       expect(25.0, normalMob.applyHit(mixedHit));
     });
   });
+  group('Precision', () {
+    test('levels', () {
+      Mob precisionMob =
+          createTestMob(masteries: [masteryByName('Precision', 5)]);
+      var expectedValues = <double>[
+        1.75,
+        2.0,
+        2.25,
+        2.5,
+        2.75,
+        3.0,
+        3.25,
+        3.5,
+        3.75,
+        4.0,
+        4.25,
+        4.5,
+        4.75,
+        5.0,
+        5.25,
+        5.5,
+        5.75,
+        6.0
+      ];
+      int level = 1;
+      expectedValues.forEach((var expectedValue) {
+        precisionMob.level = level;
+        precisionMob.updateStats();
+        expect(precisionMob.stats.flatMagicPenetration, expectedValue);
+        level++;
+      });
+    });
+  });
 }

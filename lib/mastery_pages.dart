@@ -15,6 +15,12 @@ class MasteryPage {
     }).toList();
   }
 
+  void initForChamp(Mob champ) {
+    masteries.forEach((Mastery mastery) {
+      mastery.initForChamp(champ);
+    });
+  }
+
   void logAnyMissingEffects() {
     masteries.forEach((mastery) => mastery.logIfMissingEffects());
   }

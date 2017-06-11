@@ -13,6 +13,7 @@ const String PercentArmorPenetrationMod = 'rPercentArmorPenetrationMod';
 const String PercentAttackSpeedMod = 'PercentAttackSpeedMod';
 const String PercentLifeStealMod = 'PercentLifeStealMod';
 const String PercentMagicPenetrationMod = 'rPercentMagicPenetrationMod';
+const String FlatMagicPenetrationMod = 'rFlatMagicPenetrationMod';
 const String PercentMovementSpeedMod = 'PercentMovementSpeedMod';
 const String PercentSpellVampMod = 'PercentSpellVampMod';
 const String FlatArmorModPerLevel = 'rFlatArmorModPerLevel';
@@ -22,7 +23,9 @@ const String PercentCooldownMod = 'rPercentCooldownMod';
 // I added these.  They probably belong in a file
 // outside of the dragon directory.
 const String Lethality = 'CustomLethality';
+// Most of these do not need to be "custom", they're used in items.json.
 const String PercentArmorMod = 'CustomPercentArmorMod';
+const String PercentSpellBlockMod = 'CustomPercentSpellBlockMod';
 const String FlatArmorReduction = 'CustomFlatArmorReduction';
 const String PercentBonusArmorMod = 'CustomPercentBonusArmorMod';
 const String PercentBonusArmorPenetrationMod =

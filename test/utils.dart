@@ -2,6 +2,7 @@ import "package:lol_duel/lolsim.dart";
 import 'package:lol_duel/mastery_pages.dart';
 import 'package:lol_duel/dragon/dragon.dart';
 import 'package:lol_duel/buffs.dart';
+import 'package:meta/meta.dart';
 
 CritProvider alwaysCrit = (Mob) => true;
 
@@ -27,10 +28,25 @@ Buff createTestBuff({Map<String, num> stats}) {
   return new TestBuff(stats);
 }
 
+void applySpellHit({
+  @required Mob target,
+  @required Mob source,
+  double magicDamage: 0.0,
+}) {
+  target.applyHit(new Hit(
+    label: 'test',
+    magicDamage: magicDamage,
+    source: source,
+    target: target,
+    targeting: Targeting.singleTargetSpell,
+  ));
+}
+
 Mob createTestMob({
   double hp: 100.0,
   double ad: 10.0,
   double baseArmor: 0.0,
+  double spellBlock: 0.0,
   MobType type: MobType.minion,
   double hp5: 0.0,
   List<Mastery> masteries: const [],
@@ -52,7 +68,7 @@ Mob createTestMob({
         hpRegenPerLevel: 0.0,
         mp: 0.0,
         mpPerLevel: 0.0,
-        spellBlock: 0.0,
+        baseSpellBlock: spellBlock,
         spellBlockPerLevel: 0.0,
       ),
     ),
