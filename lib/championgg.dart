@@ -2,7 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:logging/logging.dart';
 import 'package:lol_duel/dragon/dragon.dart';
+
+final Logger _log = new Logger('championgg');
 
 class Role {
   final String id;
@@ -61,13 +64,19 @@ class RoleEntry {
   final String key;
   final Role role;
   final List<String> mostCommonSkillOrder;
+  final String mostCommonMasteriesHash;
+  final String mostCommonRunesHash;
 
   RoleEntry.fromJson(Map json)
       : key = json['championId'].toString(),
         percentRolePlayed = json['percentRolePlayed'],
         role = new Role.fromChampionGG(json['role']),
         mostCommonSkillOrder = _parseSkillOrderHash(
-            json['hashes']['skillorderhash']['highestCount']['hash']);
+            json['hashes']['skillorderhash']['highestCount']['hash']),
+        mostCommonMasteriesHash =
+            json['hashes']['masterieshash']['highestCount']['hash'],
+        mostCommonRunesHash =
+            json['hashes']['runehash']['highestCount']['hash'];
 
   static List<String> _parseSkillOrderHash(String hash) {
     return hash.split('-').sublist(1);
@@ -81,7 +90,13 @@ class ChampionGG {
   ChampionGG(this.jsonEntries, DragonData dragon) {
     Map<String, ChampionStats> statsByKey = {};
     jsonEntries.forEach((Map roleJson) {
-      RoleEntry role = new RoleEntry.fromJson(roleJson);
+      RoleEntry role;
+      try {
+        role = new RoleEntry.fromJson(roleJson);
+      } catch (e) {
+        _log.warning("Skipping ${roleJson['championId']} ${roleJson['role']}");
+        return;
+      }
       ChampionStats stats = statsByKey.putIfAbsent(
         role.key,
         () => new ChampionStats(dragon.champs.championByKey(role.key)),
@@ -96,6 +111,20 @@ class ChampionGG {
   ChampionStats statsForChampionName(String championName) =>
       championStats.firstWhere((stats) => stats.champ.name == championName,
           orElse: () => null);
+
+  Iterable<RoleEntry> statsMatchingRole(Role role) sync* {
+    for (var stats in championStats) {
+      var entry = stats.entryForRole(Role.jungle);
+      if (entry != null) yield entry;
+    }
+  }
+
+  Iterable<RoleEntry> statsForWithPrimaryRole(Role role) sync* {
+    for (var stats in championStats) {
+      var entry = stats.mostPlayed;
+      if (entry.role == role) yield entry;
+    }
+  }
 
   // FIXME: Another way would be to teach the precache script to
   // download this and then have a load-latest method.

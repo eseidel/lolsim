@@ -1,17 +1,18 @@
-import 'lolsim.dart';
+import 'package:meta/meta.dart';
+
 import 'dragon/dragon.dart';
+import 'lolsim.dart';
 
 class MasteryPage {
   String name;
   List<Mastery> masteries;
 
-  MasteryPage({this.name, this.masteries});
+  MasteryPage({this.name, @required this.masteries});
 
   MasteryPage.fromJson(Map<String, dynamic> json, MasteryLibrary library)
       : name = json['name'] {
     masteries = json['masteries'].map((mastery) {
-      MasteryDescription description = library.masteryById(mastery['id']);
-      return new Mastery(description, mastery['rank']);
+      return new Mastery(library.masteryById(mastery['id']), mastery['rank']);
     }).toList();
   }
 
