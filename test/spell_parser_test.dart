@@ -1,5 +1,5 @@
 import 'package:lol_duel/dragon/spell_parser.dart';
-import "package:test/test.dart";
+import 'package:test/test.dart';
 
 dynamic main() async {
   group("effectRegexp", () {

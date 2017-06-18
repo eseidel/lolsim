@@ -1,6 +1,6 @@
-import "package:lol_duel/dragon/stats.dart";
+import 'package:lol_duel/dragon/stats.dart';
 import 'package:lol_duel/lolsim.dart';
-import "package:test/test.dart";
+import 'package:test/test.dart';
 
 dynamic main() async {
   test("statsForLevel curve", () {

@@ -1,4 +1,4 @@
-import "package:lol_duel/lolsim.dart";
+import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/mastery_pages.dart';
 import 'package:lol_duel/dragon/dragon.dart';
 import 'package:lol_duel/buffs.dart';
