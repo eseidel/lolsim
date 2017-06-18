@@ -1,3 +1,7 @@
+import '../dragon/spell_parser.dart';
+import '../effects.dart';
+import '../lolsim.dart';
+import 'amumu.dart';
 import 'darius.dart';
 import 'diana.dart';
 import 'drmundo.dart';
@@ -22,12 +26,9 @@ import 'warwick.dart';
 import 'xinzhao.dart';
 import 'zed.dart';
 
-import '../effects.dart';
-import '../lolsim.dart';
-import '../dragon/spell_parser.dart';
-
 typedef ChampionEffects ChampionEffectsConstructor(Mob champion);
 Map<String, ChampionEffectsConstructor> championEffectsConstructors = {
+  'Amumu': (Mob champ) => new Amumu(champ),
   'Darius': (Mob champ) => new Darius(champ),
   'Diana': (Mob champ) => new Diana(champ),
   'DrMundo': (Mob champ) => new DrMundo(champ),
@@ -57,6 +58,8 @@ typedef SpellEffects SpellEffectsConstructor(Mob champ, int rank);
 final Map<String, SpellEffectsConstructor> _spellEffectsConstructors = {
   'VolibearW': (Mob champ, int rank) => new VolibearW(champ, rank),
   'TryndamereQ': (Mob champ, int rank) => new TryndamereQ(champ, rank),
+  'AmumuW': (Mob champ, int rank) => new AmumuW(champ, rank),
+  'AmumuE': (Mob champ, int rank) => new AmumuE(champ, rank),
 };
 
 SpellEffects constructEffectsForSpell(

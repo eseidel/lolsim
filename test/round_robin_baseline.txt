@@ -76,7 +76,7 @@ Taric         64
 Poppy         65                   
 RekSai        66                   
 Tristana      67                   
-Amumu         70                   
+Amumu         70         P         
 Sejuani       70                   
 Shen          73                   
 Galio         74                   
@@ -503,7 +503,7 @@ Alistar 110
   Ziggs
   Zilean
   Zyra
-Amumu 70 
+Amumu 70 P
   Ahri
   Anivia
   Annie

@@ -85,4 +85,12 @@ class VolibearW extends SpellEffects {
     else
       frenzy.refreshAndAddStack();
   }
+
+  @override
+  void cast() {
+    // FIXME: Missing active.
+    // ACTIVE: Volibear bites the target enemy, dealing physical damage, increasing by 0% - 100% (based on target's missing health).
+    // MINIMUM PHYSICAL DAMAGE: 60 / 110 / 160 / 210 / 260 (+ 15% bonus health)
+    // Frenzy's cooldown is halved if it is used on a monster.
+  }
 }

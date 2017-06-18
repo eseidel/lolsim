@@ -12,8 +12,12 @@ abstract class EffectsBase {
 
   // FIXME: Most of these should move onto BuffEffects.
   void onActionHit(Hit hit) {}
-  void onHit(Hit target) {}
-  // Unclear the right name, should be called after dmg applied:
+  void onHit(Hit hit) {}
+  void onBeingHit(Hit hit) {}
+
+  // Unclear the right name, called before damage adjustments.
+  void onBeforeDamageRecieved(Hit hit) {}
+  // Unclear the right name, called after dmg applied:
   void onDamageRecieved() {}
 
   Map<String, num> get stats => null;
@@ -34,11 +38,12 @@ abstract class ChampionEffects extends EffectsBase {
 
 abstract class BuffEffects extends EffectsBase {
   // Many of EffectsBase should move here.
+  void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {}
   void damageDealtModifier(Hit hit, DamageDealtDelta delta) {}
 }
 
-abstract class ItemEffects extends BuffEffects {
-  void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {}
-}
+abstract class ItemEffects extends BuffEffects {}
 
-abstract class SpellEffects extends BuffEffects {}
+abstract class SpellEffects extends BuffEffects {
+  void cast();
+}

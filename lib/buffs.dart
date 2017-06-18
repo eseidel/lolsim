@@ -59,7 +59,7 @@ abstract class TimedBuff extends Buff {
 abstract class Cooldown extends TimedBuff {
   // Fixed at time of creation in LOL. CDR does not affect in-progress cooldowns:
   // http://leagueoflegends.wikia.com/wiki/Cooldown_reduction
-  Cooldown({String name, Mob target, double duration})
+  Cooldown({String name, @required Mob target, @required double duration})
       : super(name: name, target: target, duration: duration);
 }
 

@@ -42,6 +42,7 @@ dynamic main() async {
       // Bleeds update on leveling?
       // Darius's AA's apply 5 stacks to new targets.
       // Stacks fall off one at a time.
+      // FIXME: Stacks currently do not fall off!
     });
     test("items", () {
       Mob darius = data.champs.championById('Darius');

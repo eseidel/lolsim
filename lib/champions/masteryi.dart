@@ -56,7 +56,7 @@ class DoubleStrikeExecuting extends TimedBuff {
     Mob masterYi = target;
     if (!masterYi.alive) return;
     World world = World.current;
-    Mob attackTarget = world.closestTarget(masterYi);
+    Mob attackTarget = world.closestEnemyWithin(masterYi, 300);
     if (attackTarget == null) return;
     AutoAttack.applyAuto(
         world, masterYi, attackTarget, masterYi.stats.attackDamage * .5,

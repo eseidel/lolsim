@@ -216,6 +216,7 @@ class Hit {
           trueDamage: trueDamage,
         );
 
+  bool get isAutoAttack => targeting == Targeting.basicAttack;
   bool get isSingleTarget =>
       targeting == Targeting.singleTargetSpell ||
       targeting == Targeting.basicAttack ||
@@ -476,6 +477,7 @@ class Mob {
   Stats stats; // updated per-tick.
   int _level = 1;
   double hpLost = 0.0;
+  double mpSpent = 0.0;
   bool alive = true;
   DamageLog damageLog;
 
@@ -498,6 +500,8 @@ class Mob {
 
   double get currentHp => alive ? max(0.0, stats.hp - hpLost) : 0.0;
   double get healthPercent => currentHp / stats.hp;
+
+  double get currentMp => alive ? max(0.0, stats.mp - mpSpent) : 0.0;
 
   String get id => description.id;
   String get name => description.name;
@@ -764,6 +768,10 @@ class Mob {
     for (Buff buff in buffs) {
       modifiers.add(buff.damageDealtModifier);
     }
+    spells?.forEach((Spell spell) {
+      if (spell.effects != null)
+        modifiers.add(spell.effects.damageDealtModifier);
+    });
     return modifiers;
   }
 
@@ -799,7 +807,7 @@ class Mob {
     return hit;
   }
 
-  double _resistanceMultiplier(double resistance) {
+  static double resistanceMultiplier(double resistance) {
     if (resistance > 0) return 100 / (100 + resistance);
     return 2 - (100 / (100 - resistance));
   }
@@ -829,23 +837,11 @@ class Mob {
   List<DamageRecievedModifier> collectDamageRecievedModifiers() {
     List<DamageRecievedModifier> modifiers = [
       (hit, delta) {
-        // This is clearly too simple.  Armor can be modified both by stats
-        // as well as by stats on the hit.source.
-        // These need to be kept separate until application time to allow
-        // for proper ordering:
-        // From stats:
-        // 1. Armor reduction, flat
-        // 2. Armor reduction, percentage
-        // Per hit:
-        // 3. Armor penetration, percentage
-        // 4. Armor penetration, flat
-        // Supposedly base and bonus armor are computed separately?
-        // http://leagueoflegends.wikia.com/wiki/Armor_penetration
         // hit.target can be null.
         delta.percentPhysical *=
-            _resistanceMultiplier(armorAfterPenatration(hit.source));
+            resistanceMultiplier(armorAfterPenatration(hit.source));
         delta.percentMagical *=
-            _resistanceMultiplier(spellBlockAfterPenatration(hit.source));
+            resistanceMultiplier(spellBlockAfterPenatration(hit.source));
       }
     ];
     // Do I need to cache these?
@@ -859,6 +855,10 @@ class Mob {
           modifiers.add(mastery.effects.damageRecievedModifier);
       }
     }
+    spells?.forEach((Spell spell) {
+      if (spell.effects != null)
+        modifiers.add(spell.effects.damageRecievedModifier);
+    });
     return modifiers;
   }
 
@@ -901,12 +901,16 @@ class Mob {
 
   double applyHit(Hit hit) {
     _log.fine("$this hit by ${hit.summaryString}");
+    // FIXME: Unclear if this onBeforeDamageRecieved is necessary (or correct).
+    _cachedEffects.forEach((effect) => effect.onBeforeDamageRecieved(hit));
     double damage = computeDamageRecieved(hit);
     hpLost += damage;
     _log.fine(
         "$this took ${damage.toStringAsFixed(1)} damage from ${hit.sourceString}, "
         "$hpStatusString remains");
     damageLog?.recordDamage(hit, damage);
+    if (hit.isAutoAttack)
+      _cachedEffects.forEach((effect) => effect.onBeingHit(hit));
     _cachedEffects.forEach((effect) => effect.onDamageRecieved());
     startHealingIfNecessary();
     if (currentHp <= 0.0) die();
@@ -937,6 +941,7 @@ class Mob {
     alive = true;
     state = MobState.ready;
     hpLost = 0.0;
+    mpSpent = 0.0;
     buffs = buffs.where((buff) => buff.retainedAfterDeath).toList();
     _didUpdateBuffs();
   }
@@ -947,6 +952,12 @@ class Mob {
     if (damageLog != null) _log.info(damageLog.summaryString);
     // FIXME: Death could be a buff if there are rez timers.
     alive = false;
+  }
+
+  bool spendManaIfPossible(int mana) {
+    if (currentMp < mana) return false;
+    mpSpent += mana;
+    return true;
   }
 }
 
@@ -1016,9 +1027,13 @@ class World {
     });
   }
 
-  Mob closestTarget(Mob reference) {
-    if (reference.team == Team.red) return livingBlues.first;
-    return livingReds.first;
+  Mob closestEnemyWithin(Mob reference, int range) =>
+      enemiesWithin(reference, range).first;
+
+  Iterable<Mob> enemiesWithin(Mob reference, int range) {
+    // FIXME: Respect range.
+    if (reference.team == Team.red) return livingBlues;
+    return livingReds;
   }
 
   Iterable<Mob> visibleNearbyEnemyChampions(Mob reference, {int range = 1000}) {
@@ -1033,7 +1048,7 @@ class World {
     clearDeadTargets(allMobs);
     allMobs.forEach((mob) {
       if (mob.lastTarget != null) return;
-      mob.lastTarget = closestTarget(mob);
+      mob.lastTarget = closestEnemyWithin(mob, mob.stats.range);
     });
   }
 

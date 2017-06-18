@@ -36,6 +36,7 @@ dynamic main() async {
       expect(buff.stacks, 6);
       new AutoAttack(twitch, mob).apply(world);
       expect(buff.stacks, 6);
+      // FIXME: Test that stacks fall off!
     });
     test("structures", () {
       // The wiki doesn't say, but I don't believe he applies to structures?
