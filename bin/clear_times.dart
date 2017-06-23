@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/mastery_pages.dart';
+import 'package:lol_duel/monsters.dart';
 import 'package:lol_duel/rune_pages.dart';
 import 'package:lol_duel/utils/cli_table.dart';
 import 'package:lol_duel/utils/common_args.dart';
@@ -52,7 +53,7 @@ class _Calculate {
     // Should do more than just blue sentinel.
     // Need to handle travel time
     // Need to handle levels.
-    Mob monster = Mob.createMonster(MonsterType.blueSentinal);
+    Mob monster = createMonster(MonsterType.blueSentinal);
     World world = new World(
       reds: [champ],
       blues: [monster],

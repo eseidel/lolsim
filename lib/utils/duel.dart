@@ -1,12 +1,14 @@
-import 'dart:io';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:yaml/yaml.dart';
 
 import '../creator.dart';
-import '../mastery_pages.dart';
-import '../rune_pages.dart';
 import '../lolsim.dart';
+import '../mastery_pages.dart';
+import '../minions.dart';
+import '../monsters.dart';
+import '../rune_pages.dart';
 
 class Duel {
   List<Mob> reds;
@@ -24,7 +26,7 @@ class DuelLoader {
 
   void addMinions(List<Mob> mobs, int count, MinionType type) {
     if (count != null)
-      mobs.addAll(new List.generate(count, (int) => Mob.createMinion(type)));
+      mobs.addAll(new List.generate(count, (int) => createMinion(type)));
   }
 
   MasteryPage loadMasteryPage(YamlMap yamlMasteries) {
@@ -70,7 +72,7 @@ class DuelLoader {
       'Red Brambleback': MonsterType.redBrambleback,
     }[yamlMob['name']];
     assert(type != null);
-    Mob mob = Mob.createMonster(type);
+    Mob mob = createMonster(type);
     mob.level = yamlMob['level'] ?? 1;
     return mob;
   }

@@ -1,18 +1,19 @@
-import 'package:lol_duel/lolsim.dart';
-import 'package:test/test.dart';
 import 'package:lol_duel/dragon/stat_constants.dart';
+import 'package:lol_duel/lolsim.dart';
+import 'package:lol_duel/minions.dart';
+import 'package:test/test.dart';
 
 import 'utils.dart';
 
 dynamic main() async {
   group("Minions", () {
     test("attackspeed", () {
-      Mob mob = Mob.createMinion(MinionType.melee);
+      Mob mob = createMinion(MinionType.melee);
       // Make sure I did the attack-delay math correctly:
       expect(mob.description.baseStats.baseAttackSpeed, 1.25);
     });
     test("super minion resistances", () {
-      Mob mob = Mob.createMinion(MinionType.superMinion);
+      Mob mob = createMinion(MinionType.superMinion);
       expect(mob.stats.armor, 30.0);
       expect(mob.stats.spellBlock, -30.0);
 

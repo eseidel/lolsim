@@ -1,4 +1,5 @@
 import 'dragon/dragon.dart';
+import 'lolsim.dart';
 
 final Map<String, double> _sharedMonsterStats = {
   'attackspeedperlevel': 0.0,
@@ -48,3 +49,19 @@ final MobDescription redBramblebackDescription = new MobDescription.fromJson({
       'attackrange': 125.0, // FIXME: No clue if this is right.
     }),
 });
+
+enum MonsterType {
+  blueSentinal,
+  redBrambleback,
+}
+
+Mob createMonster(MonsterType type) {
+  switch (type) {
+    case MonsterType.blueSentinal:
+      return new Mob(blueSentinalDescription, MobType.monster);
+    case MonsterType.redBrambleback:
+      return new Mob(redBramblebackDescription, MobType.monster);
+  }
+  assert(false);
+  return null;
+}

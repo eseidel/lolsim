@@ -13,8 +13,6 @@ import 'effects.dart';
 import 'items.dart';
 import 'masteries.dart';
 import 'mastery_pages.dart';
-import 'minions.dart';
-import 'monsters.dart';
 import 'rune_pages.dart';
 
 export 'dragon/spellkey.dart';
@@ -391,18 +389,6 @@ class Healing extends TickingBuff {
   }
 }
 
-enum MinionType {
-  melee,
-  caster,
-  siege,
-  superMinion,
-}
-
-enum MonsterType {
-  blueSentinal,
-  redBrambleback,
-}
-
 enum MobType {
   champion,
   minion,
@@ -557,32 +543,6 @@ class Mob {
     if (masteryPage != null) summary += '    Masteries: ${masteryPage}\n';
     if (items.isNotEmpty) summary += '    Items: ${items}\n';
     return summary;
-  }
-
-  static Mob createMinion(MinionType type) {
-    switch (type) {
-      case MinionType.melee:
-        return new Mob(meleeMinionDescription, MobType.minion);
-      case MinionType.caster:
-        return new Mob(rangedMinionDescription, MobType.minion);
-      case MinionType.siege:
-        return new Mob(siegeMinionDescription, MobType.minion);
-      case MinionType.superMinion:
-        return new Mob(superMinionDescription, MobType.minion);
-    }
-    assert(false);
-    return null;
-  }
-
-  static Mob createMonster(MonsterType type) {
-    switch (type) {
-      case MonsterType.blueSentinal:
-        return new Mob(blueSentinalDescription, MobType.monster);
-      case MonsterType.redBrambleback:
-        return new Mob(redBramblebackDescription, MobType.monster);
-    }
-    assert(false);
-    return null;
   }
 
   static final Set _warnedStats = new Set();

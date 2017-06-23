@@ -1,4 +1,5 @@
 import 'dragon/dragon.dart';
+import 'lolsim.dart';
 
 final Map<String, double> _sharedMinionStats = {
   'spellblockperlevel': 0.0,
@@ -66,3 +67,25 @@ final MobDescription superMinionDescription = new MobDescription.fromJson({
       'spellblock': -30.0,
     }),
 });
+
+enum MinionType {
+  melee,
+  caster,
+  siege,
+  superMinion,
+}
+
+Mob createMinion(MinionType type) {
+  switch (type) {
+    case MinionType.melee:
+      return new Mob(meleeMinionDescription, MobType.minion);
+    case MinionType.caster:
+      return new Mob(rangedMinionDescription, MobType.minion);
+    case MinionType.siege:
+      return new Mob(siegeMinionDescription, MobType.minion);
+    case MinionType.superMinion:
+      return new Mob(superMinionDescription, MobType.minion);
+  }
+  assert(false);
+  return null;
+}
