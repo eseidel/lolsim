@@ -1,9 +1,54 @@
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
+
+import 'stat_constants.dart';
 
 double letalityToFlatPenatration(int targetLevel) {
   //  LETHALITY × (0.6 + 0.4 × Target's level ÷ 18)
   return 0.6 + 0.4 * targetLevel / 18.0;
 }
+
+final Logger _log = new Logger('stats');
+
+typedef void StatApplier(Stats stats, num value);
+
+// FIXME: There is probably a better way to do this where we combine all the
+// stat modifications together in json form and then collapse them all at the end instead.
+// FIXME: These are neither complete, nor necessarily correct.
+final Map<String, StatApplier> appliers = {
+  FlatHPPoolMod: (stats, value) => stats.hp += value,
+  FlatCritChanceMod: (stats, value) => stats.critChance += value,
+  FlatHPRegenMod: (stats, value) => stats.hpRegen += value,
+  FlatMagicDamageMod: (stats, value) => stats.abilityPower += value,
+  FlatMPPoolMod: (stats, value) => stats.mp += value,
+
+  PercentSpellBlockMod: (stats, value) =>
+      stats.percentSpellBlockMod = (100.0 + value) / 100,
+  FlatSpellBlockMod: (stats, value) => stats.flatSpellBlockMod += value,
+
+  FlatPhysicalDamageMod: (stats, value) => stats.bonusAttackDamage += value,
+  PercentAttackSpeedMod: (stats, value) => stats.bonusAttackSpeed += value,
+  PercentLifeStealMod: (stats, value) => stats.lifesteal += value,
+
+  FlatArmorMod: (stats, value) => stats.addBonusArmor(value.toDouble()),
+  PercentArmorMod: (stats, value) =>
+      stats.percentArmorMod = (100.0 + value) / 100,
+  FlatArmorReduction: (stats, value) => stats.flatArmorReduction += value,
+
+  FlatMagicPenetrationMod: (stats, value) =>
+      stats.flatMagicPenetration += value,
+  PercentMagicPenetrationMod: (stats, value) =>
+      stats.percentMagicPenetration *= (100.0 - value) / 100,
+
+  Lethality: (stats, value) => stats.lethality += value,
+  PercentArmorPenetrationMod: (stats, value) =>
+      stats.percentArmorPenetration *= (100.0 - value) / 100,
+  PercentBonusArmorPenetrationMod: (stats, value) =>
+      stats.percentBonusArmorPenetration *= (100.0 - value) / 100,
+
+  // 'FlatMovementSpeedMod': (stats, value) => stats.movespeed += value,
+  // 'PercentMovementSpeedMod': (stats, value) => stats.movespeed *= value,
+};
 
 class Stats {
   double hp;
@@ -113,6 +158,24 @@ class Stats {
   }
 
   double get armor => baseArmor + bonusArmor;
+
+  static final Set _warnedStats = new Set();
+  void warnUnhandledStat(String statName) {
+    if (!_warnedStats.contains(statName)) {
+      _log.warning("Stat: $statName missing apply rule.");
+    }
+    _warnedStats.add(statName);
+  }
+
+  void applyStatMap(Map<String, num> stats) {
+    for (String statName in stats.keys) {
+      StatApplier statApplier = appliers[statName];
+      if (statApplier == null)
+        warnUnhandledStat(statName);
+      else
+        statApplier(this, stats[statName]);
+    }
+  }
 }
 
 class BaseStats extends Stats {

@@ -7,7 +7,6 @@ import 'buffs.dart';
 import 'champions/all.dart';
 import 'dragon/dragon.dart';
 import 'dragon/spellkey.dart';
-import 'dragon/stat_constants.dart';
 import 'dragon/stats.dart';
 import 'effects.dart';
 import 'items.dart';
@@ -281,8 +280,6 @@ enum Team {
 
 String teamToString(Team team) => (team == Team.red) ? 'Red' : 'Blue';
 
-typedef void StatApplier(Stats stats, num statValue);
-
 class DamageRecieved {
   double physicalDamage = 0.0;
   double magicDamage = 0.0;
@@ -545,92 +542,28 @@ class Mob {
     return summary;
   }
 
-  static final Set _warnedStats = new Set();
-  void warnUnhandledStat(String statName) {
-    if (!_warnedStats.contains(statName)) {
-      _log.warning("Stat: $statName missing apply rule.");
-    }
-    _warnedStats.add(statName);
-  }
-
-  // FIXME: There is probably a better way to do this where we combine all the
-  // stat modifications together in json form and then collapse them all at the end instead.
-  // FIXME: These are neither complete, nor necessarily correct.
-  final Map<String, StatApplier> appliers = {
-    FlatHPPoolMod: (computed, statValue) => computed.hp += statValue,
-    FlatCritChanceMod: (computed, statValue) =>
-        computed.critChance += statValue,
-    FlatHPRegenMod: (computed, statValue) => computed.hpRegen += statValue,
-    FlatMagicDamageMod: (computed, statValue) =>
-        computed.abilityPower += statValue,
-    FlatMPPoolMod: (computed, statValue) => computed.mp += statValue,
-
-    PercentSpellBlockMod: (computed, statValue) =>
-        computed.percentSpellBlockMod = (100.0 + statValue) / 100,
-    FlatSpellBlockMod: (computed, statValue) =>
-        computed.flatSpellBlockMod += statValue,
-
-    FlatPhysicalDamageMod: (computed, statValue) =>
-        computed.bonusAttackDamage += statValue,
-    PercentAttackSpeedMod: (computed, statValue) =>
-        computed.bonusAttackSpeed += statValue,
-    PercentLifeStealMod: (computed, statValue) =>
-        computed.lifesteal += statValue,
-
-    FlatArmorMod: (computed, statValue) =>
-        computed.addBonusArmor(statValue.toDouble()),
-    PercentArmorMod: (computed, statValue) =>
-        computed.percentArmorMod = (100.0 + statValue) / 100,
-    FlatArmorReduction: (computed, statValue) =>
-        computed.flatArmorReduction += statValue,
-
-    FlatMagicPenetrationMod: (computed, statValue) =>
-        computed.flatMagicPenetration += statValue,
-    PercentMagicPenetrationMod: (computed, statValue) =>
-        computed.percentMagicPenetration *= (100.0 - statValue) / 100,
-
-    Lethality: (computed, statValue) => computed.lethality += statValue,
-    PercentArmorPenetrationMod: (computed, statValue) =>
-        computed.percentArmorPenetration *= (100.0 - statValue) / 100,
-    PercentBonusArmorPenetrationMod: (computed, statValue) =>
-        computed.percentBonusArmorPenetration *= (100.0 - statValue) / 100,
-
-    // 'FlatMovementSpeedMod': (computed, statValue) => computed.movespeed += statValue,
-    // 'PercentMovementSpeedMod': (computed, statValue) => computed.movespeed *= statValue,
-  };
-
   Stats updateStats() {
     stats = description.baseStats.statsForLevel(level);
-    if (runePage != null) applyStats(stats, runePage.collectStats());
+    if (runePage != null) stats.applyStatMap(runePage.collectStats());
     if (masteryPage != null) {
       for (Mastery mastery in masteryPage.masteries) {
         if (mastery?.effects?.stats != null) {
-          applyStats(stats, mastery.effects.stats);
+          stats.applyStatMap(mastery.effects.stats);
         }
       }
     }
     for (Item item in items) {
-      applyStats(stats, item.stats);
+      stats.applyStatMap(item.stats);
       if (item.effects != null && item.effects.stats != null)
-        applyStats(stats, item.effects.stats);
+        stats.applyStatMap(item.effects.stats);
     }
     for (Buff buff in buffs)
-      if (buff.stats != null) applyStats(stats, buff.stats);
+      if (buff.stats != null) stats.applyStatMap(buff.stats);
     spells?.forEach((Spell spell) {
       Map spellStats = spell?.effects?.stats;
-      if (spellStats != null) applyStats(stats, spellStats);
+      if (spellStats != null) stats.applyStatMap(spellStats);
     });
     return stats;
-  }
-
-  void applyStats(Stats computed, Map<String, num> stats) {
-    for (String statName in stats.keys) {
-      StatApplier statApplier = appliers[statName];
-      if (statApplier == null)
-        warnUnhandledStat(statName);
-      else
-        statApplier(computed, stats[statName]);
-    }
   }
 
   @override
