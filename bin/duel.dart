@@ -17,15 +17,13 @@ void runDuel(Duel duel) {
   print("Red Team");
   duel.reds.forEach((mob) => print(mob.statsSummary()));
 
-  List<String> champIds = [];
   duel.allMobs.forEach((mob) {
     mob.shouldRecordDamage = true;
-    if (mob.isChampion) champIds.add(mob.id);
   });
   World world = new World(
     blues: duel.blues,
     reds: duel.reds,
-    critProvider: new PredictableCrits(champIds),
+    critProvider: new PredictableCrits(),
   );
   world.tickUntil(World.oneSideDies);
   if (world.living.isEmpty) {

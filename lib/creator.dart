@@ -16,11 +16,20 @@ class ItemFactory {
     return library.all().map((description) => new Item(description)).toList();
   }
 
+  Item itemById(String id) {
+    try {
+      return allItems().firstWhere((item) => item.description.id == id);
+    } catch (e) {
+      _log.severe("No item maching id $id");
+      return null;
+    }
+  }
+
   Item itemByName(String name) {
     try {
       return allItems().firstWhere((item) => item.name == name);
     } catch (e) {
-      _log.severe("No item maching $name");
+      _log.severe("No item maching name $name");
       return null;
     }
   }

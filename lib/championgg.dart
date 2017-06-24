@@ -66,19 +66,22 @@ class RoleEntry {
   final List<String> mostCommonSkillOrder;
   final String mostCommonMasteriesHash;
   final String mostCommonRunesHash;
+  final List<String> mostCommonStartingItemIds;
 
   RoleEntry.fromJson(Map json)
       : key = json['championId'].toString(),
         percentRolePlayed = json['percentRolePlayed'],
         role = new Role.fromChampionGG(json['role']),
-        mostCommonSkillOrder = _parseSkillOrderHash(
+        mostCommonSkillOrder = _splitHash(
             json['hashes']['skillorderhash']['highestCount']['hash']),
         mostCommonMasteriesHash =
             json['hashes']['masterieshash']['highestCount']['hash'],
         mostCommonRunesHash =
-            json['hashes']['runehash']['highestCount']['hash'];
+            json['hashes']['runehash']['highestCount']['hash'],
+        mostCommonStartingItemIds = _splitHash(
+            json['hashes']['firstitemshash']['highestCount']['hash']);
 
-  static List<String> _parseSkillOrderHash(String hash) {
+  static List<String> _splitHash(String hash) {
     return hash.split('-').sublist(1);
   }
 }

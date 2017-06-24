@@ -65,3 +65,24 @@ Mob createMonster(MonsterType type) {
   assert(false);
   return null;
 }
+
+enum CampType {
+  blue,
+  red,
+  // chickens,
+  // scuttle,
+  // gromp,
+  // krugs,
+  // wolves,
+}
+
+List<Mob> createCamp(CampType type) {
+  switch (type) {
+    case CampType.blue:
+      return <Mob>[createMonster(MonsterType.blueSentinal)];
+    case CampType.red:
+      return <Mob>[createMonster(MonsterType.redBrambleback)];
+  }
+  assert(false);
+  return null;
+}

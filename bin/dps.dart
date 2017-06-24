@@ -11,7 +11,7 @@ double calculateDps(Mob mob, {double totalTime = 100.0}) {
   World world = new World(
     reds: [mob],
     blues: [dummy],
-    critProvider: new PredictableCrits([mob.id, dummy.id]),
+    critProvider: new PredictableCrits(),
   );
   world.tickUntil((World world) {
     return world.time >= totalTime;

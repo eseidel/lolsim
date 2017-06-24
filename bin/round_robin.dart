@@ -13,7 +13,7 @@ int champCompare(Mob red, Mob blue) {
   World world = new World(
     reds: [red],
     blues: [blue],
-    critProvider: new PredictableCrits([blue.id, red.id]),
+    critProvider: new PredictableCrits(),
   );
   world.tickUntil(World.oneSideDies);
   // This math handles hp < 1.

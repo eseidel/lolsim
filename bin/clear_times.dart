@@ -57,7 +57,7 @@ class _Calculate {
     World world = new World(
       reds: [champ],
       blues: [monster],
-      critProvider: new PredictableCrits([champ.id, monster.id]),
+      critProvider: new PredictableCrits(),
     );
     world.tickUntil(World.oneSideDies);
     hp = champ.currentHp;

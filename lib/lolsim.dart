@@ -935,14 +935,10 @@ class RandomCrits {
 class PredictableCrits {
   Map<String, Random> randomForChamp = {};
 
-  PredictableCrits(List<String> champIds) {
-    champIds.forEach((id) => randomForChamp[id] = new Random(0));
-  }
-
   bool call(Mob attacker) {
     if (attacker.stats.critChance == 0.0) return false;
-    Random random = randomForChamp[attacker.id];
-    if (random == null) _log.warning('${attacker.id} has no crit source.');
+    Random random =
+        randomForChamp.putIfAbsent(attacker.id, () => new Random(0));
     return random.nextDouble() < attacker.stats.critChance;
   }
 }
