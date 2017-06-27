@@ -12,6 +12,8 @@ final Map<String, double> _sharedMinionStats = {
   'hpregen': 0.0,
   'hpregenperlevel': 0.0,
   'mp': 0.0,
+  'mpregen': 0.0,
+  'mpregenperlevel': 0.0,
 };
 
 final MobDescription meleeMinionDescription = new MobDescription.fromJson({

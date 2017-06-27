@@ -1,7 +1,6 @@
 import 'package:lol_duel/buffs.dart';
 import 'package:lol_duel/effects.dart';
 import 'package:lol_duel/lolsim.dart';
-import 'package:meta/meta.dart';
 
 class Ekko extends ChampionEffects {
   final Mob ekko;
@@ -44,7 +43,7 @@ class Ekko extends ChampionEffects {
 }
 
 class ZDriveResonanceDown extends TimedBuff {
-  ZDriveResonanceDown(@required Mob target)
+  ZDriveResonanceDown(Mob target)
       : super(
           target: target,
           duration: 5.0,
@@ -56,7 +55,7 @@ class ZDriveResonanceDown extends TimedBuff {
 }
 
 class ZDriveResonance extends StackedBuff {
-  ZDriveResonance(@required Mob target)
+  ZDriveResonance(Mob target)
       : super(
           target: target,
           maxStacks: 3,

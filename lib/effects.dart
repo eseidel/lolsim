@@ -44,6 +44,4 @@ abstract class BuffEffects extends EffectsBase {
 
 abstract class ItemEffects extends BuffEffects {}
 
-abstract class SpellEffects extends BuffEffects {
-  void cast();
-}
+abstract class SpellEffects extends BuffEffects {}

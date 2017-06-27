@@ -68,18 +68,26 @@ class Frenzy extends StackedBuff {
   String get lastUpdate => VERSION_7_10_1;
 }
 
-class VolibearW extends SpellEffects {
-  Mob champ;
+class VolibearW extends SpellWithCooldown {
   int rank;
-  VolibearW(this.champ, this.rank);
+  VolibearW(Mob champ, this.rank) : super(champ);
 
   @override
   String get lastUpdate => VERSION_7_10_1;
 
   @override
+  bool get isActiveToggle => false;
+  @override
+  bool get canBeCast => frenzyBuff.atMaxStacks && !isOnCooldown;
+  @override
+  double get cooldownDuration => 18.0;
+
+  Frenzy get frenzyBuff =>
+      champ.buffs.firstWhere((buff) => buff is Frenzy, orElse: () => null);
+
+  @override
   void onHit(Hit hit) {
-    Frenzy frenzy =
-        champ.buffs.firstWhere((buff) => buff is Frenzy, orElse: () => null);
+    Frenzy frenzy = frenzyBuff;
     if (frenzy == null)
       champ.addBuff(new Frenzy(champ, rank));
     else

@@ -152,6 +152,7 @@ class SpellDescription {
   }
 
   bool get doesDamage => damageEffects.isNotEmpty;
+  int rangeForRank(int rank) => data['range'][rank - 1];
 
   double sumOfRatios(ScalingSource source, int rank) {
     if (damageEffects.isEmpty) return 0.0;

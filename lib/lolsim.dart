@@ -112,8 +112,7 @@ class AutoAttackCooldown extends Cooldown {
 }
 
 abstract class Action {
-  Action(this.target);
-  Mob target;
+  bool ignored; // silence warning
   void apply(World world);
   // on attack effects
   // damage dealt modifier (including crit)
@@ -126,8 +125,9 @@ abstract class Action {
 
 class AutoAttack extends Action {
   Mob source;
+  Mob target;
 
-  AutoAttack(this.source, Mob target) : super(target);
+  AutoAttack(this.source, this.target);
 
   static void applyAuto(
     World world,
@@ -177,7 +177,10 @@ class Damage {
   double get totalDamage => physicalDamage + magicDamage + trueDamage;
 
   @override
-  String toString() => label != null ? '$totalDamage ($label)' : '$totalDamage';
+  String toString() {
+    String damageString = totalDamage.toStringAsFixed(1);
+    return label != null ? '$damageString ($label)' : '$damageString';
+  }
 }
 
 enum Targeting {
@@ -218,6 +221,10 @@ class Hit {
       targeting == Targeting.singleTargetSpell ||
       targeting == Targeting.basicAttack ||
       targeting == Targeting.dot;
+
+  // Unclear if this is correct.
+  bool get appliesSpellEffects =>
+      targeting == Targeting.singleTargetSpell || targeting == Targeting.aoe;
 
   double get physicalDamage {
     double totalPhysical = baseDamage.physicalDamage;
@@ -386,6 +393,20 @@ class Healing extends TickingBuff {
   }
 }
 
+class ManaRecovery extends TickingBuff {
+  ManaRecovery(Mob target) : super(name: 'Mana Recovery', target: target);
+
+  @override
+  String get lastUpdate => VERSION_7_11_1;
+
+  @override
+  void onTick() {
+    double mpPerSecond = target.stats.mpRegen / 5.0;
+    target.recoverMana(mpPerSecond * secondsBetweenTicks, 'mp5');
+    if (target.mpSpent <= 0.0) expire();
+  }
+}
+
 enum MobType {
   champion,
   minion,
@@ -396,7 +417,7 @@ enum MobType {
 class Spell {
   final SpellDescription description;
   final Mob mob;
-  SpellEffects effects;
+  SpellBase effects;
   int _rank = 0;
 
   Spell(this.mob, this.description);
@@ -407,6 +428,11 @@ class Spell {
   }
 
   int get rank => _rank;
+  int get range => description.rangeForRank(rank);
+  bool get isActiveToggle => effects?.isActiveToggle ?? false;
+  bool get canBeCast => effects?.canBeCast ?? false;
+
+  void cast() => effects.cast();
 
   @override
   String toString() => "Rank $_rank ${description.name}";
@@ -445,11 +471,22 @@ class SpellBook {
   }
 }
 
+typedef PlanningFunction = List<Action> Function(Mob mob);
+
+PlanningFunction defaultPlanner = (Mob mob) {
+  List<Action> actions = [];
+  Mob target = mob.validateAttackTarget(mob.lastTarget);
+  if (target != null) actions.add(new AutoAttack(mob, target));
+  return actions;
+};
+
 class Mob {
   MobDescription description;
   MobType type;
   Team team;
+  PlanningFunction planningFunction = defaultPlanner;
 
+  // FIXME: These could group into some sort of effects object.
   List<Item> items = <Item>[];
   List<Buff> buffs = <Buff>[];
   MasteryPage _masteryPage;
@@ -485,6 +522,7 @@ class Mob {
   double get healthPercent => currentHp / stats.hp;
 
   double get currentMp => alive ? max(0.0, stats.mp - mpSpent) : 0.0;
+  double get manaPercent => currentMp / stats.mp;
 
   String get id => description.id;
   String get name => description.name;
@@ -633,13 +671,10 @@ class Mob {
   // Not clear if buffs should be held on the Mob or not.
   List<Action> tick(double timeDelta) {
     updateStats();
-    List<Action> actions = [];
-    if (!alive) return actions;
+    if (!alive) return [];
     _tickBuffs(timeDelta);
     updateStats(); // Buffs can affect stats.
-    Mob target = validateAttackTarget(lastTarget);
-    if (target != null) actions.add(new AutoAttack(this, target));
-    return actions;
+    return planningFunction(this);
   }
 
   List<DamageDealtModifier> collectDamageDealtModifiers() {
@@ -784,7 +819,12 @@ class Mob {
 
   String get hpStatusString {
     int percent = (healthPercent * 100).round();
-    return "$percent% (${currentHp.toStringAsFixed(2)} / ${stats.hp.round()})";
+    return "$percent% (${currentHp.toStringAsFixed(1)} / ${stats.hp.round()})";
+  }
+
+  String get mpStatusString {
+    int percent = (manaPercent * 100).round();
+    return "$percent% (${currentMp.toStringAsFixed(1)} / ${stats.mp.round()})";
   }
 
   void startHealingIfNecessary() {
@@ -794,6 +834,7 @@ class Mob {
 
   double applyHit(Hit hit) {
     _log.fine("$this hit by ${hit.summaryString}");
+    if (hit.appliesSpellEffects) hit.source.applyOnActionHitEffects(hit);
     // FIXME: Unclear if this onBeforeDamageRecieved is necessary (or correct).
     _cachedEffects.forEach((effect) => effect.onBeforeDamageRecieved(hit));
     double damage = computeDamageRecieved(hit);
@@ -812,6 +853,9 @@ class Mob {
 
   void applyOnHitEffects(Hit hit) {
     _cachedEffects.forEach((effect) => effect.onHit(hit));
+  }
+
+  void applyOnActionHitEffects(Hit hit) {
     _cachedEffects.forEach((effect) => effect.onActionHit(hit));
   }
 
@@ -828,6 +872,15 @@ class Mob {
     damageLog?.recordHealing(source, healing);
     // FIXME: Missing healing modifiers.
     hpLost -= min(hpLost, healing);
+  }
+
+  void recoverMana(double additionalMana, String source) {
+    if (!alive) return;
+    if (additionalMana == 0.0) return;
+    assert(additionalMana > 0.0);
+    _log.fine(
+        "$this recovered ${additionalMana.toStringAsFixed(1)} mana from $source $mpStatusString remains");
+    mpSpent -= min(mpSpent, additionalMana);
   }
 
   void revive() {
@@ -850,7 +903,13 @@ class Mob {
   bool spendManaIfPossible(int mana) {
     if (currentMp < mana) return false;
     mpSpent += mana;
+    startManaRecoveryIfNecessary();
     return true;
+  }
+
+  void startManaRecoveryIfNecessary() {
+    if (buffs.any((buff) => buff is ManaRecovery)) return;
+    addBuff(new ManaRecovery(this));
   }
 }
 

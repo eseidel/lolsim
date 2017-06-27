@@ -43,6 +43,7 @@ class CursedTouch extends TimedBuff {
 
 typedef OnExpire = void Function();
 
+// FIXME: This should use some sort of DOT superclass.
 class Dispair extends TickingBuff {
   double baseDamage;
   double hpRatio;
@@ -66,7 +67,12 @@ class Dispair extends TickingBuff {
       double damage = baseDamage + hpRatio * enemy.stats.hp;
       // FIXME: Does this apply curse before the first hit?
       CursedTouch.applyToOrRefresh(enemy);
-      enemy.applyHit(new Hit(label: 'Dispair', magicDamage: damage));
+      enemy.applyHit(new Hit(
+        label: 'Dispair',
+        magicDamage: damage,
+        target: enemy,
+        source: target,
+      ));
     });
     ticksLeft -= 1;
     if (ticksLeft <= 0) {
@@ -76,7 +82,7 @@ class Dispair extends TickingBuff {
   }
 }
 
-class AmumuW extends SpellEffects {
+class AmumuW extends SpellBase {
   Mob amumu;
   int rank;
   bool toggledOn = false;
@@ -84,6 +90,11 @@ class AmumuW extends SpellEffects {
 
   @override
   String get lastUpdate => VERSION_7_11_1;
+
+  @override
+  bool get isActiveToggle => toggledOn;
+  @override
+  bool get canBeCast => true;
 
   void spendManaAndApplyBuff() {
     if (!amumu.spendManaIfPossible(8)) {
@@ -103,36 +114,18 @@ class AmumuW extends SpellEffects {
   }
 }
 
-class AmumuECooldown extends Cooldown {
-  AmumuE spell;
-  AmumuECooldown(this.spell)
-      : super(target: spell.amumu, duration: spell.cooldownDuration);
-
-  @override
-  String get lastUpdate => VERSION_7_11_1;
-
-  @override
-  void expire() {
-    spell.cooldown = null;
-    super.expire();
-  }
-}
-
-class AmumuE extends SpellEffects {
-  Mob amumu;
+class AmumuE extends SpellWithCooldown {
   int rank;
-  Cooldown cooldown;
-  AmumuE(this.amumu, this.rank);
+  AmumuE(Mob amumu, this.rank) : super(amumu);
 
   @override
   String get lastUpdate => VERSION_7_11_1;
-
+  @override
+  bool get canBeCast => !isOnCooldown;
+  @override
+  bool get isActiveToggle => false;
+  @override
   double get cooldownDuration => 11.0 - rank;
-  bool get isOnCooldown => cooldown != null;
-  void startCooldown() {
-    assert(!isOnCooldown);
-    cooldown = new AmumuECooldown(this);
-  }
 
   @override
   void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {
@@ -147,11 +140,16 @@ class AmumuE extends SpellEffects {
   @override
   void cast() {
     if (isOnCooldown) return;
-    if (!amumu.spendManaIfPossible(35)) return;
+    if (!champ.spendManaIfPossible(35)) return;
     startCooldown();
-    World.current.enemiesWithin(amumu, 300).forEach((Mob target) {
-      double damage = 50.0 + rank * 25.0 + 0.5 * amumu.stats.abilityPower;
-      target.applyHit(new Hit(label: 'Tantrum', magicDamage: damage));
+    World.current.enemiesWithin(champ, 300).forEach((Mob target) {
+      double damage = 50.0 + rank * 25.0 + 0.5 * champ.stats.abilityPower;
+      target.applyHit(new Hit(
+        label: 'Tantrum',
+        magicDamage: damage,
+        target: target,
+        source: champ,
+      ));
     });
   }
 }

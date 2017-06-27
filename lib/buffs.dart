@@ -203,3 +203,41 @@ abstract class StackedBuff extends Buff {
     if (stacks < maxStacks) stacks += 1;
   }
 }
+
+abstract class SpellBase extends SpellEffects {
+  bool get isActiveToggle;
+  bool get canBeCast;
+
+  void cast();
+}
+
+class SpellCooldown extends Cooldown {
+  SpellWithCooldown spell;
+
+  SpellCooldown(this.spell, Mob champ, double duration)
+      : super(target: champ, duration: duration);
+
+  @override
+  String get lastUpdate => VERSION_7_11_1;
+
+  @override
+  void expire() {
+    spell.cooldown = null;
+    super.expire();
+  }
+}
+
+abstract class SpellWithCooldown extends SpellBase {
+  Mob champ;
+  Cooldown cooldown;
+
+  SpellWithCooldown(this.champ);
+
+  bool get isOnCooldown => cooldown != null;
+  void startCooldown() {
+    assert(!isOnCooldown);
+    cooldown = new SpellCooldown(this, champ, cooldownDuration);
+  }
+
+  double get cooldownDuration;
+}

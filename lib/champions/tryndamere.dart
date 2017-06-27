@@ -50,13 +50,24 @@ class BattleFury extends PermanentBuff {
       };
 }
 
-class TryndamereQ extends SpellEffects {
-  Mob champ;
+class TryndamereQ extends SpellWithCooldown {
   int rank;
-  TryndamereQ(this.champ, this.rank);
+  TryndamereQ(Mob champ, this.rank) : super(champ);
 
   @override
   String get lastUpdate => VERSION_7_10_1;
+
+  @override
+  bool get isActiveToggle => false;
+  @override
+  bool get canBeCast => fury > 0 && !isOnCooldown;
+  @override
+  double get cooldownDuration => 12.0;
+
+  int get fury {
+    BattleFury buff = champ.buffs.firstWhere((buff) => buff is BattleFury);
+    return buff.fury;
+  }
 
   int get flatAdBonus => 5 * rank;
   double get percentAdBonus =>

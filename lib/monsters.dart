@@ -7,6 +7,8 @@ final Map<String, double> _sharedMonsterStats = {
   'hpregenperlevel': 0.0,
   'mp': 0.0,
   'mpperlevel': 0.0,
+  'mpregen': 0.0,
+  'mpregenperlevel': 0.0,
 };
 
 // Spawns at lvl 2, 4, 6

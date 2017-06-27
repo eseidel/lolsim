@@ -18,7 +18,6 @@ typedef void StatApplier(Stats stats, num value);
 final Map<String, StatApplier> appliers = {
   FlatHPPoolMod: (stats, value) => stats.hp += value,
   FlatCritChanceMod: (stats, value) => stats.critChance += value,
-  FlatHPRegenMod: (stats, value) => stats.hpRegen += value,
   FlatMagicDamageMod: (stats, value) => stats.abilityPower += value,
   FlatMPPoolMod: (stats, value) => stats.mp += value,
 
@@ -46,6 +45,11 @@ final Map<String, StatApplier> appliers = {
   PercentBonusArmorPenetrationMod: (stats, value) =>
       stats.percentBonusArmorPenetration *= (100.0 - value) / 100,
 
+  FlatHPRegenMod: (stats, value) => stats.flatHpRegenMod += value,
+  FlatMPRegenMod: (stats, value) => stats.flatMpRegenMod += value,
+  PercentBaseHPRegenMod: (stats, value) => stats.percentBaseHpRegenMod += value,
+  PercentBaseMPRegenMod: (stats, value) => stats.percentBaseMpRegenMod += value,
+
   // 'FlatMovementSpeedMod': (stats, value) => stats.movespeed += value,
   // 'PercentMovementSpeedMod': (stats, value) => stats.movespeed *= value,
 };
@@ -56,7 +60,13 @@ class Stats {
   double baseAttackDamage;
   double bonusAttackDamage = 0.0;
   double abilityPower = 0.0;
-  double hpRegen;
+
+  double baseHpRegen;
+  double baseMpRegen;
+  double flatHpRegenMod = 0.0;
+  double flatMpRegenMod = 0.0;
+  double percentBaseHpRegenMod = 1.0;
+  double percentBaseMpRegenMod = 1.0;
 
   double _baseArmor; // Before reductions.
   double _bonusArmor = 0.0; // incoming armor changes.
@@ -91,7 +101,8 @@ class Stats {
     this.attackDelay,
     double baseArmor,
     double baseSpellBlock,
-    this.hpRegen,
+    this.baseHpRegen,
+    this.baseMpRegen,
   })
       : _baseArmor = baseArmor,
         _baseSpellBlock = baseSpellBlock;
@@ -117,6 +128,9 @@ class Stats {
   double get attackDuration => 1.0 / attackSpeed;
 
   double get attackDamage => baseAttackDamage + bonusAttackDamage;
+
+  double get hpRegen => baseHpRegen * percentBaseHpRegenMod + flatHpRegenMod;
+  double get mpRegen => baseMpRegen * percentBaseMpRegenMod + flatMpRegenMod;
 
   double get magicalEffectiveHealth => hp * (1 + 0.01 * spellBlock);
   double get physicalEffectiveHealth => hp * (1 + 0.01 * armor);
@@ -186,14 +200,16 @@ class BaseStats extends Stats {
         mpPerLevel = json['mpperlevel'].toDouble(),
         attackSpeedPerLevel = json['attackspeedperlevel'].toDouble() / 100.0,
         attackDamagePerLevel = json['attackdamageperlevel'].toDouble(),
-        hpRegenPerLevel = json['hpregenperlevel'].toDouble() {
+        hpRegenPerLevel = json['hpregenperlevel'].toDouble(),
+        mpRegenPerLevel = json['mpregenperlevel'].toDouble() {
     attackDelay = json['attackspeedoffset'].toDouble();
     baseAttackDamage = json['attackdamage'].toDouble();
     hp = json['hp'].toDouble();
     mp = json['mp'].toDouble();
     _baseArmor = json['armor'].toDouble();
     _baseSpellBlock = json['spellblock'].toDouble();
-    hpRegen = json['hpregen'].toDouble();
+    baseHpRegen = json['hpregen'].toDouble();
+    baseMpRegen = json['mpregen'].toDouble();
     range = json['attackrange'].toInt();
   }
 
@@ -203,7 +219,8 @@ class BaseStats extends Stats {
     double mp,
     double baseAttackDamage,
     double attackDelay,
-    double hpRegen,
+    double baseHpRegen,
+    double baseMpRegen,
     double baseArmor,
     double baseSpellBlock,
     this.armorPerLevel,
@@ -212,13 +229,15 @@ class BaseStats extends Stats {
     this.hpPerLevel,
     this.hpRegenPerLevel,
     this.mpPerLevel,
+    this.mpRegenPerLevel,
     this.spellBlockPerLevel,
   })
       : super(
           hp: hp,
           mp: mp,
           baseAttackDamage: baseAttackDamage,
-          hpRegen: hpRegen,
+          baseHpRegen: baseHpRegen,
+          baseMpRegen: baseMpRegen,
           attackDelay: attackDelay,
           baseArmor: baseArmor,
           baseSpellBlock: baseSpellBlock,
@@ -231,6 +250,7 @@ class BaseStats extends Stats {
   final double attackSpeedPerLevel;
   final double attackDamagePerLevel;
   final double hpRegenPerLevel;
+  final double mpRegenPerLevel;
 
   Stats statsForLevel(int level) {
     Stats stats = new Stats();
@@ -243,7 +263,8 @@ class BaseStats extends Stats {
     // Every stat must be listed here or it will be its initial value.
     stats.hp = _curve(hp, hpPerLevel, level);
     stats.mp = _curve(mp, mpPerLevel, level);
-    stats.hpRegen = _curve(hpRegen, hpRegenPerLevel, level);
+    stats.baseHpRegen = _curve(baseHpRegen, hpRegenPerLevel, level);
+    stats.baseMpRegen = _curve(baseMpRegen, mpRegenPerLevel, level);
     stats.baseAttackDamage =
         _curve(baseAttackDamage, attackDamagePerLevel, level);
     stats._baseArmor = _curve(_baseArmor, armorPerLevel, level);

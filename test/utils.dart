@@ -64,7 +64,7 @@ Mob createTestMob({
         attackDelay: 0.0,
         hp: hp,
         hpPerLevel: 0.0,
-        hpRegen: hp5,
+        baseHpRegen: hp5,
         hpRegenPerLevel: 0.0,
         mp: 0.0,
         mpPerLevel: 0.0,

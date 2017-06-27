@@ -13,7 +13,7 @@ dynamic main() async {
       attackDelay: 0.0,
       hp: 100.0,
       hpPerLevel: 5.0,
-      hpRegen: 100.0,
+      baseHpRegen: 100.0,
       hpRegenPerLevel: 5.0,
       mp: 0.0,
       mpPerLevel: 0.0,
