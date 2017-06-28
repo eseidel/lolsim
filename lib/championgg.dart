@@ -92,12 +92,15 @@ class ChampionGG {
 
   ChampionGG(this.jsonEntries, DragonData dragon) {
     Map<String, ChampionStats> statsByKey = {};
-    jsonEntries.forEach((Map roleJson) {
+    jsonEntries.forEach((Map<String, String> roleJson) {
       RoleEntry role;
       try {
         role = new RoleEntry.fromJson(roleJson);
       } catch (e) {
-        _log.warning("Skipping ${roleJson['championId']} ${roleJson['role']}");
+        MobDescription champ =
+            dragon.champs.championByKey(roleJson['championId'].toString());
+        _log.warning(
+            "Error loading champion.gg data for ${champ.name} ${roleJson['role']}");
         return;
       }
       ChampionStats stats = statsByKey.putIfAbsent(

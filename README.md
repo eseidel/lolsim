@@ -51,6 +51,7 @@ Many.  Including at least:
 
 ## TODO / Bugs
 - Handle stat modifying buffs first, before other buffs.
+- Per-level runes.
 - monster leveling
 - Improved proximity (for masteries).
 - Coverage & coveralls.io
