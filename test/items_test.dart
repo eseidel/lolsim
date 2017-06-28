@@ -47,17 +47,17 @@ dynamic main() async {
       expect(doransShield.effects, isNotNull);
       mob.addItem(doransShield);
       expect(mob.currentHp, 180.0);
-      mob.applyHit(champ.createHitForTarget(
-          target: mob, physicalDamage: 20.0, label: 'test'));
+      applyHit(target: mob, source: champ, physicalDamage: 20.0);
       expect(mob.currentHp, 168.0);
-      mob.applyHit(champ.createHitForTarget(
-          target: mob, physicalDamage: 20.0, label: 'test'));
+      applyHit(
+          target: mob,
+          source: champ,
+          physicalDamage: 20.0); // Was this supposed to be magical?
       expect(mob.currentHp, 156.0);
-      mob.applyHit(champ.createHitForTarget(
-          target: mob, physicalDamage: 10.0, magicDamage: 10.0, label: 'test'));
+      applyHit(
+          target: mob, source: champ, physicalDamage: 10.0, magicDamage: 10.0);
       expect(mob.currentHp, 144.0);
-      mob.applyHit(champ.createHitForTarget(
-          target: mob, trueDamage: 20.0, label: 'test'));
+      applyHit(target: mob, source: champ, trueDamage: 20.0);
       expect(mob.currentHp, 124.0);
     });
     test("passive only applies to champion sources", () {
@@ -77,15 +77,11 @@ dynamic main() async {
       Mob defender = createTestMob(hp: 100.0);
       defender.addItem(doransShield);
       expect(180.0, defender.currentHp);
-      expect(
-          12.0,
-          defender.applyHit(attacker.createHitForTarget(
-              physicalDamage: 20.0, target: defender, label: 'test')));
+      expect(12.0,
+          applyHit(source: attacker, target: defender, physicalDamage: 20.0));
       expect(168.0, defender.currentHp);
-      expect(
-          0.0,
-          defender.applyHit(attacker.createHitForTarget(
-              physicalDamage: 1.0, target: defender, label: 'test')));
+      expect(0.0,
+          applyHit(source: attacker, target: defender, physicalDamage: 1.0));
       expect(168.0, defender.currentHp);
     });
   });
@@ -100,8 +96,7 @@ dynamic main() async {
 
       // Get attacker below full health so it can heal:
       expect(attacker.currentHp, 180.0);
-      attacker.applyHit(noArmor.createHitForTarget(
-          trueDamage: 80.0, target: attacker, label: 'test'));
+      applyHit(source: noArmor, target: attacker, trueDamage: 80.0);
       expect(attacker.currentHp, 100.0);
 
       expect(attacker.stats.attackDamage, 200.0);

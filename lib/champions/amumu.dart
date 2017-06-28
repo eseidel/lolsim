@@ -71,6 +71,7 @@ class Dispair extends TickingBuff {
         label: 'Dispair',
         magicDamage: damage,
         target: enemy,
+        targeting: Targeting.aoe,
       ));
     });
     ticksLeft -= 1;
@@ -147,6 +148,7 @@ class AmumuE extends SpellWithCooldown {
         label: 'Tantrum',
         magicDamage: damage,
         target: target,
+        targeting: Targeting.aoe,
       ));
     });
   }

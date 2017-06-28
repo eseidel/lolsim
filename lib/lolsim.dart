@@ -722,7 +722,7 @@ class Mob {
     double physicalDamage: 0.0,
     double magicDamage: 0.0,
     double trueDamage: 0.0,
-    Targeting targeting: Targeting.basicAttack,
+    @required Targeting targeting,
   }) {
     Hit hit = new Hit._(
       source: this,

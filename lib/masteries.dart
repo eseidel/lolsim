@@ -43,7 +43,6 @@ class Sorcery extends MasteryEffects {
   // .04 * R increased Ability damage
   @override
   void damageDealtModifier(Hit hit, DamageDealtDelta delta) {
-    print("Sorcery damageDealtModifier");
     // Only applies to ability or spell damage.
     // FIXME: Unclear if this is the right check.
     if (!hit.appliesSpellEffects) return;
@@ -228,6 +227,7 @@ class Merciless extends MasteryEffects {
   // Deal 1% * R percent increased damage to champions below 40% Health
   @override
   void damageDealtModifier(Hit hit, DamageDealtDelta delta) {
+    if (!hit.target.isChampion) return;
     if (hit.target.healthPercent >= 0.4) return;
     double damageAmp = 1.0 + (0.01 * rank);
     delta.percentPhysical *= damageAmp;

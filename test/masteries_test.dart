@@ -64,16 +64,18 @@ dynamic main() async {
   });
   group("Merciless", () {
     test("damage amp", () {
-      Mob mercilessMob =
-          createTestMob(hp: 100.0, masteries: [masteryByName('Merciless', 5)]);
-      Mob healthyMob = createTestMob(hp: 1000.0);
+      Mob mercilessMob = createTestMob(
+        hp: 100.0,
+        masteries: [masteryByName('Merciless', 5)],
+      );
+      Mob healthyMob = createTestMob(hp: 1000.0, type: MobType.champion);
       expect(
         10.0,
         applyHit(
             target: healthyMob, source: mercilessMob, physicalDamage: 10.0),
       );
 
-      Mob hurtMob = createTestMob(hp: 1000.0);
+      Mob hurtMob = createTestMob(hp: 1000.0, type: MobType.champion);
       hurtMob.hpLost = 601.0;
       expect(hurtMob.healthPercent, lessThan(0.4));
       expect(

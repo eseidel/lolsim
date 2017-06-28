@@ -62,6 +62,7 @@ class HealthDrain extends TickingBuff {
       label: name,
       magicDamage: damagePerTick,
       target: target,
+      targeting: Targeting.dot,
     ));
     source.healFor(damagePerTick, name);
     ticksLeft -= 1;
