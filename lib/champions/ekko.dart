@@ -17,7 +17,7 @@ class Ekko extends ChampionEffects {
   }
 
   @override
-  void onActionHit(Hit hit) {
+  void onAutoAttackHit(Hit hit) {
     if (hit.target.isStructure) return;
     if (hit.target.buffs.any((buff) => buff is ZDriveResonanceDown)) return;
 

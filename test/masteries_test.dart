@@ -30,6 +30,19 @@ dynamic main() async {
       expect(normalMob.currentHp, 897.0);
     });
   });
+  group('Sorcery', () {
+    test('damage amp', () {
+      Mob sorceryMob =
+          createTestMob(hp: 1000.0, masteries: [masteryByName('Sorcery', 5)]);
+      expect(sorceryMob.masteryPage.masteries.first.effects, isNotNull);
+      Mob normalMob = createTestMob(hp: 1000.0);
+      applyHit(source: sorceryMob, target: normalMob, magicDamage: 100.0);
+      applyHit(target: sorceryMob, source: normalMob, magicDamage: 100.0);
+
+      expect(sorceryMob.currentHp, 900.0);
+      expect(normalMob.currentHp, 898.0);
+    });
+  });
   group("Tough Skin", () {
     test("damage reduction", () {
       Mob toughSkinMob =
@@ -44,12 +57,7 @@ dynamic main() async {
       expect(toughSkinMob.currentHp, 84.0);
       new AutoAttack(minion, toughSkinMob).apply(world);
       expect(toughSkinMob.currentHp, 74.0);
-      toughSkinMob.applyHit(new Hit(
-        label: 'test',
-        physicalDamage: 10.0,
-        source: champion,
-        targeting: Targeting.singleTargetSpell,
-      ));
+      applyHit(source: champion, target: toughSkinMob, physicalDamage: 10.0);
       // Tough Skin has no effect on non-basic attacks.
       expect(toughSkinMob.currentHp, 64.0);
     });
@@ -59,35 +67,31 @@ dynamic main() async {
       Mob mercilessMob =
           createTestMob(hp: 100.0, masteries: [masteryByName('Merciless', 5)]);
       Mob healthyMob = createTestMob(hp: 1000.0);
-      Hit physicalHit = mercilessMob.createHitForTarget(
-        target: healthyMob,
-        label: 'test',
-        physicalDamage: 10.0,
+      expect(
+        10.0,
+        applyHit(
+            target: healthyMob, source: mercilessMob, physicalDamage: 10.0),
       );
-      expect(10.0, healthyMob.applyHit(physicalHit));
 
       Mob hurtMob = createTestMob(hp: 1000.0);
       hurtMob.hpLost = 601.0;
       expect(hurtMob.healthPercent, lessThan(0.4));
-      Hit healthyHit = mercilessMob.createHitForTarget(
-        target: hurtMob,
-        label: 'test',
-        physicalDamage: 10.0,
+      expect(
+        10.5,
+        applyHit(target: hurtMob, source: mercilessMob, physicalDamage: 10.0),
       );
-      expect(10.5, hurtMob.applyHit(healthyHit));
-      Hit magicalHit = mercilessMob.createHitForTarget(
-        target: hurtMob,
-        label: 'test',
-        physicalDamage: 10.0,
+      expect(
+        10.5,
+        applyHit(target: hurtMob, source: mercilessMob, magicDamage: 10.0),
       );
-      expect(10.5, hurtMob.applyHit(magicalHit));
-      Hit mixedHit = mercilessMob.createHitForTarget(
-        target: hurtMob,
-        label: 'test',
-        physicalDamage: 10.0,
-        magicDamage: 10.0,
+      expect(
+        21.0,
+        applyHit(
+            target: hurtMob,
+            source: mercilessMob,
+            physicalDamage: 10.0,
+            magicDamage: 10.0),
       );
-      expect(21.0, hurtMob.applyHit(mixedHit));
     });
   });
   group("Savagery", () {
@@ -95,38 +99,36 @@ dynamic main() async {
       Mob savageryMob =
           createTestMob(hp: 100.0, masteries: [masteryByName('Savagery', 5)]);
       Mob normalMob = createTestMob(hp: 100.0);
-      Hit physicalHit = savageryMob.createHitForTarget(
-        target: normalMob,
-        label: 'test',
-        physicalDamage: 10.0,
+      expect(
+        15.0,
+        applyHit(target: normalMob, source: savageryMob, physicalDamage: 10.0),
       );
-      expect(15.0, normalMob.applyHit(physicalHit));
-      Hit magicalHit = savageryMob.createHitForTarget(
-        target: normalMob,
-        label: 'test',
-        magicDamage: 10.0,
+      expect(
+        15.0,
+        applyHit(target: normalMob, source: savageryMob, magicDamage: 10.0),
       );
-      expect(15.0, normalMob.applyHit(magicalHit));
-      Hit mixedHit = savageryMob.createHitForTarget(
-        target: normalMob,
-        label: 'test',
-        physicalDamage: 10.0,
-        magicDamage: 10.0,
+      expect(
+        25.0,
+        applyHit(
+            target: normalMob,
+            source: savageryMob,
+            magicDamage: 10.0,
+            physicalDamage: 10.0),
       );
-      expect(25.0, normalMob.applyHit(mixedHit));
     });
 
     test("single target only", () {
       Mob savageryMob =
           createTestMob(hp: 100.0, masteries: [masteryByName('Savagery', 5)]);
       Mob normalMob = createTestMob(hp: 100.0);
-      Hit aoeHit = savageryMob.createHitForTarget(
-        target: normalMob,
-        targeting: Targeting.aoe,
-        label: 'test',
-        physicalDamage: 10.0,
+      expect(
+        10.0,
+        applyHit(
+            target: normalMob,
+            source: savageryMob,
+            physicalDamage: 10.0,
+            targeting: Targeting.aoe),
       );
-      expect(10.0, normalMob.applyHit(aoeHit));
     });
   });
   group('Precision', () {

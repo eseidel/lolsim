@@ -51,7 +51,6 @@ Many.  Including at least:
 
 ## TODO / Bugs
 - Handle stat modifying buffs first, before other buffs.
-- percent hp regen.
 - monster leveling
 - Improved proximity (for masteries).
 - Coverage & coveralls.io
@@ -93,8 +92,8 @@ Plan for stuns?
 - Stuns prevent new AA windups during duration.
 
 ## Abilities affecting round_robin / clear_times
+- Smite
 - Alistar Trample (needs stuns)
-- Amumu Tantrum
 - Ivern W brushmaker passive
 - Jinx Q passive
 - Rammus W ball curl
@@ -104,11 +103,6 @@ Plan for stuns?
 - Vayne W passive
 - Volibear W Frenzy
 - Sejuani E Permafrost
-
-## Potential champion.gg integrations
-- Common Roles
-- Common masteries
-- Common skill orders.
 
 ## Disclaimer
 This isn't endorsed by Riot Games and doesn't reflect the views

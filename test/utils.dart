@@ -28,17 +28,21 @@ Buff createTestBuff({Map<String, num> stats}) {
   return new TestBuff(stats);
 }
 
-void applySpellHit({
+double applyHit({
   @required Mob target,
   @required Mob source,
   double magicDamage: 0.0,
+  double physicalDamage: 0.0,
+  double trueDamage: 0.0,
+  Targeting targeting: Targeting.singleTargetSpell,
 }) {
-  target.applyHit(new Hit(
+  return target.applyHit(source.createHitForTarget(
     label: 'test',
     magicDamage: magicDamage,
-    source: source,
+    physicalDamage: physicalDamage,
+    trueDamage: trueDamage,
     target: target,
-    targeting: Targeting.singleTargetSpell,
+    targeting: targeting,
   ));
 }
 
@@ -66,6 +70,8 @@ Mob createTestMob({
         hpPerLevel: 0.0,
         baseHpRegen: hp5,
         hpRegenPerLevel: 0.0,
+        mpRegenPerLevel: 0.0,
+        baseMpRegen: 0.0,
         mp: 0.0,
         mpPerLevel: 0.0,
         baseSpellBlock: baseSpellBlock,

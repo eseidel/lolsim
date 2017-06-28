@@ -13,27 +13,29 @@ dynamic main() async {
       expect(mob.description.baseStats.baseAttackSpeed, 1.25);
     });
     test("super minion resistances", () {
+      Mob attacker = createTestMob();
       Mob mob = createMinion(MinionType.superMinion);
       expect(mob.stats.armor, 30.0);
       expect(mob.stats.spellBlock, -30.0);
 
       expect(mob.currentHp, 1500.0);
-      mob.applyHit(new Hit(physicalDamage: 100.0));
+      applyHit(source: attacker, target: mob, physicalDamage: 100.0);
       expect(mob.currentHp, 1423.076923076923);
 
       mob.revive();
       expect(mob.currentHp, 1500.0);
-      mob.applyHit(new Hit(magicDamage: 100.0));
+      applyHit(source: attacker, target: mob, magicDamage: 100.0);
       expect(mob.currentHp, 1376.923076923077);
     });
   });
   group("Mob", () {
     test("death", () {
+      Mob attacker = createTestMob();
       // This is very confusing behavior, but at least we're testing it.
       Mob mob = createTestMob(hp: 100.0);
-      mob.applyHit(new Hit(trueDamage: 99.9));
+      applyHit(source: attacker, target: mob, trueDamage: 99.9);
       expect(mob.alive, true);
-      mob.applyHit(new Hit(trueDamage: 0.1));
+      applyHit(source: attacker, target: mob, trueDamage: 0.1);
       expect(mob.alive, false);
     });
     test('healing', () {
@@ -152,7 +154,7 @@ dynamic main() async {
       // The 42 is considered to be 27.3 by the 35% magic resistance penetration.
       // The 27.3 is considered to be 17.3 by the 10 magic resistance penetration.
       // Target A takes damage as if it has 17.3 magic resistance.
-      applySpellHit(source: attacker, target: targetA, magicDamage: 100.0);
+      applyHit(source: attacker, target: targetA, magicDamage: 100.0);
       expect(targetA.hpLost, closeTo(100.0 * (100.0 / (100.0 + 17.3)), 0.01));
 
       // Target B has 18 magic resistance.
@@ -162,7 +164,7 @@ dynamic main() async {
       targetB.addBuff(debuff);
       expect(targetB.stats.spellBlock, -2);
       // Target B takes damage as if it has −2 magic resistance.
-      applySpellHit(source: attacker, target: targetB, magicDamage: 100.0);
+      applyHit(source: attacker, target: targetB, magicDamage: 100.0);
       expect(targetB.hpLost, 100.0 * (2 - (100.0 / 102.0)));
     });
   });

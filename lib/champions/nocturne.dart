@@ -23,7 +23,7 @@ class Nocturne extends ChampionEffects {
 
   // FIXME: This is implemented as a self-buff in game.
   @override
-  void onHit(Hit hit) {
+  void onAutoAttackHit(Hit hit) {
     // Unclear if this reduction portion is on-attack or on-hit?
     UmbraBladesCooldown cooldown = nocturne.buffs
         .firstWhere((buff) => buff is UmbraBladesCooldown, orElse: () => null);

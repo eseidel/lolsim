@@ -31,7 +31,7 @@ class HuntersMachete extends ItemEffects {
       };
 
   @override
-  void onHit(Hit hit) {
+  void onAutoAttackHit(Hit hit) {
     if (hit.target.type != MobType.monster) return;
     hit.addOnHitDamage(new Damage(label: 'Nail', physicalDamage: 25.0));
   }
@@ -58,11 +58,10 @@ class HealthDrain extends TickingBuff {
   void onTick() {
     double damagePerFive = 25.0;
     double damagePerTick = damagePerFive / (5.0 / secondsBetweenTicks);
-    target.applyHit(new Hit(
+    target.applyHit(source.createHitForTarget(
       label: name,
       magicDamage: damagePerTick,
       target: target,
-      source: source,
     ));
     source.healFor(damagePerTick, name);
     ticksLeft -= 1;
@@ -93,10 +92,19 @@ class HuntersTalisman extends ItemEffects {
     }
   }
 
-  @override
-  void onActionHit(Hit hit) {
+  void applyHealthDrain(Hit hit) {
     if (hit.target.type != MobType.monster) return;
     applyToOrRefresh(source: hit.source, target: hit.target);
+  }
+
+  @override
+  void onAutoAttackHit(Hit hit) {
+    applyHealthDrain(hit);
+  }
+
+  @override
+  void onSpellHit(Hit hit) {
+    applyHealthDrain(hit);
   }
 }
 

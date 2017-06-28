@@ -16,7 +16,7 @@ class Lulu extends ChampionEffects {
   // FIXME: Also Pix's attacks are delayed skillshots/missles with a travel time.
   // Maybe an on-attack trigger of an independent AA from an untargetable mob?
   @override
-  void onHit(Hit hit) {
+  void onAutoAttackHit(Hit hit) {
     hit.addOnHitDamage(new Damage(
       label: 'Pix',
       magicDamage: damagePerPixShot * 3,

@@ -42,8 +42,7 @@ void applySpell(SpellDescription spell, int rank, Mob source, Mob target) {
     trueDamage += (effect.damageType == DamageType.trueDamage) ? damage : 0.0;
   }
 
-  target.applyHit(new Hit(
-    source: source,
+  target.applyHit(source.createHitForTarget(
     target: target,
     label: spell.name,
     physicalDamage: physicalDamage,

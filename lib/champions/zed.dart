@@ -18,7 +18,7 @@ class Zed extends ChampionEffects {
 
   // FIXME: This is implemented as a self-buff in game.
   @override
-  void onHit(Hit hit) {
+  void onAutoAttackHit(Hit hit) {
     if (hit.target.isStructure) return;
     // Should shields count in this calculation?
     if (hit.target.healthPercent >= .5) return;

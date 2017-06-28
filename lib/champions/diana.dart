@@ -37,7 +37,7 @@ class Diana extends ChampionEffects {
   }
 
   @override
-  void onHit(Hit hit) {
+  void onAutoAttackHit(Hit hit) {
     MoonsilverBladeOnHit buff = diana.buffs
         .firstWhere((buff) => buff is MoonsilverBladeOnHit, orElse: () => null);
     if (buff == null) {

@@ -22,7 +22,8 @@ class Fiora extends ChampionEffects {
   }
 
   @override
-  void onActionHit(Hit hit) {
+  void onAutoAttackHit(Hit hit) {
+    // FIXME: This also applies to damaging abilities.
     // If target has Duelist dance, consume it.
     MarkedWithVital buff = hit.target.buffs
         .firstWhere((buff) => buff is MarkedWithVital, orElse: () => null);

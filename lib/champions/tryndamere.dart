@@ -36,7 +36,7 @@ class BattleFury extends PermanentBuff {
   // Is that the same as "out of combat"?
 
   @override
-  void onHit(Hit hit) {
+  void onAutoAttackHit(Hit hit) {
     if (hit.target.isStructure) return;
     if (hit.isCrit)
       addFury(10);

@@ -12,7 +12,8 @@ class TahmKench extends ChampionEffects {
   String get lastUpdate => VERSION_7_2_1;
 
   @override
-  void onActionHit(Hit hit) {
+  void onAutoAttackHit(Hit hit) {
+    // FIXME: AcquiredTaste is also applied by abilities.
     if (!hit.target.isChampion) return;
     AnAcquiredTaste buff = hit.target.buffs
         .firstWhere((buff) => buff is AnAcquiredTaste, orElse: () => null);

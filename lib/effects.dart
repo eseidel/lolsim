@@ -11,8 +11,9 @@ abstract class EffectsBase {
   String get lastUpdate;
 
   // FIXME: Most of these should move onto BuffEffects.
-  void onActionHit(Hit hit) {}
-  void onHit(Hit hit) {}
+  void onSpellHit(Hit hit) {}
+  void onAutoAttackHit(Hit hit) {}
+
   void onBeingHit(Hit hit) {}
 
   // Unclear the right name, called before damage adjustments.

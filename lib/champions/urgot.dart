@@ -26,7 +26,7 @@ class Urgot extends ChampionEffects {
   String get lastUpdate => VERSION_7_2_1;
 
   @override
-  void onHit(Hit hit) {
+  void onAutoAttackHit(Hit hit) {
     if (hit.target.isStructure) return;
     ZaunTouchedBoltAugmenter buff = hit.target.buffs.firstWhere(
         (buff) => buff is ZaunTouchedBoltAugmenter,

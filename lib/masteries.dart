@@ -15,6 +15,7 @@ final Map<String, MasteryEffectsConstructor> masteryEffectsConstructors = {
       new PiercingThoughts(champ, rank),
   'Precision': (Mob champ, int rank) => new Precision(champ, rank),
   'Recovery': (Mob champ, int rank) => new Recovery(champ, rank),
+  'Sorcery': (Mob champ, int rank) => new Sorcery(champ, rank),
   'Savagery': (Mob champ, int rank) => new Savagery(champ, rank),
   'Tough Skin': (Mob champ, int rank) => new ToughSkin(champ, rank),
   'Unyielding': (Mob champ, int rank) => new Unyielding(champ, rank),
@@ -33,13 +34,21 @@ class Fury extends MasteryEffects {
   Map<String, num> get stats => {PercentAttackSpeedMod: .008 * rank};
 }
 
-class Sorcery {
+class Sorcery extends MasteryEffects {
+  Sorcery(Mob champ, int rank) : super(champ, rank);
+
+  @override
+  String get lastUpdate => VERSION_7_11_1;
+
   // .04 * R increased Ability damage
+  @override
   void damageDealtModifier(Hit hit, DamageDealtDelta delta) {
+    print("Sorcery damageDealtModifier");
     // Only applies to ability or spell damage.
-    if (hit.targeting == Targeting.basicAttack) return;
-    // FIXME: Needs a perentCombined:
-    // delta.percentCombined *= 1.0 + (.004 * rank);
+    // FIXME: Unclear if this is the right check.
+    if (!hit.appliesSpellEffects) return;
+    delta.percentMagical *= 1.0 + (.004 * rank);
+    delta.percentPhysical *= 1.0 + (.004 * rank);
   }
 }
 

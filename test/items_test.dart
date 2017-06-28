@@ -25,9 +25,10 @@ dynamic main() async {
 
   group("Helper methods", () {
     test("createTestMob", () {
+      Mob attacker = createTestMob();
       Mob mob = createTestMob(hp: 100.0);
       expect(mob.currentHp, 100.0);
-      mob.applyHit(new Hit(trueDamage: 10.0));
+      applyHit(source: attacker, target: mob, trueDamage: 10.0);
       expect(mob.currentHp, 90.0);
       mob.revive();
       expect(mob.currentHp, 100.0);
@@ -38,7 +39,7 @@ dynamic main() async {
     test("flat damage reduction", () {
       Mob mob = createTestMob(hp: 100.0);
       Mob champ = createTestMob(hp: 100.0, type: MobType.champion);
-      mob.applyHit(new Hit(physicalDamage: 20.0));
+      applyHit(source: champ, target: mob, physicalDamage: 20.0);
       expect(mob.currentHp, 80.0);
       mob.revive();
 
@@ -46,14 +47,17 @@ dynamic main() async {
       expect(doransShield.effects, isNotNull);
       mob.addItem(doransShield);
       expect(mob.currentHp, 180.0);
-      mob.applyHit(new Hit(physicalDamage: 20.0, source: champ));
+      mob.applyHit(champ.createHitForTarget(
+          target: mob, physicalDamage: 20.0, label: 'test'));
       expect(mob.currentHp, 168.0);
-      mob.applyHit(new Hit(physicalDamage: 20.0, source: champ));
+      mob.applyHit(champ.createHitForTarget(
+          target: mob, physicalDamage: 20.0, label: 'test'));
       expect(mob.currentHp, 156.0);
-      mob.applyHit(
-          new Hit(physicalDamage: 10.0, magicDamage: 10.0, source: champ));
+      mob.applyHit(champ.createHitForTarget(
+          target: mob, physicalDamage: 10.0, magicDamage: 10.0, label: 'test'));
       expect(mob.currentHp, 144.0);
-      mob.applyHit(new Hit(trueDamage: 20.0, source: champ));
+      mob.applyHit(champ.createHitForTarget(
+          target: mob, trueDamage: 20.0, label: 'test'));
       expect(mob.currentHp, 124.0);
     });
     test("passive only applies to champion sources", () {
@@ -63,9 +67,9 @@ dynamic main() async {
       Mob minion = createTestMob(hp: 100.0);
       minion.addItem(doransShield);
       expect(
-          10.0, champ.applyHit(new Hit(physicalDamage: 10.0, source: minion)));
+          10.0, applyHit(source: minion, target: champ, physicalDamage: 10.0));
       expect(
-          2.0, minion.applyHit(new Hit(physicalDamage: 10.0, source: champ)));
+          2.0, applyHit(source: champ, target: minion, physicalDamage: 10.0));
     });
     test("reduction cannot go negative", () {
       Item doransShield = itemNamed("Doran's Shield");
@@ -73,11 +77,15 @@ dynamic main() async {
       Mob defender = createTestMob(hp: 100.0);
       defender.addItem(doransShield);
       expect(180.0, defender.currentHp);
-      expect(12.0,
-          defender.applyHit(new Hit(physicalDamage: 20.0, source: attacker)));
+      expect(
+          12.0,
+          defender.applyHit(attacker.createHitForTarget(
+              physicalDamage: 20.0, target: defender, label: 'test')));
       expect(168.0, defender.currentHp);
-      expect(0.0,
-          defender.applyHit(new Hit(physicalDamage: 1.0, source: attacker)));
+      expect(
+          0.0,
+          defender.applyHit(attacker.createHitForTarget(
+              physicalDamage: 1.0, target: defender, label: 'test')));
       expect(168.0, defender.currentHp);
     });
   });
@@ -92,7 +100,8 @@ dynamic main() async {
 
       // Get attacker below full health so it can heal:
       expect(attacker.currentHp, 180.0);
-      attacker.applyHit(new Hit(trueDamage: 80.0));
+      attacker.applyHit(noArmor.createHitForTarget(
+          trueDamage: 80.0, target: attacker, label: 'test'));
       expect(attacker.currentHp, 100.0);
 
       expect(attacker.stats.attackDamage, 200.0);

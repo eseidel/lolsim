@@ -86,7 +86,7 @@ class VolibearW extends SpellWithCooldown {
       champ.buffs.firstWhere((buff) => buff is Frenzy, orElse: () => null);
 
   @override
-  void onHit(Hit hit) {
+  void onAutoAttackHit(Hit hit) {
     Frenzy frenzy = frenzyBuff;
     if (frenzy == null)
       champ.addBuff(new Frenzy(champ, rank));

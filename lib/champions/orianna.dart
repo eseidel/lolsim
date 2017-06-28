@@ -35,7 +35,7 @@ class Orianna extends ChampionEffects {
   // FIXME: This is implemented as a self-buff in game.
   // Unclear what happens to the existing stacks if target blocks?
   @override
-  void onHit(Hit hit) {
+  void onAutoAttackHit(Hit hit) {
     if (hit.target.isStructure) return;
 
     double windupDamage = 10.0 + (((orianna.level - 1) / 3) * 5.0);

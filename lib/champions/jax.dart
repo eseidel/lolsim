@@ -54,5 +54,5 @@ class Jax extends ChampionEffects {
   }
 
   @override
-  void onHit(Hit hit) => gainRelentlessAssault();
+  void onAutoAttackHit(Hit hit) => gainRelentlessAssault();
 }

@@ -11,7 +11,7 @@ class Amumu extends ChampionEffects {
   String get lastUpdate => VERSION_7_11_1;
 
   @override
-  void onHit(Hit hit) => CursedTouch.applyToOrRefresh(hit.target);
+  void onAutoAttackHit(Hit hit) => CursedTouch.applyToOrRefresh(hit.target);
 }
 
 class CursedTouch extends TimedBuff {
@@ -67,11 +67,10 @@ class Dispair extends TickingBuff {
       double damage = baseDamage + hpRatio * enemy.stats.hp;
       // FIXME: Does this apply curse before the first hit?
       CursedTouch.applyToOrRefresh(enemy);
-      enemy.applyHit(new Hit(
+      enemy.applyHit(target.createHitForTarget(
         label: 'Dispair',
         magicDamage: damage,
         target: enemy,
-        source: target,
       ));
     });
     ticksLeft -= 1;
@@ -144,11 +143,10 @@ class AmumuE extends SpellWithCooldown {
     startCooldown();
     World.current.enemiesWithin(champ, 300).forEach((Mob target) {
       double damage = 50.0 + rank * 25.0 + 0.5 * champ.stats.abilityPower;
-      target.applyHit(new Hit(
+      target.applyHit(champ.createHitForTarget(
         label: 'Tantrum',
         magicDamage: damage,
         target: target,
-        source: champ,
       ));
     });
   }

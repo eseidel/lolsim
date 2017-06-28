@@ -25,7 +25,7 @@ class XinZhao extends ChampionEffects {
 
   // Unclear what happens if the target blocks?
   @override
-  void onHit(Hit hit) {
+  void onAutoAttackHit(Hit hit) {
     // Does this affect structures?
     if (hit.target.isStructure) return;
 

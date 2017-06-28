@@ -31,8 +31,7 @@ class DeadlyVenom extends DOT {
     double totalDmgPerStack = damagePerStackForLevel(source.level);
     double dmgPerStackPerTick = totalDmgPerStack / initialTicks;
     // Choosing to do all the dmg at once for all stacks.
-    return new Hit(
-      source: source,
+    return source.createHitForTarget(
       target: target,
       label: name,
       trueDamage: dmgPerStackPerTick * stackCount,
@@ -64,5 +63,5 @@ class Twitch extends ChampionEffects {
   }
 
   @override
-  void onHit(Hit hit) => applyDeadlyVenomStack(hit.target);
+  void onAutoAttackHit(Hit hit) => applyDeadlyVenomStack(hit.target);
 }

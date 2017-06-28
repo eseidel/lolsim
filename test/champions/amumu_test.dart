@@ -18,7 +18,7 @@ dynamic main() async {
       new AutoAttack(amumu, mob).apply(world);
       expect(mob.buffs.any((buff) => buff is CursedTouch), isTrue);
       expect(mob.hpLost, amumuAd);
-      applySpellHit(target: mob, source: amumu, magicDamage: 100.0);
+      applyHit(target: mob, source: amumu, magicDamage: 100.0);
       expect(mob.hpLost, amumuAd + 60.0);
       mob.tick(3.0);
       expect(mob.buffs.any((buff) => buff is CursedTouch), isFalse);
@@ -62,9 +62,10 @@ dynamic main() async {
       expect(mob.hpLost, 75.0);
     });
     test('flat damage reduction', () {
+      Mob mob = createTestMob();
       Mob amumu = data.champs.championById('Amumu');
       amumu.spells.addSkillPointTo(SpellKey.e);
-      amumu.applyHit(new Hit(physicalDamage: 20.0));
+      applyHit(source: mob, target: amumu, physicalDamage: 20.0);
       double damageAfterArmor =
           Mob.resistanceMultiplier(amumu.stats.armor) * 20.0;
       expect(amumu.hpLost, damageAfterArmor - 2.0);

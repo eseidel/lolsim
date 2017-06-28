@@ -15,6 +15,8 @@ dynamic main() async {
       hpPerLevel: 5.0,
       baseHpRegen: 100.0,
       hpRegenPerLevel: 5.0,
+      mpRegenPerLevel: 5.0,
+      baseMpRegen: 100.0,
       mp: 0.0,
       mpPerLevel: 0.0,
       baseSpellBlock: 100.0,
@@ -35,6 +37,9 @@ dynamic main() async {
     expect(one.hpRegen, 100.0);
     expect(five.hpRegen, 115.45);
     expect(eighteen.hpRegen, 185.0);
+    expect(one.mpRegen, 100.0);
+    expect(five.mpRegen, 115.45);
+    expect(eighteen.mpRegen, 185.0);
     expect(one.spellBlock, 100.0);
     expect(five.spellBlock, 115.45);
     expect(eighteen.spellBlock, 185.0);

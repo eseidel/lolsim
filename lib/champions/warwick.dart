@@ -13,7 +13,7 @@ class Warwick extends ChampionEffects {
 
   // FIXME: This could be a buff instead.
   @override
-  void onHit(Hit hit) {
+  void onAutoAttackHit(Hit hit) {
     String name = 'Eternal Hunger';
     double bonusDamage = bonusDamagePerLevel(warwick.level);
     hit.addOnHitDamage(new Damage(

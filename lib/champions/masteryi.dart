@@ -11,7 +11,7 @@ class MasterYi extends ChampionEffects {
   String get lastUpdate => VERSION_7_9_1;
 
   @override
-  void onHit(Hit hit) {
+  void onAutoAttackHit(Hit hit) {
     DoubleStrike buff = masterYi.buffs
         .firstWhere((buff) => buff is DoubleStrike, orElse: () => null);
     if (buff == null) {

@@ -98,6 +98,11 @@ class Mastery {
     _loggedEffects.add(description.name);
     _log.warning('Mastery ${description.name} has no defined effects.');
   }
+
+  @override
+  String toString() {
+    return '${description.name} rank $rank';
+  }
 }
 
 // FIXME: Support AA Resets.
@@ -148,7 +153,7 @@ class AutoAttack extends Action {
       physicalDamage: attackDamage,
       targeting: Targeting.basicAttack,
     );
-    source.applyOnHitEffects(hit);
+    source.applyOnAutoAttackHitEffects(hit);
     double appliedDamage = target.applyHit(hit);
     source.lifestealFrom(appliedDamage);
   }
@@ -199,7 +204,7 @@ class Hit {
   Damage baseDamage;
   List<Damage> onHits = [];
 
-  Hit({
+  Hit._({
     this.label: null,
     this.isCrit: false,
     double physicalDamage: 0.0,
@@ -719,7 +724,7 @@ class Mob {
     double trueDamage: 0.0,
     Targeting targeting: Targeting.basicAttack,
   }) {
-    Hit hit = new Hit(
+    Hit hit = new Hit._(
       source: this,
       target: target,
       label: label,
@@ -834,7 +839,7 @@ class Mob {
 
   double applyHit(Hit hit) {
     _log.fine("$this hit by ${hit.summaryString}");
-    if (hit.appliesSpellEffects) hit.source.applyOnActionHitEffects(hit);
+    if (hit.appliesSpellEffects) hit.source.applyOnSpellHitEffects(hit);
     // FIXME: Unclear if this onBeforeDamageRecieved is necessary (or correct).
     _cachedEffects.forEach((effect) => effect.onBeforeDamageRecieved(hit));
     double damage = computeDamageRecieved(hit);
@@ -851,12 +856,12 @@ class Mob {
     return damage; // This could be beyond-fatal damage.
   }
 
-  void applyOnHitEffects(Hit hit) {
-    _cachedEffects.forEach((effect) => effect.onHit(hit));
+  void applyOnAutoAttackHitEffects(Hit hit) {
+    _cachedEffects.forEach((effect) => effect.onAutoAttackHit(hit));
   }
 
-  void applyOnActionHitEffects(Hit hit) {
-    _cachedEffects.forEach((effect) => effect.onActionHit(hit));
+  void applyOnSpellHitEffects(Hit hit) {
+    _cachedEffects.forEach((effect) => effect.onSpellHit(hit));
   }
 
   void lifestealFrom(double damage) {

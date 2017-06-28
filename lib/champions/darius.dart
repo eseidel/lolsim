@@ -48,8 +48,7 @@ class Hemorrhage extends DOT {
         9.0 + darius.level + (0.3 * darius.stats.bonusAttackDamage);
     double dmgPerStackPerTick = totalDmgPerStack / initialTicks;
     // Choosing to do all the dmg at once for all stacks.
-    return new Hit(
-      source: darius,
+    return darius.createHitForTarget(
       target: target,
       label: name,
       physicalDamage: dmgPerStackPerTick * stackCount,
@@ -101,5 +100,8 @@ class Darius extends ChampionEffects {
   }
 
   @override
-  void onActionHit(Hit hit) => applyHemorrhageStack(hit.target);
+  void onSpellHit(Hit hit) => applyHemorrhageStack(hit.target);
+
+  @override
+  void onAutoAttackHit(Hit hit) => applyHemorrhageStack(hit.target);
 }
