@@ -52,9 +52,90 @@ final MobDescription redBramblebackDescription = new MobDescription.fromJson({
     }),
 });
 
+final MobDescription greaterMurkWolfDescription = new MobDescription.fromJson({
+  'name': 'Greater Murk Wolf',
+  'stats': new Map.from(_sharedMonsterStats)
+    ..addAll(<String, double>{
+      // These are values at level 2:
+      'hp': 1300.0,
+      'hpperlevel': 0.0, // FIXME: Wrong.
+      'armor': 10.0,
+      'armorperlevel': 0.0, // FIXME: Wrong.
+      'spellblock': 0.0,
+      'spellblockperlevel': 0.0, // FIXME: Wrong.
+      'movespeed': 443.0,
+      'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.625),
+      'attackdamage': 42.0,
+      'attackdamageperlevel': 0.0, // FIXME: Wrong.
+      'attackrange': 175.0,
+    }),
+});
+
+// FIXME: Do the big vs. little wolves really have different values of MR/AR?
+final MobDescription murkWolfDescription = new MobDescription.fromJson({
+  'name': 'Murk Wolf',
+  'stats': new Map.from(_sharedMonsterStats)
+    ..addAll(<String, double>{
+      // These are values at level 2:
+      'hp': 380.0,
+      'hpperlevel': 0.0, // FIXME: Wrong.
+      'armor': 0.0,
+      'armorperlevel': 0.0, // FIXME: Wrong.
+      'spellblock': 10.0,
+      'spellblockperlevel': 0.0, // FIXME: Wrong.
+      'movespeed': 443.0,
+      'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.625),
+      'attackdamage': 16.0,
+      'attackdamageperlevel': 0.0, // FIXME: Wrong.
+      'attackrange': 175.0,
+    }),
+});
+
+final MobDescription crimsonRaptorDescription = new MobDescription.fromJson({
+  'name': 'Crimson Raptor',
+  'stats': new Map.from(_sharedMonsterStats)
+    ..addAll(<String, double>{
+      // These are values at level 2:
+      'hp': 700.0,
+      'hpperlevel': 0.0, // FIXME: Wrong.
+      'armor': 30.0,
+      'armorperlevel': 0.0, // FIXME: Wrong.
+      'spellblock': 30.0,
+      'spellblockperlevel': 0.0, // FIXME: Wrong.
+      'movespeed': 350.0,
+      'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.667),
+      'attackdamage': 20.0,
+      'attackdamageperlevel': 0.0, // FIXME: Wrong.
+      'attackrange': 300.0,
+    }),
+});
+
+final MobDescription raptorDescription = new MobDescription.fromJson({
+  'name': 'Raptor', // NOT DONE.
+  'stats': new Map.from(_sharedMonsterStats)
+    ..addAll(<String, double>{
+      // These are values at level 2:
+      'hp': 350.0,
+      'hpperlevel': 0.0, // FIXME: Wrong.
+      'armor': 0.0,
+      'armorperlevel': 0.0, // FIXME: Wrong.
+      'spellblock': 0.0,
+      'spellblockperlevel': 0.0, // FIXME: Wrong.
+      'movespeed': 443.0,
+      'attackspeedoffset': attackDelayFromBaseAttackSpeed(1.0),
+      'attackdamage': 16.0,
+      'attackdamageperlevel': 0.0, // FIXME: Wrong.
+      'attackrange': 300.0,
+    }),
+});
+
 enum MonsterType {
   blueSentinal,
   redBrambleback,
+  greaterMurkWolf,
+  murkWolf,
+  crimsonRaptor,
+  raptor,
 }
 
 Mob createMonster(MonsterType type) {
@@ -63,6 +144,14 @@ Mob createMonster(MonsterType type) {
       return new Mob(blueSentinalDescription, MobType.monster);
     case MonsterType.redBrambleback:
       return new Mob(redBramblebackDescription, MobType.monster);
+    case MonsterType.greaterMurkWolf:
+      return new Mob(greaterMurkWolfDescription, MobType.monster);
+    case MonsterType.murkWolf:
+      return new Mob(murkWolfDescription, MobType.monster);
+    case MonsterType.crimsonRaptor:
+      return new Mob(crimsonRaptorDescription, MobType.monster);
+    case MonsterType.raptor:
+      return new Mob(raptorDescription, MobType.monster);
   }
   assert(false);
   return null;
@@ -71,11 +160,11 @@ Mob createMonster(MonsterType type) {
 enum CampType {
   blue,
   red,
-  // chickens,
-  // scuttle,
-  // gromp,
-  // krugs,
-  // wolves,
+  wolves,
+  raptors,
+  // gromp, // Has some decaying attack-speed buff?
+  // scuttle, // Difficult due to kiting?
+  // krugs, // difficult due to spawning rules.
 }
 
 List<Mob> createCamp(CampType type) {
@@ -84,6 +173,23 @@ List<Mob> createCamp(CampType type) {
       return <Mob>[createMonster(MonsterType.blueSentinal)];
     case CampType.red:
       return <Mob>[createMonster(MonsterType.redBrambleback)];
+    case CampType.wolves:
+      return <Mob>[
+        // FIXME: Artificially ordered for Amumu. :/
+        createMonster(MonsterType.greaterMurkWolf),
+        createMonster(MonsterType.murkWolf),
+        createMonster(MonsterType.murkWolf),
+      ];
+    case CampType.raptors:
+      return <Mob>[
+        // FIXME: Artificially ordered for Amumu. :/
+        createMonster(MonsterType.crimsonRaptor),
+        createMonster(MonsterType.raptor),
+        createMonster(MonsterType.raptor),
+        createMonster(MonsterType.raptor),
+        createMonster(MonsterType.raptor),
+        createMonster(MonsterType.raptor),
+      ];
   }
   assert(false);
   return null;

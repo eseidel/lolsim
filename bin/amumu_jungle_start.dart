@@ -85,7 +85,7 @@ dynamic main(List<String> args) async {
   };
 
   // List<_Calculate> results = [
-  //   new _Calculate(createChamp, CampType.blue, SpellKey.w)
+  //   new _Calculate(createChamp, CampType.raptors, SpellKey.e)
   // ];
   List<_Calculate> results = [];
   List<SpellKey> spellKeys = [SpellKey.w, SpellKey.e];
@@ -119,10 +119,4 @@ dynamic main(List<String> args) async {
       "${r.clearTime.round()}s",
     ]);
   }
-
-  // Determining which start is better vs. which camps.
-
-  // Each of the camps (except krugs)
-  // Starting either e or w
-  // need some planning
 }

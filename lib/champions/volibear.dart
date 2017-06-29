@@ -70,7 +70,7 @@ class Frenzy extends StackedBuff {
 
 class VolibearW extends SpellWithCooldown {
   int rank;
-  VolibearW(Mob champ, this.rank) : super(champ);
+  VolibearW(Mob champ, this.rank) : super(champ, 'Frenzy');
 
   @override
   String get lastUpdate => VERSION_7_10_1;

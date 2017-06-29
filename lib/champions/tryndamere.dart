@@ -22,7 +22,7 @@ class Tryndamere extends ChampionEffects {
 class BattleFury extends PermanentBuff {
   int fury = 0; // FIXME: Should move to Mob?
 
-  BattleFury(Mob target) : super(name: "Battle Fury", target: target);
+  BattleFury(Mob target) : super(name: 'Battle Fury', target: target);
 
   @override
   String get lastUpdate => VERSION_7_2_1;
@@ -52,7 +52,7 @@ class BattleFury extends PermanentBuff {
 
 class TryndamereQ extends SpellWithCooldown {
   int rank;
-  TryndamereQ(Mob champ, this.rank) : super(champ);
+  TryndamereQ(Mob champ, this.rank) : super(champ, 'Bloodlust');
 
   @override
   String get lastUpdate => VERSION_7_10_1;

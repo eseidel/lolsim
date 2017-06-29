@@ -116,7 +116,7 @@ class AmumuW extends SpellBase {
 
 class AmumuE extends SpellWithCooldown {
   int rank;
-  AmumuE(Mob amumu, this.rank) : super(amumu);
+  AmumuE(Mob amumu, this.rank) : super(amumu, 'Tantrum');
 
   @override
   String get lastUpdate => VERSION_7_11_1;
@@ -145,7 +145,7 @@ class AmumuE extends SpellWithCooldown {
     World.current.enemiesWithin(champ, 300).forEach((Mob target) {
       double damage = 50.0 + rank * 25.0 + 0.5 * champ.stats.abilityPower;
       target.applyHit(champ.createHitForTarget(
-        label: 'Tantrum',
+        label: name,
         magicDamage: damage,
         target: target,
         targeting: Targeting.aoe,

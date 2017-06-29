@@ -211,11 +211,13 @@ abstract class SpellBase extends SpellEffects {
   void cast();
 }
 
+// FIXME: These shouldn't be buffs, given that they can't
+// be looked up like normal buffs as they all share one class!
 class SpellCooldown extends Cooldown {
   SpellWithCooldown spell;
 
-  SpellCooldown(this.spell, Mob champ, double duration)
-      : super(target: champ, duration: duration);
+  SpellCooldown(this.spell, Mob champ, double duration, String spellName)
+      : super(target: champ, duration: duration, name: spellName + 'Cooldown');
 
   @override
   String get lastUpdate => VERSION_7_11_1;
@@ -228,15 +230,17 @@ class SpellCooldown extends Cooldown {
 }
 
 abstract class SpellWithCooldown extends SpellBase {
-  Mob champ;
+  final Mob champ;
   Cooldown cooldown;
+  final String name;
 
-  SpellWithCooldown(this.champ);
+  SpellWithCooldown(this.champ, this.name);
 
   bool get isOnCooldown => cooldown != null;
   void startCooldown() {
     assert(!isOnCooldown);
-    cooldown = new SpellCooldown(this, champ, cooldownDuration);
+    cooldown = new SpellCooldown(this, champ, cooldownDuration, name);
+    champ.addBuff(cooldown);
   }
 
   double get cooldownDuration;

@@ -92,7 +92,7 @@ class ChampionGG {
 
   ChampionGG(this.jsonEntries, DragonData dragon) {
     Map<String, ChampionStats> statsByKey = {};
-    jsonEntries.forEach((Map<String, String> roleJson) {
+    jsonEntries.forEach((Map roleJson) {
       RoleEntry role;
       try {
         role = new RoleEntry.fromJson(roleJson);
