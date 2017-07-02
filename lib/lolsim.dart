@@ -973,8 +973,11 @@ class World {
     });
   }
 
-  Mob closestEnemyWithin(Mob reference, int range) =>
-      enemiesWithin(reference, range).first;
+  Mob closestEnemyWithin(Mob reference, int range) {
+    Iterable<Mob> enemies = enemiesWithin(reference, range);
+    if (enemies.isEmpty) return null;
+    return enemies.first;
+  }
 
   Iterable<Mob> enemiesWithin(Mob reference, int range) {
     // FIXME: Respect range.
