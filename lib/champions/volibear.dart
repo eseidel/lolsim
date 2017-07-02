@@ -68,7 +68,7 @@ class Frenzy extends StackedBuff {
   String get lastUpdate => VERSION_7_10_1;
 }
 
-class VolibearW extends SpellWithCooldown {
+class VolibearW extends SingleTargetSpell {
   int rank;
   VolibearW(Mob champ, this.rank) : super(champ, 'Frenzy');
 
@@ -76,9 +76,7 @@ class VolibearW extends SpellWithCooldown {
   String get lastUpdate => VERSION_7_10_1;
 
   @override
-  bool get isActiveToggle => false;
-  @override
-  bool get canBeCast => frenzyBuff.atMaxStacks && !isOnCooldown;
+  bool canBeCastOn(Mob target) => frenzyBuff.atMaxStacks && !isOnCooldown;
   @override
   double get cooldownDuration => 18.0;
 
@@ -95,7 +93,7 @@ class VolibearW extends SpellWithCooldown {
   }
 
   @override
-  void cast() {
+  void castOn(Mob target) {
     // FIXME: Missing active.
     // ACTIVE: Volibear bites the target enemy, dealing physical damage, increasing by 0% - 100% (based on target's missing health).
     // MINIMUM PHYSICAL DAMAGE: 60 / 110 / 160 / 210 / 260 (+ 15% bonus health)

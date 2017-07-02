@@ -82,11 +82,10 @@ class Dispair extends TickingBuff {
   }
 }
 
-class AmumuW extends SpellBase {
-  Mob amumu;
+class AmumuW extends SelfTargetedSpell {
   int rank;
   bool toggledOn = false;
-  AmumuW(this.amumu, this.rank);
+  AmumuW(Mob champ, this.rank) : super(champ, 'Dispair');
 
   @override
   String get lastUpdate => VERSION_7_11_1;
@@ -94,34 +93,36 @@ class AmumuW extends SpellBase {
   @override
   bool get isActiveToggle => toggledOn;
   @override
-  bool get canBeCast => true;
+  bool get canBeCastOnSelf => true;
+  @override
+  double get cooldownDuration => 1.0;
 
   void spendManaAndApplyBuff() {
-    if (!amumu.spendManaIfPossible(8)) {
+    if (!champ.spendManaIfPossible(8)) {
       toggledOn = false;
       return;
     }
-    amumu.addBuff(new Dispair(amumu, rank, () {
+    champ.addBuff(new Dispair(champ, rank, () {
       if (toggledOn) spendManaAndApplyBuff();
     }));
   }
 
   @override
-  void cast() {
+  void castOnSelf() {
     // FIXME: There is a timeout on toggles.
     toggledOn = !toggledOn;
     if (toggledOn) spendManaAndApplyBuff();
   }
 }
 
-class AmumuE extends SpellWithCooldown {
+class AmumuE extends SelfTargetedSpell {
   int rank;
   AmumuE(Mob amumu, this.rank) : super(amumu, 'Tantrum');
 
   @override
   String get lastUpdate => VERSION_7_11_1;
   @override
-  bool get canBeCast => !isOnCooldown;
+  bool get canBeCastOnSelf => !isOnCooldown;
   @override
   bool get isActiveToggle => false;
   @override
@@ -138,7 +139,7 @@ class AmumuE extends SpellWithCooldown {
   }
 
   @override
-  void cast() {
+  void castOnSelf() {
     if (isOnCooldown) return;
     if (!champ.spendManaIfPossible(35)) return;
     startCooldown();

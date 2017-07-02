@@ -204,11 +204,19 @@ abstract class StackedBuff extends Buff {
   }
 }
 
-abstract class SpellBase extends SpellEffects {
-  bool get isActiveToggle;
-  bool get canBeCast;
+abstract class SelfTargetedSpell extends SpellWithCooldown {
+  SelfTargetedSpell(Mob champ, String name) : super(champ, name);
 
-  void cast();
+  bool get isActiveToggle;
+  bool get canBeCastOnSelf;
+  void castOnSelf();
+}
+
+abstract class SingleTargetSpell extends SpellWithCooldown {
+  SingleTargetSpell(Mob champ, String name) : super(champ, name);
+
+  bool canBeCastOn(Mob target);
+  void castOn(Mob target);
 }
 
 // FIXME: These shouldn't be buffs, given that they can't
@@ -229,7 +237,7 @@ class SpellCooldown extends Cooldown {
   }
 }
 
-abstract class SpellWithCooldown extends SpellBase {
+abstract class SpellWithCooldown extends SpellEffects {
   final Mob champ;
   Cooldown cooldown;
   final String name;

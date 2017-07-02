@@ -4,8 +4,10 @@ import 'package:lol_duel/championgg_utils.dart';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/monsters.dart';
-import 'package:lol_duel/utils/common_args.dart';
+import 'package:lol_duel/planning.dart';
+import 'package:lol_duel/role.dart';
 import 'package:lol_duel/utils/cli_table.dart';
+import 'package:lol_duel/utils/common_args.dart';
 
 typedef CreateChamp = Mob Function();
 
@@ -35,33 +37,6 @@ class _Calculate {
   }
 }
 
-class CastSpell extends Action {
-  Spell spell;
-  CastSpell(this.spell) : super();
-
-  @override
-  void apply(World world) {
-    spell.cast();
-  }
-}
-
-bool castIfInRange(Mob mob, Spell spell, List<Action> actions) {
-  if (!spell.canBeCast) return false;
-  World world = World.current;
-  bool inRange = world.enemiesWithin(mob, spell.range).isNotEmpty;
-  bool shouldCast = inRange || spell.isActiveToggle;
-  if (!shouldCast) return false;
-  actions.add(new CastSpell(spell));
-  return true;
-}
-
-List<Action> amumuJunglePlanner(Mob mob) {
-  List<Action> actions = <Action>[];
-  if (castIfInRange(mob, mob.spells.w, actions)) return actions;
-  if (castIfInRange(mob, mob.spells.e, actions)) return actions;
-  return defaultPlanner(mob);
-}
-
 dynamic main(List<String> args) async {
   handleCommonArgs(args);
 
@@ -71,7 +46,7 @@ dynamic main(List<String> args) async {
 
   CreateChamp createChamp = () {
     Mob champ = creator.champs.championByName(championName);
-    champ.planningFunction = amumuJunglePlanner;
+    champ.planner = plannerFor(champ, Role.jungle);
     ChampionStats champStats = championGG.statsForChampionName(championName);
     RoleEntry jungleStats = champStats.entryForRole(Role.jungle);
     champ.masteryPage = masteriesFromHash(

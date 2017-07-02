@@ -3,40 +3,11 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:logging/logging.dart';
-import 'package:lol_duel/dragon/dragon.dart';
+
+import 'dragon/dragon.dart';
+import 'role.dart';
 
 final Logger _log = new Logger('championgg');
-
-class Role {
-  final String id;
-  const Role(this.id);
-
-  factory Role.fromChampionGG(String id) {
-    return {
-      top.id: top,
-      mid.id: mid,
-      jungle.id: jungle,
-      support.id: support,
-      adc.id: adc,
-    }[id];
-  }
-
-  static const Role top = const Role('TOP');
-  static const Role mid = const Role('MIDDLE');
-  static const Role jungle = const Role('JUNGLE');
-  static const Role support = const Role('DUO_SUPPORT');
-  static const Role adc = const Role('DUO_CARRY');
-
-  String get shortName {
-    return {
-      top.id: 'Top',
-      mid.id: 'Mid',
-      jungle.id: 'Jung',
-      adc.id: 'ADC',
-      support.id: 'Support',
-    }[id];
-  }
-}
 
 class ChampionStats {
   final MobDescription champ;

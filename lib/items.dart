@@ -32,7 +32,7 @@ class HuntersMachete extends ItemEffects {
 
   @override
   void onAutoAttackHit(Hit hit) {
-    if (hit.target.type != MobType.monster) return;
+    if (!hit.target.isMonster) return;
     hit.addOnHitDamage(new Damage(label: 'Nail', physicalDamage: 25.0));
   }
 }
@@ -94,7 +94,7 @@ class HuntersTalisman extends ItemEffects {
   }
 
   void applyHealthDrain(Hit hit) {
-    if (hit.target.type != MobType.monster) return;
+    if (!hit.target.isMonster) return;
     applyToOrRefresh(source: hit.source, target: hit.target);
   }
 

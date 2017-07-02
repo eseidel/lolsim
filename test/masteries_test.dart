@@ -48,7 +48,7 @@ dynamic main() async {
       Mob toughSkinMob =
           createTestMob(hp: 100.0, masteries: [masteryByName('Tough Skin', 1)]);
       Mob champion = createTestMob(ad: 10.0, type: MobType.champion);
-      Mob monster = createTestMob(ad: 10.0, type: MobType.monster);
+      Mob monster = createTestMob(ad: 10.0, type: MobType.largeMonster);
       Mob minion = createTestMob(ad: 10.0, type: MobType.minion);
       World world = new World();
       new AutoAttack(champion, toughSkinMob).apply(world);

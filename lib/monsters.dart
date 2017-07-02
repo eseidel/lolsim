@@ -141,17 +141,17 @@ enum MonsterType {
 Mob createMonster(MonsterType type) {
   switch (type) {
     case MonsterType.blueSentinal:
-      return new Mob(blueSentinalDescription, MobType.monster);
+      return new Mob(blueSentinalDescription, MobType.largeMonster);
     case MonsterType.redBrambleback:
-      return new Mob(redBramblebackDescription, MobType.monster);
+      return new Mob(redBramblebackDescription, MobType.largeMonster);
     case MonsterType.greaterMurkWolf:
-      return new Mob(greaterMurkWolfDescription, MobType.monster);
+      return new Mob(greaterMurkWolfDescription, MobType.largeMonster);
     case MonsterType.murkWolf:
-      return new Mob(murkWolfDescription, MobType.monster);
+      return new Mob(murkWolfDescription, MobType.smallMonster);
     case MonsterType.crimsonRaptor:
-      return new Mob(crimsonRaptorDescription, MobType.monster);
+      return new Mob(crimsonRaptorDescription, MobType.largeMonster);
     case MonsterType.raptor:
-      return new Mob(raptorDescription, MobType.monster);
+      return new Mob(raptorDescription, MobType.smallMonster);
   }
   assert(false);
   return null;

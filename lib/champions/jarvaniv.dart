@@ -19,7 +19,7 @@ class JarvanIV extends ChampionEffects {
   // FIXME: This is implemented as a self-buff in game.
   @override
   void onAutoAttackHit(Hit hit) {
-    if (hit.target.type != MobType.champion) return;
+    if (!hit.target.isChampion) return;
     if (hit.target.buffs.any((buff) => buff is MartialCadence)) return;
     hit.target.addBuff(new MartialCadence(hit.target, passiveCooldown));
     hit.addOnHitDamage(new Damage(

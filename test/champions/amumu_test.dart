@@ -32,17 +32,17 @@ dynamic main() async {
       Mob mob = createTestMob(hp: 1000.0);
       World world = new World(blues: [amumu], reds: [mob]);
       AmumuW spell = amumu.spells.w.effects;
-      spell.cast(); // toggle on.
+      spell.castOnSelf(); // toggle on.
       expect(spell.toggledOn, isTrue);
       world.tickFor(0.5);
       expect(mob.buffs.any((buff) => buff is CursedTouch), isTrue);
       expect(mob.hpLost, 11.0); // 5 + 0.005 * 1000 + 10% true.
-      spell.cast(); // toggle off.
+      spell.castOnSelf(); // toggle off.
       world.tickFor(0.5);
       expect(mob.hpLost, 22.0);
       world.tickFor(3.0);
       expect(mob.buffs.any((buff) => buff is CursedTouch), isFalse);
-      spell.cast(); // toggle on.
+      spell.castOnSelf(); // toggle on.
       world.tickFor(10.0);
       expect(spell.toggledOn, isTrue); // Auto-renews
       world.tickFor(90.0);
@@ -57,7 +57,7 @@ dynamic main() async {
       Mob mob = createTestMob(hp: 1000.0);
       World world = new World(blues: [amumu], reds: [mob]);
       world.makeCurrentForScope(() {
-        amumu.spells.e.effects.cast();
+        amumu.spells.e.castOnSelf();
       });
       expect(mob.hpLost, 75.0);
     });

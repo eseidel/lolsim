@@ -50,7 +50,7 @@ class BattleFury extends PermanentBuff {
       };
 }
 
-class TryndamereQ extends SpellWithCooldown {
+class TryndamereQ extends SelfTargetedSpell {
   int rank;
   TryndamereQ(Mob champ, this.rank) : super(champ, 'Bloodlust');
 
@@ -60,7 +60,7 @@ class TryndamereQ extends SpellWithCooldown {
   @override
   bool get isActiveToggle => false;
   @override
-  bool get canBeCast => fury > 0 && !isOnCooldown;
+  bool get canBeCastOnSelf => fury > 0 && !isOnCooldown;
   @override
   double get cooldownDuration => 12.0;
 
@@ -74,7 +74,7 @@ class TryndamereQ extends SpellWithCooldown {
       (0.10 + 0.05 * rank) * (1.0 - champ.healthPercent);
 
   @override
-  void cast() {
+  void castOnSelf() {
     // FIXME: Missing active.
     // ACTIVE: Tryndamere consumes all of his Fury and heals himself, increased for every point of Fury consumed.
     // MINIMUM HEAL: 30 / 40 / 50 / 60 / 70 (+ 30% AP)

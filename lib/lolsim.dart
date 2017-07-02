@@ -12,6 +12,7 @@ import 'effects.dart';
 import 'items.dart';
 import 'masteries.dart';
 import 'mastery_pages.dart';
+import 'planning.dart';
 import 'rune_pages.dart';
 
 export 'dragon/spellkey.dart';
@@ -415,14 +416,16 @@ class ManaRecovery extends TickingBuff {
 enum MobType {
   champion,
   minion,
-  monster,
+  smallMonster,
+  largeMonster,
+  epicMonster,
   structure,
 }
 
 class Spell {
   final SpellDescription description;
   final Mob mob;
-  SpellBase effects;
+  SpellEffects effects;
   int _rank = 0;
 
   Spell(this.mob, this.description);
@@ -434,10 +437,12 @@ class Spell {
 
   int get rank => _rank;
   int get range => description.rangeForRank(rank);
-  bool get isActiveToggle => effects?.isActiveToggle ?? false;
-  bool get canBeCast => effects?.canBeCast ?? false;
 
-  void cast() => effects.cast();
+  bool get isActiveToggle =>
+      (effects as SelfTargetedSpell)?.isActiveToggle ?? false;
+  bool get canBeCastOnSelf =>
+      (effects as SelfTargetedSpell)?.canBeCastOnSelf ?? false;
+  void castOnSelf() => (effects as SelfTargetedSpell).castOnSelf();
 
   @override
   String toString() => "Rank $_rank ${description.name}";
@@ -478,18 +483,11 @@ class SpellBook {
 
 typedef PlanningFunction = List<Action> Function(Mob mob);
 
-PlanningFunction defaultPlanner = (Mob mob) {
-  List<Action> actions = [];
-  Mob target = mob.validateAttackTarget(mob.lastTarget);
-  if (target != null) actions.add(new AutoAttack(mob, target));
-  return actions;
-};
-
 class Mob {
-  MobDescription description;
-  MobType type;
+  final MobDescription description;
+  final MobType _type;
   Team team;
-  PlanningFunction planningFunction = defaultPlanner;
+  Planner planner;
 
   // FIXME: These could group into some sort of effects object.
   List<Item> items = <Item>[];
@@ -507,20 +505,20 @@ class Mob {
   DamageLog damageLog;
 
   MobState state; // Eventually for CC, etc.
-  Mob lastTarget; // Belong in some sort of planning system.
 
   bool _updatingBuffs = false;
   List<Buff> _buffsAddedWhileUpdating = <Buff>[];
   List<EffectsBase> _cachedEffects = <EffectsBase>[];
 
   // FIXME: Split this out into named constructors.
-  Mob(this.description, this.type) {
+  Mob(this.description, this._type) {
     ChampionEffectsConstructor effectsConstructor =
         championEffectsConstructors[id];
     if (effectsConstructor != null) championEffects = effectsConstructor(this);
     updateStats();
     if (championEffects != null) championEffects.onChampionCreate();
     revive();
+    planner = new Planner(this);
   }
 
   double get currentHp => alive ? max(0.0, stats.hp - hpLost) : 0.0;
@@ -532,10 +530,12 @@ class Mob {
   String get id => description.id;
   String get name => description.name;
 
-  bool get isChampion => type == MobType.champion;
-  bool get isMinion => type == MobType.minion;
-  bool get isMonster => type == MobType.monster;
-  bool get isStructure => type == MobType.structure;
+  bool get isChampion => _type == MobType.champion;
+  bool get isMinion => _type == MobType.minion;
+  bool get isMonster => _type == MobType.smallMonster || isLargeMonster;
+  bool get isLargeMonster =>
+      _type == MobType.largeMonster || _type == MobType.epicMonster;
+  bool get isStructure => _type == MobType.structure;
 
   int get level => _level;
   set level(int newLevel) {
@@ -639,10 +639,10 @@ class Mob {
     buffs.remove(buff);
   }
 
-  Mob validateAttackTarget(Mob target) {
-    if (state != MobState.ready) return null;
-    if (buffs.any((buff) => buff is AutoAttackCooldown)) return null;
-    return target;
+  bool canAutoAttack() {
+    if (state != MobState.ready) return false;
+    if (buffs.any((buff) => buff is AutoAttackCooldown)) return false;
+    return true;
   }
 
   List<EffectsBase> collectEffects() {
@@ -679,7 +679,7 @@ class Mob {
     if (!alive) return [];
     _tickBuffs(timeDelta);
     updateStats(); // Buffs can affect stats.
-    return planningFunction(this);
+    return planner.nextActions();
   }
 
   List<DamageDealtModifier> collectDamageDealtModifiers() {
@@ -953,6 +953,7 @@ class World {
     if (critProvider == null) critProvider = new RandomCrits();
   }
 
+  static bool get haveCurrentWorld => _current != null;
   static World get current {
     assert(_current != null, 'No current world use makeCurrentForScope');
     return _current;
@@ -972,14 +973,6 @@ class World {
     });
   }
 
-  static void clearDeadTargets(Iterable<Mob> mobs) {
-    mobs.forEach((Mob mob) {
-      if (mob.lastTarget == null) return;
-      if (mob.lastTarget.alive) return;
-      mob.lastTarget = null;
-    });
-  }
-
   Mob closestEnemyWithin(Mob reference, int range) =>
       enemiesWithin(reference, range).first;
 
@@ -996,19 +989,9 @@ class World {
     return allMobs.where((mob) => mob.isChampion && mob.team != reference.team);
   }
 
-  void updateTargets() {
-    // Unclear if clear should happen as a part of death or not?
-    clearDeadTargets(allMobs);
-    allMobs.forEach((mob) {
-      if (mob.lastTarget != null) return;
-      mob.lastTarget = closestEnemyWithin(mob, mob.stats.range);
-    });
-  }
-
   void tick() {
     const double timeDelta = 1 / TICKS_PER_SECOND;
     time += timeDelta;
-    updateTargets();
     List<Action> actions =
         allMobs.map((mob) => mob.tick(timeDelta)).reduce((all, actions) {
       all.addAll(actions);
