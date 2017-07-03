@@ -25,6 +25,7 @@ import 'volibear.dart';
 import 'warwick.dart';
 import 'xinzhao.dart';
 import 'zed.dart';
+import '../summoners.dart';
 
 typedef ChampionEffects ChampionEffectsConstructor(Mob champion);
 Map<String, ChampionEffectsConstructor> championEffectsConstructors = {
@@ -60,12 +61,13 @@ final Map<String, SpellEffectsConstructor> _spellEffectsConstructors = {
   'TryndamereQ': (Mob champ, int rank) => new TryndamereQ(champ, rank),
   'AmumuW': (Mob champ, int rank) => new AmumuW(champ, rank),
   'AmumuE': (Mob champ, int rank) => new AmumuE(champ, rank),
+  'Smite': (Mob champ, int _) => new Smite(champ),
 };
 
 SpellEffects constructEffectsForSpell(
     SpellDescription description, Mob champ, int rank) {
-  String id = description.champName + description.key.char;
-  SpellEffectsConstructor constructor = _spellEffectsConstructors[id];
+  SpellEffectsConstructor constructor =
+      _spellEffectsConstructors[description.id];
   if (constructor == null) return null;
   return constructor(champ, rank);
 }

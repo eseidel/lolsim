@@ -145,8 +145,7 @@ class AutoAttack extends Action {
     bool isCrit = world.critProvider(source);
     String attackString = isCrit ? 'CRITS' : 'attacks';
     String damageString = attackDamage.toStringAsFixed(1);
-    _log.fine(
-        "${world.logTime}: $source $attackString $target for $damageString damage");
+    World.combatLog("$source $attackString $target for $damageString damage");
     Hit hit = source.createHitForTarget(
       label: isCrit ? '$label Crit' : label,
       target: target,
@@ -438,14 +437,15 @@ class Spell {
   int get rank => _rank;
   int get range => description.rangeForRank(rank);
 
-  bool get isActiveToggle =>
-      (effects as SelfTargetedSpell)?.isActiveToggle ?? false;
-  bool get canBeCastOnSelf =>
-      (effects as SelfTargetedSpell)?.canBeCastOnSelf ?? false;
-  void castOnSelf() => (effects as SelfTargetedSpell).castOnSelf();
-
   @override
   String toString() => "Rank $_rank ${description.name}";
+}
+
+// FIXME: Unclear if the 'Spell' class is necessary
+// could it just be rolled into SpellEffects?
+class SummonerBook {
+  Spell d;
+  Spell f;
 }
 
 class SpellBook {
@@ -496,6 +496,7 @@ class Mob {
   RunePage _runePage;
   ChampionEffects championEffects;
   SpellBook spells;
+  SummonerBook summoners;
 
   Stats stats; // updated per-tick.
   int _level = 1;
@@ -838,13 +839,13 @@ class Mob {
   }
 
   double applyHit(Hit hit) {
-    _log.fine("$this hit by ${hit.summaryString}");
+    World.combatLog("$this hit by ${hit.summaryString}");
     if (hit.appliesSpellEffects) hit.source.applyOnSpellHitEffects(hit);
     // FIXME: Unclear if this onBeforeDamageRecieved is necessary (or correct).
     _cachedEffects.forEach((effect) => effect.onBeforeDamageRecieved(hit));
     double damage = computeDamageRecieved(hit);
     hpLost += damage;
-    _log.fine(
+    World.combatLog(
         "$this took ${damage.toStringAsFixed(1)} damage from ${hit.sourceString}, "
         "$hpStatusString remains");
     damageLog?.recordDamage(hit, damage);
@@ -872,7 +873,7 @@ class Mob {
     if (!alive) return;
     if (healing == 0.0) return;
     assert(healing > 0.0);
-    _log.fine(
+    World.combatLog(
         "$this healed ${healing.toStringAsFixed(1)} from $source $hpStatusString remains");
     damageLog?.recordHealing(source, healing);
     // FIXME: Missing healing modifiers.
@@ -883,7 +884,7 @@ class Mob {
     if (!alive) return;
     if (additionalMana == 0.0) return;
     assert(additionalMana > 0.0);
-    _log.fine(
+    World.combatLog(
         "$this recovered ${additionalMana.toStringAsFixed(1)} mana from $source $mpStatusString remains");
     mpSpent -= min(mpSpent, additionalMana);
   }
@@ -962,6 +963,20 @@ class World {
   List<Mob> get allMobs => []..addAll(reds)..addAll(blues);
 
   String get logTime => "${time.toStringAsFixed(2)}s";
+
+  static void log(String message) {
+    if (haveCurrentWorld)
+      _log.info('${_current.logTime}: $message');
+    else
+      _log.info(message);
+  }
+
+  static void combatLog(String message) {
+    if (haveCurrentWorld)
+      _log.fine('${_current.logTime}: $message');
+    else
+      _log.fine(message);
+  }
 
   void addMobs(Iterable<Mob> mobs) {
     mobs.forEach((Mob mob) {

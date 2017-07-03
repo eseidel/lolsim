@@ -6,6 +6,7 @@ import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/monsters.dart';
 import 'package:lol_duel/planning.dart';
 import 'package:lol_duel/role.dart';
+import 'package:lol_duel/summoners.dart';
 import 'package:lol_duel/utils/cli_table.dart';
 import 'package:lol_duel/utils/common_args.dart';
 
@@ -49,6 +50,8 @@ dynamic main(List<String> args) async {
     champ.planner = plannerFor(champ, Role.jungle);
     ChampionStats champStats = championGG.statsForChampionName(championName);
     RoleEntry jungleStats = champStats.entryForRole(Role.jungle);
+    champ.summoners = new SummonerBook();
+    champ.summoners.d = createSummoner(SummonerType.smite, champ);
     champ.masteryPage = masteriesFromHash(
         creator.dragon.masteries, jungleStats.mostCommonMasteriesHash);
     champ.runePage =
@@ -60,7 +63,7 @@ dynamic main(List<String> args) async {
   };
 
   // List<_Calculate> results = [
-  //   new _Calculate(createChamp, CampType.raptors, SpellKey.e)
+  //   new _Calculate(createChamp, CampType.blue, SpellKey.e)
   // ];
   List<_Calculate> results = [];
   List<SpellKey> spellKeys = [SpellKey.w, SpellKey.e];

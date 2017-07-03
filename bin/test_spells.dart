@@ -24,7 +24,7 @@ dynamic main(List<String> args) async {
   print("Mentions damage: ${mentionsDamage.length}"); // 471
 
   for (var spell in allSpells) {
-    print('${spell.champName} ${spell.name}');
+    print('${spell.id} ${spell.name}');
     if (spell.parseError != null) print('ERROR: ${spell.parseError}');
     String effectsString = spell.effectsSummaryForRank(1, joiner: '\n');
     if (effectsString.isNotEmpty) print(effectsString);

@@ -8,6 +8,7 @@ import 'package:lol_duel/planning.dart';
 import 'package:lol_duel/role.dart';
 import 'package:lol_duel/utils/cli_table.dart';
 import 'package:lol_duel/utils/common_args.dart';
+import 'package:lol_duel/summoners.dart';
 
 typedef CreateChamp = Mob Function(String champName);
 
@@ -37,6 +38,8 @@ class _Calculate {
     RoleEntry jungleStats = champStats.entryForRole(Role.jungle);
     if (jungleStats == null) return null;
 
+    champ.summoners = new SummonerBook();
+    champ.summoners.d = createSummoner(SummonerType.smite, champ);
     champ.masteryPage = masteriesFromHash(
         creator.dragon.masteries, jungleStats.mostCommonMasteriesHash);
     champ.runePage =

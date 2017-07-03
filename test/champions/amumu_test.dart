@@ -1,3 +1,4 @@
+import 'package:lol_duel/buffs.dart';
 import 'package:lol_duel/champions/amumu.dart';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
@@ -57,7 +58,7 @@ dynamic main() async {
       Mob mob = createTestMob(hp: 1000.0);
       World world = new World(blues: [amumu], reds: [mob]);
       world.makeCurrentForScope(() {
-        amumu.spells.e.castOnSelf();
+        (amumu.spells.e.effects as SelfTargetedSpell).castOnSelf();
       });
       expect(mob.hpLost, 75.0);
     });

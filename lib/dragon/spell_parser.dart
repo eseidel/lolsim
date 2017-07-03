@@ -133,15 +133,20 @@ class DamageEffect {
 }
 
 class SpellDescription {
-  final String champName;
   final String name;
+  final String id;
   final SpellKey key;
   final Map data;
   List<DamageEffect> damageEffects = [];
   String parseError;
 
-  SpellDescription.fromJson({this.champName, this.key, this.data})
-      : name = data['name'] {
+  SpellDescription.summonerSpell({this.name, this.data})
+      : id = name,
+        key = null;
+
+  SpellDescription.fromJson({String champName, this.key, this.data})
+      : name = data['name'],
+        id = champName + key.char {
     try {
       damageEffects = parseEffects(data).toList();
     } on ArgumentError catch (e) {

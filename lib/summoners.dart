@@ -2,15 +2,25 @@ import 'buffs.dart';
 import 'lolsim.dart';
 import 'effects.dart';
 import 'dart:math';
+import 'dragon/spell_parser.dart';
 
+// FIXME, this might be simpler as a recharge timer.
 class SmiteCharges extends PermanentBuff {
-  int charges = 0;
-  int maxCharges = 1;
-  double timeUntilNextCharge = 100.0; // First charge takes longer.
+  // FIXME: Technically should start at 0 with first charge at 100.0
+  // but we "spwan" monsters at 0.0 for now.
+  int charges = 1;
+  int maxCharges = 2;
+  double timeUntilNextCharge = 90.0;
   double timeBetweenCharges = 90.0;
 
   @override
   String get lastUpdate => VERSION_7_11_1;
+
+  void spendCharge() {
+    // If we were previously at max, restart the timer.
+    if (charges == maxCharges) timeUntilNextCharge = timeBetweenCharges;
+    charges -= 1;
+  }
 
   @override
   void tick(double timeDelta) {
@@ -23,7 +33,14 @@ class SmiteCharges extends PermanentBuff {
 }
 
 class Smite extends SingleTargetSpell {
-  Smite(Mob champ) : super(champ, 'Smite');
+  SmiteCharges chargesBuff;
+
+  Smite(Mob champ) : super(champ, 'Smite') {
+    chargesBuff = new SmiteCharges();
+    champ.addBuff(chargesBuff);
+  }
+
+  int get charges => chargesBuff.charges;
 
   @override
   String get lastUpdate => VERSION_7_11_1;
@@ -31,7 +48,7 @@ class Smite extends SingleTargetSpell {
   @override
   double get cooldownDuration => 15.0;
 
-  double damageForLevel(int level) {
+  static double damageForLevel(int level) {
     return [
       390,
       410,
@@ -55,23 +72,44 @@ class Smite extends SingleTargetSpell {
         .toDouble();
   }
 
+  static double healAmount(Mob champ) => 70 + 0.1 * champ.stats.hp;
+
   @override
   bool canBeCastOn(Mob target) {
     if (target.team == champ.team) return false;
     if (isOnCooldown) return false;
+    if (charges < 1) return false;
     return target.isLargeMonster && !target.isMinion;
   }
 
   @override
   bool castOn(Mob target) {
     if (!canBeCastOn(target)) return false;
+    chargesBuff.spendCharge();
     target.applyHit(champ.createHitForTarget(
       target: target,
       label: name,
       trueDamage: damageForLevel(champ.level),
       targeting: Targeting.singleTargetSpell, // Is this right?
     ));
-    if (target.isLargeMonster) champ.healFor(70 + 0.1 * champ.stats.hp, name);
+    if (target.isLargeMonster) champ.healFor(healAmount(champ), name);
     return true;
   }
+}
+
+enum SummonerType {
+  smite,
+}
+
+SpellDescription smiteDescription =
+    new SpellDescription.summonerSpell(name: 'Smite', data: {
+  'range': [500]
+});
+
+Spell createSummoner(SummonerType type, Mob champ) {
+  switch (type) {
+    case SummonerType.smite:
+      return new Spell(champ, smiteDescription)..addSkillPoint();
+  }
+  return null;
 }
