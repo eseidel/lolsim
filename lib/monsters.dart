@@ -1,8 +1,8 @@
-import 'dragon/dragon.dart';
-import 'lolsim.dart';
 import 'buffs.dart';
-import 'effects.dart';
+import 'dragon/dragon.dart';
 import 'dragon/stat_constants.dart';
+import 'effects.dart';
+import 'lolsim.dart';
 
 final Map<String, double> _sharedMonsterStats = {
   'attackspeedperlevel': 0.0,
@@ -12,45 +12,36 @@ final Map<String, double> _sharedMonsterStats = {
   'mpperlevel': 0.0,
   'mpregen': 0.0,
   'mpregenperlevel': 0.0,
+  'hpperlevel': 0.0, // FIXME: Wrong.
+  'armorperlevel': 0.0, // FIXME: Wrong.
+  'spellblockperlevel': 0.0, // FIXME: Wrong.
+  'attackdamageperlevel': 0.0, // FIXME: Wrong.
 };
 
 final MobDescription grompDescription = new MobDescription.fromJson({
   'name': 'Gromp',
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
-      // These are values at level 2:
-      'hp': 1800.0,
-      'hpperlevel': 0.0, // FIXME: Wrong.
       'armor': 0.0,
-      'armorperlevel': 0.0, // FIXME: Wrong.
-      'spellblock': -15.0,
-      'spellblockperlevel': 0.0, // FIXME: Wrong.
-      'movespeed': 330.0,
-      'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.638),
       'attackdamage': 70.0,
-      'attackdamageperlevel': 0.0, // FIXME: Wrong.
       'attackrange': 250.0,
+      'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.638),
+      'hp': 1800.0,
+      'movespeed': 330.0,
+      'spellblock': -15.0,
     }),
 });
 
-// Spawns at lvl 2, 4, 6
 final MobDescription blueSentinalDescription = new MobDescription.fromJson({
   'name': 'Blue Sentinal',
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
-      // These are values at lvl 2.
-      // Dying to blue doesn't seem to level it up.
-      // Spawn level seems related to levels in game?
       'hp': 2100.0,
-      'hpperlevel': 0.0, // FIXME: Wrong.
       'armor': 10.0,
-      'armorperlevel': 0.0, // FIXME: Wrong.
       'spellblock': -15.0,
-      'spellblockperlevel': 0.0, // FIXME: Wrong.
       'movespeed': 200.0, // 180 + 20?
       'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.493),
       'attackdamage': 82.0,
-      'attackdamageperlevel': 0.0, // FIXME: Wrong.
       'attackrange': 125.0, // FIXME: No clue if this is right.
     }),
 });
@@ -59,58 +50,40 @@ final MobDescription redBramblebackDescription = new MobDescription.fromJson({
   'name': 'Red Brambleback',
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
-      // These are values at level 2:
       'hp': 2100.0,
-      'hpperlevel': 0.0, // FIXME: Wrong.
       'armor': -15.0,
-      'armorperlevel': 0.0, // FIXME: Wrong.
       'spellblock': 10.0,
-      'spellblockperlevel': 0.0, // FIXME: Wrong.
       'movespeed': 275.0,
       'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.599),
       'attackdamage': 82.0,
-      'attackdamageperlevel': 0.0, // FIXME: Wrong.
       'attackrange': 125.0, // FIXME: No clue if this is right.
     }),
 });
-
-// Krugs -- 185 + 18
 
 final MobDescription greaterMurkWolfDescription = new MobDescription.fromJson({
   'name': 'Greater Murk Wolf',
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
-      // These are values at level 2:
       'hp': 1300.0,
-      'hpperlevel': 0.0, // FIXME: Wrong.
       'armor': 10.0,
-      'armorperlevel': 0.0, // FIXME: Wrong.
       'spellblock': 0.0,
-      'spellblockperlevel': 0.0, // FIXME: Wrong.
       'movespeed': 443.0,
       'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.625),
       'attackdamage': 42.0,
-      'attackdamageperlevel': 0.0, // FIXME: Wrong.
       'attackrange': 175.0,
     }),
 });
 
-// FIXME: Do the big vs. little wolves really have different values of MR/AR?
 final MobDescription murkWolfDescription = new MobDescription.fromJson({
   'name': 'Murk Wolf',
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
-      // These are values at level 2:
       'hp': 380.0,
-      'hpperlevel': 0.0, // FIXME: Wrong.
       'armor': 0.0,
-      'armorperlevel': 0.0, // FIXME: Wrong.
       'spellblock': 10.0,
-      'spellblockperlevel': 0.0, // FIXME: Wrong.
       'movespeed': 443.0,
       'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.625),
       'attackdamage': 16.0,
-      'attackdamageperlevel': 0.0, // FIXME: Wrong.
       'attackrange': 175.0,
     }),
 });
@@ -119,17 +92,12 @@ final MobDescription crimsonRaptorDescription = new MobDescription.fromJson({
   'name': 'Crimson Raptor',
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
-      // These are values at level 2:
       'hp': 700.0,
-      'hpperlevel': 0.0, // FIXME: Wrong.
       'armor': 30.0,
-      'armorperlevel': 0.0, // FIXME: Wrong.
       'spellblock': 30.0,
-      'spellblockperlevel': 0.0, // FIXME: Wrong.
       'movespeed': 350.0,
       'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.667),
       'attackdamage': 20.0,
-      'attackdamageperlevel': 0.0, // FIXME: Wrong.
       'attackrange': 300.0,
     }),
 });
@@ -138,18 +106,55 @@ final MobDescription raptorDescription = new MobDescription.fromJson({
   'name': 'Raptor',
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
-      // These are values at level 2:
-      'hp': 350.0,
-      'hpperlevel': 0.0, // FIXME: Wrong.
       'armor': 0.0,
-      'armorperlevel': 0.0, // FIXME: Wrong.
-      'spellblock': 0.0,
-      'spellblockperlevel': 0.0, // FIXME: Wrong.
-      'movespeed': 443.0,
-      'attackspeedoffset': attackDelayFromBaseAttackSpeed(1.0),
       'attackdamage': 16.0,
-      'attackdamageperlevel': 0.0, // FIXME: Wrong.
       'attackrange': 300.0,
+      'attackspeedoffset': attackDelayFromBaseAttackSpeed(1.0),
+      'hp': 350.0,
+      'movespeed': 443.0,
+      'spellblock': 0.0,
+    }),
+});
+
+final MobDescription ancientKrugsDescription = new MobDescription.fromJson({
+  'name': 'Ancient Krugs',
+  'stats': new Map.from(_sharedMonsterStats)
+    ..addAll(<String, double>{
+      'armor': 10.0,
+      'attackdamage': 80.0,
+      'attackrange': 150.0,
+      'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.613),
+      'hp': 1250.0,
+      'movespeed': 203.0, // 185 + 18?
+      'spellblock': -15.0,
+    }),
+});
+
+final MobDescription krugsDescription = new MobDescription.fromJson({
+  'name': 'Krugs',
+  'stats': new Map.from(_sharedMonsterStats)
+    ..addAll(<String, double>{
+      'armor': 0.0,
+      'attackdamage': 25.0,
+      'attackrange': 110.0,
+      'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.625),
+      'hp': 500.0,
+      'movespeed': 285.0,
+      'spellblock': 0.0,
+    }),
+});
+
+final MobDescription miniKrugsDescription = new MobDescription.fromJson({
+  'name': 'Mini Krugs',
+  'stats': new Map.from(_sharedMonsterStats)
+    ..addAll(<String, double>{
+      'armor': 0.0,
+      'attackdamage': 17.0,
+      'attackrange': 110.0,
+      'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.625),
+      'hp': 60.0,
+      'movespeed': 335.0,
+      'spellblock': 0.0,
     }),
 });
 
@@ -181,6 +186,34 @@ class GrompGetsTired extends PermanentBuff {
   // FIXME: Need to reset attackCount on out of combat.
 }
 
+class AncientKrugsDeath extends PermanentBuff {
+  @override
+  String get lastUpdate => VERSION_7_11_1;
+
+  @override
+  void onDeath(Mob mob) {
+    // FIXME: These should spawn after 1-2s.
+    World.current.addMobs([
+      createMonster(MonsterType.krugs)..team = mob.team,
+      createMonster(MonsterType.krugs)..team = mob.team,
+    ]);
+  }
+}
+
+class KrugsDeath extends PermanentBuff {
+  @override
+  String get lastUpdate => VERSION_7_11_1;
+
+  @override
+  void onDeath(Mob mob) {
+    // FIXME: These should spawn after 1-2s.
+    World.current.addMobs([
+      createMonster(MonsterType.miniKrugs)..team = mob.team,
+      createMonster(MonsterType.miniKrugs)..team = mob.team,
+    ]);
+  }
+}
+
 enum MonsterType {
   blueSentinal,
   redBrambleback,
@@ -189,6 +222,9 @@ enum MonsterType {
   crimsonRaptor,
   raptor,
   gromp,
+  ancientKrugs,
+  krugs,
+  miniKrugs,
 }
 
 Mob createMonster(MonsterType type) {
@@ -209,6 +245,16 @@ Mob createMonster(MonsterType type) {
       Mob gromp = new Mob(grompDescription, MobType.largeMonster);
       gromp.addBuff(new GrompGetsTired());
       return gromp;
+    case MonsterType.ancientKrugs:
+      Mob krugs = new Mob(ancientKrugsDescription, MobType.largeMonster);
+      krugs.addBuff(new AncientKrugsDeath());
+      return krugs;
+    case MonsterType.krugs:
+      Mob krugs = new Mob(krugsDescription, MobType.smallMonster);
+      krugs.addBuff(new KrugsDeath());
+      return krugs;
+    case MonsterType.miniKrugs:
+      return new Mob(miniKrugsDescription, MobType.smallMonster);
   }
   assert(false);
   return null;
@@ -220,7 +266,7 @@ enum CampType {
   wolves,
   raptors,
   red,
-  // krugs, // Missing spawning rules.
+  krugs,
   // scuttle, // Missing movement.
 }
 
@@ -251,6 +297,11 @@ List<Mob> createCamp(CampType type) {
       ];
     case CampType.red:
       return <Mob>[createMonster(MonsterType.redBrambleback)];
+    case CampType.krugs:
+      return <Mob>[
+        createMonster(MonsterType.ancientKrugs),
+        createMonster(MonsterType.krugs),
+      ];
   }
   assert(false);
   return null;

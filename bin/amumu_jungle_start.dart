@@ -18,6 +18,8 @@ class _Calculate {
   bool alive;
   double hp;
   double hpPercent;
+  double mana;
+  double manaPercent;
   double clearTime;
 
   _Calculate(CreateChamp createChamp, this.campType, this.startingSkill) {
@@ -35,6 +37,8 @@ class _Calculate {
     alive = champ.alive;
 
     clearTime = world.time;
+    mana = champ.currentMp;
+    manaPercent = champ.manaPercent;
   }
 }
 
@@ -80,20 +84,22 @@ dynamic main(List<String> args) async {
     return 0;
   });
 
-  TableLayout layout = new TableLayout([2, 8, 11, 6]);
-  layout.printRow(['', 'Camp', 'HP', 'Time']);
+  TableLayout layout = new TableLayout([2, 8, 11, 11, 6]);
+  layout.printRow(['', 'Camp', 'HP', 'MP', 'Time']);
   layout.printDivider();
 
-  String hpString(var r) {
-    if (!r.alive) return '-';
-    return "${r.hp.round()} (${(100 * r.hpPercent).toStringAsFixed(1)}%)";
+  String percentString(double value, double percent) {
+    return "${value.round()} (${(100 * percent).toStringAsFixed(1)}%)";
   }
+
+  String hpString(var r) => r.alive ? percentString(r.hp, r.hpPercent) : '-';
 
   for (var r in results) {
     layout.printRow([
       r.startingSkill.toString(),
       campTypeToString(r.campType),
       hpString(r),
+      percentString(r.mana, r.manaPercent),
       "${r.clearTime.round()}s",
     ]);
   }

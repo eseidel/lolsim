@@ -902,6 +902,7 @@ class Mob {
     _log.info("DEATH: $this");
     hpLost = stats.hp;
     if (damageLog != null) _log.info(damageLog.summaryString);
+    _cachedEffects.forEach((effect) => effect.onDeath(this));
     // FIXME: Death could be a buff if there are rez timers.
     alive = false;
   }
@@ -989,15 +990,16 @@ class World {
   }
 
   Mob closestEnemyWithin(Mob reference, int range) {
-    Iterable<Mob> enemies = enemiesWithin(reference, range);
+    List<Mob> enemies = enemiesWithin(reference, range);
     if (enemies.isEmpty) return null;
     return enemies.first;
   }
 
-  Iterable<Mob> enemiesWithin(Mob reference, int range) {
+  List<Mob> enemiesWithin(Mob reference, int range) {
     // FIXME: Respect range.
-    if (reference.team == Team.red) return livingBlues;
-    return livingReds;
+    if (reference.team == Team.red) return new List.from(livingBlues);
+    // Using a copy to allow callers to add while iterating.
+    return new List.from(livingReds);
   }
 
   Iterable<Mob> visibleNearbyEnemyChampions(Mob reference, {int range = 1000}) {
