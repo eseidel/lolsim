@@ -88,18 +88,17 @@ dynamic main(List<String> args) async {
   layout.printRow(['', 'Camp', 'HP', 'MP', 'Time']);
   layout.printDivider();
 
-  String percentString(double value, double percent) {
+  String percentString(bool alive, double value, double percent) {
+    if (!alive) return '-';
     return "${value.round()} (${(100 * percent).toStringAsFixed(1)}%)";
   }
-
-  String hpString(var r) => r.alive ? percentString(r.hp, r.hpPercent) : '-';
 
   for (var r in results) {
     layout.printRow([
       r.startingSkill.toString(),
       campTypeToString(r.campType),
-      hpString(r),
-      percentString(r.mana, r.manaPercent),
+      percentString(r.alive, r.hp, r.hpPercent),
+      percentString(r.alive, r.mana, r.manaPercent),
       "${r.clearTime.round()}s",
     ]);
   }
