@@ -2,6 +2,8 @@ import 'package:lol_duel/dragon/stats.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:test/test.dart';
 
+import 'utils.dart';
+
 dynamic main() async {
   test("statsForLevel curve", () {
     BaseStats base = new BaseStats(
@@ -43,8 +45,17 @@ dynamic main() async {
     expect(one.spellBlock, 100.0);
     expect(five.spellBlock, 115.45);
     expect(eighteen.spellBlock, 185.0);
-    expect(one.bonusAttackSpeed, 0.0);
-    expect(five.bonusAttackSpeed, closeTo(15.45, 0.001));
-    expect(eighteen.bonusAttackSpeed, 85.0);
+    expect(one.percentAttackSpeedMod, 0.0);
+    expect(five.percentAttackSpeedMod, closeTo(15.45, 0.001));
+    expect(eighteen.percentAttackSpeedMod, 85.0);
+  });
+  test('attack speed scaling', () {
+    // From http://leagueoflegends.wikia.com/wiki/Attack_speed#Example
+    Mob twistedFate =
+        createTestMob(attackDelay: -0.04, attackSpeedPerLevel: 3.22);
+    twistedFate.level = 18;
+    twistedFate.updateStats();
+    expect(twistedFate.stats.baseAttackSpeed, closeTo(0.651, 0.001));
+    expect(twistedFate.stats.percentAttackSpeedMod, closeTo(54.74, 0.01));
   });
 }

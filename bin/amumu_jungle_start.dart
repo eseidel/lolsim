@@ -80,7 +80,7 @@ dynamic main(List<String> args) async {
     return 0;
   });
 
-  TableLayout layout = new TableLayout([2, 13, 11, 6]);
+  TableLayout layout = new TableLayout([2, 8, 11, 6]);
   layout.printRow(['', 'Camp', 'HP', 'Time']);
   layout.printDivider();
 
@@ -92,7 +92,7 @@ dynamic main(List<String> args) async {
   for (var r in results) {
     layout.printRow([
       r.startingSkill.toString(),
-      r.campType.toString(),
+      campTypeToString(r.campType),
       hpString(r),
       "${r.clearTime.round()}s",
     ]);

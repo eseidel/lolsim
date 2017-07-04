@@ -26,7 +26,7 @@ final Map<String, StatApplier> appliers = {
   FlatSpellBlockMod: (stats, value) => stats.flatSpellBlockMod += value,
 
   FlatPhysicalDamageMod: (stats, value) => stats.bonusAttackDamage += value,
-  PercentAttackSpeedMod: (stats, value) => stats.bonusAttackSpeed += value,
+  PercentAttackSpeedMod: (stats, value) => stats.percentAttackSpeedMod += value,
   PercentLifeStealMod: (stats, value) => stats.lifesteal += value,
 
   FlatArmorMod: (stats, value) => stats.addBonusArmor(value.toDouble()),
@@ -91,7 +91,7 @@ class Stats {
 
   // Used to compute attack speed:
   double attackDelay;
-  double bonusAttackSpeed = 0.0;
+  double percentAttackSpeedMod = 0.0;
 
   // For testing:
   Stats({
@@ -124,7 +124,8 @@ class Stats {
   // http://leagueoflegends.wikia.com/wiki/Attack_delay
   double get baseAttackSpeed => 0.625 / (1.0 + attackDelay);
   // http://leagueoflegends.wikia.com/wiki/Attack_speed
-  double get attackSpeed => baseAttackSpeed * (1.0 + bonusAttackSpeed);
+  double get attackSpeed => baseAttackSpeed * (1.0 + percentAttackSpeedMod);
+  double get displayBonusAttackSpeed => baseAttackSpeed * percentAttackSpeedMod;
   double get attackDuration => 1.0 / attackSpeed;
 
   double get attackDamage => baseAttackDamage + bonusAttackDamage;
@@ -256,8 +257,12 @@ class BaseStats extends Stats {
     Stats stats = new Stats();
 
     // http://leagueoflegends.wikia.com/wiki/Champion_statistic#Growth_statistic_per_level
+    double _curveWithoutBase(double perLevel, int level) {
+      return perLevel * (level - 1) * (0.685 + 0.0175 * level);
+    }
+
     double _curve(double base, double perLevel, int level) {
-      return base + perLevel * (level - 1) * (0.685 + 0.0175 * level);
+      return base + _curveWithoutBase(perLevel, level);
     }
 
     // Every stat must be listed here or it will be its initial value.
@@ -270,8 +275,9 @@ class BaseStats extends Stats {
     stats._baseArmor = _curve(_baseArmor, armorPerLevel, level);
     stats._baseSpellBlock = _curve(_baseSpellBlock, spellBlockPerLevel, level);
     stats.attackDelay = attackDelay;
-    stats.bonusAttackSpeed =
-        attackSpeedPerLevel * (level - 1) * (0.685 + 0.0175 * level);
+    stats.percentAttackSpeedMod = _curveWithoutBase(attackSpeedPerLevel, level);
+    attackSpeedPerLevel * (level - 1) * (0.685 + 0.0175 * level);
+
     stats.range = range;
     return stats;
   }

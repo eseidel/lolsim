@@ -37,8 +37,8 @@ Many.  Including at least:
  - Very limited abilities support.
  - Limited support for Buffs.
  - No CC.
- - No AOE or support for location or proximity.
- - No monsters.
+ - Minmal AOE or support for location or proximity.
+ - Limited monsters.
 
 ## Questions to answer:
 - Jungle clear-time approximations.
@@ -53,6 +53,7 @@ Many.  Including at least:
 - Handle stat modifying buffs first, before other buffs.
 - Per-level runes.
 - monster leveling
+- Monsters are not neutral / incorrect AI.
 - Improved proximity (for masteries).
 - Coverage & coveralls.io
 - Split lolsim.dart into smaller files.
@@ -62,7 +63,10 @@ Many.  Including at least:
 - Use round_robin json to compare lists.
 - Auto-attack windup.
 - Missle system & proximity.
-- Neutral teams logic (do not attack until attacked).
+- Neutral teams logic (do not attack until attacked, and attack as a group).
+- Missing Gromp's attack speed buff (before I can write him)
+- Missing Krugs split timers.
+
 
 ## Passives missing affecting the lvl 1 round_robin sort.
 - Aatrox passive (complicated, likely requires bloodthirst to be useful)
@@ -93,7 +97,6 @@ Plan for stuns?
 - Stuns prevent new AA windups during duration.
 
 ## Abilities affecting round_robin / clear_times
-- Smite
 - Alistar Trample (needs stuns)
 - Ivern W brushmaker passive
 - Jinx Q passive

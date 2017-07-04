@@ -82,7 +82,22 @@ class AmumuPlanner extends Planner {
   }
 }
 
+class JunglePlaner extends Planner {
+  JunglePlaner(Mob self) : super(self);
+
+  @override
+  List<Action> nextActions() {
+    List<Action> actions = <Action>[];
+    // FIXME: Hack to not smite when it doesn't heal us.
+    // FIXME: This should lookup the summoner by name not position?
+    if (self.healthPercent < .7 &&
+        targetCastIfInRange(self.summoners.d, actions)) return actions;
+    return super.nextActions();
+  }
+}
+
 Planner plannerFor(Mob mob, Role role) {
   if (mob.name == 'Amumu') return new AmumuPlanner(mob);
+  if (role == Role.jungle) return new JunglePlaner(mob);
   return new Planner(mob);
 }
