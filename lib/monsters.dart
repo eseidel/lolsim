@@ -158,6 +158,62 @@ final MobDescription miniKrugsDescription = new MobDescription.fromJson({
     }),
 });
 
+final MobDescription cloudDrakeDescription = new MobDescription.fromJson({
+  'name': 'Cloud Drake',
+  'stats': new Map.from(_sharedMonsterStats)
+    ..addAll(<String, double>{
+      'armor': 21.0,
+      'attackdamage': 50.0,
+      'attackrange': 500.0,
+      'attackspeedoffset': attackDelayFromBaseAttackSpeed(1.0),
+      'hp': 3500.0,
+      'movespeed': 300.0,
+      'spellblock': 30.0,
+    }),
+});
+
+final MobDescription infernalDrakeDescription = new MobDescription.fromJson({
+  'name': 'Infernal Drake',
+  'stats': new Map.from(_sharedMonsterStats)
+    ..addAll(<String, double>{
+      'armor': 21.0,
+      'attackdamage': 100.0,
+      'attackrange': 500.0,
+      'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.5),
+      'hp': 3500.0,
+      'movespeed': 330.0,
+      'spellblock': 30.0,
+    }),
+});
+
+final MobDescription mountainDrakeDescription = new MobDescription.fromJson({
+  'name': 'Mountain Drake',
+  'stats': new Map.from(_sharedMonsterStats)
+    ..addAll(<String, double>{
+      'armor': 41.0,
+      'attackdamage': 150.0,
+      'attackrange': 500.0,
+      'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.250),
+      'hp': 3850.0,
+      'movespeed': 330.0,
+      'spellblock': 50.0,
+    }),
+});
+
+final MobDescription oceanDrakeDescription = new MobDescription.fromJson({
+  'name': 'Ocean Drake',
+  'stats': new Map.from(_sharedMonsterStats)
+    ..addAll(<String, double>{
+      'armor': 21.0,
+      'attackdamage': 100.0,
+      'attackrange': 500.0,
+      'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.500),
+      'hp': 3500.0,
+      'movespeed': 330.0,
+      'spellblock': 30.0,
+    }),
+});
+
 // Gromp in-combat per-hit stats reported in-client:
 // 1.004 (0.638 + 0.367) AS, 70 AD
 // 0.876 (0.638 + 0.236) AS, 66 AD
@@ -187,29 +243,33 @@ class GrompGetsTired extends PermanentBuff {
 }
 
 class AncientKrugsDeath extends PermanentBuff {
+  AncientKrugsDeath(Mob target) : super(target: target);
+
   @override
   String get lastUpdate => VERSION_7_11_1;
 
   @override
-  void onDeath(Mob mob) {
+  void onDeath(Mob killer) {
     // FIXME: These should spawn after 1-2s.
     World.current.addMobs([
-      createMonster(MonsterType.krugs)..team = mob.team,
-      createMonster(MonsterType.krugs)..team = mob.team,
+      createMonster(MonsterType.krugs)..team = target.team,
+      createMonster(MonsterType.krugs)..team = target.team,
     ]);
   }
 }
 
 class KrugsDeath extends PermanentBuff {
+  KrugsDeath(Mob target) : super(target: target);
+
   @override
   String get lastUpdate => VERSION_7_11_1;
 
   @override
-  void onDeath(Mob mob) {
+  void onDeath(Mob killer) {
     // FIXME: These should spawn after 1-2s.
     World.current.addMobs([
-      createMonster(MonsterType.miniKrugs)..team = mob.team,
-      createMonster(MonsterType.miniKrugs)..team = mob.team,
+      createMonster(MonsterType.miniKrugs)..team = target.team,
+      createMonster(MonsterType.miniKrugs)..team = target.team,
     ]);
   }
 }
@@ -225,12 +285,18 @@ enum MonsterType {
   ancientKrugs,
   krugs,
   miniKrugs,
+  cloudDrake,
+  infernalDrake,
+  mountainDrake,
+  oceanDrake,
 }
 
 Mob createMonster(MonsterType type) {
   switch (type) {
     case MonsterType.blueSentinal:
-      return new Mob(blueSentinalDescription, MobType.largeMonster);
+      Mob blue = new Mob(blueSentinalDescription, MobType.largeMonster);
+      blue.addBuff(new CrestOfInsight(blue));
+      return blue;
     case MonsterType.redBrambleback:
       return new Mob(redBramblebackDescription, MobType.largeMonster);
     case MonsterType.greaterMurkWolf:
@@ -247,14 +313,22 @@ Mob createMonster(MonsterType type) {
       return gromp;
     case MonsterType.ancientKrugs:
       Mob krugs = new Mob(ancientKrugsDescription, MobType.largeMonster);
-      krugs.addBuff(new AncientKrugsDeath());
+      krugs.addBuff(new AncientKrugsDeath(krugs));
       return krugs;
     case MonsterType.krugs:
       Mob krugs = new Mob(krugsDescription, MobType.smallMonster);
-      krugs.addBuff(new KrugsDeath());
+      krugs.addBuff(new KrugsDeath(krugs));
       return krugs;
     case MonsterType.miniKrugs:
       return new Mob(miniKrugsDescription, MobType.smallMonster);
+    case MonsterType.cloudDrake:
+      return new Mob(cloudDrakeDescription, MobType.epicMonster);
+    case MonsterType.mountainDrake:
+      return new Mob(mountainDrakeDescription, MobType.epicMonster);
+    case MonsterType.oceanDrake:
+      return new Mob(oceanDrakeDescription, MobType.epicMonster);
+    case MonsterType.infernalDrake:
+      return new Mob(infernalDrakeDescription, MobType.epicMonster);
   }
   assert(false);
   return null;
@@ -305,4 +379,29 @@ List<Mob> createCamp(CampType type) {
   }
   assert(false);
   return null;
+}
+
+class CrestOfInsight extends TimedBuff {
+  CrestOfInsight(Mob target)
+      : super(
+          target: target,
+          name: 'Crest of Insight',
+          duration: 120.0, // FIXME: Should respect Runic Affinity.
+        );
+
+  @override
+  String get lastUpdate => VERSION_7_11_1;
+
+  @override
+  void onDeath(Mob killer) {
+    // FIXME: This should be add or refresh.
+    if (killer.isChampion) killer.addBuff(new CrestOfInsight(killer));
+  }
+
+  @override
+  Map<String, num> get stats => {
+        FlatMPRegenMod: 5.0 + 0.01 * target.stats.mp,
+        // Or 0.5% of energy.
+        // 10% cooldown reduction
+      };
 }

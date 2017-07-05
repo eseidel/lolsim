@@ -21,7 +21,7 @@ abstract class EffectsBase {
   // Unclear the right name, called after dmg applied:
   void onDamageRecieved() {}
 
-  void onDeath(Mob mob) {}
+  void onDeath(Mob killer) {}
 
   Map<String, num> get stats => null;
 }
