@@ -3,6 +3,7 @@ import 'dragon/dragon.dart';
 import 'dragon/stat_constants.dart';
 import 'effects.dart';
 import 'lolsim.dart';
+import 'package:meta/meta.dart';
 
 final Map<String, double> _sharedMonsterStats = {
   'attackspeedperlevel': 0.0,
@@ -404,4 +405,73 @@ class CrestOfInsight extends TimedBuff {
         // Or 0.5% of energy.
         // 10% cooldown reduction
       };
+}
+
+class RedBurn extends SimpleDOT {
+  Mob source;
+
+  RedBurn({@required this.source, @required Mob target})
+      : super(
+          name: 'Cinder Burn',
+          target: target,
+          initialTicks: 2,
+          secondsBetweenTicks: 1.5,
+        );
+
+  @override
+  String get lastUpdate => VERSION_7_11_1;
+
+  double get damagePerTick => 2.0 + 2.0 * source.level;
+
+  @override
+  Hit createHitForTick() {
+    return source.createHitForTarget(
+      label: name,
+      trueDamage: damagePerTick,
+      target: target,
+      targeting: Targeting.dot,
+    );
+  }
+}
+
+class CrestOfCinders extends TimedBuff {
+  CrestOfCinders(Mob target)
+      : super(
+          target: target,
+          name: 'Crest of Cinders',
+          duration: 120.0,
+        );
+  @override
+  String get lastUpdate => VERSION_7_11_1;
+
+  @override
+  void onDeath(Mob killer) {
+    // FIXME: This should be add or refresh.
+    if (killer.isChampion) killer.addBuff(new CrestOfCinders(killer));
+  }
+
+  // FIXME: Needs in-combat to know when to heal.
+
+  static RedBurn applyToOrRefresh(
+      {@required Mob source, @required Mob target}) {
+    RedBurn debuff =
+        target.buffs.firstWhere((buff) => buff is RedBurn, orElse: () => null);
+    if (debuff == null) {
+      debuff = new RedBurn(target: target, source: source);
+      target.addBuff(debuff);
+    } else {
+      debuff.refresh();
+    }
+    return debuff;
+  }
+
+  @override
+  void onAutoAttackHit(Hit hit) {
+    RedBurn debuff = applyToOrRefresh(source: hit.source, target: hit.target);
+    // Also apply once on-hit.
+    hit.addOnHitDamage(new Damage(
+      label: name,
+      trueDamage: debuff.damagePerTick,
+    ));
+  }
 }

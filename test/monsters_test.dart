@@ -29,4 +29,22 @@ dynamic main() async {
       expect(gromp.stats.attackDamage, 50.0);
     });
   });
+  group('Buffs', () {
+    test('Crest of Cinders', () {
+      Mob attacker = createTestMob(ad: 10.0);
+      attacker.addBuff(new CrestOfCinders(attacker));
+      Mob mob = createTestMob();
+      World world = new World();
+      new AutoAttack(attacker, mob).apply(world);
+      expect(mob.hpLost, 14);
+      mob.tick(1.0);
+      expect(mob.hpLost, 14);
+      mob.tick(0.5);
+      expect(mob.hpLost, 18);
+      mob.tick(1.5);
+      expect(mob.hpLost, 22);
+      mob.tick(1.5);
+      expect(mob.hpLost, 22);
+    });
+  });
 }

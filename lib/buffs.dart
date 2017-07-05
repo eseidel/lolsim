@@ -146,6 +146,38 @@ abstract class DOT extends TickingBuff {
   }
 }
 
+abstract class SimpleDOT extends TickingBuff {
+  final int initialTicks;
+  int ticksLeft;
+
+  SimpleDOT({
+    @required Mob target,
+    @required this.initialTicks,
+    String name,
+    double secondsBetweenTicks: 0.5,
+  })
+      : super(
+          target: target,
+          name: name,
+          secondsBetweenTicks: secondsBetweenTicks,
+        ) {
+    refresh();
+  }
+
+  void refresh() {
+    ticksLeft = initialTicks;
+  }
+
+  Hit createHitForTick();
+
+  @override
+  void onTick() {
+    target.applyHit(createHitForTick());
+    ticksLeft -= 1;
+    if (ticksLeft <= 0) expire();
+  }
+}
+
 // FIXME: This could share code with DOT.
 abstract class StackedBuff extends Buff {
   final int maxStacks;

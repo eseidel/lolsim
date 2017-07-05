@@ -50,7 +50,7 @@ dynamic main(List<String> args) async {
   Creator creator = await Creator.loadLatest();
   ChampionGG championGG = await ChampionGG.loadExampleData(creator.dragon);
   String championName = 'Amumu';
-  int level = 5;
+  int level = 4;
 
   CreateChamp createChamp = () {
     Mob champ = creator.champs.championByName(championName);
@@ -76,6 +76,7 @@ dynamic main(List<String> args) async {
     champ.addItem(creator.items.itemByName("Hunter's Machete"));
 
     champ.addBuff(new CrestOfInsight(champ));
+    // champ.addBuff(new CrestOfCinders(champ));
 
     jungleStats.mostCommonSkillOrder.sublist(0, level).forEach((skillChar) {
       champ.addSkillPointTo(new SpellKey.fromChar(skillChar));
@@ -87,9 +88,9 @@ dynamic main(List<String> args) async {
 
   List<MonsterType> dragons = [
     MonsterType.cloudDrake,
-    MonsterType.infernalDrake,
-    MonsterType.mountainDrake,
-    MonsterType.oceanDrake,
+    // MonsterType.infernalDrake,
+    // MonsterType.mountainDrake,
+    // MonsterType.oceanDrake,
   ];
 
   List<_Calculate> results = [];
