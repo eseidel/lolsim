@@ -1,19 +1,6 @@
 import 'lolsim.dart';
 import 'creator.dart';
 
-// typedef double _Combiner(double a, double b);
-// double _Add(double a, double b) => a + b;
-// double _Multiply(double a, double b) => a * b;
-
-// final Map<String, _Combiner> _combiners = {
-//   FlatArmorMod: _Add,
-//   PercentSpellVampMod: _Multiply,
-//   FlatPhysicalDamageMod: _Add,
-//   FlatArmorModPerLevel: _Add,
-//   FlatSpellBlockModPerLevel: _Add,
-//   PercentCooldownMod: _Add,
-// };
-
 class RunePage {
   String name;
   List<Rune> runes;

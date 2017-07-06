@@ -55,6 +55,10 @@ final MobDescription siegeMinionDescription = new MobDescription.fromJson({
     }),
 });
 
+// lvl, hp, ar, MR
+// 4, 1800, 100, -39  (~5mins)
+// 5, 1800 (~7 mins)
+// Buffs: Turret Sheild and Minion Commander.
 final MobDescription superMinionDescription = new MobDescription.fromJson({
   'name': 'Siege Minion',
   'stats': new Map.from(_sharedMinionStats)

@@ -51,8 +51,11 @@ dynamic main() async {
   });
   test('attack speed scaling', () {
     // From http://leagueoflegends.wikia.com/wiki/Attack_speed#Example
-    Mob twistedFate =
-        createTestMob(attackDelay: -0.04, attackSpeedPerLevel: 3.22);
+    Mob twistedFate = createTestMob(
+      attackDelay: -0.04,
+      attackSpeedPerLevel: 3.22,
+      type: MobType.champion,
+    );
     twistedFate.level = 18;
     twistedFate.updateStats();
     expect(twistedFate.stats.baseAttackSpeed, closeTo(0.651, 0.001));

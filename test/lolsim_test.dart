@@ -18,14 +18,14 @@ dynamic main() async {
       expect(mob.stats.armor, 30.0);
       expect(mob.stats.spellBlock, -30.0);
 
-      expect(mob.currentHp, 1500.0);
+      expect(mob.currentHp, 1700.0);
       applyHit(source: attacker, target: mob, physicalDamage: 100.0);
-      expect(mob.currentHp, 1423.076923076923);
+      expect(mob.currentHp, 1623.076923076923);
 
       mob.revive();
-      expect(mob.currentHp, 1500.0);
+      expect(mob.currentHp, 1700.0);
       applyHit(source: attacker, target: mob, magicDamage: 100.0);
-      expect(mob.currentHp, 1376.923076923077);
+      expect(mob.currentHp, 1576.923076923077);
     });
   });
   group("Mob", () {

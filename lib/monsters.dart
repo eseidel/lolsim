@@ -453,8 +453,8 @@ class CrestOfInsight extends TimedBuff {
   @override
   Map<String, num> get stats => {
         FlatMPRegenMod: 5.0 + 0.01 * target.stats.mp,
+        PercentCooldownMod: -0.10,
         // Or 0.5% of energy.
-        // 10% cooldown reduction
       };
 }
 

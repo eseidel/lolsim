@@ -30,6 +30,7 @@ final Map<String, StatApplier> appliers = {
   PercentLifeStealMod: (stats, value) => stats.lifesteal += value,
 
   FlatArmorMod: (stats, value) => stats.addBonusArmor(value.toDouble()),
+  // FIXME: PercentArmorMod is wrong!  It should not be =, but rather *=?
   PercentArmorMod: (stats, value) =>
       stats.percentArmorMod = (100.0 + value) / 100,
   FlatArmorReduction: (stats, value) => stats.flatArmorReduction += value,
@@ -49,6 +50,8 @@ final Map<String, StatApplier> appliers = {
   FlatMPRegenMod: (stats, value) => stats.flatMpRegenMod += value,
   PercentBaseHPRegenMod: (stats, value) => stats.percentBaseHpRegenMod += value,
   PercentBaseMPRegenMod: (stats, value) => stats.percentBaseMpRegenMod += value,
+
+  PercentCooldownMod: (stats, value) => stats.percentCooldownMod += value,
 
   // 'FlatMovementSpeedMod': (stats, value) => stats.movespeed += value,
   // 'PercentMovementSpeedMod': (stats, value) => stats.movespeed *= value,
@@ -84,7 +87,9 @@ class Stats {
   double flatMagicPenetration = 0.0; // outgoing mr changes.
   double percentMagicPenetration = 1.0; // outgoing mr changes.
 
-  double lifesteal = 0.0;
+  double lifesteal = 0.0; // 0-100
+  // FIXME: Implement 40% cooldown cap!
+  double percentCooldownMod = 0.0;
   double critChance = 0.0;
   double critDamageMultiplier = 2.0;
   int range;

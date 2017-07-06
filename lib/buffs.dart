@@ -279,7 +279,9 @@ abstract class SpellWithCooldown extends SpellEffects {
   bool get isOnCooldown => cooldown != null;
   void startCooldown() {
     assert(!isOnCooldown);
-    cooldown = new SpellCooldown(this, champ, cooldownDuration, name);
+    // FIXME: Need support for static cooldowns which ignore reduction.
+    double duration = cooldownDuration * (1.0 + champ.stats.percentCooldownMod);
+    cooldown = new SpellCooldown(this, champ, duration, name);
     champ.addBuff(cooldown);
   }
 
