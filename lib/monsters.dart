@@ -159,6 +159,9 @@ final MobDescription miniKrugsDescription = new MobDescription.fromJson({
     }),
 });
 
+// lvl, HP:
+// 6, 4940
+// 7, 5180
 final MobDescription cloudDrakeDescription = new MobDescription.fromJson({
   'name': 'Cloud Drake',
   'stats': new Map.from(_sharedMonsterStats)
@@ -168,11 +171,13 @@ final MobDescription cloudDrakeDescription = new MobDescription.fromJson({
       'attackrange': 500.0,
       'attackspeedoffset': attackDelayFromBaseAttackSpeed(1.0),
       'hp': 3500.0,
+      'hpperlevel': 240.0,
       'movespeed': 300.0,
       'spellblock': 30.0,
     }),
 });
 
+// lvl 6, 4940hp
 final MobDescription infernalDrakeDescription = new MobDescription.fromJson({
   'name': 'Infernal Drake',
   'stats': new Map.from(_sharedMonsterStats)
@@ -182,11 +187,13 @@ final MobDescription infernalDrakeDescription = new MobDescription.fromJson({
       'attackrange': 500.0,
       'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.5),
       'hp': 3500.0,
+      'hpperlevel': 240.0,
       'movespeed': 330.0,
       'spellblock': 30.0,
     }),
 });
 
+// lvl 6, 5434 hp
 final MobDescription mountainDrakeDescription = new MobDescription.fromJson({
   'name': 'Mountain Drake',
   'stats': new Map.from(_sharedMonsterStats)
@@ -196,11 +203,26 @@ final MobDescription mountainDrakeDescription = new MobDescription.fromJson({
       'attackrange': 500.0,
       'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.250),
       'hp': 3850.0,
+      'hpperlevel': 264.0,
       'movespeed': 330.0,
       'spellblock': 50.0,
     }),
 });
 
+// lvl, hp, ar, mr:
+//  6, 4940
+//  7, 5180
+//  8, 5420, 21, 30
+//  9, 5660, 21, 30
+// 10, 5900, 21, 30
+// 11, 6140, 26, 33 (marked as yellow, but no +?)
+// 12, 6380, 33, 37
+// 13, 6620, 40, 42
+// 14, 6860, 48, 47
+// 15, 7100, 57, 53
+// 16, 7340, 67, 59
+// 17, 7580, 78, 66
+// 18, 7820, 90, 73
 final MobDescription oceanDrakeDescription = new MobDescription.fromJson({
   'name': 'Ocean Drake',
   'stats': new Map.from(_sharedMonsterStats)
@@ -210,6 +232,7 @@ final MobDescription oceanDrakeDescription = new MobDescription.fromJson({
       'attackrange': 500.0,
       'attackspeedoffset': attackDelayFromBaseAttackSpeed(0.500),
       'hp': 3500.0,
+      'hpperlevel': 240.0,
       'movespeed': 330.0,
       'spellblock': 30.0,
     }),
@@ -275,6 +298,26 @@ class KrugsDeath extends PermanentBuff {
   }
 }
 
+class DragonsHitHard extends PermanentBuff {
+  DragonsHitHard(Mob dragon) : super(target: dragon, name: 'Dragons hit hard');
+
+  @override
+  String get lastUpdate => VERSION_7_11_1;
+
+  @override
+  Map<String, num> get stats => {
+        PercentArmorPenetrationMod: 30.0,
+      };
+
+  @override
+  void onAutoAttackHit(Hit hit) {
+    hit.addOnHitDamage(new Damage(
+      label: name,
+      physicalDamage: hit.target.currentHp * 0.07,
+    ));
+  }
+}
+
 enum MonsterType {
   blueSentinal,
   redBrambleback,
@@ -290,6 +333,14 @@ enum MonsterType {
   infernalDrake,
   mountainDrake,
   oceanDrake,
+}
+
+Mob _createDragon(MobDescription description) {
+  Mob dragon = new Mob(description, MobType.epicMonster);
+  // FIXME: Level should be set from average level of champions with a floor of lvl 6.
+  dragon.level = 6;
+  dragon.addBuff(new DragonsHitHard(dragon));
+  return dragon;
 }
 
 Mob createMonster(MonsterType type) {
@@ -323,13 +374,13 @@ Mob createMonster(MonsterType type) {
     case MonsterType.miniKrugs:
       return new Mob(miniKrugsDescription, MobType.smallMonster);
     case MonsterType.cloudDrake:
-      return new Mob(cloudDrakeDescription, MobType.epicMonster);
+      return _createDragon(cloudDrakeDescription);
     case MonsterType.mountainDrake:
-      return new Mob(mountainDrakeDescription, MobType.epicMonster);
+      return _createDragon(mountainDrakeDescription);
     case MonsterType.oceanDrake:
-      return new Mob(oceanDrakeDescription, MobType.epicMonster);
+      return _createDragon(oceanDrakeDescription);
     case MonsterType.infernalDrake:
-      return new Mob(infernalDrakeDescription, MobType.epicMonster);
+      return _createDragon(cloudDrakeDescription);
   }
   assert(false);
   return null;

@@ -109,8 +109,15 @@ class HuntersTalisman extends ItemEffects {
   }
 }
 
+class ItemNames {
+  static final String DoransShield = 'Doran\'s Shield';
+  static final String DoransBlade = 'Doran\'s Blade';
+  static final String HuntersMachete = 'Hunter\'s Machete';
+  static final String HuntersTalisman = 'Hunter\'s Talisman';
+}
+
 Map<String, ItemEffects> itemEffects = {
-  'Doran\'s Shield': new DoransShield(),
-  'Hunter\'s Machete': new HuntersMachete(),
-  'Hunter\'s Talisman': new HuntersTalisman(),
+  ItemNames.DoransShield: new DoransShield(),
+  ItemNames.HuntersMachete: new HuntersMachete(),
+  ItemNames.HuntersTalisman: new HuntersTalisman(),
 };

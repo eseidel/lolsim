@@ -253,13 +253,9 @@ class BaseStats extends Stats {
   final double hpRegenPerLevel;
   final double mpRegenPerLevel;
 
-  Stats statsForLevel(int level) {
+  Stats _statsForLevel(
+      int level, double _curveWithoutBase(double perLevel, int level)) {
     Stats stats = new Stats();
-
-    // http://leagueoflegends.wikia.com/wiki/Champion_statistic#Growth_statistic_per_level
-    double _curveWithoutBase(double perLevel, int level) {
-      return perLevel * (level - 1) * (0.685 + 0.0175 * level);
-    }
 
     double _curve(double base, double perLevel, int level) {
       return base + _curveWithoutBase(perLevel, level);
@@ -276,9 +272,23 @@ class BaseStats extends Stats {
     stats._baseSpellBlock = _curve(_baseSpellBlock, spellBlockPerLevel, level);
     stats.attackDelay = attackDelay;
     stats.percentAttackSpeedMod = _curveWithoutBase(attackSpeedPerLevel, level);
-    attackSpeedPerLevel * (level - 1) * (0.685 + 0.0175 * level);
 
     stats.range = range;
     return stats;
+  }
+
+  Stats championCurvedStatsForLevel(int level) {
+    // http://leagueoflegends.wikia.com/wiki/Champion_statistic#Growth_statistic_per_level
+    return _statsForLevel(level, (double perLevel, int level) {
+      // perLevel is applied at level-1 to match dragon data values.
+      return perLevel * (level - 1) * (0.685 + 0.0175 * level);
+    });
+  }
+
+  Stats linearStatsForLevel(int level) {
+    return _statsForLevel(level, (double perLevel, int level) {
+      // Unlike champion curves perLevel is added in level 1.
+      return perLevel * level;
+    });
   }
 }

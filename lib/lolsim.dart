@@ -587,7 +587,10 @@ class Mob {
   }
 
   Stats updateStats() {
-    stats = description.baseStats.statsForLevel(level);
+    if (isChampion)
+      stats = description.baseStats.championCurvedStatsForLevel(level);
+    else
+      stats = description.baseStats.linearStatsForLevel(level);
     if (runePage != null) stats.applyStatMap(runePage.collectStats());
     if (masteryPage != null) {
       for (Mastery mastery in masteryPage.masteries) {

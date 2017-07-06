@@ -1,7 +1,8 @@
 import 'package:lol_duel/creator.dart';
+import 'package:lol_duel/dragon/dragon.dart';
+import 'package:lol_duel/items.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:test/test.dart';
-import 'package:lol_duel/dragon/dragon.dart';
 
 import 'utils.dart';
 
@@ -43,7 +44,7 @@ dynamic main() async {
       expect(mob.currentHp, 80.0);
       mob.revive();
 
-      Item doransShield = itemNamed("Doran's Shield");
+      Item doransShield = itemNamed(ItemNames.DoransShield);
       expect(doransShield.effects, isNotNull);
       mob.addItem(doransShield);
       expect(mob.currentHp, 180.0);
@@ -61,7 +62,7 @@ dynamic main() async {
       expect(mob.currentHp, 124.0);
     });
     test("passive only applies to champion sources", () {
-      Item doransShield = itemNamed("Doran's Shield");
+      Item doransShield = itemNamed(ItemNames.DoransShield);
       Mob champ = createTestMob(hp: 100.0, type: MobType.champion);
       champ.addItem(doransShield);
       Mob minion = createTestMob(hp: 100.0);
@@ -72,7 +73,7 @@ dynamic main() async {
           2.0, applyHit(source: champ, target: minion, physicalDamage: 10.0));
     });
     test("reduction cannot go negative", () {
-      Item doransShield = itemNamed("Doran's Shield");
+      Item doransShield = itemNamed(ItemNames.DoransShield);
       Mob attacker = createTestMob(hp: 100.0, type: MobType.champion);
       Mob defender = createTestMob(hp: 100.0);
       defender.addItem(doransShield);
@@ -92,7 +93,7 @@ dynamic main() async {
       Mob noArmor = createTestMob(hp: 1000.0, baseArmor: 0.0);
       Mob withArmor = createTestMob(hp: 1000.0, baseArmor: 100.0);
 
-      attacker.addItem(itemNamed("Doran's Blade"));
+      attacker.addItem(itemNamed(ItemNames.DoransBlade));
 
       // Get attacker below full health so it can heal:
       expect(attacker.currentHp, 180.0);

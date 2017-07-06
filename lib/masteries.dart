@@ -139,7 +139,7 @@ class BatteringBlows extends MasteryEffects {
   // 1.4 * R percent Armor Penetration
   @override
   Map<String, num> get stats => {
-        PercentArmorPenetrationMod: .014 * rank,
+        PercentArmorPenetrationMod: 1.4 * rank,
       };
 }
 
@@ -152,7 +152,7 @@ class PiercingThoughts extends MasteryEffects {
   // +1.4 * R percent Magic Penetration
   @override
   Map<String, num> get stats => {
-        PercentMagicPenetrationMod: .014 * rank,
+        PercentMagicPenetrationMod: 1.4 * rank,
       };
 }
 

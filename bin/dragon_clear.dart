@@ -2,6 +2,7 @@
 import 'package:lol_duel/championgg.dart';
 import 'package:lol_duel/championgg_utils.dart';
 import 'package:lol_duel/creator.dart';
+import 'package:lol_duel/items.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/monsters.dart';
 import 'package:lol_duel/planning.dart';
@@ -22,14 +23,24 @@ class _Calculate {
   double manaPercent;
   double clearTime;
 
-  _Calculate(CreateChamp createChamp, this.monsterType) {
+  _Calculate(
+      CreateChamp createChamp, this.monsterType, bool showDamageSummaries) {
     Mob champ = createChamp();
+    Mob dragon = createMonster(monsterType);
+    if (showDamageSummaries) {
+      champ.shouldRecordDamage = true;
+      dragon.shouldRecordDamage = true;
+    }
     World world = new World(
       blues: [champ],
-      reds: [createMonster(monsterType)],
+      reds: [dragon],
       critProvider: new PredictableCrits(),
     );
     world.tickUntil(World.oneSideDies);
+    if (showDamageSummaries) {
+      print(champ.damageLog.summaryString);
+      print(dragon.damageLog.summaryString);
+    }
 
     hp = champ.currentHp;
     hpPercent = champ.healthPercent;
@@ -51,6 +62,8 @@ dynamic main(List<String> args) async {
   ChampionGG championGG = await ChampionGG.loadExampleData(creator.dragon);
   String championName = 'Amumu';
   int level = 4;
+  bool showDamageSummaries = true;
+  Item itemNamed(String name) => creator.items.itemByName(name);
 
   CreateChamp createChamp = () {
     Mob champ = creator.champs.championByName(championName);
@@ -72,8 +85,8 @@ dynamic main(List<String> args) async {
         runesFromHash(creator.dragon.runes, jungleStats.mostCommonRunesHash);
     champ.runePage.name = 'Champion.gg most common';
 
-    champ.addItem(creator.items.itemByName("Hunter's Talisman"));
-    champ.addItem(creator.items.itemByName("Hunter's Machete"));
+    champ.addItem(itemNamed(ItemNames.HuntersMachete));
+    champ.addItem(itemNamed(ItemNames.HuntersTalisman));
 
     champ.addBuff(new CrestOfInsight(champ));
     // champ.addBuff(new CrestOfCinders(champ));
@@ -87,15 +100,15 @@ dynamic main(List<String> args) async {
   print(createChamp().statsSummary());
 
   List<MonsterType> dragons = [
-    MonsterType.cloudDrake,
+    // MonsterType.cloudDrake,
     // MonsterType.infernalDrake,
     // MonsterType.mountainDrake,
-    // MonsterType.oceanDrake,
+    MonsterType.oceanDrake,
   ];
 
   List<_Calculate> results = [];
   dragons.forEach((MonsterType dragon) {
-    results.add(new _Calculate(createChamp, dragon));
+    results.add(new _Calculate(createChamp, dragon, showDamageSummaries));
   });
 
   results.sort((a, b) {

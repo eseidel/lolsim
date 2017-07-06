@@ -47,4 +47,26 @@ dynamic main() async {
       expect(mob.hpLost, 22);
     });
   });
+  group('Dragons', () {
+    test('Level 18 hp', () {
+      Mob ocean = createMonster(MonsterType.oceanDrake);
+      ocean.level = 18;
+      ocean.updateStats();
+      // stat curving is currently always applied, but at least 18 should be right.
+      expect(ocean.stats.hp, 7820.0);
+    });
+    test('Levels', () {
+      // FIXME: Determined by average level of champions with a floor of lvl 6.
+      void _verify(MonsterType type, int expectedLevel, double expectedHp) {
+        Mob dragon = createMonster(type);
+        expect(dragon.level, expectedLevel, reason: '$type level');
+        expect(dragon.stats.hp, expectedHp, reason: '$type hp');
+      }
+
+      _verify(MonsterType.oceanDrake, 6, 4940.0);
+      _verify(MonsterType.mountainDrake, 6, 5434.0);
+      _verify(MonsterType.infernalDrake, 6, 4940.0);
+      _verify(MonsterType.cloudDrake, 6, 4940.0);
+    });
+  });
 }

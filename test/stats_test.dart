@@ -24,9 +24,9 @@ dynamic main() async {
       baseSpellBlock: 100.0,
       spellBlockPerLevel: 5.0,
     );
-    Stats one = base.statsForLevel(1);
-    Stats five = base.statsForLevel(5);
-    Stats eighteen = base.statsForLevel(18);
+    Stats one = base.championCurvedStatsForLevel(1);
+    Stats five = base.championCurvedStatsForLevel(5);
+    Stats eighteen = base.championCurvedStatsForLevel(18);
     expect(one.armor, 100.0);
     expect(five.armor, 115.45);
     expect(eighteen.armor, 185.0);
