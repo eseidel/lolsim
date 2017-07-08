@@ -58,7 +58,7 @@ class Item {
   BuffEffects effects;
 
   Item(this.owner, this.description) {
-    effects = constructEffectsForItem(name);
+    effects = constructEffectsForItem(name, owner);
     if (effects == null && description.hasEffects) logMissingEffects();
   }
 
@@ -514,11 +514,8 @@ class Mob {
 
   // FIXME: Split this out into named constructors.
   Mob(this.description, this._type) {
-    ChampionEffectsConstructor effectsConstructor =
-        championEffectsConstructors[id];
-    if (effectsConstructor != null) championEffects = effectsConstructor(this);
+    championEffects = constructEffectsForChampion(this);
     updateStats();
-    if (championEffects != null) championEffects.onChampionCreate();
     revive();
     planner = new Planner(this);
   }

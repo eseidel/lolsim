@@ -28,7 +28,7 @@ import 'zed.dart';
 import '../summoners.dart';
 
 typedef ChampionEffects ChampionEffectsConstructor(Mob champion);
-Map<String, ChampionEffectsConstructor> championEffectsConstructors = {
+Map<String, ChampionEffectsConstructor> _championEffectsConstructors = {
   'Amumu': (Mob champ) => new Amumu(champ),
   'Darius': (Mob champ) => new Darius(champ),
   'Diana': (Mob champ) => new Diana(champ),
@@ -55,6 +55,19 @@ Map<String, ChampionEffectsConstructor> championEffectsConstructors = {
   'Zed': (Mob champ) => new Zed(champ),
 };
 
+bool haveImplementedChampionPassive(String id) {
+  return _championEffectsConstructors[id] != null;
+}
+
+ChampionEffects constructEffectsForChampion(Mob champ) {
+  ChampionEffectsConstructor constructor =
+      _championEffectsConstructors[champ.id];
+  if (constructor == null) return null;
+  ChampionEffects effects = constructor(champ);
+  if (effects != null) effects.onCreate();
+  return effects;
+}
+
 typedef BuffEffects SpellEffectsConstructor(Mob champ, int rank);
 final Map<String, SpellEffectsConstructor> _spellEffectsConstructors = {
   'VolibearW': (Mob champ, int rank) => new VolibearW(champ, rank),
@@ -69,5 +82,7 @@ BuffEffects constructEffectsForSpell(
   SpellEffectsConstructor constructor =
       _spellEffectsConstructors[description.id];
   if (constructor == null) return null;
-  return constructor(champ, rank);
+  BuffEffects effects = constructor(champ, rank);
+  if (effects != null) effects.onCreate();
+  return effects;
 }

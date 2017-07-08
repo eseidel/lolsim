@@ -27,7 +27,7 @@ class ChampResults implements Comparable<ChampResults> {
   List<String> defeatedChamps = [];
 
   ChampResults(this.champId)
-      : hasEffects = championEffectsConstructors[champId] != null;
+      : hasEffects = haveImplementedChampionPassive(champId);
 
   ChampResults.fromJson(Map<String, dynamic> json)
       : champId = json['champId'],

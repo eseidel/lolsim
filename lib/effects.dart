@@ -10,6 +10,8 @@ const String VERSION_7_11_1 = '7.11.1';
 abstract class EffectsBase {
   String get lastUpdate;
 
+  void onCreate() {}
+
   // FIXME: Most of these should move onto BuffEffects.
   void onSpellHit(Hit hit) {}
   void onAutoAttackHit(Hit hit) {}
@@ -35,9 +37,7 @@ abstract class MasteryEffects extends ChampionEffects {
   void damageDealtModifier(Hit hit, DamageDealtDelta delta) {}
 }
 
-abstract class ChampionEffects extends EffectsBase {
-  void onChampionCreate() {}
-}
+abstract class ChampionEffects extends EffectsBase {}
 
 abstract class BuffEffects extends EffectsBase {
   // Many of EffectsBase should move here.

@@ -176,25 +176,68 @@ class RefillablePotion extends EffectWithCooldown {
   }
 }
 
+class Immolate extends TickingBuff {
+  Immolate(Mob target)
+      : super(target: target, name: 'Immolate', secondsBetweenTicks: 1.0);
+
+  @override
+  bool get retainedAfterDeath => true;
+
+  @override
+  String get lastUpdate => VERSION_7_11_1;
+
+  @override
+  void onTick() {
+    World.current.enemiesWithin(target, 325).forEach((Mob enemy) {
+      double damagePerSecond = 5.0 + target.level;
+      if (enemy.isMonster) damagePerSecond *= 2.0;
+      enemy.applyHit(target.createHitForTarget(
+        label: name,
+        magicDamage: damagePerSecond,
+        target: enemy,
+        targeting: Targeting.aoe,
+      ));
+    });
+  }
+}
+
+class BamisCinder extends BuffEffects {
+  final Mob owner;
+  BamisCinder(this.owner);
+
+  @override
+  String get lastUpdate => VERSION_7_11_1;
+
+  @override
+  void onCreate() {
+    owner.addBuff(new Immolate(owner));
+  }
+  // Stats are given by ItemDescription I believe?
+}
+
 class ItemNames {
   static final String DoransShield = 'Doran\'s Shield';
   static final String DoransBlade = 'Doran\'s Blade';
   static final String HuntersMachete = 'Hunter\'s Machete';
   static final String HuntersTalisman = 'Hunter\'s Talisman';
   static final String RefillablePotion = 'Refillable Potion';
+  static final String BamisCinder = 'Bami\'s Cinder';
 }
 
-typedef BuffEffects ItemEffectsConstructor();
+typedef BuffEffects ItemEffectsConstructor(Mob owner);
 
 Map<String, ItemEffectsConstructor> _itemEffectsConstructors = {
-  ItemNames.DoransShield: () => new DoransShield(),
-  ItemNames.HuntersMachete: () => new HuntersMachete(),
-  ItemNames.HuntersTalisman: () => new HuntersTalisman(),
-  ItemNames.RefillablePotion: () => new RefillablePotion(),
+  ItemNames.DoransShield: (_) => new DoransShield(),
+  ItemNames.HuntersMachete: (_) => new HuntersMachete(),
+  ItemNames.HuntersTalisman: (_) => new HuntersTalisman(),
+  ItemNames.RefillablePotion: (_) => new RefillablePotion(),
+  ItemNames.BamisCinder: (Mob owner) => new BamisCinder(owner),
 };
 
-BuffEffects constructEffectsForItem(String itemName) {
+BuffEffects constructEffectsForItem(String itemName, Mob owner) {
   ItemEffectsConstructor constructor = _itemEffectsConstructors[itemName];
   if (constructor == null) return null;
-  return constructor();
+  BuffEffects effects = constructor(owner);
+  if (effects != null) effects.onCreate();
+  return effects;
 }

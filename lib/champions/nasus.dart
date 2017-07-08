@@ -12,7 +12,7 @@ class Nasus extends ChampionEffects {
   String get lastUpdate => VERSION_7_2_1;
 
   @override
-  void onChampionCreate() {
+  void onCreate() {
     nasus.addBuff(new SoulEater(nasus));
   }
 }

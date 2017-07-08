@@ -58,7 +58,7 @@ class Diana extends ChampionEffects {
   }
 
   @override
-  void onChampionCreate() {
+  void onCreate() {
     diana.addBuff(new MoonsilverBladeAttackSpeed(diana));
   }
 }
