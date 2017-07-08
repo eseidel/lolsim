@@ -1,6 +1,7 @@
 #!/usr/local/bin/dart
 import 'package:lol_duel/utils/common_args.dart';
 import 'package:lol_duel/creator.dart';
+import 'package:lol_duel/dragon/dragon.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/utils/cli_table.dart';
 import 'package:lol_duel/utils/dummy_mob.dart';
@@ -33,7 +34,7 @@ class _Calculate {
         ..updateStats();
     }
 
-    Item item(String name) => creator.items.itemByName(name);
+    ItemDescription item(String name) => creator.items.itemByName(name);
 
     Mob base = makeChamp();
     hasEffects = base.championEffects != null;

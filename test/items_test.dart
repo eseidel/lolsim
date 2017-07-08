@@ -8,14 +8,14 @@ import 'utils.dart';
 
 dynamic main() async {
   Creator data = await Creator.loadLatest();
-  List<Item> items = data.items
-      .allItems()
+  List<ItemDescription> items = data.items
+      .all()
       .where((item) =>
-          item.description.isAvailableOn(Maps.CURRENT_SUMMONERS_RIFT) &&
-          item.description.generallyAvailable)
+          item.isAvailableOn(Maps.CURRENT_SUMMONERS_RIFT) &&
+          item.generallyAvailable)
       .toList();
 
-  Item itemNamed(String name) {
+  ItemDescription itemNamed(String name) {
     try {
       return items.firstWhere((item) => item.name == name);
     } catch (e) {
@@ -44,9 +44,9 @@ dynamic main() async {
       expect(mob.currentHp, 80.0);
       mob.revive();
 
-      Item doransShield = itemNamed(ItemNames.DoransShield);
+      ItemDescription description = itemNamed(ItemNames.DoransShield);
+      Item doransShield = mob.addItem(description);
       expect(doransShield.effects, isNotNull);
-      mob.addItem(doransShield);
       expect(mob.currentHp, 180.0);
       applyHit(target: mob, source: champ, physicalDamage: 20.0);
       expect(mob.currentHp, 168.0);
@@ -62,7 +62,7 @@ dynamic main() async {
       expect(mob.currentHp, 124.0);
     });
     test("passive only applies to champion sources", () {
-      Item doransShield = itemNamed(ItemNames.DoransShield);
+      ItemDescription doransShield = itemNamed(ItemNames.DoransShield);
       Mob champ = createTestMob(hp: 100.0, type: MobType.champion);
       champ.addItem(doransShield);
       Mob minion = createTestMob(hp: 100.0);
@@ -73,7 +73,7 @@ dynamic main() async {
           2.0, applyHit(source: champ, target: minion, physicalDamage: 10.0));
     });
     test("reduction cannot go negative", () {
-      Item doransShield = itemNamed(ItemNames.DoransShield);
+      ItemDescription doransShield = itemNamed(ItemNames.DoransShield);
       Mob attacker = createTestMob(hp: 100.0, type: MobType.champion);
       Mob defender = createTestMob(hp: 100.0);
       defender.addItem(doransShield);

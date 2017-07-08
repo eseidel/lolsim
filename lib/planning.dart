@@ -1,13 +1,15 @@
 import 'lolsim.dart';
 import 'role.dart';
 import 'buffs.dart';
+import 'items.dart';
 
 class SelfCastSpell extends Action {
   Spell spell;
-  SelfCastSpell(this.spell) : super();
+  SelfCastSpell(this.spell);
 
   @override
   void apply(World world) {
+    World.combatLog('${spell.mob} casts ${spell}');
     (spell.effects as SelfTargetedSpell).castOnSelf();
   }
 }
@@ -15,11 +17,24 @@ class SelfCastSpell extends Action {
 class TargetCastSpell extends Action {
   Spell spell;
   Mob target;
-  TargetCastSpell(this.spell, this.target) : super();
+  TargetCastSpell(this.spell, this.target);
 
   @override
   void apply(World world) {
+    World.combatLog('${spell.mob} casts ${spell} on ${target}');
     (spell.effects as SingleTargetSpell).castOn(target);
+  }
+}
+
+class ActivateItem extends Action {
+  Item item;
+  Mob target;
+  ActivateItem(this.item, this.target);
+
+  @override
+  void apply(World world) {
+    World.combatLog('${item.owner} activates ${item.name} on ${target}');
+    (item.effects as RefillablePotion).castOn(target);
   }
 }
 
@@ -56,6 +71,17 @@ class Planner {
     return true;
   }
 
+  bool consumePotionIfNeeded(Mob self, List<Action> actions) {
+    if (self.healthPercent > 0.7) return false;
+    Item potion = self.firstItemNamed(ItemNames.RefillablePotion);
+    if (potion == null) return false;
+    RefillablePotion effects = potion.effects as RefillablePotion;
+    if (!effects.canBeCastOn(self)) return false;
+    if (effects.isActive(self)) return false;
+    actions.add(new ActivateItem(potion, self));
+    return true;
+  }
+
   List<Action> nextActions() {
     if (attackTarget?.alive == false) attackTarget = null;
     if (!self.canAutoAttack()) return [];
@@ -88,6 +114,8 @@ class AmumuPlanner extends Planner {
     if (self.healthPercent < .7 &&
         targetCastIfInRange(self.summoners.d, actions))
       return assertNotEmpty(actions);
+    if (consumePotionIfNeeded(self, actions)) return assertNotEmpty(actions);
+
     return super.nextActions();
   }
 }

@@ -30,7 +30,7 @@ dynamic main(List<String> args) async {
   handleCommonArgs(args);
   Creator creator = await Creator.loadLatest();
 
-  ItemDescription pasItem = creator.items.itemByName('Dagger').description;
+  ItemDescription pasItem = creator.items.itemByName('Dagger');
   double pasInGold =
       pasItem.gold['total'] / pasItem.stats[PercentAttackSpeedMod];
 

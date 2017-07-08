@@ -2,6 +2,7 @@
 import 'package:lol_duel/championgg.dart';
 import 'package:lol_duel/championgg_utils.dart';
 import 'package:lol_duel/creator.dart';
+import 'package:lol_duel/dragon/dragon.dart';
 import 'package:lol_duel/items.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/monsters.dart';
@@ -63,7 +64,7 @@ dynamic main(List<String> args) async {
   String championName = 'Amumu';
   int level = 4;
   bool showDamageSummaries = true;
-  Item itemNamed(String name) => creator.items.itemByName(name);
+  ItemDescription itemNamed(String name) => creator.items.itemByName(name);
 
   CreateChamp createChamp = () {
     Mob champ = creator.champs.championByName(championName);
@@ -87,6 +88,7 @@ dynamic main(List<String> args) async {
 
     champ.addItem(itemNamed(ItemNames.HuntersMachete));
     champ.addItem(itemNamed(ItemNames.HuntersTalisman));
+    champ.addItem(itemNamed(ItemNames.RefillablePotion));
 
     champ.addBuff(new CrestOfInsight(champ));
     // champ.addBuff(new CrestOfCinders(champ));
@@ -100,9 +102,9 @@ dynamic main(List<String> args) async {
   print(createChamp().statsSummary());
 
   List<MonsterType> dragons = [
-    // MonsterType.cloudDrake,
-    // MonsterType.infernalDrake,
-    // MonsterType.mountainDrake,
+    MonsterType.cloudDrake,
+    MonsterType.infernalDrake,
+    MonsterType.mountainDrake,
     MonsterType.oceanDrake,
   ];
 

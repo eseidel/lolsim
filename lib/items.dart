@@ -7,7 +7,7 @@ import 'lolsim.dart';
 
 // FIXME: This is a unique effect.
 // FIXME: Needs update for 7.9.1
-class DoransShield extends ItemEffects {
+class DoransShield extends BuffEffects {
   @override
   String get lastUpdate => VERSION_7_2_1;
 
@@ -18,7 +18,7 @@ class DoransShield extends ItemEffects {
   }
 }
 
-class HuntersMachete extends ItemEffects {
+class HuntersMachete extends BuffEffects {
   @override
   String get lastUpdate => VERSION_7_10_1;
 
@@ -70,7 +70,7 @@ class HealthDrain extends TickingBuff {
   }
 }
 
-class HuntersTalisman extends ItemEffects {
+class HuntersTalisman extends BuffEffects {
   @override
   String get lastUpdate => VERSION_7_11_1;
 
@@ -109,15 +109,92 @@ class HuntersTalisman extends ItemEffects {
   }
 }
 
+class RefillablePotionBuff extends TimedBuff {
+  // FIXME: Respect Secret Stash (10% longer).
+  static double initialDuration = 12.0;
+
+  RefillablePotionBuff(Mob target)
+      : super(
+          name: 'Refillable Potion',
+          duration: initialDuration,
+          target: target,
+        );
+
+  void addStack() {
+    remaining += initialDuration;
+  }
+
+  @override
+  String get lastUpdate => VERSION_7_11_1;
+
+  @override
+  Map<String, num> get stats => {
+        // Restores 125hp over 12 seconds, FlatHPRegenMod is in units of 5 seconds.
+        FlatHPRegenMod: 125.0 / 12.0 * 5.0,
+      };
+}
+
+class RefillablePotion extends EffectWithCooldown {
+  final int maxCharges = 2;
+  int charges = 2;
+
+  RefillablePotion() : super('Refillable Potion') {
+    refill();
+  }
+
+  void refill() {
+    charges = maxCharges;
+  }
+
+  @override
+  String get lastUpdate => VERSION_7_11_1;
+
+  RefillablePotionBuff findActiveBuff(Mob champ) => champ.buffs
+      .firstWhere((buff) => buff is RefillablePotionBuff, orElse: () => null);
+
+  bool isActive(Mob champ) => findActiveBuff(champ) != null;
+
+  void applyToOrAddStack(Mob target) {
+    RefillablePotionBuff buff = findActiveBuff(target);
+    if (buff == null) {
+      target.addBuff(new RefillablePotionBuff(target));
+    } else {
+      buff.addStack();
+    }
+  }
+
+  @override
+  double get cooldownDuration => 0.5; // Standard item activation cooldown.
+
+  bool canBeCastOn(Mob champ) =>
+      charges > 0 && champ.hpLost > 0 && !isOnCooldown;
+
+  void castOn(Mob champ) {
+    assert(canBeCastOn(champ));
+    charges -= 1;
+    applyToOrAddStack(champ);
+  }
+}
+
 class ItemNames {
   static final String DoransShield = 'Doran\'s Shield';
   static final String DoransBlade = 'Doran\'s Blade';
   static final String HuntersMachete = 'Hunter\'s Machete';
   static final String HuntersTalisman = 'Hunter\'s Talisman';
+  static final String RefillablePotion = 'Refillable Potion';
 }
 
-Map<String, ItemEffects> itemEffects = {
-  ItemNames.DoransShield: new DoransShield(),
-  ItemNames.HuntersMachete: new HuntersMachete(),
-  ItemNames.HuntersTalisman: new HuntersTalisman(),
+typedef BuffEffects ItemEffectsConstructor();
+
+Map<String, ItemEffectsConstructor> _itemEffectsConstructors = {
+  ItemNames.DoransShield: () => new DoransShield(),
+  ItemNames.HuntersMachete: () => new HuntersMachete(),
+  ItemNames.HuntersTalisman: () => new HuntersTalisman(),
+  ItemNames.RefillablePotion: () => new RefillablePotion(),
 };
+
+BuffEffects constructEffectsForItem(String itemName) {
+  ItemEffectsConstructor constructor = _itemEffectsConstructors[itemName];
+  if (constructor == null) return null;
+  return constructor();
+}

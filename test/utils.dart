@@ -6,10 +6,10 @@ import 'package:meta/meta.dart';
 
 CritProvider alwaysCrit = (Mob) => true;
 
-Item createTestItem({Map<String, num> stats}) {
-  return new Item(new ItemDescription.forTesting(
+ItemDescription createTestItem({Map<String, num> stats}) {
+  return new ItemDescription.forTesting(
     stats: stats,
-  ));
+  );
 }
 
 class TestBuff extends PermanentBuff {

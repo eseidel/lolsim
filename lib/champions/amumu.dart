@@ -93,7 +93,7 @@ class AmumuW extends SelfTargetedSpell {
   @override
   bool get isActiveToggle => toggledOn;
   @override
-  bool get canBeCastOnSelf => true;
+  bool get canBeCastOnSelf => !isOnCooldown;
   @override
   double get cooldownDuration => 1.0;
 
@@ -142,7 +142,7 @@ class AmumuE extends SelfTargetedSpell {
   void castOnSelf() {
     if (isOnCooldown) return;
     if (!champ.spendManaIfPossible(35)) return;
-    startCooldown();
+    startCooldown(champ);
     World.current.enemiesWithin(champ, 300).forEach((Mob target) {
       double damage = 50.0 + rank * 25.0 + 0.5 * champ.stats.abilityPower;
       target.applyHit(champ.createHitForTarget(

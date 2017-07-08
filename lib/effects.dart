@@ -44,7 +44,3 @@ abstract class BuffEffects extends EffectsBase {
   void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {}
   void damageDealtModifier(Hit hit, DamageDealtDelta delta) {}
 }
-
-abstract class ItemEffects extends BuffEffects {}
-
-abstract class SpellEffects extends BuffEffects {}

@@ -53,11 +53,12 @@ class Rune {
 }
 
 class Item {
-  ItemDescription description;
-  ItemEffects effects;
+  final Mob owner;
+  final ItemDescription description;
+  BuffEffects effects;
 
-  Item(this.description) {
-    effects = itemEffects[name];
+  Item(this.owner, this.description) {
+    effects = constructEffectsForItem(name);
     if (effects == null && description.hasEffects) logMissingEffects();
   }
 
@@ -424,7 +425,7 @@ enum MobType {
 class Spell {
   final SpellDescription description;
   final Mob mob;
-  SpellEffects effects;
+  BuffEffects effects;
   int _rank = 0;
 
   Spell(this.mob, this.description);
@@ -619,10 +620,15 @@ class Mob {
     return "$teamString$name";
   }
 
-  void addItem(Item item) {
+  Item addItem(ItemDescription description) {
+    Item item = new Item(this, description);
     items.add(item);
     updateStats();
+    return item;
   }
+
+  Item firstItemNamed(String name) =>
+      items.firstWhere((item) => item.name == name, orElse: () => null);
 
   void addBuff(Buff buff) {
     if (_updatingBuffs)

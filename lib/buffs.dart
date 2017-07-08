@@ -236,16 +236,18 @@ abstract class StackedBuff extends Buff {
   }
 }
 
-abstract class SelfTargetedSpell extends SpellWithCooldown {
-  SelfTargetedSpell(Mob champ, String name) : super(champ, name);
+abstract class SelfTargetedSpell extends EffectWithCooldown {
+  Mob champ;
+  SelfTargetedSpell(this.champ, String name) : super(name);
 
   bool get isActiveToggle;
   bool get canBeCastOnSelf;
   void castOnSelf();
 }
 
-abstract class SingleTargetSpell extends SpellWithCooldown {
-  SingleTargetSpell(Mob champ, String name) : super(champ, name);
+abstract class SingleTargetSpell extends EffectWithCooldown {
+  Mob champ;
+  SingleTargetSpell(this.champ, String name) : super(name);
 
   bool canBeCastOn(Mob target);
   void castOn(Mob target);
@@ -253,10 +255,10 @@ abstract class SingleTargetSpell extends SpellWithCooldown {
 
 // FIXME: These shouldn't be buffs, given that they can't
 // be looked up like normal buffs as they all share one class!
-class SpellCooldown extends Cooldown {
-  SpellWithCooldown spell;
+class EffectCooldown extends Cooldown {
+  EffectWithCooldown spell;
 
-  SpellCooldown(this.spell, Mob champ, double duration, String spellName)
+  EffectCooldown(this.spell, Mob champ, double duration, String spellName)
       : super(target: champ, duration: duration, name: spellName + 'Cooldown');
 
   @override
@@ -269,19 +271,18 @@ class SpellCooldown extends Cooldown {
   }
 }
 
-abstract class SpellWithCooldown extends SpellEffects {
-  final Mob champ;
+abstract class EffectWithCooldown extends BuffEffects {
   Cooldown cooldown;
   final String name;
 
-  SpellWithCooldown(this.champ, this.name);
+  EffectWithCooldown(this.name);
 
   bool get isOnCooldown => cooldown != null;
-  void startCooldown() {
+  void startCooldown(Mob champ) {
     assert(!isOnCooldown);
     // FIXME: Need support for static cooldowns which ignore reduction.
     double duration = cooldownDuration * (1.0 + champ.stats.percentCooldownMod);
-    cooldown = new SpellCooldown(this, champ, duration, name);
+    cooldown = new EffectCooldown(this, champ, duration, name);
     champ.addBuff(cooldown);
   }
 

@@ -1,13 +1,12 @@
 import 'dart:async';
 import 'package:lol_duel/dragon/stat_constants.dart';
 import 'package:lol_duel/dragon/dragon.dart';
-import 'package:lol_duel/creator.dart';
 
 // Inspired by https://www.reddit.com/r/leagueoflegends/comments/2bay6z/should_you_buy_armor_or_health_graph_inside/
 // Similarly http://imgur.com/a/3qUe8
-Future relateArmorToHp(ItemFactory items) async {
-  ItemDescription armorItem = items.itemByName('Cloth Armor').description;
-  ItemDescription hpItem = items.itemByName('Ruby Crystal').description;
+Future relateArmorToHp(ItemLibrary items) async {
+  ItemDescription armorItem = items.itemByName('Cloth Armor');
+  ItemDescription hpItem = items.itemByName('Ruby Crystal');
 
   double goldToArmor = armorItem.stats[FlatArmorMod] / armorItem.gold['total'];
   double armorToGold = 1 / goldToArmor;
@@ -34,10 +33,10 @@ Future relateArmorToHp(ItemFactory items) async {
 typedef double ConvertApsToAd(double aps);
 
 Future<ConvertApsToAd> relateAttacksPerSecondToAttackDamage(
-    ItemFactory items, double baseAttackSpeed) async {
+    ItemLibrary items, double baseAttackSpeed) async {
   // ad = attack damage, pas = percent attack speed
-  ItemDescription pasItem = items.itemByName('Dagger').description;
-  ItemDescription adItem = items.itemByName('Long Sword').description;
+  ItemDescription pasItem = items.itemByName('Dagger');
+  ItemDescription adItem = items.itemByName('Long Sword');
 
   double goldToPas =
       pasItem.stats[PercentAttackSpeedMod] / pasItem.gold['total'];
