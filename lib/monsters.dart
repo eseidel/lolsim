@@ -184,6 +184,8 @@ final MobDescription miniKrugsDescription = new MobDescription.fromJson({
 // 7, 5180
 final MobDescription cloudDrakeDescription = new MobDescription.fromJson({
   'name': 'Cloud Drake',
+  'gold': 25.0,
+  'experiance': 75.0,
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
       'armor': 21.0,
@@ -200,6 +202,8 @@ final MobDescription cloudDrakeDescription = new MobDescription.fromJson({
 // lvl 6, 4940hp
 final MobDescription infernalDrakeDescription = new MobDescription.fromJson({
   'name': 'Infernal Drake',
+  'gold': 25.0,
+  'experiance': 75.0,
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
       'armor': 21.0,
@@ -216,6 +220,8 @@ final MobDescription infernalDrakeDescription = new MobDescription.fromJson({
 // lvl 6, 5434 hp
 final MobDescription mountainDrakeDescription = new MobDescription.fromJson({
   'name': 'Mountain Drake',
+  'gold': 25.0,
+  'experiance': 75.0,
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
       'armor': 41.0,
@@ -245,6 +251,8 @@ final MobDescription mountainDrakeDescription = new MobDescription.fromJson({
 // 18, 7820, 90, 73
 final MobDescription oceanDrakeDescription = new MobDescription.fromJson({
   'name': 'Ocean Drake',
+  'gold': 25.0,
+  'experiance': 75.0,
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
       'armor': 21.0,
