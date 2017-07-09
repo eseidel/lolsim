@@ -594,6 +594,7 @@ class Mob {
     if (masteryPage != null) summary += '    Masteries: ${masteryPage}\n';
     if (items.isNotEmpty) summary += '    Items: ${items.join(", ")}\n';
     if (summoners != null) summary += '    Summoners: $summoners\n';
+    if (buffs != null) summary += '    Buffs: $buffs\n';
     return summary;
   }
 
@@ -641,6 +642,7 @@ class Mob {
       items.firstWhere((item) => item.name == name, orElse: () => null);
 
   void addBuff(Buff buff) {
+    assert(buff.name != null);
     if (_updatingBuffs)
       _buffsAddedWhileUpdating.add(buff);
     else {

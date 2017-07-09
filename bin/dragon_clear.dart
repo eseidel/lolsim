@@ -88,7 +88,7 @@ dynamic main(List<String> args) async {
 
     champ.addItem(itemNamed(ItemNames.HuntersMachete));
     champ.addItem(itemNamed(ItemNames.HuntersTalisman));
-    champ.addItem(itemNamed(ItemNames.BamisCinder));
+    // champ.addItem(itemNamed(ItemNames.BamisCinder));
     champ.addItem(itemNamed(ItemNames.RefillablePotion));
 
     champ.addBuff(new CrestOfInsight(champ));

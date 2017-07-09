@@ -12,13 +12,13 @@ abstract class Buff extends BuffEffects {
   String name;
   Mob target;
 
-  Buff({this.name, @required this.target});
+  Buff({@required this.name, @required this.target});
 
   bool expired = false;
   bool get retainedAfterDeath => false;
 
   @override
-  String toString() => (name != null) ? name : "Buff";
+  String toString() => (name != null) ? name : "Unknown Buff";
 
   void tick(double timeDelta);
 
@@ -28,7 +28,8 @@ abstract class Buff extends BuffEffects {
 }
 
 abstract class PermanentBuff extends Buff {
-  PermanentBuff({String name, Mob target}) : super(name: name, target: target);
+  PermanentBuff({@required String name, @required Mob target})
+      : super(name: name, target: target);
 
   @override
   bool get retainedAfterDeath => true;
@@ -41,7 +42,11 @@ abstract class TimedBuff extends Buff {
   final double duration;
   double remaining;
 
-  TimedBuff({String name, @required Mob target, @required this.duration})
+  TimedBuff({
+    @required String name,
+    @required Mob target,
+    @required this.duration,
+  })
       : remaining = duration,
         super(name: name, target: target);
 
@@ -59,7 +64,11 @@ abstract class TimedBuff extends Buff {
 abstract class Cooldown extends TimedBuff {
   // Fixed at time of creation in LOL. CDR does not affect in-progress cooldowns:
   // http://leagueoflegends.wikia.com/wiki/Cooldown_reduction
-  Cooldown({String name, @required Mob target, @required double duration})
+  Cooldown({
+    @required String name,
+    @required Mob target,
+    @required double duration,
+  })
       : super(name: name, target: target, duration: duration);
 }
 
@@ -67,7 +76,11 @@ abstract class TickingBuff extends Buff {
   final double secondsBetweenTicks;
   double untilNextTick;
 
-  TickingBuff({String name, Mob target, this.secondsBetweenTicks: 0.5})
+  TickingBuff({
+    @required String name,
+    @required Mob target,
+    this.secondsBetweenTicks: 0.5,
+  })
       : untilNextTick = secondsBetweenTicks,
         super(name: name, target: target);
 
@@ -93,10 +106,10 @@ abstract class DOT extends TickingBuff {
   final int initialTicks;
 
   DOT({
-    String name,
+    @required String name,
     @required Mob target,
-    double secondsBetweenTicks: 0.5,
     @required double duration,
+    double secondsBetweenTicks: 0.5,
     int initialStacks: 1,
     this.maxStacks: 1,
   })
@@ -149,7 +162,7 @@ abstract class SimpleDOT extends TickingBuff {
   SimpleDOT({
     @required Mob target,
     @required this.initialTicks,
-    String name,
+    @required String name,
     double secondsBetweenTicks: 0.5,
   })
       : super(
@@ -188,8 +201,8 @@ abstract class StackedBuff extends Buff {
     @required this.maxStacks,
     @required this.duration,
     @required this.timeBetweenFalloffs,
-    Mob target,
-    String name,
+    @required Mob target,
+    @required String name,
   })
       : super(name: name, target: target) {
     assert(maxStacks >= 1);

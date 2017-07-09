@@ -287,7 +287,8 @@ class GrompGetsTired extends PermanentBuff {
 }
 
 class AncientKrugsDeath extends PermanentBuff {
-  AncientKrugsDeath(Mob target) : super(target: target);
+  AncientKrugsDeath(Mob target)
+      : super(name: 'Ancient Krugs Death', target: target);
 
   @override
   String get lastUpdate => VERSION_7_11_1;
@@ -303,7 +304,7 @@ class AncientKrugsDeath extends PermanentBuff {
 }
 
 class KrugsDeath extends PermanentBuff {
-  KrugsDeath(Mob target) : super(target: target);
+  KrugsDeath(Mob target) : super(name: 'Krugs Death', target: target);
 
   @override
   String get lastUpdate => VERSION_7_11_1;

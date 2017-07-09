@@ -1,17 +1,19 @@
 import 'package:lol_duel/buffs.dart';
 import 'package:lol_duel/lolsim.dart';
+import 'package:meta/meta.dart';
 import 'package:test/test.dart';
 
 import 'utils.dart';
 
 class _ConcreteStackedBuff extends StackedBuff {
   _ConcreteStackedBuff({
-    Mob target,
+    @required Mob target,
     double duration,
     double timeBetweenFalloffs,
     int maxStacks,
   })
       : super(
+          name: 'Test Buff',
           target: target,
           duration: duration,
           timeBetweenFalloffs: timeBetweenFalloffs,
