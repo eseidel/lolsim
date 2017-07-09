@@ -67,6 +67,9 @@ final MobDescription redBramblebackDescription = new MobDescription.fromJson({
     }),
 });
 
+// Spanws at lvl 2
+// Seems relative to current campion levels?
+// will spawn at lvl 3, 4, etc.
 final MobDescription greaterMurkWolfDescription = new MobDescription.fromJson({
   'name': 'Greater Murk Wolf',
   'gold': 68.0,
@@ -365,6 +368,13 @@ enum MonsterType {
   oceanDrake,
 }
 
+Mob _jungleMonster<T>(MobDescription description, MobType type) {
+  Mob mob = new Mob(description, type);
+  // FIXME: Level should be set from average level of champions with a floor of lvl 2.
+  mob.jumpToLevel(2);
+  return mob;
+}
+
 Mob _createDragon(MobDescription description) {
   Mob dragon = new Mob(description, MobType.epicMonster);
   // FIXME: Level should be set from average level of champions with a floor of lvl 6.
@@ -376,33 +386,33 @@ Mob _createDragon(MobDescription description) {
 Mob createMonster(MonsterType type) {
   switch (type) {
     case MonsterType.blueSentinal:
-      Mob blue = new Mob(blueSentinalDescription, MobType.largeMonster);
+      Mob blue = _jungleMonster(blueSentinalDescription, MobType.largeMonster);
       blue.addBuff(new CrestOfInsight(blue));
       return blue;
     case MonsterType.redBrambleback:
-      return new Mob(redBramblebackDescription, MobType.largeMonster);
+      return _jungleMonster(redBramblebackDescription, MobType.largeMonster);
     case MonsterType.greaterMurkWolf:
-      return new Mob(greaterMurkWolfDescription, MobType.largeMonster);
+      return _jungleMonster(greaterMurkWolfDescription, MobType.largeMonster);
     case MonsterType.murkWolf:
-      return new Mob(murkWolfDescription, MobType.smallMonster);
+      return _jungleMonster(murkWolfDescription, MobType.smallMonster);
     case MonsterType.crimsonRaptor:
-      return new Mob(crimsonRaptorDescription, MobType.largeMonster);
+      return _jungleMonster(crimsonRaptorDescription, MobType.largeMonster);
     case MonsterType.raptor:
-      return new Mob(raptorDescription, MobType.smallMonster);
+      return _jungleMonster(raptorDescription, MobType.smallMonster);
     case MonsterType.gromp:
-      Mob gromp = new Mob(grompDescription, MobType.largeMonster);
+      Mob gromp = _jungleMonster(grompDescription, MobType.largeMonster);
       gromp.addBuff(new GrompGetsTired(gromp));
       return gromp;
     case MonsterType.ancientKrugs:
-      Mob krugs = new Mob(ancientKrugsDescription, MobType.largeMonster);
+      Mob krugs = _jungleMonster(ancientKrugsDescription, MobType.largeMonster);
       krugs.addBuff(new AncientKrugsDeath(krugs));
       return krugs;
     case MonsterType.krugs:
-      Mob krugs = new Mob(krugsDescription, MobType.smallMonster);
+      Mob krugs = _jungleMonster(krugsDescription, MobType.smallMonster);
       krugs.addBuff(new KrugsDeath(krugs));
       return krugs;
     case MonsterType.miniKrugs:
-      return new Mob(miniKrugsDescription, MobType.smallMonster);
+      return _jungleMonster(miniKrugsDescription, MobType.smallMonster);
     case MonsterType.cloudDrake:
       return _createDragon(cloudDrakeDescription);
     case MonsterType.mountainDrake:

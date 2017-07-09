@@ -23,6 +23,7 @@ abstract class EffectsBase {
   // Unclear the right name, called after dmg applied:
   void onDamageRecieved() {}
 
+  void onKill(Mob victim) {}
   void onDeath(Mob killer) {}
 
   String toStringAdditions() => "";

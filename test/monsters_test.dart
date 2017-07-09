@@ -68,4 +68,34 @@ dynamic main() async {
       _verify(MonsterType.cloudDrake, 6, 4940.0);
     });
   });
+  group('Jungle monsters', () {
+    test('monster hp scaling', () {
+      List<int> expectedHpValues = [
+        2100,
+        2363,
+        2363,
+        2625,
+        2625,
+        2940,
+        3150,
+        3360,
+        3360,
+        3675,
+        3675,
+        3675,
+        3675,
+        3675,
+        3675,
+        3675,
+        3675
+      ];
+      Mob blue = createMonster(MonsterType.blueSentinal);
+      expect(blue.level, 2);
+      expectedHpValues.forEach((expectedHp) {
+        expect(blue.stats.hp, closeTo(expectedHp, .5),
+            reason: "Level ${blue.level} hp values");
+        blue.addLevel();
+      });
+    });
+  });
 }

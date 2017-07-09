@@ -311,4 +311,32 @@ class BaseStats extends Stats {
       return perLevel * level;
     });
   }
+
+  double _monsterHPScaleForLevel(int level) {
+    if (level < 3) return 1.0;
+    if (level < 5) return 1.125;
+    if (level < 7) return 1.25;
+    if (level < 8) return 1.4;
+    if (level < 9) return 1.5;
+    if (level < 11) return 1.6;
+    return 1.75;
+  }
+
+  Stats monsterCurvedStatsForLevel(int level) {
+    Stats stats = new Stats();
+
+    // Every stat must be listed here or it will be its initial value.
+    stats.hp = hp * _monsterHPScaleForLevel(level);
+    stats.mp = mp;
+    stats.baseHpRegen = 0.0;
+    stats.baseMpRegen = 0.0;
+    stats.baseAttackDamage = baseAttackDamage; // FIXME: Wrong.
+    stats._baseArmor = _baseArmor; // FIXME: Wrong.
+    stats._baseSpellBlock = _baseSpellBlock; // FIXME: Wrong.
+    stats.attackDelay = attackDelay;
+    stats.percentAttackSpeedMod = 0.0;
+
+    stats.range = range;
+    return stats;
+  }
 }

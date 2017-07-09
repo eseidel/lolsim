@@ -5,6 +5,8 @@ import 'dragon/stat_constants.dart';
 import 'effects.dart';
 import 'lolsim.dart';
 
+import 'dart:math';
+
 // FIXME: This is a unique effect.
 // FIXME: Needs update for 7.9.1
 class DoransShield extends BuffEffects {
@@ -18,7 +20,18 @@ class DoransShield extends BuffEffects {
   }
 }
 
+void _addJungleItemBonusExperiance(Mob owner, Mob victim) {
+  double bonusExperiance = 0.0;
+  if (victim.isLargeMonster) bonusExperiance += 50.0;
+  int levelDelta = max(0, victim.level - owner.level);
+  bonusExperiance += 30.0 * levelDelta;
+  if (bonusExperiance > 0.0) owner.addExperiance(bonusExperiance);
+}
+
 class HuntersMachete extends BuffEffects {
+  final Mob owner;
+  HuntersMachete(this.owner);
+
   @override
   String get lastUpdate => VERSION_7_10_1;
 
@@ -29,6 +42,13 @@ class HuntersMachete extends BuffEffects {
   Map<String, num> get stats => {
         PercentLifeStealMod: 0.1,
       };
+
+  @override
+  void onKill(Mob victim) {
+    // FIXME: This should use some sort of unique-effect system?
+    if (owner.firstItemNamed(ItemNames.HuntersTalisman) != null) return;
+    _addJungleItemBonusExperiance(owner, victim);
+  }
 
   @override
   void onAutoAttackHit(Hit hit) {
@@ -71,6 +91,9 @@ class HealthDrain extends TickingBuff {
 }
 
 class HuntersTalisman extends BuffEffects {
+  final Mob owner;
+  HuntersTalisman(this.owner);
+
   @override
   String get lastUpdate => VERSION_7_11_1;
 
@@ -106,6 +129,12 @@ class HuntersTalisman extends BuffEffects {
   @override
   void onSpellHit(Hit hit) {
     applyHealthDrain(hit);
+  }
+
+  @override
+  void onKill(Mob victim) {
+    // This one wins when having both HuntersTalisman and HuntersMachete.
+    _addJungleItemBonusExperiance(owner, victim);
   }
 }
 
@@ -228,8 +257,8 @@ typedef BuffEffects ItemEffectsConstructor(Mob owner);
 
 Map<String, ItemEffectsConstructor> _itemEffectsConstructors = {
   ItemNames.DoransShield: (_) => new DoransShield(),
-  ItemNames.HuntersMachete: (_) => new HuntersMachete(),
-  ItemNames.HuntersTalisman: (_) => new HuntersTalisman(),
+  ItemNames.HuntersMachete: (Mob owner) => new HuntersMachete(owner),
+  ItemNames.HuntersTalisman: (Mob owner) => new HuntersTalisman(owner),
   ItemNames.RefillablePotion: (_) => new RefillablePotion(),
   ItemNames.BamisCinder: (Mob owner) => new BamisCinder(owner),
 };

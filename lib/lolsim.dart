@@ -544,6 +544,8 @@ class Mob {
   bool get isChampion => _type == MobType.champion;
   bool get isMinion => _type == MobType.minion;
   bool get isMonster => _type == MobType.smallMonster || isLargeMonster;
+  bool get isNonEpicMonster =>
+      _type == MobType.smallMonster || _type == MobType.largeMonster;
   bool get isLargeMonster =>
       _type == MobType.largeMonster || _type == MobType.epicMonster;
   bool get isStructure => _type == MobType.structure;
@@ -608,6 +610,8 @@ class Mob {
   Stats updateStats() {
     if (isChampion)
       stats = description.baseStats.championCurvedStatsForLevel(level);
+    else if (isNonEpicMonster)
+      stats = description.baseStats.monsterCurvedStatsForLevel(level);
     else
       stats = description.baseStats.linearStatsForLevel(level);
     if (runePage != null) stats.applyStatMap(runePage.collectStats());
@@ -951,10 +955,16 @@ class Mob {
   void grantExperianceToKiller(Mob killer) {
     double experiance = description.experiance;
     // FIXME: This should be to not just the killer but other nearby allies?
+    // FIXME: Unclear what's correct for monsters:
+    // http://leagueoflegends.wikia.com/wiki/Monster#Monster_experience_reward
     if (experiance != null && experiance > 0)
       killer.addExperiance(experiance);
     else
       _log.warning('Missing experiance value for death of $this');
+  }
+
+  void onKill(Mob victim) {
+    _cachedEffects.forEach((effect) => effect.onKill(victim));
   }
 
   void die(Mob killer) {
@@ -964,6 +974,7 @@ class Mob {
     _cachedEffects.forEach((effect) => effect.onDeath(killer));
     grantGoldToKiller(killer);
     grantExperianceToKiller(killer);
+    killer.onKill(this);
     // FIXME: Death could be a buff if there are rez timers.
     alive = false;
   }
