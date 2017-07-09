@@ -50,8 +50,7 @@ dynamic main() async {
   group('Dragons', () {
     test('Level 18 hp', () {
       Mob ocean = createMonster(MonsterType.oceanDrake);
-      ocean.level = 18;
-      ocean.updateStats();
+      ocean.jumpToLevel(18);
       // stat curving is currently always applied, but at least 18 should be right.
       expect(ocean.stats.hp, 7820.0);
     });

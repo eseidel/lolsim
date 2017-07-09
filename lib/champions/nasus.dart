@@ -18,7 +18,7 @@ class Nasus extends ChampionEffects {
 }
 
 class SoulEater extends PermanentBuff {
-  SoulEater(Mob target) : super(name: "Soul Eater", target: target);
+  SoulEater(Mob target) : super("Soul Eater", target);
 
   @override
   String get lastUpdate => VERSION_7_2_1;

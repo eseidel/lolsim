@@ -132,8 +132,7 @@ dynamic main(List<String> args) async {
   List<String> champNames = creator.dragon.champs.loadChampNames();
   List<_Result> results = champNames.map((champName) {
     Mob champ = creator.champs.championByName(champName);
-    champ.level = level;
-    champ.updateStats();
+    champ.jumpToLevel(level);
 
     SpellDescriptionBook spellBook = spells.bookForChampionName(champName);
     return new _Result()

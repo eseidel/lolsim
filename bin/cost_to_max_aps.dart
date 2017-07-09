@@ -14,8 +14,7 @@ class _Calculated {
 
   _Calculated(Creator creator, this.champName) {
     Mob champ = creator.champs.championByName(champName);
-    champ.level = 18;
-    champ.updateStats();
+    champ.jumpToLevel(18);
     apsAt18 = champ.stats.attackSpeed;
     range = champ.stats.range;
 

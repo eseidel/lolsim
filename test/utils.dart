@@ -15,7 +15,7 @@ ItemDescription createTestItem({Map<String, num> stats}) {
 class TestBuff extends PermanentBuff {
   final Map<String, num> _stats;
 
-  TestBuff(this._stats);
+  TestBuff(Mob target, this._stats) : super('Test Buff', target);
 
   @override
   String get lastUpdate => null;
@@ -24,8 +24,8 @@ class TestBuff extends PermanentBuff {
   Map<String, num> get stats => _stats;
 }
 
-Buff createTestBuff({Map<String, num> stats}) {
-  return new TestBuff(stats);
+Buff createTestBuff(Mob target, Map<String, num> stats) {
+  return new TestBuff(target, stats);
 }
 
 double applyHit({
@@ -90,7 +90,6 @@ Mob createTestMob({
     mob.masteryPage.initForChamp(mob);
     mob.masteryPage.logAnyMissingEffects();
   }
-  mob.level = level;
-  mob.updateStats();
+  mob.jumpToLevel(level);
   return mob;
 }

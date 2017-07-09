@@ -49,7 +49,7 @@ class DuelLoader {
 
   Mob loadChampion(YamlMap yamlMob) {
     Mob mob = creator.champs.championByName(yamlMob['name']);
-    mob.level = yamlMob['level'] ?? 1;
+    mob.jumpToLevel(yamlMob['level'] ?? 1);
     YamlList yamlItems = yamlMob['items'];
     if (yamlItems != null) {
       yamlItems.forEach(
@@ -73,7 +73,7 @@ class DuelLoader {
     }[yamlMob['name']];
     assert(type != null);
     Mob mob = createMonster(type);
-    mob.level = yamlMob['level'] ?? 1;
+    mob.jumpToLevel(yamlMob['level'] ?? 1);
     return mob;
   }
 

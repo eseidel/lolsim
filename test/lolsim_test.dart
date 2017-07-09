@@ -95,11 +95,11 @@ dynamic main() async {
       targetA.addItem(createTestItem(stats: {
         FlatArmorMod: 200,
       }));
-      var debuff = createTestBuff(stats: {
+      Map debuffStats = {
         FlatArmorReduction: 30,
         PercentArmorMod: -30,
-      });
-      targetA.addBuff(debuff);
+      };
+      targetA.addBuff(createTestBuff(targetA, debuffStats));
       // The 300 is reduced to 270 (90 base and 180 bonus armor) by the 30 armor reduction.
       // The 270 is reduced to 189 (63 base and 126 bonus armor) by the 30% armor reduction.
       expect(targetA.stats.percentArmorMod, 0.7);
@@ -117,7 +117,7 @@ dynamic main() async {
         level: 18,
         hp: 1000.0,
       );
-      targetB.addBuff(debuff);
+      targetB.addBuff(createTestBuff(targetB, debuffStats));
       expect(targetB.stats.armor, -12);
       // The 18 is reduced to −12 by the 30 armor reduction.
       // The −12 is not affected by any further calculations because it is less than 0.
@@ -137,15 +137,15 @@ dynamic main() async {
         FlatMagicPenetrationMod: 10,
         PercentMagicPenetrationMod: 35,
       }));
-      var debuff = createTestBuff(stats: {
+      Map debuffStats = {
         FlatSpellBlockMod: -20,
         PercentSpellBlockMod: -30,
-      });
+      };
 
       // Target A has 80 magic resistance.
       var targetA = createTestMob(hp: 1000.0);
       targetA.addItem(createTestItem(stats: {FlatSpellBlockMod: 80}));
-      targetA.addBuff(debuff);
+      targetA.addBuff(createTestBuff(targetA, debuffStats));
       // The 80 is reduced to 60 by the 20 magic resistance reduction.
       // The 60 is reduced to 42 by the 30% magic resistance reduction.
       expect(targetA.stats.percentSpellBlockMod, 0.70);
@@ -161,7 +161,7 @@ dynamic main() async {
       var targetB = createTestMob(baseSpellBlock: 18.0, hp: 1000.0);
       // The 18 is reduced to −2 by the 20 magic resistance reduction.
       // The −2 is not affected by any further calculations because it is less than 0.
-      targetB.addBuff(debuff);
+      targetB.addBuff(createTestBuff(targetB, debuffStats));
       expect(targetB.stats.spellBlock, -2);
       // Target B takes damage as if it has −2 magic resistance.
       applyHit(source: attacker, target: targetB, magicDamage: 100.0);

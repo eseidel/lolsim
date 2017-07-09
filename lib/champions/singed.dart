@@ -18,8 +18,7 @@ class Singed extends ChampionEffects {
 }
 
 class EmpoweredBulwark extends PermanentBuff {
-  EmpoweredBulwark(Mob target)
-      : super(name: "Empowered Bulwark", target: target);
+  EmpoweredBulwark(Mob target) : super("Empowered Bulwark", target);
 
   @override
   String get lastUpdate => VERSION_7_2_1;

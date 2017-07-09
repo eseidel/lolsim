@@ -66,6 +66,7 @@ Many.  Including at least:
 - Missing Gromp's attack speed buff (before I can write him)
 - Missing Krugs split timers.
 - Improved Mob.statsSummary output.
+- Experiance
 
 
 ## Passives missing affecting the lvl 1 round_robin sort.

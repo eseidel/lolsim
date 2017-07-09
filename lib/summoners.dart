@@ -6,7 +6,7 @@ import 'dragon/spell_parser.dart';
 
 // FIXME, this might be simpler as a recharge timer.
 class SmiteCharges extends PermanentBuff {
-  SmiteCharges(Mob target) : super(name: 'Smite Charges', target: target);
+  SmiteCharges(Mob target) : super('Smite Charges', target);
 
   // FIXME: Technically should start at 0 with first charge at 100.0
   // but we "spwan" monsters at 0.0 for now.

@@ -549,10 +549,17 @@ class Mob {
   bool get isStructure => _type == MobType.structure;
 
   int get level => _level;
-  set level(int newLevel) {
+  void jumpToLevel(int newLevel) {
     assert(newLevel >= 1);
     assert(newLevel <= 18);
     _level = newLevel;
+    updateStats();
+  }
+
+  void addLevel() {
+    World.combatLog('$this is now level $level!');
+    _level += 1;
+    updateStats();
   }
 
   void addSkillPointTo(SpellKey key) {
@@ -928,7 +935,7 @@ class Mob {
     if (!World.haveCurrentWorld) return; // For tests.
     while (totalExperiance >
         World.current.map.cummulativeExperianceToLevel(level + 1)) {
-      level += 1;
+      addLevel();
     }
   }
 

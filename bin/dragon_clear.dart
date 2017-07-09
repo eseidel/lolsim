@@ -68,7 +68,7 @@ dynamic main(List<String> args) async {
 
   CreateChamp createChamp = () {
     Mob champ = creator.champs.championByName(championName);
-    champ.level = level;
+    champ.jumpToLevel(level);
     champ.planner = plannerFor(champ, Role.jungle);
 
     ChampionStats champStats = championGG.statsForChampionName(championName);

@@ -56,8 +56,7 @@ dynamic main() async {
       attackSpeedPerLevel: 3.22,
       type: MobType.champion,
     );
-    twistedFate.level = 18;
-    twistedFate.updateStats();
+    twistedFate.jumpToLevel(18);
     expect(twistedFate.stats.baseAttackSpeed, closeTo(0.651, 0.001));
     expect(twistedFate.stats.percentAttackSpeedMod, closeTo(54.74, 0.01));
   });

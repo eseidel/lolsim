@@ -22,7 +22,7 @@ class Tryndamere extends ChampionEffects {
 class BattleFury extends PermanentBuff {
   int fury = 0; // FIXME: Should move to Mob?
 
-  BattleFury(Mob target) : super(name: 'Battle Fury', target: target);
+  BattleFury(Mob target) : super('Battle Fury', target);
 
   @override
   String get lastUpdate => VERSION_7_2_1;

@@ -64,8 +64,7 @@ class Diana extends ChampionEffects {
 }
 
 class MoonsilverBladeAttackSpeed extends PermanentBuff {
-  MoonsilverBladeAttackSpeed(Mob target)
-      : super(name: "Moonsilver Blade", target: target);
+  MoonsilverBladeAttackSpeed(Mob target) : super("Moonsilver Blade", target);
 
   @override
   String get lastUpdate => VERSION_7_2_1;

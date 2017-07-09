@@ -12,7 +12,7 @@ abstract class Buff extends BuffEffects {
   String name;
   Mob target;
 
-  Buff({@required this.name, @required this.target});
+  Buff(this.name, this.target);
 
   bool expired = false;
   bool get retainedAfterDeath => false;
@@ -28,8 +28,7 @@ abstract class Buff extends BuffEffects {
 }
 
 abstract class PermanentBuff extends Buff {
-  PermanentBuff({@required String name, @required Mob target})
-      : super(name: name, target: target);
+  PermanentBuff(String name, Mob target) : super(name, target);
 
   @override
   bool get retainedAfterDeath => true;
@@ -48,7 +47,7 @@ abstract class TimedBuff extends Buff {
     @required this.duration,
   })
       : remaining = duration,
-        super(name: name, target: target);
+        super(name, target);
 
   void refresh() {
     remaining = duration;
@@ -82,7 +81,7 @@ abstract class TickingBuff extends Buff {
     this.secondsBetweenTicks: 0.5,
   })
       : untilNextTick = secondsBetweenTicks,
-        super(name: name, target: target);
+        super(name, target);
 
   @override
   void tick(double timeDelta) {
@@ -204,7 +203,7 @@ abstract class StackedBuff extends Buff {
     @required Mob target,
     @required String name,
   })
-      : super(name: name, target: target) {
+      : super(name, target) {
     assert(maxStacks >= 1);
     assert(duration > 0.0);
     assert(timeBetweenFalloffs >= 0.0);

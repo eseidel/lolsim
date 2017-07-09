@@ -18,7 +18,7 @@ class Olaf extends ChampionEffects {
 }
 
 class BerserkerRage extends PermanentBuff {
-  BerserkerRage(Mob target) : super(name: "Berserker Rage", target: target);
+  BerserkerRage(Mob target) : super("Berserker Rage", target);
 
   @override
   String get lastUpdate => VERSION_7_2_1;

@@ -20,7 +20,7 @@ dynamic main(List<String> args) async {
 
   Creator creator = await Creator.loadLatest();
   Mob champ = creator.champs.championByName('Irelia');
-  champ.level = 18;
+  champ.jumpToLevel(18);
 
   Stats stats = champ.updateStats();
   print(stats.debugString());

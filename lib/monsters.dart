@@ -274,6 +274,8 @@ final MobDescription oceanDrakeDescription = new MobDescription.fromJson({
 // 0.575 (0.575 + 0.000) AS, 54 AD
 // 0.501 (0.501 + 0.000) AS, 50 AD
 class GrompGetsTired extends PermanentBuff {
+  GrompGetsTired(Mob gromp) : super('Gromp Gets Tired', gromp);
+
   @override
   String get lastUpdate => VERSION_7_11_1;
 
@@ -295,8 +297,7 @@ class GrompGetsTired extends PermanentBuff {
 }
 
 class AncientKrugsDeath extends PermanentBuff {
-  AncientKrugsDeath(Mob target)
-      : super(name: 'Ancient Krugs Death', target: target);
+  AncientKrugsDeath(Mob target) : super('Ancient Krugs Death', target);
 
   @override
   String get lastUpdate => VERSION_7_11_1;
@@ -312,7 +313,7 @@ class AncientKrugsDeath extends PermanentBuff {
 }
 
 class KrugsDeath extends PermanentBuff {
-  KrugsDeath(Mob target) : super(name: 'Krugs Death', target: target);
+  KrugsDeath(Mob target) : super('Krugs Death', target);
 
   @override
   String get lastUpdate => VERSION_7_11_1;
@@ -328,7 +329,7 @@ class KrugsDeath extends PermanentBuff {
 }
 
 class DragonsHitHard extends PermanentBuff {
-  DragonsHitHard(Mob dragon) : super(target: dragon, name: 'Dragons hit hard');
+  DragonsHitHard(Mob dragon) : super('Dragons hit hard', dragon);
 
   @override
   String get lastUpdate => VERSION_7_11_1;
@@ -367,7 +368,7 @@ enum MonsterType {
 Mob _createDragon(MobDescription description) {
   Mob dragon = new Mob(description, MobType.epicMonster);
   // FIXME: Level should be set from average level of champions with a floor of lvl 6.
-  dragon.level = 6;
+  dragon.jumpToLevel(6);
   dragon.addBuff(new DragonsHitHard(dragon));
   return dragon;
 }
@@ -390,7 +391,7 @@ Mob createMonster(MonsterType type) {
       return new Mob(raptorDescription, MobType.smallMonster);
     case MonsterType.gromp:
       Mob gromp = new Mob(grompDescription, MobType.largeMonster);
-      gromp.addBuff(new GrompGetsTired());
+      gromp.addBuff(new GrompGetsTired(gromp));
       return gromp;
     case MonsterType.ancientKrugs:
       Mob krugs = new Mob(ancientKrugsDescription, MobType.largeMonster);

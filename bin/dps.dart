@@ -29,9 +29,7 @@ class _Calculate {
 
   _Calculate(Creator creator, this.champName, int level) {
     Mob makeChamp() {
-      return creator.champs.championByName(champName)
-        ..level = level
-        ..updateStats();
+      return creator.champs.championByName(champName)..jumpToLevel(level);
     }
 
     ItemDescription item(String name) => creator.items.itemByName(name);

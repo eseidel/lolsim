@@ -159,8 +159,7 @@ dynamic main() async {
       ];
       int level = 1;
       expectedValues.forEach((var expectedValue) {
-        precisionMob.level = level;
-        precisionMob.updateStats();
+        precisionMob.jumpToLevel(level);
         expect(precisionMob.stats.flatMagicPenetration, expectedValue);
         level++;
       });

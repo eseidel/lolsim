@@ -41,7 +41,7 @@ dynamic main() async {
 
       Lulu luluEffects = lulu.championEffects;
       List<double> actual = new List.generate(18, (i) {
-        lulu.level = i + 1;
+        lulu.jumpToLevel(i + 1);
         return luluEffects.damagePerPixShot;
       });
       expect(actual, expected);

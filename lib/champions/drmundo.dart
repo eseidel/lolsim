@@ -18,7 +18,7 @@ class DrMundo extends ChampionEffects {
 }
 
 class AdrenalineRush extends PermanentBuff {
-  AdrenalineRush(Mob target) : super(name: "Adrenaline Rush", target: target);
+  AdrenalineRush(Mob target) : super("Adrenaline Rush", target);
 
   @override
   Map<String, num> get stats => {

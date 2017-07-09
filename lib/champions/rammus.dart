@@ -19,7 +19,7 @@ class Rammus extends ChampionEffects {
 
 // FIXME: This is now wrong in 7.10.1, but easy to fix.
 class SpikedShell extends PermanentBuff {
-  SpikedShell(Mob target) : super(name: "Spiked Shell", target: target);
+  SpikedShell(Mob target) : super("Spiked Shell", target);
 
   @override
   String get lastUpdate => VERSION_7_2_1;
