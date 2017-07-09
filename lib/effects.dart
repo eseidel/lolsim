@@ -25,6 +25,8 @@ abstract class EffectsBase {
 
   void onDeath(Mob killer) {}
 
+  String toStringAdditions() => "";
+
   Map<String, num> get stats => null;
 }
 

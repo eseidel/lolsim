@@ -38,7 +38,7 @@ class MasteryPage {
   }
 
   @override
-  String toString() => "$name ($countsString)";
+  String toString() => "\"$name\" ($countsString)";
 }
 
 class MasteryPageList {

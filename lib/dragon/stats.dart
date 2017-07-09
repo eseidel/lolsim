@@ -15,7 +15,7 @@ typedef void StatApplier(Stats stats, num value);
 // FIXME: There is probably a better way to do this where we combine all the
 // stat modifications together in json form and then collapse them all at the end instead.
 // FIXME: These are neither complete, nor necessarily correct.
-final Map<String, StatApplier> appliers = {
+final Map<String, StatApplier> _statAppliersByName = {
   FlatHPPoolMod: (stats, value) => stats.hp += value,
   FlatCritChanceMod: (stats, value) => stats.critChance += value,
   FlatMagicDamageMod: (stats, value) => stats.abilityPower += value,
@@ -56,6 +56,21 @@ final Map<String, StatApplier> appliers = {
   // 'FlatMovementSpeedMod': (stats, value) => stats.movespeed += value,
   // 'PercentMovementSpeedMod': (stats, value) => stats.movespeed *= value,
 };
+
+Map<String, String> _shortNamesByStatName = {
+  FlatMagicPenetrationMod: 'Magic Pen',
+  FlatSpellBlockMod: 'MR',
+  FlatArmorMod: 'Armor',
+  FlatMagicDamageMod: 'AP',
+};
+
+String shortStringForStatValue(String statName, double statValue) {
+  String shortName = _shortNamesByStatName[statName];
+  String valueString = statValue.toStringAsFixed(1);
+  if (shortName == null) return '$statName : $valueString';
+  if (statValue > 0) return '+$valueString $shortName';
+  return '$valueString $shortName';
+}
 
 class Stats {
   double hp;
@@ -189,7 +204,7 @@ class Stats {
 
   void applyStatMap(Map<String, num> stats) {
     for (String statName in stats.keys) {
-      StatApplier statApplier = appliers[statName];
+      StatApplier statApplier = _statAppliersByName[statName];
       if (statApplier == null)
         warnUnhandledStat(statName);
       else

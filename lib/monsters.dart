@@ -21,6 +21,8 @@ final Map<String, double> _sharedMonsterStats = {
 
 final MobDescription grompDescription = new MobDescription.fromJson({
   'name': 'Gromp',
+  'gold': 86.0,
+  'experiance': 200.0,
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
       'armor': 0.0,
@@ -35,6 +37,8 @@ final MobDescription grompDescription = new MobDescription.fromJson({
 
 final MobDescription blueSentinalDescription = new MobDescription.fromJson({
   'name': 'Blue Sentinal',
+  'gold': 100.0,
+  'experiance': 200.0,
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
       'hp': 2100.0,
@@ -49,6 +53,8 @@ final MobDescription blueSentinalDescription = new MobDescription.fromJson({
 
 final MobDescription redBramblebackDescription = new MobDescription.fromJson({
   'name': 'Red Brambleback',
+  'gold': 100.0,
+  'experiance': 200.0,
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
       'hp': 2100.0,
@@ -63,6 +69,8 @@ final MobDescription redBramblebackDescription = new MobDescription.fromJson({
 
 final MobDescription greaterMurkWolfDescription = new MobDescription.fromJson({
   'name': 'Greater Murk Wolf',
+  'gold': 68.0,
+  'experiance': 100.0,
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
       'hp': 1300.0,
@@ -77,6 +85,8 @@ final MobDescription greaterMurkWolfDescription = new MobDescription.fromJson({
 
 final MobDescription murkWolfDescription = new MobDescription.fromJson({
   'name': 'Murk Wolf',
+  'gold': 16.0,
+  'experiance': 40.0,
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
       'hp': 380.0,
@@ -91,6 +101,8 @@ final MobDescription murkWolfDescription = new MobDescription.fromJson({
 
 final MobDescription crimsonRaptorDescription = new MobDescription.fromJson({
   'name': 'Crimson Raptor',
+  'gold': 62.0,
+  'experiance': 20.0,
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
       'hp': 700.0,
@@ -105,6 +117,8 @@ final MobDescription crimsonRaptorDescription = new MobDescription.fromJson({
 
 final MobDescription raptorDescription = new MobDescription.fromJson({
   'name': 'Raptor',
+  'gold': 9.0,
+  'experiance': 35.0,
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
       'armor': 0.0,
@@ -119,6 +133,8 @@ final MobDescription raptorDescription = new MobDescription.fromJson({
 
 final MobDescription ancientKrugsDescription = new MobDescription.fromJson({
   'name': 'Ancient Krugs',
+  'gold': 70.0,
+  'experiance': 125.0,
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
       'armor': 10.0,
@@ -133,6 +149,8 @@ final MobDescription ancientKrugsDescription = new MobDescription.fromJson({
 
 final MobDescription krugsDescription = new MobDescription.fromJson({
   'name': 'Krugs',
+  'gold': 10.0,
+  'experiance': 35.0,
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
       'armor': 0.0,
@@ -147,6 +165,8 @@ final MobDescription krugsDescription = new MobDescription.fromJson({
 
 final MobDescription miniKrugsDescription = new MobDescription.fromJson({
   'name': 'Mini Krugs',
+  'gold': 10.0,
+  'experiance': 7.0,
   'stats': new Map.from(_sharedMonsterStats)
     ..addAll(<String, double>{
       'armor': 0.0,
@@ -273,7 +293,7 @@ class AncientKrugsDeath extends PermanentBuff {
   String get lastUpdate => VERSION_7_11_1;
 
   @override
-  void onDeath(Mob killer) {
+  void onDeath(Mob _) {
     // FIXME: These should spawn after 1-2s.
     World.current.addMobs([
       createMonster(MonsterType.krugs)..team = target.team,
@@ -289,7 +309,7 @@ class KrugsDeath extends PermanentBuff {
   String get lastUpdate => VERSION_7_11_1;
 
   @override
-  void onDeath(Mob killer) {
+  void onDeath(Mob _) {
     // FIXME: These should spawn after 1-2s.
     World.current.addMobs([
       createMonster(MonsterType.miniKrugs)..team = target.team,

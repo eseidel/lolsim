@@ -31,10 +31,10 @@ class RunePage {
   }
 
   String get summaryString {
-    String summary = "$name\n";
-    collectStats().forEach(
-        (key, value) => summary += '$key : ${value.toStringAsFixed(3)}\n');
-    return summary;
+    Map<String, double> stats = collectStats();
+    Iterable<String> summaries = stats.keys.map((String statName) =>
+        shortStringForStatValue(statName, stats[statName]));
+    return summaries.join(', ');
   }
 
   @override

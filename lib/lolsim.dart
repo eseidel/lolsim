@@ -20,6 +20,10 @@ export 'dragon/stats.dart';
 
 final Logger _log = new Logger('lolsim');
 
+String simpleEnglishPlural(String word, int count) {
+  return count > 1 ? word + 's' : word;
+}
+
 // Supposedly the internal server tick rate is 30fps:
 // https://www.reddit.com/r/leagueoflegends/comments/2mmlkr/0001_second_kill_on_talon_even_faster_kill_out/cm5tizu/
 const int TICKS_PER_SECOND = 30;
@@ -439,7 +443,10 @@ class Spell {
   int get range => description.rangeForRank(rank);
 
   @override
-  String toString() => "Rank $_rank ${description.name}";
+  String toString() {
+    String summary = "Rank $_rank ${description.name}";
+    return effects != null ? summary + effects.toStringAdditions() : summary;
+  }
 }
 
 // FIXME: Unclear if the 'Spell' class is necessary
@@ -447,6 +454,9 @@ class Spell {
 class SummonerBook {
   Spell d;
   Spell f;
+
+  @override
+  String toString() => [d, f].join(', ');
 }
 
 class SpellBook {
@@ -505,6 +515,8 @@ class Mob {
   double mpSpent = 0.0;
   bool alive = true;
   DamageLog damageLog;
+  double currentGold = 0.0;
+  double totalExperiance = 0.0;
 
   MobState state; // Eventually for CC, etc.
 
@@ -580,7 +592,8 @@ class Mob {
     AS : ${stats.attackSpeed.toStringAsFixed(3)} (${stats.attackDuration.toStringAsFixed(1)}s)\n""";
     if (runePage != null) summary += '    Runes: ${runePage.summaryString}\n';
     if (masteryPage != null) summary += '    Masteries: ${masteryPage}\n';
-    if (items.isNotEmpty) summary += '    Items: ${items}\n';
+    if (items.isNotEmpty) summary += '    Items: ${items.join(", ")}\n';
+    if (summoners != null) summary += '    Summoners: $summoners\n';
     return summary;
   }
 
@@ -859,7 +872,7 @@ class Mob {
       _cachedEffects.forEach((effect) => effect.onBeingHit(hit));
     _cachedEffects.forEach((effect) => effect.onDamageRecieved());
     startHealingIfNecessary();
-    if (currentHp <= 0.0) die();
+    if (currentHp <= 0.0) die(hit.source);
     return damage; // This could be beyond-fatal damage.
   }
 
@@ -904,11 +917,44 @@ class Mob {
     _didUpdateBuffs();
   }
 
-  void die() {
+  void addGold(double gold) {
+    currentGold += gold;
+  }
+
+  void addExperiance(double experiance) {
+    totalExperiance += experiance;
+    if (!World.haveCurrentWorld) return; // For tests.
+    while (totalExperiance >
+        World.current.map.cummulativeExperianceToLevel(level + 1)) {
+      level += 1;
+    }
+  }
+
+  void grantGoldToKiller(Mob killer) {
+    double gold = description.gold;
+    // FIXME: This should be to not just the killer but other nearby allies?
+    if (gold != null && gold > 0)
+      killer.addGold(gold);
+    else
+      _log.warning('Missing gold value for death of $this');
+  }
+
+  void grantExperianceToKiller(Mob killer) {
+    double experiance = description.experiance;
+    // FIXME: This should be to not just the killer but other nearby allies?
+    if (experiance != null && experiance > 0)
+      killer.addExperiance(experiance);
+    else
+      _log.warning('Missing experiance value for death of $this');
+  }
+
+  void die(Mob killer) {
     _log.info("DEATH: $this");
     hpLost = stats.hp;
     if (damageLog != null) _log.info(damageLog.summaryString);
-    _cachedEffects.forEach((effect) => effect.onDeath(this));
+    _cachedEffects.forEach((effect) => effect.onDeath(killer));
+    grantGoldToKiller(killer);
+    grantExperianceToKiller(killer);
     // FIXME: Death could be a buff if there are rez timers.
     alive = false;
   }
@@ -948,8 +994,33 @@ class PredictableCrits {
   }
 }
 
+abstract class MapSettings {
+  final String name;
+  MapSettings(this.name);
+  double cummulativeExperianceToLevel(int level);
+}
+
+class SummonersRift extends MapSettings {
+  SummonersRift() : super('Summoner\'s Rift');
+  double _deltaExperianceToLevel(int level) {
+    return 100.0 * level + 80.0;
+  }
+
+  // FIXME: This is static and could be cached.
+  @override
+  double cummulativeExperianceToLevel(int level) {
+    double total = 0.0;
+    while (level > 1) {
+      total += _deltaExperianceToLevel(level);
+      level -= 1;
+    }
+    return total;
+  }
+}
+
 class World {
   double time = 0.0;
+  MapSettings map = new SummonersRift();
   List<Mob> reds = [];
   List<Mob> blues = [];
   CritProvider critProvider;

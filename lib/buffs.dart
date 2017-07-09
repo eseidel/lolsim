@@ -113,13 +113,9 @@ abstract class DOT extends TickingBuff {
 
   int get stacks => perStackTicksRemaining.length;
 
-  String _plural(String word, int count) {
-    return count > 1 ? word + 's' : word;
-  }
-
   @override
   String toString() {
-    String stacksString = "$stacks " + _plural('stack', stacks);
+    String stacksString = "$stacks " + simpleEnglishPlural('stack', stacks);
     return "$name ($stacksString)";
   }
 

@@ -42,7 +42,6 @@ Many.  Including at least:
 
 ## Questions to answer:
 - Jungle clear-time approximations.
-- Amumu Dispair or Tantrum first?
 - Range catagories for each stats (high, med, low)
 - Guestimate as to power ranges of various champs
 - When are various items (liandries, BOTRK, etc.) worth it?
@@ -66,6 +65,7 @@ Many.  Including at least:
 - Neutral teams logic (do not attack until attacked, and attack as a group).
 - Missing Gromp's attack speed buff (before I can write him)
 - Missing Krugs split timers.
+- Improved Mob.statsSummary output.
 
 
 ## Passives missing affecting the lvl 1 round_robin sort.

@@ -21,9 +21,15 @@ class _Calculate {
   double mana;
   double manaPercent;
   double clearTime;
+  double experiance;
+  double gold;
 
-  _Calculate(CreateChamp createChamp, this.campType, this.startingSkill) {
+  _Calculate(CreateChamp createChamp, this.campType, this.startingSkill,
+      {bool showDamageSummaries: false}) {
     Mob champ = createChamp();
+    if (showDamageSummaries) {
+      champ.shouldRecordDamage = true;
+    }
     World world = new World(
       blues: [champ],
       reds: createCamp(campType),
@@ -32,6 +38,9 @@ class _Calculate {
     champ.addSkillPointTo(startingSkill);
     world.tickUntil(World.oneSideDies);
 
+    if (showDamageSummaries) {
+      print(champ.damageLog.summaryString);
+    }
     hp = champ.currentHp;
     hpPercent = champ.healthPercent;
     alive = champ.alive;
@@ -39,6 +48,8 @@ class _Calculate {
     clearTime = world.time;
     mana = champ.currentMp;
     manaPercent = champ.manaPercent;
+    experiance = champ.totalExperiance;
+    gold = champ.currentGold;
   }
 }
 
@@ -58,24 +69,31 @@ dynamic main(List<String> args) async {
     champ.summoners.d = createSummoner(SummonerType.smite, champ);
     champ.masteryPage = masteriesFromHash(
         creator.dragon.masteries, jungleStats.mostCommonMasteriesHash);
+    champ.masteryPage.name = 'Champion.gg most common';
+
     champ.runePage =
         runesFromHash(creator.dragon.runes, jungleStats.mostCommonRunesHash);
+    champ.runePage.name = 'Champion.gg most common';
+
     jungleStats.mostCommonStartingItemIds.forEach((itemId) {
       champ.addItem(creator.items.itemById(itemId));
     });
     return champ;
   };
 
-  // List<_Calculate> results = [
-  //   new _Calculate(createChamp, CampType.blue, SpellKey.e)
-  // ];
-  List<_Calculate> results = [];
-  List<SpellKey> spellKeys = [SpellKey.w, SpellKey.e];
-  CampType.values.forEach((CampType camp) {
-    spellKeys.forEach((SpellKey key) {
-      results.add(new _Calculate(createChamp, camp, key));
-    });
-  });
+  print(createChamp().statsSummary());
+
+  List<_Calculate> results = [
+    new _Calculate(createChamp, CampType.blue, SpellKey.e,
+        showDamageSummaries: true)
+  ];
+  // List<_Calculate> results = [];
+  // List<SpellKey> spellKeys = [SpellKey.w, SpellKey.e];
+  // CampType.values.forEach((CampType camp) {
+  //   spellKeys.forEach((SpellKey key) {
+  //     results.add(new _Calculate(createChamp, camp, key));
+  //   });
+  // });
 
   results.sort((a, b) {
     if (a.alive != b.alive) return a.alive ? 1 : -1;
@@ -84,13 +102,13 @@ dynamic main(List<String> args) async {
     return 0;
   });
 
-  TableLayout layout = new TableLayout([2, 8, 11, 11, 6]);
-  layout.printRow(['', 'Camp', 'HP', 'MP', 'Time']);
+  TableLayout layout = new TableLayout([2, 8, 11, 11, 6, 4, 4]);
+  layout.printRow(['', 'Camp', 'HP', 'MP', 'Time', 'XP', 'Gold']);
   layout.printDivider();
 
   String percentString(bool alive, double value, double percent) {
     if (!alive) return '-';
-    return "${value.round()} (${(100 * percent).toStringAsFixed(1)}%)";
+    return "${value.round()} (${(100 * percent).round()}%)";
   }
 
   for (var r in results) {
@@ -100,6 +118,8 @@ dynamic main(List<String> args) async {
       percentString(r.alive, r.hp, r.hpPercent),
       percentString(r.alive, r.mana, r.manaPercent),
       "${r.clearTime.round()}s",
+      '${r.experiance.floor()}',
+      '${r.gold.floor()}',
     ]);
   }
 }

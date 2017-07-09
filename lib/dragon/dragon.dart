@@ -221,12 +221,16 @@ class MobDescription {
   final String title;
   final BaseStats baseStats;
   final List<String> tags;
+  final double gold;
+  final double experiance;
 
   MobDescription.forTesting({
     this.name,
     @required this.baseStats,
     this.id,
     this.title,
+    this.gold,
+    this.experiance,
   })
       : tags = [];
 
@@ -235,7 +239,10 @@ class MobDescription {
         id = json['id'],
         name = json['name'],
         title = json['title'],
-        tags = json['tags'];
+        tags = json['tags'],
+        // These are not part of dragon-data:
+        gold = json['gold'],
+        experiance = json['experiance'];
 }
 
 class ChampionLibrary {

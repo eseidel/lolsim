@@ -43,6 +43,11 @@ class Smite extends SingleTargetSpell {
   int get charges => chargesBuff.charges;
 
   @override
+  String toStringAdditions() {
+    return ' (${damageForLevel(champ.level)} dmg, $charges ${simpleEnglishPlural("charge", charges)})';
+  }
+
+  @override
   String get lastUpdate => VERSION_7_11_1;
 
   @override
