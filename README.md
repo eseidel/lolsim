@@ -63,10 +63,8 @@ Many.  Including at least:
 - Auto-attack windup.
 - Missle system & proximity.
 - Neutral teams logic (do not attack until attacked, and attack as a group).
-- Missing Gromp's attack speed buff (before I can write him)
 - Missing Krugs split timers.
-- Improved Mob.statsSummary output.
-- Experiance
+- Krugs Experiance on first clear.
 
 
 ## Passives missing affecting the lvl 1 round_robin sort.

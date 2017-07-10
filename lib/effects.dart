@@ -11,6 +11,7 @@ abstract class EffectsBase {
   String get lastUpdate;
 
   void onCreate() {}
+  void onLevelUp() {}
 
   // FIXME: Most of these should move onto BuffEffects.
   void onSpellHit(Hit hit) {}

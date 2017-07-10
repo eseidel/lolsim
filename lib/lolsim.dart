@@ -434,9 +434,10 @@ class Spell {
 
   Spell(this.mob, this.description);
 
-  void addSkillPoint() {
+  int addSkillPoint() {
     _rank += 1;
     effects = constructEffectsForSpell(description, mob, _rank);
+    return _rank;
   }
 
   int get rank => _rank;
@@ -480,8 +481,8 @@ class SpellBook {
     }[key];
   }
 
-  void addSkillPointTo(SpellKey key) {
-    spellForKey(key).addSkillPoint();
+  int addSkillPointTo(SpellKey key) {
+    return spellForKey(key).addSkillPoint();
   }
 
   void forEach(void callback(Spell spell)) {
@@ -559,14 +560,16 @@ class Mob {
   }
 
   void addLevel() {
-    World.combatLog('$this is now level $level!');
     _level += 1;
     updateStats();
+    _cachedEffects.forEach((effect) => effect.onLevelUp());
+    World.combatLog('$this is now level $level!');
   }
 
   void addSkillPointTo(SpellKey key) {
-    spells.addSkillPointTo(key);
+    int rank = spells.addSkillPointTo(key);
     _updateCachedEffects();
+    World.combatLog('$this skilled $key to rank $rank!');
   }
 
   bool get shouldRecordDamage => damageLog != null;
@@ -653,6 +656,8 @@ class Mob {
       items.firstWhere((item) => item.name == name, orElse: () => null);
 
   void addBuff(Buff buff) {
+    World.combatLog("$this gained buff $buff");
+
     assert(buff.name != null);
     if (_updatingBuffs)
       _buffsAddedWhileUpdating.add(buff);
@@ -937,7 +942,8 @@ class Mob {
   void addExperiance(double experiance) {
     totalExperiance += experiance;
     if (!World.haveCurrentWorld) return; // For tests.
-    while (totalExperiance >
+    World.combatLog("$this gained $experiance XP");
+    while (totalExperiance >=
         World.current.map.cummulativeExperianceToLevel(level + 1)) {
       addLevel();
     }
@@ -1046,7 +1052,9 @@ class World {
   CritProvider critProvider;
   static World _current;
 
-  World({this.reds: const [], this.blues: const [], this.critProvider}) {
+  World({this.reds, this.blues, this.critProvider}) {
+    reds ??= [];
+    blues ??= [];
     reds.forEach((mob) => mob.team = Team.red);
     blues.forEach((mob) => mob.team = Team.blue);
     if (critProvider == null) critProvider = new RandomCrits();
