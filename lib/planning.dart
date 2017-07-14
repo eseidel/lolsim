@@ -139,3 +139,17 @@ Planner plannerFor(Mob mob, Role role) {
   if (role == Role.jungle) return new JunglePlaner(mob);
   return new Planner(mob);
 }
+
+class SkillPlanner extends PermanentBuff {
+  List<SpellKey> skillOrder;
+
+  SkillPlanner(Mob target, this.skillOrder) : super('Skill Planner', target);
+
+  @override
+  String get lastUpdate => null;
+
+  @override
+  void onLevelUp() {
+    target.addSkillPointTo(skillOrder[target.level - 1]);
+  }
+}

@@ -566,3 +566,16 @@ class CrestOfCinders extends TimedBuff {
     ));
   }
 }
+
+double walkingTime(CampType one, CampType two) {
+  // Distances:
+  // Cait, 325
+  // Raptors -> Red 5s
+  // Red -> Krugs 6.5s
+  // Red -> Wolves 14s
+  // Wolves -> Blue 5.5s
+  // Blue -> Gromp 4s
+  // Gromp -> Wolves 7s
+  // FIXME: Implement.
+  return 5.0;
+}

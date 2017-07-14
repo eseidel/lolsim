@@ -58,13 +58,16 @@ Many.  Including at least:
 - Split lolsim.dart into smaller files.
 - Add more passives, abilities, masteries, runes, etc.
 - Convert to integer math (ticks, etc.) to avoid double precision errors.
-- Implement in-combat/out-of-combat (more champs would die to darius and twitch dots).
+- Implement in-combat/out-of-combat
+ -- More champs would die to darius and twitch dots.
+ -- Needed for Crest of Cinders healing.
 - Use round_robin json to compare lists.
 - Auto-attack windup.
 - Missle system & proximity.
 - Neutral teams logic (do not attack until attacked, and attack as a group).
 - Missing Krugs split timers.
 - Krugs Experiance on first clear.
+- Healing Amp (Runic Armor, Spirit Visage, etc.)
 
 
 ## Passives missing affecting the lvl 1 round_robin sort.

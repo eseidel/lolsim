@@ -7,7 +7,8 @@ class TableLayout {
   TableLayout(this.columnWidths);
 
   void printRow(List<String> cells) {
-    assert(cells.length == columnWidths.length);
+    assert(cells.length == columnWidths.length,
+        '${cells.length} != ${columnWidths.length}');
     List<String> paddedCells = [];
     for (int i = 0; i < cells.length; i += 1) {
       paddedCells.add(cells[i].padRight(columnWidths[i]));
