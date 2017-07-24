@@ -567,6 +567,14 @@ class CrestOfCinders extends TimedBuff {
   }
 }
 
+// Movement
+// Should have some sort of Command system
+// Can listen for when commands are complete?
+// Or just have an "attack move" command.
+// Camps should translate into coordinates?
+// Then just have a move-to command which
+// ticks every so often to update position.
+
 double walkingTime(CampType one, CampType two) {
   // Distances:
   // Cait, 325

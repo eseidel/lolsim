@@ -45,9 +45,11 @@ class _Calculate {
 
   String get skillOrderString =>
       plan.skillOrder.sublist(0, level).map((key) => key.char).join('');
-  String get routeString =>
-      plan.route.map((type) => campTypeToString(type)[0]).join('');
 
+  String get routeString => plan.route.map((type) {
+        String campString = campTypeToString(type);
+        return campString[0].toUpperCase() + campString[1];
+      }).join();
   Mob createChamp(Creator creator, ChampionGG championGG, String championName) {
     Mob champ = creator.champs.championByName(championName);
     ChampionStats champStats = championGG.statsForChampionName(championName);
