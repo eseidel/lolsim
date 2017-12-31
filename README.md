@@ -55,7 +55,7 @@ Many.  Including at least:
 - Monsters are not neutral / incorrect AI.
 - Improved proximity (for masteries).
 - Coverage & coveralls.io
-- Split lolsim.dart into smaller files.
+- Split mob.dart into smaller files.
 - Add more passives, abilities, masteries, runes, etc.
 - Convert to integer math (ticks, etc.) to avoid double precision errors.
 - Implement in-combat/out-of-combat

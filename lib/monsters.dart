@@ -2,7 +2,8 @@ import 'buffs.dart';
 import 'dragon/dragon.dart';
 import 'dragon/stat_constants.dart';
 import 'effects.dart';
-import 'lolsim.dart';
+import 'mob.dart';
+import 'world.dart';
 import 'package:meta/meta.dart';
 
 final Map<String, double> _sharedMonsterStats = {

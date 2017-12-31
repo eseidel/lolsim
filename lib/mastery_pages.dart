@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 
 import 'dragon/dragon.dart';
-import 'lolsim.dart';
+import 'mob.dart';
 
 class MasteryPage {
   String name;

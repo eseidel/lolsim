@@ -1,6 +1,6 @@
 import 'dragon/stat_constants.dart';
 import 'effects.dart';
-import 'lolsim.dart';
+import 'mob.dart';
 
 typedef MasteryEffects MasteryEffectsConstructor(Mob champ, int rank);
 

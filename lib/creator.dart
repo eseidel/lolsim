@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:logging/logging.dart';
 
 import 'dragon/dragon.dart';
-import 'lolsim.dart';
+import 'mob.dart';
 
 final Logger _log = new Logger('creator');
 

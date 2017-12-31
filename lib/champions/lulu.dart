@@ -1,5 +1,5 @@
 import 'package:lol_duel/effects.dart';
-import 'package:lol_duel/lolsim.dart';
+import 'package:lol_duel/mob.dart';
 
 class Lulu extends ChampionEffects {
   final Mob lulu;

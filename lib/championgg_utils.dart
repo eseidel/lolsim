@@ -1,10 +1,10 @@
 import 'package:lol_duel/dragon/dragon.dart';
-import 'package:lol_duel/lolsim.dart';
+import 'package:lol_duel/mob.dart';
 import 'package:lol_duel/mastery_pages.dart';
 import 'package:lol_duel/rune_pages.dart';
 
 // FIXME: Unclear exactly how to factor this, but champion.gg parsing
-// code shouldn't need to know about lolsim.dart.
+// code shouldn't need to know about mob.dart.
 
 MasteryPage masteriesFromHash(MasteryLibrary library, String hash) {
   // id-rank-id-rank...

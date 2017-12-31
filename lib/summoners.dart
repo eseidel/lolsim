@@ -1,5 +1,5 @@
 import 'buffs.dart';
-import 'lolsim.dart';
+import 'mob.dart';
 import 'effects.dart';
 import 'dart:math';
 import 'dragon/spell_parser.dart';

@@ -1,6 +1,7 @@
 import 'package:lol_duel/buffs.dart';
 import 'package:lol_duel/effects.dart';
-import 'package:lol_duel/lolsim.dart';
+import 'package:lol_duel/mob.dart';
+import 'package:lol_duel/world.dart';
 import 'dart:math';
 
 class Fiora extends ChampionEffects {

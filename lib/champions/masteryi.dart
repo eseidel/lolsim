@@ -1,5 +1,6 @@
 import 'package:lol_duel/effects.dart';
-import 'package:lol_duel/lolsim.dart';
+import 'package:lol_duel/mob.dart';
+import 'package:lol_duel/world.dart';
 import 'package:lol_duel/buffs.dart';
 
 class MasterYi extends ChampionEffects {

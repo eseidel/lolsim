@@ -1,5 +1,5 @@
 import 'dragon/dragon.dart';
-import 'lolsim.dart';
+import 'mob.dart';
 
 final Map<String, double> _sharedMinionStats = {
   'spellblockperlevel': 0.0,

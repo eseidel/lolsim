@@ -3,7 +3,8 @@ import 'package:meta/meta.dart';
 import 'buffs.dart';
 import 'dragon/stat_constants.dart';
 import 'effects.dart';
-import 'lolsim.dart';
+import 'mob.dart';
+import 'world.dart';
 
 import 'dart:math';
 

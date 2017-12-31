@@ -1,4 +1,4 @@
-import 'package:lol_duel/lolsim.dart';
+import 'package:lol_duel/mob.dart';
 import 'package:lol_duel/buffs.dart';
 import 'package:lol_duel/dragon/stat_constants.dart';
 import 'package:lol_duel/effects.dart';

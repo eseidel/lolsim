@@ -1,6 +1,6 @@
 import '../dragon/spell_parser.dart';
 import '../effects.dart';
-import '../lolsim.dart';
+import '../mob.dart';
 import 'amumu.dart';
 import 'darius.dart';
 import 'diana.dart';

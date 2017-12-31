@@ -1,4 +1,4 @@
-import 'lolsim.dart';
+import 'mob.dart';
 
 const String VERSION_7_2_1 = '7.2.1';
 const String VERSION_7_8_1 = '7.8.1';

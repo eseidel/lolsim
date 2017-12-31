@@ -1,4 +1,4 @@
-import 'lolsim.dart';
+import 'mob.dart';
 import 'creator.dart';
 
 class RunePage {

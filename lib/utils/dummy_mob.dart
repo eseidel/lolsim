@@ -1,4 +1,4 @@
-import '../lolsim.dart';
+import '../mob.dart';
 import '../dragon/dragon.dart';
 
 // FIXME: Potentially merge with createTestMob() in test/

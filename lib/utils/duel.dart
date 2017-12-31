@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:yaml/yaml.dart';
 
 import '../creator.dart';
-import '../lolsim.dart';
+import '../mob.dart';
 import '../mastery_pages.dart';
 import '../minions.dart';
 import '../monsters.dart';

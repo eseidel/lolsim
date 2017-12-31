@@ -1,6 +1,6 @@
 import 'package:lol_duel/buffs.dart';
 import 'package:lol_duel/effects.dart';
-import 'package:lol_duel/lolsim.dart';
+import 'package:lol_duel/mob.dart';
 
 class JarvanIV extends ChampionEffects {
   final Mob jarvan;

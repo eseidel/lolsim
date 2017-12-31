@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 
-import 'lolsim.dart';
+import 'mob.dart';
 import 'effects.dart';
 
 final Logger _log = new Logger('buffs');

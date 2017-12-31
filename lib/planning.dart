@@ -1,7 +1,8 @@
-import 'lolsim.dart';
+import 'mob.dart';
 import 'role.dart';
 import 'buffs.dart';
 import 'items.dart';
+import 'world.dart';
 
 class SelfCastSpell extends Action {
   Spell spell;
