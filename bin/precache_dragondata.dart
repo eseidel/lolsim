@@ -44,7 +44,8 @@ class DiskCache extends Cache<DragonKey, String> {
       pathPackage.join(cacheDir, key.toDragonPath());
 
   @override
-  Future<String> get(DragonKey key, {Loader<DragonKey> ifAbsent}) async {
+  Future<String> get(DragonKey key,
+      {Loader<DragonKey, String> ifAbsent}) async {
     File file = new File(_pathForKey(key));
     if (await file.exists()) {
       _log.info('Cache hit: $key');
@@ -57,7 +58,7 @@ class DiskCache extends Cache<DragonKey, String> {
   }
 
   @override
-  Future set(DragonKey key, String value) async {
+  Future<Null> set(DragonKey key, String value) async {
     _log.info('Cache set: $key ${value.length} bytes.');
     File file = new File(_pathForKey(key));
     file = await file.create(recursive: true);
@@ -65,7 +66,7 @@ class DiskCache extends Cache<DragonKey, String> {
   }
 
   @override
-  Future invalidate(DragonKey key) {
+  Future<Null> invalidate(DragonKey key) {
     return new File(_pathForKey(key)).delete();
   }
 }
