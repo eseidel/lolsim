@@ -13,12 +13,14 @@ const double SECONDS_PER_TICK = 1 / TICKS_PER_SECOND;
 abstract class MapSettings {
   final String name;
   MapSettings(this.name);
+  double deltaExperianceToLevel(int level);
   double cummulativeExperianceToLevel(int level);
 }
 
 class SummonersRift extends MapSettings {
   SummonersRift() : super('Summoner\'s Rift');
-  double _deltaExperianceToLevel(int level) {
+  @override
+  double deltaExperianceToLevel(int level) {
     return 100.0 * level + 80.0;
   }
 
@@ -27,7 +29,7 @@ class SummonersRift extends MapSettings {
   double cummulativeExperianceToLevel(int level) {
     double total = 0.0;
     while (level > 1) {
-      total += _deltaExperianceToLevel(level);
+      total += deltaExperianceToLevel(level);
       level -= 1;
     }
     return total;

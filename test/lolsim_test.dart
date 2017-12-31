@@ -168,4 +168,36 @@ dynamic main() async {
       expect(targetB.hpLost, 100.0 * (2 - (100.0 / 102.0)));
     });
   });
+  group('Champion Kill Experiance', () {
+    test('basic', () {
+      void expectKillExp(int killerLevel, int victimLevel, double expectedExp) {
+        Mob killer = createTestMob(type: MobType.champion, level: killerLevel);
+        Mob victim = createTestMob(type: MobType.champion, level: victimLevel);
+        double beforeExp = killer.totalExperiance;
+        World world = new World();
+        world.makeCurrentForScope(() {
+          applyHit(source: killer, target: victim, trueDamage: 10000.0);
+        });
+        double actualExp = killer.totalExperiance - beforeExp;
+        expect(actualExp, closeTo(expectedExp, 0.5));
+      }
+
+      // FIXME: These numbers have not been validated with the practice tool.
+      expectKillExp(1, 1, 140.0);
+      expectKillExp(2, 2, 190.0);
+      expectKillExp(1, 2, 203.5); // 7% bump for greater level.
+      expectKillExp(3, 2, 176.7); // 7% reduction from lesser level
+      expectKillExp(4, 2, 163.4); // -14%
+      expectKillExp(5, 2, 152.0); // -20% (capped)
+      expectKillExp(6, 2, 152.0); // -20% (capped)
+
+      // 1880xp to reach lvl 18.
+      // 1880 * 0.5 = 940
+      // level diff = 17 - 1 = 16
+      // 1.0 + (16 * 0.7) = 2.12x bonus exp for level diff
+      // 940 * 2.12 = 1992.8
+      expectKillExp(1, 17, 1992.8);
+      expectKillExp(1, 18, 2168.1); // Is this right?
+    });
+  });
 }

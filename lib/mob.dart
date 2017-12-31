@@ -954,9 +954,26 @@ class Mob {
       _log.warning('Missing gold value for death of $this');
   }
 
+  double _championKillExperiance(Mob killer) {
+    // http://leagueoflegends.wikia.com/wiki/Experience_(champion)
+    // Killing a champion: Gives 50% of the experience required
+    // to reach the slain champion's next level (not current level).
+    double nextLevelExp =
+        0.5 * World.current.map.deltaExperianceToLevel(level + 1);
+    // This is increased/lowered by 7% per level difference if the
+    // target is higher/lower level and can't be lower than 20%.
+    int levelDifference = level - killer.level;
+    double modifier = max(0.07 * levelDifference, -0.20) + 1.0;
+    return nextLevelExp * modifier;
+  }
+
   void grantExperianceToKiller(Mob killer) {
     double experiance = description.experiance;
+    if (isChampion && killer.isChampion)
+      experiance = _championKillExperiance(killer);
     // FIXME: This should be to not just the killer but other nearby allies?
+    // FIXME: Exp should be divided in case of assists, with additional bonuses:
+    // http://leagueoflegends.wikia.com/wiki/Experience_(champion)
     // FIXME: Unclear what's correct for monsters:
     // http://leagueoflegends.wikia.com/wiki/Monster#Monster_experience_reward
     if (experiance != null && experiance > 0)
