@@ -1,7 +1,14 @@
+import 'dart:math';
+
 import 'package:lol_duel/mob.dart';
 import 'package:logging/logging.dart';
 
 final Logger _log = new Logger('world');
+
+// Supposedly the internal server tick rate is 30fps:
+// https://www.reddit.com/r/leagueoflegends/comments/2mmlkr/0001_second_kill_on_talon_even_faster_kill_out/cm5tizu/
+const int TICKS_PER_SECOND = 30;
+const double SECONDS_PER_TICK = 1 / TICKS_PER_SECOND;
 
 abstract class MapSettings {
   final String name;
@@ -24,6 +31,28 @@ class SummonersRift extends MapSettings {
       level -= 1;
     }
     return total;
+  }
+}
+
+typedef bool TickCondition(World world);
+typedef bool CritProvider(Mob attacker);
+
+class RandomCrits {
+  Random random = new Random();
+  bool call(Mob attacker) {
+    if (attacker.stats.critChance == 0.0) return false;
+    return random.nextDouble() < attacker.stats.critChance;
+  }
+}
+
+class PredictableCrits {
+  Map<String, Random> randomForChamp = {};
+
+  bool call(Mob attacker) {
+    if (attacker.stats.critChance == 0.0) return false;
+    Random random =
+        randomForChamp.putIfAbsent(attacker.id, () => new Random(0));
+    return random.nextDouble() < attacker.stats.critChance;
   }
 }
 

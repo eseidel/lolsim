@@ -25,11 +25,6 @@ String simpleEnglishPlural(String word, int count) {
   return count > 1 ? word + 's' : word;
 }
 
-// Supposedly the internal server tick rate is 30fps:
-// https://www.reddit.com/r/leagueoflegends/comments/2mmlkr/0001_second_kill_on_talon_even_faster_kill_out/cm5tizu/
-const int TICKS_PER_SECOND = 30;
-const double SECONDS_PER_TICK = 1 / TICKS_PER_SECOND;
-
 typedef void OnHitCallback(Hit target);
 typedef void DamageDealtModifier(Hit hit, DamageDealtModifier);
 typedef void DamageRecievedModifier(Hit hit, DamageRecievedDelta);
@@ -996,27 +991,5 @@ class Mob {
   void startManaRecoveryIfNecessary() {
     if (buffs.any((buff) => buff is ManaRecovery)) return;
     addBuff(new ManaRecovery(this));
-  }
-}
-
-typedef bool TickCondition(World world);
-typedef bool CritProvider(Mob attacker);
-
-class RandomCrits {
-  Random random = new Random();
-  bool call(Mob attacker) {
-    if (attacker.stats.critChance == 0.0) return false;
-    return random.nextDouble() < attacker.stats.critChance;
-  }
-}
-
-class PredictableCrits {
-  Map<String, Random> randomForChamp = {};
-
-  bool call(Mob attacker) {
-    if (attacker.stats.critChance == 0.0) return false;
-    Random random =
-        randomForChamp.putIfAbsent(attacker.id, () => new Random(0));
-    return random.nextDouble() < attacker.stats.critChance;
   }
 }
