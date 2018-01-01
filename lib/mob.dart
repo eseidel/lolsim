@@ -935,6 +935,8 @@ class Mob {
 
   void grantGoldToKiller(Mob killer) {
     double gold = description.gold;
+    // FIXME: This does not take bounties into account.
+    if (isChampion) gold = 300.0;
     // FIXME: This should be to not just the killer but other nearby allies?
     if (gold != null && gold > 0)
       killer.addGold(gold);
