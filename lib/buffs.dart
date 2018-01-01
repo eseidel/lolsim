@@ -1,12 +1,9 @@
 import 'dart:math';
 
-import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 
 import 'mob.dart';
 import 'effects.dart';
-
-final Logger _log = new Logger('buffs');
 
 abstract class Buff extends BuffEffects {
   String name;

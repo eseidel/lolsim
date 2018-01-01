@@ -1,11 +1,7 @@
 import 'dart:async';
 
-import 'package:logging/logging.dart';
-
 import 'dragon/dragon.dart';
 import 'mob.dart';
-
-final Logger _log = new Logger('creator');
 
 class RuneFactory {
   final RuneLibrary library;

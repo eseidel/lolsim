@@ -1,5 +1,4 @@
 import 'package:lol_duel/lolsim.dart';
-import 'package:lol_duel/mastery_pages.dart';
 import 'package:lol_duel/dragon/dragon.dart';
 import 'package:lol_duel/buffs.dart';
 import 'package:meta/meta.dart';
@@ -55,7 +54,6 @@ Mob createTestMob({
   double hp5: 0.0,
   double attackDelay: 0.0,
   double attackSpeedPerLevel: 0.0,
-  List<Mastery> masteries: const [],
   int level: 1,
 }) {
   Mob mob = new Mob(
@@ -82,14 +80,6 @@ Mob createTestMob({
     ),
     type,
   );
-  if (masteries.isNotEmpty) {
-    mob.masteryPage = new MasteryPage(
-      name: 'Test Page',
-      masteries: masteries,
-    );
-    mob.masteryPage.initForChamp(mob);
-    mob.masteryPage.logAnyMissingEffects();
-  }
   mob.jumpToLevel(level);
   return mob;
 }

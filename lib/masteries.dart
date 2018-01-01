@@ -2,7 +2,8 @@ import 'dragon/stat_constants.dart';
 import 'effects.dart';
 import 'mob.dart';
 
-typedef MasteryEffects MasteryEffectsConstructor(Mob champ, int rank);
+typedef MasteryEffectsConstructor = MasteryEffects Function(
+    Mob champ, int rank);
 
 final Map<String, MasteryEffectsConstructor> masteryEffectsConstructors = {
   'Battering Blows': (Mob champ, int rank) => new BatteringBlows(champ, rank),

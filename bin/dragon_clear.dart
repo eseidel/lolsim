@@ -78,10 +78,6 @@ dynamic main(List<String> args) async {
     champ.summoners.d = createSummoner(SummonerType.smite, champ);
     (champ.summoners.d.effects as Smite).chargesBuff.charges = 2;
 
-    champ.masteryPage = masteriesFromHash(
-        creator.dragon.masteries, jungleStats.mostCommonMasteriesHash);
-    champ.masteryPage.name = 'Champion.gg most common';
-
     champ.runePage =
         runesFromHash(creator.dragon.runes, jungleStats.mostCommonRunesHash);
     champ.runePage.name = 'Champion.gg most common';

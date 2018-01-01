@@ -58,9 +58,6 @@ class _Calculate {
 
     champ.summoners = new SummonerBook();
     champ.summoners.d = createSummoner(SummonerType.smite, champ);
-
-    champ.masteryPage = masteriesFromHash(
-        creator.dragon.masteries, jungleStats.mostCommonMasteriesHash);
     champ.runePage =
         runesFromHash(creator.dragon.runes, jungleStats.mostCommonRunesHash);
 

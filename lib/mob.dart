@@ -11,7 +11,6 @@ import 'dragon/stats.dart';
 import 'effects.dart';
 import 'items.dart';
 import 'masteries.dart';
-import 'mastery_pages.dart';
 import 'world.dart';
 import 'planning.dart';
 import 'rune_pages.dart';
@@ -25,30 +24,30 @@ String simpleEnglishPlural(String word, int count) {
   return count > 1 ? word + 's' : word;
 }
 
-typedef void OnHitCallback(Hit target);
-typedef void DamageDealtModifier(Hit hit, DamageDealtModifier);
-typedef void DamageRecievedModifier(Hit hit, DamageRecievedDelta);
+typedef OnHitCallback = void Function(Hit target);
+typedef DamageDealtModifier = void Function(Hit hit, DamageDealtDelta delta);
+typedef DamageRecievedModifier = void Function(
+    Hit hit, DamageRecievedDelta delta);
 
 class Rune {
   RuneDescription description;
+  RuneEffects effects;
 
   Rune(this.description) {
-    logIfMissingStats();
+    logIfMissingEffects();
   }
 
   String get name => description.name;
-  String get statName => description.statName;
-  double get statValue => description.statValue;
 
   @override
   String toString() => name;
 
-  static final Set _loggedRuneNames = new Set();
-  void logIfMissingStats() {
-    if (description.statName != null) return;
-    if (_loggedRuneNames.contains(name)) return;
-    _loggedRuneNames.add(name);
-    _log.warning('Rune ${name} has no stats!');
+  static final Set _loggedEffects = new Set();
+  void logIfMissingEffects() {
+    if (effects != null) return;
+    if (_loggedEffects.contains(description.name)) return;
+    _loggedEffects.add(description.name);
+    _log.warning('Rune ${description.name} has no defined effects.');
   }
 }
 
@@ -500,7 +499,6 @@ class Mob {
   // FIXME: These could group into some sort of effects object.
   List<Item> items = <Item>[];
   List<Buff> buffs = <Buff>[];
-  MasteryPage _masteryPage;
   RunePage _runePage;
   ChampionEffects championEffects;
   SpellBook spells;
@@ -577,18 +575,10 @@ class Mob {
       damageLog = null;
   }
 
-  MasteryPage get masteryPage => _masteryPage;
-  set masteryPage(MasteryPage newPage) {
-    _masteryPage = newPage;
-    _masteryPage.initForChamp(this);
-    _masteryPage.logAnyMissingEffects();
-    updateStats();
-  }
-
   RunePage get runePage => _runePage;
   set runePage(RunePage newPage) {
     _runePage = newPage;
-    _runePage.logAnyMissingStats();
+    _runePage.logAnyMissingEffects();
     updateStats();
   }
 
@@ -599,7 +589,6 @@ class Mob {
     AR : ${stats.armor.round()}  MR : ${stats.spellBlock.round()}
     AS : ${stats.attackSpeed.toStringAsFixed(3)} (${stats.attackDuration.toStringAsFixed(1)}s)\n""";
     if (runePage != null) summary += '    Runes: ${runePage.summaryString}\n';
-    if (masteryPage != null) summary += '    Masteries: ${masteryPage}\n';
     if (items.isNotEmpty) summary += '    Items: ${items.join(", ")}\n';
     if (summoners != null) summary += '    Summoners: $summoners\n';
     if (buffs != null) summary += '    Buffs: $buffs\n';
@@ -613,11 +602,10 @@ class Mob {
       stats = description.baseStats.monsterCurvedStatsForLevel(level);
     else
       stats = description.baseStats.linearStatsForLevel(level);
-    if (runePage != null) stats.applyStatMap(runePage.collectStats());
-    if (masteryPage != null) {
-      for (Mastery mastery in masteryPage.masteries) {
-        if (mastery?.effects?.stats != null) {
-          stats.applyStatMap(mastery.effects.stats);
+    if (runePage != null) {
+      for (Rune rune in runePage.runes) {
+        if (rune?.effects?.stats != null) {
+          stats.applyStatMap(rune.effects.stats);
         }
       }
     }
@@ -726,10 +714,10 @@ class Mob {
         delta.percentMagical *= stats.critDamageMultiplier;
       }
     ];
-    if (masteryPage != null) {
-      for (Mastery mastery in masteryPage.masteries) {
-        if (mastery.effects != null)
-          modifiers.add(mastery.effects.damageDealtModifier);
+    if (runePage != null) {
+      for (Rune rune in runePage.runes) {
+        if (rune.effects != null)
+          modifiers.add(rune.effects.damageDealtModifier);
       }
     }
     for (Buff buff in buffs) {
@@ -816,10 +804,10 @@ class Mob {
       if (item.effects != null)
         modifiers.add(item.effects.damageRecievedModifier);
     }
-    if (masteryPage != null) {
-      for (Mastery mastery in masteryPage.masteries) {
-        if (mastery.effects != null)
-          modifiers.add(mastery.effects.damageRecievedModifier);
+    if (runePage != null) {
+      for (Rune rune in runePage.runes) {
+        if (rune.effects != null)
+          modifiers.add(rune.effects.damageRecievedModifier);
       }
     }
     spells?.forEach((Spell spell) {

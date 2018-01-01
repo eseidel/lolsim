@@ -67,10 +67,6 @@ dynamic main(List<String> args) async {
     RoleEntry jungleStats = champStats.entryForRole(Role.jungle);
     champ.summoners = new SummonerBook();
     champ.summoners.d = createSummoner(SummonerType.smite, champ);
-    champ.masteryPage = masteriesFromHash(
-        creator.dragon.masteries, jungleStats.mostCommonMasteriesHash);
-    champ.masteryPage.name = 'Champion.gg most common';
-
     champ.runePage =
         runesFromHash(creator.dragon.runes, jungleStats.mostCommonRunesHash);
     champ.runePage.name = 'Champion.gg most common';

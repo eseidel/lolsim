@@ -36,8 +36,8 @@ class SummonersRift extends MapSettings {
   }
 }
 
-typedef bool TickCondition(World world);
-typedef bool CritProvider(Mob attacker);
+typedef TickCondition = bool Function(World world);
+typedef CritProvider = bool Function(Mob attacker);
 
 class RandomCrits {
   Random random = new Random();

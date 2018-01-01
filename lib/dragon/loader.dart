@@ -1,13 +1,10 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:logging/logging.dart';
 import 'package:resource/resource.dart';
 import 'package:path/path.dart' as pathPackage;
 
-final Logger _log = new Logger('dragon_loader');
-
-const String DEFAULT_VERSION = '7.10.1';
+const String DEFAULT_VERSION = '7.24.1';
 const String DEFAULT_LOCALE = 'en_US';
 const String DEFAULT_CACHE_DIR = '/tmp/lolsim';
 

@@ -121,36 +121,72 @@ class ItemLibrary {
   }
 }
 
+enum RunePath {
+  domination,
+  inspiration,
+  precision,
+  sorcery,
+  resolve,
+}
+
+enum RuneSlot {
+  keystone,
+  one,
+  two,
+  three,
+}
+
 class RuneDescription {
   final String name;
   final int id;
-  final String statName;
-  final double statValue;
+  final String longDesc;
+  final RuneSlot slot;
 
-  RuneDescription.fromJSON({Map<String, dynamic> json, int id})
-      : id = id,
+  RuneDescription.fromJSON(Map<String, dynamic> json, this.slot)
+      : id = json['id'],
         name = json['name'],
-        statName =
-            json['stats'].keys.length == 1 ? json['stats'].keys.first : null,
-        statValue = json['stats'].values.length == 1
-            ? json['stats'].values.first.toDouble()
-            : null {
-    assert(json['rune']['isrune'] == true);
+        longDesc = json['longDesc'];
+
+  RunePath get path {
+    // HACK: But seems to work and is quick.
+    assert(id <= 8500);
+    if (id >= 8400) return RunePath.resolve;
+    if (id >= 8300) return RunePath.inspiration;
+    if (id >= 8200) return RunePath.sorcery;
+    if (id >= 8100) return RunePath.domination;
+    assert(id >= 8000);
+    return RunePath.precision;
   }
 }
 
 // This could share code with ItemLibrary?
 class RuneLibrary {
-  final Map<String, Map<String, dynamic>> _json;
+  RuneLibrary(List<Map<String, Map<String, dynamic>>> pathJsons)
+      : _runesById = _parseRunesJson(pathJsons);
 
-  RuneLibrary(Map<String, Map<String, dynamic>> json) : _json = json;
+  static Map<String, RuneDescription> _parseRunesJson(
+      List<Map<String, Map<String, dynamic>>> pathJsons) {
+    Map<String, RuneDescription> byId = new Map();
+    void addRunes(Map<String, dynamic> slotsJson, RuneSlot slot) {
+      slotsJson['runes'].forEach((Map<String, dynamic> runeJson) {
+        byId[runeJson['id']] = new RuneDescription.fromJSON(runeJson, slot);
+      });
+    }
 
-  RuneDescription runeById(int id) {
-    return new RuneDescription.fromJSON(
-      id: id,
-      json: _json['data'][id.toString()],
-    );
+    pathJsons.forEach((Map<String, dynamic> pathJson) {
+      addRunes(pathJson['slots'][0], RuneSlot.keystone);
+      addRunes(pathJson['slots'][1], RuneSlot.one);
+      addRunes(pathJson['slots'][2], RuneSlot.two);
+      addRunes(pathJson['slots'][3], RuneSlot.three);
+    });
+    return new Map.unmodifiable(byId);
   }
+
+  final Map<String, RuneDescription> _runesById;
+
+  List<RuneDescription> allRunes() => _runesById.values;
+
+  RuneDescription runeById(int id) => _runesById[id];
 }
 
 enum MasteryTree {
@@ -257,7 +293,7 @@ class ChampionLibrary {
   List<String> loadChampNames() {
     return _json['data']
         .values
-        .map((Map<String, dynamic> champ) => champ['name'] as String)
+        .map<String>((Map<String, dynamic> champ) => champ['name'] as String)
         .toList();
   }
 
@@ -300,11 +336,10 @@ class ChampionLibrary {
 class DragonData {
   final ChampionLibrary champs;
   final ItemLibrary items;
-  final MasteryLibrary masteries;
   final RuneLibrary runes;
   final SpellLibrary spells;
 
-  DragonData(this.champs, this.items, this.masteries, this.runes, this.spells);
+  DragonData(this.champs, this.items, this.runes, this.spells);
 
   static Future<DragonData> loadLatest({DragonLoader loader}) async {
     loader ??= new LocalLoader();
@@ -312,8 +347,7 @@ class DragonData {
     return new DragonData(
       new ChampionLibrary(championFull),
       new ItemLibrary(JSON.decode(await loader.load('item.json'))),
-      new MasteryLibrary(JSON.decode(await loader.load('mastery.json'))),
-      new RuneLibrary(JSON.decode(await loader.load('rune.json'))),
+      new RuneLibrary(JSON.decode(await loader.load('runesReforged.json'))),
       new SpellLibrary.fromJson(championFull),
     );
   }

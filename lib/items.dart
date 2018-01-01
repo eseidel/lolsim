@@ -254,7 +254,7 @@ class ItemNames {
   static final String BamisCinder = 'Bami\'s Cinder';
 }
 
-typedef BuffEffects ItemEffectsConstructor(Mob owner);
+typedef ItemEffectsConstructor = BuffEffects Function(Mob owner);
 
 Map<String, ItemEffectsConstructor> _itemEffectsConstructors = {
   ItemNames.DoransShield: (_) => new DoransShield(),

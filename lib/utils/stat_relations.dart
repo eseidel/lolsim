@@ -30,7 +30,7 @@ Future relateArmorToHp(ItemLibrary items) async {
   print('Slope: $marginalHpCostOfArmorThroughGold');
 }
 
-typedef double ConvertApsToAd(double aps);
+typedef ConvertApsToAd = double Function(double aps);
 
 Future<ConvertApsToAd> relateAttacksPerSecondToAttackDamage(
     ItemLibrary items, double baseAttackSpeed) async {

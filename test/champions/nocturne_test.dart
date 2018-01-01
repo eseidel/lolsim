@@ -18,7 +18,7 @@ dynamic main() async {
           nocturne.buffs.firstWhere((buff) => buff is UmbraBladesCooldown);
       expect(cooldown.remaining, 10.0);
       new AutoAttack(nocturne, mob).apply(world);
-      expect(mob.hpLost, 2.2 * nocturne.stats.attackDamage);
+      expect(mob.hpLost, closeTo(2.2 * nocturne.stats.attackDamage, 0.001));
       expect(cooldown.remaining, 9.0);
     });
     test('structures', () {

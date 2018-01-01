@@ -5,6 +5,7 @@ const String VERSION_7_8_1 = '7.8.1';
 const String VERSION_7_9_1 = '7.9.1';
 const String VERSION_7_10_1 = '7.10.1';
 const String VERSION_7_11_1 = '7.11.1';
+const String VERSION_7_24_1 = '7.24.1';
 
 // Champion, Buff, Item, Spell (Ability)
 abstract class EffectsBase {
@@ -36,6 +37,14 @@ abstract class MasteryEffects extends ChampionEffects {
   final int rank;
   final Mob champ;
   MasteryEffects(this.champ, this.rank);
+
+  void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {}
+  void damageDealtModifier(Hit hit, DamageDealtDelta delta) {}
+}
+
+abstract class RuneEffects extends ChampionEffects {
+  final Mob champ;
+  RuneEffects(this.champ);
 
   void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {}
   void damageDealtModifier(Hit hit, DamageDealtDelta delta) {}

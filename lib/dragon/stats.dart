@@ -10,7 +10,7 @@ double letalityToFlatPenatration(int targetLevel) {
 
 final Logger _log = new Logger('stats');
 
-typedef void StatApplier(Stats stats, num value);
+typedef StatApplier = void Function(Stats stats, num value);
 
 // FIXME: There is probably a better way to do this where we combine all the
 // stat modifications together in json form and then collapse them all at the end instead.
