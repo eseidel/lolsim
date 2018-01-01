@@ -291,8 +291,7 @@ class ChampionLibrary {
   }
 
   List<String> loadChampNames() {
-    return _json['data']
-        .values
+    return (_json['data'].values as List<Map<String, dynamic>>)
         .map<String>((Map<String, dynamic> champ) => champ['name'] as String)
         .toList();
   }

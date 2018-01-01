@@ -40,7 +40,7 @@ class DuelLoader {
   Mob loadChampion(YamlMap yamlMob) {
     Mob mob = creator.champs.championByName(yamlMob['name']);
     mob.jumpToLevel(yamlMob['level'] ?? 1);
-    YamlList yamlItems = yamlMob['items'];
+    List<String> yamlItems = yamlMob['items'];
     if (yamlItems != null) {
       yamlItems.forEach(
           (String itemName) => mob.addItem(creator.items.itemByName(itemName)));
@@ -65,7 +65,7 @@ class DuelLoader {
 
   List<Mob> loadTeam(Team color, YamlMap yamlTeam) {
     List<Mob> mobs = [];
-    YamlList yamlChampions = yamlTeam['champions'];
+    List<YamlMap> yamlChampions = yamlTeam['champions'];
     if (yamlChampions != null)
       mobs.addAll(yamlChampions.map<Mob>(loadChampion));
     YamlMap yamlMinions = yamlTeam['minions'];
@@ -75,7 +75,7 @@ class DuelLoader {
       addMinions(mobs, yamlMinions['melee'], MinionType.melee);
       addMinions(mobs, yamlMinions['super'], MinionType.superMinion);
     }
-    YamlList yamlMonsters = yamlTeam['monsters'];
+    List<YamlMap> yamlMonsters = yamlTeam['monsters'];
     if (yamlMonsters != null) mobs.addAll(yamlMonsters.map<Mob>(loadMonster));
 
     mobs.forEach((mob) {
@@ -84,7 +84,7 @@ class DuelLoader {
     return mobs;
   }
 
-  Duel duelFromYaml(YamlMap yamlDuel) {
+  Duel duelFromYaml(Map<String, YamlMap> yamlDuel) {
     Duel duel = new Duel();
     yamlDuel.forEach((String key, YamlMap team) {
       switch (key) {
