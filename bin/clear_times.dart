@@ -17,6 +17,7 @@ typedef CreateChamp = Mob Function(String champName);
 class _Calculate {
   String champName;
   bool alive;
+  String killer;
   double hp;
   double hpPercent;
   double clearTime;
@@ -24,6 +25,8 @@ class _Calculate {
   List<CampType> route;
   bool hasPassive;
   bool hasSkillEffects;
+  String keystone;
+  String itemsString;
 
   _Calculate(
       Creator creator, ChampionGG championGG, this.champName, this.route) {
@@ -47,10 +50,13 @@ class _Calculate {
 
     champ.runePage =
         runesFromHash(creator.dragon.runes, jungleStats.mostCommonRunesHash);
+    keystone = champ.runePage.keystone.shortName;
+    if (champ.runePage.keystone.effects == null) keystone += '*';
 
     jungleStats.mostCommonStartingItemIds.forEach((itemId) {
       champ.addItem(creator.items.itemById(itemId));
     });
+    itemsString = _stringForItems(champ.items);
 
     skillOrder = jungleStats.mostCommonSkillOrder
         .map((String char) => new SpellKey.fromChar(char))
@@ -87,8 +93,17 @@ class _Calculate {
     hp = champ.currentHp;
     hpPercent = champ.healthPercent;
     alive = champ.alive;
+    if (!alive) killer = campTypeToString(lastCamp);
 
     clearTime = world.time;
+  }
+
+  String _stringForItems(List<Item> items) {
+    return items.map<String>((Item item) {
+      String name = item.shortName;
+      if (item.effects == null && item.stats.isEmpty) name += '*';
+      return name;
+    }).join(', ');
   }
 }
 
@@ -123,12 +138,12 @@ dynamic main(List<String> args) async {
     return 0;
   });
 
-  TableLayout layout = new TableLayout([2, 13, 11, 6]);
-  layout.printRow(['', 'Name', 'HP', 'Time']);
+  TableLayout layout = new TableLayout([2, 13, 11, 6, 13, 11]);
+  layout.printRow(['', 'Name', 'HP', 'Time', 'Keystone', 'Items']);
   layout.printDivider();
 
   String hpString(var r) {
-    if (!r.alive) return '-';
+    if (!r.alive) return r.killer;
     return "${r.hp.round()} (${(100 * r.hpPercent).toStringAsFixed(1)}%)";
   }
 
@@ -140,6 +155,8 @@ dynamic main(List<String> args) async {
       r.champName,
       hpString(r),
       "${r.clearTime.round()}s",
+      r.keystone,
+      r.itemsString,
     ]);
   }
 }

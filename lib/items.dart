@@ -271,3 +271,13 @@ BuffEffects constructEffectsForItem(String itemName, Mob owner) {
   if (effects != null) effects.onCreate();
   return effects;
 }
+
+String shortNameForItem(String name) {
+  String shortName = {
+    'Rejuvenation Bead': 'Bead',
+    'Hunter\'s Machete': 'Machete',
+    'Hunter\'s Talisman': 'Talisman',
+    'Refillable Potion': 'Refill. Pot'
+  }[name];
+  return shortName == null ? name : shortName;
+}

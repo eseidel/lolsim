@@ -5,7 +5,7 @@ lolsim
 
 Toy implementation of League of Legends' combat engine.
 
-Current patch: 7.10.1.
+Current patch: 7.24.1.
 
 My goal here is to familiarize myself with the finer details of LOL's rules as
 well as have a chance to play around with Dart.
@@ -31,7 +31,7 @@ There are several other dart files in bin/, most of them are for testing.
 
 ## Limitations
 Many.  Including at least:
- - Chamion/Item/Mastery/Rune lookups are case sensitive and expect names in Title Case.
+ - Chamion/Item/Rune lookups are case sensitive and expect names in Title Case.
  - Incomplete (and partially outdated) support for Runes and Masteries.
  - Very limited item support.
  - Very limited abilities support.
@@ -53,10 +53,10 @@ Many.  Including at least:
 - Per-level runes.
 - monster leveling
 - Monsters are not neutral / incorrect AI.
-- Improved proximity (for masteries).
+- Improved proximity.
 - Coverage & coveralls.io
 - Split mob.dart into smaller files.
-- Add more passives, abilities, masteries, runes, etc.
+- Add more passives, abilities, runes, etc.
 - Convert to integer math (ticks, etc.) to avoid double precision errors.
 - Implement in-combat/out-of-combat
  -- More champs would die to darius and twitch dots.

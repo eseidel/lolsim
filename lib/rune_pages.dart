@@ -1,5 +1,6 @@
 import 'mob.dart';
 import 'creator.dart';
+import 'dragon/dragon.dart';
 
 class RunePage {
   String name;
@@ -18,6 +19,11 @@ class RunePage {
   }
 
   String get summaryString => 'rune page';
+
+  Rune get keystone {
+    assert(runes[0].description.slot == RuneSlot.keystone);
+    return runes[0];
+  }
 
   @override
   String toString() => name;

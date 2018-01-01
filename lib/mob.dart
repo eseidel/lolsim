@@ -14,6 +14,7 @@ import 'masteries.dart';
 import 'world.dart';
 import 'planning.dart';
 import 'rune_pages.dart';
+import 'runes_reforged.dart';
 
 export 'dragon/spellkey.dart';
 export 'dragon/stats.dart';
@@ -38,6 +39,7 @@ class Rune {
   }
 
   String get name => description.name;
+  String get shortName => shortNameForRune(description.name);
 
   @override
   String toString() => name;
@@ -66,6 +68,8 @@ class Item {
 
   @override
   String toString() => '${name} (${description.gold['total']}g)';
+
+  String get shortName => shortNameForItem(name);
 
   static final Set _loggedEffects = new Set();
   void logMissingEffects() {

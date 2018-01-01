@@ -147,6 +147,16 @@ class RuneDescription {
         name = json['name'],
         longDesc = json['longDesc'];
 
+  static RunePath pathById(int pathId) {
+    return {
+      8000: RunePath.precision,
+      8100: RunePath.domination,
+      8200: RunePath.sorcery,
+      8300: RunePath.inspiration,
+      8400: RunePath.resolve,
+    }[pathId];
+  }
+
   RunePath get path {
     // HACK: But seems to work and is quick.
     assert(id <= 8500);
