@@ -2,6 +2,7 @@ import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/dragon/dragon.dart';
 import 'package:lol_duel/items.dart';
 import 'package:lol_duel/lolsim.dart';
+import 'package:lol_duel/planning.dart';
 import 'package:test/test.dart';
 
 import 'utils.dart';
@@ -109,6 +110,34 @@ dynamic main() async {
 
       new AutoAttack(attacker, withArmor).apply(world);
       expect(attacker.currentHp, 109.0);
+    });
+  });
+
+  group("Health Potion", () {
+    test("basic", () {
+      Mob user = createTestMob(hp: 1000.0);
+      applyHit(target: user, source: createTestMob(), trueDamage: 500.0);
+      user.addItem(itemNamed(ItemNames.HealthPotion));
+      expect(user.items.length, 1);
+      World world = new World(reds: [user]);
+      new SelfCastItem(user.items[0]).apply(world);
+      expect(user.items.length, 0);
+      world.tickFor(12.0);
+      expect(user.hpLost, 350.0);
+    });
+  });
+
+  group("Refillable Potion", () {
+    test("basic", () {
+      Mob user = createTestMob(hp: 1000.0);
+      applyHit(target: user, source: createTestMob(), trueDamage: 500.0);
+      user.addItem(itemNamed(ItemNames.RefillablePotion));
+      expect(user.items.length, 1);
+      World world = new World(reds: [user]);
+      new SelfCastItem(user.items[0]).apply(world);
+      expect(user.items.length, 1);
+      world.tickFor(12.0);
+      expect(user.hpLost, closeTo(375.0, 0.1));
     });
   });
 }

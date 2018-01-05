@@ -156,8 +156,8 @@ class World {
     });
   }
 
-  void tickFor(double duration) {
-    double endTime = time + duration;
+  void tickFor(double seconds) {
+    double endTime = time + seconds;
     tickUntil((world) => world.time >= endTime);
   }
 
