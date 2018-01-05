@@ -139,13 +139,19 @@ class HuntersTalisman extends BuffEffects {
   }
 }
 
-class RefillablePotionBuff extends TimedBuff {
-  // FIXME: Respect Secret Stash (10% longer).
-  static double initialDuration = 12.0;
+abstract class HealingPotionBuff extends TimedBuff {
+  final double initialDuration;
+  final double hp5;
 
-  RefillablePotionBuff(Mob target)
+  HealingPotionBuff({
+    @required Mob target,
+    @required String name,
+    @required this.hp5,
+    @required this.initialDuration,
+  })
       : super(
-          name: 'Refillable Potion',
+          name: name,
+          // FIXME: Respect Inspiration Trait (20% longer).
           duration: initialDuration,
           target: target,
         );
@@ -155,39 +161,26 @@ class RefillablePotionBuff extends TimedBuff {
   }
 
   @override
-  String get lastUpdate => VERSION_7_11_1;
-
-  @override
   Map<String, num> get stats => {
-        // Restores 125hp over 12 seconds, FlatHPRegenMod is in units of 5 seconds.
-        FlatHPRegenMod: 125.0 / 12.0 * 5.0,
+        FlatHPRegenMod: hp5,
       };
 }
 
-class RefillablePotion extends EffectWithCooldown {
-  final int maxCharges = 2;
-  int charges = 2;
+abstract class HealingPotion<T extends HealingPotionBuff>
+    extends SelfTargetedSpell {
+  HealingPotion(Mob champ, String name) : super(champ, name);
 
-  RefillablePotion() : super('Refillable Potion') {
-    refill();
-  }
-
-  void refill() {
-    charges = maxCharges;
-  }
-
-  @override
-  String get lastUpdate => VERSION_7_11_1;
-
-  RefillablePotionBuff findActiveBuff(Mob champ) => champ.buffs
-      .firstWhere((buff) => buff is RefillablePotionBuff, orElse: () => null);
+  T findActiveBuff(Mob champ) =>
+      champ.buffs.firstWhere((buff) => buff is T, orElse: () => null);
 
   bool isActive(Mob champ) => findActiveBuff(champ) != null;
 
+  T createBuff(Mob target);
+
   void applyToOrAddStack(Mob target) {
-    RefillablePotionBuff buff = findActiveBuff(target);
+    T buff = findActiveBuff(target);
     if (buff == null) {
-      target.addBuff(new RefillablePotionBuff(target));
+      target.addBuff(createBuff(target));
     } else {
       buff.addStack();
     }
@@ -196,13 +189,83 @@ class RefillablePotion extends EffectWithCooldown {
   @override
   double get cooldownDuration => 0.5; // Standard item activation cooldown.
 
-  bool canBeCastOn(Mob champ) =>
-      charges > 0 && champ.hpLost > 0 && !isOnCooldown;
+  @override
+  bool get isActiveToggle => false;
+}
 
-  void castOn(Mob champ) {
-    assert(canBeCastOn(champ));
+class RefillablePotionBuff extends HealingPotionBuff {
+  RefillablePotionBuff(Mob target)
+      : super(
+          target: target,
+          name: 'Refillable Potion',
+          hp5: 125.0 / 12.0 * 5.0,
+          initialDuration: 12.0,
+        );
+
+  @override
+  String get lastUpdate => VERSION_7_24_1;
+}
+
+class RefillablePotion extends HealingPotion<RefillablePotionBuff> {
+  final int maxCharges = 2;
+  int charges = 2;
+
+  RefillablePotion(Mob champ) : super(champ, 'Refillable Potion') {
+    refill();
+  }
+
+  void refill() {
+    charges = maxCharges;
+  }
+
+  @override
+  String get lastUpdate => VERSION_7_24_1;
+
+  @override
+  RefillablePotionBuff createBuff(Mob target) =>
+      new RefillablePotionBuff(target);
+
+  @override
+  bool get canBeCastOnSelf => charges > 0 && champ.hpLost > 0 && !isOnCooldown;
+
+  @override
+  void castOnSelf() {
+    assert(canBeCastOnSelf);
     charges -= 1;
     applyToOrAddStack(champ);
+  }
+}
+
+class HealthPotionBuff extends HealingPotionBuff {
+  HealthPotionBuff(Mob target)
+      : super(
+          name: 'Health Potion',
+          initialDuration: 12.0,
+          target: target,
+          hp5: 150.0 / 12.0 * 5.0,
+        );
+
+  @override
+  String get lastUpdate => VERSION_7_24_1;
+}
+
+class HealthPotion extends HealingPotion<HealthPotionBuff> {
+  HealthPotion(Mob owner) : super(owner, 'Health Potion');
+
+  @override
+  String get lastUpdate => VERSION_7_24_1;
+
+  @override
+  HealthPotionBuff createBuff(Mob target) => new HealthPotionBuff(target);
+
+  @override
+  bool get canBeCastOnSelf => champ.hpLost > 0 && !isOnCooldown;
+
+  @override
+  void castOnSelf() {
+    assert(canBeCastOnSelf);
+    applyToOrAddStack(champ);
+    // Item is deleted by caller.
   }
 }
 
@@ -252,6 +315,7 @@ class ItemNames {
   static final String HuntersTalisman = 'Hunter\'s Talisman';
   static final String RefillablePotion = 'Refillable Potion';
   static final String BamisCinder = 'Bami\'s Cinder';
+  static final String HealthPotion = 'Health Potion';
 }
 
 typedef ItemEffectsConstructor = BuffEffects Function(Mob owner);
@@ -260,8 +324,9 @@ Map<String, ItemEffectsConstructor> _itemEffectsConstructors = {
   ItemNames.DoransShield: (_) => new DoransShield(),
   ItemNames.HuntersMachete: (Mob owner) => new HuntersMachete(owner),
   ItemNames.HuntersTalisman: (Mob owner) => new HuntersTalisman(owner),
-  ItemNames.RefillablePotion: (_) => new RefillablePotion(),
+  ItemNames.RefillablePotion: (Mob owner) => new RefillablePotion(owner),
   ItemNames.BamisCinder: (Mob owner) => new BamisCinder(owner),
+  ItemNames.HealthPotion: (Mob owner) => new HealthPotion(owner),
 };
 
 BuffEffects constructEffectsForItem(String itemName, Mob owner) {

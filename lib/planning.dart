@@ -27,15 +27,17 @@ class TargetCastSpell extends Action {
   }
 }
 
-class ActivateItem extends Action {
+class SelfCastItem extends Action {
   Item item;
-  Mob target;
-  ActivateItem(this.item, this.target);
+  SelfCastItem(this.item);
 
   @override
   void apply(World world) {
-    World.combatLog('${item.owner} activates ${item.name} on ${target}');
-    (item.effects as RefillablePotion).castOn(target);
+    World.combatLog('${item.owner} activates ${item.name}');
+    (item.effects as SelfTargetedSpell).castOnSelf();
+    if (item.description.consumable) {
+      item.owner.items.remove(item);
+    }
   }
 }
 
@@ -75,15 +77,19 @@ class Planner {
   bool consumePotionIfNeeded(Mob self, List<Action> actions) {
     if (self.healthPercent > 0.7) return false;
     Item potion = self.firstItemNamed(ItemNames.RefillablePotion);
+    if (potion == null) potion = self.firstItemNamed(ItemNames.HealthPotion);
     if (potion == null) return false;
-    RefillablePotion effects = potion.effects as RefillablePotion;
-    if (!effects.canBeCastOn(self)) return false;
+    HealingPotion effects = potion.effects as HealingPotion;
+    if (!effects.canBeCastOnSelf) return false;
     if (effects.isActive(self)) return false;
-    actions.add(new ActivateItem(potion, self));
+    actions.add(new SelfCastItem(potion));
     return true;
   }
 
   List<Action> nextActions() {
+    List<Action> actions = <Action>[];
+    if (consumePotionIfNeeded(self, actions)) return assertNotEmpty(actions);
+
     if (attackTarget?.alive == false) attackTarget = null;
     if (!self.canAutoAttack()) return [];
     // Guarded with haveCurrentWorld for testing.
@@ -100,7 +106,7 @@ List<Action> assertNotEmpty(List<Action> actions) {
 }
 
 // FIXME: This probably belongs in amumu.dart
-class AmumuPlanner extends Planner {
+class AmumuPlanner extends JunglePlaner {
   AmumuPlanner(Mob self) : super(self);
 
   @override
@@ -110,13 +116,6 @@ class AmumuPlanner extends Planner {
       return assertNotEmpty(actions);
     if (selfCastIfInRange(self.spells.e, actions))
       return assertNotEmpty(actions);
-    // FIXME: Hack to not smite when it doesn't heal us.
-    // FIXME: This should lookup the summoner by name not position?
-    if (self.healthPercent < .7 &&
-        targetCastIfInRange(self.summoners.d, actions))
-      return assertNotEmpty(actions);
-    if (consumePotionIfNeeded(self, actions)) return assertNotEmpty(actions);
-
     return super.nextActions();
   }
 }
