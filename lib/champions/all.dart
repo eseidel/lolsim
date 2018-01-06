@@ -19,6 +19,7 @@ import 'rammus.dart';
 import 'singed.dart';
 import 'tahm_kench.dart';
 import 'tryndamere.dart';
+import 'trundle.dart';
 import 'twitch.dart';
 import 'urgot.dart';
 import 'volibear.dart';
@@ -47,6 +48,7 @@ Map<String, ChampionEffectsConstructor> _championEffectsConstructors = {
   'Singed': (Mob champ) => new Singed(champ),
   'TahmKench': (Mob champ) => new TahmKench(champ),
   'Tryndamere': (Mob champ) => new Tryndamere(champ),
+  'Trundle': (Mob champ) => new Trundle(champ),
   'Twitch': (Mob champ) => new Twitch(champ),
   'Urgot': (Mob champ) => new Urgot(champ),
   'Volibear': (Mob champ) => new Volibear(champ),
