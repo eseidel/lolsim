@@ -31,10 +31,12 @@ typedef DamageRecievedModifier = void Function(
     Hit hit, DamageRecievedDelta delta);
 
 class Rune {
+  final Mob owner;
   RuneDescription description;
   RuneEffects effects;
 
-  Rune(this.description) {
+  Rune(this.owner, this.description) {
+    effects = constructEffectsForRune(description.name, owner);
     logIfMissingEffects();
   }
 
@@ -397,6 +399,7 @@ class Healing extends TickingBuff {
   @override
   void onTick() {
     double hpPerSecond = target.stats.hpRegen / 5.0;
+    assert(hpPerSecond >= 0.0);
     target.healFor(hpPerSecond * secondsBetweenTicks, 'hp5');
     if (target.healthPercent >= 1.0) expire();
   }
@@ -582,7 +585,6 @@ class Mob {
   RunePage get runePage => _runePage;
   set runePage(RunePage newPage) {
     _runePage = newPage;
-    _runePage.logAnyMissingEffects();
     updateStats();
   }
 
@@ -606,12 +608,11 @@ class Mob {
       stats = description.baseStats.monsterCurvedStatsForLevel(level);
     else
       stats = description.baseStats.linearStatsForLevel(level);
+
     if (runePage != null) {
-      for (Rune rune in runePage.runes) {
-        if (rune?.effects?.stats != null) {
-          stats.applyStatMap(rune.effects.stats);
-        }
-      }
+      runePage.effects.forEach((RuneEffects effects) {
+        if (effects.stats != null) stats.applyStatMap(effects.stats);
+      });
     }
     for (Item item in items) {
       stats.applyStatMap(item.stats);
@@ -719,10 +720,9 @@ class Mob {
       }
     ];
     if (runePage != null) {
-      for (Rune rune in runePage.runes) {
-        if (rune.effects != null)
-          modifiers.add(rune.effects.damageDealtModifier);
-      }
+      runePage.effects.forEach((RuneEffects effects) {
+        modifiers.add(effects.damageDealtModifier);
+      });
     }
     for (Buff buff in buffs) {
       modifiers.add(buff.damageDealtModifier);
@@ -809,10 +809,9 @@ class Mob {
         modifiers.add(item.effects.damageRecievedModifier);
     }
     if (runePage != null) {
-      for (Rune rune in runePage.runes) {
-        if (rune.effects != null)
-          modifiers.add(rune.effects.damageRecievedModifier);
-      }
+      runePage.effects.forEach((RuneEffects effects) {
+        modifiers.add(effects.damageRecievedModifier);
+      });
     }
     spells?.forEach((Spell spell) {
       if (spell.effects != null)

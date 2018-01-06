@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:yaml/yaml.dart';
@@ -28,14 +27,8 @@ class DuelLoader {
       mobs.addAll(new List.generate(count, (int) => createMinion(type)));
   }
 
-  RunePage loadRunePage(YamlMap yamlRunes) {
-    String runesJson = new File(yamlRunes['path']).readAsStringSync();
-    RunePageList pageList = new RunePageList.fromJson(
-      JSON.decode(runesJson),
-      creator.runes,
-    );
-    return pageList.pages[yamlRunes['page_index']];
-  }
+  RunePage loadRunePage(Mob owner, YamlMap yamlRunes) =>
+      creator.runes.pageFromChampionGGHash(owner, yamlRunes['hash']);
 
   Mob loadChampion(YamlMap yamlMob) {
     Mob mob = creator.champs.championByName(yamlMob['name']);
@@ -47,7 +40,7 @@ class DuelLoader {
     }
     YamlMap yamlRunes = yamlMob['runes'];
     if (yamlRunes != null) {
-      mob.runePage = loadRunePage(yamlRunes);
+      mob.runePage = loadRunePage(mob, yamlRunes);
     }
     return mob;
   }

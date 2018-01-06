@@ -50,7 +50,7 @@ Many.  Including at least:
 
 ## TODO / Bugs
 - Handle stat modifying buffs first, before other buffs.
-- Per-level runes.
+- Runes Reforged Traits.
 - monster leveling
 - Monsters are not neutral / incorrect AI.
 - Improved proximity.
@@ -109,6 +109,7 @@ Plan for stuns?
 - Vayne W passive
 - Volibear W Frenzy
 - Sejuani E Permafrost
+- Nunu Q consume
 
 ## Disclaimer
 This isn't endorsed by Riot Games and doesn't reflect the views

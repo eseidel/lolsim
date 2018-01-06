@@ -1,6 +1,5 @@
 #!/usr/local/bin/dart
 import 'package:lol_duel/championgg.dart';
-import 'package:lol_duel/championgg_utils.dart';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/dragon/dragon.dart';
 import 'package:lol_duel/items.dart';
@@ -78,8 +77,8 @@ dynamic main(List<String> args) async {
     champ.summoners.d = createSummoner(SummonerType.smite, champ);
     (champ.summoners.d.effects as Smite).chargesBuff.charges = 2;
 
-    champ.runePage =
-        runesFromHash(creator.dragon.runes, jungleStats.mostCommonRunesHash);
+    champ.runePage = creator.runes
+        .pageFromChampionGGHash(champ, jungleStats.mostCommonRunesHash);
     champ.runePage.name = 'Champion.gg most common';
 
     champ.addItem(itemNamed(ItemNames.HuntersMachete));

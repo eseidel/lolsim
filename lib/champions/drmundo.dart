@@ -22,7 +22,7 @@ class AdrenalineRush extends PermanentBuff {
 
   @override
   Map<String, num> get stats => {
-        FlatHPRegenMod: 0.003 * target.stats.hp,
+        FlatHPRegenMod: 0.003 * target.stats.hp * 5.0,
       };
 
   @override

@@ -2,13 +2,17 @@ import 'dart:async';
 
 import 'dragon/dragon.dart';
 import 'mob.dart';
+import 'rune_pages.dart';
 
 class RuneFactory {
   final RuneLibrary library;
 
   RuneFactory(this.library);
 
-  Rune runeById(int id) => new Rune(library.runeById(id));
+  RunePage pageFromChampionGGHash(Mob champ, String hash) =>
+      new RunePage(champ, library.pageFromChampionGGHash(hash));
+
+  Rune runeById(Mob champ, int id) => new Rune(champ, library.runeById(id));
 }
 
 class SpellFactory {

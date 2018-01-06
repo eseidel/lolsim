@@ -1,11 +1,37 @@
 import 'effects.dart';
 import 'mob.dart';
+import 'dragon/dragon.dart';
+import 'dragon/stat_constants.dart';
 
 typedef RuneEffectsConstructor = RuneEffects Function(Mob champ);
 
-final Map<String, RuneEffectsConstructor> RuneEffectsConstructors = {
+final Map<String, RuneEffectsConstructor> _runeEffectsConstructors = {
   'Electrocute': (Mob champ) => new Electrocute(champ),
 };
+
+RuneEffects constructEffectsForRune(String runeName, Mob owner) {
+  RuneEffectsConstructor constructor = _runeEffectsConstructors[runeName];
+  if (constructor == null) return null;
+  RuneEffects effects = constructor(owner);
+  if (effects != null) effects.onCreate();
+  return effects;
+}
+
+RuneEffects _constructForPath(RunePath primary, RunePath secondary, Mob owner) {
+  if (primary == RunePath.precision) return new PrecisionTrait(owner);
+  // if (primary == RunePath.domination) return new DominationTrait(owner);
+  // if (primary == RunePath.sorcery) return new SorceryTrait(owner);
+  if (primary == RunePath.resolve) return new ResolveTrait(owner);
+  // inspiration is more complicated.
+  return null;
+}
+
+RuneEffects constructTraitRuneEffects(
+    RunePath primary, RunePath secondary, Mob owner) {
+  RuneEffects effects = _constructForPath(primary, secondary, owner);
+  if (effects != null) effects.onCreate();
+  return effects;
+}
 
 String shortNameForRune(String name) {
   String shortName = {
@@ -15,6 +41,30 @@ String shortNameForRune(String name) {
     'Electrocute': 'Elec.',
   }[name];
   return shortName == null ? name : shortName;
+}
+
+class ResolveTrait extends RuneEffects {
+  ResolveTrait(Mob champ) : super(champ);
+
+  @override
+  String get lastUpdate => VERSION_7_24_1;
+
+  @override
+  Map<String, num> get stats => {
+        FlatHPPoolMod: 130.0,
+      };
+}
+
+class PrecisionTrait extends RuneEffects {
+  PrecisionTrait(Mob champ) : super(champ);
+
+  @override
+  String get lastUpdate => VERSION_7_24_1;
+
+  @override
+  Map<String, num> get stats => {
+        PercentAttackSpeedMod: 0.18,
+      };
 }
 
 class Electrocute extends RuneEffects {

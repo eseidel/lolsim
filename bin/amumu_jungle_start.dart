@@ -1,6 +1,5 @@
 #!/usr/local/bin/dart
 import 'package:lol_duel/championgg.dart';
-import 'package:lol_duel/championgg_utils.dart';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/monsters.dart';
@@ -67,8 +66,8 @@ dynamic main(List<String> args) async {
     RoleEntry jungleStats = champStats.entryForRole(Role.jungle);
     champ.summoners = new SummonerBook();
     champ.summoners.d = createSummoner(SummonerType.smite, champ);
-    champ.runePage =
-        runesFromHash(creator.dragon.runes, jungleStats.mostCommonRunesHash);
+    champ.runePage = creator.runes
+        .pageFromChampionGGHash(champ, jungleStats.mostCommonRunesHash);
     champ.runePage.name = 'Champion.gg most common';
 
     jungleStats.mostCommonStartingItemIds.forEach((itemId) {

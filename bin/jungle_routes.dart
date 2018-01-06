@@ -1,6 +1,5 @@
 #!/usr/local/bin/dart
 import 'package:lol_duel/championgg.dart';
-import 'package:lol_duel/championgg_utils.dart';
 import 'package:lol_duel/creator.dart';
 import 'package:lol_duel/lolsim.dart';
 import 'package:lol_duel/monsters.dart';
@@ -58,8 +57,8 @@ class _Calculate {
 
     champ.summoners = new SummonerBook();
     champ.summoners.d = createSummoner(SummonerType.smite, champ);
-    champ.runePage =
-        runesFromHash(creator.dragon.runes, jungleStats.mostCommonRunesHash);
+    champ.runePage = creator.runes
+        .pageFromChampionGGHash(champ, jungleStats.mostCommonRunesHash);
 
     jungleStats.mostCommonStartingItemIds.forEach((itemId) {
       champ.addItem(creator.items.itemById(itemId));

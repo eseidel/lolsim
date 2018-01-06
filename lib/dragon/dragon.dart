@@ -8,6 +8,8 @@ import 'hacks.dart';
 import 'loader.dart';
 import 'stats.dart';
 import 'spell_parser.dart';
+// FIXME: Move rune_pages into dragon
+import '../rune_pages.dart';
 
 export 'spell_parser.dart';
 
@@ -141,8 +143,9 @@ class RuneDescription {
   final int id;
   final String longDesc;
   final RuneSlot slot;
+  final RunePath path;
 
-  RuneDescription.fromJSON(Map<String, dynamic> json, this.slot)
+  RuneDescription.fromJSON(Map<String, dynamic> json, this.slot, this.path)
       : id = json['id'],
         name = json['name'],
         longDesc = json['longDesc'];
@@ -156,17 +159,6 @@ class RuneDescription {
       8400: RunePath.resolve,
     }[pathId];
   }
-
-  RunePath get path {
-    // HACK: But seems to work and is quick.
-    assert(id <= 8500);
-    if (id >= 8400) return RunePath.resolve;
-    if (id >= 8300) return RunePath.inspiration;
-    if (id >= 8200) return RunePath.sorcery;
-    if (id >= 8100) return RunePath.domination;
-    assert(id >= 8000);
-    return RunePath.precision;
-  }
 }
 
 // This could share code with ItemLibrary?
@@ -177,19 +169,40 @@ class RuneLibrary {
   static Map<String, RuneDescription> _parseRunesJson(
       List<Map<String, Map<String, dynamic>>> pathJsons) {
     Map<String, RuneDescription> byId = new Map();
-    void addRunes(Map<String, dynamic> slotsJson, RuneSlot slot) {
+    void addRunes(
+        Map<String, dynamic> slotsJson, RuneSlot slot, RunePath path) {
       slotsJson['runes'].forEach((Map<String, dynamic> runeJson) {
-        byId[runeJson['id']] = new RuneDescription.fromJSON(runeJson, slot);
+        byId[runeJson['id']] =
+            new RuneDescription.fromJSON(runeJson, slot, path);
       });
     }
 
     pathJsons.forEach((Map<String, dynamic> pathJson) {
-      addRunes(pathJson['slots'][0], RuneSlot.keystone);
-      addRunes(pathJson['slots'][1], RuneSlot.one);
-      addRunes(pathJson['slots'][2], RuneSlot.two);
-      addRunes(pathJson['slots'][3], RuneSlot.three);
+      RunePath path = RuneDescription.pathById(pathJson['id']);
+      addRunes(pathJson['slots'][0], RuneSlot.keystone, path);
+      addRunes(pathJson['slots'][1], RuneSlot.one, path);
+      addRunes(pathJson['slots'][2], RuneSlot.two, path);
+      addRunes(pathJson['slots'][3], RuneSlot.three, path);
     });
     return new Map.unmodifiable(byId);
+  }
+
+  RuneDescriptionPage pageFromChampionGGHash(String hash) {
+    // path-id-id-id-id-path-id-id
+    // e.g. 8000-8005-9111-9104-8014-8200-8234-8236
+    List<String> strings = hash.split('-');
+    assert(strings.length == 8);
+    List<int> ints = strings.map(int.parse).toList();
+    int secondaryPathId = ints.removeAt(5);
+    assert(RuneDescription.pathById(secondaryPathId) != null);
+    int primaryPathId = ints.removeAt(0);
+    assert(RuneDescription.pathById(primaryPathId) != null);
+    List<RuneDescription> runes = ints.map((int id) => runeById(id)).toList();
+    return new RuneDescriptionPage(
+      runes: runes,
+      primary: RuneDescription.pathById(primaryPathId),
+      secondary: RuneDescription.pathById(secondaryPathId),
+    );
   }
 
   final Map<String, RuneDescription> _runesById;
