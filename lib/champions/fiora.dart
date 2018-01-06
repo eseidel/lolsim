@@ -35,7 +35,7 @@ class Fiora extends ChampionEffects {
     double bonusAd = fiora.stats.bonusAttackDamage;
     hit.addOnHitDamage(new Damage(
       // 2% (+ 4.5% per 100 bonus AD) of target's maximum health as true dmg.
-      trueDamage: hit.target.stats.hp * (0.02 + (0.045 * (0.01 * bonusAd))),
+      trueDamage: hit.target.maxHp * (0.02 + (0.045 * (0.01 * bonusAd))),
     ));
     fiora.healFor(vitalHealForLevel(fiora.level), 'Vital Hit');
     // Grands Ult Rank * 10 + 20 % bonus Movement speed.

@@ -79,7 +79,7 @@ class Smite extends SingleTargetSpell {
         .toDouble();
   }
 
-  static double healAmount(Mob champ) => 70 + 0.1 * champ.stats.hp;
+  static double healAmount(Mob champ) => 70 + 0.1 * champ.maxHp;
 
   @override
   bool canBeCastOn(Mob target) {

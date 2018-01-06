@@ -13,7 +13,7 @@ Mob createDummyMob({double hp: 1000.0, MobType type: MobType.champion}) {
         attackDamagePerLevel: 0.0,
         attackSpeedPerLevel: 0.0,
         attackDelay: 0.0,
-        hp: hp,
+        baseHp: hp,
         hpPerLevel: 0.0,
         baseHpRegen: 10 * hp,
         hpRegenPerLevel: 0.0,

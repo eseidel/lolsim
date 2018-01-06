@@ -52,14 +52,14 @@ dynamic main() async {
       Mob ocean = createMonster(MonsterType.oceanDrake);
       ocean.jumpToLevel(18);
       // stat curving is currently always applied, but at least 18 should be right.
-      expect(ocean.stats.hp, 7820.0);
+      expect(ocean.maxHp, 7820.0);
     });
     test('Levels', () {
       // FIXME: Determined by average level of champions with a floor of lvl 6.
       void _verify(MonsterType type, int expectedLevel, double expectedHp) {
         Mob dragon = createMonster(type);
         expect(dragon.level, expectedLevel, reason: '$type level');
-        expect(dragon.stats.hp, expectedHp, reason: '$type hp');
+        expect(dragon.maxHp, expectedHp, reason: '$type hp');
       }
 
       _verify(MonsterType.oceanDrake, 6, 4940.0);
@@ -92,7 +92,7 @@ dynamic main() async {
       Mob blue = createMonster(MonsterType.blueSentinal);
       expect(blue.level, 2);
       expectedHpValues.forEach((expectedHp) {
-        expect(blue.stats.hp, closeTo(expectedHp, .5),
+        expect(blue.maxHp, closeTo(expectedHp, .5),
             reason: "Level ${blue.level} hp values");
         blue.addLevel();
       });

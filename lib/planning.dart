@@ -120,6 +120,19 @@ class AmumuPlanner extends JunglePlaner {
   }
 }
 
+// FIXME: This probably belongs in volibear.dart
+class VolibearPlanner extends JunglePlaner {
+  VolibearPlanner(Mob self) : super(self);
+
+  @override
+  List<Action> nextActions() {
+    List<Action> actions = <Action>[];
+    if (targetCastIfInRange(self.spells.w, actions))
+      return assertNotEmpty(actions);
+    return super.nextActions();
+  }
+}
+
 class JunglePlaner extends Planner {
   JunglePlaner(Mob self) : super(self);
 
@@ -136,6 +149,7 @@ class JunglePlaner extends Planner {
 
 Planner plannerFor(Mob mob, Role role) {
   if (mob.name == 'Amumu') return new AmumuPlanner(mob);
+  if (mob.name == 'Volibear') return new VolibearPlanner(mob);
   if (role == Role.jungle) return new JunglePlaner(mob);
   return new Planner(mob);
 }

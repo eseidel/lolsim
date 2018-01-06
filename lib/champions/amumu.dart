@@ -65,7 +65,7 @@ class Dispair extends TickingBuff {
   @override
   void onTick() {
     World.current.enemiesWithin(target, 300).forEach((Mob enemy) {
-      double damage = baseDamage + hpRatio * enemy.stats.hp;
+      double damage = baseDamage + hpRatio * enemy.maxHp;
       // FIXME: Does this apply curse before the first hit?
       CursedTouch.applyToOrRefresh(enemy);
       enemy.applyHit(target.createHitForTarget(

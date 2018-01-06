@@ -56,7 +56,7 @@ class AnAcquiredTaste extends StackedBuff {
 
   Damage createOnHitDamage() {
     double dmgPerStack =
-        percentMaxHealthDamagePerStack(tahm.level) * tahm.stats.hp;
+        percentMaxHealthDamagePerStack(tahm.level) * tahm.maxHp;
     return new Damage(
       label: name,
       magicDamage: dmgPerStack * stacks,

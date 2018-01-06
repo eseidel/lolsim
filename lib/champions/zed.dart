@@ -26,7 +26,7 @@ class Zed extends ChampionEffects {
     hit.target.addBuff(new ContemptForTheWeak(hit.target));
     hit.addOnHitDamage(new Damage(
       label: 'Contempt For The Weak',
-      magicDamage: percentTheirMaxHealth * hit.target.stats.hp,
+      magicDamage: percentTheirMaxHealth * hit.target.maxHp,
     ));
   }
 }

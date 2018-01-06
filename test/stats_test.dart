@@ -13,7 +13,7 @@ dynamic main() async {
       attackDamagePerLevel: 5.0,
       attackSpeedPerLevel: 5.0,
       attackDelay: 0.0,
-      hp: 100.0,
+      baseHp: 100.0,
       hpPerLevel: 5.0,
       baseHpRegen: 100.0,
       hpRegenPerLevel: 5.0,
@@ -33,9 +33,9 @@ dynamic main() async {
     expect(one.attackDamage, 100.0);
     expect(five.attackDamage, 115.45);
     expect(eighteen.attackDamage, 185.0);
-    expect(one.hp, 100.0);
-    expect(five.hp, 115.45);
-    expect(eighteen.hp, 185.0);
+    expect(one.maxHp, 100.0);
+    expect(five.maxHp, 115.45);
+    expect(eighteen.maxHp, 185.0);
     expect(one.hpRegen, 100.0);
     expect(five.hpRegen, 115.45);
     expect(eighteen.hpRegen, 185.0);

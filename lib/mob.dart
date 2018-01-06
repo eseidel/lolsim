@@ -534,8 +534,9 @@ class Mob {
     planner = new Planner(this);
   }
 
-  double get currentHp => alive ? max(0.0, stats.hp - hpLost) : 0.0;
-  double get healthPercent => currentHp / stats.hp;
+  double get maxHp => stats.maxHp;
+  double get currentHp => alive ? max(0.0, maxHp - hpLost) : 0.0;
+  double get healthPercent => currentHp / maxHp;
 
   double get currentMp => alive ? max(0.0, stats.mp - mpSpent) : 0.0;
   double get manaPercent => currentMp / stats.mp;
@@ -590,7 +591,7 @@ class Mob {
 
   String statsSummary() {
     String summary = """  $name (lvl ${level})
-    HP : ${currentHp.toStringAsFixed(1)} / ${stats.hp.toStringAsFixed(1)} + ${stats.hpRegen.toStringAsFixed(1)}/5
+    HP : ${currentHp.toStringAsFixed(1)} / ${maxHp.toStringAsFixed(1)} + ${stats.hpRegen.toStringAsFixed(1)}/5
     AD : ${stats.attackDamage.round()}  AP : ${stats.abilityPower.round()}
     AR : ${stats.armor.round()}  MR : ${stats.spellBlock.round()}
     AS : ${stats.attackSpeed.toStringAsFixed(3)} (${stats.attackDuration.toStringAsFixed(1)}s)\n""";
@@ -849,7 +850,7 @@ class Mob {
 
   String get hpStatusString {
     int percent = (healthPercent * 100).round();
-    return "$percent% (${currentHp.toStringAsFixed(1)} / ${stats.hp.round()})";
+    return "$percent% (${currentHp.toStringAsFixed(1)} / ${maxHp.round()})";
   }
 
   String get mpStatusString {
@@ -981,7 +982,7 @@ class Mob {
 
   void die(Mob killer) {
     _log.info("DEATH: $this");
-    hpLost = stats.hp;
+    hpLost = maxHp;
     if (damageLog != null) _log.info(damageLog.summaryString);
     _cachedEffects.forEach((effect) => effect.onDeath(killer));
     grantGoldToKiller(killer);

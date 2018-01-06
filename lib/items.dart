@@ -63,7 +63,7 @@ class HealthDrain extends TickingBuff {
   int ticksLeft;
 
   HealthDrain({@required this.source, @required Mob target})
-      : super(name: 'Health Drain', target: target) {
+      : super(name: 'Tooth', target: target) {
     refresh();
   }
 
@@ -77,7 +77,7 @@ class HealthDrain extends TickingBuff {
 
   @override
   void onTick() {
-    double damagePerFive = 25.0;
+    double damagePerFive = source.stats.bonusHp >= 0 ? 75.0 : 45.0;
     double damagePerTick = damagePerFive / (5.0 / secondsBetweenTicks);
     target.applyHit(source.createHitForTarget(
       label: name,
@@ -85,7 +85,9 @@ class HealthDrain extends TickingBuff {
       target: target,
       targeting: Targeting.dot,
     ));
-    source.healFor(damagePerTick, name);
+    double healPerFive = 25.0;
+    double healPerTick = healPerFive / (5.0 / secondsBetweenTicks);
+    source.healFor(healPerTick, name);
     ticksLeft -= 1;
     if (ticksLeft <= 0) expire();
   }

@@ -19,7 +19,7 @@ dynamic main() async {
       expect(buff.stacks, 1);
       new AutoAttack(tahm, mob).apply(world);
       expect(buff.stacks, 2);
-      expect(mob.hpLost, 2.0 * tahm.stats.attackDamage + 0.01 * tahm.stats.hp);
+      expect(mob.hpLost, 2.0 * tahm.stats.attackDamage + 0.01 * tahm.maxHp);
       new AutoAttack(tahm, mob).apply(world);
       expect(buff.stacks, 3);
       new AutoAttack(tahm, mob).apply(world);

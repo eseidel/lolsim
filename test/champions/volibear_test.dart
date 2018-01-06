@@ -16,7 +16,7 @@ dynamic main() async {
       // Not triggered until < 30%.
       new AutoAttack(mob, volibear).apply(world);
       expect(false, volibear.buffs.any((buff) => buff is ChosenOfTheStorm));
-      volibear.hpLost = volibear.stats.hp * .71;
+      volibear.hpLost = volibear.maxHp * .71;
       // Dmg below 30% triggers the buff.
       new AutoAttack(mob, volibear).apply(world);
       expect(true, volibear.buffs.any((buff) => buff is ChosenOfTheStorm));
@@ -29,7 +29,7 @@ dynamic main() async {
       Mob volibear = data.champs.championById('Volibear');
       Mob mob = createTestMob();
       World world = new World();
-      volibear.hpLost = volibear.stats.hp * .71;
+      volibear.hpLost = volibear.maxHp * .71;
       // Dmg below 30% triggers the buff.
       new AutoAttack(mob, volibear).apply(world);
       double buffedHp5 = volibear.stats.hpRegen;

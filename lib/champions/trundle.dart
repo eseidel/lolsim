@@ -31,7 +31,8 @@ class KingsTribute extends PermanentBuff {
   // FIXME: This should be any death, not just something Trundle kills.
   @override
   void onKill(Mob victim) {
+    if (victim.isStructure) return;
     // Unclear how this interacts with level-ups.
-    target.healFor(_percentHealPerLevel(target.level) * victim.stats.hp, name);
+    target.healFor(_percentHealPerLevel(target.level) * victim.maxHp, name);
   }
 }

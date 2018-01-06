@@ -16,7 +16,7 @@ typedef StatApplier = void Function(Stats stats, num value);
 // stat modifications together in json form and then collapse them all at the end instead.
 // FIXME: These are neither complete, nor necessarily correct.
 final Map<String, StatApplier> _statAppliersByName = {
-  FlatHPPoolMod: (stats, value) => stats.hp += value,
+  FlatHPPoolMod: (stats, value) => stats.bonusHp += value,
   FlatCritChanceMod: (stats, value) => stats.critChance += value,
   FlatMagicDamageMod: (stats, value) => stats.abilityPower += value,
   FlatMPPoolMod: (stats, value) => stats.mp += value,
@@ -73,7 +73,8 @@ String shortStringForStatValue(String statName, double statValue) {
 }
 
 class Stats {
-  double hp;
+  double baseHp;
+  double bonusHp = 0.0;
   double mp;
   double baseAttackDamage;
   double bonusAttackDamage = 0.0;
@@ -115,7 +116,7 @@ class Stats {
 
   // For testing:
   Stats({
-    this.hp,
+    this.baseHp,
     this.mp,
     this.baseAttackDamage,
     this.attackDelay,
@@ -132,7 +133,7 @@ class Stats {
 
   String debugString() {
     return """
-    hp: ${hp.toStringAsFixed(1)}
+    hp: ${maxHp.toStringAsFixed(1)}
     ad: ${attackDamage.toStringAsFixed(1)}
     ap: ${abilityPower.toStringAsFixed(1)}
     ar: ${armor.toStringAsFixed(1)}
@@ -150,11 +151,13 @@ class Stats {
 
   double get attackDamage => baseAttackDamage + bonusAttackDamage;
 
+  double get maxHp => baseHp + bonusHp;
+
   double get hpRegen => baseHpRegen * percentBaseHpRegenMod + flatHpRegenMod;
   double get mpRegen => baseMpRegen * percentBaseMpRegenMod + flatMpRegenMod;
 
-  double get magicalEffectiveHealth => hp * (1 + 0.01 * spellBlock);
-  double get physicalEffectiveHealth => hp * (1 + 0.01 * armor);
+  double get magicalEffectiveHealth => maxHp * (1 + 0.01 * spellBlock);
+  double get physicalEffectiveHealth => maxHp * (1 + 0.01 * armor);
 
   void addBonusArmor(double newArmor) {
     assert(newArmor > 0);
@@ -225,7 +228,7 @@ class BaseStats extends Stats {
         mpRegenPerLevel = json['mpregenperlevel'].toDouble() {
     attackDelay = json['attackspeedoffset'].toDouble();
     baseAttackDamage = json['attackdamage'].toDouble();
-    hp = json['hp'].toDouble();
+    baseHp = json['hp'].toDouble();
     mp = json['mp'].toDouble();
     _baseArmor = json['armor'].toDouble();
     _baseSpellBlock = json['spellblock'].toDouble();
@@ -236,7 +239,7 @@ class BaseStats extends Stats {
 
   // For testing
   BaseStats({
-    @required double hp,
+    @required double baseHp,
     double mp,
     double baseAttackDamage,
     double attackDelay,
@@ -254,7 +257,7 @@ class BaseStats extends Stats {
     this.spellBlockPerLevel,
   })
       : super(
-          hp: hp,
+          baseHp: baseHp,
           mp: mp,
           baseAttackDamage: baseAttackDamage,
           baseHpRegen: baseHpRegen,
@@ -282,7 +285,7 @@ class BaseStats extends Stats {
     }
 
     // Every stat must be listed here or it will be its initial value.
-    stats.hp = _curve(hp, hpPerLevel, level);
+    stats.baseHp = _curve(baseHp, hpPerLevel, level);
     stats.mp = _curve(mp, mpPerLevel, level);
     stats.baseHpRegen = _curve(baseHpRegen, hpRegenPerLevel, level);
     stats.baseMpRegen = _curve(baseMpRegen, mpRegenPerLevel, level);
@@ -326,7 +329,7 @@ class BaseStats extends Stats {
     Stats stats = new Stats();
 
     // Every stat must be listed here or it will be its initial value.
-    stats.hp = hp * _monsterHPScaleForLevel(level);
+    stats.baseHp = baseHp * _monsterHPScaleForLevel(level);
     stats.mp = mp;
     stats.baseHpRegen = 0.0;
     stats.baseMpRegen = 0.0;

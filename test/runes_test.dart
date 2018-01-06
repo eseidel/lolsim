@@ -18,16 +18,14 @@ dynamic main() async {
     test("Resolve", () {
       Mob mob = createTestMob();
       expect(mob.stats.percentAttackSpeedMod, 0.0);
-      double baseHp = mob.stats.hp;
+      double baseHp = mob.maxHp;
       mob.runePage = new RunePage(mob, resolveExample);
-      // Make sure I did the attack-delay math correctly:
-      expect(mob.stats.hp - baseHp, 130.0);
+      expect(mob.maxHp - baseHp, 130.0);
     });
     test("Precision", () {
       Mob mob = createTestMob();
       expect(mob.stats.percentAttackSpeedMod, 0.0);
       mob.runePage = new RunePage(mob, precisionExample);
-      // Make sure I did the attack-delay math correctly:
       expect(mob.stats.percentAttackSpeedMod, 0.18);
     });
   });

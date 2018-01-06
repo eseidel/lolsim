@@ -16,12 +16,12 @@ dynamic main() async {
       double onHitBonus = 10.0;
       expect(mob.hpLost, warwick.stats.attackDamage + onHitBonus);
       // Heals when under 50% hp.
-      warwick.hpLost = warwick.stats.hp * 0.51;
+      warwick.hpLost = warwick.maxHp * 0.51;
       double previousHp = warwick.currentHp;
       new AutoAttack(warwick, mob).apply(world);
       expect(warwick.currentHp, previousHp + onHitBonus);
       // 3x heals under 25% hp.
-      warwick.hpLost = warwick.stats.hp * 0.76;
+      warwick.hpLost = warwick.maxHp * 0.76;
       previousHp = warwick.currentHp;
       new AutoAttack(warwick, mob).apply(world);
       expect(warwick.currentHp, previousHp + 3 * onHitBonus);

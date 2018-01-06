@@ -66,6 +66,12 @@ abstract class Cooldown extends TimedBuff {
     @required double duration,
   })
       : super(name: name, target: target, duration: duration);
+
+  @override
+  String toString() {
+    String display = name ?? "Unknown Cooldown";
+    return "$display (${duration.toStringAsFixed(1)}s)";
+  }
 }
 
 abstract class TickingBuff extends Buff {
@@ -283,10 +289,11 @@ abstract class EffectWithCooldown extends BuffEffects {
   EffectWithCooldown(this.name);
 
   bool get isOnCooldown => cooldown != null;
-  void startCooldown(Mob champ) {
+  void startCooldown(Mob champ, {double overrideBaseDuration}) {
     assert(!isOnCooldown);
+    double baseDuration = overrideBaseDuration ?? cooldownDuration;
     // FIXME: Need support for static cooldowns which ignore reduction.
-    double duration = cooldownDuration * (1.0 + champ.stats.percentCooldownMod);
+    double duration = baseDuration * (1.0 + champ.stats.percentCooldownMod);
     cooldown = new EffectCooldown(this, champ, duration, name);
     champ.addBuff(cooldown);
   }

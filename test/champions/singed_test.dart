@@ -12,11 +12,11 @@ dynamic main() async {
     });
     test('items', () {
       Mob singed = data.champs.championById('Singed');
-      double intialHealth = singed.stats.hp;
+      double intialHealth = singed.maxHp;
       double initialMana = singed.stats.mp;
       singed.addItem(data.items.itemByName('Sapphire Crystal'));
       expect(initialMana, lessThan(singed.stats.mp));
-      expect(intialHealth, lessThan(singed.stats.hp));
+      expect(intialHealth, lessThan(singed.maxHp));
     });
   });
 }

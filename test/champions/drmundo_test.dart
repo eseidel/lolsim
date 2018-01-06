@@ -18,7 +18,7 @@ dynamic main() async {
       World world = new World(reds: [mundo]);
       applyHit(source: attacker, target: mundo, trueDamage: 100.0);
       expect(mundo.hpLost, 100.0);
-      double passiveHp5 = mundo.stats.hp * 0.003 * 5.0;
+      double passiveHp5 = mundo.maxHp * 0.003 * 5.0;
       double baseHp5 =
           mundo.description.baseStats.championCurvedStatsForLevel(1).hpRegen;
       expect(mundo.stats.hpRegen, passiveHp5 + baseHp5);
