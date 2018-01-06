@@ -29,6 +29,23 @@ void _addJungleItemBonusExperiance(Mob owner, Mob victim) {
   if (bonusExperiance > 0.0) owner.addExperiance(bonusExperiance);
 }
 
+class Nail extends TimedBuff {
+  Nail(Mob owner)
+      : super(
+          name: 'Nail',
+          target: owner,
+          duration: 2.0,
+        );
+
+  @override
+  String get lastUpdate => VERSION_7_24_1;
+
+  @override
+  Map<String, num> get stats => {
+        PercentAttackSpeedMod: 0.15,
+      };
+}
+
 class HuntersMachete extends BuffEffects {
   final Mob owner;
   HuntersMachete(this.owner);
@@ -51,10 +68,21 @@ class HuntersMachete extends BuffEffects {
     _addJungleItemBonusExperiance(owner, victim);
   }
 
+  void applyOrRefreshNail() {
+    Nail buff =
+        owner.buffs.firstWhere((buff) => buff is Nail, orElse: () => null);
+    if (buff == null) {
+      owner.addBuff(new Nail(owner));
+    } else {
+      buff.refresh();
+    }
+  }
+
   @override
   void onAutoAttackHit(Hit hit) {
     if (!hit.target.isMonster) return;
     hit.addOnHitDamage(new Damage(label: 'Nail', physicalDamage: 25.0));
+    applyOrRefreshNail();
   }
 }
 
@@ -68,7 +96,7 @@ class HealthDrain extends TickingBuff {
   }
 
   @override
-  String get lastUpdate => VERSION_7_11_1;
+  String get lastUpdate => VERSION_7_24_1;
 
   void refresh() {
     assert(secondsBetweenTicks == 0.5);
@@ -344,7 +372,8 @@ String shortNameForItem(String name) {
     'Rejuvenation Bead': 'Bead',
     'Hunter\'s Machete': 'Machete',
     'Hunter\'s Talisman': 'Talisman',
-    'Refillable Potion': 'Refill. Pot'
+    'Refillable Potion': 'Refill. Pot',
+    'Health Potion': 'Pot',
   }[name];
   return shortName == null ? name : shortName;
 }

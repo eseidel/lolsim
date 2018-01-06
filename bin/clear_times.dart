@@ -10,6 +10,7 @@ import 'package:lol_duel/utils/cli_table.dart';
 import 'package:lol_duel/utils/common_args.dart';
 import 'package:lol_duel/champions/all.dart';
 import 'package:args/args.dart';
+import 'dart:collection';
 
 typedef CreateChamp = Mob Function(String champName);
 
@@ -98,10 +99,22 @@ class _Calculate {
   }
 
   String _stringForItems(List<Item> items) {
-    return items.map<String>((Item item) {
+    String _name(Item item) {
       String name = item.shortName;
       if (item.effects == null && item.stats.isEmpty) name += '*';
       return name;
+    }
+
+    Map<String, int> itemCounts = new LinkedHashMap<String, int>();
+    items.forEach((item) {
+      String name = _name(item);
+      itemCounts.putIfAbsent(name, () => 0);
+      itemCounts[name] += 1;
+    });
+    return itemCounts.keys.map((key) {
+      int count = itemCounts[key];
+      if (count > 1) return "$count " + simpleEnglishPlural(key, count);
+      return key;
     }).join(', ');
   }
 }
