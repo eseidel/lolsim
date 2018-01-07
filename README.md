@@ -69,6 +69,7 @@ Many.  Including at least:
 - Healing Amp (Runic Armor, Spirit Visage, etc.)
 - OnHit should not be included in lifesteal.
 - Spells with duration (e.g. consume) vs. auto-attack durations.
+- Buffs appear to tick 1 extra time?  (Doran's Shield test)
 
 
 ## Passives missing affecting the lvl 1 round_robin sort.
@@ -108,7 +109,7 @@ Plan for stuns?
 - Udyr all of his abilities
 - Vayne W passive
 - Sejuani E Permafrost
-- Nunu Q consume
+- Fiddlesticks W (requires channeling)
 
 ## Disclaimer
 This isn't endorsed by Riot Games and doesn't reflect the views

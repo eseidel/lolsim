@@ -18,6 +18,7 @@ abstract class EffectsBase {
   void onSpellHit(Hit hit) {}
   void onAutoAttackHit(Hit hit) {}
 
+  // This is only hit for auto attacks.
   void onBeingHit(Hit hit) {}
 
   // Unclear the right name, called before damage adjustments.

@@ -636,7 +636,7 @@ class Mob {
   Item addItem(ItemDescription description) {
     Item item = new Item(this, description);
     items.add(item);
-    updateStats();
+    _didUpdateBuffs();
     return item;
   }
 

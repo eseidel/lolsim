@@ -8,17 +8,51 @@ import 'world.dart';
 
 import 'dart:math';
 
-// FIXME: This is a unique effect.
-// FIXME: Needs update for 7.9.1
-class DoransShield extends BuffEffects {
-  @override
-  String get lastUpdate => VERSION_7_2_1;
+class DoransShieldHealing extends TimedBuff {
+  DoransShieldHealing(Mob champ)
+      : super(name: "Doran's Shield Healing", target: champ, duration: 10.0);
 
   @override
-  void damageRecievedModifier(Hit hit, DamageRecievedDelta delta) {
-    // FIXME: This needs to check that the dmg source is single target.
-    if (hit.source.isChampion) delta.flatCombined = -8.0;
+  String get lastUpdate => VERSION_7_24_1;
+
+  @override
+  Map<String, num> get stats => {
+        FlatHPRegenMod: 2 * 5.0,
+      };
+}
+
+// FIXME: This is a unique effect.
+class DoransShield extends BuffEffects {
+  final Mob champ;
+  DoransShield(this.champ);
+
+  @override
+  String get lastUpdate => VERSION_7_24_1;
+
+  @override
+  void onAutoAttackHit(Hit hit) {
+    if (!hit.target.isMinion) return;
+    hit.addOnHitDamage(
+        new Damage(label: "Doran's Shield", physicalDamage: 5.0));
   }
+
+  @override
+  void onBeforeDamageRecieved(Hit hit) {
+    if (!hit.source.isChampion) return;
+    DoransShieldHealing buff = champ.buffs
+        .firstWhere((buff) => buff is DoransShieldHealing, orElse: () => null);
+    if (buff == null) {
+      champ.addBuff(new DoransShieldHealing(champ));
+    } else {
+      buff.refresh();
+    }
+  }
+
+  @override
+  Map<String, num> get stats => {
+        // FlatHPPoolMod: 80, // Already in json description.
+        FlatHPRegenMod: 4.8, // json is wrong in 7.24.1, it's 1.2, should be 5.0
+      };
 }
 
 void _addJungleItemBonusExperiance(Mob owner, Mob victim) {
@@ -351,7 +385,7 @@ class ItemNames {
 typedef ItemEffectsConstructor = BuffEffects Function(Mob owner);
 
 Map<String, ItemEffectsConstructor> _itemEffectsConstructors = {
-  ItemNames.DoransShield: (_) => new DoransShield(),
+  ItemNames.DoransShield: (Mob owner) => new DoransShield(owner),
   ItemNames.HuntersMachete: (Mob owner) => new HuntersMachete(owner),
   ItemNames.HuntersTalisman: (Mob owner) => new HuntersTalisman(owner),
   ItemNames.RefillablePotion: (Mob owner) => new RefillablePotion(owner),

@@ -38,53 +38,25 @@ dynamic main() async {
   });
 
   group("Doran's Shield", () {
-    test("flat damage reduction", () {
-      Mob mob = createTestMob(hp: 100.0);
-      Mob champ = createTestMob(hp: 100.0, type: MobType.champion);
-      applyHit(source: champ, target: mob, physicalDamage: 20.0);
-      expect(mob.currentHp, 80.0);
-      mob.revive();
-
-      ItemDescription description = itemNamed(ItemNames.DoransShield);
-      Item doransShield = mob.addItem(description);
-      expect(doransShield.effects, isNotNull);
-      expect(mob.currentHp, 180.0);
-      applyHit(target: mob, source: champ, physicalDamage: 20.0);
-      expect(mob.currentHp, 168.0);
-      applyHit(
-          target: mob,
-          source: champ,
-          physicalDamage: 20.0); // Was this supposed to be magical?
-      expect(mob.currentHp, 156.0);
-      applyHit(
-          target: mob, source: champ, physicalDamage: 10.0, magicDamage: 10.0);
-      expect(mob.currentHp, 144.0);
-      applyHit(target: mob, source: champ, trueDamage: 20.0);
-      expect(mob.currentHp, 124.0);
-    });
-    test("passive only applies to champion sources", () {
-      ItemDescription doransShield = itemNamed(ItemNames.DoransShield);
-      Mob champ = createTestMob(hp: 100.0, type: MobType.champion);
-      champ.addItem(doransShield);
-      Mob minion = createTestMob(hp: 100.0);
-      minion.addItem(doransShield);
-      expect(
-          10.0, applyHit(source: minion, target: champ, physicalDamage: 10.0));
-      expect(
-          2.0, applyHit(source: champ, target: minion, physicalDamage: 10.0));
-    });
-    test("reduction cannot go negative", () {
-      ItemDescription doransShield = itemNamed(ItemNames.DoransShield);
-      Mob attacker = createTestMob(hp: 100.0, type: MobType.champion);
-      Mob defender = createTestMob(hp: 100.0);
-      defender.addItem(doransShield);
-      expect(180.0, defender.currentHp);
-      expect(12.0,
-          applyHit(source: attacker, target: defender, physicalDamage: 20.0));
-      expect(168.0, defender.currentHp);
-      expect(0.0,
-          applyHit(source: attacker, target: defender, physicalDamage: 1.0));
-      expect(168.0, defender.currentHp);
+    test("basic", () {
+      Mob mob = createTestMob(hp: 100.0, ad: 10.0);
+      Mob minion = createTestMob(type: MobType.minion);
+      Mob champ = createTestMob(type: MobType.champion);
+      mob.addItem(itemNamed(ItemNames.DoransShield));
+      expect(mob.maxHp, 180.0);
+      expect(mob.stats.hpRegen, 6.0);
+      World world = new World(blues: [mob]);
+      new AutoAttack(mob, minion).apply(world);
+      expect(minion.hpLost, 15.0);
+      applyHit(target: mob, source: champ, trueDamage: 50.0);
+      expect(mob.currentHp, 130.0);
+      world.tickFor(10.0);
+      // 12 + 20 from recovery = 32hp.
+      expect(mob.currentHp, closeTo(162.0, 0.01));
+      world.tickFor(5.0);
+      // Recovery is done now.
+      // FIXME: Buffs appear to tick one extra time?
+      expect(mob.currentHp, closeTo(168.0, 0.01));
     });
   });
 
