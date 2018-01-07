@@ -101,6 +101,7 @@ class _Calculate {
   String _stringForItems(List<Item> items) {
     String _name(Item item) {
       String name = item.shortName;
+      // This logic won't work right with plurals below.
       if (item.effects == null && item.stats.isEmpty) name += '*';
       return name;
     }

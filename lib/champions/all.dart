@@ -13,6 +13,7 @@ import 'lulu.dart';
 import 'masteryi.dart';
 import 'nasus.dart';
 import 'nocturne.dart';
+import 'nunu.dart';
 import 'olaf.dart';
 import 'orianna.dart';
 import 'rammus.dart';
@@ -42,6 +43,7 @@ Map<String, ChampionEffectsConstructor> _championEffectsConstructors = {
   'MasterYi': (Mob champ) => new MasterYi(champ),
   'Nasus': (Mob champ) => new Nasus(champ),
   'Nocturne': (Mob champ) => new Nocturne(champ),
+  'Nunu': (Mob champ) => new Nunu(champ),
   'Olaf': (Mob champ) => new Olaf(champ),
   'Orianna': (Mob champ) => new Orianna(champ),
   'Rammus': (Mob champ) => new Rammus(champ),
@@ -57,9 +59,8 @@ Map<String, ChampionEffectsConstructor> _championEffectsConstructors = {
   'Zed': (Mob champ) => new Zed(champ),
 };
 
-bool haveImplementedChampionPassive(String id) {
-  return _championEffectsConstructors[id] != null;
-}
+bool haveImplementedChampionPassive(String id) =>
+    _championEffectsConstructors[id] != null;
 
 ChampionEffects constructEffectsForChampion(Mob champ) {
   ChampionEffectsConstructor constructor =
@@ -72,11 +73,13 @@ ChampionEffects constructEffectsForChampion(Mob champ) {
 
 typedef BuffEffects SpellEffectsConstructor(Mob champ, int rank);
 final Map<String, SpellEffectsConstructor> _spellEffectsConstructors = {
-  'VolibearW': (Mob champ, int rank) => new VolibearW(champ, rank),
-  'TryndamereQ': (Mob champ, int rank) => new TryndamereQ(champ, rank),
-  'AmumuW': (Mob champ, int rank) => new AmumuW(champ, rank),
   'AmumuE': (Mob champ, int rank) => new AmumuE(champ, rank),
+  'AmumuW': (Mob champ, int rank) => new AmumuW(champ, rank),
+  'Master YiE': (Mob champ, int rank) => new MasterYiE(champ, rank),
+  'NunuQ': (Mob champ, int rank) => new NunuQ(champ, rank),
   'Smite': (Mob champ, int _) => new Smite(champ),
+  'TryndamereQ': (Mob champ, int rank) => new TryndamereQ(champ, rank),
+  'VolibearW': (Mob champ, int rank) => new VolibearW(champ, rank),
 };
 
 BuffEffects constructEffectsForSpell(

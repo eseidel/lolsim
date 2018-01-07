@@ -36,4 +36,19 @@ dynamic main() async {
       expect(doubleStrike.stacks, 1);
     });
   });
+
+  group("Wuju Style", () {
+    test("basic", () {
+      Mob masterYi = data.champs.championById('MasterYi');
+      double originalAd = masterYi.stats.attackDamage;
+      masterYi.spells.addSkillPointTo(SpellKey.e);
+      masterYi.updateStats();
+      expect(masterYi.stats.attackDamage, greaterThan(originalAd));
+      MasterYiE e = masterYi.spells.e.effects;
+      e.castOnSelf();
+      masterYi.updateStats();
+      expect(masterYi.stats.attackDamage, originalAd);
+      // FIXME: test active.
+    });
+  });
 }

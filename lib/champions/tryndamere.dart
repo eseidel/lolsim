@@ -76,8 +76,11 @@ class TryndamereQ extends SelfTargetedSpell {
   @override
   void castOnSelf() {
     if (isOnCooldown) return;
+    startCooldown(champ);
+
     // FIXME: Missing active.
-    // ACTIVE: Tryndamere consumes all of his Fury and heals himself, increased for every point of Fury consumed.
+    // ACTIVE: Tryndamere consumes all of his Fury and heals himself,
+    // increased for every point of Fury consumed.
     // MINIMUM HEAL: 30 / 40 / 50 / 60 / 70 (+ 30% AP)
     // HEAL PER FURY: 0.5 / 0.95 / 1.4 / 1.85 / 2.3 (+ 1.2% AP)
   }

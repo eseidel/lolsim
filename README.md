@@ -31,8 +31,8 @@ There are several other dart files in bin/, most of them are for testing.
 
 ## Limitations
 Many.  Including at least:
- - Chamion/Item/Rune lookups are case sensitive and expect names in Title Case.
- - Incomplete (and partially outdated) support for Runes and Masteries.
+ - Champion/Item/Rune lookups are case sensitive and expect names in Title Case.
+ - Incomplete (and partially outdated) support for Runes.
  - Very limited item support.
  - Very limited abilities support.
  - Limited support for Buffs.
@@ -50,8 +50,7 @@ Many.  Including at least:
 
 ## TODO / Bugs
 - Handle stat modifying buffs first, before other buffs.
-- Runes Reforged Traits.
-- monster leveling
+- Monster leveling
 - Monsters are not neutral / incorrect AI.
 - Improved proximity.
 - Coverage & coveralls.io
@@ -66,8 +65,10 @@ Many.  Including at least:
 - Missle system & proximity.
 - Neutral teams logic (do not attack until attacked, and attack as a group).
 - Missing Krugs split timers.
-- Krugs Experiance on first clear.
+- Krugs and Gromp Experiance on first clear.
 - Healing Amp (Runic Armor, Spirit Visage, etc.)
+- OnHit should not be included in lifesteal.
+- Spells with duration (e.g. consume) vs. auto-attack durations.
 
 
 ## Passives missing affecting the lvl 1 round_robin sort.
@@ -104,10 +105,8 @@ Plan for stuns?
 - Jinx Q passive
 - Rammus W ball curl
 - Teemo E passive
-- Tryndamere Q passive
 - Udyr all of his abilities
 - Vayne W passive
-- Volibear W Frenzy
 - Sejuani E Permafrost
 - Nunu Q consume
 

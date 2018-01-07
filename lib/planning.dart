@@ -133,6 +133,19 @@ class VolibearPlanner extends JunglePlaner {
   }
 }
 
+// FIXME: This belongs in nunu.dart
+class NunuPlanner extends JunglePlaner {
+  NunuPlanner(Mob self) : super(self);
+
+  @override
+  List<Action> nextActions() {
+    List<Action> actions = <Action>[];
+    if (targetCastIfInRange(self.spells.q, actions))
+      return assertNotEmpty(actions);
+    return super.nextActions();
+  }
+}
+
 class JunglePlaner extends Planner {
   JunglePlaner(Mob self) : super(self);
 
@@ -150,6 +163,7 @@ class JunglePlaner extends Planner {
 Planner plannerFor(Mob mob, Role role) {
   if (mob.name == 'Amumu') return new AmumuPlanner(mob);
   if (mob.name == 'Volibear') return new VolibearPlanner(mob);
+  if (mob.name == 'Nunu') return new NunuPlanner(mob);
   if (role == Role.jungle) return new JunglePlaner(mob);
   return new Planner(mob);
 }

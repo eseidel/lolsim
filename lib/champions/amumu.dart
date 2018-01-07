@@ -112,6 +112,7 @@ class AmumuW extends SelfTargetedSpell {
   void castOnSelf() {
     // FIXME: There is a timeout on toggles.
     toggledOn = !toggledOn;
+    startCooldown(champ);
     if (toggledOn) spendManaAndApplyBuff();
   }
 }

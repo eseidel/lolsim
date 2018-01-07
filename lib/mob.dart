@@ -150,8 +150,6 @@ class AutoAttack extends Action {
   }) {
     bool isCrit = world.critProvider(source);
     String attackString = isCrit ? 'CRITS' : 'attacks';
-    String damageString = attackDamage.toStringAsFixed(1);
-    World.combatLog("$source $attackString $target for $damageString damage");
     Hit hit = source.createHitForTarget(
       label: isCrit ? '$label Crit' : label,
       target: target,
@@ -159,6 +157,8 @@ class AutoAttack extends Action {
       physicalDamage: attackDamage,
       targeting: Targeting.basicAttack,
     );
+    String damageString = hit.physicalDamage.toStringAsFixed(1);
+    World.combatLog("$source $attackString $target for $damageString damage");
     source.applyOnAutoAttackHitEffects(hit);
     double appliedDamage = target.applyHit(hit);
     source.lifestealFrom(appliedDamage);
@@ -483,9 +483,7 @@ class SpellBook {
     }[key];
   }
 
-  int addSkillPointTo(SpellKey key) {
-    return spellForKey(key).addSkillPoint();
-  }
+  int addSkillPointTo(SpellKey key) => spellForKey(key).addSkillPoint();
 
   void forEach(void callback(Spell spell)) {
     callback(q);
