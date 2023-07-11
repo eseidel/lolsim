@@ -1,3 +1,8 @@
+This project is not actively maintained (since many years).  I no longer
+play or follow league.  I still enjoy writing simulators, but
+you'll find other repositories which I've more recently written
+to simulate other games.
+
 lolsim
 ======
 
